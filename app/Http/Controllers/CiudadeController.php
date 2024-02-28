@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ciudade;
+use App\Models\Departamento;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,9 @@ class CiudadeController extends Controller
     public function create()
     {
         $ciudade = new Ciudade();
-        return view('ciudade.create', compact('ciudade'));
+        $departamentos = Departamento::all(); // We obtain all Departamentos models from the database
+
+        return view('ciudade.create', compact('ciudade','departamentos')); // We pass the variables $ciudade and $departamentos to the view
     }
 
     /**
