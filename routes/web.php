@@ -11,6 +11,7 @@ use App\Http\Controllers\HistorialDeModificacionesPorSolicitudeController;
 use App\Http\Controllers\NodoController;
 use App\Http\Controllers\PersonalizacioneController;
 use App\Http\Controllers\PoliticaController;
+use App\Http\Controllers\ServiciosPorTiposDeSolicitudeController;
 use App\Http\Controllers\SolicitudeController;
 use App\Http\Controllers\TiposDeDatoController;
 use App\Http\Controllers\TiposDeSolicitudeController;
@@ -57,4 +58,6 @@ Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategor
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
 Route::resource('personalizaciones', PersonalizacioneController::class);
 Route::resource('solicitudes', SolicitudeController::class);
-Route::resource('historial-de-modificaciones-por-solicitudes', HistorialDeModificacionesPorSolicitudeController::class);
+Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolicitudeController::class);
+Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class);
+
