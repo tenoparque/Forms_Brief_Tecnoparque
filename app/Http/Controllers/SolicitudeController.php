@@ -99,11 +99,11 @@ class SolicitudeController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
-    {
-        $solicitude = Solicitude::find($id)->delete();
+    // public function destroy($id)
+    // {
+    //     $solicitude = Solicitude::find($id)->delete();
 
-        return redirect()->route('solicitudes.index')
-            ->with('success', 'Solicitude deleted successfully');
-    }
+    //     return redirect()->route('solicitudes.index')
+    //         ->with('success', 'Solicitude deleted successfully');
+    // }
 }
