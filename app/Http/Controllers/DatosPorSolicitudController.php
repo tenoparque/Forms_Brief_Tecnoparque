@@ -94,16 +94,16 @@ class DatosPorSolicitudController extends Controller
             ->with('success', 'DatosPorSolicitud updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $datosPorSolicitud = DatosPorSolicitud::find($id)->delete();
+    // /**
+    //  * @param int $id
+    //  * @return \Illuminate\Http\RedirectResponse
+    //  * @throws \Exception
+    //  */
+    // public function destroy($id)
+    // {
+    //     $datosPorSolicitud = DatosPorSolicitud::find($id)->delete();
 
-        return redirect()->route('datos-por-solicituds.index')
-            ->with('success', 'DatosPorSolicitud deleted successfully');
-    }
+    //     return redirect()->route('datos-por-solicituds.index')
+    //         ->with('success', 'DatosPorSolicitud deleted successfully');
+    // }
 }
