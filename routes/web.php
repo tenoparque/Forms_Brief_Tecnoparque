@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriasEventosEspecialeController;
 use App\Http\Controllers\CiudadeController;
+use App\Http\Controllers\DatosUnicosPorSolicitudeController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\EstadosDeLasSolictudeController;
@@ -50,3 +51,4 @@ Route::resource('tipos-de-datos', TiposDeDatoController::class);
 Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class);
 Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class);
 Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class);
+Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
