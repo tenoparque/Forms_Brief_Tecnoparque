@@ -5,6 +5,7 @@ use App\Http\Controllers\CiudadeController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\EstadosDeLasSolictudeController;
+use App\Http\Controllers\EventosEspecialesPorCategoriaController;
 use App\Http\Controllers\NodoController;
 use App\Http\Controllers\PoliticaController;
 use App\Http\Controllers\TiposDeDatoController;
@@ -48,3 +49,4 @@ Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::cl
 Route::resource('tipos-de-datos', TiposDeDatoController::class);
 Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class);
 Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class);
+Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class);
