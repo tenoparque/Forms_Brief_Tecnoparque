@@ -102,11 +102,11 @@ class CiudadeController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
-    {
-        $ciudade = Ciudade::find($id)->delete();
+    // public function destroy($id)
+    // {
+    //     $ciudade = Ciudade::find($id)->delete();
 
-        return redirect()->route('ciudades.index')
-            ->with('success', 'Ciudade deleted successfully');
-    }
+    //     return redirect()->route('ciudades.index')
+    //         ->with('success', 'Ciudade deleted successfully');
+    // }
 }
