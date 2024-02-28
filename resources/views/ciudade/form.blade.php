@@ -7,7 +7,7 @@
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            <label for="id_departamento">Libro</label>
+            <label for="id_departamento">Departamento</label>
             <select name="id_departamento" id="id_departamento" class="form-control selectpicker"
             data-style="btn-primary" title="Seleccionar libro" required>
                 @foreach ($departamentos as $departamento)
