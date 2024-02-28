@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estado;
 use App\Models\Politica;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +34,9 @@ class PoliticaController extends Controller
     public function create()
     {
         $politica = new Politica();
-        return view('politica.create', compact('politica'));
+        $usuarios = User::all();
+        $estados = Estado::all();
+        return view('politica.create', compact('politica', 'usuarios' , 'estados'));
     }
 
     /**

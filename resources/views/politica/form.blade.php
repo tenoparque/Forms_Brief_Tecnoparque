@@ -17,15 +17,27 @@
             {!! $errors->first('qr', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('id_usuario') }}
-            {{ Form::text('id_usuario', $politica->id_usuario, ['class' => 'form-control' . ($errors->has('id_usuario') ? ' is-invalid' : ''), 'placeholder' => 'Id Usuario']) }}
-            {!! $errors->first('id_usuario', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="id_usuario">Usuario</label>
+            <select name="id_usuario" id="id_usuario" class="form-control selectpicker"
+            data-style="btn-primary" title="Seleccionar Usuario" required>
+                @foreach ($usuarios as $usuario)
+                <!-- We go through the models of the usuarios that we previously passed through the controller -->
+                    <option value="{{ $usuario->id }}">{{ $usuario-> nombre }}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
         </div>
+
         <div class="form-group">
-            {{ Form::label('id_estado') }}
-            {{ Form::text('id_estado', $politica->id_estado, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'placeholder' => 'Id Estado']) }}
-            {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="id_estado">Estado</label>
+            <select name="id_estado" id="id_estado" class="form-control selectpicker"
+            data-style="btn-primary" title="Seleccionar Estado" required>
+                @foreach ($estados as $estado)
+                <!-- We go through the models of the Estados that we previously passed through the controller -->
+                    <option value="{{ $estado->id }}">{{ $estado-> nombre }}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
         </div>
+
         <div class="form-group">
             {{ Form::label('titulo') }}
             {{ Form::text('titulo', $politica->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo']) }}
