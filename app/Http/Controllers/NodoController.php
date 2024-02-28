@@ -98,16 +98,16 @@ class NodoController extends Controller
             ->with('success', 'Nodo updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $nodo = Nodo::find($id)->delete();
+    // /**
+    //  * @param int $id
+    //  * @return \Illuminate\Http\RedirectResponse
+    //  * @throws \Exception
+    //  */
+    // public function destroy($id)
+    // {
+    //     $nodo = Nodo::find($id)->delete();
 
-        return redirect()->route('nodos.index')
-            ->with('success', 'Nodo deleted successfully');
-    }
+    //     return redirect()->route('nodos.index')
+    //         ->with('success', 'Nodo deleted successfully');
+    // }
 }
