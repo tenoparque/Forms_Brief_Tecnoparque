@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EstadosDeLasSolictude;
+use App\Models\Estado;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class EstadosDeLasSolictudeController extends Controller
     public function create()
     {
         $estadosDeLasSolictude = new EstadosDeLasSolictude();
-        return view('estados-de-las-solictude.create', compact('estadosDeLasSolictude'));
+        $estados = Estado::all(); // We obtain all Estados models from the database
+        return view('estados-de-las-solictude.create', compact('estadosDeLasSolictude','estados')); // We pass the variables $estadosDeLasSolictude and $estados to the view
     }
 
     /**

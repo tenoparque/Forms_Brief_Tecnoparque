@@ -7,9 +7,14 @@
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('id_estado') }}
-            {{ Form::text('id_estado', $estadosDeLasSolictude->id_estado, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'placeholder' => 'Id Estado']) }}
-            {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="id_estado">Estado</label>
+            <select name="id_estado" id="id_estado" class="form-control selectpicker"
+            data-style="btn-primary" title="Seleccionar Estado" required>
+                @foreach ($estados as $estado)
+                <!-- We go through the models of the estado that we previously passed through the controller -->
+                    <option value="{{ $estado->id }}">{{ $estado-> nombre }}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
         </div>
 
     </div>
