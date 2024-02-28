@@ -101,11 +101,11 @@ class TiposDeDatoController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
-    {
-        $tiposDeDato = TiposDeDato::find($id)->delete();
+    // public function destroy($id)
+    // {
+    //     $tiposDeDato = TiposDeDato::find($id)->delete();
 
-        return redirect()->route('tipos-de-datos.index')
-            ->with('success', 'TiposDeDato deleted successfully');
-    }
+    //     return redirect()->route('tipos-de-datos.index')
+    //         ->with('success', 'TiposDeDato deleted successfully');
+    // }
 }
