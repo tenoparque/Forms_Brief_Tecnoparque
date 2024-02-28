@@ -94,16 +94,16 @@ class PersonalizacioneController extends Controller
             ->with('success', 'Personalizacione updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $personalizacione = Personalizacione::find($id)->delete();
+    // /**
+    //  * @param int $id
+    //  * @return \Illuminate\Http\RedirectResponse
+    //  * @throws \Exception
+    //  */
+    // public function destroy($id)
+    // {
+    //     $personalizacione = Personalizacione::find($id)->delete();
 
-        return redirect()->route('personalizaciones.index')
-            ->with('success', 'Personalizacione deleted successfully');
-    }
+    //     return redirect()->route('personalizaciones.index')
+    //         ->with('success', 'Personalizacione deleted successfully');
+    // }
 }
