@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ciudade;
+use App\Models\Estado;
 use App\Models\Nodo;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,9 @@ class NodoController extends Controller
     public function create()
     {
         $nodo = new Nodo();
-        return view('nodo.create', compact('nodo'));
+        $estados = Estado::all();
+        $ciudades = Ciudade::all();
+        return view('nodo.create', compact('nodo', 'estados', 'ciudades'));
     }
 
     /**

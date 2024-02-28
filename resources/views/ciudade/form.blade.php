@@ -9,7 +9,7 @@
         <div class="form-group">
             <label for="id_departamento">Departamento</label>
             <select name="id_departamento" id="id_departamento" class="form-control selectpicker"
-            data-style="btn-primary" title="Seleccionar libro" required>
+            data-style="btn-primary" title="Seleccionar Departamento" required>
                 @foreach ($departamentos as $departamento)
                 <!-- We go through the models of the Departamentos that we previously passed through the controller -->
                     <option value="{{ $departamento->id }}">{{ $departamento-> nombre }}</option> <!-- We obtain the id and the value -->
