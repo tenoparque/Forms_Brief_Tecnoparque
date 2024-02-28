@@ -103,11 +103,11 @@ class PoliticaController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
-    {
-        $politica = Politica::find($id)->delete();
+    // public function destroy($id)
+    // {
+    //     $politica = Politica::find($id)->delete();
 
-        return redirect()->route('politicas.index')
-            ->with('success', 'Politica deleted successfully');
-    }
+    //     return redirect()->route('politicas.index')
+    //         ->with('success', 'Politica deleted successfully');
+    // }
 }
