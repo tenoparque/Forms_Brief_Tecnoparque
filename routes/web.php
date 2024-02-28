@@ -8,6 +8,7 @@ use App\Http\Controllers\EstadosDeLasSolictudeController;
 use App\Http\Controllers\NodoController;
 use App\Http\Controllers\PoliticaController;
 use App\Http\Controllers\TiposDeDatoController;
+use App\Http\Controllers\TiposDeSolicitudeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,3 +47,4 @@ Route::resource('nodos', NodoController::class);
 Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class);
 Route::resource('tipos-de-datos', TiposDeDatoController::class);
 Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class);
+Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class);
