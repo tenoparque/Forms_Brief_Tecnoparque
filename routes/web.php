@@ -8,6 +8,7 @@ use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\EstadosDeLasSolictudeController;
 use App\Http\Controllers\EventosEspecialesPorCategoriaController;
 use App\Http\Controllers\NodoController;
+use App\Http\Controllers\PersonalizacioneController;
 use App\Http\Controllers\PoliticaController;
 use App\Http\Controllers\TiposDeDatoController;
 use App\Http\Controllers\TiposDeSolicitudeController;
@@ -52,3 +53,4 @@ Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeContr
 Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class);
 Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class);
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
+Route::resource('personalizaciones', PersonalizacioneController::class);
