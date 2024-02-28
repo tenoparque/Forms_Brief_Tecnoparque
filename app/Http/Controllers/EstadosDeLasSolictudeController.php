@@ -96,16 +96,16 @@ class EstadosDeLasSolictudeController extends Controller
             ->with('success', 'EstadosDeLasSolictude updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $estadosDeLasSolictude = EstadosDeLasSolictude::find($id)->delete();
+    // /**
+    //  * @param int $id
+    //  * @return \Illuminate\Http\RedirectResponse
+    //  * @throws \Exception
+    //  */
+    // public function destroy($id)
+    // {
+    //     $estadosDeLasSolictude = EstadosDeLasSolictude::find($id)->delete();
 
-        return redirect()->route('estados-de-las-solictudes.index')
-            ->with('success', 'EstadosDeLasSolictude deleted successfully');
-    }
+    //     return redirect()->route('estados-de-las-solictudes.index')
+    //         ->with('success', 'EstadosDeLasSolictude deleted successfully');
+    // }
 }
