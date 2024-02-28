@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CiudadeController;
+use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\PoliticaController;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('ciudades', CiudadeController::class);
 Route::resource('estados', EstadoController::class);
 Route::resource('politicas',PoliticaController ::class);
+Route::resource('departamentos', DepartamentoController::class);
