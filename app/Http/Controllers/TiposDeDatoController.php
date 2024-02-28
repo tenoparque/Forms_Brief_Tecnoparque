@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estado;
 use App\Models\TiposDeDato;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,8 @@ class TiposDeDatoController extends Controller
     public function create()
     {
         $tiposDeDato = new TiposDeDato();
-        return view('tipos-de-dato.create', compact('tiposDeDato'));
+        $estados = Estado::all();
+        return view('tipos-de-dato.create', compact('tiposDeDato' , 'estados'));
     }
 
     /**
