@@ -16,7 +16,7 @@
                         <span class="card-title">{{ __('Create') }} Historial De Modificaciones Por Solicitude</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('historial-de-modificaciones-por-solicitudes.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('historial-de-modificaciones.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
                             @include('historial-de-modificaciones-por-solicitude.form')
