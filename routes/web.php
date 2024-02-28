@@ -7,6 +7,7 @@ use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\EstadosDeLasSolictudeController;
 use App\Http\Controllers\EventosEspecialesPorCategoriaController;
+use App\Http\Controllers\HistorialDeModificacionesPorSolicitudeController;
 use App\Http\Controllers\NodoController;
 use App\Http\Controllers\PersonalizacioneController;
 use App\Http\Controllers\PoliticaController;
@@ -56,3 +57,4 @@ Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategor
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
 Route::resource('personalizaciones', PersonalizacioneController::class);
 Route::resource('solicitudes', SolicitudeController::class);
+Route::resource('historial-de-modificaciones-por-solicitudes', HistorialDeModificacionesPorSolicitudeController::class);
