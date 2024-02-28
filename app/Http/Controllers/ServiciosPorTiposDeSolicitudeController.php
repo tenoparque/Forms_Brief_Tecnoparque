@@ -99,11 +99,11 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
-    {
-        $serviciosPorTiposDeSolicitude = ServiciosPorTiposDeSolicitude::find($id)->delete();
+    // public function destroy($id)
+    // {
+    //     $serviciosPorTiposDeSolicitude = ServiciosPorTiposDeSolicitude::find($id)->delete();
 
-        return redirect()->route('servicios-por-tipos-de-solicitudes.index')
-            ->with('success', 'ServiciosPorTiposDeSolicitude deleted successfully');
-    }
+    //     return redirect()->route('servicios-por-tipos-de-solicitudes.index')
+    //         ->with('success', 'ServiciosPorTiposDeSolicitude deleted successfully');
+    // }
 }
