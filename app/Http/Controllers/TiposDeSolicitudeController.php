@@ -101,11 +101,11 @@ class TiposDeSolicitudeController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
-    {
-        $tiposDeSolicitude = TiposDeSolicitude::find($id)->delete();
+    // public function destroy($id)
+    // {
+    //     $tiposDeSolicitude = TiposDeSolicitude::find($id)->delete();
 
-        return redirect()->route('tipos-de-solicitudes.index')
-            ->with('success', 'TiposDeSolicitude deleted successfully');
-    }
+    //     return redirect()->route('tipos-de-solicitudes.index')
+    //         ->with('success', 'TiposDeSolicitude deleted successfully');
+    // }
 }
