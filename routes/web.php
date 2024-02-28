@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CiudadeController;
 use App\Http\Controllers\EstadoController;
+use App\Http\Controllers\PoliticaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,4 +35,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('ciudades', CiudadeController::class);
 Route::resource('estados', EstadoController::class);
-
+Route::resource('politicas',PoliticaController ::class);
