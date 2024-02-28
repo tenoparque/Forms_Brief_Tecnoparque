@@ -94,16 +94,16 @@ class DatosUnicosPorSolicitudeController extends Controller
             ->with('success', 'DatosUnicosPorSolicitude updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $datosUnicosPorSolicitude = DatosUnicosPorSolicitude::find($id)->delete();
+    // /**
+    //  * @param int $id
+    //  * @return \Illuminate\Http\RedirectResponse
+    //  * @throws \Exception
+    //  */
+    // public function destroy($id)
+    // {
+    //     $datosUnicosPorSolicitude = DatosUnicosPorSolicitude::find($id)->delete();
 
-        return redirect()->route('datos-unicos-por-solicitudes.index')
-            ->with('success', 'DatosUnicosPorSolicitude deleted successfully');
-    }
+    //     return redirect()->route('datos-unicos-por-solicitudes.index')
+    //         ->with('success', 'DatosUnicosPorSolicitude deleted successfully');
+    // }
 }
