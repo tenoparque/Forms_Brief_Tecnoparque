@@ -94,16 +94,16 @@ class EventosEspecialesPorCategoriaController extends Controller
             ->with('success', 'EventosEspecialesPorCategoria updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $eventosEspecialesPorCategoria = EventosEspecialesPorCategoria::find($id)->delete();
+    // /**
+    //  * @param int $id
+    //  * @return \Illuminate\Http\RedirectResponse
+    //  * @throws \Exception
+    //  */
+    // public function destroy($id)
+    // {
+    //     $eventosEspecialesPorCategoria = EventosEspecialesPorCategoria::find($id)->delete();
 
-        return redirect()->route('eventos-especiales-por-categorias.index')
-            ->with('success', 'EventosEspecialesPorCategoria deleted successfully');
-    }
+    //     return redirect()->route('eventos-especiales-por-categorias.index')
+    //         ->with('success', 'EventosEspecialesPorCategoria deleted successfully');
+    // }
 }
