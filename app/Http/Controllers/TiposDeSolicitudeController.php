@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TiposDeSolicitude;
+use App\Models\Estado;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class TiposDeSolicitudeController extends Controller
     public function create()
     {
         $tiposDeSolicitude = new TiposDeSolicitude();
-        return view('tipos-de-solicitude.create', compact('tiposDeSolicitude'));
+        $estados = Estado::all(); // We obtain all Estados models from the database
+        return view('tipos-de-solicitude.create', compact('tiposDeSolicitude','estados')); // We pass the variables $tiposDeSolicitude and $estados to the view
     }
 
     /**
