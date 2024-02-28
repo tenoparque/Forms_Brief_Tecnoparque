@@ -94,16 +94,16 @@ class DepartamentoController extends Controller
             ->with('success', 'Departamento updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $departamento = Departamento::find($id)->delete();
+    // /**
+    //  * @param int $id
+    //  * @return \Illuminate\Http\RedirectResponse
+    //  * @throws \Exception
+    //  */
+    // public function destroy($id)
+    // {
+    //     $departamento = Departamento::find($id)->delete();
 
-        return redirect()->route('departamentos.index')
-            ->with('success', 'Departamento deleted successfully');
-    }
+    //     return redirect()->route('departamentos.index')
+    //         ->with('success', 'Departamento deleted successfully');
+    // }
 }
