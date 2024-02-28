@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriasEventosEspecialeController;
 use App\Http\Controllers\CiudadeController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\EstadoController;
@@ -44,3 +45,4 @@ Route::resource('departamentos', DepartamentoController::class);
 Route::resource('nodos', NodoController::class);
 Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class);
 Route::resource('tipos-de-datos', TiposDeDatoController::class);
+Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class);
