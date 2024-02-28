@@ -94,16 +94,16 @@ class HistorialDeModificacionesPorSolicitudeController extends Controller
             ->with('success', 'HistorialDeModificacionesPorSolicitude updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $historialDeModificacionesPorSolicitude = HistorialDeModificacionesPorSolicitude::find($id)->delete();
+    // /**
+    //  * @param int $id
+    //  * @return \Illuminate\Http\RedirectResponse
+    //  * @throws \Exception
+    //  */
+    // public function destroy($id)
+    // {
+    //     $historialDeModificacionesPorSolicitude = HistorialDeModificacionesPorSolicitude::find($id)->delete();
 
-        return redirect()->route('historial-de-modificaciones-por-solicitudes.index')
-            ->with('success', 'HistorialDeModificacionesPorSolicitude deleted successfully');
-    }
+    //     return redirect()->route('historial-de-modificaciones-por-solicitudes.index')
+    //         ->with('success', 'HistorialDeModificacionesPorSolicitude deleted successfully');
+    // }
 }
