@@ -3,8 +3,10 @@
 use App\Http\Controllers\CiudadeController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\EstadoController;
+use App\Http\Controllers\EstadosDeLasSolictudeController;
 use App\Http\Controllers\NodoController;
 use App\Http\Controllers\PoliticaController;
+use App\Http\Controllers\TiposDeDatoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,4 +42,5 @@ Route::resource('estados', EstadoController::class);
 Route::resource('politicas',PoliticaController ::class);
 Route::resource('departamentos', DepartamentoController::class);
 Route::resource('nodos', NodoController::class);
-Route::resource('estados_de_las_solictudes', CiudadeController::class);
+Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class);
+Route::resource('tipos-de-datos', TiposDeDatoController::class);
