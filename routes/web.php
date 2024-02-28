@@ -40,3 +40,4 @@ Route::resource('estados', EstadoController::class);
 Route::resource('politicas',PoliticaController ::class);
 Route::resource('departamentos', DepartamentoController::class);
 Route::resource('nodos', NodoController::class);
+Route::resource('estados_de_las_solictudes', CiudadeController::class);
