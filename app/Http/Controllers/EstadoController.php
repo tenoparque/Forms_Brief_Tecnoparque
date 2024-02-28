@@ -99,11 +99,11 @@ class EstadoController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
-    {
-        $estado = Estado::find($id)->delete();
+    // public function destroy($id)
+    // {
+    //     $estado = Estado::find($id)->delete();
 
-        return redirect()->route('estados.index')
-            ->with('success', 'Estado deleted successfully');
-    }
+    //     return redirect()->route('estados.index')
+    //         ->with('success', 'Estado deleted successfully');
+    // }
 }
