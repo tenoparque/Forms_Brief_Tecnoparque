@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoriasEventosEspeciale;
+use App\Models\Estado;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class CategoriasEventosEspecialeController extends Controller
     public function create()
     {
         $categoriasEventosEspeciale = new CategoriasEventosEspeciale();
-        return view('categorias-eventos-especiale.create', compact('categoriasEventosEspeciale'));
+        $estados = Estado::all();
+        return view('categorias-eventos-especiale.create', compact('categoriasEventosEspeciale', 'estados'));
     }
 
     /**
