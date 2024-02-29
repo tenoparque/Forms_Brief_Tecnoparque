@@ -64,5 +64,8 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'role' => \Spatie\Permission\Middleware\RoleMiddleware::class, // Adding Middleware for use through aliases (spatie Laravel-permission)
+        'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class, // Adding Middleware for use through aliases (spatie Laravel-permission)
+        'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class, // Adding Middleware for use through aliases (spatie Laravel-permission)
     ];
 }
