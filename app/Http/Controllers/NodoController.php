@@ -77,8 +77,10 @@ class NodoController extends Controller
     public function edit($id)
     {
         $nodo = Nodo::find($id);
+        $estados = Estado::all();
+        $ciudades = Ciudade::all();
 
-        return view('nodo.edit', compact('nodo'));
+        return view('nodo.edit', compact('nodo', 'estados', 'ciudades'));
     }
 
     /**
