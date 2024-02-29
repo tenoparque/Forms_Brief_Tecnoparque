@@ -55,11 +55,10 @@ Route::resource('politicas',PoliticaController ::class);
 Route::resource('departamentos', DepartamentoController::class);
 
 Route::resource('nodos', NodoController::class);
-<<<<<<< HEAD
 
-=======
+
+
 Route::resource('roles', RoleController::class);
->>>>>>> 197b0ac3db7ee45afe407f3013384b9edb6ef187
 Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class);
 
 Route::resource('tipos-de-datos', TiposDeDatoController::class);
