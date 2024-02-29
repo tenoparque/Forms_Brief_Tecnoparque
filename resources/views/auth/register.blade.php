@@ -60,7 +60,7 @@
 
                             <div class="col-md-6">
                                 <select id="id_nodo" class="form-control @error('id_nodo') is-invalid @enderror" name="id_nodo" required>
-                                    <option value="" disabled selected>Seleccionar Nodo</option>
+                                    <option value="" disabled selected>Seleccionar Nodo...</option>
                                     @foreach ($nodos as $nodo)
                                         <option value="{{ $nodo->id }}">{{ $nodo->nombre }}</option>
                                     @endforeach
@@ -73,6 +73,27 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <!--  -->
+                        <div class="mb-3 row">
+                            <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Rol') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required>
+                                    <option value="" disabled selected>Seleccionar Rol...</option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('role')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
