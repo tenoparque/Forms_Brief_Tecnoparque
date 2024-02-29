@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Personalizacione;
+use App\Models\Estado;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class PersonalizacioneController extends Controller
     public function create()
     {
         $personalizacione = new Personalizacione();
-        return view('personalizacione.create', compact('personalizacione'));
+        $estados = Estado::all();
+        return view('personalizacione.create', compact('personalizacione', 'estados'));
     }
 
     /**
@@ -73,8 +75,9 @@ class PersonalizacioneController extends Controller
     public function edit($id)
     {
         $personalizacione = Personalizacione::find($id);
+        $estados = Estado::all();
 
-        return view('personalizacione.edit', compact('personalizacione'));
+        return view('personalizacione.edit', compact('personalizacione', 'estados'));
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Nodo;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -78,7 +79,8 @@ class RegisterController extends Controller
     protected function showRegistrationForm()
     {
         $nodos = Nodo::all(); // Obtener todos los nodos
+        $roles = Role::all();
 
-        return view('auth.register', ['nodos' => $nodos]); // Pasar los nodos a la vista de registro
+        return view('auth.register', ['nodos' => $nodos], ['roles' => $roles]); // Pasar los nodos a la vista de registro
     }
 }

@@ -17,8 +17,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="id_categoria">categoria</label>
-            <select name="id_categoria" id="id_categoria" class="form-control selectpicker"
+            <label for="id_eventos_especiales">categoria</label>
+            <select name="id_eventos_especiales" id="id_eventos_especiales" class="form-control selectpicker"
             data-style="btn-primary" title="Seleccionar Categoria" required>
                 @foreach ($categorias as $categoria)
                 <!-- We go through the models of the categorias that we previously passed through the controller -->

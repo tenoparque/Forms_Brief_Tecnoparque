@@ -77,8 +77,10 @@ class EventosEspecialesPorCategoriaController extends Controller
     public function edit($id)
     {
         $eventosEspecialesPorCategoria = EventosEspecialesPorCategoria::find($id);
+        $estados = Estado::all();
+        $categorias = categoriasEventosEspeciale::all();
 
-        return view('eventos-especiales-por-categoria.edit', compact('eventosEspecialesPorCategoria'));
+        return view('eventos-especiales-por-categoria.edit', compact('eventosEspecialesPorCategoria', 'estados', 'categorias'));
     }
 
     /**

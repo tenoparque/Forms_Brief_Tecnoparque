@@ -77,8 +77,10 @@ class PoliticaController extends Controller
     public function edit($id)
     {
         $politica = Politica::find($id);
+        $usuarios = User::all();
+        $estados = Estado::all();
 
-        return view('politica.edit', compact('politica'));
+        return view('politica.edit', compact('politica', 'usuarios', 'estados'));
     }
 
     /**
