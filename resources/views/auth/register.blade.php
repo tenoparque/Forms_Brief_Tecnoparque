@@ -40,12 +40,12 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="celular" class="col-md-4 col-form-label text-md-end">{{ __('Celular') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="celular" type="text" class="form-control @error('celular') is-invalid @enderror" name="celular" value="{{ old('celular') }}" required autocomplete="celular" autofocus>
 
-                                @error('password')
+                                @error('celular')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -53,12 +53,14 @@
                             </div>
                         </div>
 
+
+                        <!--  -->
                         <div class="mb-3 row">
                             <label for="id_nodo" class="col-md-4 col-form-label text-md-end">{{ __('Nodo') }}</label>
 
                             <div class="col-md-6">
                                 <select id="id_nodo" class="form-control @error('id_nodo') is-invalid @enderror" name="id_nodo" required>
-                                    <option value="" disabled selected>Select Nodo</option>
+                                    <option value="" disabled selected>Seleccionar Nodo</option>
                                     @foreach ($nodos as $nodo)
                                         <option value="{{ $nodo->id }}">{{ $nodo->nombre }}</option>
                                     @endforeach
