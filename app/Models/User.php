@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'celular', // Adding the "celular" column
     ];
 
     /**

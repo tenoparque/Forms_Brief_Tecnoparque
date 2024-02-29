@@ -79,8 +79,11 @@ class DatosUnicosPorSolicitudeController extends Controller
     public function edit($id)
     {
         $datosUnicosPorSolicitude = DatosUnicosPorSolicitude::find($id);
+        $estados = Estado::all();
+        $tiposDatos = TiposDeDato::all();
+        $solicitudes = TiposDeSolicitude::all();
 
-        return view('datos-unicos-por-solicitude.edit', compact('datosUnicosPorSolicitude'));
+        return view('datos-unicos-por-solicitude.edit', compact('datosUnicosPorSolicitude', 'estados', 'tiposDatos', 'solicitudes'));
     }
 
     /**

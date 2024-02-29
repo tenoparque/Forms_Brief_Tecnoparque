@@ -15,6 +15,7 @@ use App\Http\Controllers\ServiciosPorTiposDeSolicitudeController;
 use App\Http\Controllers\SolicitudeController;
 use App\Http\Controllers\TiposDeDatoController;
 use App\Http\Controllers\TiposDeSolicitudeController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,7 +55,11 @@ Route::resource('politicas',PoliticaController ::class);
 Route::resource('departamentos', DepartamentoController::class);
 
 Route::resource('nodos', NodoController::class);
+<<<<<<< HEAD
 
+=======
+Route::resource('roles', RoleController::class);
+>>>>>>> 197b0ac3db7ee45afe407f3013384b9edb6ef187
 Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class);
 
 Route::resource('tipos-de-datos', TiposDeDatoController::class);
