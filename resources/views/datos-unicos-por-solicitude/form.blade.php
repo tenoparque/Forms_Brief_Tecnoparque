@@ -27,8 +27,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="id_estado">Estado</label>
-            <select name="id_estado" id="id_estado" class="form-control selectpicker"
+            <label for="id_estados">Estado</label>
+            <select name="id_estados" id="id_estados" class="form-control selectpicker"
             data-style="btn-primary" title="Seleccionar un Estado" required>
                 @foreach ($estados as $estado)
                 <!-- We go through the models of the estados that we previously passed through the controller -->
