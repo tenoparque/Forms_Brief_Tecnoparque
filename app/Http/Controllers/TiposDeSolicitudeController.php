@@ -75,8 +75,9 @@ class TiposDeSolicitudeController extends Controller
     public function edit($id)
     {
         $tiposDeSolicitude = TiposDeSolicitude::find($id);
+        $estados = Estado::all(); // We obtain all Estados models from the database
 
-        return view('tipos-de-solicitude.edit', compact('tiposDeSolicitude'));
+        return view('tipos-de-solicitude.edit', compact('tiposDeSolicitude', 'estados'));
     }
 
     /**
