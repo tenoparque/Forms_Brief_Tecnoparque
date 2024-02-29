@@ -12,12 +12,26 @@
                         @csrf
 
                         <div class="mb-3 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nombres') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="apellidos" class="col-md-4 col-form-label text-md-end">{{ __('Apellidos') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="apellidos" type="text" class="form-control @error('apellidos') is-invalid @enderror" name="apellidos" value="{{ old('apellidos') }}" required autocomplete="apellidos" autofocus>
+
+                                @error('apellidos')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -82,7 +96,7 @@
                                 <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required>
                                     <option value="" disabled selected>Seleccionar Rol...</option>
                                     @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                        <option value="{{ $role->name }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
 
@@ -93,7 +107,6 @@
                                 @enderror
                             </div>
                         </div>
-
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
