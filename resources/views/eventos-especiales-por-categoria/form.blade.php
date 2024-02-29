@@ -7,14 +7,24 @@
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('id_estado') }}
-            {{ Form::text('id_estado', $eventosEspecialesPorCategoria->id_estado, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'placeholder' => 'Id Estado']) }}
-            {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="id_estado">Estado</label>
+            <select name="id_estado" id="id_estado" class="form-control selectpicker"
+            data-style="btn-primary" title="Seleccionar Estado" required>
+                @foreach ($estados as $estado)
+                <!-- We go through the models of the estados that we previously passed through the controller -->
+                    <option value="{{ $estado->id }}">{{ $estado-> nombre }}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
-            {{ Form::label('id_eventos_especiales') }}
-            {{ Form::text('id_eventos_especiales', $eventosEspecialesPorCategoria->id_eventos_especiales, ['class' => 'form-control' . ($errors->has('id_eventos_especiales') ? ' is-invalid' : ''), 'placeholder' => 'Id Eventos Especiales']) }}
-            {!! $errors->first('id_eventos_especiales', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="id_categoria">categoria</label>
+            <select name="id_categoria" id="id_categoria" class="form-control selectpicker"
+            data-style="btn-primary" title="Seleccionar Categoria" required>
+                @foreach ($categorias as $categoria)
+                <!-- We go through the models of the categorias that we previously passed through the controller -->
+                    <option value="{{ $categoria->id }}">{{ $categoria-> nombre }}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
         </div>
 
     </div>
