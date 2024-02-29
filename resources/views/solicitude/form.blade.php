@@ -11,6 +11,20 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <label for="id">tipos</label>
+            <select name="id" id="id" class="form-control selectpicker"
+            data-style="btn-primary" title="" required>
+                @foreach ($tipos as $estado)
+                <!-- We go through the models of the estados that we previously passed through the controller -->
+                    <option value="{{ $estado->id_tipos_de_solicitudes}}">{{$estado->nombre}}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
+        </div>
     </div>
+   
     
 </div>
+    
+</div>
+
