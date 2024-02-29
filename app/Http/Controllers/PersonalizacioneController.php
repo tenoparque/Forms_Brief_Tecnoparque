@@ -75,8 +75,9 @@ class PersonalizacioneController extends Controller
     public function edit($id)
     {
         $personalizacione = Personalizacione::find($id);
+        $estados = Estado::all();
 
-        return view('personalizacione.edit', compact('personalizacione'));
+        return view('personalizacione.edit', compact('personalizacione', 'estados'));
     }
 
     /**
