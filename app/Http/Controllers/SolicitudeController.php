@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estado;
+use App\Models\EstadosDeLasSolictude;
+use App\Models\EventosEspecialesPorCategoria;
 use App\Models\Solicitude;
+use App\Models\TiposDeSolicitude;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +36,10 @@ class SolicitudeController extends Controller
     public function create()
     {
         $solicitude = new Solicitude();
-        return view('solicitude.create', compact('solicitude'));
+        $estados = EstadosDeLasSolictude::all();
+        $solicitudes = TiposDeSolicitude::all();
+        $especiales = EventosEspecialesPorCategoria::all();
+        return view('solicitude.create', compact('solicitude' ,'estados' , 'solicitudes' , 'especiales' ));
     }
 
     /**
