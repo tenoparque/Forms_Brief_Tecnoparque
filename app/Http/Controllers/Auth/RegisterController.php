@@ -78,7 +78,7 @@ class RegisterController extends Controller
 
         $roleName = $data['role']; // Getting the value of the selected role through the attribute name
 
-        $role = SpatieRol::findByName($roleName, 'web')->first(); // Obtaining the value of the selected role through the name attribute and saving it as a Spatie Role object. 
+        $role = SpatieRol::findByName($roleName, 'web'); // Obtaining the value of the selected role through the name attribute and saving it as a Spatie Role object. 
 
         // Checking if the role is found
         if ($role) {

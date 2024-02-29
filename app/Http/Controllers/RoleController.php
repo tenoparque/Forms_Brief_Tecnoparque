@@ -43,6 +43,8 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge(['guard_name' => 'web']); // Set the default guard_name to 'web'.
+
         request()->validate(Role::$rules);
 
         $role = Role::create($request->all());
@@ -86,6 +88,8 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
+        $request->merge(['guard_name' => 'web']); // Set the default guard_name to 'web'.
+
         request()->validate(Role::$rules);
 
         $role->update($request->all());
