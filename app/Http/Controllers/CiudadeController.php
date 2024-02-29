@@ -76,8 +76,10 @@ class CiudadeController extends Controller
     public function edit($id)
     {
         $ciudade = Ciudade::find($id);
+        $departamentos = Departamento::all(); // We obtain all Departamentos models from the database
 
-        return view('ciudade.edit', compact('ciudade'));
+
+        return view('ciudade.edit', compact('ciudade', 'departamentos'));
     }
 
     /**
