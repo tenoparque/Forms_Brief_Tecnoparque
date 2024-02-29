@@ -51,11 +51,8 @@
 											<td>{{ $estadosDeLasSolictude->id_estado }}</td>
 
                                             <td>
-                                                <form action="{{ route('estados-de-las-solictudes.destroy',$estadosDeLasSolictude->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('estados-de-las-solictudes.show',$estadosDeLasSolictude->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('estados-de-las-solictudes.edit',$estadosDeLasSolictude->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

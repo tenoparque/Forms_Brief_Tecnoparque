@@ -55,11 +55,8 @@
 											<td>{{ $datosUnicosPorSolicitude->id_estados }}</td>
 
                                             <td>
-                                                <form action="{{ route('datos-unicos-por-solicitudes.destroy',$datosUnicosPorSolicitude->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('datos-unicos-por-solicitudes.show',$datosUnicosPorSolicitude->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('datos-unicos-por-solicitudes.edit',$datosUnicosPorSolicitude->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

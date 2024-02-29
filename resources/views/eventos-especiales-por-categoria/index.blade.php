@@ -53,11 +53,8 @@
 											<td>{{ $eventosEspecialesPorCategoria->id_eventos_especiales }}</td>
 
                                             <td>
-                                                <form action="{{ route('eventos-especiales-por-categorias.destroy',$eventosEspecialesPorCategoria->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('eventos-especiales-por-categorias.show',$eventosEspecialesPorCategoria->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('eventos-especiales-por-categorias.edit',$eventosEspecialesPorCategoria->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

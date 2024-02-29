@@ -51,11 +51,8 @@
 											<td>{{ $ciudade->id_departamento }}</td>
 
                                             <td>
-                                                <form action="{{ route('ciudades.destroy',$ciudade->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('ciudades.show',$ciudade->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('ciudades.edit',$ciudade->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

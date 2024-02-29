@@ -53,11 +53,8 @@
 											<td>{{ $datosPorSolicitud->dato }}</td>
 
                                             <td>
-                                                <form action="{{ route('datos-por-solicituds.destroy',$datosPorSolicitud->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('datos-por-solicituds.show',$datosPorSolicitud->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('datos-por-solicituds.edit',$datosPorSolicitud->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -51,11 +51,8 @@
 											<td>{{ $tiposDeDato->id_estado }}</td>
 
                                             <td>
-                                                <form action="{{ route('tipos-de-datos.destroy',$tiposDeDato->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('tipos-de-datos.show',$tiposDeDato->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('tipos-de-datos.edit',$tiposDeDato->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

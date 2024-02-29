@@ -59,11 +59,8 @@
 											<td>{{ $personalizacione->id_estado }}</td>
 
                                             <td>
-                                                <form action="{{ route('personalizaciones.destroy',$personalizacione->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('personalizaciones.show',$personalizacione->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('personalizaciones.edit',$personalizacione->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

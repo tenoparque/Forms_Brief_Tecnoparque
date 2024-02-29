@@ -53,11 +53,8 @@
 											<td>{{ $historialDeModificacionesPorSolicitude->fecha_de_modificacion }}</td>
 
                                             <td>
-                                                <form action="{{ route('historial-de-modificaciones-por-solicitudes.destroy',$historialDeModificacionesPorSolicitude->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('historial-de-modificaciones-por-solicitudes.show',$historialDeModificacionesPorSolicitude->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('historial-de-modificaciones-por-solicitudes.edit',$historialDeModificacionesPorSolicitude->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

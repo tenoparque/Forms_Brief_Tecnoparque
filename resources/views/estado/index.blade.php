@@ -49,11 +49,8 @@
 											<td>{{ $estado->nombre }}</td>
 
                                             <td>
-                                                <form action="{{ route('estados.destroy',$estado->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('estados.show',$estado->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('estados.edit',$estado->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

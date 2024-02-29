@@ -51,11 +51,8 @@
 											<td>{{ $tiposDeSolicitude->id_estado }}</td>
 
                                             <td>
-                                                <form action="{{ route('tipos-de-solicitudes.destroy',$tiposDeSolicitude->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('tipos-de-solicitudes.show',$tiposDeSolicitude->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('tipos-de-solicitudes.edit',$tiposDeSolicitude->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

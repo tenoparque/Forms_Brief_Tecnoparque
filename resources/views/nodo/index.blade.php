@@ -53,11 +53,8 @@
 											<td>{{ $nodo->id_ciudad }}</td>
 
                                             <td>
-                                                <form action="{{ route('nodos.destroy',$nodo->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('nodos.show',$nodo->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('nodos.edit',$nodo->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

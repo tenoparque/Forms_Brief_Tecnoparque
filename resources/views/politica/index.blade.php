@@ -59,11 +59,8 @@
 											<td>{{ $politica->titulo }}</td>
 
                                             <td>
-                                                <form action="{{ route('politicas.destroy',$politica->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('politicas.show',$politica->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('politicas.edit',$politica->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
