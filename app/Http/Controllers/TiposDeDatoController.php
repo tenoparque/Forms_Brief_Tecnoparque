@@ -75,8 +75,9 @@ class TiposDeDatoController extends Controller
     public function edit($id)
     {
         $tiposDeDato = TiposDeDato::find($id);
+        $estados = Estado::all();
 
-        return view('tipos-de-dato.edit', compact('tiposDeDato'));
+        return view('tipos-de-dato.edit', compact('tiposDeDato', 'estados'));
     }
 
     /**
