@@ -75,8 +75,9 @@ class EstadosDeLasSolictudeController extends Controller
     public function edit($id)
     {
         $estadosDeLasSolictude = EstadosDeLasSolictude::find($id);
+        $estados = Estado::all(); // We obtain all Estados models from the database
 
-        return view('estados-de-las-solictude.edit', compact('estadosDeLasSolictude'));
+        return view('estados-de-las-solictude.edit', compact('estadosDeLasSolictude', 'estados'));
     }
 
     /**
