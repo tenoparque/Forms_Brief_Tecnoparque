@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\DatosUnicosPorSolicitude;
+use App\Models\Estado;
+use App\Models\TiposDeDato;
+use App\Models\TiposDeSolicitude;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +35,10 @@ class DatosUnicosPorSolicitudeController extends Controller
     public function create()
     {
         $datosUnicosPorSolicitude = new DatosUnicosPorSolicitude();
-        return view('datos-unicos-por-solicitude.create', compact('datosUnicosPorSolicitude'));
+        $estados = Estado::all();
+        $tiposDatos = TiposDeDato::all();
+        $solicitudes = TiposDeSolicitude::all();
+        return view('datos-unicos-por-solicitude.create', compact('datosUnicosPorSolicitude' ,'estados' , 'tiposDatos' , 'solicitudes'));
     }
 
     /**

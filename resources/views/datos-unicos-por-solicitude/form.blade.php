@@ -7,19 +7,34 @@
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('id_tipos_de_datos') }}
-            {{ Form::text('id_tipos_de_datos', $datosUnicosPorSolicitude->id_tipos_de_datos, ['class' => 'form-control' . ($errors->has('id_tipos_de_datos') ? ' is-invalid' : ''), 'placeholder' => 'Id Tipos De Datos']) }}
-            {!! $errors->first('id_tipos_de_datos', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="id_tipos_de_datos">Tipo de Dato</label>
+            <select name="id_tipos_de_datos" id="id_tipos_de_datos" class="form-control selectpicker"
+            data-style="btn-primary" title="Seleccionar un Tipo de Dato" required>
+                @foreach ($tiposDatos as $dato)
+                <!-- We go through the models of the tiposDatos that we previously passed through the controller -->
+                    <option value="{{ $dato->id }}">{{ $dato-> nombre }}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
-            {{ Form::label('id_tipos_de_solicitudes') }}
-            {{ Form::text('id_tipos_de_solicitudes', $datosUnicosPorSolicitude->id_tipos_de_solicitudes, ['class' => 'form-control' . ($errors->has('id_tipos_de_solicitudes') ? ' is-invalid' : ''), 'placeholder' => 'Id Tipos De Solicitudes']) }}
-            {!! $errors->first('id_tipos_de_solicitudes', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="id_tipos_de_solicitudes">Tipo de Solicitud</label>
+            <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes" class="form-control selectpicker"
+            data-style="btn-primary" title="Seleccionar un Tipo de Solicitud" required>
+                @foreach ($solicitudes as $solicitud)
+                <!-- We go through the models of the solicitudes that we previously passed through the controller -->
+                    <option value="{{ $solicitud->id }}">{{ $solicitud-> nombre }}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
-            {{ Form::label('id_estados') }}
-            {{ Form::text('id_estados', $datosUnicosPorSolicitude->id_estados, ['class' => 'form-control' . ($errors->has('id_estados') ? ' is-invalid' : ''), 'placeholder' => 'Id Estados']) }}
-            {!! $errors->first('id_estados', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="id_estado">Estado</label>
+            <select name="id_estado" id="id_estado" class="form-control selectpicker"
+            data-style="btn-primary" title="Seleccionar un Estado" required>
+                @foreach ($estados as $estado)
+                <!-- We go through the models of the estados that we previously passed through the controller -->
+                    <option value="{{ $estado->id }}">{{ $estado-> nombre }}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
         </div>
 
     </div>
