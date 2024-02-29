@@ -46,18 +46,32 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('ciudades', CiudadeController::class);
+
 Route::resource('estados', EstadoController::class);
+
 Route::resource('politicas',PoliticaController ::class);
+
 Route::resource('departamentos', DepartamentoController::class);
+
 Route::resource('nodos', NodoController::class);
+
 Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class);
+
 Route::resource('tipos-de-datos', TiposDeDatoController::class);
+
 Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class);
+
 Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class);
+
 Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class);
+
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
+
 Route::resource('personalizaciones', PersonalizacioneController::class);
+
 Route::resource('solicitudes', SolicitudeController::class);
+
 Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolicitudeController::class);
+
 Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class);
 
