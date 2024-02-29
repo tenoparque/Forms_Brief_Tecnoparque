@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estado;
 use App\Models\ServiciosPorTiposDeSolicitude;
+use App\Models\TiposDeSolicitude;
 use Illuminate\Http\Request;
 
 /**
@@ -34,7 +35,7 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
     {
         $serviciosPorTiposDeSolicitude = new ServiciosPorTiposDeSolicitude();
         $estados = Estado::all();
-        $solicitudes= ServiciosPorTiposDeSolicitude::all();
+        $solicitudes= TiposDeSolicitude::all();
         return view('servicios-por-tipos-de-solicitude.create', compact('serviciosPorTiposDeSolicitude', 'estados' ,'solicitudes'));
     }
 
