@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="mb-3 row">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="mb-3 row">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="mb-3 row">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -53,7 +53,26 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="mb-3 row">
+                            <label for="id_nodo" class="col-md-4 col-form-label text-md-end">{{ __('Nodo') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="id_nodo" class="form-control @error('id_nodo') is-invalid @enderror" name="id_nodo" required>
+                                    <option value="" disabled selected>Select Nodo</option>
+                                    @foreach ($nodos as $nodo)
+                                        <option value="{{ $nodo->id }}">{{ $nodo->nombre }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('id_nodo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
@@ -68,6 +87,7 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

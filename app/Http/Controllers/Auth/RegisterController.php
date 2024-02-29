@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Nodo;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -68,5 +69,15 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /**
+     *  Crea
+     */
+    protected function showRegistrationForm()
+    {
+        $nodos = Nodo::all(); // Obtener todos los nodos
+
+        return view('auth.register', ['nodos' => $nodos]); // Pasar los nodos a la vista de registro
     }
 }
