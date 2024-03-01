@@ -25,6 +25,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
     @vite('resources/js/menuburger.js')
+    @vite('resources/js/validateUserRegister.js')
 </head>
 <body>
     <div class="wrapper">
