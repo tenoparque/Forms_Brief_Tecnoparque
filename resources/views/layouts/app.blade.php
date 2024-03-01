@@ -30,7 +30,7 @@
 </head>
 <body>
     <div class="wrapper">
-        @if(Route::currentRouteName() !== 'login')
+        {{-- @if(Route::currentRouteName() !== 'login') --}}
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
