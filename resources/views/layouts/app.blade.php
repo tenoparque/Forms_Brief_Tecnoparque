@@ -28,7 +28,7 @@
 </head>
 <body>
     <div class="wrapper">
-        {{-- @if(Route::currentRouteName() !== 'login') --}}
+        @if(Route::currentRouteName() !== 'login')
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
@@ -77,7 +77,7 @@
                 </a>
             </div>
         </aside>
-        {{-- @endif --}}
+        @endif
 
         <div class="main p-3">
             <div class="text-center">
