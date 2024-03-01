@@ -102,7 +102,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="#" class="sidebar-link">  
                         <i class="lni lni-cog"></i>
                         <span>Setting</span>
                     </a>
@@ -115,7 +115,7 @@
                 </a>
             </div>
         </aside>
-        @endif
+        {{-- @endif --}}
 
         <div class="main p-3">
             <div class="text-center">
