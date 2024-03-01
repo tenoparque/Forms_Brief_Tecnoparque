@@ -34,12 +34,12 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th scope="col">No</th>
                                         
-										<th>Nombre</th>
-										<th>Estado</th>
+										<th scope="col">Nombre</th>
+										<th scope="col">Estado</th>
 
-                                        <th></th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>

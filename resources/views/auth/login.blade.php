@@ -52,9 +52,18 @@
                                 @endif
                             </div>
                         </div>
-                        <div>
-                            <img class="logo" src="../images/logo.png" alt="">
-                        </div>
+                        
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img class="logo" src="../images/logo.png" alt="">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="">
+                                  <h5 class="card-title">Red Tecnoparque Colombia</h5>
+                                </div>
+                              </div>
+                            </div>
+                          
                     </form>
                 </div>
             </div>
