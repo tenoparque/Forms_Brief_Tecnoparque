@@ -49,8 +49,8 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $nodo->nombre }}</td>
-											<td>{{ $nodo->id_estado }}</td>
-											<td>{{ $nodo->id_ciudad }}</td>
+											<td>{{ $nodo->estado->nombre }}</td>
+											<td>{{ $nodo->ciudade->nombre }}</td>
 
                                             <td>
                                                     <a class="btn btn-sm btn-primary " href="{{ route('nodos.show',$nodo->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
