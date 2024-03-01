@@ -1,21 +1,12 @@
 
-
 body {
     background-image: url('');
     background-size: cover;
 }
 /* styles.css */
 
-.container {
-justify-content: center;
-text-align: center;
-   
-}
-
-
-
 /* Estilos para el formulario de inicio de sesión */
-.card {
+.card_login {
     background-color: rgba(56, 169, 0, 0.705);
     border-radius: 10px;
     width: 520px ;

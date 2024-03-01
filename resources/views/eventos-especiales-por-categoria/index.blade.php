@@ -37,8 +37,8 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Id Estado</th>
-										<th>Id Eventos Especiales</th>
+										<th>Estado</th>
+										<th>Eventos Especiales</th>
 
                                         <th></th>
                                     </tr>
@@ -49,8 +49,8 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $eventosEspecialesPorCategoria->nombre }}</td>
-											<td>{{ $eventosEspecialesPorCategoria->id_estado }}</td>
-											<td>{{ $eventosEspecialesPorCategoria->id_eventos_especiales }}</td>
+											<td>{{ $eventosEspecialesPorCategoria->estado->nombre }}</td>
+											<td>{{ $eventosEspecialesPorCategoria->categoriasEventosEspeciale->nombre }}</td>
 
                                             <td>
                                                     <a class="btn btn-sm btn-primary " href="{{ route('eventos-especiales-por-categorias.show',$eventosEspecialesPorCategoria->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>

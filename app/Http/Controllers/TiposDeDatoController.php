@@ -19,7 +19,7 @@ class TiposDeDatoController extends Controller
      */
     public function index()
     {
-        $tiposDeDatos = TiposDeDato::paginate();
+        $tiposDeDatos = TiposDeDato::with('estado')->paginate();
 
         return view('tipos-de-dato.index', compact('tiposDeDatos'))
             ->with('i', (request()->input('page', 1) - 1) * $tiposDeDatos->perPage());

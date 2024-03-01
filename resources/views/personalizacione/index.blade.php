@@ -40,8 +40,8 @@
 										<th>Color Principal</th>
 										<th>Color Secundario</th>
 										<th>Color Terciario</th>
-										<th>Id Users</th>
-										<th>Id Estado</th>
+										<th>Usuario</th>
+										<th>Estado</th>
 
                                         <th></th>
                                     </tr>
@@ -56,7 +56,7 @@
 											<td>{{ $personalizacione->color_secundario }}</td>
 											<td>{{ $personalizacione->color_terciario }}</td>
 											<td>{{ $personalizacione->id_users }}</td>
-											<td>{{ $personalizacione->id_estado }}</td>
+											<td>{{ $personalizacione->estado->nombre }}</td>
 
                                             <td>
                                                     <a class="btn btn-sm btn-primary " href="{{ route('personalizaciones.show',$personalizacione->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
