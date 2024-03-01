@@ -37,9 +37,9 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Id Tipos De Datos</th>
-										<th>Id Tipos De Solicitudes</th>
-										<th>Id Estados</th>
+										<th>Tipos De Datos</th>
+										<th>Tipos De Solicitudes</th>
+										<th>Estados</th>
 
                                         <th></th>
                                     </tr>

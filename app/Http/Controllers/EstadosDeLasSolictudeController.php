@@ -19,7 +19,7 @@ class EstadosDeLasSolictudeController extends Controller
      */
     public function index()
     {
-        $estadosDeLasSolictudes = EstadosDeLasSolictude::paginate();
+        $estadosDeLasSolictudes = EstadosDeLasSolictude::with('estado')->paginate();
 
         return view('estados-de-las-solictude.index', compact('estadosDeLasSolictudes'))
             ->with('i', (request()->input('page', 1) - 1) * $estadosDeLasSolictudes->perPage());

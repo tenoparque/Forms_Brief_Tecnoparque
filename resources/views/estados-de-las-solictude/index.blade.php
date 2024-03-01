@@ -37,7 +37,7 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Id Estado</th>
+										<th>Estado</th>
 
                                         <th></th>
                                     </tr>
@@ -48,7 +48,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $estadosDeLasSolictude->nombre }}</td>
-											<td>{{ $estadosDeLasSolictude->id_estado }}</td>
+											<td>{{ $estadosDeLasSolictude->estado->nombre }}</td>
 
                                             <td>
                                                     <a class="btn btn-sm btn-primary " href="{{ route('estados-de-las-solictudes.show',$estadosDeLasSolictude->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
