@@ -1,5 +1,3 @@
-alert("javascript tomadoxd");
-
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('form').addEventListener('submit', function (event) {
         var idNodoSelect = document.getElementById('id_nodo');
