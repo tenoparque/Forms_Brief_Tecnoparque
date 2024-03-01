@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+   
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&display=swap" rel="stylesheet">
@@ -25,13 +25,14 @@
 
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
+    
     @vite('resources/js/menuburger.js')
     @vite('resources/js/validateUserRegister.js')
 </head>
 <body>
     <div class="wrapper">
-        @if(Route::currentRouteName() !== 'login')
+        
+        @if(Route::currentRouteName() !== 'login'){{-- no se muestre el sidebar en la vista login --}}
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">

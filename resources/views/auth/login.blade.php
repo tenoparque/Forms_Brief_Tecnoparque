@@ -1,4 +1,6 @@
 @extends('layouts.app')
+
+
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 <div class="container">
@@ -61,5 +63,6 @@
 </div>
 
 
-
+<script src="{{ asset('js/app.js') }}"></script>
 @endsection
+
