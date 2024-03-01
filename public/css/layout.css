@@ -40,7 +40,7 @@ body {
     min-width: 70px;
     z-index: 1000;
     transition: all .25s ease-in-out;
-    background: linear-gradient(to bottom,#3aa605 , #274244 );
+    background: linear-gradient(to bottom,#39A900, #274244 );
     display: flex;
     flex-direction: column;
   
