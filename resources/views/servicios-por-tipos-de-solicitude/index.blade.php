@@ -37,8 +37,8 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Id Tipo De Solicitud</th>
-										<th>Id Estado</th>
+										<th>Tipo De Solicitud</th>
+										<th>Estado</th>
 
                                         <th></th>
                                     </tr>
@@ -49,8 +49,8 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $serviciosPorTiposDeSolicitude->nombre }}</td>
-											<td>{{ $serviciosPorTiposDeSolicitude->id_tipo_de_solicitud }}</td>
-											<td>{{ $serviciosPorTiposDeSolicitude->id_estado }}</td>
+											<td>{{ $serviciosPorTiposDeSolicitude->tiposDeSolicitude->nombre }}</td>
+											<td>{{ $serviciosPorTiposDeSolicitude->estado->nombre }}</td>
 
                                             <td>
                                                     <a class="btn btn-sm btn-primary " href="{{ route('servicios-por-tipos-de-solicitudes.show',$serviciosPorTiposDeSolicitude->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>

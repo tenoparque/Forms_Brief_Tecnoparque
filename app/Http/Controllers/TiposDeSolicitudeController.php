@@ -19,7 +19,7 @@ class TiposDeSolicitudeController extends Controller
      */
     public function index()
     {
-        $tiposDeSolicitudes = TiposDeSolicitude::paginate();
+        $tiposDeSolicitudes = TiposDeSolicitude::with('estado')->paginate();
 
         return view('tipos-de-solicitude.index', compact('tiposDeSolicitudes'))
             ->with('i', (request()->input('page', 1) - 1) * $tiposDeSolicitudes->perPage());

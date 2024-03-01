@@ -19,7 +19,7 @@ class PersonalizacioneController extends Controller
      */
     public function index()
     {
-        $personalizaciones = Personalizacione::paginate();
+        $personalizaciones = Personalizacione::with('estado')->paginate();
 
         return view('personalizacione.index', compact('personalizaciones'))
             ->with('i', (request()->input('page', 1) - 1) * $personalizaciones->perPage());

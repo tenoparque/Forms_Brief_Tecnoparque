@@ -37,7 +37,7 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Id Estado</th>
+										<th>Estado</th>
 
                                         <th></th>
                                     </tr>
