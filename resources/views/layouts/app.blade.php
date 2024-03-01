@@ -81,11 +81,16 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="#" class="sidebar-link" onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
+            
+                <form id="logout-form-sidebar" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
+            
         </aside>
         @endif
         @endif
