@@ -16,7 +16,7 @@ function displayRandomBackgroundImage() {
 // Verifica si estamos en la vista de inicio de sesión (por ejemplo, la URL contiene "/login")
 if (window.location.pathname.includes('/login')) {
     displayRandomBackgroundImage(); // Mostrar una imagen de fondo aleatoria inicialmente
-    setInterval(displayRandomBackgroundImage, 10000);
+    setInterval(displayRandomBackgroundImage, 1000);
 }
 
 
