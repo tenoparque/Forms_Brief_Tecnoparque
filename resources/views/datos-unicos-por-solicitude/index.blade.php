@@ -50,9 +50,9 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $datosUnicosPorSolicitude->nombre }}</td>
-											<td>{{ $datosUnicosPorSolicitude->id_tipos_de_datos }}</td>
-											<td>{{ $datosUnicosPorSolicitude->id_tipos_de_solicitudes }}</td>
-											<td>{{ $datosUnicosPorSolicitude->id_estados }}</td>
+											<td>{{ $datosUnicosPorSolicitude->tiposDeDato->nombre }}</td>
+											<td>{{ $datosUnicosPorSolicitude->tiposDeSolicitude->nombre }}</td>
+											<td>{{ $datosUnicosPorSolicitude->estado->nombre }}</td>
 
                                             <td>
                                                     <a class="btn btn-sm btn-primary " href="{{ route('datos-unicos-por-solicitudes.show',$datosUnicosPorSolicitude->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>

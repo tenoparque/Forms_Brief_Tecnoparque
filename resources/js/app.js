@@ -16,4 +16,5 @@ if (window.location.pathname.includes('/login')) {
     displayRandomBackgroundImage(); // Mostrar una imagen de fondo aleatoria inicialmente
     setInterval(displayRandomBackgroundImage, 10000);
 }
- // Cambiar la imagen de fondo aleatoriamente cada 20 segundos
+//Cambiar la imagen de fondo aleatoriamente cada 20 segundos
+

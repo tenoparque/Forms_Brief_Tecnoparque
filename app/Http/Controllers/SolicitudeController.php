@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DatosUnicosPorSolicitude;
 use App\Models\Estado;
 use App\Models\EstadosDeLasSolictude;
 use App\Models\EventosEspecialesPorCategoria;
@@ -39,7 +40,8 @@ class SolicitudeController extends Controller
         $estados = EstadosDeLasSolictude::all();
         $solicitudes = TiposDeSolicitude::all();
         $especiales = EventosEspecialesPorCategoria::all();
-        return view('solicitude.create', compact('solicitude' ,'estados' , 'solicitudes' , 'especiales' ));
+        $tipos = DatosUnicosPorSolicitude::where('id_tipos_de_solicitudes', 1)->get();
+        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'tipos' ));
     }
 
     /**

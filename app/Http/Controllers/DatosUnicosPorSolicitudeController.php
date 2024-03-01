@@ -21,7 +21,7 @@ class DatosUnicosPorSolicitudeController extends Controller
      */
     public function index()
     {
-        $datosUnicosPorSolicitudes = DatosUnicosPorSolicitude::paginate();
+        $datosUnicosPorSolicitudes = DatosUnicosPorSolicitude::with('tiposDeDato','tiposDeSolicitude','estado')->paginate();
 
         return view('datos-unicos-por-solicitude.index', compact('datosUnicosPorSolicitudes'))
             ->with('i', (request()->input('page', 1) - 1) * $datosUnicosPorSolicitudes->perPage());

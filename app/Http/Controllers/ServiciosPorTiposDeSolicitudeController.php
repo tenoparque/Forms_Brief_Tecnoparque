@@ -77,22 +77,24 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
     public function edit($id)
     {
         $serviciosPorTiposDeSolicitude = ServiciosPorTiposDeSolicitude::find($id);
+        $estados = Estado::all();
+        $solicitudes= TiposDeSolicitude::all();
 
-        return view('servicios-por-tipos-de-solicitude.edit', compact('serviciosPorTiposDeSolicitude'));
+        return view('servicios-por-tipos-de-solicitude.edit', compact('serviciosPorTiposDeSolicitude', 'estados', 'solicitudes'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  ServiciosPorTiposDeSolicitude $serviciosPorTiposDeSolicitude
+     * @param  ServiciosPorTiposDeSolicitude $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServiciosPorTiposDeSolicitude $serviciosPorTiposDeSolicitude)
+    public function update(Request $request, ServiciosPorTiposDeSolicitude $id)
     {
         request()->validate(ServiciosPorTiposDeSolicitude::$rules);
 
-        $serviciosPorTiposDeSolicitude->update($request->all());
+        $id->update($request->all());
 
         return redirect()->route('servicios-por-tipos-de-solicitudes.index')
             ->with('success', 'ServiciosPorTiposDeSolicitude updated successfully');

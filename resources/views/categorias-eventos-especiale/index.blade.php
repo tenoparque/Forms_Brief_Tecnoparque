@@ -48,7 +48,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $categoriasEventosEspeciale->nombre }}</td>
-											<td>{{ $categoriasEventosEspeciale->id_estado }}</td>
+											<td>{{ $categoriasEventosEspeciale->estado->nombre }}</td>
 
                                             <td>
                                                     <a class="btn btn-sm btn-primary " href="{{ route('categorias-eventos-especiales.show',$categoriasEventosEspeciale->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>

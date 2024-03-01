@@ -23,6 +23,18 @@
 
                         </form>
                     </div>
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <span class="card-title">{{ __('Create') }} Solicitude</span>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="{{ route('solicitudes.store') }}"  role="form" enctype="multipart/form-data">
+                                @csrf
+    
+                                @include('solicitude.form')
+    
+                            </form>
+                        </div>
                 </div>
             </div>
         </div>

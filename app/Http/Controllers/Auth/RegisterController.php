@@ -9,6 +9,7 @@ use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role as SpatieRol;
 
 class RegisterController extends Controller
 {
@@ -65,12 +66,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'celular' => $data ['celular'], // Adding the "celular" column
+        $user = User::create([
+            'name' => $data['name'], // Obtaining the name value provided through the name attribute
+            'apellidos' => $data['apellidos'], // Obtaining the apellidos value provided through the name attribute
+            'email' => $data['email'], // Obtaining the email value provided through the name attribute
+            'password' => Hash::make($data['password']), // Getting the value of the password through the name attribute and hashed at the same time
+            'celular' => $data ['celular'], // Obtaining the celular value provided through the name attribute
+            'id_nodo' => $data['id_nodo'], // Obtaining the id_nodo value provided through the name attribute
+            'id_estado' => 1 // Assigned the default active value
         ]);
+
+        $roleName = $data['role']; // Getting the value of the selected role through the attribute name
+
+        $role = SpatieRol::findByName($roleName, 'web'); // Obtaining the value of the selected role through the name attribute and saving it as a Spatie Role object. 
+
+        // Checking if the role is found
+        if ($role) {
+            // If the role is found it is assigned to the user
+            $user->assignRole($role);
+        }
+
+        return $user;
     }
 
     /**

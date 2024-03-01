@@ -69,5 +69,6 @@ Route::resource('solicitudes', SolicitudeController::class);
 
 Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolicitudeController::class);
 
-Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class);
+Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class)->parameters([
+    'servicios-por-tipos-de-solicitudes' => 'id']);
 
