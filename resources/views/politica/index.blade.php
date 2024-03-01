@@ -39,8 +39,8 @@
 										<th>Link</th>
 										<th>Descripcion</th>
 										<th>Qr</th>
-										<th>Id Usuario</th>
-										<th>Id Estado</th>
+										<th>Usuario</th>
+										<th>Estado</th>
 										<th>Titulo</th>
 
                                         <th></th>

@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Artifakt&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -28,7 +30,7 @@
 </head>
 <body>
     <div class="wrapper">
-        @if(Route::currentRouteName() !== 'login')
+        {{-- @if(Route::currentRouteName() !== 'login') --}}
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
@@ -66,7 +68,13 @@
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-popup"></i>
-                        <span>Tipo Campo x Solicitud</span>
+                        <span>Notification</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="lni lni-cog"></i>
+                        <span>Setting</span>
                     </a>
                 </li>
             </ul>
@@ -77,7 +85,7 @@
                 </a>
             </div>
         </aside>
-        @endif
+        {{-- @endif --}}
 
         <div class="main p-3">
             <div class="text-center">
