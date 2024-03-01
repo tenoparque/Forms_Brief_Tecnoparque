@@ -19,7 +19,7 @@ class CategoriasEventosEspecialeController extends Controller
      */
     public function index()
     {
-        $categoriasEventosEspeciales = CategoriasEventosEspeciale::paginate();
+        $categoriasEventosEspeciales = CategoriasEventosEspeciale::with('estado')->paginate();
 
         return view('categorias-eventos-especiale.index', compact('categoriasEventosEspeciales'))
             ->with('i', (request()->input('page', 1) - 1) * $categoriasEventosEspeciales->perPage());
