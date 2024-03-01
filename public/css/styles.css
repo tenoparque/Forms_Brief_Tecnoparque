@@ -1,4 +1,87 @@
+
+
 body {
     background-image: url('');
     background-size: cover;
 }
+/* styles.css */
+
+.container {
+justify-content: center;
+text-align: center;
+   
+}
+
+
+
+/* Estilos para el formulario de inicio de sesión */
+.card {
+    background-color: rgba(56, 169, 0, 0.705);
+    border-radius: 10px;
+    width: 520px ;
+    height: 800px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    padding-top: 70px;
+    margin-block-start: 100px ;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    
+}
+col-md-6{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+
+}
+
+
+.card-header {
+    background-color: #04AA6D;
+    color: white;
+    font-weight: bold;
+}
+.card-body {
+    align-items: center;
+}
+
+
+
+
+.btn-primary {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #038c5a;
+}
+
+.titulo{
+  text-align: center;
+  color: #ffffff;
+  
+
+}
+
+
+
+.subtitulo{
+    color: #f1e53d;
+    text-align: center;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+/* Personaliza otros elementos según tus necesidades */
+
+/* Asegúrate de cargar este archivo CSS en tu HTML */
