@@ -55,7 +55,7 @@
 											<td>{{ $politica->descripcion }}</td>
 											<td>{{ $politica->qr }}</td>
 											<td>{{ $politica->id_usuario }}</td>
-											<td>{{ $politica->estado->nombre }}</td>
+											<td>{{ $politica->id_estado }}</td>
 											<td>{{ $politica->titulo }}</td>
 
                                             <td>
