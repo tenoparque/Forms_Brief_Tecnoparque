@@ -32,7 +32,6 @@
 <body>
     <div class="wrapper">
         @if(Route::currentRouteName() !== 'login')
-        @if(Route::currentRouteName() !== 'register')
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
@@ -70,13 +69,7 @@
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-popup"></i>
-                        <span>Notification</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-cog"></i>
-                        <span>Setting</span>
+                        <span>Tipo Campo x Solicitud</span>
                     </a>
                 </li>
             </ul>
@@ -92,7 +85,6 @@
             </div>
             
         </aside>
-        @endif
         @endif
 
         <div class="main p-3">
