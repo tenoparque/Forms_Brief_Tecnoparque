@@ -1,3 +1,5 @@
+import './bootstrap';
+
 const images = [
     'images/fondoBrief4.jpg',
     'images/fondo2.jpg',
