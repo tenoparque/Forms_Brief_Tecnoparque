@@ -39,8 +39,8 @@
 										<th>Link</th>
 										<th>Descripcion</th>
 										<th>Qr</th>
-										<th>Id Usuario</th>
-										<th>Id Estado</th>
+										<th>Usuario</th>
+										<th>Estado</th>
 										<th>Titulo</th>
 
                                         <th></th>
@@ -55,7 +55,7 @@
 											<td>{{ $politica->descripcion }}</td>
 											<td>{{ $politica->qr }}</td>
 											<td>{{ $politica->id_usuario }}</td>
-											<td>{{ $politica->id_estado }}</td>
+											<td>{{ $politica->estado->nombre }}</td>
 											<td>{{ $politica->titulo }}</td>
 
                                             <td>
