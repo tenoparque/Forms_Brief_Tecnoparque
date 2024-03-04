@@ -27,6 +27,24 @@ class NodoController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $nodos->perPage());
     }
 
+    public function search(Request $request)
+    {
+        $output= "";
+        $nodos = Nodo::where('nombre', 'LIKE', '%'.$request -> search.'%')->get();
+
+        foreach($nodos as $nodo){
+            $output .= 
+            '<tr>
+            <td>'.$nodo->id.'</td>
+            <td>'.$nodo->nombre.'</td>
+            <td>'.$nodo->estado->nombre.'</td>
+            <td>'.$nodo->ciudade->nombre.'</td>
+            </tr>';
+        }
+
+        return response($output);
+    }
+
     /**
      * 
      

@@ -46,8 +46,9 @@ Route::resource('politicas',PoliticaController ::class);
 
 Route::resource('departamentos', DepartamentoController::class);
 
-Route::resource('nodos', NodoController::class);
-
+// Nodos
+Route::resource('nodos', NodoController::class); // Nodos Route
+Route::get('/searchNodo', [NodoController::class, 'search']); // Nodos Searching Route
 
 
 Route::resource('roles', RoleController::class);
@@ -71,4 +72,7 @@ Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolic
 
 Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class)->parameters([
     'servicios-por-tipos-de-solicitudes' => 'id']);
+
+Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
+
 

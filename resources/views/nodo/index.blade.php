@@ -32,6 +32,10 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
+                                <div class="card-header">
+                                    <input class="form-control" id="search" placeholder="Ingrese el nombre del Nodo...">
+                                </div>
+                            
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
@@ -43,7 +47,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="alldata">
                                     @foreach ($nodos as $nodo)
                                         <tr>
                                             <td>{{ ++$i }}</td>
@@ -59,6 +63,10 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
+
+                                <tbody id="Content" class="dataSearched">
+                                    
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -67,4 +75,34 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $('#search').on('keyup',function()
+        {
+            $value=$(this).val();
+
+            if ($value) {
+                $('.alldata').hide();
+                $('.dataSearched').show();
+            } else {
+                $('.alldata').show();
+                $('.dataSearched').hide(); // Cambiado de searchedData a dataSearched
+            }
+
+            $.ajax({
+                type: 'get',
+                url: "{{ URL::to('searchNodo') }}",
+                data:{'search': $value},
+
+                success:function(data)
+                {
+                    $('#Content').html(data);
+                }
+            });
+        })
+        
+
+        
+    </script>
+    
 @endsection

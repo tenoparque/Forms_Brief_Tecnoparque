@@ -8,6 +8,7 @@ use App\Models\EstadosDeLasSolictude;
 use App\Models\EventosEspecialesPorCategoria;
 use App\Models\Solicitude;
 use App\Models\TiposDeSolicitude;
+use App\Models\ServiciosPorTiposDeSolicitude; // Añade la importación de la clase ServiciosPorTiposDeSolicitudes
 use Illuminate\Http\Request;
 
 /**
@@ -43,6 +44,30 @@ class SolicitudeController extends Controller
     
         return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales'));
     }
+
+    /**
+     * Process the selected ID from the dropdown.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function processSelectedId(Request $request)
+    {
+        $selectedTypeId = $request->input('tipo_solicitud_id');
+
+        // Obtener los datos únicos por solicitud asociados al tipo de solicitud seleccionado
+        $datosUnicos = DatosUnicosPorSolicitude::where('id_tipos_de_solicitudes', $selectedTypeId)->get();
+    
+        // Obtener los servicios por solicitud asociados al tipo de solicitud seleccionado
+        $servicios = ServiciosPorTiposDeSolicitude::where('id_tipo_de_solicitud', $selectedTypeId)->get();
+    
+        // Devolver los datos en formato JSON
+        return response()->json([
+            'datos_unicos' => $datosUnicos,
+            'servicios' => $servicios
+        ]);
+    }
+
 
     /**
      * Store a newly created resource in storage.
