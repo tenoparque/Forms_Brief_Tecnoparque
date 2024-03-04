@@ -25,9 +25,7 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="row mb-3">
-
                             <div class="col-md-9">
                                 <input style="margin-left: 65px"  id="password" placeholder="CONTRASEÑA" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
@@ -36,19 +34,21 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <br>
+                                @if (Route::has('password.request'))
+                                <a style="padding-left: 150px" class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
                             </div>
                         </div>
                       <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-2">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('ENTRAR') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                               
                             </div>
                         </div>
                         <div class="div_logo">
