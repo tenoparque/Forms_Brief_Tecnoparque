@@ -40,8 +40,8 @@ class SolicitudeController extends Controller
         $estados = EstadosDeLasSolictude::all();
         $solicitudes = TiposDeSolicitude::all();
         $especiales = EventosEspecialesPorCategoria::all();
-        $tipos = DatosUnicosPorSolicitude::where('id_tipos_de_solicitudes', 1)->get();
-        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'tipos' ));
+    
+        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales'));
     }
 
     /**
