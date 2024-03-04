@@ -1,3 +1,6 @@
+*{
+    font-family: "Work Sans", sans-serif;
+}
 
 ::after,
 ::before {
@@ -26,9 +29,7 @@ h1 {
     cursor: pointer;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-}
+
 
 .wrapper {
     display: flex;
@@ -40,6 +41,18 @@ body {
     overflow: hidden;
     transition: all 0.35s ease-in-out;
    
+}
+/* register css */
+
+.UsuariosFlex{
+    margin-right: 0px;
+    color: #24344c ;
+    font-weight:900;
+}
+
+.RegisterFlex{
+    color: #39A900;
+    font-weight:900;
 }
 
 #sidebar {
