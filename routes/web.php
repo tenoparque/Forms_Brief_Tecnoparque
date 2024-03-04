@@ -72,3 +72,6 @@ Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolic
 Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class)->parameters([
     'servicios-por-tipos-de-solicitudes' => 'id']);
 
+Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
+
+
