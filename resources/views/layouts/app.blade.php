@@ -39,7 +39,7 @@
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
-                    <i class="lni lni-grid-alt"></i>
+                    <i class="lni lni-chevron-right"></i>
                 </button>
                 <div class="sidebar-logo">
                     <a href="#">Brief</a>
@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="/roles" class="sidebar-link">
                         <i class="lni lni-agenda"></i>
                         <span>Rol</span>
                     </a>
