@@ -46,8 +46,9 @@ Route::resource('politicas',PoliticaController ::class);
 
 Route::resource('departamentos', DepartamentoController::class);
 
-Route::resource('nodos', NodoController::class);
-
+// Nodos
+Route::resource('nodos', NodoController::class); // Nodos Route
+Route::get('/searchNodo', [NodoController::class, 'search']); // Nodos Searching Route
 
 
 Route::resource('roles', RoleController::class);
