@@ -34,14 +34,16 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <br>
-                                @if (Route::has('password.request'))
-                                <a style="padding-left: 150px" class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
                             </div>
-                        </div>
+                            <br>
+                                <div  class="forgot">
+                                    <!-- Alinea el enlace a la derecha -->
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="white-space: nowrap;">
+                                        <!-- Evita el salto de línea -->
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                </div>
+                        
                       <div class="row mb-0">
                             <div class="col-md-8 offset-md-2">
                                 <button type="submit" class="btn btn-primary">
