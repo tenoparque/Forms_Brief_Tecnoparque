@@ -97,10 +97,20 @@ col-md-6{
         padding: 8px 18px;
         margin-bottom: 50px;
         cursor: pointer;
+        align-items: center;
+        display: block;
+
     }
     
 
 
 
 /* Estilos para el formulario de cambiar contraseña */
+.card-header {
+    background-color: #39A900;
+    color: white;
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: larger;
 
+}
