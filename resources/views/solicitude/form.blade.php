@@ -49,10 +49,7 @@
                     
                     // Construir textboxes para los datos únicos por solicitud
                     var datosUnicosTextboxes = '';
-                    // $.each(response.datos_unicos, function (index, datoUnico) {
-                    //     datosUnicosTextboxes += '<label>' + datoUnico.nombre + '</label>';
-                    //     datosUnicosTextboxes += '<label>' +  ' </label><input type="text" name="datos_unicos_por_solicitud_' + datoUnico.id + '" class="form-control" placeholder="' + datoUnico.nombre + '"><br>';
-                    // });
+                    
 
                     $.each(response.datos_unicos, function (index, datoUnico) {
                         datosUnicosTextboxes += '<div class="form-group">';
