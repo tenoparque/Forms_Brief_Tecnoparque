@@ -40,7 +40,7 @@
                                     <!-- Alinea el enlace a la derecha -->
                                     <a class="btn btn-link" href="{{ route('password.request') }}" style="white-space: nowrap;">
                                         <!-- Evita el salto de línea -->
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('¿ Olvidaste tu contraseña?') }}
                                     </a>
                                 </div>
                         
