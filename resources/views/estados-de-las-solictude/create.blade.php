@@ -21,6 +21,11 @@
 
                             @include('estados-de-las-solictude.form')
 
+                            //aca debe hacer el diseño//
+
+
+
+
                         </form>
                     </div>
                 </div>
