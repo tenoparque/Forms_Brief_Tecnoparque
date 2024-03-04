@@ -47,46 +47,60 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="#" class="sidebar-link" style="text-decoration: none">
                         <i class="lni lni-user"></i>
                         <span>Usuario</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/roles" class="sidebar-link">
+                    <a href="/roles" class="sidebar-link" style="text-decoration: none">
                         <i class="lni lni-agenda"></i>
                         <span>Rol</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/solicitudes" class="sidebar-link  has-dropdown collapsed">
+                    <a href="/solicitudes" class="sidebar-link  has-dropdown collapsed" style="text-decoration: none">
                         <i class="lni lni-protection"></i>
                         <span>Solicitud</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="servicios-por-tipos-de-solicitudes" class="sidebar-link collapsed has-dropdown">
+                    <a href="servicios-por-tipos-de-solicitudes" class="sidebar-link collapsed has-dropdown" style="text-decoration: none">
                         <i class="lni lni-layout"></i>
                         <span>Servicios</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tipos-de-datos" class="sidebar-link">
+                    <a href="tipos-de-datos" class="sidebar-link" style="text-decoration: none">
                         <i class="lni lni-popup"></i>
                         <span>Tipo Campo x Solicitud</span>
                     </a>
                 </li>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <li>
+                    <div class="sidebar-footer">
+                        <a href="#" class="sidebar-link" style="text-decoration: none" onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
+                            <i class="lni lni-exit"></i>
+                            <span>Cerrar sesión</span>
+                        </a>
+                    
+                        <form id="logout-form-sidebar" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link2" style="text-decoration: none">
+                        <img class="text-brief" src="/images/recursos/texto-brief.png"></img>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link2" style="text-decoration: none">
+                        <span class="text-yellow">Plataforma de solicitudes</span>
+                    </a>
+                </li>
+                
             </ul>
-            <div class="sidebar-footer">
-                <a href="#" class="sidebar-link" onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
-                    <i class="lni lni-exit"></i>
-                    <span>Logout</span>
-                </a>
-            
-                <form id="logout-form-sidebar" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
             
         </aside>
         @endif
