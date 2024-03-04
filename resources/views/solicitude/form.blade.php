@@ -52,19 +52,9 @@
                     
 
                     $.each(response.datos_unicos, function (index, datoUnico) {
-                        datosUnicosTextboxes += '<div class="form-group">';
-                        datosUnicosTextboxes += '<div class="row">';
-                        datosUnicosTextboxes += '<div class="col-12 col-md-6">';
-                        datosUnicosTextboxes += '<label>' + datoUnico.nombre + '</label>';
-                        datosUnicosTextboxes += '</div>';
-                        datosUnicosTextboxes += '<div class="col-12 col-md-6">';
-                        datosUnicosTextboxes += '<input type="text" name="datos_unicos_por_solicitud_' + datoUnico.id + '" class="form-control" placeholder="' + datoUnico.nombre + '">';
-                        datosUnicosTextboxes += '</div>';
-                        datosUnicosTextboxes += '</div>';
-                        datosUnicosTextboxes += '</div>';
-});
-
-                   
+                        
+                        datosUnicosTextboxes += '<label>' +  ' </label><input type="text" name="datos_unicos_por_solicitud_' + datoUnico.id + '" class="form-control" placeholder="' + datoUnico.nombre + '"><br>';
+                    });
 
                     // Mostrar los textboxes en el área designada
                     $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
