@@ -32,7 +32,7 @@
     @vite('resources/js/validateUserRegister.js')
 </head>
 <body>
-    <div class="wrapper">
+    <div class="rapper">
         @if(Route::currentRouteName() !== 'login')
         <aside id="sidebar">
             <div class="d-flex">

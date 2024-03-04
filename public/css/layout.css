@@ -23,8 +23,9 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.wrapper {
+.rapper {
     display: flex;
+    text-align: left;
 }
 
 .main {
