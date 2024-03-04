@@ -19,6 +19,13 @@ h1 {
     font-size: 1.5rem;
 }
 
+.img-perfil{
+    width: "auto";
+    height: 80px;
+    margin-block-start: 30px;
+    cursor: pointer;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
 }

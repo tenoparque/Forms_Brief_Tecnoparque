@@ -42,7 +42,7 @@
                     <i class="lni lni-chevron-right"></i>
                 </button>
                 <div class="sidebar-logo">
-                    <a href="#">Brief</a>
+                    <img class="img-perfil" src="/images/recursos/foto-perfil.png"></img>
                 </div>
             </div>
             <ul class="sidebar-nav">
@@ -59,19 +59,19 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link  has-dropdown collapsed">
+                    <a href="/solicitudes" class="sidebar-link  has-dropdown collapsed">
                         <i class="lni lni-protection"></i>
                         <span>Solicitud</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown">
+                    <a href="servicios-por-tipos-de-solicitudes" class="sidebar-link collapsed has-dropdown">
                         <i class="lni lni-layout"></i>
                         <span>Servicios</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="tipos-de-datos" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Tipo Campo x Solicitud</span>
                     </a>
