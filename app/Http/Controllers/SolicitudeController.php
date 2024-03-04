@@ -53,14 +53,19 @@ class SolicitudeController extends Controller
      */
     public function processSelectedId(Request $request)
     {
-        // Obtener el ID del tipo de solicitud seleccionado enviado desde la vista
         $selectedTypeId = $request->input('tipo_solicitud_id');
 
-        // Obtener los servicios asociados al tipo de solicitud seleccionado
-        $services = ServiciosPorTiposDeSolicitude::where('id_tipo_de_solicitud', $selectedTypeId)->get();
-
-        // Devolver los servicios en formato JSON
-        return response()->json(['services' => $services]);
+        // Obtener los datos únicos por solicitud asociados al tipo de solicitud seleccionado
+        $datosUnicos = DatosUnicosPorSolicitude::where('id_tipos_de_solicitudes', $selectedTypeId)->get();
+    
+        // Obtener los servicios por solicitud asociados al tipo de solicitud seleccionado
+        $servicios = ServiciosPorTiposDeSolicitude::where('id_tipo_de_solicitud', $selectedTypeId)->get();
+    
+        // Devolver los datos en formato JSON
+        return response()->json([
+            'datos_unicos' => $datosUnicos,
+            'servicios' => $servicios
+        ]);
     }
 
 
