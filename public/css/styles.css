@@ -106,7 +106,6 @@ col-md-6{
 }
 
 .email {
-    /* Espacio superior */
     text-align: center;
     display: flex; /* Centrar verticalmente */
     align-items: center;
@@ -139,8 +138,13 @@ font-family:"Work Sans", sans-serif;
 
 }
 .form-group{
+<<<<<<< HEAD
+    align-items: center;
+    /* width: 200%; */
+=======
     /* align-items: center;
     width: 200%; */
+>>>>>>> d11829258329d81990c12f27e95646073d0a533a
     flex-direction: column;
     margin: top 10px;
 }
@@ -150,3 +154,8 @@ font-family:"Work Sans", sans-serif;
     margin-left: 0%;
 }
     
+/* Estilos para el formulario  user */
+.index{
+   
+    
+}

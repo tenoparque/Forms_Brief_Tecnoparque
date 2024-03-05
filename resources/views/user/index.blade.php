@@ -5,11 +5,12 @@
 @endsection
 
 @section('content')
+<div class="container-fluid" style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; height: 100vh;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
+                <div class="card index">
+                    <div class="card-header index">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
@@ -40,8 +41,9 @@
 										<th>Email</th>
 										<th>Celular</th>
 										<th>Apellidos</th>
-										<th>Id Nodo</th>
-										<th>Id Estado</th>
+										<th>Nodo</th>
+										<th>Estado</th>
+                                        <th>Rol</th>
 
                                         <th></th>
                                     </tr>
@@ -55,8 +57,16 @@
 											<td>{{ $user->email }}</td>
 											<td>{{ $user->celular }}</td>
 											<td>{{ $user->apellidos }}</td>
-											<td>{{ $user->id_nodo }}</td>
-											<td>{{ $user->id_estado }}</td>
+											<td>{{ $user->nodo->nombre }}</td>
+                                            <td>{{ $user->estado->nombre }}</td>
+											<td>
+                                                @foreach($user->roles as $role)
+                                                    {{ $role->name }}
+                                                    @if (!$loop->last)
+                                                        <br>
+                                                    @endif
+                                                @endforeach
+                                            </td>
 
                                             <td>
                                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">

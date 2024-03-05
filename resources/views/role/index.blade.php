@@ -40,7 +40,7 @@
                                         <th>No</th>
                                         
 										<th>Name</th>
-										<th>Guard Name</th>
+										<!-- <th>Guard Name</th> -->
 
                                         <th></th>
                                     </tr>
