@@ -38,9 +38,6 @@
         @if(Route::currentRouteName() !== 'login')
         <aside id="sidebar">
             <div class="">
-                <button class="toggle-btn" type="button">
-                    <i class="lni lni-chevron-right"></i>
-                </button>
                 <div class=" d-flex align-items-center justify-content-center">
                     <img class="img-perfil " src="/images/recursos/foto-perfil.png"></img>
                 </div>
@@ -102,6 +99,11 @@
                     </div>
                 </div>  
                </aside>
+                <div>
+                    <button class="toggle-btn" type="button">
+                        <img class="flecha" src="/images/recursos/flecha.png"></img>
+                    </button>
+                </div>
         @endif
 
         <div class="main">
