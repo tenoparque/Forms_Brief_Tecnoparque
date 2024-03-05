@@ -35,10 +35,18 @@ class NodoController extends Controller
         foreach($nodos as $nodo){
             $output .= 
             '<tr>
-            <td>'.$nodo->id.'</td>
-            <td>'.$nodo->nombre.'</td>
-            <td>'.$nodo->estado->nombre.'</td>
-            <td>'.$nodo->ciudade->nombre.'</td>
+                <td>' . $nodo->id . '</td>
+                <td>' . $nodo->nombre . '</td>
+                <td>' . $nodo->estado->nombre . '</td>
+                <td>' . $nodo->ciudade->nombre . '</td>
+                <td>
+                    <a href="' . url('/nodos/' . $nodo->id) . '" class="btn btn-sm btn-primary">
+                        <i class="fa fa-fw fa-eye"></i> Show
+                    </a>
+                    <a href="' . url('/nodos/' . $nodo->id . '/edit') . '" class="btn btn-sm btn-success">
+                        <i class="fa fa-fw fa-edit"></i> Edit
+                    </a>
+                </td>
             </tr>';
         }
 
