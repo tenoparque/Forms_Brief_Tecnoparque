@@ -42,6 +42,7 @@
                     <img class="img-perfil " src="/images/recursos/foto-perfil.png"></img>
                 </div>
             </div>
+            
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link" style="text-decoration: none">
@@ -80,7 +81,7 @@
                     </a>
                 </li>
                 <hr class="hrmenu">
-                <br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link" style="text-decoration: none" onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
                         <i class="lni lni-exit"></i>

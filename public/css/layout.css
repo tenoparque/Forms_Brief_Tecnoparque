@@ -22,6 +22,7 @@ h1 {
 .img-perfil{
     width: "auto";
     height: 80px;
+    margin-block-start: 55px;
 }
 
 .textbrief{
@@ -110,6 +111,8 @@ h1 {
 .sidebar-nav {
     padding: 2rem 0;
     flex: 1 1 auto;
+    /* background-color: red; */
+    margin-top: 110px;
 }
 
 a.sidebar-link {
