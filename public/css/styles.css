@@ -40,15 +40,6 @@ col-md-6{
     margin-bottom: 50px;
     font-weight: bold;
 }
-.card-body {
-    align-items: center;
-
-        display: flex;
-        flex-direction: column; /* Alinea los elementos verticalmente */
-        align-items: center; /* Centra verticalmente */
-        justify-content: center; /* Centra horizontalmente */
-    
-}
 
 .my-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -104,7 +95,6 @@ col-md-6{
     font-weight: bold;
     font-family:"Work Sans", sans-serif;
     font-size: 150%;
-    width: 50%; 
     border-radius: 40px;
 }
 
@@ -115,6 +105,7 @@ col-md-6{
     align-items: center;
     justify-content: center;
     margin-top: 15%;
+    width: 100%;
     box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 
     
