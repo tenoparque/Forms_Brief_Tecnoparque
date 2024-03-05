@@ -63,7 +63,7 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
-
+                                <!-- Another tbody is created for the search records -->
                                 <tbody id="Content" class="dataSearched">
                                     
                                 </tbody>
@@ -75,8 +75,12 @@
             </div>
         </div>
     </div>
+
+    <!-- JS Scripts -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
+        // javascript and ajax code
         $('#search').on('keyup',function()
         {
             $value=$(this).val();
@@ -86,7 +90,7 @@
                 $('.dataSearched').show();
             } else {
                 $('.alldata').show();
-                $('.dataSearched').hide(); // Cambiado de searchedData a dataSearched
+                $('.dataSearched').hide(); 
             }
 
             $.ajax({
@@ -100,9 +104,6 @@
                 }
             });
         })
-        
-
-        
     </script>
     
 @endsection
