@@ -16,6 +16,7 @@ use App\Http\Controllers\SolicitudeController;
 use App\Http\Controllers\TiposDeDatoController;
 use App\Http\Controllers\TiposDeSolicitudeController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -85,4 +86,4 @@ Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicit
 
 Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
 
-
+Route::resource('users', UserController::class);
