@@ -2,25 +2,40 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-    <header>
-        <div class="admin row">
-            <div col-md-4>
-                <div class="text-start m-3">
-                    <h2>BIENVENIDO</h2>
-                </div>
-                <div class="text-start m-3">
-                    <h2>
-                        SUPER - ADMIN
-                    </h2>
+
+    <header class="container-fluid mt-5">
+        <div class="row d-flex justify-content-between">
+            <!-- Carta Izquierda -->
+            <div class="col-md-4 col-sm-6 mb-3 mb-sm-0">
+                <div class="">
+                    <div class="text-start">
+                        <h5 class="welcoRe">BIENVENIDO</h5>
+                        <div class="d-flex">
+                            <h2 class="supereh">SUPER -</h2>
+                            <h2 class="adminreh">ADMIN</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                
+
+            <!-- Carta Derecha -->
+            <div class="col-sm-6 " style="width: 25rem;">
+                <div class="">
+                    <div class="d-flex">
+                        <img src="../images/logosenaverde.png" width="70" height="70" alt="">
+                        <div class="vr mx-2"></div>
+                        <div class="logoSenaHead text-start">
+                            <h2 class="RedTcenopa">Red Tecnoparque</h2>
+                            <h2 class="">Colombia</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
     </header>
 
-    <section class="container  shadow p-4 mb-5 bg-light rounded">
+    <section class="container  shadow p-4  my-5 bg-light rounded">
 
         <div class="d-flex">
             <div class="">
@@ -139,9 +154,9 @@
 
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-12 d-flex justify-content-end">
 
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary ">
                     {{ __('Register') }}
                 </button>
 

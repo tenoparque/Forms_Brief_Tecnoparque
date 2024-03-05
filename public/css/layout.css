@@ -205,10 +205,34 @@ a.sidebar-link:hover {
 
 .UsuariosFlex{
     margin-right: 10px;
-    
+    color: #26344c ;
 }
 
 .RegisterFlex{
     color: #39A900;
     font-weight:900;
 }
+
+/* welcome div */
+
+
+
+.welcoRe{
+    font-weight: 400;
+    margin-bottom: 0;
+
+}
+.supereh{
+    font-weight:600;
+    color: #39A900;
+}
+.adminreh{
+    font-weight:600;
+    color: #26344c;
+ 
+}
+.RedTcenopa{
+    font-weight:800;
+    color: #39A900;
+}
+
