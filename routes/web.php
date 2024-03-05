@@ -55,8 +55,10 @@ Route::get('/searchDepartamento', [DepartamentoController::class, 'search']); //
 Route::resource('nodos', NodoController::class); // Nodos Route
 Route::get('/searchNodo', [NodoController::class, 'search']); // Nodos Searching Route
 
+// Roles
+Route::resource('roles', RoleController::class); // Roles Route
+Route::get('/searchRol', [RoleController::class, 'search']); // Roles Searching Route
 
-Route::resource('roles', RoleController::class);
 Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class);
 
 Route::resource('tipos-de-datos', TiposDeDatoController::class);
