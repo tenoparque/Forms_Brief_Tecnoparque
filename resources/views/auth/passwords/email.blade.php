@@ -8,7 +8,7 @@
             <div class="card email ">
                 <div class="card-header">{{ __('Restablecer Contraseña') }}</div>
 
-                <div class="card-body">
+                <div class="card-body-email">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
