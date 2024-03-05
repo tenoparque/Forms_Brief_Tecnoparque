@@ -5,6 +5,7 @@
             <label for="id_tipos_de_solicitudes">Tipo de Solicitud</label>
             <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes" class="form-control selectpicker"
                 data-style="btn-primary" title="Seleccionar un Tipo de Solicitud" required>
+                <option value="" disabled selected>Seleccionar Tipo de Solicitud...</option>
                 @foreach ($solicitudes as $solicitud)
                     <option value="{{ $solicitud->id }}">{{ $solicitud->nombre }}</option>
                 @endforeach
