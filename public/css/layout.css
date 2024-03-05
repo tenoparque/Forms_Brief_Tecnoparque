@@ -20,11 +20,14 @@ h1 {
 }
 
 .redtecnocol{
-    margin-right: 10px;
+    margin-left: 450px;
+    /* background-color: yellow; */
 }
 
 .text-wel{
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    margin-left: 18px;
 }
 
 .img-perfil{
@@ -228,6 +231,7 @@ a.sidebar-link:hover {
 .welcoRe{
     font-weight: 400;
     margin-bottom: 0;
+    text-align: left;
 
 }
 .supereh{
