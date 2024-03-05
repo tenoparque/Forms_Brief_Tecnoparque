@@ -47,7 +47,9 @@ Route::resource('estados', EstadoController::class);
 
 Route::resource('politicas',PoliticaController ::class);
 
-Route::resource('departamentos', DepartamentoController::class);
+// Departamentos
+Route::resource('departamentos', DepartamentoController::class); // Departamentos Route
+Route::get('/searchDepartamento', [DepartamentoController::class, 'search']); // Ciudades Searching Route
 
 // Nodos
 Route::resource('nodos', NodoController::class); // Nodos Route
