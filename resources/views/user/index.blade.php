@@ -40,8 +40,9 @@
 										<th>Email</th>
 										<th>Celular</th>
 										<th>Apellidos</th>
-										<th>Id Nodo</th>
-										<th>Id Estado</th>
+										<th>Nodo</th>
+										<th>Estado</th>
+                                        <th>Rol</th>
 
                                         <th></th>
                                     </tr>
@@ -56,7 +57,15 @@
 											<td>{{ $user->celular }}</td>
 											<td>{{ $user->apellidos }}</td>
 											<td>{{ $user->id_nodo }}</td>
-											<td>{{ $user->id_estado }}</td>
+                                            <td>{{ $user->id_nodo }}</td>
+											<td>
+                                                @foreach($user->roles as $role)
+                                                    {{ $role->name }}
+                                                    @if (!$loop->last)
+                                                        <br>
+                                                    @endif
+                                                @endforeach
+                                            </td>
 
                                             <td>
                                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
