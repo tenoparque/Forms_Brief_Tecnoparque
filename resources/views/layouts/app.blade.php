@@ -91,12 +91,8 @@
                         <h1 class="textbrief">Brief</h1>
                         <p class="textbriefsol">Plataforma de solicitudes</p>
                     </div>
-                </div>
-                
-                
-           
-            
-        </aside>
+                </div>  
+               </aside>
         @endif
 
         <div class="main">

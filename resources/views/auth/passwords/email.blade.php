@@ -2,10 +2,10 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-<div class="container-fluid" style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; height: 100vh; ">
+<div class="container-fluid " style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; height: 100vh; ">
     <div class="row justify-content-center" >
         <div class="col-md-6">
-            <div class="card">
+            <div class="card mt-5">
                 <div class="card-header">{{ __('Restablecer Contraseña') }}</div>
 
                 <div class="card-body">
@@ -35,7 +35,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary-email">
-                                    {{ __('Enviar Enlace de restablecimiento') }}
+                                    {{ __('Enviar link de restablecimiento') }}
                                 </button>
                             </div>
                         </div>
