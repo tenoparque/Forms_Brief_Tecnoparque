@@ -42,8 +42,14 @@
                 success: function (response) {
                     // Construir checkboxes para los servicios por solicitud
                     var serviciosCheckboxes = '';
+                    var checkboxCounter = 0;
                     $.each(response.servicios, function (index, servicio) {
-                        serviciosCheckboxes += '<label><input type="checkbox" name="servicios_por_tipo[]" value="' + servicio.id + '"> ' + servicio.nombre + '</label><br>';
+                        if(checkboxCounter % 2 === 0){
+                            serviciosCheckboxes += '<br>';
+                        } 
+                        serviciosCheckboxes += '<label><input type="checkbox" name="servicios_por_tipo[]" value="' + servicio.id + '"> ' + servicio.nombre + '</label>';
+                        checkboxCounter++;
+
                     });
                     // Mostrar los checkboxes en el área designada
                     $('#servicesComboBoxContainer').html(serviciosCheckboxes);
