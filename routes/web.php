@@ -39,7 +39,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-// Ciudaes
+// Ciudades
 Route::resource('ciudades', CiudadeController::class); // Ciudades Route
 Route::get('/searchCiudad', [CiudadeController::class, 'search']); // Ciudades Searching Route
 
@@ -59,8 +59,11 @@ Route::get('/searchNodo', [NodoController::class, 'search']); // Nodos Searching
 Route::resource('roles', RoleController::class); // Roles Route
 Route::get('/searchRol', [RoleController::class, 'search']); // Roles Searching Route
 
-Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class);
+// Estados de las solicitudes
+Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class); // Estados de las solicitudes
+Route::get('/searchEstadoSolicitud', [EstadosDeLasSolictudeController::class, 'search']); // Roles Searching Route
 
+// Tipos de Datos
 Route::resource('tipos-de-datos', TiposDeDatoController::class);
 
 Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class);
