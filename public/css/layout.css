@@ -22,30 +22,20 @@ h1 {
 .img-perfil{
     width: "auto";
     height: 80px;
-    margin-block-start: 30px;
-    margin-right: 180px;
-    cursor: pointer;
+}
+
+.textbrief{
+    color: white;
+    font-weight: 900;
+    font-size: 50px;
     
 }
 
-.text-brief{
-    width: auto;
-    height: 80px;
-    /* background-color: red; */
-    margin-top: 20px;
-    align-items: center;
-    margin-left: 35px;
-    margin-top: 48px;
+.textbriefsol{
+    color: yellow;
 }
 
-.text-yellow{
-    /* background-color: gray; */
-    width: 210px;
-    color: yellow;
-    text-align: center;
-    position: absolute;
-    margin-block-start: -50px;
-}
+
 
 
 
@@ -61,18 +51,7 @@ h1 {
     
    
 }
-/* register css */
 
-.UsuariosFlex{
-    margin-right: 0px;
-    color: #24344c ;
-    font-weight:900;
-}
-
-.RegisterFlex{
-    color: #39A900;
-    font-weight:900;
-}
 
 #sidebar {
     width: 70px;
@@ -103,26 +82,19 @@ h1 {
     color: #FFF;
 }
 
-.sidebar-logo {
-    margin: auto 0;
-}
 
-.sidebar-logo a {
-    color: #FFF;
-    font-size: 1.15rem;
-    font-weight: 600;
-}
 
-#sidebar:not(.expand) .sidebar-logo,
-#sidebar:not(.expand) a.sidebar-link span {
+
+#sidebar:not(.expand) .img-perfil,
+#sidebar:not(.expand) a.sidebar-link span,
+#sidebar:not(.expand) .textbrief,
+#sidebar:not(.expand) .textbriefsol{
     display: none;
 }
 
-#sidebar:not(.expand) .sidebar-logo,
-#sidebar:not(.expand) a.sidebar-link2 span,
-#sidebar:not(.expand) a.sidebar-link2 img {
-    display: none;
-}
+
+
+
 
 .sidebar-nav {
     padding: 2rem 0;
@@ -191,7 +163,7 @@ a.sidebar-link:hover {
     opacity: 1;
 }
 
-#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+#sidebar.expand .sidebar-link [data-bs-toggle="collapse"]::after {
     border: solid;
     border-width: 0 .075rem .075rem 0;
     content: "";
@@ -204,25 +176,21 @@ a.sidebar-link:hover {
     transition: all .2s ease-out;
 }
 
-#sidebar.expand .sidebar-link2[data-bs-toggle="collapse"]::after {
-    border: solid;
-    border-width: 0 .075rem .075rem 0;
-    content: "";
-    display: inline-block;
-    padding: 2px;
-    position: absolute;
-    right: 1.5rem;
-    top: 1.4rem;
-    transform: rotate(-135deg);
-    transition: all .2s ease-out;
-}
 
-#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+
+#sidebar.expand .sidebar-link [data-bs-toggle="collapse"].collapsed::after {
     transform: rotate(45deg);
     transition: all .2s ease-out;
 }
 
-#sidebar.expand .sidebar-link2[data-bs-toggle="collapse"].collapsed::after {
-    transform: rotate(45deg);
-    transition: all .2s ease-out;
+/* register css */
+
+.UsuariosFlex{
+    margin-right: 10px;
+    
+}
+
+.RegisterFlex{
+    color: #39A900;
+    font-weight:900;
 }

@@ -37,12 +37,12 @@
     <div class="wrapper">
         @if(Route::currentRouteName() !== 'login')
         <aside id="sidebar">
-            <div class="d-flex">
+            <div class="">
                 <button class="toggle-btn" type="button">
                     <i class="lni lni-chevron-right"></i>
                 </button>
-                <div class="sidebar-logo">
-                    <img class="img-perfil" src="/images/recursos/foto-perfil.png"></img>
+                <div class=" d-flex align-items-center justify-content-center">
+                    <img class="img-perfil " src="/images/recursos/foto-perfil.png"></img>
                 </div>
             </div>
             <ul class="sidebar-nav">
@@ -76,38 +76,32 @@
                         <span>Tipo Campo x Solicitud</span>
                     </a>
                 </li>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <li>
-                    <div class="sidebar-footer">
-                        <a href="#" class="sidebar-link" style="text-decoration: none" onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
-                            <i class="lni lni-exit"></i>
-                            <span>Cerrar sesión</span>
-                        </a>
-                    
-                        <form id="logout-form-sidebar" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link2" style="text-decoration: none">
-                        <img class="text-brief" src="/images/recursos/texto-brief.png"></img>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link2" style="text-decoration: none">
-                        <span class="text-yellow">Plataforma de solicitudes</span>
-                    </a>
-                </li>
-                
             </ul>
+                <div class="sidebar-footer">
+                    <a href="#" class="sidebar-link" style="text-decoration: none" onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
+                        <i class="lni lni-exit"></i>
+                        <span>Cerrar sesión</span>
+                    </a>
+                
+                    <form id="logout-form-sidebar" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+
+                    <div class="text-center pb-2">
+                        <h1 class="textbrief">Brief</h1>
+                        <p class="textbriefsol">Plataforma de solicitudes</p>
+                    </div>
+                </div>
+                
+                
+           
             
         </aside>
         @endif
 
-        <div class="main p-3">
+        <div class="main">
             <div class="text-center">
-                <main class="py-4">
+                <main class="">
                     @yield('content')
                 </main>
             </div>

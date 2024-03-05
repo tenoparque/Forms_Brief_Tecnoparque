@@ -2,13 +2,31 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    <header>
+        <div class="admin row">
+            <div col-md-4>
+                <div class="text-start m-3">
+                    <h2>BIENVENIDO</h2>
+                </div>
+                <div class="text-start m-3">
+                    <h2>
+                        SUPER - ADMIN
+                    </h2>
+                </div>
+            </div>
+            <div>
+                
+            </div>
+        </div>
+    </header>
+
     <section class="container  shadow p-4 mb-5 bg-light rounded">
 
-        <div class="rUsersflex row text-start">
-            <div class="col-2">
+        <div class="d-flex">
+            <div class="">
                 <h1 class="UsuariosFlex">{{ __('REGISTRAR') }}</h1>
             </div>
-            <div class="col-10">
+            <div class="">
                 <h1 class="RegisterFlex">{{ __('USUARIOS ') }}</h1>
             </div>
 
