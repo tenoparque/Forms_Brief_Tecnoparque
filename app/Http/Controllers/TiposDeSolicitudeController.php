@@ -25,6 +25,31 @@ class TiposDeSolicitudeController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $tiposDeSolicitudes->perPage());
     }
 
+    public function search(Request $request)
+    {
+        $output= ""; // The output variable is defined and initialized
+        $tiposDeSolicitudes = TiposDeSolicitude::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Tipo de Solicitud name
+
+        // We use the loop foreach to iterate the aggregation of records
+        foreach($tiposDeSolicitudes as $tipoDeSolicitud){
+            $output .= 
+            '<tr>
+                <td>' . $tipoDeSolicitud->id . '</td>
+                <td>' . $tipoDeSolicitud->nombre . '</td>
+                <td>' . $tipoDeSolicitud->estado->nombre . '</td>
+                <td>
+                    <a href="' . url('/tipos-de-solicitudes/' . $tipoDeSolicitud->id) . '" class="btn btn-sm btn-primary">
+                        <i class="fa fa-fw fa-eye"></i> Show
+                    </a>
+                    <a href="' . url('/tipos-de-solicitudes/' . $tipoDeSolicitud->id . '/edit') . '" class="btn btn-sm btn-success">
+                        <i class="fa fa-fw fa-edit"></i> Edit
+                    </a>
+                </td>
+            </tr>';
+        }
+
+        return response($output); // We return the response by sending as parameter the output variable
+    }
     /**
      * Show the form for creating a new resource.
      *
