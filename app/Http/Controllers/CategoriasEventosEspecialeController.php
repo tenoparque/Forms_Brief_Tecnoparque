@@ -25,6 +25,32 @@ class CategoriasEventosEspecialeController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $categoriasEventosEspeciales->perPage());
     }
 
+    public function search(Request $request)
+    {
+        $output= ""; // The output variable is defined and initialized
+        $categoriasEventosEspeciales = CategoriasEventosEspeciale::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Estado de la Solicitud name
+
+        // We use the loop foreach to iterate the aggregation of records
+        foreach($categoriasEventosEspeciales as $categoriaEventosEspecial){
+            $output .= 
+            '<tr>
+                <td>' . $categoriaEventosEspecial->id . '</td>
+                <td>' . $categoriaEventosEspecial->nombre . '</td>
+                <td>' . $categoriaEventosEspecial->estado->nombre . '</td>
+                <td>
+                    <a href="' . url('/categorias-eventos-especiales/' . $categoriaEventosEspecial->id) . '" class="btn btn-sm btn-primary">
+                        <i class="fa fa-fw fa-eye"></i> Show
+                    </a>
+                    <a href="' . url('/categorias-eventos-especiales/' . $categoriaEventosEspecial->id . '/edit') . '" class="btn btn-sm btn-success">
+                        <i class="fa fa-fw fa-edit"></i> Edit
+                    </a>
+                </td>
+            </tr>';
+        }
+
+        return response($output); // We return the response by sending as parameter the output variable
+    }
+
     /**
      * Show the form for creating a new resource.
      *

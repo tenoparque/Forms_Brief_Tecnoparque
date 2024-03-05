@@ -62,12 +62,14 @@ Route::get('/searchRol', [RoleController::class, 'search']); // Roles Searching 
 
 // Estados de las solicitudes
 Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class); // Estados de las solicitudes
-Route::get('/searchEstadoSolicitud', [EstadosDeLasSolictudeController::class, 'search']); // Roles Searching Route
+Route::get('/searchEstadoSolicitud', [EstadosDeLasSolictudeController::class, 'search']); // Estados de las solicitudes Searching Route
 
 // Tipos de Datos
 Route::resource('tipos-de-datos', TiposDeDatoController::class);
 
-Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class);
+// Categorias de Eventos Especiales
+Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class); // Categorias de Eventos Especiales
+Route::get('/searchCategoriaEvento', [CategoriasEventosEspecialeController::class, 'search']); // Categorias de Eventos Especiales Searching Route
 
 Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class);
 

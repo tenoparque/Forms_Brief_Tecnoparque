@@ -32,6 +32,9 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
+                                <div class="card-header">
+                                    <input class="form-control" id="search" placeholder="Ingrese el nombre de la Categoria...">
+                                </div>
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
@@ -42,7 +45,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="alldata">
                                     @foreach ($categoriasEventosEspeciales as $categoriasEventosEspeciale)
                                         <tr>
                                             <td>{{ ++$i }}</td>
@@ -57,6 +60,10 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
+                                <!-- Another tbody is created for the search records -->
+                                <tbody id="Content" class="dataSearched">
+                                    
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -65,4 +72,34 @@
             </div>
         </div>
     </div>
+
+    <!-- JS Scripts -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // javascript and ajax code
+        $('#search').on('keyup',function()
+        {
+            $value=$(this).val();
+
+            if ($value) {
+                $('.alldata').hide();
+                $('.dataSearched').show();
+            } else {
+                $('.alldata').show();
+                $('.dataSearched').hide();
+            }
+
+            $.ajax({
+                type: 'get',
+                url: "{{ URL::to('searchCategoriaEvento') }}",
+                data:{'search': $value},
+
+                success:function(data)
+                {
+                    $('#Content').html(data);
+                }
+            });
+        })
+    </script>
 @endsection
