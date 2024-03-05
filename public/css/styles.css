@@ -139,8 +139,13 @@ font-family:"Work Sans", sans-serif;
 
 }
 .form-group{
+<<<<<<< HEAD
     align-items: center;
     /* width: 200%; */
+=======
+    /* align-items: center;
+    width: 200%; */
+>>>>>>> d11829258329d81990c12f27e95646073d0a533a
     flex-direction: column;
     margin: top 10px;
 }
