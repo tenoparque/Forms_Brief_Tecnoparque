@@ -56,8 +56,8 @@
 											<td>{{ $user->email }}</td>
 											<td>{{ $user->celular }}</td>
 											<td>{{ $user->apellidos }}</td>
-											<td>{{ $user->id_nodo }}</td>
-                                            <td>{{ $user->id_nodo }}</td>
+											<td>{{ $user->nodo->nombre }}</td>
+                                            <td>{{ $user->estado->nombre }}</td>
 											<td>
                                                 @foreach($user->roles as $role)
                                                     {{ $role->name }}
