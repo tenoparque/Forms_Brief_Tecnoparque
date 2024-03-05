@@ -29,20 +29,29 @@ class NodoController extends Controller
 
     public function search(Request $request)
     {
-        $output= "";
-        $nodos = Nodo::where('nombre', 'LIKE', '%'.$request -> search.'%')->get();
+        $output= ""; // The output variable is defined and initialized
+        $nodos = Nodo::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Nodo name
 
+        // We use the loop foreach to iterate the aggregation of records
         foreach($nodos as $nodo){
             $output .= 
             '<tr>
-            <td>'.$nodo->id.'</td>
-            <td>'.$nodo->nombre.'</td>
-            <td>'.$nodo->estado->nombre.'</td>
-            <td>'.$nodo->ciudade->nombre.'</td>
+                <td>' . $nodo->id . '</td>
+                <td>' . $nodo->nombre . '</td>
+                <td>' . $nodo->estado->nombre . '</td>
+                <td>' . $nodo->ciudade->nombre . '</td>
+                <td>
+                    <a href="' . url('/nodos/' . $nodo->id) . '" class="btn btn-sm btn-primary">
+                        <i class="fa fa-fw fa-eye"></i> Show
+                    </a>
+                    <a href="' . url('/nodos/' . $nodo->id . '/edit') . '" class="btn btn-sm btn-success">
+                        <i class="fa fa-fw fa-edit"></i> Edit
+                    </a>
+                </td>
             </tr>';
         }
 
-        return response($output);
+        return response($output); // We return the response by sending as parameter the output variable
     }
 
     /**

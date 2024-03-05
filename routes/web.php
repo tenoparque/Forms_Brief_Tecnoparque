@@ -38,7 +38,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('ciudades', CiudadeController::class);
+
+// Ciudaes
+Route::resource('ciudades', CiudadeController::class); // Ciudades Route
+Route::get('/searchCiudad', [CiudadeController::class, 'search']); // Ciudades Searching Route
 
 Route::resource('estados', EstadoController::class);
 
