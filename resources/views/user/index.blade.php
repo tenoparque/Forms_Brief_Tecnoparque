@@ -5,11 +5,12 @@
 @endsection
 
 @section('content')
+<div class="container-fluid" style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; height: 100vh;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
+                <div class="card index">
+                    <div class="card-header index">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
