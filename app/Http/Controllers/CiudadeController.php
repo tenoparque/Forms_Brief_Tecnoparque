@@ -25,6 +25,32 @@ class CiudadeController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $ciudades->perPage());
     }
 
+    public function search(Request $request)
+    {
+        $output= ""; // The output variable is defined and initialized
+        $ciudades = Ciudade::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Ciudad name
+
+        // We use the loop foreach to iterate the aggregation of records
+        foreach($ciudades as $ciudade){
+            $output .= 
+            '<tr>
+                <td>' . $ciudade->id . '</td>
+                <td>' . $ciudade->nombre . '</td>
+                <td>' . $ciudade->departamento->nombre . '</td>
+                <td>
+                    <a href="' . url('/ciudades/' . $ciudade->id) . '" class="btn btn-sm btn-primary">
+                        <i class="fa fa-fw fa-eye"></i> Show
+                    </a>
+                    <a href="' . url('/ciudades/' . $ciudade->id . '/edit') . '" class="btn btn-sm btn-success">
+                        <i class="fa fa-fw fa-edit"></i> Edit
+                    </a>
+                </td>
+            </tr>';
+        }
+
+        return response($output); // We return the response by sending as parameter the output variable
+    }
+
     /**
      * Show the form for creating a new resource.
      *
