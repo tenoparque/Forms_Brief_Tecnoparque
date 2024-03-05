@@ -53,14 +53,14 @@
                 <hr class="hrmenu">
                 <li class="sidebar-item">
                     <a href="/roles" class="sidebar-link" style="text-decoration: none">
-                        <i class="lni lni-agenda"></i>
+                        <i class="lni lni-user"></i>
                         <span>Rol</span>
                     </a>
                 </li>
                 <hr class="hrmenu">
                 <li class="sidebar-item">
                     <a href="/solicitudes" class="sidebar-link  has-dropdown collapsed" style="text-decoration: none">
-                        <i class="lni lni-protection"></i>
+                        <i class="lni lni-popup"></i>
                         <span>Solicitud</span>
                     </a>
                 </li>
