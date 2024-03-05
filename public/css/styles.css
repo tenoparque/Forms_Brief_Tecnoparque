@@ -140,7 +140,7 @@ font-family:"Work Sans", sans-serif;
 }
 .form-group{
     align-items: center;
-    width: 200%;
+    /* width: 200%; */
     flex-direction: column;
     margin: top 10px;
 }
