@@ -1,4 +1,6 @@
 import './bootstrap';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 const images = [
     'images/fondoBrief4.jpg',
@@ -19,4 +21,19 @@ if (window.location.pathname.includes('/login')) {
     setInterval(displayRandomBackgroundImage, 1000);
 }
 
+
+$(document).ready(function() {
+    $('.eye-icon').click(function() {
+        const passwordInput = $('#password');
+        const eyeIcon = $('.eye-icon i');
+
+        if (passwordInput.attr('type') === 'password') {
+            passwordInput.attr('type', 'text');
+            eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
+        } else {
+            passwordInput.attr('type', 'password');
+            eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+    });
+});
 

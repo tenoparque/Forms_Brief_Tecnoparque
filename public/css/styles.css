@@ -1,7 +1,7 @@
 
 body {
     background-image: url('');
-    background-size: cover;
+
 }
 
 
@@ -138,13 +138,10 @@ font-family:"Work Sans", sans-serif;
 
 }
 .form-group{
-<<<<<<< HEAD
+
     align-items: center;
     /* width: 200%; */
-=======
-    /* align-items: center;
-    width: 200%; */
->>>>>>> d11829258329d81990c12f27e95646073d0a533a
+
     flex-direction: column;
     margin: top 10px;
 }
@@ -155,7 +152,39 @@ font-family:"Work Sans", sans-serif;
 }
     
 /* Estilos para el formulario  user */
-.index{
+.card-index {
+    background-color: #ffffff; 
+    border: 1px solid #e0e0e0;
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    margin-top: 10%;
    
-    
 }
+
+.card-header-index {
+    background-color: #f8f8f8; 
+    padding: 10px 20px; 
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.card-body-index {
+    padding: 20px; 
+}
+
+
+.btn-index {
+    display: inline-block; /* Botones en línea */
+    padding: 8px 16px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor al pasar */
+    font-size: 14px; /* Tamaño de fuente */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    background-color: #39A900; /* Color de fondo */
+    color: #ffffff; /* Color de texto */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+
