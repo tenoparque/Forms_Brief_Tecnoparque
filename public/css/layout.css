@@ -19,6 +19,14 @@ h1 {
     font-size: 1.5rem;
 }
 
+.redtecnocol{
+    margin-right: 10px;
+}
+
+.text-wel{
+    background-color: blue;
+}
+
 .img-perfil{
     width: "auto";
     height: 80px;
