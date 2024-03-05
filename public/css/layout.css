@@ -19,6 +19,17 @@ h1 {
     font-size: 1.5rem;
 }
 
+.redtecnocol{
+    margin-left: 450px;
+    /* background-color: yellow; */
+}
+
+.text-wel{
+    display: flex;
+    flex-direction: column;
+    margin-left: 18px;
+}
+
 .img-perfil{
     width: "auto";
     height: 80px;
@@ -220,6 +231,7 @@ a.sidebar-link:hover {
 .welcoRe{
     font-weight: 400;
     margin-bottom: 0;
+    text-align: left;
 
 }
 .supereh{
