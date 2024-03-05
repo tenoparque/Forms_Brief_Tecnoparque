@@ -52,40 +52,49 @@
                         <span>Usuario</span>
                     </a>
                 </li>
+                <hr class="hrmenu">
                 <li class="sidebar-item">
                     <a href="/roles" class="sidebar-link" style="text-decoration: none">
                         <i class="lni lni-agenda"></i>
                         <span>Rol</span>
                     </a>
                 </li>
+                <hr class="hrmenu">
                 <li class="sidebar-item">
                     <a href="/solicitudes" class="sidebar-link  has-dropdown collapsed" style="text-decoration: none">
                         <i class="lni lni-protection"></i>
                         <span>Solicitud</span>
                     </a>
                 </li>
+                <hr class="hrmenu">
                 <li class="sidebar-item">
                     <a href="servicios-por-tipos-de-solicitudes" class="sidebar-link collapsed has-dropdown" style="text-decoration: none">
                         <i class="lni lni-layout"></i>
                         <span>Servicios</span>
                     </a>
                 </li>
+                <hr class="hrmenu">
                 <li class="sidebar-item">
                     <a href="tipos-de-datos" class="sidebar-link" style="text-decoration: none">
                         <i class="lni lni-popup"></i>
-                        <span>Tipo Campo x Solicitud</span>
+                        <span class="txtTip">Tipo Campo</span>
+                        <br>
+                        <span class="txtSoli">x Solicitud</span>
                     </a>
                 </li>
-            </ul>
-                <div class="sidebar-footer">
+                <hr class="hrmenu">
+                <br><br><br><br><br><br><br><br><br><br><br>
+                <li class="sidebar-item">
                     <a href="#" class="sidebar-link" style="text-decoration: none" onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
                         <i class="lni lni-exit"></i>
                         <span>Cerrar sesión</span>
                     </a>
-                
                     <form id="logout-form-sidebar" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
+                </li>
+            </ul>
+                <div class="sidebar-footer">
 
                     <div class="text-center pb-2">
                         <h1 class="textbrief">Brief</h1>

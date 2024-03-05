@@ -24,6 +24,31 @@ class RoleController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $roles->perPage());
     }
 
+    public function search(Request $request)
+    {
+        $output= ""; // The output variable is defined and initialized
+        $roles = Role::where('name', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Rol name
+
+        // We use the loop foreach to iterate the aggregation of records
+        foreach($roles as $rol){
+            $output .= 
+            '<tr>
+                <td>' . $rol->id . '</td>
+                <td>' . $rol->name . '</td>
+                <td>
+                    <a href="' . url('/roles/' . $rol->id) . '" class="btn btn-sm btn-primary">
+                        <i class="fa fa-fw fa-eye"></i> Show
+                    </a>
+                    <a href="' . url('/roles/' . $rol->id . '/edit') . '" class="btn btn-sm btn-success">
+                        <i class="fa fa-fw fa-edit"></i> Edit
+                    </a>
+                </td>
+            </tr>';
+        }
+
+        return response($output); // We return the response by sending as parameter the output variable
+    }
+
     /**
      * Show the form for creating a new resource.
      *
