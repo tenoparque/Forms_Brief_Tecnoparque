@@ -36,7 +36,7 @@ class EventosEspecialesPorCategoriaController extends Controller
         $eventosEspecialesPorCategoria = new EventosEspecialesPorCategoria();
         $estados = Estado::all();
         $categorias = categoriasEventosEspeciale::all();
-        return view('eventos-especiales-por-categoria.create', compact('eventosEspecialesPorCategoria', 'estados', 'categorias'));
+        return view('eventos-especiales-por-categoria.create', compact('eventosEspecialesPorCategoria', 'categorias'));
     }
 
     /**
@@ -48,6 +48,8 @@ class EventosEspecialesPorCategoriaController extends Controller
     public function store(Request $request)
     {
         request()->validate(EventosEspecialesPorCategoria::$rules);
+
+        $request->merge(['id_estado' => 1]);
 
         $eventosEspecialesPorCategoria = EventosEspecialesPorCategoria::create($request->all());
 
