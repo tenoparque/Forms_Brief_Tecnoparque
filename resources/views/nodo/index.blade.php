@@ -15,6 +15,7 @@
                         <div class="d-flex">
                             <h2 class="supereh">SUPER - ‎ </h2>
                             <h2 class="adminreh"> ADMIN</h2>
+                            <p>{{ $nombreRol }}</p>
                         </div>
                     </div>
                 </div>
