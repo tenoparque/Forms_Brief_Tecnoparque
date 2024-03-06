@@ -26,7 +26,7 @@
 
     </header>
 
-    <section class="container  shadow p-4  my-5 bg-light rounded">
+    <section class="container shadow p-3  my-5 bg-light rounded">
 
         <div class="d-flex">
             <div class="">
