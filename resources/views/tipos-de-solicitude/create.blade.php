@@ -39,10 +39,10 @@
                     <div class="card-header">
                         <div class="d-flex">
                             <div class="">
-                                <h1 class="primeraPalabraFlex">{{ __('CREAR TIPO ') }}</h1>
+                                <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('CREAR TIPO ') }}</h1>
                             </div>
                             <div class="">
-                                <h1 class="segundaPalabraFlex">{{ __('DE SOLICITUD') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('DE SOLICITUD') }}</h1>
                             </div>
                 
                         </div>
