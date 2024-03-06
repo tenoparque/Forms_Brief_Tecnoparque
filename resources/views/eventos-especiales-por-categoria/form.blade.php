@@ -32,6 +32,19 @@
             </select>
         </div>
         @endif
+        @if(Route::currentRouteName() === 'eventos-especiales-por-categorias.edit')
+            <div class="form-group">
+                <label for="id_eventos_especiales">Categoria</label>
+                <select name="id_eventos_especiales" id="id_eventos_especiales" class="form-control selectpicker"
+                data-style="btn-primary" title="Seleccionar Categoria" required>
+                    @foreach ($categorias as $categoria)
+                        <option value="{{ $categoria->id }}" {{ ($eventosEspecialesPorCategoria->id_eventos_especiales ?? '') == $categoria->id ? 'selected' : '' }}>
+                            {{ $categoria->nombre }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
 
     </div>
     <div class="box-footer mt20">
