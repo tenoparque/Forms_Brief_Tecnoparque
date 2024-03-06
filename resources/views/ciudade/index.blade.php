@@ -36,9 +36,15 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Ciudade') }}
-                            </span>
+                            <div class="d-flex">
+                                <div>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0">{{ __('CIUD') }}</h1>
+                                </div>
+                                <div>
+                                    <h1 class="segundaPalabraFlex" style="margin-left: 0">{{ __('ADES') }}</h1>
+                                </div>
+                            </div>
+                            
 
                              <div class="float-right">
                                 <a href="{{ route('ciudades.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
