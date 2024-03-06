@@ -38,10 +38,10 @@
 
                             <div class="d-flex">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="margin-right: 0">{{ __('CIUD') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0" style="font-size:180%">{{ __('CIUD') }}</h1>
                                 </div>
                                 <div>
-                                    <h1 class="segundaPalabraFlex" style="margin-left: 0">{{ __('ADES') }}</h1>
+                                    <h1 class="segundaPalabraFlex" style="margin-left: 0" style="font-size: 180%">{{ __('ADES') }}</h1>
                                 </div>
                             </div>
                             
