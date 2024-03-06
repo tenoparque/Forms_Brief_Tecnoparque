@@ -37,10 +37,10 @@
                     <div class="card-header">
                         <div class="d-flex mt-3 mb-4">
                             <div>
-                                <h1 class="primeraPalabraFlex">{{ __('CREAR DATO UNICO') }}</h1>
+                                <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('CREAR DATO UNICO') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex">{{ __(' POR TIPO DE SOLICITUD') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __(' POR TIPO DE SOLICITUD') }}</h1>
                             </div>
                         </div>
                     </div>
