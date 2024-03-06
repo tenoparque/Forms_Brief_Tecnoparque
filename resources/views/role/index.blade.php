@@ -34,9 +34,14 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Role') }}
-                            </span>
+                            <div class="d-flex mt-3 mb-4">
+                                <div>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0;font-size: 180%" >{{ __('RO') }}</h1>
+                                </div>
+                                <div>
+                                    <h1 class="segundaPalabraFlex" style="margin-left:0 ;font-size: 180%">{{ __('LES') }}</h1>
+                                </div>
+                            </div>
 
                              <div class="float-right">
                                 <a href="{{ route('roles.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
