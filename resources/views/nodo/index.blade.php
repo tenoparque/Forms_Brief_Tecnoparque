@@ -57,7 +57,7 @@
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del Nodo..." style="width: 70% ;">
-                                <a href="{{ route('nodos.create') }}" class="btn btn-primary btn-sm">{{ __('Crear') }}</a>
+                                <a href="{{ route('nodos.create') }}" class="btn btn-primary btn-sm">{{ __('Agregar nodo') }}</a>
                             </div>
                         </div>
                         <div class="table-responsive">
