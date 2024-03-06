@@ -34,7 +34,7 @@ class PersonalizacioneController extends Controller
     {
         $personalizacione = new Personalizacione();
         $estados = Estado::all();
-        return view('personalizacione.create', compact('personalizacione', 'estados'));
+        return view('personalizacione.create', compact('personalizacione'));
     }
 
     /**
@@ -46,6 +46,8 @@ class PersonalizacioneController extends Controller
     public function store(Request $request)
     {
         request()->validate(Personalizacione::$rules);
+
+        $request->merge(['id_estado' => 1]);
 
         $personalizacione = Personalizacione::create($request->all());
 

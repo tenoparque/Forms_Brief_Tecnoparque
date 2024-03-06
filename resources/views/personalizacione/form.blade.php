@@ -26,6 +26,7 @@
             {{ Form::text('id_users', $personalizacione->id_users, ['class' => 'form-control' . ($errors->has('id_users') ? ' is-invalid' : ''), 'placeholder' => 'Id Users']) }}
             {!! $errors->first('id_users', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        @if(Route::currentRouteName() === 'personalizaciones.edit')
         <div class="form-group">
             <label for="id_estado">Estado</label>
             <select name="id_estado" id="id_estado" class="form-control selectpicker"
@@ -36,6 +37,7 @@
                 @endforeach
             </select>
         </div>
+        @endif
 
     </div>
     <div class="box-footer mt20">
