@@ -35,7 +35,16 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Tipos De Dato</span>
+                        <div class="d-flex">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('EDITAR') }}</h1>
+                                </div>
+                                <div class="">
+                                    <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('TIPO DE DATO') }}</h1>
+                                </div>
+                    
+                            </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('tipos-de-datos.update', $tiposDeDato->id) }}"  role="form" enctype="multipart/form-data">
