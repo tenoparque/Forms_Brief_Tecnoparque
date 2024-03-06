@@ -3,7 +3,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="cardh">
                 <div class="d-flex">
-                    <h2 class="">Formulario </h2>
+                    <h2 class="">Formulario thrh </h2>
                     <h2 class="">Brief</h2>
                 </div>
                 <div class="card-bodyh">
