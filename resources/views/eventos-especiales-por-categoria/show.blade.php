@@ -33,7 +33,14 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Eventos Especiales Por Categoria</span>
+                            <div class="d-flex mt-3 mb-4">
+                                <div>
+                                    <h1 class="primeraPalabraFlex" style="font-size:180%">{{ __('DETALLE DEL EVENTO') }}</h1>
+                                </div>
+                                <div>
+                                    <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('ESPECIAL POR CATEGORIA') }}</h1>
+                                </div>
+                            </div>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('eventos-especiales-por-categorias.index') }}"> {{ __('Back') }}</a>
