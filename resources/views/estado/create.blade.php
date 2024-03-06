@@ -37,7 +37,17 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        
+                        <span id="card_title">
+                            <div class="d-flex mt-3 mb-4">
+                                <div>
+                                    <h1 class="primeraPalabraFlex">{{ __('CREAR') }}</h1>
+                                </div>
+                                <div>
+                                    <h1 class="segundaPalabraFlex">{{ __('ESTADO') }}</h1>
+                                </div>
+                            </div>
+                        </span>
+
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('estados.store') }}"  role="form" enctype="multipart/form-data">
