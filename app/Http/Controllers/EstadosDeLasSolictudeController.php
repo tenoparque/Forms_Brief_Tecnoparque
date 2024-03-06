@@ -60,7 +60,7 @@ class EstadosDeLasSolictudeController extends Controller
     {
         $estadosDeLasSolictude = new EstadosDeLasSolictude();
         $estados = Estado::all(); // We obtain all Estados models from the database
-        return view('estados-de-las-solictude.create', compact('estadosDeLasSolictude','estados')); // We pass the variables $estadosDeLasSolictude and $estados to the view
+        return view('estados-de-las-solictude.create', compact('estadosDeLasSolictude')); // We pass the variables $estadosDeLasSolictude and $estados to the view
     }
 
     /**
@@ -72,6 +72,8 @@ class EstadosDeLasSolictudeController extends Controller
     public function store(Request $request)
     {
         request()->validate(EstadosDeLasSolictude::$rules);
+
+        $request->merge(['id_estado' => 1]);
 
         $estadosDeLasSolictude = EstadosDeLasSolictude::create($request->all());
 

@@ -25,7 +25,6 @@ class EventosEspecialesPorCategoria extends Model
     
     static $rules = [
 		'nombre' => 'required',
-		'id_estado' => 'required',
 		'id_eventos_especiales' => 'required',
     ];
 
