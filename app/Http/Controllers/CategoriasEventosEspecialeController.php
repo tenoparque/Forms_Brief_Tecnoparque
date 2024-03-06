@@ -60,7 +60,7 @@ class CategoriasEventosEspecialeController extends Controller
     {
         $categoriasEventosEspeciale = new CategoriasEventosEspeciale();
         $estados = Estado::all();
-        return view('categorias-eventos-especiale.create', compact('categoriasEventosEspeciale', 'estados'));
+        return view('categorias-eventos-especiale.create', compact('categoriasEventosEspeciale'));
     }
 
     /**
@@ -72,6 +72,8 @@ class CategoriasEventosEspecialeController extends Controller
     public function store(Request $request)
     {
         request()->validate(CategoriasEventosEspeciale::$rules);
+
+        $request->merge(['id_estado' => 1]);
 
         $categoriasEventosEspeciale = CategoriasEventosEspeciale::create($request->all());
 
