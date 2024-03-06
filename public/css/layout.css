@@ -226,12 +226,12 @@ a.sidebar-link:hover {
 
 /* register css */
 
-.UsuariosFlex{
+.primeraPalabraFlex{
     margin-right: 10px;
     color: #26344c ;
 }
 
-.RegisterFlex{
+.segundaPalabraFlex{
     color: #39A900;
     font-weight:900;
 }
