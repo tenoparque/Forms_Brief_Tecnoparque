@@ -27,16 +27,17 @@
             </select>
         </div>
         @if(Route::currentRouteName() === 'datos-unicos-por-solicitudes.edit')
-        <div class="form-group">
-            <label for="id_estados">Estado</label>
-            <select name="id_estados" id="id_estados" class="form-control selectpicker"
-            data-style="btn-primary" title="Seleccionar un Estado" required>
-                @foreach ($estados as $estado)
-                <!-- We go through the models of the estados that we previously passed through the controller -->
-                    <option value="{{ $estado->id }}">{{ $estado-> nombre }}</option> <!-- We obtain the id and the value -->
-                @endforeach
-            </select>
-        </div>
+            <div class="form-group">
+                <label for="id_estados">Estado</label>
+                <select name="id_estados" id="id_estados" class="form-control selectpicker"
+                data-style="btn-primary" title="Seleccionar un Estado" required>
+                    @foreach ($estados as $estado)
+                        <option value="{{ $estado->id }}" {{ ($datosUnicosPorSolicitude->id_estados ?? '') == $estado->id ? 'selected' : '' }}>
+                            {{ $estado->nombre }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
         @endif
 
     </div>
