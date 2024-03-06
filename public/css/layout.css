@@ -19,6 +19,8 @@ h1 {
     font-size: 1.5rem;
 }
 
+/* PROPERTIES REGISTER */
+
 .redtecnocol{
     margin-left: 450px;
     /* background-color: yellow; */
@@ -29,6 +31,8 @@ h1 {
     flex-direction: column;
     margin-left: 18px;
 }
+
+/* PROPERTIES SIDEBAR - COLORS, SIZES AND IMAGES */
 
 .img-perfil{
     width: "auto";
@@ -69,6 +73,14 @@ h1 {
     width: 20px;
     position: sticky;
 }
+
+/* PROPERTIES CITIES */
+
+.city{
+    background-color: red;
+}
+
+/* PROPERTIES SIDEBAR - BUTTONS, FUNCTIONS, ETC (OVERALL) */
 
 .wrapper {
     display: flex;
@@ -214,12 +226,12 @@ a.sidebar-link:hover {
 
 /* register css */
 
-.UsuariosFlex{
+.primeraPalabraFlex{
     margin-right: 10px;
     color: #26344c ;
 }
 
-.RegisterFlex{
+.segundaPalabraFlex{
     color: #39A900;
     font-weight:900;
 }

@@ -37,12 +37,16 @@
                             {{ $user->apellidos }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Nodo:</strong>
-                            {{ $user->id_nodo }}
+                        <strong>Nodo:</strong>
+                            {{ $user->nodo->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Estado:</strong>
-                            {{ $user->id_estado }}
+                        <strong>Estado:</strong>
+                            {{ $user->estado->nombre }}
+                        </div>
+                        <div class="form-group">
+                        <strong>Rol:</strong>
+                            {{ $user->roles->first()->name }}
                         </div>
 
                     </div>

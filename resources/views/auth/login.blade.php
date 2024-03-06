@@ -13,6 +13,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8" style="width: 40%">
+               
                 <div class="card_login">
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -23,7 +24,7 @@
                             <br>
                             <div class="row mb-3 ">
                                 <div class="col-md-9 ">
-                                    <input  style="margin-left: 65px; width: 100%; " id="email" placeholder="CORREO" type="email"
+                                    <input  style="margin-left: 21%; width: 100%; " id="email" placeholder="CORREO" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -36,7 +37,7 @@
                             </div>
                             <div class="mb-3">
                                 <div class="col-md-9 d-flex align-items-center" style="margin-left: 11%">
-                                    <input style="margin-left: 18px; margin-block-start: 4%"  id="password" placeholder="CONTRASEÑA" type="password"
+                                    <input style="margin-left: 5.3%; margin-block-start: 4%"  id="password" placeholder="CONTRASEÑA" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
                                     <span style="margin-block-start: 4%" class="eye-icon" onclick="togglePasswordVisibility()">
@@ -69,7 +70,8 @@
                             </div>
                         </form>
                     </div>
-                </div>
+               
+            </div>
             </div>
         </div>
     </div>
