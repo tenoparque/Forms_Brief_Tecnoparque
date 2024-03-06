@@ -1,92 +1,140 @@
 <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-<div class="container shadow p-4 rounded">
+<div class="container shadow-none p-3 mb-5 bg-body-tertiary rounded ">
     <div class="">
         <div class="col-md-8 offset-md-2">
-           
-                <div class="">
-                    <h2 class="segundaPalabraFlex mb-0"> FORMULARIO </h2>
-                    <h2 class="mt-0"> BRIEF</h2>
-                </div>
-                <div class="">
-                    <form id="solicitudForm">
+            <div class="">
+                <h2 class="segundaPalabraFlex mb-0"> FORMULARIO </h2>
+                <h2 class="mt-0"> BRIEF</h2>
+            </div>
+            <div class="">
+                <form id="solicitudForm">
 
-                        <div class="form-group">
-                            <label for="id_tipos_de_solicitudes">Tipo de Solicitud</label>
-                            <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
-                                class="form-control selectpicker" data-style="btn-primary" title="Seleccionar un Tipo de Solicitud" required>
-                                <option value="" disabled selected>Seleccionar Tipo de Solicitud...</option>
-                                @foreach ($solicitudes as $solicitud)
+                    <div class="form-group">
+                        <label for="id_tipos_de_solicitudes">Tipo de Solicitud</label>
+                        <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
+                            class="form-control selectpicker" data-style="btn-primary"
+                            title="Seleccionar un Tipo de Solicitud" required>
+                            <option value="" disabled selected>Seleccionar Tipo de Solicitud...</option>
+                            @foreach ($solicitudes as $solicitud)
                                 <option value="{{ $solicitud->id }}">{{ $solicitud->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                            @endforeach
+                        </select>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="id_servicios_por_tipo" class="my-2">Servicio</label>
-                            <div id="servicesComboBoxContainer" class="row">
-                                <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
+                    <div class="form-group">
+                        <h5>Servicios</h5>
+                        <div id="servicesComboBoxContainer" class="row">
+                            <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
+                        </div>
+                    </div>
+
+                    <div class=" form-group">
+                        <h5>Datos Únicos por Solicitud</h5>
+                        <div id="datosUnicosComboBoxContainer" class="row">
+
+                            <!-- Los textboxes se llenarán dinámicamente aquí -->
+                        </div>
+                        {{-- boton para abrir el modal --}}
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#qrModal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-qr-code" viewBox="0 0 16 16">
+                                <path d="M2 2h2v2H2z" />
+                                <path d="M6 0v6H0V0zM5 1H1v4h4zM4 12H2v2h2z" />
+                                <path d="M6 10v6H0v-6zm-5 1v4h4v-4zm11-9h2v2h-2z" />
+                                <path
+                                    d="M10 0v6h6V0zm5 1v4h-4V1zM8 1V0h1v2H8v2H7V1zm0 5V4h1v2zM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8zm0 0v1H2V8H1v1H0V7h3v1zm10 1h-1V7h1zm-1 0h-1v2h2v-1h-1zm-4 0h2v1h-1v1h-1zm2 3v-1h-1v1h-1v1H9v1h3v-2zm0 0h3v1h-2v1h-1zm-4-1v1h1v-2H7v1z" />
+                                <path d="M7 12h1v3h4v1H7zm9 2v2h-3v-1h2v-1z" />
+                            </svg>
+                        </button>
+
+                        <button type="button" cla>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                              </svg>
+                        </button>
+
+                        {{-- modal --}}
+                        <div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="qrModalLabel">Codigo Qr</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            arial-label="close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="qrcode"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <h4>Datos Únicos por Solicitud</h4>
-                            <div  id="datosUnicosComboBoxContainer" class="row">
-                                <!-- Los textboxes se llenarán dinámicamente aquí -->
-                            </div>
-                        </div>
+                        
+                    </div>
 
-                        <div class="col-md-12 d-flex justify-content-end ">
-                            <button type="submit" class="btn btn-primary my-4">Enviar Solicitud</button>
-                        </div>
-                    </form>
-                </div>
-          
+                    <div class="col-md-12 d-flex justify-content-end ">
+                        <button type="submit" class="btn btn-primary my-4">Enviar Solicitud</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $('#id_tipos_de_solicitudes').change(function () {
+    $(document).ready(function() {
+        $('#id_tipos_de_solicitudes').change(function() {
             var selectedTypeId = $(this).val(); // Obtener el ID del tipo de solicitud seleccionado
             // Enviar el ID del tipo de solicitud seleccionado a través de una solicitud AJAX al controlador
             $.ajax({
-                url: '{{ route("solicitude.processSelectedId") }}',
+                url: '{{ route('solicitude.processSelectedId') }}',
                 type: 'POST',
                 data: {
                     tipo_solicitud_id: selectedTypeId,
                     _token: '{{ csrf_token() }}'
                 },
-                success: function (response) {
+                success: function(response) {
                     // Construir checkboxes para los servicios por solicitud
                     var serviciosCheckboxes = '';
                     // var checkboxCounter = 0;
-                    $.each(response.servicios, function (index, servicio) {
+                    $.each(response.servicios, function(index, servicio) {
                         // if(checkboxCounter % 2 === 0){
                         //     serviciosCheckboxes += '<br>';
                         // } 
-                        serviciosCheckboxes += '<div class="col-xl-6 col-md-6 my-2"><label class="text-start"><input type="checkbox" name="servicios_por_tipo[]" value="' + servicio.id + '"> ' + servicio.nombre + '</label></div>';
+                        serviciosCheckboxes +=
+                            '<div class=" col-xl-6 col-md-6 my-2"><label class="text-start"><input type="checkbox"  name="servicios_por_tipo[]" value="' +
+                            servicio.id + '"> ' + servicio.nombre +
+                            '</label></div>';
                         // checkboxCounter++;
 
                     });
                     // Mostrar los checkboxes en el área designada
                     $('#servicesComboBoxContainer').html(serviciosCheckboxes);
-                    
+
                     // Construir textboxes para los datos únicos por solicitud
                     var datosUnicosTextboxes = '';
-                    
 
-                    $.each(response.datos_unicos, function (index, datoUnico) {
-                        
-                        datosUnicosTextboxes += '<div class="col-xl-4 col-md-6"><label>' +  ' </label><input type="text" name="datos_unicos_por_solicitud_' + datoUnico.id + '" class="form-control text-start" placeholder="' + datoUnico.nombre + '"></div>';
+
+                    $.each(response.datos_unicos, function(index, datoUnico) {
+
+                        datosUnicosTextboxes +=
+                            '<div class="solicitudesDivText col-xl-4 col-md-6"><label>' +
+                            ' </label><input class="solicitudInputText" type="text" name="datos_unicos_por_solicitud_' +
+                            datoUnico.id +
+                            '" class="form-control text-start" placeholder="' +
+                            datoUnico.nombre + '"></div>';
                     });
 
                     // Mostrar los textboxes en el área designada
                     $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
                 },
-                error: function (xhr) {
-                    console.error('Error al obtener los datos asociados al tipo de solicitud.');
+                error: function(xhr) {
+                    console.error(
+                        'Error al obtener los datos asociados al tipo de solicitud.');
                 }
             });
         });
