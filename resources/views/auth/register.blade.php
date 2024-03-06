@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    
 
     <header class="container-fluid mt-5">
         <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 60px">
