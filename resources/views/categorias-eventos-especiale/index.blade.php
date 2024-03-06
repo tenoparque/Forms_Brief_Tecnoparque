@@ -12,9 +12,14 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Categorias Eventos Especiale') }}
-                            </span>
+                            <div class="d-flex mt-3 mb-4">
+                                <div>
+                                    <h1 class="primeraPalabraFlex">{{ __('CATEGORIAS') }}</h1>
+                                </div>
+                                <div>
+                                    <h1 class="segundaPalabraFlex">{{ __('DE EVENTOS ESPECIALES') }}</h1>
+                                </div>
+                            </div>
 
                              <div class="float-right">
                                 <a href="{{ route('categorias-eventos-especiales.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
