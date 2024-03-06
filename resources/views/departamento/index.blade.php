@@ -38,10 +38,10 @@
                         
                         <div class="d-flex mt-3 mb-4">
                             <div>
-                                <h1 class="primeraPalabraFlex" style="margin-right: 0" style="font-size: 180%">{{ __('DEPAR') }}</h1>
+                                <h1 class="primeraPalabraFlex" style="margin-right: 0;font-size: 180%">{{ __('DEPAR') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex" style="margin-left: 0" style="font-size: 180%">{{ __('TAMENTOS') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="margin-left: 0;font-size: 180%">{{ __('TAMENTOS') }}</h1>
                             </div>
                         </div>
                     </div>
