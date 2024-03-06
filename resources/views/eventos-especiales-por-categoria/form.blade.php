@@ -20,6 +20,7 @@
             </select>
         </div>
         @endif
+        @if(Route::currentRouteName() === 'eventos-especiales-por-categorias.create')
         <div class="form-group">
             <label for="id_eventos_especiales">categoria</label>
             <select name="id_eventos_especiales" id="id_eventos_especiales" class="form-control selectpicker"
@@ -30,6 +31,7 @@
                 @endforeach
             </select>
         </div>
+        @endif
 
     </div>
     <div class="box-footer mt20">
