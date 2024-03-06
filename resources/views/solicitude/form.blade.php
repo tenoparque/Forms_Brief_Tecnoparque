@@ -1,28 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="cardh">
+                <div class="d-flex">
+                    <h2 class="">Formulario </h2>
+                    <h2 class="">Brief</h2>
+                </div>
+                <div class="card-bodyh">
+                    <form id="solicitudForm">
 
-<div class="box box-info padding-1">
-    <div class="box-body">
-        <div class="form-group">
-            <label for="id_tipos_de_solicitudes">Tipo de Solicitud</label>
-            <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes" class="form-control selectpicker"
-                data-style="btn-primary" title="Seleccionar un Tipo de Solicitud" required>
-                <option value="" disabled selected>Seleccionar Tipo de Solicitud...</option>
-                @foreach ($solicitudes as $solicitud)
-                    <option value="{{ $solicitud->id }}">{{ $solicitud->nombre }}</option>
-                @endforeach
-            </select>
+                        <div class="form-group">
+                            <label for="id_tipos_de_solicitudes">Tipo de Solicitud</label>
+                            <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
+                                class="form-control selectpicker" data-style="btn-primary" title="Seleccionar un Tipo de Solicitud" required>
+                                <option value="" disabled selected>Seleccionar Tipo de Solicitud...</option>
+                                @foreach ($solicitudes as $solicitud)
+                                <option value="{{ $solicitud->id }}">{{ $solicitud->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id_servicios_por_tipo" class="my-2">Servicio</label>
+                            <div id="servicesComboBoxContainer" class="row">
+                                <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h4>Datos Únicos por Solicitud</h4>
+                            <div  id="datosUnicosComboBoxContainer" class="row">
+                                <!-- Los textboxes se llenarán dinámicamente aquí -->
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary my-4">Enviar Solicitud</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- Combo box para los servicios asociados -->
-    <div class="form-group" id="servicesComboBoxContainer">
-        <label for="id_servicios_por_tipo">Servicio</label>
-        <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
-    </div>
-
-    <!-- Textboxes para los datos únicos por solicitudes -->
-    <div class="form-group" id="datosUnicosComboBoxContainer">
-        <h4>Datos Únicos por Solicitud</h4>
-        <!-- Los textboxes se llenarán dinámicamente aquí -->
     </div>
 </div>
 
@@ -42,13 +58,13 @@
                 success: function (response) {
                     // Construir checkboxes para los servicios por solicitud
                     var serviciosCheckboxes = '';
-                    var checkboxCounter = 0;
+                    // var checkboxCounter = 0;
                     $.each(response.servicios, function (index, servicio) {
-                        if(checkboxCounter % 2 === 0){
-                            serviciosCheckboxes += '<br>';
-                        } 
-                        serviciosCheckboxes += '<label><input type="checkbox" name="servicios_por_tipo[]" value="' + servicio.id + '"> ' + servicio.nombre + '</label>';
-                        checkboxCounter++;
+                        // if(checkboxCounter % 2 === 0){
+                        //     serviciosCheckboxes += '<br>';
+                        // } 
+                        serviciosCheckboxes += '<div class="col-xl-6 col-md-6 my-2"><label class="text-start"><input type="radio" name="servicios_por_tipo[]" value="' + servicio.id + '"> ' + servicio.nombre + '</label></div>';
+                        // checkboxCounter++;
 
                     });
                     // Mostrar los checkboxes en el área designada
@@ -60,7 +76,7 @@
 
                     $.each(response.datos_unicos, function (index, datoUnico) {
                         
-                        datosUnicosTextboxes += '<label>' +  ' </label><input type="text" name="datos_unicos_por_solicitud_' + datoUnico.id + '" class="form-control" placeholder="' + datoUnico.nombre + '"><br>';
+                        datosUnicosTextboxes += '<div class="col-xl-4 col-md-6"><label>' +  ' </label><input type="text" name="datos_unicos_por_solicitud_' + datoUnico.id + '" class="form-control text-start" placeholder="' + datoUnico.nombre + '"></div>';
                     });
 
                     // Mostrar los textboxes en el área designada
