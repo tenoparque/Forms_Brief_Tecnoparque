@@ -6,6 +6,7 @@
             {{ Form::text('nombre', $categoriasEventosEspeciale->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        @if(Route::currentRouteName() === 'categorias-eventos-especiales.edit')
         <div class="form-group">
             <label for="id_estado">Estados</label>
             <select name="id_estado" id="id_estado" class="form-control selectpicker"
@@ -16,6 +17,7 @@
                 @endforeach
             </select>
         </div>
+        @endif
 
 
     </div>
