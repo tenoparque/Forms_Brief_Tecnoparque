@@ -36,7 +36,7 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
         $serviciosPorTiposDeSolicitude = new ServiciosPorTiposDeSolicitude();
         $estados = Estado::all();
         $solicitudes= TiposDeSolicitude::all();
-        return view('servicios-por-tipos-de-solicitude.create', compact('serviciosPorTiposDeSolicitude', 'estados' ,'solicitudes'));
+        return view('servicios-por-tipos-de-solicitude.create', compact('serviciosPorTiposDeSolicitude', 'solicitudes'));
     }
 
     /**
@@ -48,6 +48,8 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
     public function store(Request $request)
     {
         request()->validate(ServiciosPorTiposDeSolicitude::$rules);
+
+        $request->merge(['id_estado' => 1]);
 
         $serviciosPorTiposDeSolicitude = ServiciosPorTiposDeSolicitude::create($request->all());
 

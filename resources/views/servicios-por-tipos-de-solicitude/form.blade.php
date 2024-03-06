@@ -17,6 +17,7 @@
             </select>
         </div>
 
+        @if(Route::currentRouteName() === 'servicios-por-tipos-de-solicitudes.edit')
         <div class="form-group">
             <label for="id_estado">Estado</label>
             <select name="id_estado" id="id_estado" class="form-control selectpicker"
@@ -27,6 +28,7 @@
                 @endforeach
             </select>
         </div>
+        @endif
 
 
     </div>
