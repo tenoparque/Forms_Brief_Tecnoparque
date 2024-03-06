@@ -1,18 +1,17 @@
 @extends('layouts.app')
 
 @section('template_title')
-    User
+
 @endsection
 
 @section('content')
-    <div class="" style="background-image: url('{{ asset('../images/fondoBrief4') }}'); background-size: cover; background-position: center;">
-
-        <header class="container-fluid mt-5">
-            <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 60px">
+<div class="background-image" style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; margin: 0; padding: 0;">
+        <header class="container-fluid pd-5">
+            <div class="row d-flex justify-content-between" style="align-items: center;">
                 <div class="col-md-4 col-sm-6 mb-3 mb-sm-0">
                     <div class="">
                         <div class="text-wel">
-                            <h5 class="welcoRe">BIENVENIDO</h5>
+                            <h5 class="welcoRe"> 
                             <div class="d-flex">
                                 <h2 class="supereh">SUPER - ‎ </h2>
                                 <h2 class="adminreh"> ADMIN</h2>
