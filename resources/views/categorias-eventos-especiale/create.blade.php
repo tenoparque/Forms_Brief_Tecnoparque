@@ -6,7 +6,7 @@
 
 @section('content')
 <header class="container-fluid mt-5">
-    <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 60px">
+    <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 60%">
         <!-- Carta Izquierda -->
         <div class="col-md-4 col-sm-6 mb-3 mb-sm-0">
             <div class="">
