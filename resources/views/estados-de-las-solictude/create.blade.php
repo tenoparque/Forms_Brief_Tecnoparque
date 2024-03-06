@@ -13,7 +13,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Estados De Las Solictude</span>
+                        <div class="d-flex mt-3 mb-4">
+                            <div>
+                                <h1 class="primeraPalabraFlex">{{ __('CREAR ESTADO') }}</h1>
+                            </div>
+                            <div>
+                                <h1 class="segundaPalabraFlex">{{ __('DE LA SOLICITUD') }}</h1>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('estados-de-las-solictudes.store') }}"  role="form" enctype="multipart/form-data">
