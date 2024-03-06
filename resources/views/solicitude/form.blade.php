@@ -1,12 +1,13 @@
-<div class="container">
-    <div class="row">
+<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+<div class="container shadow p-4 rounded">
+    <div class="">
         <div class="col-md-8 offset-md-2">
-            <div class="cardh">
-                <div class="d-flex">
-                    <h2 class="">Formulario thrh </h2>
-                    <h2 class="">Brief</h2>
+           
+                <div class="">
+                    <h2 class="segundaPalabraFlex mb-0"> FORMULARIO </h2>
+                    <h2 class="mt-0"> BRIEF</h2>
                 </div>
-                <div class="card-bodyh">
+                <div class="">
                     <form id="solicitudForm">
 
                         <div class="form-group">
@@ -34,10 +35,12 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary my-4">Enviar Solicitud</button>
+                        <div class="col-md-12 d-flex justify-content-end ">
+                            <button type="submit" class="btn btn-primary my-4">Enviar Solicitud</button>
+                        </div>
                     </form>
                 </div>
-            </div>
+          
         </div>
     </div>
 </div>
