@@ -64,9 +64,8 @@ class NodoController extends Controller
     public function create()
     {
         $nodo = new Nodo();
-        $estados = Estado::all();
         $ciudades = Ciudade::all();
-        return view('nodo.create', compact('nodo', 'estados', 'ciudades'));
+        return view('nodo.create', compact('nodo', 'ciudades'));
     }
 
     /**
@@ -78,6 +77,8 @@ class NodoController extends Controller
     public function store(Request $request)
     {
         request()->validate(Nodo::$rules);
+
+        $request->merge(['id_estado' => 1]);
 
         $nodo = Nodo::create($request->all());
 
