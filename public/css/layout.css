@@ -263,3 +263,18 @@ a.sidebar-link:hover {
 .index-user{
     background-color: blue;
 }
+
+
+/* solicitudes */
+
+.solicitudInputText{
+    background: #FFF ;
+    border-radius: 10px;
+    border: 2px solid  #fff ;
+    padding: 10px 5px;
+    width: 100%;
+}
+
+.solicitudesDivText{
+    padding: 10px;
+}

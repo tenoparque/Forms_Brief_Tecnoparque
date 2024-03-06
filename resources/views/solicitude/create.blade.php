@@ -27,7 +27,7 @@
     </div>
 
 </header>
-    <section class="content container">
+    <section class="container mb-5">
         <div class="row">
             <div class="col-md-12">
 
