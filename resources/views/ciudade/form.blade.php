@@ -19,6 +19,20 @@
             </div>
         @endif
 
+        @if(Route::currentRouteName() === 'ciudades.edit')
+            <div class="form-group">
+                <label for="id_departamento">Departamento</label>
+                <select name="id_departamento" id="id_departamento" class="form-control selectpicker"
+                data-style="btn-primary" title="Seleccionar Departamento" required>
+                    @foreach ($departamentos as $departamento)
+                        <option value="{{ $departamento->id }}" {{ ($ciudade->id_departamento ?? '') == $departamento->id ? 'selected' : '' }}>
+                            {{ $departamento->nombre }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
+
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
