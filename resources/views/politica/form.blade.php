@@ -22,7 +22,7 @@
             data-style="btn-primary" title="Seleccionar Usuario" required>
                 @foreach ($usuarios as $usuario)
                 <!-- We go through the models of the usuarios that we previously passed through the controller -->
-                    <option value="{{ $usuario->id }}">{{ $usuario-> nombre }}</option> <!-- We obtain the id and the value -->
+                    <option value="{{ $usuario->id }}">{{ $usuario-> name }}</option> <!-- We obtain the id and the value -->
                 @endforeach
             </select>
         </div>
