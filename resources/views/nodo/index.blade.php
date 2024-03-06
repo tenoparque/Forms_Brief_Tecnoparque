@@ -36,7 +36,16 @@
                 <div class="col-sm-12">
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1 class="tituloNodos mt-3 mb-4">{{ __('NODOS') }}</h1>
+                            
+                            <div class="d-flex mt-3 mb-4">
+                                <div>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0">{{ __('NO') }}</h1>
+                                </div>
+                                <div>
+                                    <h1 class="segundaPalabraFlex" style="margin-left: 0">{{ __('DOS') }}</h1>
+                                </div>
+                            </div>
+                            
                             <!-- <a href="{{ route('nodos.create') }}" class="btn btn-primary btn-sm">{{ __('Create New') }}</a> -->
                         </div>
                     </div>
