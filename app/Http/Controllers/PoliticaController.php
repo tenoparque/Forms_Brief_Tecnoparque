@@ -82,7 +82,7 @@ class PoliticaController extends Controller
         $usuarios = User::all();
         $estados = Estado::all();
 
-        return view('politica.edit', compact('politica', 'usuarios'));
+        return view('politica.edit', compact('politica', 'usuarios', 'estados'));
     }
 
     /**
