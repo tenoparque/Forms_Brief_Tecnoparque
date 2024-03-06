@@ -12,9 +12,14 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Datos Unicos Por Solicitude') }}
-                            </span>
+                            <div class="d-flex mt-3 mb-4">
+                                <div>
+                                    <h1 class="primeraPalabraFlex">{{ __('DATOS UNICOS') }}</h1>
+                                </div>
+                                <div>
+                                    <h1 class="segundaPalabraFlex">{{ __('POR TIPO DE SOLICITUD') }}</h1>
+                                </div>
+                            </div>
 
                              <div class="float-right">
                                 <a href="{{ route('datos-unicos-por-solicitudes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
