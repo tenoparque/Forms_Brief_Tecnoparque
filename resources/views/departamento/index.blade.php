@@ -7,10 +7,7 @@
 @section('content')
 
 <header class="container-fluid mt-5">
-    <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 60px; position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 100;">
+    <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 60px">
         <!-- Carta Izquierda -->
         <div class="col-md-4 col-sm-6 mb-3 mb-sm-0">
             <div class="">
@@ -41,10 +38,10 @@
                         
                         <div class="d-flex mt-3 mb-4">
                             <div>
-                                <h1 class="primeraPalabraFlex" style="margin-right: 0">{{ __('DEPAR') }}</h1>
+                                <h1 class="primeraPalabraFlex" style="margin-right: 0" style="font-size: 180%">{{ __('DEPAR') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex" style="margin-left: 0">{{ __('TAMENTOS') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="margin-left: 0" style="font-size: 180%">{{ __('TAMENTOS') }}</h1>
                             </div>
                         </div>
                     </div>
