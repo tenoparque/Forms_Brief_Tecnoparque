@@ -6,16 +6,18 @@
             {{ Form::text('nombre', $ciudade->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            <label for="id_departamento">Departamento</label>
-            <select name="id_departamento" id="id_departamento" class="form-control selectpicker"
-            data-style="btn-primary" title="Seleccionar Departamento" required>
-                @foreach ($departamentos as $departamento)
-                <!-- We go through the models of the Departamentos that we previously passed through the controller -->
-                    <option value="{{ $departamento->id }}">{{ $departamento-> nombre }}</option> <!-- We obtain the id and the value -->
-                @endforeach
-            </select>
-        </div>
+        @if(Route::currentRouteName() === 'ciudades.create')
+            <div class="form-group">
+                <label for="id_departamento">Departamento</label>
+                <select name="id_departamento" id="id_departamento" class="form-control selectpicker"
+                data-style="btn-primary" title="Seleccionar Departamento" required>
+                    @foreach ($departamentos as $departamento)
+                    <!-- We go through the models of the Departamentos that we previously passed through the controller -->
+                        <option value="{{ $departamento->id }}">{{ $departamento-> nombre }}</option> <!-- We obtain the id and the value -->
+                    @endforeach
+                </select>
+            </div>
+        @endif
 
     </div>
     <div class="box-footer mt20">
