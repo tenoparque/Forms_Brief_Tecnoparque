@@ -13,7 +13,9 @@
             data-style="btn-primary" title="Seleccionar Estado" required>
                 @foreach ($estados as $estado)
                 <!-- We go through the models of the estado that we previously passed through the controller -->
-                    <option value="{{ $estado->id }}">{{ $estado-> nombre }}</option> <!-- We obtain the id and the value -->
+                <option value="{{ $estado->id }}" {{ ($estadosDeLasSolictude->id_estado ?? '') == $estado->id ? 'selected' : '' }}>
+                    {{ $estado->nombre }}
+                </option> <!-- We obtain the id and the value -->
                 @endforeach
             </select>
         </div>
