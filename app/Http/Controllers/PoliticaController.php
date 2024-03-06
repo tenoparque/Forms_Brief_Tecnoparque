@@ -49,6 +49,8 @@ class PoliticaController extends Controller
     {
         request()->validate(Politica::$rules);
 
+        $request->merge(['id_estado' => 1]);
+
         $politica = Politica::create($request->all());
 
         return redirect()->route('politicas.index')
@@ -80,7 +82,7 @@ class PoliticaController extends Controller
         $usuarios = User::all();
         $estados = Estado::all();
 
-        return view('politica.edit', compact('politica', 'usuarios', 'estados'));
+        return view('politica.edit', compact('politica', 'usuarios'));
     }
 
     /**
