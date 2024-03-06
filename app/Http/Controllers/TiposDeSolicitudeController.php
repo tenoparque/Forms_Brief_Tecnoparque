@@ -59,7 +59,7 @@ class TiposDeSolicitudeController extends Controller
     {
         $tiposDeSolicitude = new TiposDeSolicitude();
         $estados = Estado::all(); // We obtain all Estados models from the database
-        return view('tipos-de-solicitude.create', compact('tiposDeSolicitude','estados')); // We pass the variables $tiposDeSolicitude and $estados to the view
+        return view('tipos-de-solicitude.create', compact('tiposDeSolicitude')); // We pass the variables $tiposDeSolicitude and $estados to the view
     }
 
     /**
@@ -71,6 +71,8 @@ class TiposDeSolicitudeController extends Controller
     public function store(Request $request)
     {
         request()->validate(TiposDeSolicitude::$rules);
+
+        $request->merge(['id_estado' => 1]);
 
         $tiposDeSolicitude = TiposDeSolicitude::create($request->all());
 
