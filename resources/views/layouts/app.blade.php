@@ -47,7 +47,7 @@
             
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link" style="text-decoration: none">
+                    <a href="/users" class="sidebar-link" style="text-decoration: none">
                         <i class="lni lni-user"></i>
                         <span>Usuario</span>
                     </a>
