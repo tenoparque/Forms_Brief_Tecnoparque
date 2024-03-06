@@ -25,13 +25,8 @@ body {
     justify-content: center;
     box-shadow: 0 8px 16px rgba(0,0,0,0.4);
     transition: 0.3s;
-    display: flex;
-
-        
-    
+    display: flex;    
 }
-
-
 
 .my-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.884);
@@ -188,11 +183,11 @@ font-family:"Work Sans", sans-serif;
 
 
 .btn-index {
-    display: inline-block; /* Botones en línea */
-    padding: 8px 16px; /* Espaciado interno */
+    display: inline-block; 
+    padding: 8px 16px; 
     border: none; /* Sin borde */
-    border-radius: 4px; /* Bordes redondeados */
-    cursor: pointer; /* Cursor al pasar */
+    border-radius: 4px; 
+    cursor: pointer; 
     font-size: 14px; /* Tamaño de fuente */
     text-align: center; /* Alineación del texto */
     text-decoration: none; /* Sin subrayado */
@@ -200,5 +195,8 @@ font-family:"Work Sans", sans-serif;
     color: #ffffff; /* Color de texto */
     transition: background-color 0.3s; /* Transición suave */
 }
+
+
+
 
 

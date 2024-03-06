@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('template_title')
-
 @endsection
 
+<div class="background-image"
+style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; display::content ">
 @section('content')
-<div class="background-image" style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; margin: 0; padding: 0;">
-        <header class="container-fluid pd-5">
-            <div class="row d-flex justify-content-between" style="align-items: center;">
+    <link rel="stylesheet" href="{{ asset('css/slayouts.css') }}">
+   
+        <header class="container-fluid-users"> 
+            <div class="row d-flex justify-content-between" style="align-items: center; margin-top:60px; position:initial">
                 <div class="col-md-4 col-sm-6 mb-3 mb-sm-0">
-                    <div class="">
-                        <div class="text-wel">
-                            <h5 class="welcoRe"> 
-                            <div class="d-flex">
-                                <h2 class="supereh">SUPER - ‎ </h2>
-                                <h2 class="adminreh"> ADMIN</h2>
-                            </div>
+                    <div class="text-wel">
+                        <h5 class="welcoRe">BIENVENIDO</h5>
+                        <div class="d-flex">
+                            <h2 class="supereh">SUPER - ‎ </h2>
+                            <h2 class="adminreh"> ADMIN</h2>
                         </div>
                     </div>
                 </div>
