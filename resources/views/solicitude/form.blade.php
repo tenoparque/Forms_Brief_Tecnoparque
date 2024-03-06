@@ -63,7 +63,7 @@
                         // if(checkboxCounter % 2 === 0){
                         //     serviciosCheckboxes += '<br>';
                         // } 
-                        serviciosCheckboxes += '<div class="col-xl-6 col-md-6 my-2"><label class="text-start"><input type="radio" name="servicios_por_tipo[]" value="' + servicio.id + '"> ' + servicio.nombre + '</label></div>';
+                        serviciosCheckboxes += '<div class="col-xl-6 col-md-6 my-2"><label class="text-start"><input type="checkbox" name="servicios_por_tipo[]" value="' + servicio.id + '"> ' + servicio.nombre + '</label></div>';
                         // checkboxCounter++;
 
                     });

@@ -110,7 +110,7 @@
         @endif
 
         <div class="main">
-            <div class="text-center">
+            <div class="">
                 <main class="">
                     @yield('content')
                 </main>
