@@ -13,7 +13,15 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Departamento</span>
+                        <div class="d-flex mt-3 mb-4">
+                            <div>
+                                <h1 class="primeraPalabraFlex">{{ __('EDITAR') }}</h1>
+                            </div>
+                            <div>
+                                <h1 class="segundaPalabraFlex">{{ __('DEPARTAMENTO') }}</h1>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('departamentos.update', $departamento->id) }}"  role="form" enctype="multipart/form-data">
