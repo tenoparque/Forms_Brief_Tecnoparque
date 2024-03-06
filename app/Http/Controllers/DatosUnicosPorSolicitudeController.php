@@ -38,7 +38,7 @@ class DatosUnicosPorSolicitudeController extends Controller
         $estados = Estado::all();
         $tiposDatos = TiposDeDato::all();
         $solicitudes = TiposDeSolicitude::all();
-        return view('datos-unicos-por-solicitude.create', compact('datosUnicosPorSolicitude' ,'estados' , 'tiposDatos' , 'solicitudes'));
+        return view('datos-unicos-por-solicitude.create', compact('datosUnicosPorSolicitude' , 'tiposDatos' , 'solicitudes'));
     }
 
     /**
@@ -50,6 +50,8 @@ class DatosUnicosPorSolicitudeController extends Controller
     public function store(Request $request)
     {
         request()->validate(DatosUnicosPorSolicitude::$rules);
+
+        $request->merge(['id_estados' => 1]);
 
         $datosUnicosPorSolicitude = DatosUnicosPorSolicitude::create($request->all());
 
