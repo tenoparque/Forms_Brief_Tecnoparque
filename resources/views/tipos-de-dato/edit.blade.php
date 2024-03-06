@@ -5,7 +5,29 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+<header class="container-fluid mt-5">
+    <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 60px">
+        <!-- Carta Izquierda -->
+        <div class="col-md-4 col-sm-6 mb-3 mb-sm-0">
+            <div class="">
+                <div class="text-wel">
+                    <h5 class="welcoRe">BIENVENIDO</h5>
+                    <div class="d-flex">
+                        <h2 class="supereh">SUPER - ‎ </h2>
+                        <h2 class="adminreh"> ADMIN</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carta Derecha -->
+        <div class="col-sm-8 ">
+            <img class="redtecnocol" src="/images/recursos/redtecnocol.png"></img>
+        </div>
+    </div>
+
+</header>
+    <section class="content container mt-5">
         <div class="">
             <div class="col-md-12">
 
@@ -13,7 +35,16 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Tipos De Dato</span>
+                        <div class="d-flex">
+                            <div class="d-flex">
+                                <div class="">
+                                    <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('EDITAR') }}</h1>
+                                </div>
+                                <div class="">
+                                    <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('TIPO DE DATO') }}</h1>
+                                </div>
+                    
+                            </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('tipos-de-datos.update', $tiposDeDato->id) }}"  role="form" enctype="multipart/form-data">

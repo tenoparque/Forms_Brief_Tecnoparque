@@ -49,6 +49,8 @@ class PoliticaController extends Controller
     {
         request()->validate(Politica::$rules);
 
+        $request->merge(['id_estado' => 1]);
+
         $politica = Politica::create($request->all());
 
         return redirect()->route('politicas.index')
