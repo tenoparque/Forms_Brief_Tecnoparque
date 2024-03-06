@@ -36,9 +36,15 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Tipos De Solicitude') }}
-                            </span>
+                            <div class="d-flex">
+                                <div class="">
+                                    <h1 class="primeraPalabraFlex">{{ __('TIPOS DE') }}</h1>
+                                </div>
+                                <div class="">
+                                    <h1 class="segundaPalabraFlex">{{ __('SOLICITUDES') }}</h1>
+                                </div>
+                    
+                            </div>
 
                              <div class="float-right">
                                 <a href="{{ route('tipos-de-solicitudes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
