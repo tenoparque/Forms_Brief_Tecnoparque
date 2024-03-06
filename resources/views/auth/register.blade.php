@@ -30,10 +30,10 @@
 
         <div class="d-flex">
             <div class="">
-                <h1 class="UsuariosFlex">{{ __('REGISTRAR') }}</h1>
+                <h1 class="primeraPalabraFlex">{{ __('REGISTRAR') }}</h1>
             </div>
             <div class="">
-                <h1 class="RegisterFlex">{{ __('USUARIOS ') }}</h1>
+                <h1 class="segundaPalabraFlex">{{ __('USUARIOS ') }}</h1>
             </div>
 
         </div>
