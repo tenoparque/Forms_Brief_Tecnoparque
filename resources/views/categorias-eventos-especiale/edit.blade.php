@@ -37,10 +37,10 @@
                     <div class="card-header">
                         <div class="d-flex mt-3 mb-4">
                             <div>
-                                <h1 class="primeraPalabraFlex">{{ __('EDITAR CATEGORIA') }}</h1>
+                                <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('EDITAR CATEGORIA') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex">{{ __('DE EVENTOS ESPECIALES') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('DE EVENTOS ESPECIALES') }}</h1>
                             </div>
                         </div>
                     </div>
