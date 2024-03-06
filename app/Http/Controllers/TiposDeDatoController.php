@@ -47,6 +47,8 @@ class TiposDeDatoController extends Controller
     {
         request()->validate(TiposDeDato::$rules);
 
+        $request->merge(['id_estado' => 1]);
+
         $tiposDeDato = TiposDeDato::create($request->all());
 
         return redirect()->route('tipos-de-datos.index')
