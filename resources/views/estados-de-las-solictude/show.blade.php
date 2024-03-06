@@ -33,7 +33,15 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Estados De Las Solictude</span>
+                            <div class="d-flex mt-3 mb-4">
+                                <div>
+                                    <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('DETALLES DEL ESTADO ') }}</h1>
+                                </div>
+                                <div>
+                                    <h1 class="segundaPalabraFlex" style = "font-size: 180%">{{ __('DE LA SOLICITUD') }}</h1>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('estados-de-las-solictudes.index') }}"> {{ __('Back') }}</a>
