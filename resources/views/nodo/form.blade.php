@@ -31,10 +31,20 @@
                 </select>
             </div>
         @endif
+        @if(Route::currentRouteName() === 'nodos.edit')
+            <div class="form-group">
+                <label for="id_ciudad">Ciudad</label>
+                <select name="id_ciudad" id="id_ciudad" class="form-control selectpicker"
+                data-style="btn-primary" title="Seleccionar la Ciudad" required>
+                    @foreach ($ciudades as $ciudad)
+                        <option value="{{ $ciudad->id }}" {{ ($nodo ->id_ciudad ?? '') == $ciudad->id ? 'selected' : '' }}>
+                            {{ $ciudad->nombre }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
     </div>
-
-
-
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
     </div>
