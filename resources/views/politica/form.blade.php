@@ -16,6 +16,7 @@
             {{ Form::text('qr', $politica->qr, ['class' => 'form-control' . ($errors->has('qr') ? ' is-invalid' : ''), 'placeholder' => 'Qr']) }}
             {!! $errors->first('qr', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        @if(Route::currentRouteName() === 'politicas.create')
         <div class="form-group">
             <label for="id_usuario">Usuario</label>
             <select name="id_usuario" id="id_usuario" class="form-control selectpicker"
@@ -26,6 +27,7 @@
                 @endforeach
             </select>
         </div>
+        @endif
         @if(Route::currentRouteName() === 'politicas.edit')
             <div class="form-group">
                 <label for="id_estado">Estado</label>
@@ -38,6 +40,18 @@
                     @endforeach
                 </select>
             </div>
+        @endif
+        @if(Route::currentRouteName() === 'politicas.edit')
+        <div class="form-group">
+            <label for="id_usuario">Usuario</label>
+            <select name="id_usuario" id="id_usuario" class="form-control selectpicker"
+            data-style="btn-primary" title="Seleccionar Usuario" required>
+                @foreach ($usuarios as $usuario)
+                <!-- We go through the models of the usuarios that we previously passed through the controller -->
+                    <option value="{{ $usuario->id }}">{{ $usuario-> name }}</option> <!-- We obtain the id and the value -->
+                @endforeach
+            </select>
+        </div>
         @endif
         <div class="form-group">
             {{ Form::label('titulo') }}
