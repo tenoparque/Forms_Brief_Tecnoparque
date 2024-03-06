@@ -13,7 +13,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Eventos Especiales Por Categoria</span>
+                        <div class="d-flex mt-3 mb-4">
+                            <div>
+                                <h1 class="primeraPalabraFlex" style="font-size:180%">{{ __('EDITAR EVENTO') }}</h1>
+                            </div>
+                            <div>
+                                <h1 class="segundaPalabraFlex" style="font-size:180%">{{ __('ESPECIALES POR CATEGORIA') }}</h1>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('eventos-especiales-por-categorias.update', $eventosEspecialesPorCategoria->id) }}"  role="form" enctype="multipart/form-data">
