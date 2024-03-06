@@ -35,7 +35,14 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Servicios Por Tipos De Solicitude') }}
+                                <div class="d-flex mt-3 mb-4">
+                                    <div>
+                                        <h1 class="primeraPalabraFlex" style="font-size: 180%" >{{ __('SERVICIOS') }}</h1>
+                                    </div>
+                                    <div>
+                                        <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('POR TIPO DE SOLICITUD') }}</h1>
+                                    </div>
+                                </div>
                             </span>
 
                              <div class="float-right">
