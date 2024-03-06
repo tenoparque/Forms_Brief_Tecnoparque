@@ -36,7 +36,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Categorias Eventos Especiale</span>
+                        <div class="d-flex mt-3 mb-4">
+                            <div>
+                                <h1 class="primeraPalabraFlex">{{ __('CREAR CATEGORIA') }}</h1>
+                            </div>
+                            <div>
+                                <h1 class="segundaPalabraFlex">{{ __('DE EVENTOS ESPECIALES') }}</h1>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('categorias-eventos-especiales.store') }}"  role="form" enctype="multipart/form-data">

@@ -24,7 +24,6 @@ class EstadosDeLasSolictude extends Model
     
     static $rules = [
 		'nombre' => 'required',
-		'id_estado' => 'required',
     ];
 
     protected $perPage = 20;

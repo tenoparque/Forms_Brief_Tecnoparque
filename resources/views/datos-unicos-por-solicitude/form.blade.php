@@ -26,6 +26,7 @@
                 @endforeach
             </select>
         </div>
+        @if(Route::currentRouteName() === 'datos-unicos-por-solicitudes.edit')
         <div class="form-group">
             <label for="id_estados">Estado</label>
             <select name="id_estados" id="id_estados" class="form-control selectpicker"
@@ -36,6 +37,7 @@
                 @endforeach
             </select>
         </div>
+        @endif
 
     </div>
     <div class="box-footer mt20">
