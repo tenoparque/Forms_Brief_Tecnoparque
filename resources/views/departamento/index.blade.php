@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
+                            <table class="table table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">No</th>
