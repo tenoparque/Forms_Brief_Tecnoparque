@@ -19,7 +19,7 @@
                         <span id="card_title">
                             <div class="d-flex mt-3 mb-4">
                                 <div>
-                                    <h1 class="primeraPalabraFlex">{{ __('CREAR') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 20px">{{ __('CREAR') }}</h1>
                                 </div>
                                 <div>
                                     <h1 class="segundaPalabraFlex">{{ __('ESTADO') }}</h1>

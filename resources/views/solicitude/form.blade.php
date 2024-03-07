@@ -106,8 +106,8 @@
                         //     serviciosCheckboxes += '<br>';
                         // } 
                         serviciosCheckboxes +=
-                            '<div class=" col-xl-6 col-md-6 my-2"><label class="text-start"><input type="checkbox"  name="servicios_por_tipo[]" value="' +
-                            servicio.id + '"> ' + servicio.nombre +
+                            '<div class=" col-xl-6 col-md-6 my-2"><label class="text-start checkboxSol"><input type="checkbox" class="checkboxSolInp"  name="servicios_por_tipo[]" value="' +
+                            servicio.id + '"> <span class="check"></span> ' + servicio.nombre +
                             '</label></div>';
                         // checkboxCounter++;
 

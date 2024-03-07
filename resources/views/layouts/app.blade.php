@@ -122,6 +122,7 @@
         <div class="main">
             <div class="">
                 <main class="">
+                    @if (Route::currentRouteName() !== 'login')
                     <header class="container-fluid  mx-3">
                         <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 60px">
                             <!-- Carta Izquierda -->
@@ -145,6 +146,7 @@
                         </div>
                 
                     </header>
+                    @endif
                     @yield('content')
                 </main>
             </div>

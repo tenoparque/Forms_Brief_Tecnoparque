@@ -15,7 +15,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             
                             <div class="d-flex mt-3 mb-4">
-                                <div>
+                                <div style="margin-right: 0;" >
                                     <h1 class="primeraPalabraFlex" style="margin-right: 0;font-size: 180%" >{{ __('NO') }}</h1>
                                 </div>
                                 <div>

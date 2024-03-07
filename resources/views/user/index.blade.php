@@ -15,15 +15,8 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <div class="d-flex">
-                                <div>
-                                    <h1 class="primeraPalabraFlex" style="margin-right: 0; font-size:180%">
-                                        {{ __('USUARIOS ‎') }}</h1>
-                                </div>
-                                <div>
-                                    <h1 class="segundaPalabraFlex" style="margin-left: 0; font-size:180%">
-                                        {{ __('REGISTRADOS') }}</h1>
-                                </div>
+                            <div>
+                                <h2><spanc class="segundaPalabraFlex">{{ __('REGISTRADOS') }}</span> <span class="primeraPalabraFlex">{{ __('REGISTRADOS') }}</span></h2>
                             </div>
                             <div class="float-right">
                                 <a href="{{ route('register') }}" class="btn btn-primary btn-sm float-right"

@@ -276,3 +276,34 @@ a.sidebar-link:hover {
 .solicitudesDivText{
     padding: 10px;
 }
+
+
+/* checkbox */
+
+.checkboxSol{
+    position: relative;
+    font-size: 1rem;
+    color:#222;
+    display: block;
+    padding-left: 45px;
+    margin-bottom: .55em;
+    cursor: pointer;
+}
+
+.checkboxSol .checkboxSolInp{
+    position: relative;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+}
+
+.check{
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border: 2px solid #e7e7e7;
+    border-radius:50%;
+    top:0;
+    left:0;
+}
+.checkboxSol:hover .checkboxSolInp 
