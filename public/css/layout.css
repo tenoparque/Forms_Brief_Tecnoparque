@@ -222,14 +222,15 @@ a.sidebar-link:hover {
 /* register css */
 
 .primeraPalabraFlex{
-    color: #39A900;
-    font-weight:900;
+    margin-right: 10px;
+    color: #26344c ;
    
 }
 
 .segundaPalabraFlex{
-    margin-right: 10px;
-    color: #26344c ;
+    color: #39A900;
+    font-weight:900;
+ 
 }
 
 /* welcome div */
@@ -285,9 +286,10 @@ a.sidebar-link:hover {
     font-size: 1rem;
     color:#222;
     display: block;
-    padding-left: 45px;
+    padding-left: 30px;
     margin-bottom: .55em;
     cursor: pointer;
+    
 }
 
 .checkboxSol .checkboxSolInp{
@@ -301,9 +303,18 @@ a.sidebar-link:hover {
     position: absolute;
     height: 25px;
     width: 25px;
-    border: 2px solid #e7e7e7;
+    border: 2px solid #B2FFFF;
     border-radius:50%;
     top:0;
     left:0;
 }
-.checkboxSol:hover .checkboxSolInp 
+
+.checkboxSol:hover .checkboxSolInp ~ .check{
+    border-color: transparent;
+    background-color: #ededed;
+}
+
+.checkboxSol .checkboxSolInp:checked ~ .check{
+    background-color: #4ca900;
+    
+}
