@@ -47,7 +47,6 @@ class PersonalizacioneController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Personalizacione::$rules);
 
         $usuarioId = Auth::id();
 
@@ -55,6 +54,8 @@ class PersonalizacioneController extends Controller
             'id_users' => $usuarioId,
             'id_estado' => 1
         ]);
+
+        request()->validate(Personalizacione::$rules);
 
         $personalizacione = Personalizacione::create($request->all());
 
