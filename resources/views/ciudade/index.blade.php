@@ -37,14 +37,14 @@
                                 <a href="{{ route('ciudades.create') }}" class="btn btn-custom">{{ __('Agregar ciudad') }}</a>
                             </div>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive" style="background-color: red; border-radius: 18px;">
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Departamento</th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
