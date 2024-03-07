@@ -17,12 +17,11 @@
                             
                             <div class="d-flex mt-3 mb-4">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="margin-right: 0; font-size: 180%">{{ __('CIUD') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">{{ __('CIUDADES') }}</h1>
                                 </div>
-                                <div>
-                                    <h1 class="segundaPalabraFlex" style="margin-left: 0; font-size: 180%">{{ __('ADES') }}</h1>
-                                </div>
+
                             </div>
+                            
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
