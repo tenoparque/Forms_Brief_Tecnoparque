@@ -55,7 +55,7 @@
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $departamento->nombre }}</td>
                                             <td>
-                                                <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
+                                                <a href="{{ route('departamentos.show') }}" class="btn btn-outline"
                                                 style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                 onmouseover="this.style.backgroundColor='#b2ebf2';"
                                                 onmouseout="this.style.backgroundColor='#FFFF';">
@@ -63,7 +63,7 @@
                                                 <i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
                                             </a>
                                             
-                                            <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
+                                            <a href="{{ route('departamentos.edit') }}" class="btn btn-outline"
                                                 style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                 onmouseover="this.style.backgroundColor='#b2ebf2';"
                                                 onmouseout="this.style.backgroundColor='#FFFF';">
