@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Personalizacione;
 use App\Models\Estado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 /**
  * Class PersonalizacioneController
@@ -47,7 +49,12 @@ class PersonalizacioneController extends Controller
     {
         request()->validate(Personalizacione::$rules);
 
-        $request->merge(['id_estado' => 1]);
+        $usuarioId = Auth::id();
+
+        $request->merge([
+            'id_users' => $usuarioId,
+            'id_estado' => 1
+        ]);
 
         $personalizacione = Personalizacione::create($request->all());
 
