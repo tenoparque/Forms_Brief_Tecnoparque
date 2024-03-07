@@ -6,6 +6,8 @@ use App\Models\Estado;
 use App\Models\Politica;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 /**
  * Class PoliticaController
@@ -36,7 +38,7 @@ class PoliticaController extends Controller
         $politica = new Politica();
         $usuarios = User::all();
         $estados = Estado::all();
-        return view('politica.create', compact('politica', 'usuarios' , 'estados'));
+        return view('politica.create', compact('politica'));
     }
 
     /**
@@ -47,9 +49,15 @@ class PoliticaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Politica::$rules);
 
-        $request->merge(['id_estado' => 1]);
+        $usuarioId = Auth::id();
+
+        $request->merge([
+            'id_usuario' => $usuarioId,
+            'id_estado' => 1
+        ]);
+
+        request()->validate(Politica::$rules);
 
         $politica = Politica::create($request->all());
 
