@@ -43,9 +43,9 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Tipos De Datos</th>
-										<th>Tipos De Solicitudes</th>
-										<th>Estados</th>
+										<th>Tipo De Dato</th>
+										<th>Tipo De Solicitud</th>
+										<th>Estado</th>
 
                                         <th></th>
                                     </tr>
