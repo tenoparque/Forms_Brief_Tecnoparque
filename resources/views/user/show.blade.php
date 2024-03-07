@@ -58,7 +58,8 @@
                     </div>
                 </div>
             </div>
-            <div class="float-right" style="text-align: right; margin-top: 10px">
+            <div class="float-right" style="
+            text-align: right; margin-top: 10px">
                 <a class="btn btn-primary" href="{{ route('users.index') }}"> {{ __('Regresar') }}</a>
             </div>
         </div>
