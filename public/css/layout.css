@@ -268,9 +268,9 @@ a.sidebar-link:hover {
 
 .solicitudInputText{
     background: #FFF ;
-    border-radius: 10px;
+    border-radius: 30px;
     border: 2px solid  #fff ;
-    padding: 10px 5px;
+    padding: 12px 15px;
     width: 100%;
 }
 
@@ -279,42 +279,47 @@ a.sidebar-link:hover {
 }
 
 
-/* checkbox */
-
-.checkboxSol{
-    position: relative;
-    font-size: 1rem;
-    color:#222;
-    display: block;
-    padding-left: 30px;
-    margin-bottom: .55em;
+/* Estilo para el contenedor del checkbox */
+.checkboxSol {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    
 }
 
-.checkboxSol .checkboxSolInp{
-    position: relative;
+.checkboxSol .checkboxSolInp {
+    position: absolute;
     height: 0;
     width: 0;
+    opacity: 0;
     cursor: pointer;
 }
 
-.check{
-    position: absolute;
-    height: 25px;
-    width: 25px;
-    border: 2px solid #B2FFFF;
-    border-radius:50%;
-    top:0;
-    left:0;
+.check {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    border: 2px solid #0e2238; /* Borde exterior azul */
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Añadido para garantizar el modelo de caja border-box */
 }
 
-.checkboxSol:hover .checkboxSolInp ~ .check{
-    border-color: transparent;
-    background-color: #ededed;
+.inner-eye {
+    width: 12px;
+    height: 12px;
+    background-color: #ececec; /* Fondo blanco del ojo */
+    border-radius: 50%;
 }
 
-.checkboxSol .checkboxSolInp:checked ~ .check{
-    background-color: #4ca900;
-    
+.checkboxSol .checkboxSolInp:checked + .check .inner-eye {
+    background-color: #39A900; /* Cambia el color de fondo cuando está marcado */
 }
+
+.checkbox-label {
+    font-size: 1rem;
+    color: #222;
+}
+
