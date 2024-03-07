@@ -79,10 +79,10 @@
                                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                                         <a class="btn btn-sm btn-primary "
                                                             href="{{ route('users.show', $user->id) }}"><i
-                                                                class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                                class="fa fa-fw fa-eye"></i> {{ __('Detalle') }}</a>
                                                         <a class="btn btn-sm btn-success"
                                                             href="{{ route('users.edit', $user->id) }}"><i
-                                                                class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                                class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     </form>
                                                 </td>
                                             </tr>
