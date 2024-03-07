@@ -28,7 +28,6 @@ class Politica extends Model
     static $rules = [
 		'link' => 'required',
 		'descripcion' => 'required',
-		'qr' => 'required',
 		'id_usuario' => 'required',
         'id_estado' => 'required',
 		'titulo' => 'required',

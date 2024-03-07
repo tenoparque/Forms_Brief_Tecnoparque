@@ -50,19 +50,40 @@ class PoliticaController extends Controller
     public function store(Request $request)
     {
 
+        // Obtener el ID del usuario autenticado
         $usuarioId = Auth::id();
+
 
         $request->merge([
             'id_usuario' => $usuarioId,
             'id_estado' => 1
         ]);
 
-        request()->validate(Politica::$rules);
+        $request->validate([
+            'qr' => 'required|image', // Validar que 'qr' sea una imagen
+        ]);
 
-        $politica = Politica::create($request->all());
+        if ($request->hasFile('qr')) {
+            // Obtener el contenido binario de la imagen
+            $qrContenido = file_get_contents($request->file('qr')->getRealPath());
 
-        return redirect()->route('politicas.index')
-            ->with('success', 'Politica created successfully.');
+            // Crear una nueva instancia de la clase Politica
+            $politica = new Politica();
+
+            // Asignar otros datos a la instancia de Politica
+            $politica->fill($request->all());
+
+            // Asignar el contenido binario de la imagen al campo 'qr'
+            $politica->qr = $qrContenido;
+
+            // Guardar la instancia de Politica en la base de datos
+            $politica->save();
+
+            return redirect()->route('politicas.index')->with('success', 'Política creada exitosamente.');
+        }
+
+        // Si no se cargó ningún archivo, volver atrás con un mensaje de error
+        return back()->withInput()->with('error', 'Debe seleccionar una imagen.');
     }
 
     /**
