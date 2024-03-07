@@ -309,6 +309,7 @@ a.sidebar-link:hover {
     box-sizing: border-box; /* Añadido para garantizar el modelo de caja border-box */
 }
 
+
 .inner-eye {
     width: 12px;
     height: 12px;
@@ -324,4 +325,5 @@ a.sidebar-link:hover {
     font-size: 1rem;
     color: #222;
 }
+
 

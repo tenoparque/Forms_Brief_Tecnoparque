@@ -33,8 +33,8 @@
                                 <input class="form-control" id="search"
                                     placeholder="Ingrese el nombre del Departamento..." style="width: 70% ;">
                                 <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
+                                <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -43,7 +43,7 @@
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
@@ -52,13 +52,12 @@
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $departamento->nombre }}</td>
                                             <td>
-                                                <a class="btn btn-sm btn-primary mr-2"
-                                                    href="{{ route('departamentos.show', $departamento->id) }}"><i
-                                                        class="fa fa-fw fa-eye"></i> {{ __('Detalle') }}</a>
-                                                <a class="btn btn-sm btn-success"
-                                                    href="{{ route('departamentos.edit', $departamento->id) }}"><i
-                                                        class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                            </td>
+                                                <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
+                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('Detalle') }}
+                                                    <i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78;"></i></a>
+                                                    <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
+                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('Detalle') }}
+                                                    <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
                                         </tr>
                                     @endforeach
                                 </tbody>
