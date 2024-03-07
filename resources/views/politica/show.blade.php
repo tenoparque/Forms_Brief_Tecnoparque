@@ -41,12 +41,12 @@
                             {{ $politica->qr }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Usuario:</strong>
-                            {{ $politica->id_usuario }}
+                            <strong>Usuario:</strong>
+                            {{ $politica->user->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Estado:</strong>
-                            {{ $politica->id_estado }}
+                            <strong>Estado:</strong>
+                            {{ $politica->estado->nombre }}
                         </div>
                         <div class="form-group">
                             <strong>Titulo:</strong>
