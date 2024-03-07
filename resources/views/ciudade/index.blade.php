@@ -42,7 +42,7 @@
                         <div class="table-responsive" style="background-color: #4ca900; border-radius: 18px;">
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
-                                    <tr>
+                                    <tr style="border-width: 2px">
                                         <th scope="col">No</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Departamento</th>
@@ -51,7 +51,7 @@
                                 </thead>
                                 <tbody class="alldata">
                                     @foreach ($ciudades as $ciudade)
-                                    <tr>
+                                    <tr style="border-width: 2px">
                                         <td>{{ ++$i }}</td>
                                         <td>{{ $ciudade->nombre }}</td>
                                         <td>{{ $ciudade->departamento->nombre }}</td>
