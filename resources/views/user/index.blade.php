@@ -44,7 +44,7 @@
                                     <tr style="border-width: 2px">
                                         <th>No</th>
 
-                                        <th>Name</th>
+                                        <th>Nombre</th>
                                         <th>Email</th>
                                         <th>Celular</th>
                                         <th>Apellidos</th>
