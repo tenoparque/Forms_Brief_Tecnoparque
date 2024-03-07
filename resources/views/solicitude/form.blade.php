@@ -4,7 +4,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="">
                 <h2 class="segundaPalabraFlex mb-0"> FORMULARIO </h2>
-                <h2 class="mt-0"> BRIEF</h2>
+                <h2 class="primeraPalabraFlex"> BRIEF</h2>
             </div>
             <div class="">
                 <form id="solicitudForm">
@@ -47,7 +47,7 @@
                             </svg>
                         </button>
 
-                        <button type="button" cla>
+                        <button type="button" class="btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
                                 <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
                                 <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
@@ -106,8 +106,8 @@
                         //     serviciosCheckboxes += '<br>';
                         // } 
                         serviciosCheckboxes +=
-                            '<div class=" col-xl-6 col-md-6 my-2"><label class="text-start checkboxSol"><input type="checkbox" class="checkboxSolInp"  name="servicios_por_tipo[]" value="' +
-                            servicio.id + '"> <span class="check"></span> ' + servicio.nombre +
+                            '<div class=" col-xl-6 col-md-6 my-2"><label class=" checkboxSol"><input type="checkbox" class="checkboxSolInp"  name="servicios_por_tipo[]" value="' +
+                            servicio.id + '"> <span class="check"><span class="inner-eye"></span></span> ' + servicio.nombre +
                             '</label></div>';
                         // checkboxCounter++;
 

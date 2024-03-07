@@ -16,11 +16,10 @@
                             
                             <div class="d-flex mt-3 mb-4">
                                 <div style="margin-right: 0;" >
-                                    <h1 class="primeraPalabraFlex" style="margin-right: 0;font-size: 180%" >{{ __('NO') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">{{ __('NODOS') }}</h1>
+                                   
                                 </div>
-                                <div>
-                                    <h1 class="segundaPalabraFlex" style="margin-left:0 ;font-size: 180%">{{ __('DOS') }}</h1>
-                                </div>
+
                             </div>
                             
                             <!-- <a href="{{ route('nodos.create') }}" class="btn btn-primary btn-sm">{{ __('Create New') }}</a> -->
@@ -36,12 +35,8 @@
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del Nodo..." style="width: 70% ;">
-                                <a href="{{ route('nodos.create') }}" class="btn btn-custom"
-                                style="color:#00324D; border:2px solid #82DEF0; height: 50px; font-size: 20px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center;
-                                
-                                
-                                
-                                margin">{{ __('CREAR') }}
+                                <a href="{{ route('nodos.create') }}" class="btn btn-outline"
+                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
                                 <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                         </div>
                         <div class="table-responsive">
