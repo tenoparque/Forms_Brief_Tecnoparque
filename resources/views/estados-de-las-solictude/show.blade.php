@@ -34,8 +34,8 @@
                             {{ $estadosDeLasSolictude->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Estado:</strong>
-                            {{ $estadosDeLasSolictude->id_estado }}
+                            <strong>Estado:</strong>
+                            {{ $estadosDeLasSolictude->estado->nombre }}
                         </div>
 
                     </div>
