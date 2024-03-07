@@ -21,11 +21,6 @@
             {{ Form::text('color_terciario', $personalizacione->color_terciario, ['class' => 'form-control' . ($errors->has('color_terciario') ? ' is-invalid' : ''), 'placeholder' => 'Color Terciario']) }}
             {!! $errors->first('color_terciario', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('id_users') }}
-            {{ Form::text('id_users', $personalizacione->id_users, ['class' => 'form-control' . ($errors->has('id_users') ? ' is-invalid' : ''), 'placeholder' => 'Id Users']) }}
-            {!! $errors->first('id_users', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
         @if(Route::currentRouteName() === 'personalizaciones.edit')
         <div class="form-group">
         <label for="id_estado">Estado</label>
