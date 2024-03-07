@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="content container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -25,8 +25,8 @@
                             {{ $tiposDeDato->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Estado:</strong>
-                            {{ $tiposDeDato->id_estado }}
+                            <strong>Estado:</strong>
+                            {{ $tiposDeDato->estado->nombre }}
                         </div>
 
                     </div>
