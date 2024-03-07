@@ -16,11 +16,10 @@
                             
                             <div class="d-flex mt-3 mb-4">
                                 <div style="margin-right: 0;" >
-                                    <h1 class="primeraPalabraFlex" style="margin-right: 0;font-size: 180%" >{{ __('NO') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">{{ __('NODOS') }}</h1>
+                                   
                                 </div>
-                                <div>
-                                    <h1 class="segundaPalabraFlex" style="margin-left:0 ;font-size: 180%">{{ __('DOS') }}</h1>
-                                </div>
+
                             </div>
                             
                             <!-- <a href="{{ route('nodos.create') }}" class="btn btn-primary btn-sm">{{ __('Create New') }}</a> -->
