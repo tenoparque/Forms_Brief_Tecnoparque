@@ -47,9 +47,9 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(ServiciosPorTiposDeSolicitude::$rules);
-
         $request->merge(['id_estado' => 1]);
+
+        request()->validate(ServiciosPorTiposDeSolicitude::$rules);
 
         $serviciosPorTiposDeSolicitude = ServiciosPorTiposDeSolicitude::create($request->all());
 
