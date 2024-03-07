@@ -36,11 +36,11 @@
                         </div>
                         <div class="form-group">
                             <strong>Id Tipo De Solicitud:</strong>
-                            {{ $serviciosPorTiposDeSolicitude->id_tipo_de_solicitud }}
+                            {{ $serviciosPorTiposDeSolicitude->tiposDeSolicitude->nombre }}
                         </div>
                         <div class="form-group">
                             <strong>Id Estado:</strong>
-                            {{ $serviciosPorTiposDeSolicitude->id_estado }}
+                            {{ $serviciosPorTiposDeSolicitude->estado->nombre }}
                         </div>
 
                     </div>
