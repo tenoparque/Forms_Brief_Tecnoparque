@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="container shadow p-4 my-5 bg-light rounded">
+    <section class="container-fluid shadow p-4 my-5 bg-light rounded"style="width:70rem">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -14,10 +14,13 @@
 
                             <div class="d-flex mt-3 mb-4">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">{{ __('DEPARTAMENTOS') }}</h1>
-
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0;font-size: 180%">
+                                        {{ __('DEPAR') }}</h1>
                                 </div>
-                                
+                                <div>
+                                    <h1 class="segundaPalabraFlex" style="margin-left: 0;font-size: 180%">
+                                        {{ __('TAMENTOS') }}</h1>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -33,12 +36,12 @@
                                 <input class="form-control" id="search"
                                     placeholder="Ingrese el nombre del Departamento..." style="width: 70% ;">
                                 <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
-                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
-                                <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
+                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-hover ">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">No</th>
@@ -53,11 +56,20 @@
                                             <td>{{ $departamento->nombre }}</td>
                                             <td>
                                                 <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('Detalle') }}
-                                                    <i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78;"></i></a>
-                                                    <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('Detalle') }}
-                                                    <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';">
+                                                {{ __('Detalle') }}
+                                                <i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
+                                            </a>
+                                            
+                                            <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';">
+                                                {{ __('Editar') }}
+                                                <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                            </a>
                                         </tr>
                                     @endforeach
                                 </tbody>
