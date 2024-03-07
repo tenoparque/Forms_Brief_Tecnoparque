@@ -46,7 +46,7 @@
                                         
 										<th>Nombre</th>
 										<th>Estado</th>
-										<th>Eventos Especiales</th>
+										<th>Evento Especial</th>
 
                                         <th></th>
                                     </tr>
