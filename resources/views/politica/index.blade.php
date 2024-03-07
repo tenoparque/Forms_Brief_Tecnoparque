@@ -44,7 +44,6 @@
                                         
 										<th>Link</th>
 										<th>Descripcion</th>
-										<th>Qr</th>
 										<th>Usuario</th>
 										<th>Estado</th>
 										<th>Titulo</th>
@@ -59,7 +58,6 @@
                                             
 											<td>{{ $politica->link }}</td>
 											<td>{{ $politica->descripcion }}</td>
-											<td>{{ $politica->qr }}</td>
 											<td>{{ $politica->user->name }}</td>
 											<td>{{ $politica->estado->nombre}}</td>
 											<td>{{ $politica->titulo }}</td>
