@@ -32,8 +32,8 @@
                             {{ $categoriasEventosEspeciale->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Estado:</strong>
-                            {{ $categoriasEventosEspeciale->id_estado }}
+                            <strong>Estado:</strong>
+                            {{ $categoriasEventosEspeciale->estado->nombre }}
                         </div>
 
                     </div>
