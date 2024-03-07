@@ -45,7 +45,7 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Name</th>
+										<th>Nombre</th>
 										<!-- <th>Guard Name</th> -->
 
                                         <th></th>
