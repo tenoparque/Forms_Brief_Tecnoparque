@@ -39,14 +39,14 @@
                                     <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive" style="background-color: #4ca900; border-radius: 18px;">
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Departamento</th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
