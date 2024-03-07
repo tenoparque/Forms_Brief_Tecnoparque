@@ -45,12 +45,12 @@
                             {{ $personalizacione->color_terciario }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Users:</strong>
-                            {{ $personalizacione->id_users }}
+                            <strong>Usuario:</strong>
+                            {{ $personalizacione->user->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Estado:</strong>
-                            {{ $personalizacione->id_estado }}
+                            <strong>Estado:</strong>
+                            {{ $personalizacione->estado->nombre}}
                         </div>
 
                     </div>
