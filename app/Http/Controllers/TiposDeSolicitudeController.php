@@ -70,9 +70,9 @@ class TiposDeSolicitudeController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(TiposDeSolicitude::$rules);
-
         $request->merge(['id_estado' => 1]);
+        
+        request()->validate(TiposDeSolicitude::$rules);
 
         $tiposDeSolicitude = TiposDeSolicitude::create($request->all());
 
