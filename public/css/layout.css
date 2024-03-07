@@ -75,8 +75,6 @@ h1 {
 
 /* PROPERTIES CITIES */
 
-
-
 /* PROPERTIES SIDEBAR - BUTTONS, FUNCTIONS, ETC (OVERALL) */
 
 .wrapper {
@@ -266,7 +264,7 @@ a.sidebar-link:hover {
 }
 
 
-/* solicitudes */
+/* --------------- solicitudes ---------------------- */
 
 .solicitudInputText{
     background: #FFF ;
@@ -300,15 +298,14 @@ a.sidebar-link:hover {
     position: relative;
     height: 24px;
     width: 24px;
-    border: 2px solid #0e2238; /* Borde exterior azul */
+    border: 2px solid #97e1f0 ; /* Borde exterior azul */
     border-radius: 50%;
     margin-right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box; /* Añadido para garantizar el modelo de caja border-box */
+    box-sizing: content-box; /* Añadido para garantizar el modelo de caja border-box */
 }
-
 
 .inner-eye {
     width: 12px;
@@ -325,5 +322,35 @@ a.sidebar-link:hover {
     font-size: 1rem;
     color: #222;
 }
+
+
+.formBrief{
+    position: relative;
+}
+
+.buttomBriefDiv{
+    position: relative;
+    bottom: 4px;
+    left: 100px;
+}
+
+/* button */
+.btnEnviar{
+    color: #00324D;
+    border: 2px solid #82DEF0;
+    height: 40px;
+    width: 180px;
+    cursor: pointer;
+    border-radius: 35px;
+    justify-content: center;
+    justify-items: center;
+    background: #fff;
+
+}
+
+.iBtnBrief{
+    color: #642c78;
+}
+
 
 
