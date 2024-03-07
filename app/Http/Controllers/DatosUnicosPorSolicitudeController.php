@@ -49,9 +49,9 @@ class DatosUnicosPorSolicitudeController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(DatosUnicosPorSolicitude::$rules);
-
         $request->merge(['id_estados' => 1]);
+
+        request()->validate(DatosUnicosPorSolicitude::$rules);
 
         $datosUnicosPorSolicitude = DatosUnicosPorSolicitude::create($request->all());
 

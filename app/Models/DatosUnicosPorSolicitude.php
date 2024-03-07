@@ -29,6 +29,7 @@ class DatosUnicosPorSolicitude extends Model
 		'nombre' => 'required',
 		'id_tipos_de_datos' => 'required',
 		'id_tipos_de_solicitudes' => 'required',
+        'id_estados' => 'required',
     ];
 
     protected $perPage = 20;
