@@ -34,6 +34,18 @@
             {{ Form::text('titulo', $politica->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo']) }}
             {!! $errors->first('titulo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        @if(Route::currentRouteName() === 'politicas.edit')
+        <div class="form-group">
+            <label for="qr">Imagen QR:</label>
+            @if($politica->qr)
+                <!-- Si hay datos binarios en el campo qr, los convertimos a una representación base64 y los mostramos como una imagen -->
+                <img src="data:image/png;base64,{{ base64_encode($politica->qr) }}" alt="QR" width="200">
+            @else
+                <!-- Si no hay datos binarios en el campo qr, mostramos un mensaje indicando que no hay imagen -->
+                <p>No hay imagen QR disponible.</p>
+            @endif
+        </div>
+        @endif
 
     </div>
     <div class="box-footer mt20">
