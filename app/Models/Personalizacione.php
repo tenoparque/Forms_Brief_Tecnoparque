@@ -30,6 +30,8 @@ class Personalizacione extends Model
 		'color_principal' => 'required',
 		'color_secundario' => 'required',
 		'color_terciario' => 'required',
+		'id_users' => 'required',
+        'id_estado' => 'required',
     ];
 
     protected $perPage = 20;
