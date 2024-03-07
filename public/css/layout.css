@@ -21,10 +21,7 @@ h1 {
 
 /* PROPERTIES REGISTER */
 
-.redtecnocol{
-    margin-left: 450px;
-    /* background-color: yellow; */
-}
+
 
 .text-wel{
     display: flex;
@@ -225,13 +222,14 @@ a.sidebar-link:hover {
 /* register css */
 
 .primeraPalabraFlex{
-    margin-right: 10px;
-    color: #26344c ;
+    color: #39A900;
+    font-weight:900;
+   
 }
 
 .segundaPalabraFlex{
-    color: #39A900;
-    font-weight:900;
+    margin-right: 10px;
+    color: #26344c ;
 }
 
 /* welcome div */

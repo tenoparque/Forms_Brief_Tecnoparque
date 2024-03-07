@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $historialDeModificacionesPorSolicitude->name ?? "{{ __('Show') Historial De Modificaciones Por Solicitude" }}
+    {{ $historialDeModificacionesPorSolicitude->name ?? "__('Show') Historial De Modificaciones Por Solicitude" }}
 @endsection
 
 @section('content')

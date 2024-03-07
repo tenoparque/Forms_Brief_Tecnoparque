@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $tiposDeDato->name ?? "{{ __('Show') Tipos De Dato" }}
+    {{ $tiposDeDato->name ?? "__('Show') Tipos De Dato" }}
 @endsection
 
 @section('content')
