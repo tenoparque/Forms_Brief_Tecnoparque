@@ -54,16 +54,16 @@
                             {{ $datosUnicosPorSolicitude->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Tipos De Datos:</strong>
-                            {{ $datosUnicosPorSolicitude->id_tipos_de_datos }}
+                            <strong>Tipo De Dato:</strong>
+                            {{ $datosUnicosPorSolicitude->tiposDeDato->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Tipos De Solicitudes:</strong>
-                            {{ $datosUnicosPorSolicitude->id_tipos_de_solicitudes }}
+                            <strong>Tipo De Solicitud:</strong>
+                            {{ $datosUnicosPorSolicitude->tiposDeSolicitude->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Estados:</strong>
-                            {{ $datosUnicosPorSolicitude->id_estados }}
+                            <strong>Estado:</strong>
+                            {{ $datosUnicosPorSolicitude->estado->nombre }}
                         </div>
 
                     </div>
