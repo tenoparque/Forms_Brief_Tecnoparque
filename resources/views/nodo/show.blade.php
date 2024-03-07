@@ -33,12 +33,12 @@
                             {{ $nodo->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Estado:</strong>
-                            {{ $nodo->id_estado }}
+                            <strong>Estado:</strong>
+                            {{ $nodo->estado->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Ciudad:</strong>
-                            {{ $nodo->id_ciudad }}
+                            <strong>Ciudad:</strong>
+                            {{ $nodo->ciudade->nombre }}
                         </div>
 
                     </div>
