@@ -71,9 +71,9 @@ class EstadosDeLasSolictudeController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(EstadosDeLasSolictude::$rules);
-
         $request->merge(['id_estado' => 1]);
+
+        request()->validate(EstadosDeLasSolictude::$rules);
 
         $estadosDeLasSolictude = EstadosDeLasSolictude::create($request->all());
 
