@@ -51,7 +51,7 @@
                                 </thead>
                                 <tbody class="alldata">
                                     @foreach ($ciudades as $ciudade)
-                                    <tr style="border-width: 2px">
+                                    <tr>
                                         <td>{{ ++$i }}</td>
                                         <td>{{ $ciudade->nombre }}</td>
                                         <td>{{ $ciudade->departamento->nombre }}</td>
