@@ -26,6 +26,7 @@ class ServiciosPorTiposDeSolicitude extends Model
     static $rules = [
 		'nombre' => 'required',
 		'id_tipo_de_solicitud' => 'required',
+        'id_estado' => 'required',
     ];
 
     protected $perPage = 20;
