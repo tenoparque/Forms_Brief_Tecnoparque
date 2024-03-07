@@ -47,9 +47,9 @@ class EventosEspecialesPorCategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(EventosEspecialesPorCategoria::$rules);
-
         $request->merge(['id_estado' => 1]);
+
+        request()->validate(EventosEspecialesPorCategoria::$rules);
 
         $eventosEspecialesPorCategoria = EventosEspecialesPorCategoria::create($request->all());
 

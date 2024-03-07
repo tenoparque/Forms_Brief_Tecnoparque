@@ -33,12 +33,12 @@
                             {{ $eventosEspecialesPorCategoria->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Estado:</strong>
-                            {{ $eventosEspecialesPorCategoria->id_estado }}
+                            <strong>Estado:</strong>
+                            {{ $eventosEspecialesPorCategoria->estado->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Eventos Especiales:</strong>
-                            {{ $eventosEspecialesPorCategoria->id_eventos_especiales }}
+                            <strong>Evento Especial:</strong>
+                            {{ $eventosEspecialesPorCategoria->categoriasEventosEspeciale->nombre }}
                         </div>
 
                     </div>

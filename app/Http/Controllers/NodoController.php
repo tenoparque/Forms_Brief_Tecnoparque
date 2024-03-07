@@ -76,9 +76,9 @@ class NodoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Nodo::$rules);
-
         $request->merge(['id_estado' => 1]);
+
+        request()->validate(Nodo::$rules);
 
         $nodo = Nodo::create($request->all());
 
