@@ -99,6 +99,14 @@ class PersonalizacioneController extends Controller
      */
     public function update(Request $request, Personalizacione $personalizacione)
     {
+
+        $usuarioId = Auth::id();
+
+        $request->merge([
+            'id_users' => $usuarioId,
+            'id_estado' => 1
+        ]);
+
         request()->validate(Personalizacione::$rules);
 
         $personalizacione->update($request->all());
