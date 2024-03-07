@@ -34,7 +34,7 @@
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
-                                <input class="form-control" id="search" placeholder="Ingrese el nombre de la ciudad..." style="width: 70% ;">
+                                <input class="form-control" id="search" placeholder="Ingrese el nombre de la ciudad..." style="width: 70%; border-radius: 50px">
                                 <a href="{{ route('ciudades.create') }}" class="btn btn-custom">{{ __('Agregar ciudad') }}</a>
                             </div>
                         </div>
