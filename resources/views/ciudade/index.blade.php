@@ -39,7 +39,7 @@
                                     <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>
-                        <div class="table-responsive" style="background-color: #4ca900; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
+                        <div class="table-responsive" style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
