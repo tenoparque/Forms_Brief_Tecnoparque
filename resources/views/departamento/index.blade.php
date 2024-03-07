@@ -5,8 +5,6 @@
 @endsection
 
 @section('content')
-    
-
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
             <div class="row">
@@ -38,7 +36,7 @@
                                 <input class="form-control" id="search"
                                     placeholder="Ingrese el nombre del Departamento..." style="width: 70% ;">
                                 <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 50px; font-size: 20px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center">{{ __('CREAR') }}
+                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>

@@ -45,9 +45,9 @@ class TiposDeDatoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(TiposDeDato::$rules);
-
         $request->merge(['id_estado' => 1]);
+
+        request()->validate(TiposDeDato::$rules);
 
         $tiposDeDato = TiposDeDato::create($request->all());
 
