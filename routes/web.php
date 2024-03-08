@@ -17,6 +17,7 @@ use App\Http\Controllers\TiposDeDatoController;
 use App\Http\Controllers\TiposDeSolicitudeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Models\DatosUnicosPorSolicitude;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +44,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Ciudades
 Route::resource('ciudades', CiudadeController::class); // Ciudades Route
 Route::get('/searchCiudad', [CiudadeController::class, 'search']); // Ciudades Searching Route
+
+Route::get('/searchDatoUnico', [DatosUnicosPorSolicitudeController::class, 'search']); // datos unicos por solicitudes Searching Route
 
 Route::resource('estados', EstadoController::class);
 
