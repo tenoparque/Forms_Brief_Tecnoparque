@@ -29,6 +29,7 @@ class NodoController extends Controller
 
     public function search(Request $request)
     {
+        $num = 0;
         $output= ""; // The output variable is defined and initialized
         $nodos = Nodo::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Nodo name
 
@@ -36,16 +37,24 @@ class NodoController extends Controller
         foreach($nodos as $nodo){
             $output .= 
             '<tr>
-                <td>' . $nodo->id . '</td>
+                <td>' . ++$num . '</td>
                 <td>' . $nodo->nombre . '</td>
-                <td>' . $nodo->estado->nombre . '</td>
                 <td>' . $nodo->ciudade->nombre . '</td>
                 <td>
-                    <a href="' . url('/nodos/' . $nodo->id) . '" class="btn btn-sm btn-primary">
-                        <i class="fa fa-fw fa-eye"></i> Show
+                    <a href="' . route('nodos.show', $nodo->id) . '" class="btn btn-outline"
+                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                        onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
+                        onmouseout="this.style.backgroundColor=\'#FFFF\';">
+                        Detalle
+                        <i class="fa fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
                     </a>
-                    <a href="' . url('/nodos/' . $nodo->id . '/edit') . '" class="btn btn-sm btn-success">
-                        <i class="fa fa-fw fa-edit"></i> Edit
+
+                    <a href="' . route('nodos.edit', $nodo->id) . '" class="btn btn-outline"
+                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                        onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
+                        onmouseout="this.style.backgroundColor=\'#FFFF\';">
+                        Editar
+                        <i class="fa fa-pen-to-square fa-xs" style="color: #39a900;"></i>
                     </a>
                 </td>
             </tr>';
