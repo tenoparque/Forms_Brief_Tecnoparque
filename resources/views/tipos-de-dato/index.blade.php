@@ -1,33 +1,30 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Tipos De Dato
+    Tipos de dato 
 @endsection
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
+    <section class="container shadow p-4 my-5 bg-light rounded">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
                     <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="d-flex justify-content-between align-items-center">
 
-                            <div class="d-flex">
-                                <div class="">
-                                    <h1 class="primeraPalabraFlex">{{ __('TIPOS DE') }}</h1>
+                            <div style="d-flex justify-content-between align-items-center">
+
+                                <div class="d-flex mt-3 mb-4">
+                                    
+                                        <div>
+                                            <h1 class="primeraPalabraFlex" style="font-size: 180%" >{{ __('TIPOS') }}</h1>
+                                        </div>
+                                        <div>
+                                            <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('DE DATOS') }}</h1>
+                                        </div>
+                                    
+
                                 </div>
-                                <div class="">
-                                    <h1 class="segundaPalabraFlex">{{ __('DATOS') }}</h1>
-                                </div>
-
-                            </div>
-
-                            <div class="float-right">
-                                <a href="{{ route('tipos-de-datos.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>
                     </div>
@@ -38,19 +35,31 @@
                     @endif
 
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
+                        <div class="row mb-3">
+                            <div class="col d-flex justify-content-between align-items-center">
+                                <input class="form-control" id="search" placeholder="Ingrese el nombre del tipo de dato..."
+                                    style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
+                                <a href="{{ route('tipos-de-datos.create') }}" class="btn btn-outline"
+                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
+                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                    onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
+                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                            </div>
+                        </div>
+                        <div class="table-responsive"
+                            style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
+                            <table class="table table-bordered table-hover">
+                                <thead class="thead-dark">
+                                    <tr style="border-width: 2px">
                                         <th>No</th>
 
                                         <th>Nombre</th>
                                         <th>Estado</th>
 
-                                        <th></th>
+                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="alldata">
                                     @foreach ($tiposDeDatos as $tiposDeDato)
                                         <tr>
                                             <td>{{ ++$i }}</td>
@@ -59,22 +68,70 @@
                                             <td>{{ $tiposDeDato->estado->nombre }}</td>
 
                                             <td>
-                                                <a class="btn btn-sm btn-primary "
-                                                    href="{{ route('tipos-de-datos.show', $tiposDeDato->id) }}"><i
-                                                        class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                <a class="btn btn-sm btn-success"
-                                                    href="{{ route('tipos-de-datos.edit', $tiposDeDato->id) }}"><i
-                                                        class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('tipos-de-datos.show', $tiposDeDato->id) }}" method="POST">
+                                                    <a class="btn btn-outline"
+                                                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                        onmouseout="this.style.backgroundColor='#FFFF';"
+                                                        href="{{ route('tipos-de-datos.show', $tiposDeDato->id) }}"><i
+                                                            class="fa-sharp fa-solid fa-eye fa-xs"
+                                                            style="color: #642c78; margin-left: 5px;"></i>
+                                                        {{ __('Detalle') }}</a>
+
+                                                    <a class="btn btn-outline"style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                        onmouseout="this.style.backgroundColor='#FFFF';"
+                                                        href="{{ route('tipos-de-datos.edit', $tiposDeDato->id) }}"><i
+                                                            class="fa-solid fa-pen-to-square fa-xs"
+                                                            style="color: #39a900;"></i> {{ __('Editar') }}</a>
+
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
+                                <!-- Another tbody is created for the search records -->
+                                <tbody id="Content" class="dataSearched">
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
+
                 </div>
                 {!! $tiposDeDatos->links() !!}
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- JS Scripts -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // javascript and ajax code
+        $('#search').on('keyup', function() {
+            $value = $(this).val();
+
+            if ($value) {
+                $('.alldata').hide();
+                $('.dataSearched').show();
+            } else {
+                $('.alldata').show();
+                $('.dataSearched').hide();
+            }
+
+            $.ajax({
+                type: 'get',
+                url: "{{ URL::to('searchTiposDato') }}",
+                data: {
+                    'search': $value
+                },
+
+                success: function(data) {
+                    $('#Content').html(data);
+                }
+            });
+        })
+    </script>
 @endsection
+
