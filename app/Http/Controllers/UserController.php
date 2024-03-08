@@ -56,7 +56,7 @@ class UserController extends Controller
         
             $output .= '</td>
                             <td>
-                                <a href="' . route('nodos.show', $user->id) . '" class="btn btn-outline"
+                                <a href="' . route('users.show', $user->id) . '" class="btn btn-outline"
                                     style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                     onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
                                     onmouseout="this.style.backgroundColor=\'#FFFF\';">
@@ -64,7 +64,7 @@ class UserController extends Controller
                                     <i class="fa fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
                                 </a>
         
-                                <a href="' . route('nodos.edit', $user->id) . '" class="btn btn-outline"
+                                <a href="' . route('users.edit', $user->id) . '" class="btn btn-outline"
                                     style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                     onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
                                     onmouseout="this.style.backgroundColor=\'#FFFF\';">
