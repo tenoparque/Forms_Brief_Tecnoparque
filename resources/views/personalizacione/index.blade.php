@@ -48,7 +48,7 @@
 										<th>Color Principal</th>
 										<th>Color Secundario</th>
 										<th>Color Terciario</th>
-										<th>Usuario</th>
+										<th>Email de Usuario</th>
 										<th>Estado</th>
 
                                         <th>Opciones</th>
