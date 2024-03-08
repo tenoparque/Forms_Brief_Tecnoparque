@@ -1,11 +1,11 @@
 <section class="container shadow p-3  my-5 bg-light rounded">
 
-    <div class="d-flex">
+    <div class="d-flex" style="margin-bottom: 10px">
         <div class="">
             <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('EDITAR') }}</h1>
         </div>
         <div class="">
-            <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('USUARIOS') }}</h1>
+            <h1 class="segundaPalabraFlex" style="font-size: 180%;">{{ __('USUARIOS') }}</h1>
         </div>
 
     </div>
@@ -13,7 +13,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 {{ Form::label('nombre') }}
-                {{ Form::text('nombre', $user->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'style' => 'width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px']) }}
+                {{ Form::text('nombre', $user->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'style' => 'width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
                 {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">

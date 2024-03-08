@@ -37,7 +37,9 @@
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del rol..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                                 <a href="{{ route('roles.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
+                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
+                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                    onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>
@@ -61,15 +63,21 @@
 
                                             <td>
                                                 <form action="{{ route('roles.destroy', $role->id) }}" method="POST">
-                                                    <a class="btn btn-outline" style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('roles.show', $role->id) }}"><i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i> {{ __('Detalle') }}</a>
-                                                   
-                                                        <a class="btn btn-outline"style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                    <a class="btn btn-outline"
+                                                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                         onmouseover="this.style.backgroundColor='#b2ebf2';"
                                                         onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('roles.edit', $role->id) }}"><i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i> {{ __('Editar') }}</a>
+                                                        href="{{ route('roles.show', $role->id) }}"><i
+                                                            class="fa-sharp fa-solid fa-eye fa-xs"
+                                                            style="color: #642c78; margin-left: 5px;"></i>
+                                                        {{ __('Detalle') }}</a>
+
+                                                    <a class="btn btn-outline"style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                        onmouseout="this.style.backgroundColor='#FFFF';"
+                                                        href="{{ route('roles.edit', $role->id) }}"><i
+                                                            class="fa-solid fa-pen-to-square fa-xs"
+                                                            style="color: #39a900;"></i> {{ __('Editar') }}</a>
 
                                                 </form>
                                             </td>
