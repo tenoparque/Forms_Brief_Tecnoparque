@@ -34,6 +34,11 @@
             <input type="file" name="qr" id="qr" class="form-control-file{{ $errors->has('qr') ? ' is-invalid' : '' }}">
             {!! $errors->first('qr', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        @if(Route::currentRouteName() === 'politicas.create')
+        <div id="imagePreview">
+            <img id="qrImage" class="img-thumbnail" alt="Preview">
+        </div>
+        @endif
         @if(Route::currentRouteName() === 'politicas.edit')
         <div class="form-group">
             <label for="qr">Imagen QR:</label>
