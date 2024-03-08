@@ -9,11 +9,11 @@
 
     
     <section class="container shadow p-4 my-5 bg-light rounded">
-        <div class="container">
+
             <div class="row">
-                <div class="col-sm-12">
+                
                     <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="">
                             
                             <div class="d-flex mt-3 mb-4">
                                 <div>
@@ -33,7 +33,7 @@
                         </div>
                     @endif
 
-                    <div class="card-body">
+                    <div class="">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del dato unico por tipo de solicitud..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
@@ -42,30 +42,30 @@
                                     <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>
-                        <div class="table-responsive" style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
-                            <table class="table table-bordered table-hover">
+                        <div class="table-responsive" style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6; width=25%">
+                            <table class="table table-responsive table-bordered " style="width=25%">
                                 <thead class="thead-dark">
-                                    <tr style="border-width: 2px">
-                                        <th>No</th>
+                                    <tr style="border-width: 2px;width:25%">
+                                        <th >No</th>
 										<th>Nombre</th>
 										<th>Tipo De Dato</th>
 										<th>Tipo De Solicitud</th>
-										<th>Estado</th>
+										<th >Estado</th>
 
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
-                                <tbody class="alldata">
+                                <tbody class="">
                                     @foreach ($datosUnicosPorSolicitudes as $datosUnicosPorSolicitude)
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                             
-											<td>{{ $datosUnicosPorSolicitude->nombre }}</td>
-											<td>{{ $datosUnicosPorSolicitude->tiposDeDato->nombre }}</td>
-											<td>{{ $datosUnicosPorSolicitude->tiposDeSolicitude->nombre }}</td>
-											<td>{{ $datosUnicosPorSolicitude->estado->nombre }}</td>
+											<td >{{ $datosUnicosPorSolicitude->nombre }}</td>
+											<td >{{ $datosUnicosPorSolicitude->tiposDeDato->nombre }}</td>
+											<td ><p>{{ $datosUnicosPorSolicitude->tiposDeSolicitude->nombre }}</p></td>
+											<td >{{ $datosUnicosPorSolicitude->estado->nombre }}</td>
 
-                                            <td> 
+                                            <td > 
                     
                                                 <a href="{{ route('datos-unicos-por-solicitudes.show' ,$datosUnicosPorSolicitude->id) }}" class="btn btn-outline"
                                                 style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
@@ -90,9 +90,9 @@
                             </table>
                         </div>
                     </div>
-                </div>
+               
                 {!! $datosUnicosPorSolicitudes->links() !!}
             </div>
-        </div>
+     
     </div>
 @endsection
