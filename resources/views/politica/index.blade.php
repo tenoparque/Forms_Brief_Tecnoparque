@@ -18,7 +18,7 @@
                                     <div>
                                         <h1 class="primeraPalabraFlex"
                                             style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">
-                                            {{ __('POLITICAS') }}</h1>
+                                            {{ __('POLÍTICAS') }}</h1>
                                     </div>
 
                                 </div>
