@@ -123,9 +123,27 @@ class PoliticaController extends Controller
      */
     public function update(Request $request, Politica $politica)
     {
-        request()->validate(Politica::$rules);
+        // Obtener el ID del usuario autenticado
+        $usuarioId = Auth::id();
 
-        $politica->update($request->all());
+        $request->merge([
+            'id_usuario' => $usuarioId,
+        ]);
+
+        $request->validate([
+            'qr' => 'image', 
+        ]);
+
+        if ($request->hasFile('qr')) {
+            // Obtener el contenido binario de la nueva imagen
+            $qrContent = file_get_contents($request->file('qr')->getRealPath());
+
+            // Actualizar el campo de imagen 'qr' con el nuevo contenido
+            $politica->qr = $qrContent;
+        }
+
+        // Actualizar los demás campos excepto 'qr'
+        $politica->update($request->except('qr'));
 
         return redirect()->route('politicas.index')
             ->with('success', 'Politica updated successfully');
