@@ -22,8 +22,7 @@
                         </div>
 
                         <div class="card-body">
-                            <div class="row mb-3">
-                            </div>
+                            
                             <div class="table-responsive"
                                 style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                                 <table class="table table-bordered table-hover">
