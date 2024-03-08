@@ -32,7 +32,7 @@
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
-                                <input class="form-control" id="search" placeholder="Ingrese el nombre deL nodo..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
+                                <input class="form-control" id="search" placeholder="Ingrese el correo del usuario..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                                 <a href="{{ route('personalizaciones.create') }}" class="btn btn-outline"
                                     style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; " onmouseover="this.style.backgroundColor='#b2ebf2';" onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
@@ -48,7 +48,7 @@
 										<th>Color Principal</th>
 										<th>Color Secundario</th>
 										<th>Color Terciario</th>
-										<th>Usuario</th>
+										<th>Email de Usuario</th>
 										<th>Estado</th>
 
                                         <th>Opciones</th>

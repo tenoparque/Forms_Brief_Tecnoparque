@@ -18,7 +18,7 @@
                                     <div>
                                         <h1 class="primeraPalabraFlex"
                                             style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">
-                                            {{ __('POLITICAS') }}</h1>
+                                            {{ __('POLÍTICAS') }}</h1>
                                     </div>
 
                                 </div>
@@ -34,7 +34,7 @@
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
-                                <input class="form-control" id="search" placeholder="Ingrese correo del ususario..."
+                                <input class="form-control" id="search" placeholder="Ingrese correo del usuario..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                                 <a href="{{ route('politicas.create') }}" class="btn btn-outline"
                                     style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}

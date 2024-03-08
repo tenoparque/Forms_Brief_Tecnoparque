@@ -62,7 +62,7 @@
                                             <!-- <td>{{ $role->guard_name }}</td> -->
 
                                             <td>
-                                                <form action="{{ route('roles.destroy', $role->id) }}" method="POST">
+                                                <form action="{{ route('roles.show', $role->id) }}" method="POST">
                                                     <a class="btn btn-outline"
                                                         style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                         onmouseover="this.style.backgroundColor='#b2ebf2';"
