@@ -124,7 +124,7 @@
                 <main class="">
                     @if (Route::currentRouteName() !== 'login')
                     <header class="container-fluid  mx-3">
-                        <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 60px">
+                        <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 70px; margin-bottom: 50px">
                             <!-- Carta Izquierda -->
                             <div class="col-xl-9 col-lg-7 col-md-8 col-sm-6 col-12 mb-3 mb-sm-0">
                                 <div class="">

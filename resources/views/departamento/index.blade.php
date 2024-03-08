@@ -1,27 +1,27 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Departamento
+    Departamentos
 @endsection
 
 @section('content')
-    <section class="container-fluid shadow p-4 my-5 bg-light rounded"style="width:100rem">
+<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+
+    
+    <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
-
+                            
                             <div class="d-flex mt-3 mb-4">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="margin-right: 0;font-size: 180%">
-                                        {{ __('DEPAR') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">{{ __('DEPARTAMENTOS') }}</h1>
                                 </div>
-                                <div>
-                                    <h1 class="segundaPalabraFlex" style="margin-left: 0;font-size: 180%">
-                                        {{ __('TAMENTOS') }}</h1>
-                                </div>
+
                             </div>
+                            
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -29,21 +29,19 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
-                                <input class="form-control" id="search"
-                                    placeholder="Ingrese el nombre del Departamento..." style="width: 70% ;">
+                                <input class="form-control" id="search" placeholder="Ingrese el nombre del departamento..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                                 <a href="{{ route('departamentos.create') }}" class="btn btn-outline"
                                     style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover ">
+                        <div class="table-responsive" style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
+                            <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
-                                    <tr>
+                                    <tr style="border-width: 2px">
                                         <th scope="col">No</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Opciones</th>
@@ -51,10 +49,11 @@
                                 </thead>
                                 <tbody class="alldata">
                                     @foreach ($departamentos as $departamento)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $departamento->nombre }}</td>
-                                            <td>
+                                    <tr>
+                                        <td>{{ ++$i }}</td>
+                                        <td>{{ $departamento->nombre }}</td>
+                                        <td>
+
                                                 <a href="{{ route('departamentos.show' ,$departamento->id) }}" class="btn btn-outline"
                                                 style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                 onmouseover="this.style.backgroundColor='#b2ebf2';"
