@@ -58,17 +58,20 @@
                         </button>
 
                         {{-- modal --}}
-                        <div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="qrModalLabel">Codigo Qr</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            arial-label="close"></button>
+                                        <h5 class="modal-title" id="qrModalLabel">Código QR</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                                     </div>
-                                    <div class="modal-body">
-                                        <div id="qrcode"></div>
+                                    <div class="modal-body" style="margin-left: 20%; margin-block-end: 5%">
+                                        {{-- Mostrar el código QR solo si la política está presente --}}
+                                        @if ($politicas)
+                                            <img src="data:image/png;base64,{{ base64_encode($politicas->qr) }}" alt="QR Code">
+                                        @else
+                                            <p>No hay registro de política con id_estado = 1</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

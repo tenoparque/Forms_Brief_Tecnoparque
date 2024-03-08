@@ -10,6 +10,8 @@ use App\Models\Solicitude;
 use App\Models\TiposDeSolicitude;
 use App\Models\ServiciosPorTiposDeSolicitude; // Añade la importación de la clase ServiciosPorTiposDeSolicitudes
 use Illuminate\Http\Request;
+use App\Models\Politica;
+
 
 /**
  * Class SolicitudeController
@@ -41,8 +43,12 @@ class SolicitudeController extends Controller
         $estados = EstadosDeLasSolictude::all();
         $solicitudes = TiposDeSolicitude::all();
         $especiales = EventosEspecialesPorCategoria::all();
+
+         // Recuperar el registro de la Politica con id_estado = 1
+         $politicas = Politica::where('id_estado', 1)->first();
+
     
-        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales'));
+        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'politicas'));
     }
 
     /**
