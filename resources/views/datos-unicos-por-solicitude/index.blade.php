@@ -94,13 +94,11 @@
                             </table>
                         </div>
                     </div>
-<<<<<<< HEAD
                
                 {!! $datosUnicosPorSolicitudes->links() !!}
-            </div>
-     
+            </div>     
     </div>
-=======
+
 
                 </div>
                 {!! $datosUnicosPorSolicitudes->links() !!}
