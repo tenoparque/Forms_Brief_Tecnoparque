@@ -51,7 +51,8 @@
                 </div>
             </div>
             <a href="{{ route('roles.index') }}" class="btn btn-outline"
-            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:10px; justify-content: center; justify-items: center; margin-left: 90%;">
+            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:10px; justify-content: center; justify-items: center; margin-left: 90%;" 
+            onmouseover="this.style.backgroundColor='#b2ebf2';" onmouseout="this.style.backgroundColor='#FFFF';">
             {{ __('REGRESAR') }}
             <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
             </a>
