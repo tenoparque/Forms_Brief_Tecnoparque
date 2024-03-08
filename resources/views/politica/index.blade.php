@@ -48,7 +48,7 @@
                                     <tr style="border-width: 2px">
                                         <th>No</th>
 
-                                        <th>Link</th>
+                                        
                                         <th>Descripcion</th>
                                         <th>Usuario</th>
                                         <th>Estado</th>
