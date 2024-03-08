@@ -85,6 +85,11 @@ Route::get('/searchEstados', [EstadoController::class, 'search']); // Estados Se
 Route::get('/searchEventosEspeciales', [EventosEspecialesPorCategoriaController::class, 'search']); // Eventos especiales por categorias Searching Route
 Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class);
 
+
+//Personalizaciones
+Route::get('/searchPersonalizaciones', [PersonalizacioneController::class, 'search']); // Tipos de Solicitudes Searching Route
+
+
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
 
 Route::resource('personalizaciones', PersonalizacioneController::class);
