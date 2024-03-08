@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <div class="container mt-5">
         <div class="row">
             <div class="col-sm-12">
@@ -15,18 +14,22 @@
 
                             <div class="d-flex mt-3 mb-4">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="margin-right: 0;font-size: 180%" >{{ __('POLI') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="margin-right: 0;font-size: 180%">{{ __('POLI') }}
+                                    </h1>
                                 </div>
                                 <div>
-                                    <h1 class="segundaPalabraFlex" style="margin-left:0 ;font-size: 180%">{{ __('TICAS') }}</h1>
+                                    <h1 class="segundaPalabraFlex" style="margin-left:0 ;font-size: 180%">{{ __('TICAS') }}
+                                    </h1>
                                 </div>
                             </div>
 
-                             <div class="float-right">
+                            <div class="float-right">
                                 <a href="{{ route('politicas.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
+                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
+                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                    onmouseout="this.style.backgroundColor='#FFFF'; ">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
-                              </div>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -41,12 +44,12 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
-										<th>Link</th>
-										<th>Descripcion</th>
-										<th>Usuario</th>
-										<th>Estado</th>
-										<th>Titulo</th>
+
+                                        <th>Link</th>
+                                        <th>Descripcion</th>
+                                        <th>Usuario</th>
+                                        <th>Estado</th>
+                                        <th>Titulo</th>
 
                                         <th></th>
                                     </tr>
@@ -55,16 +58,32 @@
                                     @foreach ($politicas as $politica)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $politica->link }}</td>
-											<td>{{ $politica->descripcion }}</td>
-											<td>{{ $politica->user->name }}</td>
-											<td>{{ $politica->estado->nombre}}</td>
-											<td>{{ $politica->titulo }}</td>
+
+                                            <td>{{ $politica->link }}</td>
+                                            <td>{{ $politica->descripcion }}</td>
+                                            <td>{{ $politica->user->name }}</td>
+                                            <td>{{ $politica->estado->nombre }}</td>
+                                            <td>{{ $politica->titulo }}</td>
 
                                             <td>
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('politicas.show',$politica->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('politicas.edit',$politica->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <a href="{{ route('politicas.show', $politica->id) }}"
+                                                    class="btn btn-outline"
+                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                    {{ __('Detalle') }}
+                                                    <i class="fa-sharp fa-solid fa-eye fa-xs"
+                                                        style="color: #642c78; margin-left: 5px;"></i>
+                                                </a>
+
+                                                <a href="{{ route('politicas.edit', $politica->id) }}"
+                                                    class="btn btn-outline"
+                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                    {{ __('Editar') }}
+                                                    <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
