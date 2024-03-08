@@ -13,24 +13,24 @@
         <div class="col-md-6">
             <div class="form-group">
                 {{ Form::label('nombre') }}
-                {{ Form::text('nombre', $user->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'style' => 'width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
+                {{ Form::text('nombre', $user->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
                 {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
                 {{ Form::label('correo') }}
-                {{ Form::text('correo', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Correo electrónico', 'style' => 'width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px']) }}
+                {{ Form::text('correo', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Correo electrónico', 'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px']) }}
                 {!! $errors->first('correo', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
                 {{ Form::label('celular') }}
-                {{ Form::text('celular', $user->celular, ['class' => 'form-control' . ($errors->has('celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular', 'style' => 'width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6']) }}
+                {{ Form::text('celular', $user->celular, ['class' => 'form-control' . ($errors->has('celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular', 'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6']) }}
                 {!! $errors->first('celular', '<div class="invalid-feedback">:message</div>') !!}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 {{ Form::label('apellidos') }}
-                {{ Form::text('apellidos', $user->apellidos, ['class' => 'form-control' . ($errors->has('apellidos') ? ' is-invalid' : ''), 'placeholder' => 'Apellidos', 'style' => 'width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px']) }}
+                {{ Form::text('apellidos', $user->apellidos, ['class' => 'form-control' . ($errors->has('apellidos') ? ' is-invalid' : ''), 'placeholder' => 'Apellidos', 'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px']) }}
                 {!! $errors->first('apellidos', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
