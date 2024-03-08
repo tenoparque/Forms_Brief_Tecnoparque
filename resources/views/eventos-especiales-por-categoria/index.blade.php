@@ -84,15 +84,49 @@
                                             </a>
                                             </td>
                                         </tr>
-                                    @endforeach
-
-                                </tbody>
-                            </table>
+                                        @endforeach
+                                    </tbody>
+                                    <!-- Another tbody is created for the search records -->
+                                    <tbody id="Content" class="dataSearched">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+                    {!! $eventosEspecialesPorCategorias->links() !!}
                 </div>
-                {!! $eventosEspecialesPorCategorias->links() !!}
             </div>
         </div>
-    </div>
-@endsection
+    
+        <!-- JS Scripts -->
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            // javascript and ajax code
+            $('#search').on('keyup',function()
+            {
+                $value=$(this).val();
+    
+                if ($value) {
+                    $('.alldata').hide();
+                    $('.dataSearched').show();
+                } else {
+                    $('.alldata').show();
+                    $('.dataSearched').hide();
+                }
+    
+                $.ajax({
+                    type: 'get',
+                    url: "{{ URL::to('searchEventosEspeciales') }}",
+                    data:{'search': $value},
+    
+                    success:function(data)
+                    {
+                        $('#Content').html(data);
+                    }
+                });
+            })
+        </script>
+    @endsection
+    
