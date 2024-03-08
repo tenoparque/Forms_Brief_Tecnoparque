@@ -8,14 +8,14 @@
 <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
     
-    <section class="content container mt-5">
+    <section class="container shadow p-4  my-5 bg-light rounded">
         <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
+                
+                    <div class="">
                         <div class="d-flex">
                             <div class="">
                                 <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('CREAR TIPO ') }}</h1>
@@ -34,7 +34,7 @@
 
                         </form>
                     </div>
-                </div>
+                
             </div>
         </div>
     </section>
