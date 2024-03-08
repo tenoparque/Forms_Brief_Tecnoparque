@@ -45,9 +45,7 @@ class PoliticaController extends Controller
                 $output .= 
                 '<tr>
                     <td>' . $politica->id . '</td>
-                    <td>' . $politica->link . '</td>
                     <td>' . $politica->descripcion . '</td>
-                    <td>' . $politica->qr . '</td>
                     <td>' . $user->email . '</td>
                     <td>' . $politica->estado->nombre . '</td>
                     <td>' . $politica->titulo . '</td>
