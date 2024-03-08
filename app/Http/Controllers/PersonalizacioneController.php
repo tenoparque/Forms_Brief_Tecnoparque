@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Personalizacione;
 use App\Models\Estado;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,9 +23,41 @@ class PersonalizacioneController extends Controller
     public function index()
     {
         $personalizaciones = Personalizacione::with('estado')->paginate();
+        $usuarios = User::all();
 
-        return view('personalizacione.index', compact('personalizaciones'))
+        return view('personalizacione.index', compact('personalizaciones' , 'usuarios'))
             ->with('i', (request()->input('page', 1) - 1) * $personalizaciones->perPage());
+    }
+
+    public function search(Request $request)
+    {
+        $output= ""; // The output variable is defined and initialized
+        $personalizaciones = Personalizacione::where('id_users', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Ciudad name
+        $persona = User::with('id',$personalizaciones, '%'.$request -> search.'%')->get();
+        // We use the loop foreach to iterate the aggregation of records
+        foreach($personalizaciones as $personalizacion){
+            $output .= 
+            '<tr>
+                <td>' . $personalizacion->id . '</td>
+                <td>' . $personalizacion->logo . '</td>
+                <td>' . $personalizacion->color_principal . '</td>
+                <td>' . $personalizacion->color_secundario . '</td>
+                <td>' . $personalizacion->color_terciario . '</td>
+                <td>' . $personalizacion->id_users . '</td>
+                <td>' . $personalizacion->estado->nombre . '</td>
+                
+                <td>
+                    <a href="' . url('/personalizaciones/' . $personalizacion->id) . '" class="btn btn-sm btn-primary">
+                        <i class="fa fa-fw fa-eye"></i> Show
+                    </a>
+                    <a href="' . url('/personalizaciones/' . $personalizacion->id . '/edit') . '" class="btn btn-sm btn-success">
+                        <i class="fa fa-fw fa-edit"></i> Edit
+                    </a>
+                </td>
+            </tr>';
+        }
+
+        return response($output); // We return the response by sending as parameter the output variable
     }
 
     /**
