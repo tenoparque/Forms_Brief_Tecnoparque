@@ -22,7 +22,7 @@
                         </div>
 
                         <div class="card-body">
-                            
+
                             <div class="table-responsive"
                                 style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                                 <table class="table table-bordered table-hover">
@@ -48,11 +48,13 @@
                     </div>
                 </div>
                 <div>
-                <a href="{{ route('departamentos.index') }}" class="btn btn-outline"
-                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:10px; justify-content: center; justify-items: center; margin-left: 90%;">
-                {{ __('REGRESAR') }}
-                <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
-                </a>
+                    <a href="{{ route('departamentos.index') }}" class="btn btn-outline"
+                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:10px; justify-content: center; justify-items: center; margin-left: 90%;"
+                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                        onmouseout="this.style.backgroundColor='#FFFF';">
+                        {{ __('REGRESAR') }}
+                        <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
+                    </a>
                 </div>
             </div>
     </section>
