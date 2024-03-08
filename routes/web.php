@@ -78,6 +78,11 @@ Route::get('/searchCategoriaEvento', [CategoriasEventosEspecialeController::clas
 Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class); // Tipos de Solicitudes
 Route::get('/searchTipoSolicitud', [TiposDeSolicitudeController::class, 'search']); // Tipos de Solicitudes Searching Route
 
+//Estados
+Route::get('/searchEstados', [EstadoController::class, 'search']); // Estados Searching Route
+
+
+
 Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class);
 
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
