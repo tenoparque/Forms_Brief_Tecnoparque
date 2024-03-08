@@ -1,15 +1,15 @@
 <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-<div class="container shadow-none p-3 mb-5 bg-body-tertiary rounded ">
-    <div class="">
-        <div class="col-md-8 offset-md-2">
+<div class="container shadow-none p-3 bg-body-tertiary rounded ">
+    <div class="row m-3">
+        <div class="">
             <div class="">
                 <h2 class="segundaPalabraFlex mb-0"> FORMULARIO </h2>
                 <h2 class="primeraPalabraFlex"> BRIEF</h2>
             </div>
             <div class="">
-                <form id="solicitudForm">
+                <form id="solicitudForm " class="formBrief">
 
-                    <div class="form-group">
+                    <div class="form-group col-md-4 my-3">
                         <label for="id_tipos_de_solicitudes">Tipo de Solicitud</label>
                         <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
                             class="form-control selectpicker" data-style="btn-primary"
@@ -21,14 +21,14 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group my-2">
                         <h5>Servicios</h5>
                         <div id="servicesComboBoxContainer" class="row">
                             <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
                         </div>
                     </div>
 
-                    <div class=" form-group">
+                    <div class=" form-group my-2">
                         <h5>Datos Únicos por Solicitud</h5>
                         <div id="datosUnicosComboBoxContainer" class="row">
 
@@ -48,10 +48,13 @@
                         </button>
 
                         <button type="button" class="btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
-                                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
-                                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
-                              </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                <path
+                                    d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                                <path
+                                    d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                            </svg>
                         </button>
 
                         {{-- modal --}}
@@ -71,11 +74,12 @@
                             </div>
                         </div>
 
-                        
+
                     </div>
 
-                    <div class="col-md-12 d-flex justify-content-end ">
-                        <button type="submit" class="btn btn-primary my-4">Enviar Solicitud</button>
+                    <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
+                        <button type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
+                                class="fa-solid fa-circle-play" style="color: #642c78;"></i></button>
                     </div>
                 </form>
             </div>
@@ -106,8 +110,10 @@
                         //     serviciosCheckboxes += '<br>';
                         // } 
                         serviciosCheckboxes +=
-                            '<div class=" col-xl-6 col-md-6 my-2"><label class=" checkboxSol"><input type="checkbox" class="checkboxSolInp"  name="servicios_por_tipo[]" value="' +
-                            servicio.id + '"> <span class="check"><span class="inner-eye"></span></span> ' + servicio.nombre +
+                            '<div class=" col-xl-6 col-lg-6 col-md-6 my-2"><label class=" checkboxSol"><input type="checkbox" class="checkboxSolInp"  name="servicios_por_tipo[]" value="' +
+                            servicio.id +
+                            '"> <span class="check"><span class="inner-eye"></span></span> ' +
+                            servicio.nombre +
                             '</label></div>';
                         // checkboxCounter++;
 
@@ -120,13 +126,26 @@
 
 
                     $.each(response.datos_unicos, function(index, datoUnico) {
+                        var tipoDatoMinusculas = datoUnico.nombre.toLowerCase();
 
-                        datosUnicosTextboxes +=
-                            '<div class="solicitudesDivText col-xl-4 col-md-6"><label>' +
-                            ' </label><input class="solicitudInputText" type="text" name="datos_unicos_por_solicitud_' +
-                            datoUnico.id +
-                            '" class="form-control text-start" placeholder="' +
-                            datoUnico.nombre + '"></div>';
+                        if (tipoDatoMinusculas === 'fecha') {
+                            // Si el tipo de dato es fecha, crea un input de tipo fecha
+                            datosUnicosTextboxes +=
+                                '<div class="solicitudesDivText col-xl-4 col-md-6"><label>' +
+                                ' </label><input class="solicitudInputText" type="date" name="datos_unicos_por_solicitud_' +
+                                datoUnico.id +
+                                '" class="form-control text-start" placeholder="' +
+                                datoUnico.nombre + '"></div>';
+                        } else {
+                            // Para cualquier otro tipo de dato (incluido texto), crea un input de tipo texto
+                            datosUnicosTextboxes +=
+                                '<div class="solicitudesDivText col-xl-4 col-md-6"><label>' +
+                                ' </label><input class="solicitudInputText" type="text" name="datos_unicos_por_solicitud_' +
+                                datoUnico.id +
+                                '" class="form-control text-start" placeholder="' +
+                                datoUnico.nombre + '"></div>';
+                        }
+
                     });
 
                     // Mostrar los textboxes en el área designada
