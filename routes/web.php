@@ -93,6 +93,10 @@ Route::get('/searchPersonalizaciones', [PersonalizacioneController::class, 'sear
 //Politicas
 Route::get('/searchPoliticas', [PoliticaController::class, 'search']); // politicas Searching Route
 
+//Tipos de datos 
+Route::get('/searchTiposDato', [TiposDeDatoController::class, 'search']); // politicas Searching Route
+
+
 
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
 
