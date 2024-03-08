@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Ciudade
+    Datos Unicos Por Solicitude
 @endsection
 
 @section('content')
