@@ -43,8 +43,8 @@ class RegisterController extends Controller
 
         $this->middleware('guest');
 
-        //$this->middleware('auth');
-        $this->middleware('guest');
+        $this->middleware('auth');
+        
 
 
     }
