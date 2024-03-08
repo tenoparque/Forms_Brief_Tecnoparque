@@ -59,6 +59,34 @@ class DatosUnicosPorSolicitudeController extends Controller
             ->with('success', 'DatosUnicosPorSolicitude created successfully.');
     }
 
+    public function search(Request $request)
+    {
+        $output= ""; // The output variable is defined and initialized
+        $datoUnico = DatosUnicosPorSolicitude::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Ciudad name
+
+        // We use the loop foreach to iterate the aggregation of records
+        foreach($datoUnico as $datos){
+            $output .= 
+            '<tr>
+                <td>' . $datos->id . '</td>
+                <td>' . $datos->nombre . '</td>
+                <td>' . $datos->tiposDeDato->nombre . '</td>
+                <td>' . $datos->tiposDeSolicitude->nombre . '</td>
+                <td>' . $datos->estado->nombre . '</td>
+                <td>
+                    <a href="' . url('/datos-unicos-por-solicitudes/' . $datos->id) . '" class="btn btn-sm btn-primary">
+                        <i class="fa fa-fw fa-eye"></i> Show
+                    </a>
+                    <a href="' . url('/datos-unicos-por-solicitudes/' . $datos->id . '/edit') . '" class="btn btn-sm btn-success">
+                        <i class="fa fa-fw fa-edit"></i> Edit
+                    </a>
+                </td>
+            </tr>';
+        }
+
+        return response($output); // We return the response by sending as parameter the output variable
+    }
+
     /**
      * Display the specified resource.
      *

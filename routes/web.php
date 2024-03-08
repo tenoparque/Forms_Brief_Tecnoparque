@@ -17,6 +17,7 @@ use App\Http\Controllers\TiposDeDatoController;
 use App\Http\Controllers\TiposDeSolicitudeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Models\DatosUnicosPorSolicitude;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +44,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Ciudades
 Route::resource('ciudades', CiudadeController::class); // Ciudades Route
 Route::get('/searchCiudad', [CiudadeController::class, 'search']); // Ciudades Searching Route
+
+Route::get('/searchDatoUnico', [DatosUnicosPorSolicitudeController::class, 'search']); // datos unicos por solicitudes Searching Route
 
 Route::resource('estados', EstadoController::class);
 
@@ -75,6 +78,11 @@ Route::get('/searchCategoriaEvento', [CategoriasEventosEspecialeController::clas
 Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class); // Tipos de Solicitudes
 Route::get('/searchTipoSolicitud', [TiposDeSolicitudeController::class, 'search']); // Tipos de Solicitudes Searching Route
 
+//Estados
+Route::get('/searchEstados', [EstadoController::class, 'search']); // Estados Searching Route
+
+
+
 Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class);
 
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
@@ -90,4 +98,6 @@ Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicit
 
 Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
 
+// Users
 Route::resource('users', UserController::class);
+Route::get('/searchUser', [UserController::class, 'search']);
