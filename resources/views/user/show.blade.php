@@ -61,7 +61,7 @@
             <div class="float-right"  style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:10px; justify-content: center; justify-items: center; margin-left: 90%">
                 <a class="btn btn-outline" href="{{ route('users.index') }}"> {{ __('REGRESAR') }}
                     <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i></a>
-            </div>
+            </div> 
             
         </div>
     </section>
