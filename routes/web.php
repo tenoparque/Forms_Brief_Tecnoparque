@@ -98,4 +98,6 @@ Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicit
 
 Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
 
+// Users
 Route::resource('users', UserController::class);
+Route::get('/searchUser', [UserController::class, 'search']);
