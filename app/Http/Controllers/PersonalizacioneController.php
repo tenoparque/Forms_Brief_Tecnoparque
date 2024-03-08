@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Personalizacione;
 use App\Models\Estado;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,15 +23,16 @@ class PersonalizacioneController extends Controller
     public function index()
     {
         $personalizaciones = Personalizacione::with('estado')->paginate();
+        $usuarios = User::all();
 
-        return view('personalizacione.index', compact('personalizaciones'))
+        return view('personalizacione.index', compact('personalizaciones' , 'usuarios'))
             ->with('i', (request()->input('page', 1) - 1) * $personalizaciones->perPage());
     }
 
     public function search(Request $request)
     {
         $output= ""; // The output variable is defined and initialized
-        $personalizaciones = Personalizacione::where('color_secundario', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Ciudad name
+        $personalizaciones = Personalizacione::where('id_users', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Ciudad name
 
         // We use the loop foreach to iterate the aggregation of records
         foreach($personalizaciones as $personalizacion){
@@ -41,7 +43,7 @@ class PersonalizacioneController extends Controller
                 <td>' . $personalizacion->color_principal . '</td>
                 <td>' . $personalizacion->color_secundario . '</td>
                 <td>' . $personalizacion->color_terciario . '</td>
-                <td>' . $personalizacion->id_users . '</td>
+                <td>' . $personalizacion->users->email . '</td>
                 <td>' . $personalizacion->estado->nombre . '</td>
                 
                 <td>
