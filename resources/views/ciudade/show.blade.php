@@ -41,19 +41,20 @@
                                     </tbody>
                                     <!-- Another tbody is created for the search records -->
                                     <tbody id="Content" class="dataSearched">
-    
+
                                     </tbody>
                                 </table>
                             </div>
-    
+
                         </div>
 
                     </div>
                 </div>
-                <div class="float-right"  style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:10px; justify-content: center; justify-items: center; margin-left: 0;">
-                <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>">
-                <a class="btn btn-primary" href="{{ route('ciudades.index') }}"> {{ __('Regresar') }}</a>
-            </div>
+                <div class="float-right"
+                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:10px; justify-content: center; justify-items: center; margin-left: 0;">
+                    <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>">
+                    <a class="btn btn-primary" href="{{ route('ciudades.index') }}"> {{ __('Regresar') }}</a>
+                </div>
             </div>
     </section>
 @endsection
