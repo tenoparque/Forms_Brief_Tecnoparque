@@ -63,7 +63,7 @@
                                         <td>{{ $personalizacione->color_principal }}</td>
                                         <td>{{ $personalizacione->color_secundario }}</td>
                                         <td>{{ $personalizacione->color_terciario }}</td>
-                                        <td>{{ $personalizacione->user->name }}</td>
+                                        <td>{{ $personalizacione->user->email }}</td>
                                         <td>{{ $personalizacione->estado->nombre }}</td>
                                         <td> 
                                            
