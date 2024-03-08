@@ -33,7 +33,7 @@ class PersonalizacioneController extends Controller
     {
         $output= ""; // The output variable is defined and initialized
         $personalizaciones = Personalizacione::where('id_users', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Ciudad name
-        $persona = User::with('id',$personalizaciones)->get();
+        $persona = User::with('id',$personalizaciones, '%'.$request -> search.'%')->get();
         // We use the loop foreach to iterate the aggregation of records
         foreach($personalizaciones as $personalizacion){
             $output .= 
