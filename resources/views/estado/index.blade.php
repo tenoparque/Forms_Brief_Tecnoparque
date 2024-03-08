@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Ciudade
+    Estados
 @endsection
 
 @section('content')
