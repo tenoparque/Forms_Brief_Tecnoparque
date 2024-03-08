@@ -46,7 +46,7 @@
                                     <th>No</th>
                                     <th>Nombre</th>
                                     <th>Estado</th>
-                                    <th></th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody class="alldata">
