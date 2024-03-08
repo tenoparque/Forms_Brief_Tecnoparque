@@ -43,7 +43,7 @@ class PersonalizacioneController extends Controller
                 <td>' . $personalizacion->color_principal . '</td>
                 <td>' . $personalizacion->color_secundario . '</td>
                 <td>' . $personalizacion->color_terciario . '</td>
-                <td>' . $persona->email . '</td>
+                <td>' . $personalizacion->id_users . '</td>
                 <td>' . $personalizacion->estado->nombre . '</td>
                 
                 <td>
