@@ -31,34 +31,43 @@ class PersonalizacioneController extends Controller
 
     public function search(Request $request)
     {
-        $output= ""; // The output variable is defined and initialized
-        $personalizaciones = Personalizacione::where('id_users', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Ciudad name
-        $persona = User::with('id',$personalizaciones, '%'.$request -> search.'%')->get();
-        // We use the loop foreach to iterate the aggregation of records
-        foreach($personalizaciones as $personalizacion){
-            $output .= 
-            '<tr>
-                <td>' . $personalizacion->id . '</td>
-                <td>' . $personalizacion->logo . '</td>
-                <td>' . $personalizacion->color_principal . '</td>
-                <td>' . $personalizacion->color_secundario . '</td>
-                <td>' . $personalizacion->color_terciario . '</td>
-                <td>' . $personalizacion->id_users . '</td>
-                <td>' . $personalizacion->estado->nombre . '</td>
-                
-                <td>
-                    <a href="' . url('/personalizaciones/' . $personalizacion->id) . '" class="btn btn-sm btn-primary">
-                        <i class="fa fa-fw fa-eye"></i> Show
-                    </a>
-                    <a href="' . url('/personalizaciones/' . $personalizacion->id . '/edit') . '" class="btn btn-sm btn-success">
-                        <i class="fa fa-fw fa-edit"></i> Edit
-                    </a>
-                </td>
-            </tr>';
+        $output = ""; // Variable de salida definida e inicializada
+    
+        // Buscamos el usuario por su correo electrónico
+        $user = User::where('email', 'LIKE', '%' . $request->search . '%')->first();
+    
+        // Verificamos si se encontró un usuario con el correo electrónico proporcionado
+        if ($user) {
+            // Realizamos la consulta utilizando el ID del usuario
+            $personalizaciones = Personalizacione::where('id_users', $user->id)->get();
+    
+            // Usamos un bucle foreach para iterar sobre los registros
+            foreach ($personalizaciones as $personalizacion) {
+                $output .= 
+                '<tr>
+                    <td>' . $personalizacion->id . '</td>
+                    <td>' . $personalizacion->logo . '</td>
+                    <td>' . $personalizacion->color_principal . '</td>
+                    <td>' . $personalizacion->color_secundario . '</td>
+                    <td>' . $personalizacion->color_terciario . '</td>
+                    <td>' . $user->email . '</td>
+                    <td>' . $personalizacion->estado->nombre . '</td>
+                    
+                    <td>
+                        <a href="' . url('/personalizaciones/' . $personalizacion->id) . '" class="btn btn-sm btn-primary">
+                            <i class="fa fa-fw fa-eye"></i> Show
+                        </a>
+                        <a href="' . url('/personalizaciones/' . $personalizacion->id . '/edit') . '" class="btn btn-sm btn-success">
+                            <i class="fa fa-fw fa-edit"></i> Edit
+                        </a>
+                    </td>
+                </tr>';
+            }
         }
-
-        return response($output); // We return the response by sending as parameter the output variable
+    
+        return response($output); // Retornamos la respuesta enviando como parámetro la variable de salida
     }
+    
 
     /**
      * Show the form for creating a new resource.
