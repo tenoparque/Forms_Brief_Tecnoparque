@@ -2,10 +2,10 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-<div class="container-fluid" style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; height: 100vh;">
+<div class="container-fluid" style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; height: 100vh; margin-block-start: -187px">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card email ">
+            <div class="card email" style="margin-block-start: 200px">
                 <div class="card-header">{{ __('Restablecer Contraseña') }}</div>
 
                 <div class="card-body-email">
