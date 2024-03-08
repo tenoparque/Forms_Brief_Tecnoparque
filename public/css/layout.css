@@ -274,9 +274,10 @@ a.sidebar-link:hover {
     width: 100%;
 }
 
-.solicitudesDivText{
+.solicitudLabelText{
+    margin: 0.2% 0%;
     padding: 10px;
-}
+} 
 
 
 /* Estilo para el contenedor del checkbox */

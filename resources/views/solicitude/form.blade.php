@@ -135,18 +135,17 @@
                             // Si el tipo de dato es fecha, crea un input de tipo fecha
                             datosUnicosTextboxes +=
                                 '<div class="solicitudesDivText col-xl-4 col-md-6"><label>' +
-                                ' </label><input class="solicitudInputText" type="date" name="datos_unicos_por_solicitud_' +
+                                ' </label><input type="date" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
-                                '" class="form-control text-start" placeholder="' +
+                                '" class="form-control solicitudInputText" placeholder="' +
                                 datoUnico.nombre + '"></div>';
                         } else {
                             // Para cualquier otro tipo de dato (incluido texto), crea un input de tipo texto
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-4 col-md-6"><label>' +
-                                ' </label><input class="solicitudInputText" type="text" name="datos_unicos_por_solicitud_' +
+                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="solicitudLabelText">' +
+                                datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
-                                '" class="form-control text-start" placeholder="' +
-                                datoUnico.nombre + '"></div>';
+                                '" class="form-control  solicitudInputText" placeholder=""></div>';
                         }
 
                     });
