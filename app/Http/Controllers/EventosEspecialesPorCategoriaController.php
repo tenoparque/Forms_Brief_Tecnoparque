@@ -26,6 +26,32 @@ class EventosEspecialesPorCategoriaController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $eventosEspecialesPorCategorias->perPage());
     }
 
+    public function search(Request $request)
+    {
+        $output= ""; // The output variable is defined and initialized
+        $eventosEspeciales = EventosEspecialesPorCategoria::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Ciudad name
+        // We use the loop foreach to iterate the aggregation of records
+        foreach($eventosEspeciales as $evento){
+            $output .= 
+            '<tr>
+                <td>' . $evento->id . '</td>
+                <td>' . $evento->nombre . '</td>
+                <td>' . $evento->estado->nombre . '</td>
+                <td>' . $evento->categoriasEventosEspeciale->nombre . '</td>
+                <td>
+                    <a href="' . url('/eventos-especiales-por-categorias/' . $evento->id) . '" class="btn btn-sm btn-primary">
+                        <i class="fa fa-fw fa-eye"></i> Show
+                    </a>
+                    <a href="' . url('/eventos-especiales-por-categoria/' . $evento->id . '/edit') . '" class="btn btn-sm btn-success">
+                        <i class="fa fa-fw fa-edit"></i> Edit
+                    </a>
+                </td>
+            </tr>';
+        }
+
+        return response($output); // We return the response by sending as parameter the output variable
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -84,6 +110,8 @@ class EventosEspecialesPorCategoriaController extends Controller
 
         return view('eventos-especiales-por-categoria.edit', compact('eventosEspecialesPorCategoria', 'estados', 'categorias'));
     }
+
+    
 
     /**
      * Update the specified resource in storage.
