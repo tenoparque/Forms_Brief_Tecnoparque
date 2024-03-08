@@ -18,7 +18,7 @@
                                     <div>
                                         <h1 class="primeraPalabraFlex"
                                             style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">
-                                            {{ __('POLITICAS') }}</h1>
+                                            {{ __('POLÍTICAS') }}</h1>
                                     </div>
 
                                 </div>
@@ -56,25 +56,31 @@
                                 </thead>
                                 <tbody class="alldata">
                                     @foreach ($politicas as $politica)
-                                    <tr>
-                                        <td>{{ ++$i }}</td>
+                                        <tr>
+                                            <td>{{ ++$i }}</td>
 
-                                        <td>{{ $politica->descripcion }}</td>
-                                        <td>{{ $politica->user->email }}</td>
-                                        <td>{{ $politica->estado->nombre }}</td>
-                                        <td>{{ $politica->titulo }}</td>
+                                            <td>{{ $politica->descripcion }}</td>
+                                            <td>{{ $politica->user->email }}</td>
+                                            <td>{{ $politica->estado->nombre }}</td>
+                                            <td>{{ $politica->titulo }}</td>
 
                                             <td>
                                                 <form action="{{ route('roles.destroy', $politica->id) }}" method="POST">
-                                                    <a class="btn btn-outline" style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('politicas.show', $politica->id) }}"><i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i> {{ __('Detalle') }}</a>
-                                                   
-                                                        <a class="btn btn-outline"style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                    <a class="btn btn-outline"
+                                                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                         onmouseover="this.style.backgroundColor='#b2ebf2';"
                                                         onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('politicas.edit', $politica->id) }}"><i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i> {{ __('Editar') }}</a>
+                                                        href="{{ route('politicas.show', $politica->id) }}"><i
+                                                            class="fa-sharp fa-solid fa-eye fa-xs"
+                                                            style="color: #642c78; margin-left: 5px;"></i>
+                                                        {{ __('Detalle') }}</a>
+
+                                                    <a class="btn btn-outline"style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                        onmouseout="this.style.backgroundColor='#FFFF';"
+                                                        href="{{ route('politicas.edit', $politica->id) }}"><i
+                                                            class="fa-solid fa-pen-to-square fa-xs"
+                                                            style="color: #39a900;"></i> {{ __('Editar') }}</a>
 
                                                 </form>
                                             </td>
@@ -125,5 +131,3 @@
         })
     </script>
 @endsection
-
-
