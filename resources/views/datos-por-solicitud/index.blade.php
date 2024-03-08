@@ -52,9 +52,25 @@
 											<td>{{ $datosPorSolicitud->id_datos_unicos_por_solicitudes }}</td>
 											<td>{{ $datosPorSolicitud->dato }}</td>
 
-                                            <td>
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('datos-por-solicituds.show',$datosPorSolicitud->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('datos-por-solicituds.edit',$datosPorSolicitud->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                            <td> 
+                                           
+                                                <a href="{{ route('datos-por-solicituds.show',$datosPorSolicitud->id) }}" class="btn btn-outline"
+                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                    {{ __('Detalle') }}
+                                                    <i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
+                                                </a>
+                                                
+                                                <a href="{{ route('datos-por-solicituds.edit',$datosPorSolicitud->id) }}" class="btn btn-outline"
+                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                    {{ __('Editar') }}
+                                                    <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                                </a>
+                                            
+                                            
                                             </td>
                                         </tr>
                                     @endforeach
