@@ -47,13 +47,10 @@
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
                                         <th>No</th>
-
-                                        
                                         <th>Descripcion</th>
                                         <th>Usuario</th>
                                         <th>Estado</th>
                                         <th>Titulo</th>
-
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -62,7 +59,6 @@
                                     <tr>
                                         <td>{{ ++$i }}</td>
 
-                                        <td>{{ $politica->link }}</td>
                                         <td>{{ $politica->descripcion }}</td>
                                         <td>{{ $politica->user->email }}</td>
                                         <td>{{ $politica->estado->nombre }}</td>
