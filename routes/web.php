@@ -90,6 +90,10 @@ Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategor
 Route::get('/searchPersonalizaciones', [PersonalizacioneController::class, 'search']); // Tipos de Solicitudes Searching Route
 
 
+//Politicas
+Route::get('/searchPoliticas', [PoliticaController::class, 'search']); // politicas Searching Route
+
+
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
 
 Route::resource('personalizaciones', PersonalizacioneController::class);
