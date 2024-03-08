@@ -28,6 +28,46 @@ class PoliticaController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $politicas->perPage());
     }
 
+    public function search(Request $request)
+    {
+        $output = ""; // Variable de salida definida e inicializada
+    
+        // Buscamos el usuario por su correo electrónico
+        $user = User::where('email', 'LIKE', '%' . $request->search . '%')->first();
+    
+        // Verificamos si se encontró un usuario con el correo electrónico proporcionado
+        if ($user) {
+            // Realizamos la consulta utilizando el ID del usuario
+            $politicas = Politica::where('id_usuario', $user->id)->get();
+    
+            // Usamos un bucle foreach para iterar sobre los registros
+            foreach ($politicas as $politica) {
+                $output .= 
+                '<tr>
+                    <td>' . $politica->id . '</td>
+                    <td>' . $politica->link . '</td>
+                    <td>' . $politica->descripcion . '</td>
+                    <td>' . $politica->qr . '</td>
+                    <td>' . $user->email . '</td>
+                    <td>' . $politica->estado->nombre . '</td>
+                    <td>' . $politica->titulo . '</td>
+
+                    
+                    <td>
+                        <a href="' . url('/politicas/' . $politica->id) . '" class="btn btn-sm btn-primary">
+                            <i class="fa fa-fw fa-eye"></i> Show
+                        </a>
+                        <a href="' . url('/politicas/' . $politica->id . '/edit') . '" class="btn btn-sm btn-success">
+                            <i class="fa fa-fw fa-edit"></i> Edit
+                        </a>
+                    </td>
+                </tr>';
+            }
+        }
+    
+        return response($output); // Retornamos la respuesta enviando como parámetro la variable de salida
+    }
+
     /**
      * Show the form for creating a new resource.
      *
