@@ -5,22 +5,21 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
-<section class="container  shadow p-4  my-5 bg-light rounded">
+    <section class="container shadow p-4  my-5 bg-light rounded">
         <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
-                <div class = "text-start">
+                <div class = "">
                 
-                    <div class="d-flex">
+                    <div class="d-flex mt-3 mb-4">
                         <div class="">
-                            <h1 class="primeraPalabraFlex">{{ __('TIPO DE') }}</h1>
+                            <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('CREAR') }}</h1>
                         </div>
                         <div class="">
-                            <h1 class="segundaPalabraFlex">{{ __('DATO') }}</h1>
+                            <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('TIPO DE DATO') }}</h1>
                         </div>
             
                     </div>
