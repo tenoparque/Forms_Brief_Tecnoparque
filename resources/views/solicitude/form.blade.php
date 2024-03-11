@@ -129,34 +129,40 @@
 
 
                     $.each(response.datos_unicos, function(index, datoUnico) {
-                        var tipoDatoMinusculas = datoUnico.nombre.toLowerCase();
+                    // Obtener el tipo de dato asociado con este dato único
+                    var tipoDatoId = datoUnico.id_tipos_de_datos;
 
-                        if (tipoDatoMinusculas === 'fecha') {
-                            // Si el tipo de dato es fecha, crea un input de tipo fecha
-                            datosUnicosTextboxes +=
-                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
-                                datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
-                                datoUnico.id +
-                                '" class="form-control  InputText" placeholder=""></div>';
-                        } else {
-                            // Para cualquier otro tipo de dato (incluido texto), crea un input de tipo texto
-                            datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
-                                datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
-                                datoUnico.id +
-                                '" class="form-control  InputText" placeholder=""></div>';
-                        }
-
+                    // Consultar el tipo de dato en la lista de tipos de datos disponibles
+                    var tipoDato = response.tipos_de_datos.find(function(tipo) {
+                        return tipo.id === tipoDatoId;
                     });
 
-                    // Mostrar los textboxes en el área designada
-                    $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
-                },
-                error: function(xhr) {
-                    console.error(
-                        'Error al obtener los datos asociados al tipo de solicitud.');
-                }
-            });
-        });
-    });
-</script>
+                    // Verificar si el tipo de dato es "fecha"
+                    if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
+                        // Si el tipo de dato es fecha, crea un input de tipo fecha
+                        datosUnicosTextboxes +=
+                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                            datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
+                            datoUnico.id +
+                            '" class="form-control  InputText" placeholder=""></div>';
+                    } else {
+                        // Para cualquier otro tipo de dato (incluido texto), crea un input de tipo texto
+                        datosUnicosTextboxes +=
+                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                            datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
+                            datoUnico.id +
+                            '" class="form-control  InputText" placeholder=""></div>';
+                    }
+                });
+
+                                    // Mostrar los textboxes en el área designada
+                                    $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
+                                },
+                                error: function(xhr) {
+                                    console.error(
+                                        'Error al obtener los datos asociados al tipo de solicitud.');
+                                }
+                            });
+                        });
+                    });
+                </script>
