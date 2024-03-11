@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label for="id_departamento">Departamento</label>
                 <select name="id_departamento" id="id_departamento" class="form-control selectpicker"
-                data-style="btn-primary" title="Seleccionar Departamento" required>
+                data-style="btn-primary" title="Seleccionar Departamento" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
                     @foreach ($departamentos as $departamento)
                         <option value="{{ $departamento->id }}" {{ ($ciudade->id_departamento ?? '') == $departamento->id ? 'selected' : '' }}>
                             {{ $departamento->nombre }}
