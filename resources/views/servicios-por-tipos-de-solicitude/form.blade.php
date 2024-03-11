@@ -3,12 +3,13 @@
         
         <div class="form-group">
             {{ Form::label('nombre') }}
-            {{ Form::text('nombre', $serviciosPorTiposDeSolicitude->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+            {{ Form::text('nombre', $serviciosPorTiposDeSolicitude->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre',
+            'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         @if(Route::currentRouteName() === 'servicios-por-tipos-de-solicitudes.create')
         <div class="form-group">
-            <label for="id_tipo_de_solicitud">Tipo de Solicitud</label>
+            <label for="id_tipo_de_solicitud" >Tipo de Solicitud</label>
             <select name="id_tipo_de_solicitud" id="id_tipo_de_solicitud" class="form-control selectpicker"
             data-style="btn-primary" title="Seleccionar Tipo de Solicitud" required>
                 @foreach ($solicitudes as $solicitud )
