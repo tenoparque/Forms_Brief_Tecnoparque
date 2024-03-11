@@ -62,7 +62,6 @@
                 onmouseout="this.style.backgroundColor='#FFFF';">
                 {{ __('REGRESAR') }}
                 <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
-                </a>
                 </div>
             </div>
         </div>
