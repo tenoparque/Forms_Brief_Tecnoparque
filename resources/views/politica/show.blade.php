@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Qr:</strong>
-                            {{ $politica->qr }}
+                            <img src="data:image/png;base64,{{ base64_encode($politica->qr) }}" alt="QR">
                         </div>
                         <div class="form-group">
                             <strong>Usuario:</strong>
