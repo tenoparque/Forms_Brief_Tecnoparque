@@ -3,14 +3,14 @@
 
         <div class="form-group">
             {{ Form::label('nombre') }}
-            {{ Form::text('nombre', $nodo->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+            {{ Form::text('nombre', $nodo->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre','style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         @if (Route::currentRouteName() === 'nodos.create')
             <div class="form-group">
                 <label for="id_ciudad">Ciudad</label>
                 <select name="id_ciudad" id="id_ciudad" class="form-control selectpicker" data-style="btn-primary"
-                    title="Seleccionar la Ciudad" required>
+                    title="Seleccionar la Ciudad" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
                     @foreach ($ciudades as $ciudad)
                         <!-- We go through the models of the ciudades that we previously passed through the controller -->
                         <option value="{{ $ciudad->id }}">{{ $ciudad->nombre }}</option>
@@ -23,7 +23,7 @@
             <div class="form-group">
                 <label for="id_ciudad">Ciudad</label>
                 <select name="id_ciudad" id="id_ciudad" class="form-control selectpicker" data-style="btn-primary"
-                    title="Seleccionar la Ciudad" required>
+                    title="Seleccionar la Ciudad" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
                     @foreach ($ciudades as $ciudad)
                         <option value="{{ $ciudad->id }}"
                             {{ ($nodo->id_ciudad ?? '') == $ciudad->id ? 'selected' : '' }}>
@@ -34,10 +34,10 @@
             </div>
         @endif
         @if (Route::currentRouteName() === 'nodos.edit')
-            <div class="col-md-4">
+            <div class="form-group">
                 <label for="id_estado">Estado</label>
                 <select name="id_estado" id="id_estado" class="form-control selectpicker" data-style="btn-primary"
-                    title="Seleccionar Estado" required>
+                    title="Seleccionar Estado" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
                     @foreach ($estados as $estado)
                         <option value="{{ $estado->id }}"
                             {{ ($nodo->id_estado ?? '') == $estado->id ? 'selected' : '' }}>
