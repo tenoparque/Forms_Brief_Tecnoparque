@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Nodo;
+use App\Models\Estado;
 use Illuminate\Http\Request;
 
 /**
@@ -86,7 +88,9 @@ class UserController extends Controller
     public function create()
     {
         $user = new User();
-        return view('user.create', compact('user'));
+        $nodos = Nodo::all();
+        $estados = Estado::all();
+        return view('user.create', compact('user' , 'nodos', 'estados'));
     }
 
     /**
@@ -127,8 +131,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-
-        return view('user.edit', compact('user'));
+        $nodos = Nodo::all();
+        $estados = Estado::all();
+        return view('user.edit', compact('user' , 'nodos' , 'estados'));
     }
 
     /**
