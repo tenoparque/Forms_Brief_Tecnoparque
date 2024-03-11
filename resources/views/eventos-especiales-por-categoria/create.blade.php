@@ -8,14 +8,14 @@
 <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
     
-    <section class="content container mt-5">
-        <div class="row">
+    <section class="container shadow p-4  my-5 bg-light rounded">
+        <div class="">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
+                <div class="">
+                    <div class="c">
                         <div class="d-flex mt-3 mb-4">
                             <div>
                                 <h1 class="primeraPalabraFlex">{{ __('CREAR EVENTO') }}</h1>

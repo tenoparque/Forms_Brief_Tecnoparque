@@ -22,9 +22,9 @@
         @endif
         @if(Route::currentRouteName() === 'eventos-especiales-por-categorias.create')
         <div class="form-group">
-            <label for="id_eventos_especiales">categoria</label>
+            <label style="font-size: 18px; font-weight: bold" for="id_eventos_especiales">categoria</label>
             <select name="id_eventos_especiales" id="id_eventos_especiales" class="form-control selectpicker"
-            data-style="btn-primary" title="Seleccionar Categoria" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+            data-style="btn-primary" title="Seleccionar Categoria" required ">
                 @foreach ($categorias as $categoria)
                 <!-- We go through the models of the categorias that we previously passed through the controller -->
                     <option value="{{ $categoria->id }}">{{ $categoria-> nombre }}</option> <!-- We obtain the id and the value -->
