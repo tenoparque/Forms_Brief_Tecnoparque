@@ -8,15 +8,15 @@
 <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
   
-    <section class="content container mt-5">
+    <section class="content shadow bg-light container mt-5">
         <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span id="card_title">
+                <div class="">
+                    <div class="">
+                        <span id="">
                             <div class="d-flex mt-3 mb-4">
                                 <div>
                                     <h1 class="primeraPalabraFlex" style="margin-right: 20px">{{ __('CREAR') }}</h1>
