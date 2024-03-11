@@ -1,29 +1,29 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
+<div class="container">
+    <div class="row">
         
-        <div class="form-group">
-            {{ Form::label('logo') }}
+        <div class="col-md-6">
+            {{ Form::label('logo',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('logo', $personalizacione->logo, ['class' => 'form-control' . ($errors->has('logo') ? ' is-invalid' : ''), 'placeholder' => 'Logo','style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
             {!! $errors->first('logo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('color_principal') }}
+        <div class="col-md-6">
+            {{ Form::label('color_principal',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('color_principal', $personalizacione->color_principal, ['class' => 'form-control' . ($errors->has('color_principal') ? ' is-invalid' : ''), 'placeholder' => 'Color Principal','style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
             {!! $errors->first('color_principal', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('color_secundario') }}
+        <div class="col-md-6">
+            {{ Form::label('color_secundario',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('color_secundario', $personalizacione->color_secundario, ['class' => 'form-control' . ($errors->has('color_secundario') ? ' is-invalid' : ''), 'placeholder' => 'Color Secundario','style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
             {!! $errors->first('color_secundario', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('color_terciario') }}
+        <div class="col-md-6">
+            {{ Form::label('color_terciario',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('color_terciario', $personalizacione->color_terciario, ['class' => 'form-control' . ($errors->has('color_terciario') ? ' is-invalid' : ''), 'placeholder' => 'Color Terciario','style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
             {!! $errors->first('color_terciario', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         @if(Route::currentRouteName() === 'personalizaciones.edit')
-        <div class="form-group">
-        <label for="id_estado">Estado</label>
+        <div class="col-md-6">
+        <label for="id_estado" style="font-size: 18px; font-weight: bold">Estado</label>
         <select name="id_estado" id="id_estado" class="form-control selectpicker"
         data-style="btn-primary" title="Seleccionar Estado" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
             @foreach ($estados as $estado)
