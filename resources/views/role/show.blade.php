@@ -14,7 +14,7 @@
                         <div class="float-left">
                             <div class="d-flex mt-3 mb-2">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('DETALLES DEL') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('DETALLE DEL') }}</h1>
                                 </div>
                                 <div>
                                     <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('ROL') }}</h1>
