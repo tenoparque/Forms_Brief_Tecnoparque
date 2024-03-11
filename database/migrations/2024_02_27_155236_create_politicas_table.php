@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->text('link');
             $table->text('descripcion');
-            $table->binary('qr');
             $table->unsignedBigInteger('id_usuario');
             $table->unsignedBigInteger('id_estado');
             $table->text('titulo');
@@ -23,6 +22,8 @@ return new class extends Migration
             $table->foreign('id_estado')->references('id')->on('estados');
             $table->timestamps();
         });
+
+        DB::statement("ALTER TABLE politicas ADD qr MEDIUMBLOB");
     }
 
     /**
