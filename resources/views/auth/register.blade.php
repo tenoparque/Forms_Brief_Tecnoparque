@@ -19,7 +19,7 @@
                 <div class="col-md-4">
                     <label for="name" class="form-label col-12 ">{{ __('Nombres') }}</label>
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                        value="{{ old('name') }}" required autocomplete="name" autofocus style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+                        value="{{ old('name') }}" required autocomplete="name"  style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
                 <div class="col-md-4">
                     <label for="apellidos" class="form-label col-12 ">{{ __('Apellidos') }}</label>
                     <input id="apellidos" type="text" class="form-control @error('apellidos') is-invalid @enderror"
-                        name="apellidos" value="{{ old('apellidos') }}" required autocomplete="apellidos" autofocus style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+                        name="apellidos" value="{{ old('apellidos') }}" required autocomplete="apellidos" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
                     @error('apellidos')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -42,7 +42,7 @@
                 <div class="col-md-4">
                     <label for="celular" class="form-label col-12 ">{{ __('Celular') }}</label>
                     <input id="celular" type="text" class="form-control @error('celular') is-invalid @enderror"
-                        name="celular" value="{{ old('celular') }}" required autocomplete="celular" autofocus style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+                        name="celular" value="{{ old('celular') }}" required autocomplete="celular" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
                     @error('celular')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
