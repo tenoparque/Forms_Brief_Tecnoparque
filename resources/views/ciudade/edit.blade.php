@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <section class="container shadow p-4  my-5 bg-light rounded">
         <div class="">
             <div class="col-md-12">
