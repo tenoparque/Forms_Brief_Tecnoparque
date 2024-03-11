@@ -1,15 +1,7 @@
 
-<section class="container shadow p-3  my-5 bg-light rounded">
+<section class="">
 
-    <div class="d-flex" style="margin-bottom: 10px">
-        <div class="">
-            <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('EDITAR') }}</h1>
-        </div>
-        <div class="">
-            <h1 class="segundaPalabraFlex" style="font-size: 200%;">{{ __('USUARIOS') }}</h1>
-        </div>
-
-    </div>
+    
     <div class="row p-3">
         <div class="col-md-6">
             <div class="form-group">
@@ -36,17 +28,17 @@
             </div>
             <div class="form-group">
                 {{ Form::label('nodo', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''),'style' => 'margin-bottom: 10px','style' => 'width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
+                {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''),'style' => 'margin-bottom: 10px']) }}
                 {!! $errors->first('id_nodo', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             
             <div class="form-group">
                 {{ Form::label('estado', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::select('id_estado', $estados->pluck('nombre', 'id'), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''),  'style' => 'margin-bottom: 10px','style' => 'width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
+                {{ Form::select('id_estado', $estados->pluck('nombre', 'id'), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : '') ]) }}
                 {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
-                <label style="font-size: 18px; font-weight: bold" for="role">Roles</label>
+                <label style="font-size: 18px; font-weight: bold" for="role">Roles:</label>
                 <select name="role" id="role" class="form-control">
                     @foreach($roles as $id => $role)
                         <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>

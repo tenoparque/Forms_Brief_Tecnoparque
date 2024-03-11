@@ -28,7 +28,6 @@
                             @csrf
 
                             @include('ciudade.form')
-
                         </form>
                     </div>
                 </div>
