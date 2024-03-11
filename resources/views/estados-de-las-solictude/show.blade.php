@@ -6,11 +6,11 @@
 
 @section('content')
 
-    <section class="content container mt-5">
+    <section class="container shadow bg-light mt-5 p-4">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
+                <div class="">
+                    <div class="">
                         <div class="float-left">
                             <div class="d-flex mt-3 mb-4">
                                 <div>
@@ -22,22 +22,40 @@
                             </div>
 
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('estados-de-las-solictudes.index') }}"> {{ __('Back') }}</a>
-                        </div>
+                        
                     </div>
 
-                    <div class="card-body">
-                        
-                        <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $estadosDeLasSolictude->nombre }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Estado:</strong>
-                            {{ $estadosDeLasSolictude->estado->nombre }}
-                        </div>
+                    <div class="">
+                        <div class="table-responsive" style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
+                            <table class="table table-bordered table-hover">
+                                <thead class="thead-dark">
+                                    <tr style="border-width: 2px">
+                                        <th>Nombre</th>
+                                        <th>Estado</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody class="alldata">
+                                    <tr>
+                                        <td>{{ $estadosDeLasSolictude->nombre }}</td>
+                                        <td>{{ $estadosDeLasSolictude->estado->nombre }}</td>
+                                       
+                                    </tr>
+                                </tbody>
+                                <!-- Another tbody is created for the search records -->
+                                <tbody id="Content" class="dataSearched">
 
+                                </tbody>
+                            </table>
+                        </div>
+                        
+
+                    </div>
+                    <div class="">
+                        <a class="btn btn-outline"  style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:10px; justify-content: center; justify-items: center; margin-left: 90%;"
+                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                        onmouseout="this.style.backgroundColor='#FFFF';" href="{{ route('estados-de-las-solictudes.index') }}"> {{ __('Regresar') }} 
+                        <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i></a>
                     </div>
                 </div>
             </div>

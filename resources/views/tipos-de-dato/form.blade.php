@@ -8,7 +8,7 @@
 <div class="form-group">
     <label style="font-size: 18px; font-weight: bold" for="id_estado">Estado</label>
     <select name="id_estado" id="id_estado" class="form-control selectpicker"
-    data-style="btn-primary" title="Seleccionar Estado" required >
+    data-style="btn-primary" title="Seleccionar Estado" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
         @foreach ($estados as $estado)
             <option value="{{ $estado->id }}" {{ ($tiposDeDato->id_estado ?? '') == $estado->id ? 'selected' : '' }}>
                 {{ $estado->nombre }}
