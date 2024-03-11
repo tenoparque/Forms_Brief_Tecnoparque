@@ -28,11 +28,6 @@
                             {{ Form::text('nombre', $departamento->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
                             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
                         </div>
-
-                        <div class="form-group">
-                            {{ Form::label('id_ciudad', 'Ciudad', ['class' => 'font-weight-bold', 'style' => 'font-size: 18px;']) }}
-                            {{ Form::select('id_ciudad', $ciudades, null, ['class' => 'form-control', 'placeholder' => 'Seleccionar Ciudad']) }}
-                        </div>
                     </div>
                 </div>
             </div>
