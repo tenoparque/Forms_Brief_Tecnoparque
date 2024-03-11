@@ -11,7 +11,7 @@ use App\Models\TiposDeSolicitude;
 use App\Models\ServiciosPorTiposDeSolicitude; // Añade la importación de la clase ServiciosPorTiposDeSolicitudes
 use Illuminate\Http\Request;
 use App\Models\Politica;
-use App\Models\TiposDeDato;
+
 
 /**
  * Class SolicitudeController
@@ -66,14 +66,10 @@ class SolicitudeController extends Controller
     
         // Obtener los servicios por solicitud asociados al tipo de solicitud seleccionado
         $servicios = ServiciosPorTiposDeSolicitude::where('id_tipo_de_solicitud', $selectedTypeId)->get();
-
-
-        $tipoDato = TiposDeDato::where('id', $selectedTypeId)->get();
     
         // Devolver los datos en formato JSON
         return response()->json([
             'datos_unicos' => $datosUnicos,
-            'tipo_dato_id' => $tipoDato ? $tipoDato->id : null,
             'servicios' => $servicios
         ]);
     }
