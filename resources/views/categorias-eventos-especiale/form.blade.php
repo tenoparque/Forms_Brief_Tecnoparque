@@ -8,7 +8,7 @@
         </div>
         @if(Route::currentRouteName() === 'categorias-eventos-especiales.edit')
         <div class="form-group">
-                <label for="id_estado">Estado</label>
+                <label style="font-size: 18px; font-weight: bold" for="id_estado">Estado</label>
                 <select name="id_estado" id="id_estado" class="form-control selectpicker"
                 data-style="btn-primary" title="Seleccionar Estado" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
                     @foreach ($estados as $estado)
