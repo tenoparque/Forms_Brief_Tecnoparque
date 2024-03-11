@@ -2,10 +2,10 @@
 
     <div class="d-flex" style="margin-bottom: 10px">
         <div class="">
-            <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('EDITAR') }}</h1>
+            <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('EDITAR') }}</h1>
         </div>
         <div class="">
-            <h1 class="segundaPalabraFlex" style="font-size: 180%;">{{ __('USUARIOS') }}</h1>
+            <h1 class="segundaPalabraFlex" style="font-size: 200%;">{{ __('USUARIOS') }}</h1>
         </div>
 
     </div>
