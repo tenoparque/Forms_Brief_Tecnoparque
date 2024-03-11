@@ -55,7 +55,7 @@
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
                         <a href="/users" class="sidebar-link" style="text-decoration: none">
-                            <i class="lni lni-user"></i>
+                            <i class="lni lni-users"></i>
                             <span>Usuario</span>
                         </a>
                     </li>
@@ -78,7 +78,7 @@
                     <li class="sidebar-item">
                         <a href="servicios-por-tipos-de-solicitudes" class="sidebar-link collapsed has-dropdown"
                             style="text-decoration: none">
-                            <i class="lni lni-layout"></i>
+                            <i class="lni lni-support"></i>
                             <span>Servicios</span>
                         </a>
                     </li>
