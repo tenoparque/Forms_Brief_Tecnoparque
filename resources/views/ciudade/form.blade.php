@@ -22,9 +22,9 @@
 
         @if(Route::currentRouteName() === 'ciudades.edit')
             <div class="form-group">
-                <label for="id_departamento">Departamento</label>
+                <label style="font-size: 18px; font-weight: bold" for="id_departamento">Departamento</label>
                 <select name="id_departamento" id="id_departamento" class="form-control selectpicker"
-                data-style="btn-primary" title="Seleccionar Departamento" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+                data-style="btn-primary" title="Seleccionar Departamento" required >
                     @foreach ($departamentos as $departamento)
                         <option value="{{ $departamento->id }}" {{ ($ciudade->id_departamento ?? '') == $departamento->id ? 'selected' : '' }}>
                             {{ $departamento->nombre }}
