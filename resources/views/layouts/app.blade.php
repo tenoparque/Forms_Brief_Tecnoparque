@@ -123,10 +123,10 @@
             <div class="">
                 <main class="">
                     @if (Route::currentRouteName() !== 'login')
-                    <header class="container-fluid  mx-3">
-                        <div class="row d-flex justify-content-between" style="align-items: center; margin-top: 70px; margin-bottom: 50px">
+                    <header class="container-fluid  mx-3" style="align-items: center; margin-top: 70px; margin-bottom: 50px">
+                        <div class="row d-flex justify-content-between" >
                             <!-- Carta Izquierda -->
-                            <div class="col-xl-9 col-lg-7 col-md-8 col-sm-6 col-12 mb-3 mb-sm-0">
+                            <div class="col-xl-9 col-lg-7 col-md-8 col-sm-8 col-12 mb-3 ">
                                 <div class="">
                                     <div class="text-wel">
                                         <h5 class="welcoRe">BIENVENIDO</h5>
@@ -140,7 +140,7 @@
                             </div>
                 
                             <!-- Carta Derecha -->
-                            <div class="col-xl-3 col-lg-5 col-md-4 col-sm-6 col-12">
+                            <div class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12">
                                 <img class="img-fluid" src="/images/recursos/redtecnocol.png" width="300" height="150"></img>
                             </div>
                         </div>

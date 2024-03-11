@@ -68,7 +68,7 @@
                                     <div class="modal-body" style="margin-left: 20%; margin-block-end: 5%">
                                         {{-- Mostrar el código QR solo si la política está presente --}}
                                         @if ($politicas)
-                                            <img src="data:image/png;base64,{{ base64_encode($politicas->qr) }}" alt="QR Code">
+                                            <img src="data:image/png;base64,{{ base64_encode($politicas->qr) }}" class="" alt="QR Code">
                                         @else
                                             <p>No hay registro de política con id_estado = 1</p>
                                         @endif
@@ -134,18 +134,18 @@
                         if (tipoDatoMinusculas === 'fecha') {
                             // Si el tipo de dato es fecha, crea un input de tipo fecha
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-4 col-md-6"><label>' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-6"><label class="LabelText>' +
                                 ' </label><input type="date" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
-                                '" class="form-control solicitudInputText" placeholder="' +
+                                '" class="form-control InputText" placeholder="' +
                                 datoUnico.nombre + '"></div>';
                         } else {
                             // Para cualquier otro tipo de dato (incluido texto), crea un input de tipo texto
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="solicitudLabelText">' +
+                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
-                                '" class="form-control  solicitudInputText" placeholder=""></div>';
+                                '" class="form-control  InputText" placeholder=""></div>';
                         }
 
                     });
