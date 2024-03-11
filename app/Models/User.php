@@ -110,7 +110,7 @@ class User extends Authenticatable
      */
     public function historialDeEstadosPorSolicitudes()
     {
-        return $this->hasMany(\App\Models\HistorialDeEstadosPorSolicitude::class, 'id', 'id_users');
+        //return $this->hasMany(\App\Models\HistorialDeEstadosPorSolicitude::class, 'id', 'id_users');
     }
     
     /**
@@ -118,7 +118,7 @@ class User extends Authenticatable
      */
     public function historialDeUsuariosPorSolicitudes()
     {
-        return $this->hasMany(\App\Models\HistorialDeUsuariosPorSolicitude::class, 'id', 'id_users');
+        //return $this->hasMany(\App\Models\HistorialDeUsuariosPorSolicitude::class, 'id', 'id_users');
     }
     
     /**
