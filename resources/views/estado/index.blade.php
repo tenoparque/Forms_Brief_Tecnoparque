@@ -10,10 +10,10 @@
 
     
     <section class="container shadow p-4 my-5 bg-light rounded">
-        <div class="container">
+        
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="card-header">
+                    <div class="">
                         <div class="d-flex justify-content-between align-items-center">
                             
                             <div class="d-flex mt-3 mb-4">
@@ -30,7 +30,7 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-                    <div class="card-body">
+                    <div class="">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del estado..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
@@ -91,7 +91,7 @@
                 </div>
                 {!! $estados->links() !!}
             </div>
-        </div>
+    
     </section>
 
     <!-- JS Scripts -->
