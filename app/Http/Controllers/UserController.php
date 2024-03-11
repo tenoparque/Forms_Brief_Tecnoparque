@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Spatie\Permission\Models\Role as SpatieRole;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Nodo;
 use App\Models\Estado;
@@ -133,7 +134,8 @@ class UserController extends Controller
         $user = User::find($id);
         $nodos = Nodo::all();
         $estados = Estado::all();
-        return view('user.edit', compact('user' , 'nodos' , 'estados'));
+        $roles = SpatieRole::pluck('name', 'id');
+        return view('user.edit', compact('user' , 'nodos' , 'estados', 'roles'));
     }
 
     /**
@@ -143,15 +145,39 @@ class UserController extends Controller
      * @param  User $user
      * @return \Illuminate\Http\Response
      */
+    // public function update(Request $request, User $user)
+    // {
+    //     request()->validate(User::$rules);
+
+    //     $user->update($request->all());
+
+    //     return redirect()->route('users.index')
+    //         ->with('success', 'User updated successfully');
+    // }
+
+
     public function update(Request $request, User $user)
-    {
-        request()->validate(User::$rules);
+{
+    request()->validate(User::$rules);
 
-        $user->update($request->all());
+    $user->update($request->all());
 
-        return redirect()->route('users.index')
-            ->with('success', 'User updated successfully');
+    // Obtener el nombre del rol del request
+    $roleName = $request->role;
+
+    // Buscar el rol por su nombre
+    $role = SpatieRole::findByName($roleName, 'web');
+
+    // Verificar si se encontró el rol
+    if ($role) {
+        // Asignar el rol al usuario
+        $user->syncRoles([$role->name]); // Esto puede depender de cómo estés gestionando tus roles con Spatie
     }
+
+    return redirect()->route('users.index')
+        ->with('success', 'User updated successfully');
+}
+
 
     /**
      * @param int $id

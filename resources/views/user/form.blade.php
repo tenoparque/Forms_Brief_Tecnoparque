@@ -45,6 +45,17 @@
                 {{ Form::select('id_estado', $estados->pluck('nombre', 'id'), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''),  'style' => 'margin-bottom: 10px','style' => 'width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
                 {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
             </div>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <select name="role" id="role" class="form-control">
+                    @foreach($roles as $id => $role)
+                        <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>
+                            {{ $role }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+              
         </div>
     </div>
     <div class="box-footer mt20" style="text-align: right;">
