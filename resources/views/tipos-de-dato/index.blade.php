@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Tipos de dato 
+    Tipos de dato
 @endsection
 
 @section('content')
@@ -11,19 +11,14 @@
                 <div class="col-sm-12">
                     <div class="card-header">
                         <div style="d-flex justify-content-between align-items-center">
-
                             <div style="d-flex justify-content-between align-items-center">
-
                                 <div class="d-flex mt-3 mb-4">
-                                    
-                                        <div>
-                                            <h1 class="primeraPalabraFlex" style="font-size: 180%" >{{ __('TIPOS') }}</h1>
-                                        </div>
-                                        <div>
-                                            <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('DE DATOS') }}</h1>
-                                        </div>
-                                    
-
+                                    <div>
+                                        <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('TIPOS') }}</h1>
+                                    </div>
+                                    <div>
+                                        <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('DE DATOS') }}</h1>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +32,8 @@
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
-                                <input class="form-control" id="search" placeholder="Ingrese el nombre del tipo de dato..."
+                                <input class="form-control" id="search"
+                                    placeholder="Ingrese el nombre del tipo de dato..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                                 <a href="{{ route('tipos-de-datos.create') }}" class="btn btn-outline"
                                     style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
@@ -68,7 +64,8 @@
                                             <td>{{ $tiposDeDato->estado->nombre }}</td>
 
                                             <td>
-                                                <form action="{{ route('tipos-de-datos.show', $tiposDeDato->id) }}" method="POST">
+                                                <form action="{{ route('tipos-de-datos.show', $tiposDeDato->id) }}"
+                                                    method="POST">
                                                     <a class="btn btn-outline"
                                                         style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                         onmouseover="this.style.backgroundColor='#b2ebf2';"
@@ -134,4 +131,3 @@
         })
     </script>
 @endsection
-

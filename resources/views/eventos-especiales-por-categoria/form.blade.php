@@ -22,7 +22,7 @@
         @endif
         @if(Route::currentRouteName() === 'eventos-especiales-por-categorias.create')
         <div class="form-group">
-            <label style="font-size: 18px; font-weight: bold" for="id_eventos_especiales">categoria</label>
+            <label style="font-size: 18px; font-weight: bold" for="id_eventos_especiales">Categoria</label>
             <select name="id_eventos_especiales" id="id_eventos_especiales" class="form-control selectpicker"
             data-style="btn-primary" title="Seleccionar Categoria" required ">
                 @foreach ($categorias as $categoria)
@@ -49,7 +49,7 @@
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-outline" href="{{ route('eventos-especiales-por-categorias.create') }}" class="btn btn-outline"
-        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer; margin-left: 90%; border-radius: 35px; margin-top:10px; justify-content: center; justify-items: center; ">{{ __('GUARDAR') }}
+        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer; margin-left: 90%; border-radius: 35px; margin-top:15px; justify-content: center; justify-items: center; ">{{ __('GUARDAR') }}
         <i class="fa-solid fa-circle-plus fa-sm" style="color: #642c78;"></i></button>
     </div>
 </div>
