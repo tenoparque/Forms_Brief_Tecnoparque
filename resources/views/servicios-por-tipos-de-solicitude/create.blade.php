@@ -13,18 +13,21 @@
                 @includeif('partials.errors')
 
                 <div class="">
-                    
+                    <div class="card-header">
                         <div class="d-flex mt-3 mb-4">
                             <div>
-                                <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('CREAR') }}</h1>
+                                <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('CREAR') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('SERVICIO POR TIPO DE SOLICITUD') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="font-size: 200%">
+                                    {{ __('SERVICIO POR TIPO DE SOLICITUD') }}</h1>
                             </div>
                         </div>
-                  
+                    </div>
+
                     <div class="card-body">
-                        <form method="POST" action="{{ route('servicios-por-tipos-de-solicitudes.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('servicios-por-tipos-de-solicitudes.store') }}" role="form"
+                            enctype="multipart/form-data">
                             @csrf
 
                             @include('servicios-por-tipos-de-solicitude.form')
