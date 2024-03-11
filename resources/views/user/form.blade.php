@@ -35,12 +35,13 @@
             </div>
             <div class="form-group">
                 {{ Form::label('nodo', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::text('nodo', $user->nodo->nombre, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'placeholder' => 'Nodo', 'style' => 'margin-bottom: 10px']) }}
+                {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona un nodo', 'style' => 'margin-bottom: 10px']) }}
                 {!! $errors->first('id_nodo', '<div class="invalid-feedback">:message</div>') !!}
             </div>
+            
             <div class="form-group">
                 {{ Form::label('estado', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::text('estado', $user->estado->nombre, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }} 
+                {{ Form::select('id_estado', $estados->pluck('nombre', 'id'), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona un estado', 'style' => 'margin-bottom: 10px']) }}
                 {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
             </div>
         </div>

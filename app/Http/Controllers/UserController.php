@@ -131,8 +131,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-
-        return view('user.edit', compact('user'));
+        $nodos = Nodo::all();
+        $estados = Estado::all();
+        return view('user.edit', compact('user' , 'nodos' , 'estados'));
     }
 
     /**
