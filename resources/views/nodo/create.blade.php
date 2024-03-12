@@ -6,33 +6,33 @@
 
 @section('content')
 
-<section class="container  shadow p-4  my-5 bg-light rounded">
-    <div class="row">
-        <div class="col-md-12">
+    <section class="container shadow p-4  my-5 bg-light rounded">
+        <div class="row">
+            <div class="col-md-12">
 
-            @includeif('partials.errors')
+                @includeif('partials.errors')
 
-            <div class = "text-start">
-            
-                <div class="d-flex">
+                <div class="">
                     <div class="">
-                        <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('CREAR') }}</h1>
+                        <div class="d-flex mt-3 mb-4">
+                            <div>
+                                <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('CREAR') }}</h1>
+                            </div>
+                            <div>
+                                <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('NODO') }}</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="">
-                        <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('NODOS') }}</h1>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('nodos.store') }}"  role="form" enctype="multipart/form-data">
+                            @csrf
+
+                            @include('nodo.form')
+
+                        </form>
                     </div>
-        
-                </div>
-                <div>
-                    <form method="POST" class="row" action="{{ route('nodos.store') }}"  role="form" enctype="multipart/form-data">
-                        @csrf
-
-                        @include('nodo.form')
-
-                    </form>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection
