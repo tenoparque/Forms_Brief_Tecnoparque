@@ -376,12 +376,21 @@ a.sidebar-link:hover {
 
 
 /* --------------------------Politicas ------------------ */
-.formPolitcas input[type="file"]{
-    appearance: none;
+
+
+.file .form-control-file{
     display: none;
-    visibility: hidden;
-    opacity: 0;
 }
+
+.file .labelFile{
+    display: block;
+    padding: 8px 21px;
+    cursor: pointer;
+    border:2px solid #82DEF0;
+    border-radius: 35px;
+    width: 18%;
+}
+
 
 
 #imagePreview {
@@ -389,8 +398,9 @@ a.sidebar-link:hover {
 
 }
 
-.img-thumbnai {
-    padding: .40rem;
+.img-thumbnail {
+    margin-top: 1rem;
+    background: red;
     border: 1px solid #ddd;
     border-radius: .25rem;
     max-width: 100%;
