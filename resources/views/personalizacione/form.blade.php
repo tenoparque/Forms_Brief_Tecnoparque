@@ -11,6 +11,13 @@
             <img id="logoImage" class="img-thumbnail" alt="Preview" style="max-width: 300px; max-height: 300px;">
         </div>
         @endif
+        @if(Route::currentRouteName() === 'personalizaciones.edit')
+        <div class="form-group">
+            <label for="logo">Imagen QR:</label>
+            <!-- Agrega la etiqueta img con el ID 'qrImage' -->
+            <img id="logoImage" src="{{ $personalizacione->logo ? 'data:image/png;base64,' . base64_encode($personalizacione->logo) : '' }}" alt="LOGO" width="200">
+        </div>
+        @endif
         <div class="col-md-6">
             {{ Form::label('color_principal',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('color_principal', $personalizacione->color_principal, ['class' => 'form-control' . ($errors->has('color_principal') ? ' is-invalid' : ''), 'placeholder' => 'Color Principal','style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}

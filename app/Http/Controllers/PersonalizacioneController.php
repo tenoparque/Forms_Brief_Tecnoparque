@@ -171,9 +171,25 @@ class PersonalizacioneController extends Controller
             'id_estado' => 1
         ]);
 
-        request()->validate(Personalizacione::$rules);
+       // Validar los datos del formulario
+        $request->validate(Personalizacione::$rules);
 
-        $personalizacione->update($request->all());
+        // Comprobar si se ha enviado una nueva imagen
+        if ($request->hasFile('logo')) {
+            // Validar la nueva imagen
+            $request->validate([
+                'logo' => 'required|image|max:2048', // Validar que sea una imagen con un tamaño máximo de 2MB
+            ]);
+
+            // Obtener el contenido binario de la nueva imagen
+            $logoContenido = file_get_contents($request->file('logo')->getRealPath());
+
+            // Actualizar el campo "logo" con el nuevo contenido binario
+            $personalizacione->logo = $logoContenido;
+        }
+
+        // Actualizar los demás campos
+        $personalizacione->update($request->except('logo'));
 
         return redirect()->route('personalizaciones.index')
             ->with('success', 'Personalizacione updated successfully');
