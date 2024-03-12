@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="container shadow p-4 my-5 bg-light rounded">
+    <section class="container shadow p-2 my-5 bg-light rounded">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
