@@ -100,12 +100,12 @@
                     <h1>Hora en Bogotá</h1>
                 
                     @if ($currentTime)
-                        <p>La hora actual en Bogotá es: {{ $currentTime }}</p>
+                        <p>La fecha actual en Bogotá es: {{ $currentTime['date'] }} </p>
+                        <p>La hora actual en Bogotá es: {{ $currentTime['time'] }} </p>
                     @else
                         <p>No se pudo obtener la hora actual en Bogotá.</p>
                     @endif
                 </body>
-
                 </div>
                 {!! $solicitudes->links() !!}
             </div>
