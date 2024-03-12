@@ -1,6 +1,5 @@
-
-<div class="container">
-    <div class="row">
+<div class="box box-info padding-1">
+    <div class="box-body">
 
         <div class="form-group">
             {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
@@ -24,7 +23,7 @@
             <div class="form-group">
                 <label  style="font-size: 18px; font-weight: bold" for="id_ciudad">Ciudad</label>
                 <select name="id_ciudad" id="id_ciudad" class="form-control selectpicker" data-style="btn-primary"
-                    title="Seleccionar la Ciudad" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+                    title="Seleccionar la Ciudad" required style="margin-bottom: 10px;">
                     @foreach ($ciudades as $ciudad)
                         <option value="{{ $ciudad->id }}"
                             {{ ($nodo->id_ciudad ?? '') == $ciudad->id ? 'selected' : '' }}>
@@ -38,7 +37,7 @@
             <div class="form-group">
                 <label  style="font-size: 18px; font-weight: bold" for="id_estado">Estado</label>
                 <select name="id_estado" id="id_estado" class="form-control selectpicker" data-style="btn-primary"
-                    title="Seleccionar Estado" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+                    title="Seleccionar Estado" required>
                     @foreach ($estados as $estado)
                         <option value="{{ $estado->id }}"
                             {{ ($nodo->id_estado ?? '') == $estado->id ? 'selected' : '' }}>
