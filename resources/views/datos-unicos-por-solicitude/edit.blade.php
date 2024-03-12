@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <section class="container shadow bg-light mt-5 p-4 rounded">
+    <section class="container shadow p-4  my-5 bg-light rounded">
         <div class="">
             <div class="col-md-12">
 
@@ -16,14 +16,14 @@
                     <div class="">
                         <div class="d-flex mt-3 mb-4">
                             <div>
-                                <h1 class="primeraPalabraFlex" style="font-size: 180%">{{ __('EDITAR DATO UNICO') }}</h1>
+                                <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('EDITAR DATO UNICO') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex" style="font-size:180%">{{ __('POR TIPO DE SOLICITUD') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="font-size:200%">{{ __('POR TIPO DE SOLICITUD') }}</h1>
                             </div>
                         </div>
                     </div>
-                    <div class="">
+                    <div class="card-body">
                         <form method="POST" action="{{ route('datos-unicos-por-solicitudes.update', $datosUnicosPorSolicitude->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
