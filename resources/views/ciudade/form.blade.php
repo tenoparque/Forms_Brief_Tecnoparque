@@ -4,7 +4,7 @@
         <div class="form-group">
             {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('nombre', $ciudade->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre',
-             'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
+             'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px;height:45px;  border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         @if(Route::currentRouteName() === 'ciudades.create')
@@ -21,17 +21,27 @@
         @endif
 
         @if(Route::currentRouteName() === 'ciudades.edit')
-            <div class="form-group">
-                <label style="font-size: 18px; font-weight: bold" for="id_departamento">Departamento</label>
-                <select name="id_departamento" id="id_departamento" class="form-control selectpicker"
-                data-style="btn-primary" title="Seleccionar Departamento" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+        <div class="form-group">
+            <label style="font-size: 18px; font-weight: bold" for="id_departamento">Departamento</label>
+            <div style="position: relative;">
+                <select
+                    style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
+                    name="id_departamento" id="id_departamento" class="form-control">
+                    </option>
                     @foreach ($departamentos as $departamento)
                         <option value="{{ $departamento->id }}" {{ ($ciudade->id_departamento ?? '') == $departamento->id ? 'selected' : '' }}>
                             {{ $departamento->nombre }}
                         </option>
                     @endforeach
                 </select>
+                <div class="icono" onclick="toggleSelect()">
+                    <div class="circle-play">
+                        <div class="circle"></div>
+                        <div class="triangle"></div>
+                    </div>
+                </div>
             </div>
+        </div
         @endif
 
     </div>
