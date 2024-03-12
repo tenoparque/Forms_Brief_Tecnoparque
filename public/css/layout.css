@@ -438,7 +438,7 @@ a.sidebar-link:hover {
  
   .icono{
     position: absolute;
-    right: 1%;
+    right: 2%;
     top: 50%; transform: translateY(-50%); 
     justify-content: center;
     align-items: center;

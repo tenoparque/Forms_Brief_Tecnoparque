@@ -25,7 +25,7 @@
             <label style="font-size: 18px; font-weight: bold" for="id_departamento">Departamento</label>
             <div style="position: relative;">
                 <select
-                    style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
+                    style="width: 99%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
                     name="id_departamento" id="id_departamento" class="form-control">
                     </option>
                     @foreach ($departamentos as $departamento)
