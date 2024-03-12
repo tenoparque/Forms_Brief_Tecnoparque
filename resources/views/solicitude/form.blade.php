@@ -99,8 +99,7 @@
 <script>
     $(document).ready(function() {
         $('#id_tipos_de_solicitudes').change(function() {
-            var selectedTypeId = $(this).val(); // Obtener el ID del tipo de solicitud seleccionado
-            // Enviar el ID del tipo de solicitud seleccionado a través de una solicitud AJAX al controlador
+            var selectedTypeId = $(this).val(); 
             $.ajax({
                 url: '{{ route('solicitude.processSelectedId') }}',
                 type: 'POST',
@@ -109,88 +108,77 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
-                    // Construir checkboxes para los servicios por solicitud
                     var serviciosCheckboxes = '';
-                    // var checkboxCounter = 0;
                     $.each(response.servicios, function(index, servicio) {
-                        // if(checkboxCounter % 2 === 0){
-                        //     serviciosCheckboxes += '<br>';
-                        // } 
                         serviciosCheckboxes +=
                             '<div class=" col-xl-6 col-lg-6 col-md-6 my-2"><label class=" checkboxSol"><input type="checkbox" class="checkboxSolInp"  name="servicios_por_tipo[]" value="' +
                             servicio.id +
                             '"> <span class="check"><span class="inner-eye"></span></span> ' +
                             servicio.nombre +
                             '</label></div>';
-                        // checkboxCounter++;
-
                     });
-                    // Mostrar los checkboxes en el área designada
                     $('#servicesComboBoxContainer').html(serviciosCheckboxes);
 
-                    // Construir textboxes para los datos únicos por solicitud
                     var datosUnicosTextboxes = '';
-
-
                     $.each(response.datos_unicos, function(index, datoUnico) {
-                    // Obtener el tipo de dato asociado con este dato único
-                    var tipoDatoId = datoUnico.id_tipos_de_datos;
-
-                    // Consultar el tipo de dato en la lista de tipos de datos disponibles
-                    var tipoDato = response.tipos_de_datos.find(function(tipo) {
-                        return tipo.id === tipoDatoId;
-                    });
-
-                    // Verificar si el tipo de dato es "fecha"
-                    if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
-                        // Si el tipo de dato es fecha, crea un input de tipo fecha
-                        datosUnicosTextboxes +=
-                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
-                            datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
-                            datoUnico.id +
-                            '" class="form-control  InputText" placeholder=""></div>';
-                    } 
-                    
-                   else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
-                        // Si el tipo de dato es fecha, crea un input de tipo link
-                        datosUnicosTextboxes +=
-                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
-                            datoUnico.nombre + '</label><input type="url" name="datos_unicos_por_solicitud_' +
-                            datoUnico.id +
-                            '" class="form-control  InputText" placeholder=""></div>';
-                    }
-
-                    else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
-                        // Si el tipo de dato es fecha, crea un input de tipo numero
-                        datosUnicosTextboxes +=
-                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
-                            datoUnico.nombre + '</label><input type="number" name="datos_unicos_por_solicitud_' +
-                            datoUnico.id +
-                            '" class="form-control  InputText" placeholder=""></div>';
-                    }
-                    
-                    
-                    
-                    else {
-                        // Para cualquier otro tipo de dato (incluido texto), crea un input de tipo texto
-                        datosUnicosTextboxes +=
-                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
-                            datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
-                            datoUnico.id +
-                            '" class="form-control  InputText" placeholder=""></div>';
-                    }
-                });
-
-                                    // Mostrar los textboxes en el área designada
-                                    $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
-                                },
-                                error: function(xhr) {
-                                    console.error(
-                                        'Error al obtener los datos asociados al tipo de solicitud.');
-                                }
-                            });
+                        var tipoDatoId = datoUnico.id_tipos_de_datos;
+                        var tipoDato = response.tipos_de_datos.find(function(tipo) {
+                            return tipo.id === tipoDatoId;
                         });
+
+                        if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
+                            datosUnicosTextboxes +=
+                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
+                                datoUnico.id +
+                                '" class="form-control  InputText" placeholder="" min="' + getTodayDate() + '"></div>';
+                        } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
+                            datosUnicosTextboxes +=
+                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                datoUnico.nombre + '</label><input type="url" name="datos_unicos_por_solicitud_' +
+                                datoUnico.id +
+                                '" class="form-control  InputText" placeholder=""></div>';
+                        } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
+                            datosUnicosTextboxes +=
+                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                datoUnico.nombre + '</label><input type="number" name="datos_unicos_por_solicitud_' +
+                                datoUnico.id +
+                                '" class="form-control  InputText" placeholder=""></div>';
+                        } else {
+                            datosUnicosTextboxes +=
+                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
+                                datoUnico.id +
+                                '" class="form-control  InputText" placeholder=""></div>';
+                        }
                     });
+
+                    $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
+                },
+                error: function(xhr) {
+                    console.error(
+                        'Error al obtener los datos asociados al tipo de solicitud.');
+                }
+            });
+        });
+    });
+
+    // Función para obtener la fecha actual en el formato YYYY-MM-DD
+    function getTodayDate() {
+        var today = new Date();
+        var day = today.getDate();
+        var month = today.getMonth() + 1; // Los meses comienzan desde 0
+        var year = today.getFullYear();
+
+        if (day < 10) {
+            day = '0' + day;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+
+        return year + '-' + month + '-' + day;
+    }
 </script>
 
 
