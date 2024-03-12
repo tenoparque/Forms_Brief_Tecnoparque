@@ -3,8 +3,9 @@
     <div class="row m-3">
         <div class="">
             <div class="">
-                <h2 class="segundaPalabraFlex mb-0"> FORMULARIO </h2>
-                <h2 class="primeraPalabraFlex"> BRIEF</h2>
+                <h2 class="primeraPalabraFlex mb-0"> FORMULARIO </h2>
+                <h2 class="segundaPalabraFlex"> BRIEF</h2>
+                
             </div>
             <div class="">
                 <form id="solicitudForm " class="formBrief">
