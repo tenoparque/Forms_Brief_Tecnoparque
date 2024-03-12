@@ -13,17 +13,17 @@
                 @includeif('partials.errors')
 
                 <div class="">
-                    <div class="card-header">
+                    <div class="">
                         <div class="d-flex mt-3 mb-4">
                             <div>
-                                <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('CREAR DATO UNICO') }}</h1>
+                                <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('CREAR DATO ÚNICO') }}</h1>
                             </div>
                             <div>
                                 <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __(' POR TIPO DE SOLICITUD') }}</h1>
                             </div>
                         </div>
                     </div>
-                    <div class="">
+                    <div class="card-body">
                         <form method="POST" action="{{ route('datos-unicos-por-solicitudes.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
