@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $datosPorSolicitud->name ?? "{{ __('Show') Datos Por Solicitud" }}
+    {{ $datosPorSolicitud->name ?? "('Show') Datos Por Solicitud" }}
 @endsection
 
 @section('content')
