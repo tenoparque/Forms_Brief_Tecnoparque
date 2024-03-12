@@ -140,22 +140,45 @@ class SolicitudeController extends Controller
             ->with('success', 'Solicitude updated successfully');
     }
 
+    // /**
+    //  * Obtiene la hora actual en la zona horaria de Bogotá.
+    //  *
+    //  * @return string|null
+    //  */
+    // public function getCurrentTimeInBogota()
+    // {
+    //     $response = Http::get('https://timeapi.io/api/Time/current/zone?timeZone=America/Bogota');
+
+    //     if ($response->successful()) {
+    //         return $response['dateTime'];
+    //     } else {
+    //         return null;
+    //     }
+    // }
+
     /**
-     * Obtiene la hora actual en la zona horaria de Bogotá.
-     *
-     * @return string|null
-     */
-    public function getCurrentTimeInBogota()
-    {
-        $response = Http::get('https://timeapi.io/api/Time/current/zone?timeZone=America/Bogota');
+ * Obtiene la hora actual en la zona horaria de Bogotá.
+ *
+ * @return array|null
+ */
+public function getCurrentTimeInBogota()
+{
+    $response = Http::get('https://timeapi.io/api/Time/current/zone?timeZone=America/Bogota', [
+        'timeZone' => 'America/Bogota',
+    ]);
 
-        if ($response->successful()) {
-            return $response['dateTime'];
-        } else {
-            return null;
-        }
+    if ($response->successful()) {
+        $dateTime = $response['dateTime'];
+        $dateTimeParts = explode('T', $dateTime); // Separar la fecha y la hora
+
+        return [
+            'date' => $dateTimeParts[0], // Obtener la fecha
+            'time' => substr($dateTimeParts[1], 0, 8), // Obtener la hora
+        ];
+    } else {
+        return null;
     }
-
+}
 
     // public function incrementarFecha(Request $request)
     // {
