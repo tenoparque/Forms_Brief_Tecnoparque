@@ -171,15 +171,16 @@ class PersonalizacioneController extends Controller
             'id_estado' => 1
         ]);
 
+         // Validar la nueva imagen
+        $request->validate([
+        'logo' => 'image|max:60', // Validar que sea una imagen con un tamaño máximo de 60KB
+        ]);
+
        // Validar los datos del formulario
         $request->validate(Personalizacione::$rules);
 
         // Comprobar si se ha enviado una nueva imagen
         if ($request->hasFile('logo')) {
-            // Validar la nueva imagen
-            $request->validate([
-                'logo' => 'required|image|max:60', // Validar que sea una imagen con un tamaño máximo de 60KB
-            ]);
 
             // Obtener el contenido binario de la nueva imagen
             $logoContenido = file_get_contents($request->file('logo')->getRealPath());
