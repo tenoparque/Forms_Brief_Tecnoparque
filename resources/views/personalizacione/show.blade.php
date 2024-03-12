@@ -30,7 +30,7 @@
                         
                         <div class="form-group">
                             <strong>Logo:</strong>
-                            {{ $personalizacione->logo }}
+                            <img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}" alt="LOGO">
                         </div>
                         <div class="form-group">
                             <strong>Color Principal:</strong>
