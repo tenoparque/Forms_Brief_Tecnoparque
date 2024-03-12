@@ -114,3 +114,10 @@ Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'pr
 // Users
 Route::resource('users', UserController::class);
 Route::get('/searchUser', [UserController::class, 'search']);
+
+
+
+
+
+
+Route::get('/solicitudes', [SolicitudeController::class, 'index']);

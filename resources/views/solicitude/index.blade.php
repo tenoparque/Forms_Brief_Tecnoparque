@@ -94,6 +94,17 @@
                             </table>
                         </div>
                     </div>
+                    <title>Hora en Bogotá</title>
+                </head>
+                <body>
+                    <h1>Hora en Bogotá</h1>
+                
+                    @if ($currentTime)
+                        <p>La hora actual en Bogotá es: {{ $currentTime }}</p>
+                    @else
+                        <p>No se pudo obtener la hora actual en Bogotá.</p>
+                    @endif
+                </body>
 
                 </div>
                 {!! $solicitudes->links() !!}
