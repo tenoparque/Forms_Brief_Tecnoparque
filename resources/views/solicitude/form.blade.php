@@ -81,10 +81,11 @@
 
                     </div>
 
-                    <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
-                        <button type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
+                    <div  class="col-md-12 d-flex justify-content-end buttomBriefDiv">
+                        <button id="btnEnviarSolicitud" type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
                                 class="fa-solid fa-circle-play" style="color: #642c78;"></i></button>
                     </div>
+                   
                 </form>
             </div>
 
@@ -189,3 +190,32 @@
                         });
                     });
                 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Función para verificar la selección del combobox
+        $('#id_tipos_de_solicitudes').change(function() {
+            var selectedOption = $(this).val(); // Obtener el valor seleccionado
+
+            // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
+            if (selectedOption !== '') {
+                // Mostrar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').show();
+            } else {
+                // Ocultar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').hide();
+            }
+        });
+    });
+</script>
+
+<style>
+    #btnEnviarSolicitud {
+        display: none; /* Por defecto, el botón está oculto */
+    }
+</style>
+
+
+
