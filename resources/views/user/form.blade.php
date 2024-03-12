@@ -49,7 +49,7 @@
             <div class="form-group">
                 {{ Form::label('estado', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
                 <div style="position: relative;">
-                    {{ Form::select('id_estado', $estados->pluck('nombre', 'id'), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
+                    {{ Form::select('id_estado',  $estados->pluck('nombre', 'id')->toArray(), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                     <div class="icono" onclick="toggleSelect()">
                         <div class="circle-play">
                             <div class="circle"></div>
@@ -59,7 +59,6 @@
                 </div>
                 {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
             </div>
-            
 
             <div class="form-group">
                 <label style="font-size: 18px; font-weight: bold" for="role">Roles:</label>
