@@ -24,9 +24,20 @@
             {!! $errors->first('color_principal', '<div class="invalid-feedback">:message</div>') !!}
         </div> -->
 
+        <!-- Input para el color picker -->
+        <label>Color principal</label>
+        <input id="color-picker-principal" name="color_principal" value="{{ $personalizacione->color_principal }}" />
+
+        <!-- Input para el color picker -->
+        <label>Color Secundario</label>
+        <input id="color-picker-secundario" name="color_secundario" value="{{ $personalizacione->color_secundario }}" />
+
+        <!-- Input para el color picker -->
+        <label>Color Terciario</label>
+        <input id="color-picker-terciario" name="color_terciario" value="{{ $personalizacione->color_terciario }}" />
 
 
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
             {{ Form::label('color_secundario',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('color_secundario', $personalizacione->color_secundario, ['class' => 'form-control' . ($errors->has('color_secundario') ? ' is-invalid' : ''), 'placeholder' => 'Color Secundario','style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
             {!! $errors->first('color_secundario', '<div class="invalid-feedback">:message</div>') !!}
@@ -35,7 +46,7 @@
             {{ Form::label('color_terciario',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('color_terciario', $personalizacione->color_terciario, ['class' => 'form-control' . ($errors->has('color_terciario') ? ' is-invalid' : ''), 'placeholder' => 'Color Terciario','style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
             {!! $errors->first('color_terciario', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+        </div> -->
         @if(Route::currentRouteName() === 'personalizaciones.edit')
         <div class="col-md-6">
         <label for="id_estado" style="font-size: 18px; font-weight: bold">Estado</label>
@@ -51,11 +62,6 @@
         @endif
 
 
-        @if(Route::currentRouteName() === 'personalizaciones.edit')
-        <!-- Input para el color picker -->
-        <input id="color-picker" name="color_principal" value="{{ $personalizacione->color_principal }}" />
-        
-        @endif
         
         <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -77,13 +83,13 @@
 
         <script type="text/javascript">
             $(document).ready(function($) {
-                $('#color-picker').spectrum({
+                $('#color-picker-principal, #color-picker-secundario, #color-picker-terciario').spectrum({
                     type: "component",
                     showInput: true,
                     showAlpha: false,
                     change: function(color) {
                         // Actualiza el valor del input cuando cambia el color
-                        $('#color-picker').val(color.toString());
+                        $(this).val(color.toString());
                     }
                 });
             });
