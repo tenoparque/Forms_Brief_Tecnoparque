@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-bottom: 15px">
             {{ Form::label('logo', 'Seleccionar imagen') }}
             <input type="file" name="logo" id="logo" class="form-control-file{{ $errors->has('logo') ? ' is-invalid' : '' }}">
             {!! $errors->first('logo', '<div class="invalid-feedback">:message</div>') !!}
@@ -13,7 +13,7 @@
         @endif
         @if(Route::currentRouteName() === 'personalizaciones.edit')
         <div class="form-group">
-            <label for="logo">Imagen QR:</label>
+            <label for="logo" style="font-size: 18px; font-weight: bold; margin-bottom: 15px">Imagen QR:</label>
             <!-- Agrega la etiqueta img con el ID 'qrImage' -->
             <img id="logoImage" src="{{ $personalizacione->logo ? 'data:image/png;base64,' . base64_encode($personalizacione->logo) : '' }}" alt="LOGO" width="200">
         </div>
@@ -37,7 +37,7 @@
         <div class="col-md-6">
         <label for="id_estado" style="font-size: 18px; font-weight: bold">Estado</label>
         <select name="id_estado" id="id_estado" class="form-control selectpicker"
-        data-style="btn-primary" title="Seleccionar Estado" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+        data-style="btn-primary" title="Seleccionar Estado" required>
             @foreach ($estados as $estado)
                 <option value="{{ $estado->id }}" {{ ($personalizacione->id_estado ?? '') == $estado->id ? 'selected' : '' }}>
                     {{ $estado->nombre }}
