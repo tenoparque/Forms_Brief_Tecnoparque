@@ -6,14 +6,14 @@
 
 @section('content')
 
-    <section class="content container mt-5">
-        <div class="">
+    <section class="container shadow bg-light mt-5 p-4 rounded">
+        <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
+                <div class="">
+                    <div class="">
                         <div class="d-flex mt-3 mb-4">
                             <div>
                                 <h1 class="primeraPalabraFlex" style="font-size: 180%" >{{ __('EDITAR') }}</h1>

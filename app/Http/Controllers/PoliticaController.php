@@ -100,8 +100,11 @@ class PoliticaController extends Controller
         ]);
 
         $request->validate([
-            'qr' => 'required|image', // Validar que 'qr' sea una imagen
+            'qr' => 'required|image|max:900', // Validar que sea una imagen con un tamaño máximo de 900KB
         ]);
+
+        // Validar los datos del formulario
+        $request->validate(Politica::$rules);
 
         if ($request->hasFile('qr')) {
             // Obtener el contenido binario de la imagen
@@ -171,8 +174,11 @@ class PoliticaController extends Controller
         ]);
 
         $request->validate([
-            'qr' => 'image', 
+            'qr' => 'image|max:900', // Validar que sea una imagen con un tamaño máximo de 900KB
         ]);
+
+        // Validar los datos del formulario
+        $request->validate(Politica::$rules);
 
         if ($request->hasFile('qr')) {
             // Obtener el contenido binario de la nueva imagen

@@ -24,7 +24,7 @@
                        
                     </div>
 
-                    <div class="card-body">
+                     <div class="card-body">
                         
                         <div class="table-responsive"
                             style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\View\Composers\CustomizationComposer;
 use App\View\Composers\UserRoleComposer;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -23,5 +24,6 @@ class ViewServiceProvider extends ServiceProvider
     {
         //
         View::composer(['home','auth.login','auth.register','nodo.index'], UserRoleComposer::class);
+        View::composer('layouts.app', CustomizationComposer::class);
     }
 }

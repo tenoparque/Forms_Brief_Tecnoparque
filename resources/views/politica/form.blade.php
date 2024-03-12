@@ -1,21 +1,21 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
+<div class="container">
+    <div class="row">
         
-        <div class="form-group">
-            {{ Form::label('link') }}
-            {{ Form::text('link', $politica->link, ['class' => 'form-control' . ($errors->has('link') ? ' is-invalid' : ''), 'placeholder' => 'Link']) }}
+        <div class="col-md-6">
+            {{ Form::label('link',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
+            {{ Form::text('link', $politica->link, ['class' => 'form-control' . ($errors->has('link') ? ' is-invalid' : ''), 'placeholder' => 'Link','style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('link', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('descripcion') }}
-            {{ Form::text('descripcion', $politica->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
+        <div class="col-md-6">
+            {{ Form::label('descripcion',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
+            {{ Form::text('descripcion', $politica->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion','style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         @if(Route::currentRouteName() === 'politicas.edit')
-            <div class="form-group">
-                <label for="id_estado">Estado</label>
+            <div class="col-md-6">
+                <label for="id_estado" style="font-size: 18px; font-weight:bold">Estado</label>
                 <select name="id_estado" id="id_estado" class="form-control selectpicker"
-                data-style="btn-primary" title="Seleccionar Estado" required>
+                data-style="btn-primary" title="Seleccionar Estado" required style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;border-color: #ececec;background:#ececec;">
                     @foreach ($estados as $estado)
                         <option value="{{ $estado->id }}" {{ ($politica->id_estado ?? '') == $estado->id ? 'selected' : '' }}>
                             {{ $estado->nombre }}
@@ -24,24 +24,24 @@
                 </select>
             </div>
         @endif
-        <div class="form-group">
-            {{ Form::label('titulo') }}
-            {{ Form::text('titulo', $politica->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo']) }}
+        <div class="col-md-6">
+            {{ Form::label('titulo',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
+            {{ Form::text('titulo', $politica->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo','style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('titulo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('qr', 'Seleccionar imagen') }}
-            <input type="file" name="qr" id="qr" class="form-control-file{{ $errors->has('qr') ? ' is-invalid' : '' }}">
+            {{ Form::label('qr', 'Imagen QR',['style' => 'font-size: 18px; font-weight: bold']) }}
+            <input type="file" name="qr" id="qr" class="form-control-file{{ $errors->has('qr') ? ' is-invalid' : '' }}" style="background:#4a4a">
             {!! $errors->first('qr', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         @if(Route::currentRouteName() === 'politicas.create')
         <div id="imagePreview">
-            <img id="qrImage" class="img-thumbnail" alt="Preview">
+            <img id="qrImage" class="img-thumbnail" alt="Preview" >
         </div>
         @endif
         @if(Route::currentRouteName() === 'politicas.edit')
         <div class="form-group">
-            <label for="qr">Imagen QR:</label>
+            <label for="qr"></label>
             <!-- Agrega la etiqueta img con el ID 'qrImage' -->
             <img id="qrImage" src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}" alt="QR" width="200">
         </div>
