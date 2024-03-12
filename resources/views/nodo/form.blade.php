@@ -1,6 +1,6 @@
 
-<div class="box box-info padding-1">
-    <div class="box-body">
+<div class="container">
+    <div class="row">
 
         <div class="form-group">
             {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold']) }}

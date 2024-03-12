@@ -1,4 +1,4 @@
-*{
+* {
     font-family: "Work Sans", sans-serif;
 }
 
@@ -23,35 +23,35 @@ h1 {
 
 
 
-.text-wel{
+.text-wel {
     display: flex;
     flex-direction: column;
     margin-left: 30px;
 
-  
+
 }
 
 /* PROPERTIES SIDEBAR - COLORS, SIZES AND IMAGES */
 
-.img-perfil{
+.img-perfil {
     width: "auto";
     height: 80px;
     margin-block-start: 55px;
 }
 
-.textbrief{
+.textbrief {
     color: white;
     font-weight: 900;
     font-size: 50px;
-    
+
 }
 
-.textbriefsol{
+.textbriefsol {
     color: yellow;
     margin-block-start: -15px;
 }
 
-.hrmenu{
+.hrmenu {
     margin-block-start: 2px;
     background: yellow;
     border: none;
@@ -61,11 +61,11 @@ h1 {
     margin-left: 20px;
 }
 
-.txtSoli{
+.txtSoli {
     margin-left: 37px;
 }
 
-.flecha{
+.flecha {
     margin-block-start: 65px;
     margin-left: -40px;
     height: 40px;
@@ -86,7 +86,7 @@ h1 {
     width: 100%;
     overflow: hidden;
     transition: all 0.35s ease-in-out;
-    
+
 }
 
 
@@ -95,10 +95,10 @@ h1 {
     min-width: 70px;
     z-index: 1000;
     transition: all .25s ease-in-out;
-    background: linear-gradient(to bottom,#39A900, #274244 );
+    background: linear-gradient(to bottom, #39A900, #274244);
     display: flex;
     flex-direction: column;
-  
+
 }
 
 #sidebar.expand {
@@ -124,7 +124,7 @@ h1 {
 #sidebar:not(.expand) .img-perfil,
 #sidebar:not(.expand) a.sidebar-link span,
 #sidebar:not(.expand) .textbrief,
-#sidebar:not(.expand) .textbriefsol{
+#sidebar:not(.expand) .textbriefsol {
     display: none;
 }
 
@@ -145,7 +145,7 @@ a.sidebar-link {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 17px;
     margin-block-start: -10px;
-    
+
 }
 
 a.sidebar-link2 {
@@ -160,7 +160,7 @@ a.sidebar-link2 {
     text-align: center;
     align-items: center;
     align-content: center;
-    
+
 }
 
 .sidebar-link i {
@@ -221,73 +221,76 @@ a.sidebar-link:hover {
 
 /* register css */
 
-.primeraPalabraFlex{
+.primeraPalabraFlex {
     margin-right: 10px;
-    color: #26344c ;
-   
+    color: #26344c;
+
 }
 
-.segundaPalabraFlex{
+.segundaPalabraFlex {
     color: #39A900;
-    font-weight:900;
- 
+    font-weight: 900;
+
 }
 
 /* welcome div */
 
 
 
-.welcoRe{
+.welcoRe {
     font-weight: 400;
     margin-bottom: 0;
     text-align: left;
 
 }
-.supereh{
-    font-weight:600;
+
+.supereh {
+    font-weight: 600;
     color: #39A900;
 }
-.adminreh{
-    font-weight:600;
+
+.adminreh {
+    font-weight: 600;
     color: #26344c;
- 
+
 }
-.RedTcenopa{
-    font-weight:800;
+
+.RedTcenopa {
+    font-weight: 800;
     color: #39A900;
 }
 
 /* estilos index/users */
 
-.index-user{
+.index-user {
     background-color: blue;
 }
 
 
 /* --------------- solicitudes ---------------------- */
 
-.InputText{
-        border-radius: 100px;
-        display: block;
-        width: 100%;
-        padding: 0.375rem 0.75rem;
-        font-size: 0.9rem;
-        font-weight: 400;
-        line-height: 1.6;
-        color: var(--bs-body-color);
-        appearance: none;
-        background-color: var(--bs-body-bg);
-        background-clip: padding-box;
-        border: var(--bs-border-width) solid var(--bs-border-color);
-        border-radius: var(--bs-border-radius);
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    
+.InputText {
+    border-radius: 100px;
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--bs-body-color);
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
 }
 
-.LabelText{
+.LabelText {
     margin: 0.2% 0%;
     padding: 10px;
-} 
+}
 
 
 /* Estilo para el contenedor del checkbox */
@@ -309,24 +312,28 @@ a.sidebar-link:hover {
     position: relative;
     height: 24px;
     width: 24px;
-    border: 2px solid #97e1f0 ; /* Borde exterior azul */
+    border: 2px solid #97e1f0;
+    /* Borde exterior azul */
     border-radius: 50%;
     margin-right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: content-box; /* Añadido para garantizar el modelo de caja border-box */
+    box-sizing: content-box;
+    /* Añadido para garantizar el modelo de caja border-box */
 }
 
 .inner-eye {
     width: 12px;
     height: 12px;
-    background-color: #ececec; /* Fondo blanco del ojo */
+    background-color: #ececec;
+    /* Fondo blanco del ojo */
     border-radius: 50%;
 }
 
-.checkboxSol .checkboxSolInp:checked + .check .inner-eye {
-    background-color: #39A900; /* Cambia el color de fondo cuando está marcado */
+.checkboxSol .checkboxSolInp:checked+.check .inner-eye {
+    background-color: #39A900;
+    /* Cambia el color de fondo cuando está marcado */
 }
 
 .checkbox-label {
@@ -339,7 +346,7 @@ a.sidebar-link:hover {
 
 
 /* button */
-.btnEnviar{
+.btnEnviar {
     color: #00324D;
     border: 2px solid #82DEF0;
     height: 40px;
@@ -353,19 +360,38 @@ a.sidebar-link:hover {
 
 }
 
-.iBtnBrief{
+.iBtnBrief {
     color: #642c78;
 }
 
 
 /* -------- table form brief ---- */
-.table-formbrief{
+.table-formbrief {
     background-color: #DEE2E6;
-     border-radius:18px; 
-     border-style:solid; 
-     border-width:2px;
-     border-color:#dee2e6
+    border-radius: 18px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #dee2e6
 }
 
 
+/* --------------------------Politicas ------------------ */
+.formPolitcas input[type="file"]{
+    appearance: none;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
 
+
+#imagePreview {
+    margin-top: 1rem;
+
+}
+
+.img-thumbnai {
+    padding: .40rem;
+    border: 1px solid #ddd;
+    border-radius: .25rem;
+    max-width: 100%;
+}
