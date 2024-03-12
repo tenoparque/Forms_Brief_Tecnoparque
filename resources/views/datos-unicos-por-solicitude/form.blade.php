@@ -19,7 +19,7 @@
         <div class="form-group">
             <label for="id_tipos_de_solicitudes" style="font-size: 18px; font-weight: bold">Tipo de Solicitud</label>
             <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes" class="form-control selectpicker"
-            data-style="btn-primary" title="Seleccionar un Tipo de Solicitud" required>
+            data-style="btn-primary" title="Seleccionar un Tipo de Solicitud" required style="margin-bottom: 10px;">
                 @foreach ($solicitudes as $solicitud)
                 <!-- We go through the models of the solicitudes that we previously passed through the controller -->
                     <option value="{{ $solicitud->id }}">{{ $solicitud-> nombre }}</option> <!-- We obtain the id and the value -->
@@ -30,7 +30,7 @@
             <div class="form-group">
                 <label for="id_estados" style="font-size: 18px; font-weight: bold">Estado</label>
                 <select name="id_estados" id="id_estados" class="form-control selectpicker"
-                data-style="btn-primary" title="Seleccionar un Estado" required style="width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;">
+                data-style="btn-primary" title="Seleccionar un Estado" required >
                     @foreach ($estados as $estado)
                         <option value="{{ $estado->id }}" {{ ($datosUnicosPorSolicitude->id_estados ?? '') == $estado->id ? 'selected' : '' }}>
                             {{ $estado->nombre }}

@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label style="font-size: 18px; font-weight: bold" for="id_tipo_de_solicitud">Tipo de Solicitud</label>
                 <select name="id_tipo_de_solicitud" id="id_tipo_de_solicitud" class="form-control selectpicker"
-                data-style="btn-primary" title="Seleccionar Tipo de Solicitud" required>
+                data-style="btn-primary" title="Seleccionar Tipo de Solicitud" required style="margin-bottom: 10px;">
                     @foreach ($solicitudes as $solicitud)
                         <option value="{{ $solicitud->id }}" {{ ($serviciosPorTiposDeSolicitude->id_tipo_de_solicitud ?? '') == $solicitud->id ? 'selected' : '' }}>
                             {{ $solicitud->nombre }}
@@ -47,9 +47,6 @@
                 </select>
             </div>
         @endif
-
-
-
 
     </div>
     <div class="box-footer mt20">
