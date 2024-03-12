@@ -5,49 +5,56 @@
         <div class="col-md-6">
             <div class="form-group">
                 {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::text('name', $user->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name', 'style' => 'width: 100%; border-radius: 50px; border-style: solid; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px']) }}
+                {{ Form::text('name', $user->name, ['class' => 'form-control ' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name', 'style' => 'width: 100%;      
+                height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px']) }}
                 {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
             </div>
+            
             <div class="form-group">
                 {{ Form::label('correo', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::text('email', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email', 'style' => 'width: 100%; border-radius: 50px; border-style: solid; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
+                {{ Form::text('email', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                 {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
                 {{ Form::label('celular', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::text('celular', $user->celular, ['class' => 'form-control' . ($errors->has('celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular', 'style' => 'width: 100%; border-radius: 50px;  background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
+                {{ Form::text('celular', $user->celular, ['class' => 'form-control' . ($errors->has('celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                 {!! $errors->first('celular', '<div class="invalid-feedback">:message</div>') !!}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 {{ Form::label('apellidos', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::text('apellidos', $user->apellidos, ['class' => 'form-control' . ($errors->has('apellidos') ? ' is-invalid' : ''), 'placeholder' => 'Apellidos', 'style' => 'width: 100%; border-radius: 50px;  background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
+                {{ Form::text('apellidos', $user->apellidos, ['class' => 'form-control' . ($errors->has('apellidos') ? ' is-invalid' : ''), 'placeholder' => 'Apellidos', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
+
                 {!! $errors->first('apellidos', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
                 {{ Form::label('nodo', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'style' => 'margin-bottom: 10px, margin-top:8px']) }}
+                {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                 {!! $errors->first('id_nodo', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
             <div class="form-group">
                 {{ Form::label('estado', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-                {{ Form::select('id_estado', $estados->pluck('nombre', 'id'), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : '')]) }}
+                {{ Form::select('id_estado', $estados->pluck('nombre', 'id'), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''),'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                 {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
                 <label style="font-size: 18px; font-weight: bold" for="role">Roles:</label>
-                <select name="role" id="role" class="form-control">
-                    @foreach ($roles as $id => $role)
-                        <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>
-                            {{ $role }}
-                        </option>
-                    @endforeach
-                </select>
+                <div style="position: relative; width: 100%;">
+                    <select style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;" name="role" id="role" class="form-control">
+                        @foreach ($roles as $id => $role)
+                            <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>
+                                {{ $role }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <img src="images/fondo2.jpg" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px;">
+                </div>
             </div>
-
-        </div>
+            
+            
+        </div><i class="" style="color: #00314d;"></i>
     </div>
     <div class="box-footer mt20" style="text-align: right;">
         <button type="submit" class="btn btn-outline"
