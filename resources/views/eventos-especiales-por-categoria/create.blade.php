@@ -5,9 +5,7 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
-    
     <section class="container shadow p-4  my-5 bg-light rounded">
         <div class="">
             <div class="col-md-12">
@@ -21,7 +19,7 @@
                                 <h1 class="primeraPalabraFlex" style="font-size:200%" >{{ __('CREAR EVENTO') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex" >{{ __('ESPECIAL POR CATEGORIA') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="font-size:200%" >{{ __('ESPECIAL POR CATEGORIA') }}</h1>
                             </div>
                         </div>
                     </div>
