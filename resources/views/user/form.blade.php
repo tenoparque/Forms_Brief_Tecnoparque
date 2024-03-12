@@ -49,7 +49,7 @@
                             </option>
                         @endforeach
                     </select>
-                    <img src="images/fondo2.jpg" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px;">
+                  
                 </div>
             </div>
             
