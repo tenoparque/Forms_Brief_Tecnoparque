@@ -98,7 +98,7 @@ class PersonalizacioneController extends Controller
         ]);
 
     $request->validate([
-        'logo' => 'required|image|max:2048', // Validar que sea una imagen con un tamaño máximo de 2MB
+        'logo' => 'required|image|max:60', // Validar que sea una imagen con un tamaño máximo de 60KB
     ]);
 
     // Validar los datos del formulario
@@ -178,7 +178,7 @@ class PersonalizacioneController extends Controller
         if ($request->hasFile('logo')) {
             // Validar la nueva imagen
             $request->validate([
-                'logo' => 'required|image|max:2048', // Validar que sea una imagen con un tamaño máximo de 2MB
+                'logo' => 'required|image|max:60', // Validar que sea una imagen con un tamaño máximo de 60KB
             ]);
 
             // Obtener el contenido binario de la nueva imagen
