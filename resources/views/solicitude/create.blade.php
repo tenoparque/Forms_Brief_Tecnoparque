@@ -6,21 +6,23 @@
 
 @section('content')
 
-    <section class="container mb-5">
+    <section class="container shadow p-4  my-5 bg-light rounded">
         <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
-                <div class=" mt-5">
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('solicitudes.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-                            @include('solicitude.form')
-                        </form>
+                <div class="">
+                    <div class="">
+                        <div class="card-body">
+                            <form method="POST" action="{{ route('solicitudes.store') }}" role="form"
+                                enctype="multipart/form-data">
+                                @csrf
+                                @include('solicitude.form')
+                            </form>
+                        </div>
                     </div>
-                    
+                </div>
             </div>
-        </div>
     </section>
 @endsection

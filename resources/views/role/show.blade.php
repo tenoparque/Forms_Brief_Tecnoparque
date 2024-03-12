@@ -8,13 +8,13 @@
 
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
-            <div class="col-sm-12">
-                <div class="">
+            <div class="row">
+                <div class="col-sm-12">
                     <div class="card-header">
                         <div class="float-left">
-                            <div class="d-flex mt-3 mb-2">
+                            <div class="d-flex mt-3 mb-4">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('DETALLE DEL') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('DETALLE DEL ') }}</h1>
                                 </div>
                                 <div>
                                     <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('ROL') }}</h1>
@@ -24,8 +24,7 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="row mb-3">
-                        </div>
+                        
                         <div class="table-responsive"
                             style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                             <table class="table table-bordered table-hover">

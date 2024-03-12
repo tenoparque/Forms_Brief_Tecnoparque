@@ -5,10 +5,8 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
-  
-    <section class="content shadow bg-light container mt-5">
+    <section class="container shadow p-4  my-5 bg-light rounded">
         <div class="row">
             <div class="col-md-12">
 
@@ -16,16 +14,14 @@
 
                 <div class="">
                     <div class="">
-                        <span id="">
-                            <div class="d-flex mt-3 mb-4">
-                                <div>
-                                    <h1 class="primeraPalabraFlex" style="margin-right: 20px">{{ __('CREAR') }}</h1>
-                                </div>
-                                <div>
-                                    <h1 class="segundaPalabraFlex">{{ __('ESTADO') }}</h1>
-                                </div>
+                        <div class="d-flex mt-3 mb-4">
+                            <div>
+                                <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('CREAR') }}</h1>
                             </div>
-                        </span>
+                            <div>
+                                <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('ESTADO') }}</h1>
+                            </div>
+                        </div>
 
                     </div>
                     <div class="card-body">

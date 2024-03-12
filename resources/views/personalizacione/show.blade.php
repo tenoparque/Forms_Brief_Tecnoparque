@@ -1,60 +1,69 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $personalizacione->name ?? " __('Show') Personalizacione" }}
+    {{ $personalizacione->name ?? 'Show Personalizacione' }}
 @endsection
 
 @section('content')
 
-    <section class="content container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
+    <section class="container shadow p-4 my-5 bg-light rounded">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="">
                     <div class="card-header">
                         <div class="float-left">
-                            <div class="d-flex mt-3 mb-4">
+                            <div class="d-flex mt-3 mb-2">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="font-size: 180%" >{{ __('DETALLES') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('DETALLE DE ') }}</h1>
                                 </div>
                                 <div>
-                                    <h1 class="segundaPalabraFlex" style="font-size: 180%">{{ __('DE PERSONALIZACIÓN') }}</h1>
+                                    <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('PERSONALIZACIÓN') }}</h1>
                                 </div>
                             </div>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('personalizaciones.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
-                        <div class="form-group">
-                            <strong>Logo:</strong>
-                            <img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}" alt="LOGO">
+                        <div class="row mb-3">
                         </div>
-                        <div class="form-group">
-                            <strong>Color Principal:</strong>
-                            {{ $personalizacione->color_principal }}
+                        <div class="table-responsive"
+                            style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
+                            <table class="table table-bordered table-hover">
+                                <thead class="thead-dark">
+                                    <tr style="border-width: 2px">
+                                        <th>Logo</th>
+                                        <th>Color Principal</th>
+                                        <th>Color Secundario</th>
+                                        <th>Color Terciario</th>
+                                        <th>Uusario</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alldata">
+                                    <tr>
+                                        <td><img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}" alt="LOGO" width="150px"></td>
+                                        <td>{{ $personalizacione->color_principal }}</td>
+                                        <td>{{ $personalizacione->color_secundario }}</td>
+                                        <td>{{ $personalizacione->color_terciario }}</td>
+                                        <td>{{ $personalizacione->user->name }}</td>
+                                        <td>{{ $personalizacione->estado->nombre }}</td>
+                                    </tr>
+                                </tbody>
+                                <!-- Another tbody is created for the search records -->
+                                <tbody id="Content" class="dataSearched">
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="form-group">
-                            <strong>Color Secundario:</strong>
-                            {{ $personalizacione->color_secundario }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Color Terciario:</strong>
-                            {{ $personalizacione->color_terciario }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Usuario:</strong>
-                            {{ $personalizacione->user->name }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Estado:</strong>
-                            {{ $personalizacione->estado->nombre}}
-                        </div>
-
                     </div>
                 </div>
+            </div>
+            <div>
+                <a href="{{ route('personalizaciones.index') }}" class="btn btn-outline"
+                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%;"
+                    onmouseover="this.style.backgroundColor='#b2ebf2';" onmouseout="this.style.backgroundColor='#FFFF';">
+                    {{ __('REGRESAR') }}
+                    <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
+                </a>
             </div>
         </div>
     </section>
