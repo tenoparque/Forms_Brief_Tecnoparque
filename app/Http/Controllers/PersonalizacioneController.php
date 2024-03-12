@@ -97,12 +97,34 @@ class PersonalizacioneController extends Controller
             'id_estado' => 1
         ]);
 
-        request()->validate(Personalizacione::$rules);
+    $request->validate([
+        'logo' => 'required|image|max:2048', // Validar que sea una imagen con un tamaño máximo de 2MB
+    ]);
 
-        $personalizacione = Personalizacione::create($request->all());
+    // Validar los datos del formulario
+    $request->validate(Personalizacione::$rules);
 
-        return redirect()->route('personalizaciones.index')
-            ->with('success', 'Personalizacione created successfully.');
+    // Comprobar si se ha enviado un archivo
+    if ($request->hasFile('logo')) {
+        // Obtener el contenido binario de la imagen
+        $logoContenido = file_get_contents($request->file('logo')->getRealPath());
+
+        // Crear una nueva instancia de Personalizacione
+        $personalizacion = new Personalizacione();
+
+        // Asignar los datos del formulario a la instancia
+        $personalizacion->fill($request->all());
+
+        // Asignar el contenido binario de la imagen a la propiedad "logo"
+        $personalizacion->logo = $logoContenido;
+
+        // Guardar la instancia en la base de datos
+        $personalizacion->save();
+
+        return redirect()->route('personalizaciones.index')->with('success', 'Personalizacion creada exitosamente.');
+    }
+
+        return back()->withInput()->with('error', 'Debe seleccionar una imagen.');
     }
 
     /**
