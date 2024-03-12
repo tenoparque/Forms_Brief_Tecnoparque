@@ -154,4 +154,9 @@
     </div>
 </body>
 
+<!-- All the shared styles will be here -->
+<style>
+
+</style>
+
 </html>

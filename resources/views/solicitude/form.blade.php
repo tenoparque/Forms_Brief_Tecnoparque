@@ -146,7 +146,29 @@
                             datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
                             datoUnico.id +
                             '" class="form-control  InputText" placeholder=""></div>';
-                    } else {
+                    } 
+                    
+                   else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
+                        // Si el tipo de dato es fecha, crea un input de tipo link
+                        datosUnicosTextboxes +=
+                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                            datoUnico.nombre + '</label><input type="url" name="datos_unicos_por_solicitud_' +
+                            datoUnico.id +
+                            '" class="form-control  InputText" placeholder=""></div>';
+                    }
+
+                    else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
+                        // Si el tipo de dato es fecha, crea un input de tipo numero
+                        datosUnicosTextboxes +=
+                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                            datoUnico.nombre + '</label><input type="number" name="datos_unicos_por_solicitud_' +
+                            datoUnico.id +
+                            '" class="form-control  InputText" placeholder=""></div>';
+                    }
+                    
+                    
+                    
+                    else {
                         // Para cualquier otro tipo de dato (incluido texto), crea un input de tipo texto
                         datosUnicosTextboxes +=
                             '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
