@@ -38,10 +38,11 @@
     <!-- JQUERY Reference -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- Spectrum Color Picker -->    
+    <!-- Spectrum Color Picker -->
     <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
-     
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
@@ -132,29 +133,32 @@
             <div class="">
                 <main class="">
                     @if (Route::currentRouteName() !== 'login')
-                    <header class="container-fluid  mx-3" style="align-items: center; margin-top: 70px; margin-bottom: 50px">
-                        <div class="row d-flex justify-content-between" >
-                            <!-- Carta Izquierda -->
-                            <div class="col-xl-9 col-lg-7 col-md-8 col-sm-8 col-12 mb-3 ">
-                                <div class="">
-                                    <div class="text-wel">
-                                        <h5 class="welcoRe">BIENVENIDO</h5>
-                                        <div>
-                                            <h2>
-                                                <span class="primeraPalabraFlex">SUPER -</span><span class="segundaPalabraFlex"> ADMIN</span>
-                                            </h2>
+                        <header class="container-fluid  mx-3"
+                            style="align-items: center; margin-top: 70px; margin-bottom: 50px">
+                            <div class="row d-flex justify-content-between">
+                                <!-- Carta Izquierda -->
+                                <div class="col-xl-9 col-lg-7 col-md-8 col-sm-8 col-12 mb-3 ">
+                                    <div class="">
+                                        <div class="text-wel">
+                                            <h5 class="welcoRe">BIENVENIDO</h5>
+                                            <div>
+                                                <h2>
+                                                    <span class="primeraPalabraFlex">SUPER -</span><span
+                                                        class="segundaPalabraFlex"> ADMIN</span>
+                                                </h2>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Carta Derecha -->
+                                <div class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12">
+                                    <img class="img-fluid" src="/images/recursos/redtecnocol.png" width="300"
+                                        height="150"></img>
+                                </div>
                             </div>
-                
-                            <!-- Carta Derecha -->
-                            <div class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12">
-                                <img class="img-fluid" src="/images/recursos/redtecnocol.png" width="300" height="150"></img>
-                            </div>
-                        </div>
-                
-                    </header>
+
+                        </header>
                     @endif
                     @yield('content')
                 </main>
@@ -166,6 +170,45 @@
 <!-- All the shared styles will be here -->
 <style>
 
+    #sidebar {
+        width: 70px;
+        min-width: 70px;
+        z-index: 1000;
+        transition: all .25s ease-in-out;
+        background: linear-gradient(to bottom,{{ $colorPrincipal }}, {{$colorSecundario}});
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    /* LETRA */
+    .textbriefsol {
+        color: {{$colorTerciario}};
+        margin-block-start: -15px;
+    }
+
+    /*COLOR DE LETRAS */
+    .primeraPalabraFlex {
+    margin-right: 10px;
+    color: {{$colorSecundario}};
+
+}
+
+.segundaPalabraFlex {
+    color: {{$colorPrincipal}};
+    font-weight: 900;
+
+}
+
+.hrmenu {
+    margin-block-start: 2px;
+    background: {{$colorTerciario}};
+    border: none;
+    height: 1px;
+    width: 80%;
+    opacity: 20;
+    margin-left: 20px;
+}
 </style>
 
 </html>
