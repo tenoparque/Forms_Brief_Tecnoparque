@@ -3,7 +3,7 @@
         
         <div class="col-md-6">
             {{ Form::label('link',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
-            {{ Form::text('link', $politica->link, ['class' => 'form-control' . ($errors->has('link') ? ' is-invalid' : ''), 'placeholder' => 'Link','style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
+            {{ Form::url('link', $politica->link, ['class' => 'form-control' . ($errors->has('link') ? ' is-invalid' : ''), 'placeholder' => 'Ingresa Link','style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('link', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="col-md-6">
@@ -25,14 +25,19 @@
             </div>
         @endif
         <div class="col-md-6">
-            {{ Form::label('titulo',null, ['style' => 'font-size: 18px; font-weight: bold']) }}
+            {{ Form::label('titulo',null, ['style' => 'font-size: 18px; font-weight: bold;border-radius: 35px;']) }}
             {{ Form::text('titulo', $politica->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo','style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('titulo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('qr', 'Imagen QR',['style' => 'font-size: 18px; font-weight: bold']) }}
-            <input type="file" name="qr" id="qr" class="form-control-file{{ $errors->has('qr') ? ' is-invalid' : '' }}" style="background:#4a4a">
-            {!! $errors->first('qr', '<div class="invalid-feedback">:message</div>') !!}
+        <div class="form-group inputFilePoli">
+            <div class="file">
+                
+                {{ Form::label('qr', 'Elige una imagen',['class'=>'labelFile','style' => 'font-size: 18px; font-weight: bold','for' => 'qr']) }}
+                
+                <input type="file" name="qr" id="qr" class="form-control-file{{ $errors->has('qr') ? ' is-invalid' : '' }}" style="background:#4a4a">
+                {!! $errors->first('qr', '<div class="invalid-feedback">:message</div>') !!}
+               
+            </div>
         </div>
         @if(Route::currentRouteName() === 'politicas.create')
         <div id="imagePreview">
@@ -43,7 +48,7 @@
         <div class="form-group">
             <label for="qr"></label>
             <!-- Agrega la etiqueta img con el ID 'qrImage' -->
-            <img id="qrImage" src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}" alt="QR" width="200">
+            <img id="qrImage" src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}" alt="QR" style="max-width: 812px; max-height: 464px;">
         </div>
         @endif
 
