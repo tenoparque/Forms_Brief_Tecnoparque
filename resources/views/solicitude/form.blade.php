@@ -15,7 +15,7 @@
                         <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
                             class="form-control selectpicker" data-style="btn-primary"
                             title="Seleccionar un Tipo de Solicitud" required>
-                            <option value="" disabled selected>Seleccionar Tipo de Solicitud...</option>
+                            <option value="" selected>Seleccionar Tipo de Solicitud...</option>
                             @foreach ($solicitudes as $solicitud)
                                 <option value="{{ $solicitud->id }}">{{ $solicitud->nombre }}</option>
                             @endforeach
@@ -82,7 +82,7 @@
                     </div>
 
                     <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
-                        <button type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
+                        <button id="btnEnviarSolicitud" type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
                                 class="fa-solid fa-circle-play" style="color: #642c78;"></i></button>
                     </div>
                 </form>
@@ -188,4 +188,29 @@
                             });
                         });
                     });
-                </script>
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        // Función para verificar la selección del combobox
+        $('#id_tipos_de_solicitudes').change(function() {
+            var selectedOption = $(this).val(); // Obtener el valor seleccionado
+
+            // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
+            if (selectedOption !== '') {
+                // Mostrar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').show();
+            } else {
+                // Ocultar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').hide();
+            }
+        });
+    });
+</script>
+
+<style>
+    #btnEnviarSolicitud {
+        display: none; /* Por defecto, el botón está oculto */
+    }
+</style>
