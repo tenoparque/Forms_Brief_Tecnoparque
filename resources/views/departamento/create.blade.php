@@ -5,10 +5,9 @@
 @endsection
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
     <section class="container shadow p-4  my-5 bg-light rounded">
-        <div class="">
+        <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')

@@ -3,8 +3,9 @@
     <div class="row m-3">
         <div class="">
             <div class="">
-                <h2 class="segundaPalabraFlex mb-0"> FORMULARIO </h2>
-                <h2 class="primeraPalabraFlex"> BRIEF</h2>
+                <h2 class="primeraPalabraFlex mb-0"> FORMULARIO </h2>
+                <h2 class="segundaPalabraFlex"> BRIEF</h2>
+                
             </div>
             <div class="">
                 <form id="solicitudForm " class="formBrief">
@@ -83,10 +84,11 @@
 
                     </div>
 
-                    <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
-                        <button type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
+                    <div  class="col-md-12 d-flex justify-content-end buttomBriefDiv">
+                        <button id="btnEnviarSolicitud" type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
                                 class="fa-solid fa-circle-play" style="color: #642c78;"></i></button>
                     </div>
+                   
                 </form>
             </div>
 
@@ -135,9 +137,65 @@
                         // Obtener el tipo de dato asociado con este dato único
                         var tipoDatoId = datoUnico.id_tipos_de_datos;
 
+<<<<<<< HEAD
                         // Consultar el tipo de dato en la lista de tipos de datos disponibles
                         var tipoDato = response.tipos_de_datos.find(function(tipo) {
                             return tipo.id === tipoDatoId;
+=======
+                    // Consultar el tipo de dato en la lista de tipos de datos disponibles
+                    var tipoDato = response.tipos_de_datos.find(function(tipo) {
+                        return tipo.id === tipoDatoId;
+                    });
+
+                    // Verificar si el tipo de dato es "fecha"
+                    if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
+                        // Si el tipo de dato es fecha, crea un input de tipo fecha
+                        datosUnicosTextboxes +=
+                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                            datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
+                            datoUnico.id +
+                            '" class="form-control  InputText" placeholder=""></div>';
+                    } 
+                    
+                   else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
+                        // Si el tipo de dato es fecha, crea un input de tipo link
+                        datosUnicosTextboxes +=
+                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                            datoUnico.nombre + '</label><input type="url" name="datos_unicos_por_solicitud_' +
+                            datoUnico.id +
+                            '" class="form-control  InputText" placeholder=""></div>';
+                    }
+
+                    else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
+                        // Si el tipo de dato es fecha, crea un input de tipo numero
+                        datosUnicosTextboxes +=
+                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                            datoUnico.nombre + '</label><input type="number" name="datos_unicos_por_solicitud_' +
+                            datoUnico.id +
+                            '" class="form-control  InputText" placeholder=""></div>';
+                    }
+                    
+                    
+                    
+                    else {
+                        // Para cualquier otro tipo de dato (incluido texto), crea un input de tipo texto
+                        datosUnicosTextboxes +=
+                            '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                            datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
+                            datoUnico.id +
+                            '" class="form-control  InputText" placeholder=""></div>';
+                    }
+                });
+
+                                    // Mostrar los textboxes en el área designada
+                                    $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
+                                },
+                                error: function(xhr) {
+                                    console.error(
+                                        'Error al obtener los datos asociados al tipo de solicitud.');
+                                }
+                            });
+>>>>>>> 67c1a7bcf5c47bad7dcda6bbaab830b4f08496d9
                         });
 
                         // Verificar si el tipo de dato es "fecha"
@@ -159,6 +217,7 @@
                                 '" class="form-control  InputText" placeholder=""></div>';
                         }
                     });
+<<<<<<< HEAD
 
                     // Mostrar los textboxes en el área designada
                     $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
@@ -171,3 +230,35 @@
         });
     });
 </script>
+=======
+                </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Función para verificar la selección del combobox
+        $('#id_tipos_de_solicitudes').change(function() {
+            var selectedOption = $(this).val(); // Obtener el valor seleccionado
+
+            // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
+            if (selectedOption !== '') {
+                // Mostrar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').show();
+            } else {
+                // Ocultar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').hide();
+            }
+        });
+    });
+</script>
+
+<style>
+    #btnEnviarSolicitud {
+        display: none; /* Por defecto, el botón está oculto */
+    }
+</style>
+
+
+
+>>>>>>> 67c1a7bcf5c47bad7dcda6bbaab830b4f08496d9

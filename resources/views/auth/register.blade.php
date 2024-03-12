@@ -6,13 +6,14 @@
    
 
     <section class="container shadow p-3  my-5 bg-light rounded">
-        <div class="row p-3">
+        <div class="d-flex mt-3 mb-4">
             <div>
-                <h2>
-                    <spna class="segundaPalabaraFlex">{{ __('REGISTRAR') }}</spna>
-                    <spna class="primeraPalabraFlex">{{ __('USUARIOS ') }}</spna>
-                </h2>
+                <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('REGISTRAR') }}</h1>
             </div>
+            <div>
+                <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('USUARIO') }}</h1>
+            </div>
+        </div>
             <form method="POST" action="{{ route('register') }}" class="row g-3">
                 @csrf
     
