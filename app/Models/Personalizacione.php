@@ -26,7 +26,6 @@ class Personalizacione extends Model
 {
     
     static $rules = [
-		'logo' => 'required',
 		'color_principal' => 'required',
 		'color_secundario' => 'required',
 		'color_terciario' => 'required',
