@@ -31,6 +31,7 @@ class Politica extends Model
 		'id_usuario' => 'required',
         'id_estado' => 'required',
 		'titulo' => 'required',
+        'qr' => 'required',
     ];
 
     protected $perPage = 20;
