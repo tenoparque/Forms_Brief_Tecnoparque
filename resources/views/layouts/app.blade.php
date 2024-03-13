@@ -233,10 +233,6 @@
         transform: translateY(-50%);
     }
 
-
-
-
-
     .icono {
         position: absolute;
         right: 2%;
@@ -251,15 +247,16 @@
     .triangle {
         position: absolute;
         transform: rotate(325deg);
-        margin-left: 5%;
+        margin-left: 3%;
         margin-top: -8%;
-        width: 7%;
-        height: 15%;
+        width: 8%;
+        height: 14%;
+        left: 9px;
+        top: 9px;
         border-top: 8px solid transparent;
         border-bottom: 4px solid transparent;
         border-left: 12px solid {{ $colorPrincipal }};
-        left: 9px;
-        top: 9px;
+        
     }
 </style>
 

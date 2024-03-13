@@ -36,7 +36,7 @@
                     <div class="col d-flex justify-content-between align-items-center">
                         <input class="form-control" id="search"
                             placeholder="Ingrese el nombre del dato único por tipo de solicitud..."
-                            style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
+                            style="width: 70%; border-radius: 50px; border-style: solid; border-width:3px; border-color: #DEE2E6 ">
                         <a href="{{ route('datos-unicos-por-solicitudes.create') }}" class="btn btn-outline"
                             style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
                             onmouseover="this.style.backgroundColor='#b2ebf2';"
@@ -46,7 +46,7 @@
                 </div>
                 <div class="table-responsive"
                     style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6; width=25%">
-                    <table class="table table-responsive table-bordered " style="width=25%">
+                    <table class="table table-responsive table-hover " style="width=25%">
                         <thead class="thead-dark">
                             <tr style="border-width: 2px;width:25%">
                                 <th>No</th>

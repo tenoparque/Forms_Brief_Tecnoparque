@@ -17,8 +17,8 @@
                         <select
                             style="width: 90%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
                             name="id_tipos_de_datos" id="id_tipos_de_datos" class="form-control selectpicker"
-                            data-style="btn-primary" title="Seleccionar un Tipo de Dato" required
-                            style="margin-bottom: 10px;">
+                            data-style="btn-primary" title="Seleccionar un Tipo de Dato" required">
+                            <option value="" disabled selected>Seleccionar Dato...</option>
                             @foreach ($tiposDatos as $dato)
                                 <!-- We go through the models of the tiposDatos that we previously passed through the controller -->
                                 <option value="{{ $dato->id }}">{{ $dato->nombre }}</option>
@@ -44,6 +44,7 @@
                             name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
                             class="form-control selectpicker" data-style="btn-primary"
                             title="Seleccionar un Tipo de Solicitud" required style="margin-bottom: 10px;">
+                            <option value="" disabled selected>Seleccionar Solicitud...</option>
                             @foreach ($solicitudes as $solicitud)
                                 <!-- We go through the models of the solicitudes that we previously passed through the controller -->
                                 <option value="{{ $solicitud->id }}">{{ $solicitud->nombre }}</option>
@@ -65,13 +66,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="id_estados"
-                            style="font-size: 18px; font-weight: bold; margin-left: 35px;">Estado</label>
+                        <label style="font-size: 18px; font-weight: bold; margin-left: 35px;" for="id_estados">Estado</label>
                         <div style="position: relative;">
                             <select
                                 style="width: 90%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
                                 name="id_estados" id="id_estados" class="form-control selectpicker"
-                                data-style="btn-primary" title="Seleccionar un Estado" required>
+                                data-style="btn-primary" title="Seleccionar un Estado" required">
+
                                 @foreach ($estados as $estado)
                                     <option value="{{ $estado->id }}"
                                         {{ ($datosUnicosPorSolicitude->id_estados ?? '') == $estado->id ? 'selected' : '' }}>
@@ -86,11 +87,8 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <!-- Aquí puedes colocar otro elemento si lo necesitas -->
-                    </div>
+
                 </div>
         @endif
 
