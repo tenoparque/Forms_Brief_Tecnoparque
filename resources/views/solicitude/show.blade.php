@@ -5,44 +5,59 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
+    <section class="container shadow p-4 my-5 bg-light rounded">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Solicitude</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('solicitudes.index') }}"> {{ __('Back') }}</a>
+                            <div class="d-flex mt-3 mb-4">
+                                <div>
+                                    <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('DETALLE DE') }}</h1>
+                                </div>
+                                <div>
+                                    <h1 class="segundaPalabraFlex" style="font-size: 200%">
+                                        {{ __('LA SOLICITUD') }}</h1>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
-                        <div class="form-group">
-                            <strong>Id Tipos De Solicitudes:</strong>
-                            {{ $solicitude->tiposdesolicitude->nombre }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Fecha Y Hora De La Solicitud:</strong>
-                            {{ $solicitude->fecha_y_hora_de_la_solicitud }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Id Usuario Que Realiza La Solicitud:</strong>
-                            {{ $solicitude->user->name }}
-                        </div>
-                        <div class="form-group">
-                            <strong>nodo:</strong>
-                            {{ $solicitude->user->nodo->nombre }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Id Eventos Especiales Por Categorias:</strong>
-                            {{ $solicitude->eventosespecialesporcategoria->nombre }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Id Estado De La Solicitud:</strong>
-                            {{ $solicitude->estadosDeLasSolictude->nombre }}
+                        <div class="table-responsive"
+                            >
+                            <table class="table table-bordered table-hover">
+                                <thead class="thead-dark">
+                                    <tr style="border-width: 2px">
+                                        <th style="text-align: center">---</th>
+                                        <th style="text-align: center">---</th>
+                                        <th style="text-align: center">---</th>
+                                        <th style="text-align: center">---</th>
+                                        <th style="text-align: center">---</th>
+                                        <th style="text-align: center">---</th>
+                                        <th style="text-align: center">---</th>
+                                        <th style="text-align: center">---</th>
+                                        <th style="text-align: center">---</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alldata">
+                                    <tr>
+                                        <td>{{ $solicitude->tiposdesolicitude->nombre }}</td>
+                                        <td>{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
+                                        <td>{{ $solicitude->user->name }}</td>
+                                        <td>{{ $solicitude->user->nodo->nombre }}</td>
+                                        <td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+                                        <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
+                                        <td>{{ $solicitude->user->nodo->nombre }}</td>
+                                        <td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+                                        <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
+                                    </tr>
+                                </tbody>
+                                <!-- Another tbody is created for the search records -->
+                                <tbody id="Content" class="dataSearched">
+
+                                </tbody>
+                            </table>
                         </div>
 
                         <div class="form-group">
@@ -54,17 +69,26 @@
                             </ul>
                         </div>
 
-                        <div class="card-body">
-                            <h5>Datos por solicitud:</h5>
+                        <h5>Datos por solicitud:</h5>
                             @foreach ($datosPorSolicitud as $dato)
                                 <div class="form-group">
                                     <label><strong>{{ $dato->titulo }}:</strong></label>
-                                    <input type="text" class="form-control" value="{{ $dato->dato }}" readonly>
+                                    <input type="text" class="form-control" value="{{ $dato->dato }}" readonly style="cursor: initial; outline: none;">
                                 </div>
                             @endforeach
-                        </div>
 
                     </div>
+
+                    
+                </div>
+                <div>
+                    <a href="{{ route('solicitudes.index') }}" class="btn btn-outline"
+                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%;"
+                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                        onmouseout="this.style.backgroundColor='#FFFF';">
+                        {{ __('REGRESAR') }}
+                        <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
+                    </a>
                 </div>
             </div>
         </div>
