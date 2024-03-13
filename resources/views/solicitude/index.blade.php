@@ -91,34 +91,7 @@
                             </table>
                         </div>
                     </div>
-                    <title>Hora en Bogotá</title>
-                </head>
-                <body>
-                    <h1>Hora en Bogotá</h1>
-                
-                    @if ($currentTime)
-                        <p>La fecha actual en Bogotá es: {{ $currentTime['date'] }} </p>
-                        <p>La hora actual en Bogotá es: {{ $currentTime['time'] }} </p>
-                    @else
-                        <p>No se pudo obtener la hora actual en Bogotá.</p>
-                    @endif
-                </body>
-                <div class="card-footer">
-                    <h2>Días Festivos</h2>
-                    <ul>
-                        @foreach ($fechasFestivas as $fecha => $nombre)
-                            <li> {{ $fecha }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <h2>Días Fines de semana</h2>
-                    <ul>
-                        @foreach ($finesSemanas as $semana)
-                            <li> {{ $semana}}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                  
                 </div>
                 {!! $solicitudes->links() !!}
             </div>
