@@ -207,36 +207,13 @@ a.sidebar-link:hover {
     transition: all .2s ease-out;
 }
 
-/* register css */
 
 
 
-/* welcome div */
 
 
 
-.welcoRe {
-    font-weight: 400;
-    margin-bottom: 0;
-    text-align: left;
 
-}
-
-.supereh {
-    font-weight: 600;
-    color: #39A900;
-}
-
-.adminreh {
-    font-weight: 600;
-    color: #26344c;
-
-}
-
-.RedTcenopa {
-    font-weight: 800;
-    color: #39A900;
-}
 
 /* estilos index/users */
 
