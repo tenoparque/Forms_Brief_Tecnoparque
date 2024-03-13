@@ -1,6 +1,5 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-
         <div class="form-group">
             {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold; margin-left: 35px; ']) }}
             {{ Form::text('nombre', $ciudade->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px;height:45px;  border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-left: 25px;']) }}
@@ -32,7 +31,6 @@
                 </div>
             </div>
         @endif
-
         @if (Route::currentRouteName() === 'ciudades.edit')
             <div class="form-group">
                 <label style="font-size: 18px; font-weight: bold; margin-left: 35px;"
@@ -58,7 +56,6 @@
                 </div>
             </div>
         @endif
-
     </div>
     <div class="box-footer mt20" style="text-align: right;">
         <button type="submit" class="btn btn-outline"
@@ -68,4 +65,6 @@
             <i class="fa-solid fa-circle-plus fa-sm" style="color: #642c78;"></i>
         </button>
     </div>
+    </div>
 </div>
+
