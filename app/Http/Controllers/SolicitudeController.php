@@ -15,6 +15,7 @@ use App\Models\Politica;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
+use App\Models\HistorialDeModificacionesPorSolicitude;
 
 
 /**
@@ -32,9 +33,11 @@ class SolicitudeController extends Controller
     {
         $solicitudes = Solicitude::paginate();
         //$currentTime = $this->getCurrentTimeInBogota();
-        //$fechasFestivas = $this->mostrarFechasFestivas();
-        //$finesSemanas = $this->obtenerFinesDeSemana(); 
-        return view('solicitude.index', compact('solicitudes'))
+        $fechasFestivas = $this->mostrarFechasFestivas();
+        $finesSemanas = $this->obtenerFinesDeSemana(); 
+        $disabledDates = array_merge($fechasFestivas, $finesSemanas);
+
+        return view('solicitude.index', compact('solicitudes' , 'disabledDates'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
    
@@ -140,7 +143,20 @@ class SolicitudeController extends Controller
     {
         $solicitude = Solicitude::find($id);
 
-        return view('solicitude.edit', compact('solicitude'));
+        // Realiza una consulta para obtener los elementos por solicitud
+        $elementos = DB::table('elementos_por_solicitudes')
+                        ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
+                        ->select('servicios_por_tipos_de_solicitudes.nombre')
+                        ->where('elementos_por_solicitudes.id_solicitudes', $id)
+                        ->get();
+
+        $datosPorSolicitud =  DB::table('datos_por_solicitud')
+                                ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
+                                ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
+                                ->where('datos_por_solicitud.id_solicitudes', $id)
+                                ->get();
+
+        return view('solicitude.edit', compact('solicitude', 'elementos', 'datosPorSolicitud'));
     }
 
     /**
@@ -152,12 +168,22 @@ class SolicitudeController extends Controller
      */
     public function update(Request $request, Solicitude $solicitude)
     {
-        request()->validate(Solicitude::$rules);
+        // Validar los datos de entrada para la modificación
+        $request->validate([
+            'modificacion' => 'required',
+        ]);
 
-        $solicitude->update($request->all());
+        // Crear una nueva instancia de HistorialDeModificacionesPorSolicitude
+        $modificacion = new HistorialDeModificacionesPorSolicitude();
+        $modificacion->id_soli = $solicitude->id; // Asignar el ID de la solicitud
+        $modificacion->modificacion = $request->input('modificacion');
+        $modificacion->fecha_de_modificacion = Carbon::now(); // Establecer la fecha actual
+
+        // Guardar la nueva modificación en el historial
+        $modificacion->save();
 
         return redirect()->route('solicitudes.index')
-            ->with('success', 'Solicitude updated successfully');
+            ->with('success', 'Modificación registrada exitosamente');
     }
 
     // /**

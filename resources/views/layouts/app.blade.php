@@ -153,8 +153,9 @@
 
                                 <!-- Carta Derecha -->
                                 <div class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12">
-                                    <img class="img-fluid" src="/images/recursos/redtecnocol.png" width="300"
-                                        height="150"></img>
+                                    @if(isset($logo))
+                                    <img class="img-fluid" id="logoHeader" src="data:image/png;base64,{{ base64_encode($logo) }}"></img>
+                                    @endif
                                 </div>
                             </div>
 

@@ -207,36 +207,13 @@ a.sidebar-link:hover {
     transition: all .2s ease-out;
 }
 
-/* register css */
 
 
 
-/* welcome div */
 
 
 
-.welcoRe {
-    font-weight: 400;
-    margin-bottom: 0;
-    text-align: left;
 
-}
-
-.supereh {
-    font-weight: 600;
-    color: #39A900;
-}
-
-.adminreh {
-    font-weight: 600;
-    color: #26344c;
-
-}
-
-.RedTcenopa {
-    font-weight: 800;
-    color: #39A900;
-}
 
 /* estilos index/users */
 
@@ -356,6 +333,10 @@ a.sidebar-link:hover {
 /* --------------------------Politicas ------------------ */
 
 /* Input : forma de boton */
+
+.file{
+    display: inline-block;
+}
 .file-label {
     margin-top: 1%;
     position: relative;
@@ -395,27 +376,16 @@ a.sidebar-link:hover {
 }
 
 
-
-
-
 /* image */
-#imagePreview {
-    text-align: center; 
-    padding: 20px; 
-    border: 1px solid #ddd;
-    background-color: #f9f9f9; 
+#qrImage{
+    max-width: 44%; 
+    max-height:44%; 
+    margin: 10px;
+      
 }
-.image-wrapper {
-    position: relative;
-    display: inline-block; 
-    overflow: hidden;
-}
-
-#qr{
-    max-width: 100%; 
-    max-height: 100%; 
-    display: block; 
-    margin: auto; 
+#imageUrl{
+    display: inline-block;
+    margin-left: 8px;
 }
 
 

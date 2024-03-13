@@ -10,6 +10,7 @@ class CustomizationComposer
     public function compose(View $view)
     {
         $personalizacionesFirstRecord = DB::table('personalizaciones')->where('id', 1)->first();
+        $logo = $personalizacionesFirstRecord->logo;
         $colorPrincipal = $personalizacionesFirstRecord->color_principal;
         $colorSecundario = $personalizacionesFirstRecord->color_secundario;
         $colorTerciario = $personalizacionesFirstRecord->color_terciario;
@@ -17,6 +18,8 @@ class CustomizationComposer
         // Pasa los datos al layout
         $view->with('colorPrincipal', $colorPrincipal)
             ->with('colorSecundario', $colorSecundario)
-            ->with('colorTerciario', $colorTerciario);
+            ->with('colorTerciario', $colorTerciario)
+            ->with('logo', $logo);
+            
     }
 }
