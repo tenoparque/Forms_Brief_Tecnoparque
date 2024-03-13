@@ -31,10 +31,10 @@ class SolicitudeController extends Controller
     public function index()
     {
         $solicitudes = Solicitude::paginate();
-        $currentTime = $this->getCurrentTimeInBogota();
-        $fechasFestivas = $this->mostrarFechasFestivas();
-        $finesSemanas = $this->obtenerFinesDeSemana(); 
-        return view('solicitude.index', compact('solicitudes','currentTime' ,'fechasFestivas' , 'finesSemanas'))
+        //$currentTime = $this->getCurrentTimeInBogota();
+        //$fechasFestivas = $this->mostrarFechasFestivas();
+        //$finesSemanas = $this->obtenerFinesDeSemana(); 
+        return view('solicitude.index', compact('solicitudes'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
    
@@ -51,12 +51,14 @@ class SolicitudeController extends Controller
         $estados = EstadosDeLasSolictude::all();
         $solicitudes = TiposDeSolicitude::all();
         $especiales = EventosEspecialesPorCategoria::all();
-
+        $currentTime = $this->getCurrentTimeInBogota();
+        $fechasFestivas = $this->mostrarFechasFestivas();
+        $finesSemanas = $this->obtenerFinesDeSemana(); 
+        $disabledDates = array_merge($fechasFestivas, $finesSemanas);
          // Recuperar el registro de la Politica con id_estado = 1
          $politicas = Politica::where('id_estado', 1)->first();
 
-    
-        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'politicas'));
+        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'politicas','currentTime', 'disabledDates'));
     }
 
     /**

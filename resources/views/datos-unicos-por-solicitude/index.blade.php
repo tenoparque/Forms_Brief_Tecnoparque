@@ -35,7 +35,7 @@
                 <div class="row mb-3">
                     <div class="col d-flex justify-content-between align-items-center">
                         <input class="form-control" id="search"
-                            placeholder="Ingrese el nombre del dato unico por tipo de solicitud..."
+                            placeholder="Ingrese el nombre del dato único por tipo de solicitud..."
                             style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                         <a href="{{ route('datos-unicos-por-solicitudes.create') }}" class="btn btn-outline"
                             style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "

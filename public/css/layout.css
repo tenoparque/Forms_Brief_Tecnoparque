@@ -356,24 +356,52 @@ a.sidebar-link:hover {
 /* --------------------------Politicas ------------------ */
 
 
-.file .form-control-file{
+.file-label {
+    margin-top: 1%;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+.form-control-file{
     display: none;
 }
-
-.file .labelFile{
-    display: block;
-    padding: 8px 21px;
-    cursor: pointer;
+.file-button {
+    color: #000000;
+    padding: 8px 12px;
     border:2px solid #82DEF0;
     border-radius: 35px;
-    width: 18%;
+    display: inline-block; 
+    height: 40px; 
+    width:150px;
+    justify-items: center;
 }
+
+.fa-image{
+    color: #642c78;
+    
+}
+
+
+
+.file-button i {
+    margin-right: 5px;
+}
+
+/* Opcional: Estilo para cuando el usuario pasa el ratón sobre el botón */
+.file-label:hover .file-button {
+    background-color:  #b2ebf2;
+}
+
+#noFileMessage {
+    color: red; /* Ajusta el color según tus preferencias */
+}
+
+
 
 
 
 #imagePreview {
     margin-top: 1rem;
-
 }
 
 .img-thumbnail {
