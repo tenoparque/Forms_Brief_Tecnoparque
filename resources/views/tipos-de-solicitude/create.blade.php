@@ -15,10 +15,10 @@
                 <div class="">
                     <div class="d-flex mt-3 mb-4">
                         <div class="">
-                            <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('CREAR TIPO ') }}</h1>
+                            <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('CREAR') }}</h1>
                         </div>
                         <div class="">
-                            <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('DE SOLICITUD') }}</h1>
+                            <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('TIPO DE SOLICITUD') }}</h1>
                         </div>
 
                     </div>
