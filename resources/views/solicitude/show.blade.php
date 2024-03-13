@@ -33,6 +33,10 @@
                             {{ $solicitude->user->name }}
                         </div>
                         <div class="form-group">
+                            <strong>nodo:</strong>
+                            {{ $solicitude->user->nodo->nombre }}
+                        </div>
+                        <div class="form-group">
                             <strong>Id Eventos Especiales Por Categorias:</strong>
                             {{ $solicitude->eventosespecialesporcategoria->nombre }}
                         </div>

@@ -198,53 +198,7 @@ public function getCurrentTimeInBogota()
     }
 }
 
-    // public function incrementarFecha(Request $request)
-    // {
-    //     // Obtener la fecha actual en Bogotá
-    //     $fecha_actual = Carbon::createFromFormat('Y-m-d\TH:i:s.uP', $this->getCurrentTimeInBogota());
-
-    //     // Incrementar la fecha en 10 días
-    //     $fecha_incrementada = $fecha_actual->copy()->addDays(10);
-
-    //     // Función para verificar si una fecha es fin de semana
-    //     function es_fin_de_semana($fecha)
-    //     {
-    //         return $fecha->isWeekend();
-    //     }
-
-    //     // Lista de días festivos
-    //     $dias_festivos = [
-    //         '2024-01-01',
-    //         '2024-03-25',
-    //         '2024-03-28',
-    //         '2024-03-29',
-    //         '2024-05-01',
-    //         '2024-05-13',
-    //         '2024-06-03',
-    //         '2024-06-10',
-    //         '2024-07-01',
-    //         '2024-07-20',
-    //         '2024-08-07',
-    //         '2024-10-12',
-    //         '2024-11-04',
-    //         '2024-11-11',
-    //         '2024-12-08',
-    //         '2024-12-25'
-    //     ];
-
-    //     // Convertir días festivos a objetos Carbon
-    //     $dias_festivos_carbon = array_map(function ($festivo) {
-    //         return Carbon::createFromFormat('Y-m-d', $festivo);
-    //     }, $dias_festivos);
-
-    //     // Verificar si la fecha incrementada es fin de semana o día festivo
-    //     while (es_fin_de_semana($fecha_incrementada) || in_array($fecha_incrementada->format('Y-m-d'), $dias_festivos)) {
-    //         $fecha_incrementada->addDay(); // Incrementar un día
-    //     }
-
-    //     // La fecha incrementada ahora es válida y no es fin de semana ni día festivo
-    //     return $fecha_incrementada;
-    // }
+   
 
     /**
      * @param int $id
