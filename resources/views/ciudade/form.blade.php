@@ -4,7 +4,7 @@
         <div class="form-group">
             {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold; margin-left: 35px; ']) }}
             {{ Form::text('nombre', $ciudade->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre',
-             'style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px;height:45px;  border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;margin-left: 25px;']) }}
+             'style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px;height:45px;  border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-left: 25px;']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         @if(Route::currentRouteName() === 'ciudades.create')
@@ -22,7 +22,7 @@
 
         @if(Route::currentRouteName() === 'ciudades.edit')
         <div class="form-group">
-            <label style="font-size: 18px; font-weight: bold;margin-left: 35px;" for="id_departamento">Departamento</label>
+            <label style="font-size: 18px; font-weight: bold; margin-left: 35px;" for="id_departamento">Departamento</label>
             <div style="position: relative;">
                 <select
                     style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
