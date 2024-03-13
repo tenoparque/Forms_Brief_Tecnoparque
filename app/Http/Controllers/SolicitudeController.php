@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\Politica;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\DB;
 
 
 /**
@@ -107,7 +108,22 @@ class SolicitudeController extends Controller
     {
         $solicitude = Solicitude::find($id);
 
-        return view('solicitude.show', compact('solicitude'));
+        // Realiza una consulta para obtener los elementos por solicitud
+        $elementos = DB::table('elementos_por_solicitudes')
+                        ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
+                        ->select('servicios_por_tipos_de_solicitudes.nombre')
+                        ->where('elementos_por_solicitudes.id_solicitudes', $id)
+                        ->get();
+
+        $datosPorSolicitud =  DB::table('datos_por_solicitud')
+                                ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
+                                ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
+                                ->where('datos_por_solicitud.id_solicitudes', $id)
+                                ->get();
+
+        // Retorna la vista con los datos necesarios
+        return view('solicitude.show', compact('solicitude', 'elementos', 'datosPorSolicitud'));
+
     }
 
     /**

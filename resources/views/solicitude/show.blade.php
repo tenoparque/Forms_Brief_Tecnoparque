@@ -41,6 +41,25 @@
                             {{ $solicitude->id_estado_de_la_solicitud }}
                         </div>
 
+                        <div class="form-group">
+                            <strong>Servicios asociados:</strong>
+                            <ul>
+                                @foreach ($elementos as $elemento)
+                                    <li>{{ $elemento->nombre }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <h5>Datos por solicitud:</h5>
+                            @foreach ($datosPorSolicitud as $dato)
+                                <div class="form-group">
+                                    <label><strong>{{ $dato->titulo }}:</strong></label>
+                                    <input type="text" class="form-control" value="{{ $dato->dato }}" readonly>
+                                </div>
+                            @endforeach
+                        </div>
+
                     </div>
                 </div>
             </div>
