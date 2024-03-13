@@ -43,6 +43,13 @@
                         <!-- We obtain the id and the value -->
                     @endforeach
                 </select>
+                <div class="icono" style="right: 4%">
+                    <div class="circle-play">
+                        <div class="circle"></div>
+                        <div class="triangle"></div>
+                    </div>
+                </div>
+            </div>
             </div>
             @if (Route::currentRouteName() === 'datos-unicos-por-solicitudes.edit')
                 <div class="form-group">
@@ -60,11 +67,13 @@
             @endif
 
         </div>
-        <div class="box-footer mt20">
-            <button type="submit" class="btn btn-outline" href="{{ route('roles.create') }}" class="btn btn-outline"
-                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer; margin-left: 90%; border-radius: 35px; margin-top:15px; justify-content: center; justify-items: center; "
+        <div class="box-footer mt20" style="text-align: right;">
+            <button type="submit" class="btn btn-outline"
+                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer; border-radius: 35px; margin-top:15px; justify-content: center; justify-items: center; margin-right: 40px;" 
                 onmouseover="this.style.backgroundColor='#b2ebf2';"
-                onmouseout="this.style.backgroundColor='#FFFF';">{{ __('GUARDAR') }}
-                <i class="fa-solid fa-circle-plus fa-sm" style="color: #642c78;"></i></button>
+                onmouseout="this.style.backgroundColor='#FFFF';">
+                {{ __('GUARDAR') }}
+                <i class="fa-solid fa-circle-plus fa-sm" style="color: #642c78;"></i>
+            </button>
         </div>
     </div>
