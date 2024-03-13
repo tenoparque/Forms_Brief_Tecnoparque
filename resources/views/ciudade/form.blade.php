@@ -4,7 +4,7 @@
         <div class="form-group">
             {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('nombre', $ciudade->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre',
-             'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px;height:45px;  border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;']) }}
+             'style' => 'width: 100%; border-radius: 50px; border-style: solid; border-width:4px;height:45px;  border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         @if(Route::currentRouteName() === 'ciudades.create')

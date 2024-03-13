@@ -11,22 +11,7 @@ body {
 
 
 /* Estilos para el formulario de inicio de sesión / login  */
-.card_login {
-    background-color: rgba(50, 158, 4, 0.822);
-    border-radius: 20px;
-    width: 86% ;
-    margin-left: 8%;
-    height: 80%;
-    padding: 4%;
-    padding-top: 14%;
-    margin-block-start: 17% ;
-    text-align: center;
-    justify-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-    transition: 0.3s;
-    display: flex;    
-}
+
 
 .my-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.884);
@@ -59,36 +44,8 @@ col-md-6{
 }
 
 
-.btn-primary {
-    background-color: #00324D;
-    border:  none;
-    color: white;
-    width: 50%;
-    border-radius: 15px;
-    padding: 3% 10%;
-    margin-bottom: 18%;
-    cursor: pointer;
-}
 
-.btn-primary:hover {
-    background-color: #038c5a;
-}
 
-.titulo{
-  text-align: center;
-  font-family: "Work Sans", sans-serif;
-  font-weight: 800;
-  font-size: 720%;
-  color: #ffffff;
-  
-}
-
-.subtitulo{
-    color: #f1e53d;
-    text-align: center;
-    font-size:170%;
-    font-weight: 300;
-}
 .logo{
     width: 100%;
     height: 130;
@@ -127,7 +84,7 @@ col-md-6{
 }
 
 .btn-primary-email {
-    background-color: #00324D;
+    background-color: #4d0040;
     color: white;
     margin-bottom: 10%;
     margin-block-start: 4%;
@@ -216,7 +173,7 @@ button:focus {
     box-shadow: 0 0 0 2px ;
 }
 .btn-outline-custom {
-    color:#00324D;
+    color:#364d00;
     border:2px solid #82DEF0;
     height: 50px; font-size: 20px;
     cursor: pointer;
