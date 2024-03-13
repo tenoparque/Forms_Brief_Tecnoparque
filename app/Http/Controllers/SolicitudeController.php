@@ -32,9 +32,11 @@ class SolicitudeController extends Controller
     {
         $solicitudes = Solicitude::paginate();
         //$currentTime = $this->getCurrentTimeInBogota();
-        //$fechasFestivas = $this->mostrarFechasFestivas();
-        //$finesSemanas = $this->obtenerFinesDeSemana(); 
-        return view('solicitude.index', compact('solicitudes'))
+        $fechasFestivas = $this->mostrarFechasFestivas();
+        $finesSemanas = $this->obtenerFinesDeSemana(); 
+        $disabledDates = array_merge($fechasFestivas, $finesSemanas);
+
+        return view('solicitude.index', compact('solicitudes' , 'disabledDates'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
    
