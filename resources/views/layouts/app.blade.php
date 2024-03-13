@@ -169,13 +169,12 @@
 
 <!-- All the shared styles will be here -->
 <style>
-
     #sidebar {
         width: 70px;
         min-width: 70px;
         z-index: 1000;
         transition: all .25s ease-in-out;
-        background: linear-gradient(to bottom,{{ $colorPrincipal }}, {{$colorSecundario}});
+        background: linear-gradient(to bottom, {{ $colorPrincipal }}, {{ $colorSecundario }});
         display: flex;
         flex-direction: column;
 
@@ -183,55 +182,84 @@
 
     /* LETRA */
     .textbriefsol {
-        color: {{$colorTerciario}};
+        color: {{ $colorTerciario }};
         margin-block-start: -15px;
     }
 
     /*COLOR DE LETRAS */
     .primeraPalabraFlex {
-    margin-right: 10px;
-    color: {{$colorSecundario}};
+        margin-right: 10px;
+        color: {{ $colorSecundario }};
 
-}
+    }
 
-.segundaPalabraFlex {
-    color: {{$colorPrincipal}};
-    font-weight: 900;
+    .segundaPalabraFlex {
+        color: {{ $colorPrincipal }};
+        font-weight: 900;
 
-}
+    }
 
-.hrmenu {
-    margin-block-start: 2px;
-    background: {{$colorTerciario}};
-    border: none;
-    height: 1px;
-    width: 80%;
-    opacity: 20;
-    margin-left: 20px;
-}
-.circle {
-    margin-block-start: 80%;
-    right: 50%;
-    top: 50%;
-    width: 120%;
-    height: 120%;
-    border-radius: 60%;
-    background-color: {{$colorSecundario}};
-  }
-  
-  .triangle {
-    position: absolute;
-    transform: rotate(325deg);
-    margin-left: 5%;
-    margin-top: -8%;
-    width: 7%;
-    height:15%;
-    border-top: 8px solid transparent;
-    border-bottom: 4px solid transparent;
-    border-left: 12px solid {{ $colorPrincipal }};
-    left: 9px; 
-    top: 9px;
-  }
+    .hrmenu {
+        margin-block-start: 2px;
+        background: {{ $colorTerciario }};
+        border: none;
+        height: 1px;
+        width: 80%;
+        opacity: 20;
+        margin-left: 20px;
+    }
+
+    /*diseño del icono select*/
+
+    .circle {
+        margin-block-start: 80%;
+        right: 50%;
+        top: 50%;
+        width: 120%;
+        height: 120%;
+        border-radius: 60%;
+        background-color: {{ $colorSecundario }};
+    }
+
+    .circle-play {
+
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        position: relative;
+        transform: translateY(-50%);
+    }
+
+
+
+
+
+    .icono {
+        position: absolute;
+        right: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+    .triangle {
+        position: absolute;
+        transform: rotate(325deg);
+        margin-left: 5%;
+        margin-top: -8%;
+        width: 7%;
+        height: 15%;
+        border-top: 8px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 12px solid {{ $colorPrincipal }};
+        left: 9px;
+        top: 9px;
+    }
 </style>
 
 </html>
