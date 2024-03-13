@@ -32,7 +32,9 @@ class SolicitudeController extends Controller
     {
         $solicitudes = Solicitude::paginate();
         $currentTime = $this->getCurrentTimeInBogota();
-        return view('solicitude.index', compact('solicitudes','currentTime'))
+        $fechasFestivas = $this->mostrarFechasFestivas();
+        $finesSemanas = $this->obtenerFinesDeSemana(); 
+        return view('solicitude.index', compact('solicitudes','currentTime' ,'fechasFestivas' , 'finesSemanas'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
    
@@ -196,6 +198,59 @@ public function getCurrentTimeInBogota()
 
         
     }
+}
+
+    /**
+ * Obtiene la hora actual en la zona horaria de Bogotá.
+ *
+ * @return array|null
+ */
+
+public function mostrarFechasFestivas()
+{
+    // Lista de días festivos
+    $dias_festivos = [
+        '2024-01-01' => 'Año Nuevo',
+        '2024-03-25' => 'Día de la Independencia',
+        '2024-03-28' => 'Lunes Santo',
+        '2024-03-29' => 'Martes Santo',
+        '2024-05-01' => 'Día del Trabajo',
+        '2024-05-13' => 'Ascensión del Señor',
+        '2024-06-03' => 'Corpus Christi',
+        '2024-06-10' => 'Sagrado Corazón de Jesús',
+        '2024-07-01' => 'San Pedro y San Pablo',
+        '2024-07-20' => 'Grito de Independencia',
+        '2024-08-07' => 'Batalla de Boyacá',
+        '2024-10-12' => 'Día de la Raza',
+        '2024-11-04' => 'Día de los Difuntos',
+        '2024-11-11' => 'Independencia de Cartagena',
+        '2024-12-08' => 'Día de la Inmaculada Concepción',
+        '2024-12-25' => 'Navidad'
+    ];
+
+    // Pasar los datos a la vista
+    return $dias_festivos;
+}
+
+
+public function obtenerFinesDeSemana()
+{
+    $year = 2024; // Año para el que se desea obtener los fines de semana
+    $weekends = [];
+
+    // Iterar sobre todos los días del año
+    for ($month = 1; $month <= 12; $month++) {
+        for ($day = 1; $day <= Carbon::createFromDate($year, $month, 1)->daysInMonth; $day++) {
+            $date = Carbon::createFromDate($year, $month, $day);
+            
+            // Verificar si el día es fin de semana
+            if ($date->isWeekend()) {
+                $weekends[] = $date->toDateString(); // Agregar el día a la lista de fines de semana
+            }
+        }
+    }
+
+    return $weekends;
 }
 
    
