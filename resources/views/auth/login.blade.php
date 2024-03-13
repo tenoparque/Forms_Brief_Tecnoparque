@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <style>
         .card_login {
-            background-color: {{ $colorPrincipal }};
+            background-color: {{ $colorPrincipal }}E6;
             border-radius: 20px;
             width: 86%;
             margin-left: 8%;
