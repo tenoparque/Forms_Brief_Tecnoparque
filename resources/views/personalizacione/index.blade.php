@@ -55,7 +55,7 @@
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         
-                                        <td>{{ $personalizacione->logo }}</td>
+                                        <td><img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}" alt="LOGO" width="150px"></td></td>
                                         <td>{{ $personalizacione->color_principal }}</td>
                                         <td>{{ $personalizacione->color_secundario }}</td>
                                         <td>{{ $personalizacione->color_terciario }}</td>
