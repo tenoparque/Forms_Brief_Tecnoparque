@@ -36,7 +36,7 @@
                 {{ Form::label('', '', ['class' => 'labelFile', 'style' => 'font-size: 18px; font-weight: bold', 'for' => 'qr']) }}
                 <label for="qr" class="file-label">
                     <input type="file" name="qr" id="qr"
-                        class="form-control-file{{ $errors->has('qr') ? ' is-invalid' : '' }}" >
+                        class="form-control-file{{ $errors->has('qr') ? ' is-invalid' : '' }}" style="display: none;">
                     <span class="file-button">
                         Elegir archivo
                         <i class="fas fa-image"></i>
@@ -44,13 +44,15 @@
                     {!! $errors->first('qr', '<div class="invalid-feedback">:message</div>') !!}
                 </label>
             </div>
-            <div id="noFileMessage" style="background: red"></div>
-            <div id="imageUrl" style="background: red"></div>
+            <div id="noFileMessage"></div>
+            <div id="imageUrl"></div>
 
         </div>
         @if (Route::currentRouteName() === 'politicas.create')
             <div id="imagePreview">
-                <img id="qrImage" class="img-thumbnail" alt="Preview">
+                <div class="image-wraper">
+                    <img id="qrImage" class="img-thumbnail" alt="Preview">
+                </div>
             </div>
         @endif
         @if (Route::currentRouteName() === 'politicas.edit')
@@ -60,7 +62,7 @@
                 <!-- Agrega la etiqueta img con el ID 'qrImage' -->
                 <img id="qrImage"
                     src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}"
-                    alt="QR" style="max-width: 812px; max-height: 464px; ">
+                    alt="QR" >
             </div>
         @endif
 
@@ -91,15 +93,7 @@
                     }
                 };
 
-                if (input.files.length > 0) {
-                    reader.readAsDataURL(input.files[0]);
-                } else {
-                    // Mostrar mensaje si no se ha seleccionado ningún archivo
-                    var noFileMessage = document.getElementById('noFileMessage');
-                    if (noFileMessage) {
-                        noFileMessage.textContent = 'No se ha seleccionado ningún archivo.';
-                    }
-                }
+                reader.readAsDataURL(input.files[0]);
             });
         </script>
 
