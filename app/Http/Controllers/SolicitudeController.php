@@ -115,6 +115,9 @@ class SolicitudeController extends Controller
     {
         $solicitude = Solicitude::find($id);
 
+        // Obtener el historial de modificaciones
+        $historial = HistorialDeModificacionesPorSolicitude::where('id_soli', $id)->latest()->get();
+
         // Realiza una consulta para obtener los elementos por solicitud
         $elementos = DB::table('elementos_por_solicitudes')
                         ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
@@ -129,7 +132,7 @@ class SolicitudeController extends Controller
                                 ->get();
 
         // Retorna la vista con los datos necesarios
-        return view('solicitude.show', compact('solicitude', 'elementos', 'datosPorSolicitud'));
+        return view('solicitude.show', compact('solicitude', 'elementos', 'datosPorSolicitud', 'historial'));
 
     }
 

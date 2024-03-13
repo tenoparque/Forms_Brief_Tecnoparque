@@ -14,10 +14,10 @@
                             <div style="d-flex justify-content-between align-items-center">
                                 <div class="d-flex mt-3 mb-4">
                                     <div>
-                                        <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('TIPOS') }}</h1>
+                                        <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('TIPOS DE') }}</h1>
                                     </div>
                                     <div>
-                                        <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('DE DATOS') }}</h1>
+                                        <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('DATOS') }}</h1>
                                     </div>
                                 </div>
                             </div>

@@ -21,6 +21,19 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            
+                            @if ($historial->isNotEmpty())
+                            <p><strong>Fecha de última modificación:</strong>{{ $historial->first()->fecha_de_modificacion }}</p>
+                            <p><strong>modificación:</strong>{{ $historial->first()->modificacion }}</p>
+                            <button type="button" class="btn btn-primary" id="btnVerHistorial" data-toggle="modal" data-target="#historialModal">
+                                Ver historial
+                            </button>
+                            @else
+                                <p>No hay historial de modificaciones</p>
+                            @endif
+                        </div>
                     </div>
 
                     <div class="card-body">
@@ -93,4 +106,48 @@
             </div>
         </div>
     </section>
+    <!-- Modal para mostrar el historial completo -->
+    <div class="modal fade" id="historialModal" tabindex="-1" role="dialog" aria-labelledby="historialModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="historialModalLabel">Historial de modificaciones</h5>
+                    <button type="button" class="cerrar-modal" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        @foreach ($historial as $item)
+                        <li>
+                            <strong>Fecha: </strong> {{ $item->fecha_de_modificacion }}
+                            <br>
+                            <strong>Modificación:</strong> {{ $item->modificacion }}
+                            <hr>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary cerrar-modal" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Agrega un evento click al botón "Ver historial"
+        document.getElementById('btnVerHistorial').addEventListener('click', function() {
+            // Abre el modal cuando se haga clic en el botón
+            $('#historialModal').modal('show');
+        });
+
+        // Agrega un evento click a todos los botones de clase "cerrar-modal"
+        document.querySelectorAll('.cerrar-modal').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Cierra el modal cuando se haga clic en el botón
+                $('#historialModal').modal('hide');
+            });
+        });
+    </script>
 @endsection
