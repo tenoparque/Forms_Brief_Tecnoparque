@@ -65,24 +65,21 @@
 											<td>{{ $solicitude->id_estado_de_la_solicitud }}</td>
 
                                             <td>
-                                                <form action="{{ route('roles.show', $solicitude->id) }}" method="POST">
-                                                    <a class="btn btn-outline"
-                                                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                        onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('solicitudes.show', $role->id) }}"><i
-                                                            class="fa-sharp fa-solid fa-eye fa-xs"
-                                                            style="color: #642c78; margin-left: 5px;"></i>
-                                                        {{ __('Detalle') }}</a>
-
-                                                    <a class="btn btn-outline"style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                        onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('solicitudes.edit', $role->id) }}"><i
-                                                            class="fa-solid fa-pen-to-square fa-xs"
-                                                            style="color: #39a900;"></i> {{ __('Editar') }}</a>
-
-                                                </form>
+                                            <a href="{{ route('solicitudes.show',$solicitude->id) }}" class="btn btn-outline"
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';">
+                                                {{ __('Detalle') }}
+                                                <i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
+                                            </a>
+                                            
+                                            <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btn btn-outline"
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';">
+                                                {{ __('Editar') }}
+                                                <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                            </a>
                                             </td>
                                         </tr>
                                     @endforeach
