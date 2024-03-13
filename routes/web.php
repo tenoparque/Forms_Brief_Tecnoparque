@@ -120,4 +120,4 @@ Route::get('/searchUser', [UserController::class, 'search']);
 
 
 
-Route::get('/solicitudes', [SolicitudeController::class, 'index']);
+

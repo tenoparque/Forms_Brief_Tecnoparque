@@ -177,6 +177,8 @@ public function getCurrentTimeInBogota()
         ];
     } else {
         return null;
+
+        
     }
 }
 
