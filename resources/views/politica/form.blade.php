@@ -38,13 +38,13 @@
                     <input type="file" name="qr" id="qr"
                         class="form-control-file{{ $errors->has('qr') ? ' is-invalid' : '' }}" style="display: none;">
                     <span class="file-button">
-                        Elegir archivo
+                        Subir Imagen
                         <i class="fas fa-image"></i>
                     </span>
                     {!! $errors->first('qr', '<div class="invalid-feedback">:message</div>') !!}
                 </label>
             </div>
-            <div id="noFileMessage"></div>
+            
             <div id="imageUrl"></div>
 
         </div>
