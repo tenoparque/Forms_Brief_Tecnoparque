@@ -5,23 +5,21 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
-   
-    <section class="content container mt-5">
+    <section class="container shadow p-4  my-5 bg-light rounded">
         <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
+                <div class="">
+                    <div class="">
                         <div class="d-flex mt-3 mb-4">
                             <div>
-                                <h1 class="primeraPalabraFlex">{{ __('CREAR ESTADO') }}</h1>
+                                <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('CREAR ESTADO') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex">{{ __('DE LA SOLICITUD') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('DE LA SOLICITUD') }}</h1>
                             </div>
                         </div>
                     </div>

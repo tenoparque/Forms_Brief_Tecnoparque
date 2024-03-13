@@ -5,25 +5,22 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-
-    
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
-                            
-                            <div class="d-flex mt-3 mb-4">
-                                <div>
-                                    <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('ESTADOS DE ') }}</h1>
-                                </div>
-                                <div>
-                                    <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('LAS SOLICITUDES') }}</h1>
+                            <div style="d-flex justify-content-between align-items-center">
+                                <div class="d-flex mt-3 mb-4">
+                                    <div>
+                                        <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('ESTADOS DE') }}</h1>
+                                    </div>
+                                    <div>
+                                        <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('LAS SOLICITUDES') }}</h1>
+                                    </div>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
