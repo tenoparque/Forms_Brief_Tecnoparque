@@ -209,6 +209,29 @@
     opacity: 20;
     margin-left: 20px;
 }
+.circle {
+    margin-block-start: 80%;
+    right: 50%;
+    top: 50%;
+    width: 120%;
+    height: 120%;
+    border-radius: 60%;
+    background-color: {{$colorSecundario}};
+  }
+  
+  .triangle {
+    position: absolute;
+    transform: rotate(325deg);
+    margin-left: 5%;
+    margin-top: -8%;
+    width: 7%;
+    height:15%;
+    border-top: 8px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 12px solid {{ $colorPrincipal }};
+    left: 9px; 
+    top: 9px;
+  }
 </style>
 
 </html>
