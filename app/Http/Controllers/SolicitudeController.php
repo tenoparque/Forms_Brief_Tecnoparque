@@ -212,22 +212,22 @@ public function mostrarFechasFestivas()
 {
     // Lista de días festivos
     $dias_festivos = [
-        '2024-01-01' => 'Año Nuevo',
-        '2024-03-25' => 'Día de la Independencia',
-        '2024-03-28' => 'Lunes Santo',
-        '2024-03-29' => 'Martes Santo',
-        '2024-05-01' => 'Día del Trabajo',
-        '2024-05-13' => 'Ascensión del Señor',
-        '2024-06-03' => 'Corpus Christi',
-        '2024-06-10' => 'Sagrado Corazón de Jesús',
-        '2024-07-01' => 'San Pedro y San Pablo',
-        '2024-07-20' => 'Grito de Independencia',
-        '2024-08-07' => 'Batalla de Boyacá',
-        '2024-10-12' => 'Día de la Raza',
-        '2024-11-04' => 'Día de los Difuntos',
-        '2024-11-11' => 'Independencia de Cartagena',
-        '2024-12-08' => 'Día de la Inmaculada Concepción',
-        '2024-12-25' => 'Navidad'
+        '2024-01-01',
+        '2024-03-25',
+        '2024-03-28' ,
+        '2024-03-29' ,
+        '2024-05-01',
+        '2024-05-13',
+        '2024-06-03',
+        '2024-06-10',
+        '2024-07-01' ,
+        '2024-07-20' ,
+        '2024-08-07' ,
+        '2024-10-12',
+        '2024-11-04' ,
+        '2024-11-11',
+        '2024-12-08',
+        '2024-12-25'
     ];
 
     // Pasar los datos a la vista
