@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
             <div class="col-sm-12">
@@ -14,7 +13,7 @@
                         <div class="float-left">
                             <div class="d-flex mt-3 mb-2">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('DETALLE DE ') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('DETALLE DE ') }}</h1>
                                 </div>
                                 <div>
                                     <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('PERSONALIZACIÓN') }}</h1>
@@ -31,7 +30,7 @@
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
-                                        <th>Logo</th>
+                                        <th style=" width: 50%">Logo</th>
                                         <th>Color Principal</th>
                                         <th>Color Secundario</th>
                                         <th>Color Terciario</th>
@@ -41,31 +40,57 @@
                                 </thead>
                                 <tbody class="alldata">
                                     <tr>
-                                        
-                                        <td><img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}" alt="LOGO" width="150px"></td>
-                                        <td>{{ $personalizacione->color_principal }}</td>
-                                        <td>{{ $personalizacione->color_secundario }}</td>
-                                        <td>{{ $personalizacione->color_terciario }}</td>
-                                        <td>{{ $personalizacione->user->name }}</td>
-                                        <td>{{ $personalizacione->estado->nombre }}</td>
-                                    </tr>
-                                </tbody>
-                                <!-- Another tbody is created for the search records -->
-                                <tbody id="Content" class="dataSearched">
-                                </tbody>
-                            </table>
+
+                                        <td>
+                                            <div class="logoPersonalizacion" >
+                                                <img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}"
+                                                    alt="LOGO" class="ImgCeldaPesonalizacion">
+                                        </td>
                         </div>
+                        <td>
+                            <div class="PersonalizacionColor">
+                                <div class="ChildrenPersonalizacion"
+                                    style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_principal }}; ">
+                                </div>
+                                {{ $personalizacione->color_principal }}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="PersonalizacionColor">
+                                <div class="ChildrenPersonalizacion"
+                                    style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_secundario }}; ">
+                                </div>
+                                {{ $personalizacione->color_secundario }}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="PersonalizacionColor">
+                                <div class="ChildrenPersonalizacion"
+                                    style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_terciario }}; ">
+                                </div>
+                                {{ $personalizacione->color_terciario }}
+                            </div>
+                        </td>
+                        <td>{{ $personalizacione->user->email }}</td>
+                        <td>{{ $personalizacione->estado->nombre }}</td>
+                        </tr>
+                        </tbody>
+                        <!-- Another tbody is created for the search records -->
+                        <tbody id="Content" class="dataSearched">
+                        </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div>
-                <a href="{{ route('personalizaciones.index') }}" class="btn btn-outline"
-                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%;"
-                    onmouseover="this.style.backgroundColor='#b2ebf2';" onmouseout="this.style.backgroundColor='#FFFF';">
-                    {{ __('REGRESAR') }}
-                    <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
-                </a>
-            </div>
+        </div>
+        <div>
+            <a href="{{ route('personalizaciones.index') }}" class="btn btn-outline"
+                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%;"
+                onmouseover="this.style.backgroundColor='#b2ebf2';" onmouseout="this.style.backgroundColor='#FFFF';">
+                {{ __('REGRESAR') }}
+                <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
+            </a>
+        </div>
         </div>
     </section>
 @endsection

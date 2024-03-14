@@ -3,7 +3,7 @@
     <div class="row">
         <div class="d-flex" style="margin-top: 2%; margin-bottom: 2%">
 
-            <div class="col-md-6 file">
+            <div class="col-md-4 file">
                 {{ Form::label('', 'Seleccionar imagen',['class' => 'labelFile', 'style' => 'font-size: 18px; font-weight: bold', 'for' => 'logo']) }}
                 <label for="logo" class="file-label">
                 <input  type="file" name="logo" id="logo"
@@ -20,17 +20,22 @@
             
             @if (Route::currentRouteName() === 'personalizaciones.create')
                 <div id="imagePreview">
-                    <img id="logoImage" class="img-thumbnail" alt="Preview"
-                        style="max-width: 300px; max-height: 300px;">
+                    <div class="image-wraper">
+                    <img id="logoImage" class="img-thumbnail" alt="Preview">
+                </div>
                 </div>
             @endif
             @if (Route::currentRouteName() === 'personalizaciones.edit')
-                <div class="col-md-6" style="margin-bottom: 15px;">
-                    <label for="logo" style="font-size: 18px; font-weight: bold; margin-bottom: 15;margin-right: 2%;">Logo </label>
+                <div class="col-md-8" style="margin-bottom: 15px;">
+                    <label for="logo" style="font-size: 18px; font-weight: bold; ">Logo</label>
                     <!-- Agrega la etiqueta img con el ID 'qrImage' -->
+                    <div class="image-wraper">
+                    
                     <img id="logoImage"
                         src="{{ $personalizacione->logo ? 'data:image/png;base64,' . base64_encode($personalizacione->logo) : '' }}"
-                        alt="LOGO" width="200">
+                        alt="LOGO" 
+                        class="img-thumbnail">
+                    </div>
                 </div>
             @endif
             <!-- <div class="col-md-6">

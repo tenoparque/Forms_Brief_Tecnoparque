@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $politica->name ?? "{{ __('Show') Politica" }}
+    {{ $politica->name ?? " __('Show') Politica" }}
 @endsection
 
 @section('content')

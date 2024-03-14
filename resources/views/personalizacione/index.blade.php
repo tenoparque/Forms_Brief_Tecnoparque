@@ -43,10 +43,10 @@
                             style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                             <table class="table table-bordered table-hover" >
                                 <thead class="thead-dark">
-                                    <tr >
+                                    <tr style="text-align: center">
                                         <th>No</th>
 
-                                        <th>Logo</th>
+                                        <th style=" width: 30%">Logo</th>
                                         <th>Color Principal</th>
                                         <th>Color Secundario</th>
                                         <th>Color Terciario</th>
@@ -60,9 +60,11 @@
                                     @foreach ($personalizaciones as $personalizacione)
                                         <tr >
                                             <td>{{ ++$i }}</td>
-                                            <td><img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}"
-                                                    alt="LOGO" width="150px"></td>
-                                            </td>
+                                            <td>
+                                               <div class="logoPersonalizacion" style="">
+                                                <img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}"
+                                                alt="LOGO" class="ImgCeldaPesonalizacion" ></td>
+                                               </div>
                                             <td>
                                                 <div class="PersonalizacionColor" >
                                                     <div class="ChildrenPersonalizacion"

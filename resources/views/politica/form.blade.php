@@ -44,7 +44,7 @@
                     {!! $errors->first('qr', '<div class="invalid-feedback">:message</div>') !!}
                 </label>
             </div>
-            
+
             <div id="imageUrl"></div>
 
         </div>
@@ -58,11 +58,13 @@
         @if (Route::currentRouteName() === 'politicas.edit')
             <div class="form-group">
                 <label for="qr"></label>
+                <div class="image-wraper">
 
-                <!-- Agrega la etiqueta img con el ID 'qrImage' -->
-                <img id="qrImage"
-                    src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}"
-                    alt="QR" >
+                    <!-- Agrega la etiqueta img con el ID 'qrImage' -->
+                    <img id="qrImage"
+                        src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}"
+                        alt="QR" id="qrImage">
+                </div>
             </div>
         @endif
 

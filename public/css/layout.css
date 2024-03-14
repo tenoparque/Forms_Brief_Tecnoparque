@@ -220,8 +220,10 @@ a.sidebar-link:hover {
 .index-user {
     background-color: blue;
 }
-
-
+/* ---------------tablas--------------- */
+table th{
+    text-align: center;
+}
 /* --------------- solicitudes ---------------------- */
 
 .InputText {
@@ -390,6 +392,15 @@ a.sidebar-link:hover {
 
 
 /* ---------------personalizacion------------ */
+.logoPersonalizacion{
+    display:flex;
+    margin:0 auto;
+}
+.ImgCeldaPesonalizacion{
+    margin: 0 auto;
+    max-width: 44%; 
+    max-height:44%;
+}
 .PersonalizacionColor{
     display: grid;
     text-align: center;
@@ -401,6 +412,17 @@ a.sidebar-link:hover {
     align-self:center;
 }
 
+.ImgCeldaPesonalizacion{
+    
+    max-width: 44%; 
+    max-height:44%;
+}
+
+#logoImage{
+    max-width: 44%; 
+    max-height:44%; 
+    margin: 10px;
+}
 
 
 
