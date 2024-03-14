@@ -93,6 +93,32 @@ class SolicitudeController extends Controller
     }
 
 
+     /**
+     * Process the selected ID from the dropdown.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function eventos(Request $request)
+    {
+        $evento = $request->input('tipo_evento_id');
+
+        
+        $eventosAsociados = EventosEspecialesPorCategoria::where('id_eventos_especiales', $evento)->get();
+
+
+        // Devolver los datos en formato JSON
+        return response()->json([
+            'evento' => $eventosAsociados
+           
+        ]);
+    }
+
+    
+    
+
+
+
     /**
      * Store a newly created resource in storage.
      *

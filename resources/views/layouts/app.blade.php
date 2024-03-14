@@ -44,6 +44,8 @@
         href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
 
 
+
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
     @vite('resources/js/menuburger.js')
@@ -52,6 +54,14 @@
 </head>
 
 <body>
+    
+    <style>
+        /* Agrega estilos CSS para la clase "active" */
+        .sidebar-nav .sidebar-item .sidebar-link.active-link {
+    color: yellow;
+}
+
+    </style>
 
     <div class="wrapper">
         @if (Route::currentRouteName() !== 'login')
@@ -71,18 +81,39 @@
                     </li>
                     <hr class="hrmenu">
                     <li class="sidebar-item">
-                        <a href="/roles" class="sidebar-link" style="text-decoration: none">
+                        <a href="/roles" class="sidebar-link " style="text-decoration: none">
                             <i class="lni lni-user"></i>
                             <span>Rol</span>
                         </a>
                     </li>
                     <hr class="hrmenu">
                     <li class="sidebar-item">
-                        <a href="/solicitudes" class="sidebar-link  has-dropdown collapsed"
-                            style="text-decoration: none">
-                            <i class="lni lni-popup"></i>
-                            <span>Solicitud</span>
-                        </a>
+                        <details class="sidebar-item">
+                            <summary class="sidebar-link has-dropdown collapsed" style="text-decoration: none; display: list-item;">
+                                <i class="lni lni-popup"></i>
+                                <span>Solicitud</span>
+                            </summary>
+                            <ul>
+                                <li>
+                                    <a href="/solicitudes" class="sidebar-link" style="text-decoration: none">
+                                        <i class="lni lni-user"></i>
+                                        <span>Solicitudes</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/servicios-por-tipos-de-solicitudes" class="sidebar-link" style="text-decoration: none">
+                                        <i class="lni lni-user"></i>
+                                        <span>Servicios x Tipo de Solicitud</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/tipos-de-solicitudes" class="sidebar-link" style="text-decoration: none">
+                                        <i class="lni lni-user"></i>
+                                        <span>Tipos de Solicitud</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
                     </li>
                     <hr class="hrmenu">
                     <li class="sidebar-item">
@@ -96,9 +127,8 @@
                     <li class="sidebar-item">
                         <a href="tipos-de-datos" class="sidebar-link" style="text-decoration: none">
                             <i class="lni lni-popup"></i>
-                            <span class="txtTip">Tipo Campo</span>
-                            <br>
-                            <span class="txtSoli">x Solicitud</span>
+                            <span class="txtTip">Tipo de Datos</span>
+                            
                         </a>
                     </li>
                     <hr class="hrmenu">
@@ -127,6 +157,8 @@
                     <img class="flecha" src="/images/recursos/flecha.png"></img>
                 </button>
             </div>
+
+            
         @endif
 
         <div class="main">
@@ -261,3 +293,4 @@
 </style>
 
 </html>
+

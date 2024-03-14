@@ -11,31 +11,41 @@
                 <form id="solicitudForm " class="formBrief">
 
                     <br>
-                    <div class="form-group col-md-4 my-3">
-                        <h5 for="id_tipos_de_solicitudes">Tipo de Solicitud</h5>
-                        <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
-                            class="form-control selectpicker" data-style="btn-primary"
-                            title="Seleccionar un Tipo de Solicitud" required>
-                            <option value="" selected>Seleccionar Tipo de Solicitud...</option>
-                            @foreach ($solicitudes as $solicitud)
-                                <option value="{{ $solicitud->id }}">{{ $solicitud->nombre }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                        <div class="form-group col-md-4 my-3">
+                            <h5 for="id_tipos_de_solicitudes">Tipo de Solicitud</h5>
+                            <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
+                                class="form-control selectpicker" data-style="btn-primary"
+                                title="Seleccionar un Tipo de Solicitud" required>
+                                <option value="" selected>Seleccionar Tipo de Solicitud...</option>
+                                @foreach ($solicitudes as $solicitud)
+                                    <option value="{{ $solicitud->id }}">{{ $solicitud->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                     <br>
 
                     <div id="btnEnviarSolicitud">
                         <div class="form-group col-md-4 my-3">
-                            <label >CATEGORIAS DE EVENTOS ESPECIAl</label>
-                            <select 
-                                class="form-control selectpicker" data-style="btn-primary"
-                                title="Seleccionar la Categoria Del Evento Especial" required>
+                            <label>CATEGORIAS DE EVENTOS ESPECIALES</label>
+                            <select name="id_categoria_evento" id="id_categoria_evento" 
+                            class="form-control selectpicker" data-style="btn-primary" title="Seleccionar la Categoria Del Evento Especial" required>
+                                <option value="">Seleccione una categoria de evento especial</option> <!-- Opción "No aplica" -->
                                 @foreach ($categoriaEventos as $eventos)
-                                    <option value="{{ $eventos->id }}">{{ $eventos->nombre }}</option>
+                                
+                                        <option value="{{ $eventos->id }}">{{ $eventos->nombre }}</option>
+                                
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group my-2">
+                            <h5>eventos</h5>
+                            <div id="eventosComboBoxContainer" class="row">
+                                <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
+                            </div>
+                        </div>
+    
+                        
                         <div class="form-group my-2">
                             <h5>Servicios</h5>
                             <div id="servicesComboBoxContainer" class="row">
@@ -218,6 +228,42 @@
                 // Ocultar el botón de enviar solicitud
                 $('#btnEnviarSolicitud').hide();
             }
+        });
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#id_categoria_evento').change(function() {
+            var selectedTypeId = $(this).val(); 
+            $.ajax({
+                url: '{{ route('solicitude.eventos') }}',
+                type: 'POST',
+                data: {
+                    tipo_evento_id: selectedTypeId,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    var eventosOptions = '<option value="">Seleccionar evento...</option>';
+                    $.each(response.evento, function(index, eventosAsociados) {
+                        eventosOptions += '<option value="' + eventosAsociados.id + '">' + eventosAsociados.nombre + '</option>';
+                    });
+                    $('#eventosComboBoxContainer').html('<select class="form-control" name="evento_asociado">' + eventosOptions + '</select>');
+                },
+                error: function(xhr) {
+                    console.error(
+                        'Error al obtener los datos asociados al tipo de solicitud.');
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Función para verificar la selección del combobox
+        $('#id_categoria_evento').change(function() {
+            var selectedOption = $(this).val(); // Obtener el valor seleccionado
         });
     });
 </script>

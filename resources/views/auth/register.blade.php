@@ -44,7 +44,7 @@
                 <label style="font-size: 16px; color:black" for="celular"
                     class="form-label col-12 ">{{ __('Celular') }}</label>
                 <input id="celular" type="text" class="form-control @error('celular') is-invalid @enderror"
-                    name="celular" value="{{ old('celular') }}" required autocomplete="celular"
+                    name="celular" value="{{ old('Celular') }}" required autocomplete="celular"
                     style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;  border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;">
                 @error('celular')
                     <span class="invalid-feedback" role="alert">
@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-4">
                 <label style="font-size: 16px; color:black" for="password"
-                    class="form-label col-12 ">{{ __('Password') }}</label>
+                    class="form-label col-12 ">{{ __('Contraseña') }}</label>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                     name="password" required autocomplete="new-password"
                     style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;">
@@ -82,7 +82,7 @@
 
             <div class="col-md-4">
                 <label style="font-size: 16px; color:black" for="password-confirm"
-                    class="form-label col-12 ">{{ __('Confirm Password') }}</label>
+                    class="form-label col-12 ">{{ __('Confirmar contraseña') }}</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
                     autocomplete="new-password"
                     style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;">
