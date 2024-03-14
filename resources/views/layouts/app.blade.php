@@ -54,13 +54,12 @@
 </head>
 
 <body>
-    
+
     <style>
         /* Agrega estilos CSS para la clase "active" */
         .sidebar-nav .sidebar-item .sidebar-link.active-link {
-    color: yellow;
-}
-
+            color: yellow;
+        }
     </style>
 
     <div class="wrapper">
@@ -88,11 +87,23 @@
                     </li>
                     <hr class="hrmenu">
                     <li class="sidebar-item">
-                        <a href="/solicitudes" class="sidebar-link  has-dropdown collapsed"
-                            style="text-decoration: none">
-                            <i class="lni lni-popup"></i>
-                            <span>Solicitud</span>
-                        </a>
+                        <details class="sidebar-item">
+                            <summary>
+                                <a href="#" class="sidebar-link  has-dropdown collapsed"
+                                    style="text-decoration: none">
+                                </a>
+                                <i class="lni lni-popup"></i>
+                                <span>Solicitud</span>
+                            </summary>
+                            <ul>
+                                <li><a href="/solicitudes">Solicitudes</a></li>
+                                <li><a href="/servicios-por-tipos-de-solicitudes">Servicios x Tipo de Solicitud</a></li>
+                                <li><a href="/tipos-de-solicitudes">Tipos de Solicitud</a></li>
+                            </ul>
+                        </details>
+
+
+
                     </li>
                     <hr class="hrmenu">
                     <li class="sidebar-item">
@@ -136,8 +147,6 @@
                     <img class="flecha" src="/images/recursos/flecha.png"></img>
                 </button>
             </div>
-
-            
         @endif
 
         <div class="main">
@@ -164,8 +173,9 @@
 
                                 <!-- Carta Derecha -->
                                 <div class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12">
-                                    @if(isset($logo))
-                                    <img class="img-fluid" id="logoHeader" src="data:image/png;base64,{{ base64_encode($logo) }}"></img>
+                                    @if (isset($logo))
+                                        <img class="img-fluid" id="logoHeader"
+                                            src="data:image/png;base64,{{ base64_encode($logo) }}"></img>
                                     @endif
                                 </div>
                             </div>
@@ -267,9 +277,8 @@
         border-top: 8px solid transparent;
         border-bottom: 4px solid transparent;
         border-left: 12px solid {{ $colorPrincipal }};
-        
+
     }
 </style>
 
 </html>
-
