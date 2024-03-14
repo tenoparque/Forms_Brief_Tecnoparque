@@ -7,9 +7,9 @@
                 {{ Form::label('', 'Seleccionar imagen',['class' => 'labelFile', 'style' => 'font-size: 18px; font-weight: bold', 'for' => 'logo']) }}
                 <label for="logo" class="file-label">
                 <input  type="file" name="logo" id="logo"
-                    class="form-control-file{{ $errors->has('logo') ? ' is-invalid' : '' }}"><span class="file-button">
+                    class="form-control-file{{ $errors->has('logo') ? ' is-invalid' : '' }}"><span class="btnCED">
                         Elegir archivo
-                        <i class="fas fa-image"></i>
+                        <i class="fas fa-image iconCDE"></i>
                     </span>
                 {!! $errors->first('logo', '<div class="invalid-feedback">:message</div>') !!}
             </label>
@@ -169,12 +169,10 @@
         </script>
 
     </div>
-    <div class="box-footer mt20">
+    <div class="box-footer mt20" style="text-align: right; margin-right:3%;">
         <button type="submit" class="btn btn-outline" href="{{ route('personalizaciones.create') }}"
-            class="btn btn-outline"
-            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer; margin-left: 90%; border-radius: 35px; margin-top:15px; justify-content: center; justify-items: center; "
-            onmouseover="this.style.backgroundColor='#b2ebf2';"
-            onmouseout="this.style.backgroundColor='#FFFF';">{{ __('GUARDAR') }}
-            <i class="fa-solid fa-circle-plus fa-sm" style="color: #642c78;"></i></button>
+            class="btnDCR"
+            >{{ __('GUARDAR') }}
+            <i class="fa-solid fa-circle-plus fa-sm iconDCR" ></i></button>
     </div>
 </div>

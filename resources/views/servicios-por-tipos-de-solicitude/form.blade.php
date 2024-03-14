@@ -92,12 +92,10 @@
         @endif
 
     </div>
-    <div class="box-footer mt20" style="text-align: right;">
-        <button type="submit" class="btn btn-outline"
-            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer; border-radius: 35px; margin-top:15px; justify-content: center; justify-items: center; margin-right: 40px;"
-            onmouseover="this.style.backgroundColor='#b2ebf2';" onmouseout="this.style.backgroundColor='#FFFF';">
+    <div class="box-footer mt20" style="text-align: right; margin-right:3%;">
+        <button type="submit" class="btnDCR">
             {{ __('GUARDAR') }}
-            <i class="fa-solid fa-circle-plus fa-sm" style="color: #642c78;"></i>
+            <i class="fa-solid fa-circle-plus fa-sm iconDCR"></i>
         </button>
     </div>
 </div>

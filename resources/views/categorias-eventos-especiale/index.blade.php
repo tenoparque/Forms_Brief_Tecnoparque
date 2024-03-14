@@ -60,24 +60,13 @@
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $categoria->nombre }}</td>
                                             <td>{{ $categoria->estado->nombre }}</td>
-                                            <td>
-                                                <a href="{{ route('categorias-eventos-especiales.show', $categoria->id) }}"
-                                                    class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
-                                                    {{ __('Detalle') }}
-                                                    <i class="fa-sharp fa-solid fa-eye fa-xs"
-                                                        style="color: #642c78; margin-left: 5px;"></i>
+                                            <td id="buttoncell">
+                                                <a  class="btnDCR" href="{{ route('categorias-eventos-especiales.show', $categoria->id) }}"
+                                                   > {{ __('Detalle') }} <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                 </a>
 
-                                                <a href="{{ route('categorias-eventos-especiales.edit', $categoria->id) }}"
-                                                    class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
-                                                    {{ __('Editar') }}
-                                                    <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                                <a  class="btnEdit" href="{{ route('categorias-eventos-especiales.edit', $categoria->id) }}"
+                                                   > {{ __('Editar') }} <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                                 </a>
 
                                             </td>

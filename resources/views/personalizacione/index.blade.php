@@ -32,11 +32,9 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el correo del usuario..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('personalizaciones.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
-                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                    onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                                <a href="{{ route('personalizaciones.create') }}" class="btnDCR"
+                                    >{{ __('CREAR') }}
+                                    <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                             </div>
                         </div>
                         <div class="table-responsive"
@@ -92,25 +90,21 @@
                                             </td>
                                             <td>{{ $personalizacione->user->email }}</td>
                                             <td>{{ $personalizacione->estado->nombre }}</td>
-                                            <td>
+                                            <td id="buttoncell">
 
                                                 <a href="{{ route('personalizaciones.show', $personalizacione->id) }}"
-                                                    class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                    class="btnDCR"
+                                                    >
                                                     {{ __('Detalle') }}
-                                                    <i class="fa-sharp fa-solid fa-eye fa-xs"
-                                                        style="color: #642c78; margin-left: 5px;"></i>
+                                                    <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
+                                                        ></i>
                                                 </a>
 
                                                 <a href="{{ route('personalizaciones.edit', $personalizacione->id) }}"
-                                                    class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                    class="btnEdit"
+                                                    >
                                                     {{ __('Editar') }}
-                                                    <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                                    <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
                                                 </a>
 
 

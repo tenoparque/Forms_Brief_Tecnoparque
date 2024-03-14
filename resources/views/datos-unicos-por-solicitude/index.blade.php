@@ -37,23 +37,21 @@
                         <input class="form-control" id="search"
                             placeholder="Ingrese el nombre del dato único por tipo de solicitud..."
                             style="width: 70%; border-radius: 50px; border-style: solid; border-width:3px; border-color: #DEE2E6 ">
-                        <a href="{{ route('datos-unicos-por-solicitudes.create') }}" class="btn btn-outline"
-                            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
-                            onmouseover="this.style.backgroundColor='#b2ebf2';"
-                            onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
-                            <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                        <a href="{{ route('datos-unicos-por-solicitudes.create') }}" class="btnDCR"
+                            >{{ __('CREAR') }}
+                            <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                     </div>
                 </div>
                 <div class="table-responsive"
-                    style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6; width=25%">
-                    <table class="table table-responsive table-hover " style="width=25%">
+                style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
+                    <table class="table table-bordered table-hover " style="width=25%">
                         <thead class="thead-dark">
                             <tr style="border-width: 2px;width:25%">
-                                <th>No</th>
-                                <th>Nombre</th>
-                                <th>Tipo De Dato</th>
-                                <th>Tipo De Solicitud</th>
-                                <th>Estado</th>
+                                <th scope="col">No</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Tipo De Dato</th>
+                                <th scope="col">Tipo De Solicitud</th>
+                                <th scope="col">Estado</th>
 
                                 <th>Opciones</th>
                             </tr>
@@ -70,25 +68,19 @@
                                     </td>
                                     <td>{{ $datosUnicosPorSolicitude->estado->nombre }}</td>
 
-                                    <td>
+                                    <td id="buttoncell">
 
                                         <a href="{{ route('datos-unicos-por-solicitudes.show', $datosUnicosPorSolicitude->id) }}"
-                                            class="btn btn-outline"
-                                            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                            onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                            onmouseout="this.style.backgroundColor='#FFFF';">
+                                            class="btnDCR"
+                                           >
                                             {{ __('Detalle') }}
-                                            <i class="fa-sharp fa-solid fa-eye fa-xs"
-                                                style="color: #642c78; margin-left: 5px;"></i>
+                                            <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                         </a>
 
                                         <a href="{{ route('datos-unicos-por-solicitudes.edit', $datosUnicosPorSolicitude->id) }}"
-                                            class="btn btn-outline"
-                                            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                            onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                            onmouseout="this.style.backgroundColor='#FFFF';">
+                                            class="btnEdit">
                                             {{ __('Editar') }}
-                                            <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                            <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
                                         </a>
 
                                     </td>

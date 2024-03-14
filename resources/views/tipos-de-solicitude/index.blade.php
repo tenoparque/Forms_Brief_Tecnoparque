@@ -34,11 +34,8 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del Tipo de Solicitud..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('tipos-de-solicitudes.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
-                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                    onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                                <a href="{{ route('tipos-de-solicitudes.create') }}" class="btnDCR">{{ __('CREAR') }}
+                                    <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                             </div>
                         </div>
                         <div class="table-responsive"
@@ -49,7 +46,7 @@
                                         <th scope="col">No</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Estado</th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
@@ -58,23 +55,19 @@
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $tiposDeSolicitude->nombre }}</td>
                                             <td>{{ $tiposDeSolicitude->estado->nombre }}</td>
-                                            <td>
+                                            <td id="buttoncell">
                                                 <form action="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}" method="POST">
-                                                    <a class="btn btn-outline"
-                                                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                        onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}"><i
-                                                            class="fa-sharp fa-solid fa-eye fa-xs"
-                                                            style="color: #642c78; margin-left: 5px;"></i>
-                                                        {{ __('Detalle') }}</a>
+                                                    <a class="btnDCR" href="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}">
+                                                        {{ __('Detalle') }}
+                                                        <i
+                                                        class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
+                                                        ></i>
+                                                    </a>
 
-                                                    <a class="btn btn-outline"style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                        onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('tipos-de-solicitudes.edit', $tiposDeSolicitude->id) }}"><i
-                                                            class="fa-solid fa-pen-to-square fa-xs"
-                                                            style="color: #39a900;"></i> {{ __('Editar') }}</a>
+                                                    <a class="btnEdit"
+                                                        href="{{ route('tipos-de-solicitudes.edit', $tiposDeSolicitude->id) }}"> {{ __('Editar') }}
+                                                        <i
+                                                        class="fa-solid fa-pen-to-square fa-xs iconEdit"></i></a>
 
                                                 </form>
                                             </td>

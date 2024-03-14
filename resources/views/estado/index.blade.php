@@ -27,11 +27,9 @@
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del estado..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('estados.create') }}" class="btn btn-outline"
-                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
-                                onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
-                                <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                                <a href="{{ route('estados.create') }}" class="btnDCR"
+                                >{{ __('CREAR') }}
+                                <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                             </div>
                         </div>
                         <div class="table-responsive" style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
@@ -54,21 +52,15 @@
                                         
                                         <td>{{ $estado->nombre }}</td>
 
-                                        <td>
-                                                <a href="{{ route('estados.show' ,$estado->id) }}" class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                        <td id="buttoncell">
+                                                <a href="{{ route('estados.show' ,$estado->id) }}" class="btnDCR">
                                                     {{ __('Detalle') }}
-                                                    <i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
+                                                    <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR" ></i>
                                                 </a>
                                                 
-                                                <a href="{{ route('estados.edit' , $estado->id) }}" class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                <a href="{{ route('estados.edit' , $estado->id) }}" class="btnEdit">
                                                     {{ __('Editar') }}
-                                                    <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                                    <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
                                                 </a>
                                                     
                                             </td>

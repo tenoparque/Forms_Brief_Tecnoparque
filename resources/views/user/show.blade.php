@@ -58,14 +58,14 @@
                 </div>
             </div>
             <div>
-                <a href="{{ route('users.index') }}" class="btn btn-outline"
-                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%;"
-                    onmouseover="this.style.backgroundColor='#b2ebf2';" onmouseout="this.style.backgroundColor='#FFFF';">
+                
+            </div>
+            <div class="mt-3 d-flex justify-content-end">
+                <a href="{{ route('users.index') }}" class="btnDCR">
                     {{ __('REGRESAR') }}
-                    <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
+                    <i class="fa-solid fa-circle-play fa-flip-both iconDCR" ></i>
                 </a>
             </div>
-            
         </div>
     </section>
 @endsection

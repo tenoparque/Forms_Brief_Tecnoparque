@@ -101,8 +101,8 @@
 
                         </div>
                         <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
-                            <button type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
-                                    class="fa-solid fa-circle-play" style="color: #642c78;"></i></button>
+                            <button type="submit" class="btn btn-outline btnCED my-4">Enviar Solicitud <i
+                                    class="fa-solid fa-circle-play iconCDE" ></i></button>
                         </div>
                     </div>
                     

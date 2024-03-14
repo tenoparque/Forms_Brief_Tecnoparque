@@ -36,9 +36,9 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese correo del usuario..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('politicas.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; ">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                                <a href="{{ route('politicas.create') }}" class="btnDCR"
+                                    >{{ __('CREAR') }}
+                                    <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                             </div>
                         </div>
                         <div class="table-responsive"
@@ -64,23 +64,19 @@
                                             <td>{{ $politica->estado->nombre }}</td>
                                             <td>{{ $politica->titulo }}</td>
 
-                                            <td>
+                                            <td id="buttoncell">
                                                 <form action="{{ route('roles.destroy', $politica->id) }}" method="POST">
-                                                    <a class="btn btn-outline"
-                                                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                        onmouseout="this.style.backgroundColor='#FFFF';"
+                                                    <a class="btnDCR"
+                                                        
                                                         href="{{ route('politicas.show', $politica->id) }}"><i
-                                                            class="fa-sharp fa-solid fa-eye fa-xs"
-                                                            style="color: #642c78; margin-left: 5px;"></i>
+                                                            class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
+                                                            ></i>
                                                         {{ __('Detalle') }}</a>
 
-                                                    <a class="btn btn-outline"style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                        onmouseout="this.style.backgroundColor='#FFFF';"
+                                                    <a class="btnEdit"
                                                         href="{{ route('politicas.edit', $politica->id) }}"><i
-                                                            class="fa-solid fa-pen-to-square fa-xs"
-                                                            style="color: #39a900;"></i> {{ __('Editar') }}</a>
+                                                            class="fa-solid fa-pen-to-square fa-xs iconEdit"
+                                                            ></i> {{ __('Editar') }}</a>
 
                                                 </form>
                                             </td>

@@ -14,7 +14,9 @@
                             <div style="d-flex justify-content-between align-items-center">
                                 <div class="d-flex mt-3 mb-4">
                                     <div>
-                                        <h1 class="primeraPalabraFlex" style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)"> {{ __('ROLES') }}</h1>
+                                        <h1 class="primeraPalabraFlex"
+                                            style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)">
+                                            {{ __('ROLES') }}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -31,11 +33,8 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del rol..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('roles.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
-                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                    onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                                <a href="{{ route('roles.create') }}" class="btnDCR">{{ __('CREAR') }}
+                                    <i class="fa-solid fa-circle-play iconDCR"></i></a>
                             </div>
                         </div>
                         <div class="table-responsive"
@@ -56,23 +55,15 @@
                                             <td>{{ $role->name }}</td>
                                             <!-- <td>{{ $role->guard_name }}</td> -->
 
-                                            <td>
+                                            <td id="buttoncell">
                                                 <form action="{{ route('roles.show', $role->id) }}" method="POST">
-                                                    <a class="btn btn-outline"
-                                                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                        onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('roles.show', $role->id) }}"><i
-                                                            class="fa-sharp fa-solid fa-eye fa-xs"
-                                                            style="color: #642c78; margin-left: 5px;"></i>
+                                                    <a class="btnDCR" href="{{ route('roles.show', $role->id) }}"><i
+                                                            class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                         {{ __('Detalle') }}</a>
 
-                                                    <a class="btn btn-outline"style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                        onmouseout="this.style.backgroundColor='#FFFF';"
-                                                        href="{{ route('roles.edit', $role->id) }}"><i
-                                                            class="fa-solid fa-pen-to-square fa-xs"
-                                                            style="color: #39a900;"></i> {{ __('Editar') }}</a>
+                                                    <a class="btnEdit" href="{{ route('roles.edit', $role->id) }}"><i
+                                                            class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
+                                                        {{ __('Editar') }}</a>
 
                                                 </form>
                                             </td>

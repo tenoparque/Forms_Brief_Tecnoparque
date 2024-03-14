@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
             <div class="row">
@@ -14,7 +13,7 @@
                         <div class="float-left">
                             <div class="d-flex mt-3 mb-4">
                                 <div>
-                                    <h1 class="primeraPalabraFlex" style="font-size: 200%" >{{ __('DETALLE DEL ') }}</h1>
+                                    <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('DETALLE DEL ') }}</h1>
                                 </div>
                                 <div>
                                     <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('ROL') }}</h1>
@@ -24,7 +23,7 @@
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="table-responsive"
                             style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                             <table class="table table-bordered table-hover">
@@ -49,12 +48,11 @@
 
                 </div>
             </div>
-            <a href="{{ route('roles.index') }}" class="btn btn-outline"
-            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%;" 
-            onmouseover="this.style.backgroundColor='#b2ebf2';" 
-            onmouseout="this.style.backgroundColor='#FFFF';">
-            {{ __('REGRESAR') }}
-            <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
+        </div>
+        <div class="mt-3 d-flex justify-content-end">
+            <a href="{{ route('roles.index') }}" class="btnDCR">
+                {{ __('REGRESAR') }}
+                <i class="fa-solid fa-circle-play fa-flip-both iconDCR"></i>
             </a>
         </div>
     </section>

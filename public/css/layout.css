@@ -353,7 +353,25 @@ table th {
     display: none;
 }
 
-.file-button {
+
+
+/* QR*/
+.imgQr {
+    display: flex;
+
+}
+
+.ImgQrPoliticas {
+    margin: 0 auto;
+    max-width: 44%;
+    max-height: 44%;
+}
+
+
+/* botones */
+
+/* btn upload image */
+.btnCED {
     color: #000000;
     padding: 8px 12px;
     border: 2px solid #82DEF0;
@@ -364,33 +382,72 @@ table th {
     justify-items: center;
 }
 
-.fa-image {
+.iconCDE {
     color: #642c78;
 
 }
 
-/* QR*/
-.imgQr {
-    display: flex;
-    
-}
-
-.ImgQrPoliticas {
-    margin: 0 auto;
-    max-width: 44%;
-    max-height: 44%;
-}
-
-
-
-.file-button i {
+.btnCED i {
     margin-right: 5px;
 }
 
 /* Estilo para cuando el usuario pasa el ratón sobre el botón */
-.file-label:hover .file-button {
+.file-label:hover .btnCED {
     background-color: #b2ebf2;
 }
+
+/*  */
+#buttoncell{
+    padding: 15px
+}
+
+/* Layout properties of the create, return and detail buttons. */
+.btnDCR {
+    margin-top: 20px;
+    padding: 10px;
+    text-decoration: none;
+    outline: none;
+    color: #00324D;
+    border: 2px solid #82DEF0;
+    cursor: pointer;
+    border-radius: 35px;
+   
+    justify-items: center;
+    position: relative;
+
+}
+
+.iconDCR {
+    color: #642c78;
+}
+
+.btnDCR:hover{
+    background-color:#b2ebf2 ;
+}
+
+/* edit button layout properties */
+.btnEdit{
+    margin: 10px 0px;
+    padding: 10px;
+    text-decoration: none;
+    outline: none;
+    color:#00324D; 
+    border:2px solid #82DEF0;  
+    cursor: pointer;
+    border-radius: 35px; 
+    justify-content: center; 
+    justify-items: center; 
+    position: relative;
+}
+
+.iconEdit{
+    color: #39a900;
+}
+
+.btnEdit:hover{
+    background-color:#b2ebf2 ;
+}
+
 
 
 /* image */

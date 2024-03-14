@@ -30,20 +30,20 @@
                     @endif
 
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="table-responsive" style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                             <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
+                                <thead class="thead-dark">
+                                    <tr style="border-width: 2px">
+                                        <th  scope="col">No</th>
                                         
-										<th>Id Solicitudes</th>
-										<th>Id Datos Unicos Por Solicitudes</th>
-										<th>Dato</th>
+										<th scope="col">Id Solicitudes</th>
+										<th scope="col">Id Datos Unicos Por Solicitudes</th>
+										<th scope="col">Dato</th>
 
-                                        <th></th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="alldata">
                                     @foreach ($datosPorSolicituds as $datosPorSolicitud)
                                         <tr>
                                             <td>{{ ++$i }}</td>
@@ -52,22 +52,18 @@
 											<td>{{ $datosPorSolicitud->id_datos_unicos_por_solicitudes }}</td>
 											<td>{{ $datosPorSolicitud->dato }}</td>
 
-                                            <td> 
+                                            <td id="buttoncell"> 
                                            
-                                                <a href="{{ route('datos-por-solicituds.show',$datosPorSolicitud->id) }}" class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                <a href="{{ route('datos-por-solicituds.show',$datosPorSolicitud->id) }}" class="btnDCR"
+                                                    >
                                                     {{ __('Detalle') }}
-                                                    <i class="fa-sharp fa-solid fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
+                                                    <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR" ></i>
                                                 </a>
                                                 
-                                                <a href="{{ route('datos-por-solicituds.edit',$datosPorSolicitud->id) }}" class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                <a href="{{ route('datos-por-solicituds.edit',$datosPorSolicitud->id) }}" class="btnEdit"
+                                                    >
                                                     {{ __('Editar') }}
-                                                    <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                                    <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
                                                 </a>
                                             
                                             

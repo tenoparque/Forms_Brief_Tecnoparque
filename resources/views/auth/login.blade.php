@@ -51,7 +51,7 @@
 
         .btn-primary:hover {
             opacity: 80%;
-            background-color: {{$colorTerciario}};
+            background-color: {{$colorSecundario}};
             
         }
 
