@@ -22,6 +22,16 @@
                         </select>
                     </div>
                     <div id="btnEnviarSolicitud">
+                        <div class="form-group col-md-4 my-3">
+                            <label >CATEGORIAS DE EVENTOS ESPECIAl</label>
+                            <select 
+                                class="form-control selectpicker" data-style="btn-primary"
+                                title="Seleccionar la Categoria Del Evento Especial" required>
+                                @foreach ($categoriaEventos as $eventos)
+                                    <option value="{{ $eventos->id }}">{{ $eventos->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group my-2">
                             <h5>Servicios</h5>
                             <div id="servicesComboBoxContainer" class="row">
