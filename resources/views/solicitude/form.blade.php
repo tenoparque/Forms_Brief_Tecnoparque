@@ -206,7 +206,23 @@
 </script>
 
 
+<script>
+    $(document).ready(function() {
+        // Función para verificar la selección del combobox
+        $('#id_tipos_de_solicitudes').change(function() {
+            var selectedOption = $(this).val(); // Obtener el valor seleccionado
 
+            // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
+            if (selectedOption !== '') {
+                // Mostrar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').show();
+            } else {
+                // Ocultar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').hide();
+            }
+        });
+    });
+</script>
 
 
 <style>
