@@ -220,10 +220,12 @@ a.sidebar-link:hover {
 .index-user {
     background-color: blue;
 }
+
 /* ---------------tablas--------------- */
-table th{
+table th {
     text-align: center;
 }
+
 /* --------------- solicitudes ---------------------- */
 
 .InputText {
@@ -336,9 +338,10 @@ table th{
 
 /* Input : forma de boton */
 
-.file{
+.file {
     display: inline-block;
 }
+
 .file-label {
     margin-top: 1%;
     position: relative;
@@ -366,64 +369,68 @@ table th{
 
 }
 
+/* QR*/
+.imgQr {
+    display: flex;
+    
+}
+
+.ImgQrPoliticas {
+    margin: 0 auto;
+    max-width: 44%;
+    max-height: 44%;
+}
+
 
 
 .file-button i {
     margin-right: 5px;
 }
 
-/* Opcional: Estilo para cuando el usuario pasa el ratón sobre el botón */
+/* Estilo para cuando el usuario pasa el ratón sobre el botón */
 .file-label:hover .file-button {
     background-color: #b2ebf2;
 }
 
 
 /* image */
-#qrImage{
-    max-width: 44%; 
-    max-height:44%; 
+#qrImage {
+    max-width: 44%;
+    max-height: 44%;
     margin: 10px;
-      
+
 }
-#imageUrl{
+
+#imageUrl {
     display: inline-block;
     margin-left: 8px;
 }
 
 
-/* ---------------personalizacion------------ */
-.logoPersonalizacion{
-    display:flex;
-    margin:0 auto;
+/* ---------------------personalizacion--------------------- */
+.logoPersonalizacion {
+    display: flex;
 }
-.ImgCeldaPesonalizacion{
+
+.ImgCeldaPesonalizacion {
     margin: 0 auto;
-    max-width: 44%; 
-    max-height:44%;
+    max-width: 44%;
+    max-height: 44%;
 }
-.PersonalizacionColor{
+
+.PersonalizacionColor {
     display: grid;
     text-align: center;
 }
 
 
-.ChildrenPersonalizacion{
-    justify-self:center;
-    align-self:center;
+.ChildrenPersonalizacion {
+    justify-self: center;
+    align-self: center;
 }
 
-.ImgCeldaPesonalizacion{
-    
-    max-width: 44%; 
-    max-height:44%;
-}
-
-#logoImage{
-    max-width: 44%; 
-    max-height:44%; 
+#logoImage {
+    max-width: 44%;
+    max-height: 44%;
     margin: 10px;
 }
-
-
-
-

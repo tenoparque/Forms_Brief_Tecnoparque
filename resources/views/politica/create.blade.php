@@ -7,7 +7,7 @@
 @section('content')
 
 
-    <section class="container shadow b-lighted mt-5 p-4 rounded">
+    <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="row">
             <div class="col-md-12">
 
