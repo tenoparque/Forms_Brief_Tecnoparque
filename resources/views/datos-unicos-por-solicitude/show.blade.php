@@ -7,9 +7,9 @@
 @section('content')
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
-            <div class="col-sm-12">
+            <div class="col-md-12">
                 <div class="">
-                    <div class="card-header">
+                    <div class="">
                         <div class="float-left">
                             <div class="d-flex mt-3 mb-2">
                                 <div>

@@ -41,6 +41,7 @@
                                 </thead>
                                 <tbody class="alldata">
                                     <tr>
+                                        
                                         <td><img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}" alt="LOGO" width="150px"></td>
                                         <td>{{ $personalizacione->color_principal }}</td>
                                         <td>{{ $personalizacione->color_secundario }}</td>
