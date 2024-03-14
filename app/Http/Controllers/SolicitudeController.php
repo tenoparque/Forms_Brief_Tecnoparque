@@ -92,6 +92,27 @@ class SolicitudeController extends Controller
         ]);
     }
 
+    
+    /**
+     * Process the selected ID from the dropdown.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function eventosAsociados(Request $request)
+    {
+        $idCategoriaSeleccionada = $request->input('tipo_solicitud_id');
+
+        // Obtener los datos únicos por solicitud asociados al tipo de solicitud seleccionado
+        $eventos = EventosEspecialesPorCategoria::where('id_eventos_especiales', $idCategoriaSeleccionada)->get();
+    
+        // Devolver los datos en formato JSON
+        return response()->json([
+            'eventos' => $eventos
+        ]);
+    }
+
+
 
     /**
      * Store a newly created resource in storage.
