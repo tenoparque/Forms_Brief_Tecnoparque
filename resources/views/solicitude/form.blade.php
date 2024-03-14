@@ -77,8 +77,9 @@
                                     </div>
                                 </div>
                             </div>
-    
-    
+                            
+                            <input type="hidden" id="tipo_solicitud_id" name="tipo_solicitud_id">
+
                         </div>
                         <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
                             <button type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
@@ -201,6 +202,7 @@
         });
     });
 </script>
+
 
 <style>
     #btnEnviarSolicitud {
