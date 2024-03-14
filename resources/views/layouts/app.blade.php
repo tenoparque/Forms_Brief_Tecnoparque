@@ -88,11 +88,32 @@
                     </li>
                     <hr class="hrmenu">
                     <li class="sidebar-item">
-                        <a href="/solicitudes" class="sidebar-link  has-dropdown collapsed"
-                            style="text-decoration: none">
-                            <i class="lni lni-popup"></i>
-                            <span>Solicitud</span>
-                        </a>
+                        <details class="sidebar-item">
+                            <summary class="sidebar-link has-dropdown collapsed" style="text-decoration: none; display: list-item;">
+                                <i class="lni lni-popup"></i>
+                                <span>Solicitud</span>
+                            </summary>
+                            <ul>
+                                <li>
+                                    <a href="/solicitudes" class="sidebar-link" style="text-decoration: none">
+                                        <i class="lni lni-user"></i>
+                                        <span>Solicitudes</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/servicios-por-tipos-de-solicitudes" class="sidebar-link" style="text-decoration: none">
+                                        <i class="lni lni-user"></i>
+                                        <span>Servicios x Tipo de Solicitud</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/tipos-de-solicitudes" class="sidebar-link" style="text-decoration: none">
+                                        <i class="lni lni-user"></i>
+                                        <span>Tipos de Solicitud</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
                     </li>
                     <hr class="hrmenu">
                     <li class="sidebar-item">
