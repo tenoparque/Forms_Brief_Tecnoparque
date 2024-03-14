@@ -38,7 +38,8 @@
         @endif
 
         @if (Route::currentRouteName() === 'servicios-por-tipos-de-solicitudes.edit')
-            <div class="form-group">
+            <div class="form-group row">
+                <div class="col-6">
                 <label style="font-size: 18px; font-weight: bold;margin-left: 35px;" for="id_tipo_de_solicitud">Tipo de
                     Solicitud</label>
                 <div style="position: relative;">
@@ -65,7 +66,7 @@
         @endif
 
         @if (Route::currentRouteName() === 'servicios-por-tipos-de-solicitudes.edit')
-            <div class="form-group">
+        <div class="col-6">
                 <label style="font-size: 18px; font-weight: bold;margin-left: 35px;" for="id_estado">Estado</label>
                 <div style="position: relative;">
                     <select
