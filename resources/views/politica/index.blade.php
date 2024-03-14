@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="container shadow p-2 my-5 bg-light rounded">
+    <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -17,7 +17,7 @@
                                 <div class="d-flex mt-3 mb-4">
                                     <div>
                                         <h1 class="primeraPalabraFlex"
-                                            style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">
+                                            style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)">
                                             {{ __('POLÍTICAS') }}</h1>
                                     </div>
 
