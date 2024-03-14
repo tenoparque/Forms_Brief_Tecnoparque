@@ -64,25 +64,26 @@
                                                     alt="LOGO" width="150px"></td>
                                             </td>
                                             <td>
-                                                <div>
-                                                    <div
-                                                        style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_principal }}; margin-right: 10px;">
+                                                <div class="PersonalizacionColor" >
+                                                    <div class="ChildrenPersonalizacion"
+                                                        style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_principal }}; ">
                                                     </div>
                                                     {{ $personalizacione->color_principal }}
                                                 </div>
                                             </td>
-                                            <td style="">
-                                                <div style="display: inline-block; align-items: center; justify-content: center;">
-                                                    <div
-                                                        style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_secundario }}; margin-right: 10px;">
+                                            <td >
+                                                <div class="PersonalizacionColor">
+                                                    <div class="ChildrenPersonalizacion"
+                                                        style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_secundario }}; ">
                                                     </div>
                                                     {{ $personalizacione->color_secundario }}
                                                 </div>
                                             </td>
                                             <td>
-                                                <div >
-                                                    <div
-                                                        style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_terciario }}; margin-right: 10px;">
+                                                <div class="PersonalizacionColor" >
+                                                    <div class="ChildrenPersonalizacion"
+
+                                                        style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_terciario }}; ">
                                                     </div>
                                                     {{ $personalizacione->color_terciario }}
                                                 </div>

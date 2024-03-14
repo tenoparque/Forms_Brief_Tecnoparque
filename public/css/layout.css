@@ -389,6 +389,18 @@ a.sidebar-link:hover {
 }
 
 
+/* ---------------personalizacion------------ */
+.PersonalizacionColor{
+    display: grid;
+    text-align: center;
+}
+
+
+.ChildrenPersonalizacion{
+    justify-self:center;
+    align-self:center;
+}
+
 
 
 
