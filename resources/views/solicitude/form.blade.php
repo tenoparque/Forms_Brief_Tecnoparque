@@ -131,7 +131,7 @@
                                 '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
-                                '" class="form-control  InputText" placeholder="" min="' + getTodayDate() + '"></div>';
+                                '" class="form-control  InputText" placeholder="" min="' + getTodayDatePlus10Days() + '"></div>';
                         } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
                             datosUnicosTextboxes +=
                                 '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
@@ -164,21 +164,23 @@
     });
 
     // Función para obtener la fecha actual en el formato YYYY-MM-DD
-    function getTodayDate() {
-        var today = new Date();
-        var day = today.getDate();
-        var month = today.getMonth() + 1; // Los meses comienzan desde 0
-        var year = today.getFullYear();
+    function getTodayDatePlus10Days() {
+    var today = new Date();
+    today.setDate(today.getDate() + 10); // Suma 10 días a la fecha actual
+    var day = today.getDate();
+    var month = today.getMonth() + 1; // Los meses comienzan desde 0
+    var year = today.getFullYear();
 
-        if (day < 10) {
-            day = '0' + day;
-        }
-        if (month < 10) {
-            month = '0' + month;
-        }
-
-        return year + '-' + month + '-' + day;
+    if (day < 10) {
+        day = '0' + day;
     }
+    if (month < 10) {
+        month = '0' + month;
+    }
+
+    return year + '-' + month + '-' + day;
+}
+
 </script>
 
 
