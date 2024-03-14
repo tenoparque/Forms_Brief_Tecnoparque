@@ -49,7 +49,7 @@
 										<th>Fecha Y Hora</th>
                                         <th>nodo</th>
 										<th>Usuario</th>
-										<th>Eventos Especiales</th>
+										<th>Eventos</th>
 										<th>Estado</th>
                                         <th>Opciones</th>
                                     </tr>
@@ -76,7 +76,7 @@
                                             </a>
                                             
                                             <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btn btn-outline"
-                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; margin-left: 5px; margin-right: 5px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                 onmouseover="this.style.backgroundColor='#b2ebf2';"
                                                 onmouseout="this.style.backgroundColor='#FFFF';">
                                                 {{ __('Modificar') }}
@@ -84,7 +84,7 @@
                                             </a>
 
                                             <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btn btn-outline"
-                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                 onmouseover="this.style.backgroundColor='#b2ebf2';"
                                                 onmouseout="this.style.backgroundColor='#FFFF';">
                                                 {{ __('Duplicar') }}
