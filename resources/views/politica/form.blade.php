@@ -31,7 +31,9 @@
             {{ Form::text('titulo', $politica->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo', 'style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('titulo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group inputSelectImage">
+
+        <div class="col-md-6">
+        <div class="form-group inputSelectImage" style="margin-top: 30px">
             <div class="file">
                 {{ Form::label('', '', ['class' => 'labelFile', 'style' => 'font-size: 18px; font-weight: bold', 'for' => 'qr']) }}
                 <label for="qr" class="file-label">
