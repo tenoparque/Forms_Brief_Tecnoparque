@@ -89,7 +89,7 @@ h1 {
 
 
 
-#sidebar.expand {
+#sidebar:not(.expand) {
     width: 260px;
     min-width: 260px;
 }
@@ -109,10 +109,10 @@ h1 {
 }
 
 
-#sidebar:not(.expand) .img-perfil,
-#sidebar:not(.expand) a.sidebar-link span,
-#sidebar:not(.expand) .textbrief,
-#sidebar:not(.expand) .textbriefsol {
+#sidebar.expand .img-perfil,
+#sidebar.expand a.sidebar-link span,
+#sidebar.expand .textbrief,
+#sidebar.expand .textbriefsol {
     display: none;
 }
 
