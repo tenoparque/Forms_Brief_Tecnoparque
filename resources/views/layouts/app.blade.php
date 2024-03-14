@@ -43,6 +43,8 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
@@ -52,6 +54,14 @@
 </head>
 
 <body>
+    
+    <style>
+        /* Agrega estilos CSS para la clase "active" */
+        .sidebar-nav .sidebar-item .sidebar-link.active-link {
+    color: yellow;
+}
+
+    </style>
 
     <div class="wrapper">
         @if (Route::currentRouteName() !== 'login')
@@ -71,7 +81,7 @@
                     </li>
                     <hr class="hrmenu">
                     <li class="sidebar-item">
-                        <a href="/roles" class="sidebar-link" style="text-decoration: none">
+                        <a href="/roles" class="sidebar-link " style="text-decoration: none">
                             <i class="lni lni-user"></i>
                             <span>Rol</span>
                         </a>
@@ -127,6 +137,8 @@
                     <img class="flecha" src="/images/recursos/flecha.png"></img>
                 </button>
             </div>
+
+            
         @endif
 
         <div class="main">
@@ -261,3 +273,4 @@
 </style>
 
 </html>
+

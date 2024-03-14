@@ -36,4 +36,23 @@ $(document).ready(function() {
         }
     });
 });
+ /*color del sidebar al hacer click sobre una opcion*/ 
+
+$(".sidebar-nav .sidebar-item .sidebar-link").click(function() {
+    // Guarda el href del enlace en localStorage
+    localStorage.setItem('activeLink', $(this).attr('href'));
+});
+
+// Cuando la página se carga
+$(document).ready(function() {
+    // Obtiene el href del enlace activo de localStorage
+    var activeLink = localStorage.getItem('activeLink');
+
+    // Si hay un enlace activo guardado
+    if(activeLink) {
+        // Agrega la clase 'active-link' al enlace activo
+        $('a[href="' + activeLink + '"]').addClass('active-link');
+    }
+});
+
 
