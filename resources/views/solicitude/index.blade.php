@@ -47,8 +47,8 @@
                                         
 										<th>Tipo De Solicitud</th>
 										<th>Fecha Y Hora De La Solicitud</th>
-										<th>Usuario Que Realiza La Solicitud</th>
-										<th>Eventos Especiales Por Categorias</th>
+										<th>Usuario</th>
+										<th>Eventos Especiales</th>
 										<th>Estado De La Solicitud</th>
                                         <th>Opciones</th>
                                     </tr>
@@ -74,11 +74,19 @@
                                             </a>
                                             
                                             <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btn btn-outline"
-                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; margin-left: 10px; margin-right: 10px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                 onmouseover="this.style.backgroundColor='#b2ebf2';"
                                                 onmouseout="this.style.backgroundColor='#FFFF';">
-                                                {{ __('Editar') }}
+                                                {{ __('Modificar') }}
                                                 <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                            </a>
+
+                                            <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btn btn-outline"
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';">
+                                                {{ __('Duplicar') }}
+                                                <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                             </a>
                                             </td>
                                         </tr>
