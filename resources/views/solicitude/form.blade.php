@@ -27,15 +27,17 @@
 
                     <div id="btnEnviarSolicitud">
                         <div class="form-group col-md-4 my-3">
-                            <label >CATEGORIAS DE EVENTOS ESPECIAl</label>
-                            <select 
-                                class="form-control selectpicker" data-style="btn-primary"
-                                title="Seleccionar la Categoria Del Evento Especial" required>
+                            <label>CATEGORIAS DE EVENTOS ESPECIALES</label>
+                            <select class="form-control selectpicker" data-style="btn-primary" title="Seleccionar la Categoria Del Evento Especial" required>
+                                <option value="">No aplica</option> <!-- Opción "No aplica" -->
                                 @foreach ($categoriaEventos as $eventos)
-                                    <option value="{{ $eventos->id }}">{{ $eventos->nombre }}</option>
+                                    @if ($eventos->nombre != "No aplica") <!-- Evita duplicados -->
+                                        <option value="{{ $eventos->id }}">{{ $eventos->nombre }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
+                        
                         <div class="form-group my-2">
                             <h5>Servicios</h5>
                             <div id="servicesComboBoxContainer" class="row">
