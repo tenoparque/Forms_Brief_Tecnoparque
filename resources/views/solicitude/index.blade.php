@@ -101,7 +101,7 @@
                             </table>
                         </div>
                     </div>
-                    <title>Calendario con Días Excluidos</title>
+                    {{-- <title>Calendario con Días Excluidos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -155,7 +155,7 @@ for ($mes = 1; $mes <= 12; $mes++) {
     echo '</div>';
 }
 ?>
-</body>
+</body> --}}
                 </div>
                 {!! $solicitudes->links() !!}
             </div>
