@@ -46,10 +46,11 @@
                                         <th>No</th>
                                         
 										<th>Tipo De Solicitud</th>
-										<th>Fecha Y Hora De La Solicitud</th>
-										<th>Usuario Que Realiza La Solicitud</th>
-										<th>Eventos Especiales Por Categorias</th>
-										<th>Estado De La Solicitud</th>
+										<th>Fecha Y Hora</th>
+                                        <th>nodo</th>
+										<th>Usuario</th>
+										<th>Eventos</th>
+										<th>Estado</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -58,11 +59,12 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $solicitude->id_tipos_de_solicitudes }}</td>
+											<td>{{ $solicitude->tiposdesolicitude->nombre }}</td>
 											<td>{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
-											<td>{{ $solicitude->id_usuario_que_realiza_la_solicitud }}</td>
-											<td>{{ $solicitude->id_eventos_especiales_por_categorias }}</td>
-											<td>{{ $solicitude->id_estado_de_la_solicitud }}</td>
+                                            <td>{{ $solicitude->user->nodo->nombre }}</td>
+											<td>{{ $solicitude->user->name }}</td>
+											<td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+											<td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
 
                                             <td>
                                             <a href="{{ route('solicitudes.show',$solicitude->id) }}" class="btn btn-outline"
@@ -74,11 +76,19 @@
                                             </a>
                                             
                                             <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btn btn-outline"
-                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                 onmouseover="this.style.backgroundColor='#b2ebf2';"
                                                 onmouseout="this.style.backgroundColor='#FFFF';">
-                                                {{ __('Editar') }}
+                                                {{ __('Modificar') }}
                                                 <i class="fa-solid fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                                            </a>
+
+                                            <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btn btn-outline"
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';">
+                                                {{ __('Duplicar') }}
+                                                <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                             </a>
                                             </td>
                                         </tr>
@@ -91,7 +101,7 @@
                             </table>
                         </div>
                     </div>
-                    <title>Calendario con Días Excluidos</title>
+                    {{-- <title>Calendario con Días Excluidos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -145,7 +155,7 @@ for ($mes = 1; $mes <= 12; $mes++) {
     echo '</div>';
 }
 ?>
-</body>
+</body> --}}
                 </div>
                 {!! $solicitudes->links() !!}
             </div>

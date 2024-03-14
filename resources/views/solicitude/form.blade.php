@@ -10,8 +10,9 @@
             <div class="">
                 <form id="solicitudForm " class="formBrief">
 
+                    <br>
                     <div class="form-group col-md-4 my-3">
-                        <label for="id_tipos_de_solicitudes">Tipo de Solicitud</label>
+                        <h5 for="id_tipos_de_solicitudes">Tipo de Solicitud</h5>
                         <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
                             class="form-control selectpicker" data-style="btn-primary"
                             title="Seleccionar un Tipo de Solicitud" required>
@@ -21,7 +22,20 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <br>
+
                     <div id="btnEnviarSolicitud">
+                        <div class="form-group col-md-4 my-3">
+                            <label >CATEGORIAS DE EVENTOS ESPECIAl</label>
+                            <select 
+                                class="form-control selectpicker" data-style="btn-primary"
+                                title="Seleccionar la Categoria Del Evento Especial" required>
+                                @foreach ($categoriaEventos as $eventos)
+                                    <option value="{{ $eventos->id }}">{{ $eventos->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group my-2">
                             <h5>Servicios</h5>
                             <div id="servicesComboBoxContainer" class="row">
@@ -29,6 +43,8 @@
                             </div>
                         </div>
     
+                        <br>
+                        
                         <div class=" form-group my-2">
                             <h5>Datos Únicos por Solicitud</h5>
                             <div id="datosUnicosComboBoxContainer" class="row">
@@ -36,6 +52,9 @@
                                 <!-- Los textboxes se llenarán dinámicamente aquí -->
                             </div>
                             {{-- boton para abrir el modal --}}
+
+                            <br>
+
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#qrModal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-qr-code" viewBox="0 0 16 16">
@@ -77,8 +96,9 @@
                                     </div>
                                 </div>
                             </div>
-    
-    
+                            
+                            <input type="hidden" id="tipo_solicitud_id" name="tipo_solicitud_id">
+
                         </div>
                         <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
                             <button type="submit" class="btn btn-outline btnEnviar my-4">Enviar Solicitud <i
@@ -201,6 +221,7 @@
         });
     });
 </script>
+
 
 <style>
     #btnEnviarSolicitud {

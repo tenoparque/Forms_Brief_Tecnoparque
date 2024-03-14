@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriasEventosEspeciale;
 use App\Models\DatosUnicosPorSolicitude;
 use App\Models\Estado;
 use App\Models\EstadosDeLasSolictude;
@@ -13,6 +14,8 @@ use App\Models\ServiciosPorTiposDeSolicitude; // Añade la importación de la cl
 use Illuminate\Http\Request;
 use App\Models\Politica;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use App\Models\HistorialDeModificacionesPorSolicitude;
@@ -58,10 +61,11 @@ class SolicitudeController extends Controller
         $fechasFestivas = $this->mostrarFechasFestivas();
         $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
+        $categoriaEventos = CategoriasEventosEspeciale::all();
          // Recuperar el registro de la Politica con id_estado = 1
          $politicas = Politica::where('id_estado', 1)->first();
 
-        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'politicas','currentTime', 'disabledDates'));
+        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'politicas','currentTime', 'disabledDates', 'categoriaEventos'));
     }
 
     /**
@@ -97,14 +101,33 @@ class SolicitudeController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Solicitude::$rules);
-
-        $solicitude = Solicitude::create($request->all());
-
+        // Obtener el ID del usuario autenticado
+        $userId = Auth::id();
+        $currentTime = $this->getCurrentTimeInBogota();
+        // Obtener la fecha y hora actual del sistema
+        
+    
+        // Combinar los datos de la solicitud con los valores predeterminados
+        $data = array_merge($request->all(), [
+            'id_usuario_que_realiza_la_solicitud' => $userId,
+            'id_eventos_especiales_por_categorias' => 1,
+            'id_estado_de_la_solicitud' => 1,
+            'fecha_y_hora_de_la_solicitud' => $currentTime,
+        ]);
+    
+        // Validar los datos del formulario
+        $request->validate([
+            // Aquí coloca las reglas de validación según los campos de la solicitud
+        ]);
+    
+        // Crear la solicitud con los datos combinados
+        $solicitude = Solicitude::create($data);
+    
+        // Redireccionar con un mensaje de éxito
         return redirect()->route('solicitudes.index')
-            ->with('success', 'Solicitude created successfully.');
+            ->with('success', 'Solicitud creada exitosamente.');
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -220,16 +243,15 @@ public function getCurrentTimeInBogota()
         $dateTime = $response['dateTime'];
         $dateTimeParts = explode('T', $dateTime); // Separar la fecha y la hora
 
-        return [
-            'date' => $dateTimeParts[0], // Obtener la fecha
-            'time' => substr($dateTimeParts[1], 0, 8), // Obtener la hora
-        ];
+        // Formatear la fecha y la hora en el formato de MySQL (YYYY-MM-DD HH:MM:SS)
+        $formattedDateTime = $dateTimeParts[0] . ' ' . substr($dateTimeParts[1], 0, 8);
+
+        return $formattedDateTime;
     } else {
         return null;
-
-        
     }
 }
+
 
     /**
  * Obtiene la hora actual en la zona horaria de Bogotá.

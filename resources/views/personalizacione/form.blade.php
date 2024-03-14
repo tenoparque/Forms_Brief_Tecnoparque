@@ -47,19 +47,19 @@
         <div class="d-flex" style="margin-top: 2%; margin-bottom: 2%">
             <label style="font-size: 18px; font-weight: bold; margin-left: 35px;margin-right: 15px; ">Color
                 principal</label>
-            <input id="color-picker-principal" name="color_principal"
+            <input style="border-color: #ececec; background-color:  #ececec; height: 38px;" id="color-picker-principal" name="color_principal"
                 value="{{ $personalizacione->color_principal }}" />
 
             <!-- Input para el color picker -->
             <label style="font-size: 18px; font-weight: bold; margin-left: 35px;margin-right: 15px;">Color
                 Secundario</label>
-            <input id="color-picker-secundario" name="color_secundario"
+            <input style="border-color: #ececec; background-color:  #ececec; height: 38px;"  id="color-picker-secundario" name="color_secundario"
                 value="{{ $personalizacione->color_secundario }}" />
 
             <!-- Input para el color picker -->
             <label style="font-size: 18px; font-weight: bold; margin-right: 15px; margin-left: 35px;">Color
                 Terciario</label>
-            <input id="color-picker-terciario" name="color_terciario"
+            <input style="border-color: #ececec; background-color:  #ececec; height: 38px;" id="color-picker-terciario" name="color_terciario"
                 value="{{ $personalizacione->color_terciario }}" />
 
         </div>
