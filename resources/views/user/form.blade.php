@@ -7,7 +7,7 @@
                 {{ Form::label('nombres', null, ['style' => 'font-size: 16px;  color:black']) }}
                 {{ Form::text('name', $user->name, [
                     'class' => 'form-control ' . ($errors->has('name') ? ' is-invalid' : ''),
-                    'placeholder' => 'Nombre',
+                    'placeholder' => 'Nombres',
                     'style' =>
                         'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px',
                 ]) }}
