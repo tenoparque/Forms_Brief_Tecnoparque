@@ -106,9 +106,8 @@
                     <li class="sidebar-item">
                         <a href="tipos-de-datos" class="sidebar-link" style="text-decoration: none">
                             <i class="lni lni-popup"></i>
-                            <span class="txtTip">Tipo Campo</span>
-                            <br>
-                            <span class="txtSoli">x Solicitud</span>
+                            <span class="txtTip">Tipo de Datos</span>
+                            
                         </a>
                     </li>
                     <hr class="hrmenu">
