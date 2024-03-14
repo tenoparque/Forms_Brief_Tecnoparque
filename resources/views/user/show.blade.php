@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
             <div class="col-sm-12">
@@ -29,24 +28,24 @@
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
-                                        <th>Nombre</th>
-                                        <th>correo</th>
-                                        <th>Celular</th>
+                                        <th>Nombres</th>
                                         <th>Apellidos</th>
+                                        <th>Correo</th>
+                                        <th>Celular</th>
                                         <th>Nodo</th>
-                                        <th>Estado</th>
                                         <th>Rol</th>
+                                        <th>Estado</th>
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
                                     <tr>
                                         <td>{{ $user->name }}</td>
+                                        <td>{{ $user->apellidos }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->celular }}</td>
-                                        <td>{{ $user->apellidos }}</td>
                                         <td>{{ $user->nodo->nombre }}</td>
-                                        <td>{{ $user->estado->nombre }}</td>
                                         <td>{{ $user->roles->first()->name }}</td>
+                                        <td>{{ $user->estado->nombre }}</td>
                                     </tr>
                                 </tbody>
                                 <!-- Another tbody is created for the search records -->
@@ -65,7 +64,7 @@
                     <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
                 </a>
             </div>
-            
+
         </div>
     </section>
 @endsection
