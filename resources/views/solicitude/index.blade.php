@@ -46,10 +46,11 @@
                                         <th>No</th>
                                         
 										<th>Tipo De Solicitud</th>
-										<th>Fecha Y Hora De La Solicitud</th>
+										<th>Fecha Y Hora</th>
+                                        <th>nodo</th>
 										<th>Usuario</th>
 										<th>Eventos Especiales</th>
-										<th>Estado De La Solicitud</th>
+										<th>Estado</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -58,11 +59,12 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $solicitude->id_tipos_de_solicitudes }}</td>
+											<td>{{ $solicitude->tiposdesolicitude->nombre }}</td>
 											<td>{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
-											<td>{{ $solicitude->id_usuario_que_realiza_la_solicitud }}</td>
-											<td>{{ $solicitude->id_eventos_especiales_por_categorias }}</td>
-											<td>{{ $solicitude->id_estado_de_la_solicitud }}</td>
+                                            <td>{{ $solicitude->user->nodo->nombre }}</td>
+											<td>{{ $solicitude->user->name }}</td>
+											<td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+											<td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
 
                                             <td>
                                             <a href="{{ route('solicitudes.show',$solicitude->id) }}" class="btn btn-outline"
