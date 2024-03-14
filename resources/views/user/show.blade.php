@@ -30,7 +30,7 @@
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
                                         <th>Nombre</th>
-                                        <th>Email</th>
+                                        <th>correo</th>
                                         <th>Celular</th>
                                         <th>Apellidos</th>
                                         <th>Nodo</th>
