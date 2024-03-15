@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoriasEventosEspeciale;
+use App\Models\DatosPorSolicitud;
 use App\Models\DatosUnicosPorSolicitude;
 use App\Models\ElementosPorSolicitude;
 use App\Models\Estado;
@@ -154,6 +155,20 @@ class SolicitudeController extends Controller
                 // Otros campos que puedas necesitar
             ]);
         }
+
+        // foreach ($request->all() as $key => $value) {
+        //     if (Str::startsWith($key, 'datos_unicos_por_solicitud_')) {
+        //         // Obtener el ID del subservicio del nombre del campo
+        //         $subservicioId = str_replace('datos_unicos_por_solicitud_', '', $key);
+                
+        //         DatosPorSolicitud::create([
+        //             'id_solicitudes' => $solicitud->id,
+        //             'id_subservicio' => $subservicioId,
+        //             'dato' => $value
+        //         ]);
+        //     }
+        // }
+        
 
         
     

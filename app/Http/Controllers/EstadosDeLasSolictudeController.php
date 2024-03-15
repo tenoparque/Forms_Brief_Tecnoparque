@@ -59,8 +59,9 @@ class EstadosDeLasSolictudeController extends Controller
     public function create()
     {
         $estadosDeLasSolictude = new EstadosDeLasSolictude();
+        $ultimoOrdenMostrado = EstadosDeLasSolictude::max('orden_mostrado');
         $estados = Estado::all(); // We obtain all Estados models from the database
-        return view('estados-de-las-solictude.create', compact('estadosDeLasSolictude')); // We pass the variables $estadosDeLasSolictude and $estados to the view
+        return view('estados-de-las-solictude.create', compact('estadosDeLasSolictude','ultimoOrdenMostrado')); // We pass the variables $estadosDeLasSolictude and $estados to the view
     }
 
     /**
