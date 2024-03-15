@@ -65,10 +65,6 @@
                     <i class="fa-solid fa-circle-play fa-flip-both iconDCR" ></i>
                 </a>
             </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 63a964a121b04a3e4648b8610d2d197fd13bd59f
         </div>
     </section>
 @endsection
