@@ -117,6 +117,9 @@ Route::get('/searchUser', [UserController::class, 'search']);
 
 Route::post('/solicitudes/eventos', [SolicitudeController::class, 'eventos'])->name('solicitudes.eventos');
 
+Route::post('/solicitudes/prueba', [SolicitudeController::class, 'prueba'])->name('solicitudes.prueba');
+
+
 
 
 

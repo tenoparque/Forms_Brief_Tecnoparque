@@ -260,6 +260,28 @@
         });
 
         $('#eventosComboBoxContainer').change(function() {
+            var selectedTypeId = $(this).val(); 
+            $.ajax({
+                url: '{{ route('solicitudes.prueba') }}',
+                type: 'POST',
+                data: {
+                    evento_id: selectedTypeId,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                $.each(response.salida, function(index, salida) {
+                        console.log(salida);
+                        console.log(typeof salida)
+                    });
+                },
+                error: function(xhr) {
+                    console.error(
+                        'Error al obtener los datos asociados al tipo de solicitud.');
+                }
+            });
+        });
+
+        $('#eventosComboBoxContainer').change(function() {
     var selectedEvent = $(this).val(); // Obtain the selected ID
     console.log('ID del evento:', selectedEvent);
 

@@ -102,8 +102,6 @@ class SolicitudeController extends Controller
     public function eventos(Request $request)
     {
         $evento = $request->input('tipo_evento_id');
-
-        
         $eventosAsociados = EventosEspecialesPorCategoria::where('id_eventos_especiales', $evento)->get();
 
 
@@ -113,6 +111,20 @@ class SolicitudeController extends Controller
            
         ]);
     }
+
+
+    public function prueba(Request $request)
+    {
+        $brandon = $request->input('evento_id');
+        $eventosAsociados = EventosEspecialesPorCategoria::where('id', $brandon)->pluck('id');
+        // Devolver los datos en formato JSON
+        return response()->json([
+            'salida' => $eventosAsociados
+           
+        ]);
+    }
+
+
 
     
     
@@ -130,13 +142,17 @@ class SolicitudeController extends Controller
         // Obtener el ID del usuario autenticado
         $userId = Auth::id();
         $currentTime = $this->getCurrentTimeInBogota();
+        $brandon = $request->input('respuesta');
+        
+        
+
         // Obtener la fecha y hora actual del sistema
         
     
         // Combinar los datos de la solicitud con los valores predeterminados
         $data = array_merge($request->all(), [
             'id_usuario_que_realiza_la_solicitud' => $userId,
-            'id_eventos_especiales_por_categorias' => 1,
+            'id_eventos_especiales_por_categorias' => $brandon,
             'id_estado_de_la_solicitud' => 1,
             'fecha_y_hora_de_la_solicitud' => $currentTime,
         ]);
