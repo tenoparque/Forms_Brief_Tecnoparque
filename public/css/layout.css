@@ -404,14 +404,13 @@ table th {
 /* Layout properties of the create, return and detail buttons. */
 .btnDCR {
     margin-top: 20px;
-    padding: 10px;
+    padding: 8px 15px;
     text-decoration: none;
     outline: none;
     color: #00324D;
     border: 2px solid #82DEF0;
     cursor: pointer;
     border-radius: 35px;
-   
     justify-items: center;
     position: relative;
 
@@ -427,8 +426,9 @@ table th {
 
 /* edit button layout properties */
 .btnEdit{
-    margin: 10px 0px;
-    padding: 10px;
+  
+    padding: 8px 20px;
+    margin-top: 20px;
     text-decoration: none;
     outline: none;
     color:#00324D; 

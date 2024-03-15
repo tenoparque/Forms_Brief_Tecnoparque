@@ -158,25 +158,25 @@
 
                         if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder="" min="' + getTodayDatePlus10Days() + '"></div>';
                         } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="url" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
                         } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="number" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
                         } else {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
