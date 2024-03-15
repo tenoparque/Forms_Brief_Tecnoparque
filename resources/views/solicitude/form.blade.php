@@ -250,7 +250,9 @@
             });
         });
         $('#id_categoria_evento').change(function() {
-            var selectedOption = $(this).val(); // Obtener el valor seleccionado
+        var selectedOption = $(this).val(); // Obtener el valor seleccionado
+        console.log('ID de la categoria seleccionado:', selectedOption);
+
         });
 
 </script>
