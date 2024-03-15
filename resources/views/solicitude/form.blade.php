@@ -111,6 +111,7 @@
                             </div>
                             
                             <input type="hidden" id="tipo_solicitud_id" name="tipo_solicitud_id">
+                            <input type="hidden" id="id_evento_especial" name="id_evento_especial">
 
                         </div>
                         <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
@@ -233,7 +234,7 @@
         $('#id_categoria_evento').change(function() {
             var selectedTypeId = $(this).val(); 
             $.ajax({
-                url: '{{ route('solicitude.eventos') }}',
+                url: '{{ route('solicitudes.eventos') }}',
                 type: 'POST',
                 data: {
                     tipo_evento_id: selectedTypeId,
@@ -261,13 +262,10 @@
 
         $('#eventosComboBoxContainer').change(function() {
     var selectedEvent = $(this).val(); // Obtain the selected ID
-    console.log('ID del evento:', selectedEvent);
+    $('#id_evento_especial').val(selectedEvent);
 
     
 });
-
-    
-
 
 </script>
 

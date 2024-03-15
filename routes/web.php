@@ -115,7 +115,10 @@ Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'pr
 Route::resource('users', UserController::class);
 Route::get('/searchUser', [UserController::class, 'search']);
 
-Route::post('/solicitude/eventos', [SolicitudeController::class, 'eventos'])->name('solicitude.eventos');
+Route::post('/solicitudes/eventos', [SolicitudeController::class, 'eventos'])->name('solicitudes.eventos');
+
+Route::post('/solicitudes/prueba', [SolicitudeController::class, 'prueba'])->name('solicitudes.prueba');
+
 
 
 

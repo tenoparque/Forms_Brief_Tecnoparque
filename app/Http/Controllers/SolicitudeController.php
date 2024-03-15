@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoriasEventosEspeciale;
 use App\Models\DatosUnicosPorSolicitude;
+use App\Models\ElementosPorSolicitude;
 use App\Models\Estado;
 use App\Models\EstadosDeLasSolictude;
 use App\Models\EventosEspecialesPorCategoria;
@@ -102,8 +103,6 @@ class SolicitudeController extends Controller
     public function eventos(Request $request)
     {
         $evento = $request->input('tipo_evento_id');
-
-        
         $eventosAsociados = EventosEspecialesPorCategoria::where('id_eventos_especiales', $evento)->get();
 
 
@@ -113,10 +112,6 @@ class SolicitudeController extends Controller
            
         ]);
     }
-
-    
-    
-
 
 
     /**
@@ -130,24 +125,38 @@ class SolicitudeController extends Controller
         // Obtener el ID del usuario autenticado
         $userId = Auth::id();
         $currentTime = $this->getCurrentTimeInBogota();
+        $idEventoEspecialPorCategoria = $request->input('id_evento_especial');
+        $serviciosSeleccionados = $request->input('servicios_por_tipo');
         // Obtener la fecha y hora actual del sistema
         
     
         // Combinar los datos de la solicitud con los valores predeterminados
         $data = array_merge($request->all(), [
             'id_usuario_que_realiza_la_solicitud' => $userId,
-            'id_eventos_especiales_por_categorias' => 1,
+            'id_eventos_especiales_por_categorias' => $idEventoEspecialPorCategoria,
             'id_estado_de_la_solicitud' => 1,
             'fecha_y_hora_de_la_solicitud' => $currentTime,
         ]);
     
-        // Validar los datos del formulario
-        $request->validate([
-            // Aquí coloca las reglas de validación según los campos de la solicitud
-        ]);
+        // Validar los datte([
+        //     // Aquí coloca las reglas de validación según los campos de la solicitud
+        // ]);os del formulario
+        // $request->valida
     
         // Crear la solicitud con los datos combinados
         $solicitude = Solicitude::create($data);
+
+        foreach ($serviciosSeleccionados as $servicioId) {
+            // Crear un registro en la tabla elementos_por_solicitud
+            $elementoPorSolicitud = ElementosPorSolicitude::create([
+                'id_solicitudes' => $solicitude->id,
+                'id_subservicios' => $servicioId,
+                // Otros campos que puedas necesitar
+            ]);
+        }
+
+        
+    
     
         // Redireccionar con un mensaje de éxito
         return redirect()->route('solicitudes.index')
