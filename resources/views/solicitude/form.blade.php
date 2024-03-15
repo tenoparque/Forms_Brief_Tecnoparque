@@ -111,6 +111,7 @@
                             </div>
                             
                             <input type="hidden" id="tipo_solicitud_id" name="tipo_solicitud_id">
+                            <input type="hidden" id="id_evento_especial" name="id_evento_especial">
 
                         </div>
                         <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
@@ -260,36 +261,11 @@
         });
 
         $('#eventosComboBoxContainer').change(function() {
-            var selectedTypeId = $(this).val(); 
-            $.ajax({
-                url: '{{ route('solicitudes.prueba') }}',
-                type: 'POST',
-                data: {
-                    evento_id: selectedTypeId,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                $.each(response.salida, function(index, salida) {
-                        console.log(salida);
-                        console.log(typeof salida)
-                    });
-                },
-                error: function(xhr) {
-                    console.error(
-                        'Error al obtener los datos asociados al tipo de solicitud.');
-                }
-            });
-        });
-
-        $('#eventosComboBoxContainer').change(function() {
     var selectedEvent = $(this).val(); // Obtain the selected ID
-    console.log('ID del evento:', selectedEvent);
+    $('#id_evento_especial').val(selectedEvent);
 
     
 });
-
-    
-
 
 </script>
 
