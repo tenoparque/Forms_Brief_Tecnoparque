@@ -233,7 +233,7 @@
         $('#id_categoria_evento').change(function() {
             var selectedTypeId = $(this).val(); 
             $.ajax({
-                url: '{{ route('solicitude.eventos') }}',
+                url: '{{ route('solicitudes.eventos') }}',
                 type: 'POST',
                 data: {
                     tipo_evento_id: selectedTypeId,
