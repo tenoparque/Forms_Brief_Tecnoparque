@@ -25,6 +25,7 @@ class EstadosDeLasSolictude extends Model
     static $rules = [
 		'nombre' => 'required',
         'id_estado' => 'required',
+        'orden_mostrado' => 'required', // Agrega las reglas de validación según lo necesites
     ];
 
     protected $perPage = 20;
@@ -34,8 +35,11 @@ class EstadosDeLasSolictude extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','id_estado'];
+    protected $fillable = ['nombre', 'id_estado', 'orden_mostrado']; // Agrega el nuevo campo al $fillable
 
+    protected $casts = [
+        'orden_mostrado' => 'integer', // O cambia el tipo de dato según sea necesario
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
