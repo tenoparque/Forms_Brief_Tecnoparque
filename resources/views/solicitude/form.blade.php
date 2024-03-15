@@ -8,7 +8,7 @@
                 
             </div>
             <div class="">
-                <form id="solicitudForm " class="formBrief">
+                <form id="solicitudForm" class="formBrief">
 
                     <br>
                         <div class="form-group col-md-4 my-3">
