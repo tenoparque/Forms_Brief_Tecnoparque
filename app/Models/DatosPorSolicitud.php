@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class DatosPorSolicitud extends Model
 {
+    protected $table = 'datos_por_solicitud'; // Nombre de la tabla
     
     static $rules = [
 		'id_solicitudes' => 'required',

@@ -156,20 +156,21 @@ class SolicitudeController extends Controller
             ]);
         }
 
-        // foreach ($request->all() as $key => $value) {
-        //     if (Str::startsWith($key, 'datos_unicos_por_solicitud_')) {
-        //         // Obtener el ID del subservicio del nombre del campo
-        //         $subservicioId = str_replace('datos_unicos_por_solicitud_', '', $key);
-                
-        //         DatosPorSolicitud::create([
-        //             'id_solicitudes' => $solicitud->id,
-        //             'id_subservicio' => $subservicioId,
-        //             'dato' => $value
-        //         ]);
-        //     }
-        // }
-        
-
+        foreach ($request->all() as $key => $value) {
+            if (strpos($key, 'datos_unicos_por_solicitud_') !== false) {
+                // Extraer el ID del subservicio del nombre del campo
+                $id_subservicio = substr($key, strlen('datos_unicos_por_solicitud_'));
+    
+                // Crear un nuevo registro en la tabla datos_por_solicitud
+                DatosPorSolicitud::create([
+                    'id_solicitudes' => $solicitude->id,
+                    'id_datos_unicos_por_solicitudes' => $id_subservicio,
+                    'dato' => $value
+                    
+                ]);
+            }
+        }
+    
         
     
     
