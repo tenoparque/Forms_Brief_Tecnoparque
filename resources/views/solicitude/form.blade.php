@@ -40,9 +40,12 @@
                         </div>
                         <div class="form-group my-2">
                             <h5>eventos</h5>
-                            <div id="eventosComboBoxContainer" class="row">
+                            <select name="eventosComboBoxContainer" id="eventosComboBoxContainer" 
+                            class="form-control selectpicker" data-style="btn-primary" title="Seleccionar la Categoria Del Evento Especial" required>
+                            
                                 <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
-                            </div>
+
+                            </select>
                         </div>
     
                         
@@ -158,25 +161,25 @@
 
                         if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder="" min="' + getTodayDatePlus10Days() + '"></div>';
                         } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="url" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
                         } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="number" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
                         } else {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-12 col-md-6"><label class="LabelText">' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
@@ -211,13 +214,8 @@
     return year + '-' + month + '-' + day;
 }
 
-</script>
-
-
-<script>
-    $(document).ready(function() {
-        // Función para verificar la selección del combobox
-        $('#id_tipos_de_solicitudes').change(function() {
+ // Función para verificar la selección del combobox
+ $('#id_tipos_de_solicitudes').change(function() {
             var selectedOption = $(this).val(); // Obtener el valor seleccionado
 
             // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
@@ -229,11 +227,9 @@
                 $('#btnEnviarSolicitud').hide();
             }
         });
-    });
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
+
+
+
         $('#id_categoria_evento').change(function() {
             var selectedTypeId = $(this).val(); 
             $.ajax({
@@ -256,18 +252,24 @@
                 }
             });
         });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        // Función para verificar la selección del combobox
         $('#id_categoria_evento').change(function() {
-            var selectedOption = $(this).val(); // Obtener el valor seleccionado
-        });
-    });
-</script>
+        var selectedOption = $(this).val(); // Obtener el valor seleccionado
+        console.log('ID de la categoria seleccionado:', selectedOption);
+        
 
+        });
+
+        $('#eventosComboBoxContainer').change(function() {
+    var selectedEvent = $(this).val(); // Obtain the selected ID
+    console.log('ID del evento:', selectedEvent);
+
+    
+});
+
+    
+
+
+</script>
 
 <style>
     #btnEnviarSolicitud {
