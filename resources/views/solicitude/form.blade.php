@@ -211,13 +211,8 @@
     return year + '-' + month + '-' + day;
 }
 
-</script>
-
-
-<script>
-    $(document).ready(function() {
-        // Función para verificar la selección del combobox
-        $('#id_tipos_de_solicitudes').change(function() {
+ // Función para verificar la selección del combobox
+ $('#id_tipos_de_solicitudes').change(function() {
             var selectedOption = $(this).val(); // Obtener el valor seleccionado
 
             // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
@@ -229,11 +224,9 @@
                 $('#btnEnviarSolicitud').hide();
             }
         });
-    });
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
+
+
+
         $('#id_categoria_evento').change(function() {
             var selectedTypeId = $(this).val(); 
             $.ajax({
@@ -256,18 +249,11 @@
                 }
             });
         });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        // Función para verificar la selección del combobox
         $('#id_categoria_evento').change(function() {
             var selectedOption = $(this).val(); // Obtener el valor seleccionado
         });
-    });
-</script>
 
+</script>
 
 <style>
     #btnEnviarSolicitud {
