@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoriasEventosEspeciale;
 use App\Models\DatosUnicosPorSolicitude;
+use App\Models\ElementosPorSolicitude;
 use App\Models\Estado;
 use App\Models\EstadosDeLasSolictude;
 use App\Models\EventosEspecialesPorCategoria;
@@ -125,9 +126,7 @@ class SolicitudeController extends Controller
         $userId = Auth::id();
         $currentTime = $this->getCurrentTimeInBogota();
         $idEventoEspecialPorCategoria = $request->input('id_evento_especial');
-        
-        
-
+        $serviciosSeleccionados = $request->input('servicios_por_tipo');
         // Obtener la fecha y hora actual del sistema
         
     
@@ -139,13 +138,25 @@ class SolicitudeController extends Controller
             'fecha_y_hora_de_la_solicitud' => $currentTime,
         ]);
     
-        // Validar los datos del formulario
-        $request->validate([
-            // Aquí coloca las reglas de validación según los campos de la solicitud
-        ]);
+        // Validar los datte([
+        //     // Aquí coloca las reglas de validación según los campos de la solicitud
+        // ]);os del formulario
+        // $request->valida
     
         // Crear la solicitud con los datos combinados
         $solicitude = Solicitude::create($data);
+
+        foreach ($serviciosSeleccionados as $servicioId) {
+            // Crear un registro en la tabla elementos_por_solicitud
+            $elementoPorSolicitud = ElementosPorSolicitude::create([
+                'id_solicitudes' => $solicitude->id,
+                'id_subservicios' => $servicioId,
+                // Otros campos que puedas necesitar
+            ]);
+        }
+
+        
+    
     
         // Redireccionar con un mensaje de éxito
         return redirect()->route('solicitudes.index')
