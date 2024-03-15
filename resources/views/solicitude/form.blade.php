@@ -40,9 +40,12 @@
                         </div>
                         <div class="form-group my-2">
                             <h5>eventos</h5>
-                            <div id="eventosComboBoxContainer" class="row">
+                            <select name="eventosComboBoxContainer" id="eventosComboBoxContainer" 
+                            class="form-control selectpicker" data-style="btn-primary" title="Seleccionar la Categoria Del Evento Especial" required>
+                            
                                 <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
-                            </div>
+
+                            </select>
                         </div>
     
                         
@@ -252,8 +255,19 @@
         $('#id_categoria_evento').change(function() {
         var selectedOption = $(this).val(); // Obtener el valor seleccionado
         console.log('ID de la categoria seleccionado:', selectedOption);
+        
 
         });
+
+        $('#eventosComboBoxContainer').change(function() {
+    var selectedEvent = $(this).val(); // Obtain the selected ID
+    console.log('ID del evento:', selectedEvent);
+
+    
+});
+
+    
+
 
 </script>
 
