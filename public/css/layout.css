@@ -29,18 +29,17 @@ h1 {
 
 .wrapper {
     display: flex;
-    height: 100vh;
-    overflow: none;
+   
+    
 
 }
 
 .main {
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
-    overflow: hidden;
     transition: all 0.35s ease-in-out;
-    overflow-y: auto; 
-
+    overflow-y: auto;
+    
 }
 
 
@@ -53,7 +52,7 @@ h1 {
 .toggle-btn {
     position: absolute;
     top: 85px;
-    right: -37.3px;
+    right: -36px;
     /* Ajusta el valor según sea necesario */
     transform: translateY(-50%);
     cursor: pointer;

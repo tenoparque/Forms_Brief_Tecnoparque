@@ -246,7 +246,7 @@
                         </form>
 
                         <div class="text-center pb-2 textFooter">
-                            <h1 class="textbrief" style="color: {{ $colorSecundario}};font-size:50px;font-weight:600;">Brief</h1>
+                            <h1 class="textbrief" style="color: #fff;font-size:50px;font-weight:600;">Brief</h1>
                             <p class="textbriefsol">Plataforma de solicitudes</p>
                         </div>
                     </div>
