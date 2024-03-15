@@ -23,13 +23,13 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Artifakt&display=swap" rel="stylesheet">
-    
-    
-    
+
+
+
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +55,7 @@
 </head>
 
 <body>
-    
+
     {{-- <style>
         /* Agrega estilos CSS para la clase "active" */
         .sidebar-nav .sidebar-item .sidebar-link.active-link {
@@ -66,108 +66,194 @@
 
     <div class="wrapper">
         @if (Route::currentRouteName() !== 'login')
-        <div class="wrapper">
-            <aside id="sidebar">
-                <button class="toggle-btn" type="button">
-                    <img class="flecha" src="/images/recursos/flecha.png" width="20px" height="20px"></img>
-                </button>
-                <div class="d-flex">
-                    
-                    <div class="sidebar-logo">
-                        <img src="../images/recursos/foto-perfil.png" alt="" class="img-fluid" width="50%" height=50%>
+            <div class="wrapper">
+                <aside id="sidebar">
+                    <button class="toggle-btn" type="button">
+                        <img class="flecha" src="/images/recursos/flecha.png" width="20px" height="20px"></img>
+                    </button>
+                    <div class="d-flex">
+
+                        <div class="sidebar-logo">
+                            <img src="../images/recursos/foto-perfil.png" alt="" class="img-fluid"
+                                width="50%" height=50%>
+                        </div>
                     </div>
-                </div>
-                <ul class="sidebar-nav">
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
-                            <i class="lni lni-user"></i>
-                            <span>Profile</span>
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-item">
+                            <a href="{{ route('users.index') }}" class="sidebar-link">
+                                <i class="lni lni-users"></i>
+                                <span>Usuarios</span>
+                            </a>
+                            <hr class="hrmenu">
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('roles.index') }}" class="sidebar-link">
+                                <i class="lni lni-user"></i>
+                                <span>Rol</span>
+                            </a>
+                            <hr class="hrmenu">
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('estados.index') }}" class="sidebar-link">
+                                <i class="lni lni-reload"></i>
+                                <span>Estados</span>
+                            </a>
+                            <hr class="hrmenu">
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('politicas.index') }}" class="sidebar-link">
+                                <i class="lni lni-handshake"></i>
+                                <span>Politicas</span>
+                            </a>
+                            <hr class="hrmenu">
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('personalizaciones.index') }}" class="sidebar-link">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                                <span>Personalizaciones</span>
+                            </a>
+                            <hr class="hrmenu">
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                data-bs-target="#eventos" aria-expanded="false" aria-controls="auth">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <span> Eventos</span>
+                            </a>
+                            <hr class="hrmenu">
+                            <ul id="eventos" class="sidebar-dropdown list-unstyled collapse"
+                                data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="{{ route('categorias-eventos-especiales.index') }}" class="sidebar-link">Categoria de eventos </a>
+                                    
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('eventos-especiales-por-categorias.index') }}" class="sidebar-link">Eventos especiales </a>
+                                    
+                                </li>
+                               
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                data-bs-target="#nodos" aria-expanded="false" aria-controls="auth">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>------</span>
+                            </a>
+                            <hr class="hrmenu">
+                            <ul id="nodos" class="sidebar-dropdown list-unstyled collapse"
+                                data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="{{ route('nodos.index') }}" class="sidebar-link">Nodos</a>
+                                    
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('departamentos.index') }}" class="sidebar-link">Departamentos</a>
+                                    
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('ciudades.index') }}" class="sidebar-link">Ciudades</a>
+                                   
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                data-bs-target="#solicitudes" aria-expanded="false" aria-controls="auth">
+                                <i class="fa-solid fa-envelope-open-text"></i>
+                                <span>Solicitud</span>
+                            </a>
+                            <hr class="hrmenu">
+                            <ul id="solicitudes" class="sidebar-dropdown list-unstyled collapse"
+                                data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="{{ route('solicitudes.index') }}" class="sidebar-link">Solicitudes</a>
+                                    
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('tipos-de-datos.index') }}" class="sidebar-link">Tipo de solicitudes</a>
+                                    
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}" class="sidebar-link">Servicios x tipo de solicitud</a>
+                                    
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('estados-de-las-solictudes.index') }}" class="sidebar-link">Estados de las solicitudes</a>
+                                   
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('datos-unicos-por-solicitudes.index') }}" class="sidebar-link">Datos únicos x solicitud</a>
+                                   
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                data-bs-target="#datos" aria-expanded="false" aria-controls="auth">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                <span>Datos</span>
+                            </a>
+                            <hr class="hrmenu">
+                            <ul id="datos" class="sidebar-dropdown list-unstyled collapse"
+                                data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="{{ route('tipos-de-datos.index') }}" class="sidebar-link">Tipo de datos</a>
+                                   
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        {{-- <li class="sidebar-item">
+                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                                <i class="lni lni-layout"></i>
+                                <span>solicitudes</span>
+                            </a>
+                            <hr class="hrmenu">
+                            <ul id="multi" class="sidebar-dropdown list-unstyled collapse"
+                                data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                                        data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
+                                        Tipos de solicitudes
+                                    </a>
+                                    <hr class="hrmenu">
+                                    <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                                        <li class="sidebar-item">
+                                            <a href="#" class="sidebar-link">Link 1</a>
+                                            <hr class="hrmenu">
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="#" class="sidebar-link">Link 2</a>
+                                            <hr class="hrmenu">
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> --}}
+                        
+                    </ul>
+                    <div class="sidebar-footer">
+                        <a href="{{ route('logout') }}" class="sidebar-link" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+
+                            <i class="lni lni-exit"></i>
+                            <span>{{ __('Cerrar Sesión') }}</span>
                         </a>
-                        <hr class="hrmenu">
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
-                            <i class="lni lni-agenda"></i>
-                            <span>Task</span>
-                        </a>
-                        <hr class="hrmenu">
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                            data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="lni lni-protection"></i>
-                            <span>Auth</span>
-                        </a>
-                        <hr class="hrmenu">
-                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Login</a>
-                                <hr class="hrmenu">
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Register</a>
-                                <hr class="hrmenu">
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                            data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-                            <i class="lni lni-layout"></i>
-                            <span>Multi Level</span>
-                        </a>
-                        <hr class="hrmenu">
-                        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
-                                    Two Links
-                                </a>
-                                <hr class="hrmenu">
-                                <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">Link 1</a>
-                                        <hr class="hrmenu">
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link">Link 2</a>
-                                        <hr class="hrmenu">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
-                            <i class="lni lni-popup"></i>
-                            <span>Notification</span>
-                        </a>
-                        <hr class="hrmenu">
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
-                            <i class="lni lni-cog"></i>
-                            <span>Setting</span>
-                        </a>
-                        <hr class="hrmenu">
-                    </li>
-                </ul>
-                <div class="sidebar-footer">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-exit"></i>
-                        <span>Cerrar Sesión</span>
-                    </a>
-    
-                    <div class="text-center pb-2 textFooter">
-                        <h1 class="textbrief" style="color: white;font-size:50px;font-weight:600;">Brief</h1>
-                        <p class="textbriefsol">Plataforma de solicitudes</p>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                        <div class="text-center pb-2 textFooter">
+                            <h1 class="textbrief" style="color: {{ $colorSecundario}};font-size:50px;font-weight:600;">Brief</h1>
+                            <p class="textbriefsol">Plataforma de solicitudes</p>
+                        </div>
                     </div>
-                </div>
-                
-            </aside>
-            
-        </div>
-            
+
+                </aside>
+
+            </div>
         @endif
 
         <div class="main">
@@ -175,7 +261,7 @@
                 <main class="">
                     @if (Route::currentRouteName() !== 'login')
                         <header class="container-fluid  "
-                            style="align-items: center; margin-top: 70px; margin-bottom: 50px">
+                            style="align-items: center; margin-top: 55px; margin-bottom: 50px">
                             <div class="row d-flex justify-content-between">
                                 <!-- Carta Izquierda -->
                                 <div class="col-xl-9 col-lg-7 col-md-8 col-sm-8 col-12 mb-3 ">
@@ -194,8 +280,9 @@
 
                                 <!-- Carta Derecha -->
                                 <div class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12">
-                                    @if(isset($logo))
-                                    <img class="img-fluid" id="logoHeader" src="data:image/png;base64,{{ base64_encode($logo) }}"></img>
+                                    @if (isset($logo))
+                                        <img class="img-fluid" id="logoHeader"
+                                            src="data:image/png;base64,{{ base64_encode($logo) }}"></img>
                                     @endif
                                 </div>
                             </div>
@@ -211,7 +298,7 @@
 
 <!-- All the shared styles will be here -->
 <style>
-    /* #sidebar {
+    #sidebar {
         width: 70px;
         min-width: 70px;
         z-index: 1000;
@@ -219,12 +306,12 @@
         background: linear-gradient(to bottom, {{ $colorPrincipal }}, {{ $colorSecundario }});
         display: flex;
         flex-direction: column;
-
-    } */
+        position: relative;
+    }
 
     /* LETRA */
 
-    
+
     .textbriefsol {
         color: {{ $colorTerciario }};
         margin-block-start: -15px;
@@ -243,15 +330,15 @@
 
     }
 
-    /* .hrmenu {
-        margin-block-start: 2px;
+    .hrmenu {
         background: {{ $colorTerciario }};
         border: none;
         height: 1px;
         width: 80%;
         opacity: 20;
-        margin-left: 20px;
-    } */
+        margin: 0 auto;
+
+    }
 
     /*diseño del icono select*/
 
@@ -299,9 +386,8 @@
         border-top: 8px solid transparent;
         border-bottom: 4px solid transparent;
         border-left: 12px solid {{ $colorPrincipal }};
-        
+
     }
 </style>
 
 </html>
-

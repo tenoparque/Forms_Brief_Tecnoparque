@@ -29,6 +29,9 @@ h1 {
 
 .wrapper {
     display: flex;
+    height: 100vh;
+    overflow: none;
+
 }
 
 .main {
@@ -36,19 +39,11 @@ h1 {
     width: 100%;
     overflow: hidden;
     transition: all 0.35s ease-in-out;
+    overflow-y: auto; 
 
 }
 
-#sidebar {
-    width: 70px;
-    min-width: 70px;
-    z-index: 1000;
-    transition: all .25s ease-in-out;
-    background: linear-gradient(180deg, #39a900 0%, #00324d 100%);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
+
 
 #sidebar.expand {
     width: 260px;
@@ -57,16 +52,18 @@ h1 {
 
 .toggle-btn {
     position: absolute;
-    top: 80px;
-    right: -40px;
+    top: 85px;
+    right: -37.3px;
     /* Ajusta el valor según sea necesario */
     transform: translateY(-50%);
     cursor: pointer;
+    background-color: transparent;
+    border: 0;
 }
 
-.toggle-btn i {
-    font-size: 1.5rem;
-    color: #FFF;
+.toggle-btn img{
+    width: 70%;
+    height: 70%;
 }
 
 .sidebar-logo {
@@ -76,7 +73,7 @@ h1 {
     text-align: center;
     /* Centra horizontalmente el contenido */
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 
 }
 
@@ -113,6 +110,7 @@ h1 {
     display: block;
     font-size: 0.9rem;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .hrmenu {
