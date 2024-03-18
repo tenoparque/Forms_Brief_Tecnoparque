@@ -143,7 +143,7 @@
                     </div>
                     <div>
                         <a href="{{ route('solicitudes.index') }}" class="btn btn-outline"
-                            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%;"
+                            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%; word-wrap: break-word; overflow-wrap: break-word;"
                             onmouseover="this.style.backgroundColor='#b2ebf2';"
                             onmouseout="this.style.backgroundColor='#FFFF';">
                             {{ __('REGRESAR') }}
