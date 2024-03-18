@@ -13,6 +13,8 @@
                     <br>
                         <div class="form-group col-md-4 my-3">
                             <h5 for="id_tipos_de_solicitudes">Tipo de Solicitud</h5>
+
+                            
                             <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
                                 class="form-control selectpicker" data-style="btn-primary"
                                 title="Seleccionar un Tipo de Solicitud" required>
