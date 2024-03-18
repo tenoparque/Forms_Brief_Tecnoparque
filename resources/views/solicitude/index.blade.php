@@ -44,7 +44,7 @@
                                         
 										<th>Tipo De Solicitud</th>
 										<th>Fecha Y Hora</th>
-                                        <th>nodo</th>
+                                        <th>Nodo</th>
 										<th>Usuario</th>
 										<th>Eventos</th>
 										<th>Estado</th>
