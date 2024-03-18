@@ -44,7 +44,7 @@
                                 style="background-color: transparent; border-color: transparent">
                                 <thead class="thead-dark">
                                     <tr class="table-light" style="border-color:transparent">
-                                        <th class="table-light"  style="text-align: center; border-color:transparent">
+                                        <th class="table-light" style="text-align: center; border-color:transparent">
                                             <div style="margin-bottom: 10px;">
                                                 <i class="fa-solid fa-envelope-open-text fa-2xl"
                                                     style="color: #00314d;"></i>
@@ -127,10 +127,14 @@
 
                         <h5>Datos por solicitud:</h5>
                         @foreach ($datosPorSolicitud as $dato)
-                            <div class="form-group">
-                                <label><strong>{{ $dato->titulo }}:</strong></label>
-                                <input  type="text" class="form-control" value="{{ $dato->dato }}" readonly
-                                    style="cursor: initial; outline: none; width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label><strong>{{ $dato->titulo }}:</strong></label>
+                                        <input type="text" class="form-control" value="{{ $dato->dato }}" readonly
+                                            style="cursor: initial; outline: none; width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px">
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
 
