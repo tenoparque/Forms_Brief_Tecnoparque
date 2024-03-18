@@ -138,6 +138,8 @@
         @csrf
         @method('PUT')
         <input type="hidden" name="modificacion" id="modificacionInput">
+        <input type="hidden" name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud_input">
+
     </form>
 
     <script>
@@ -159,5 +161,12 @@
             document.getElementById('modificacionInput').value = modificacion;
             document.getElementById('formEnviarModificacion').submit();
         });
+
+        $('#id_estado_de_la_solicitud').change(function() {
+        var selectedEstadoId = $(this).val();
+        $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
+    });
+
+   
     </script>
 @endsection
