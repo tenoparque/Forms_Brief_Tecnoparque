@@ -26,6 +26,29 @@ h1 {
 }
 
 
+/* Código modificación paginación */
+
+.page-link {
+    color: #ff0000; /* Cambia el color del texto */
+}
+
+.page-item.active .page-link {
+    background-color: #ff0000; /* Cambia el color de fondo del elemento activo */
+    border-color: #ff0000; /* Cambia el color del borde del elemento activo */
+}
+
+.page-link:hover {
+    color: #ff0000; /* Cambia el color del texto al pasar el mouse */
+    text-decoration: none; /* Elimina el subrayado al pasar el mouse */
+}
+
+.page-item.disabled .page-link {
+    color: #ff0000; /* Cambia el color del texto de los elementos deshabilitados */
+    background-color: #ff0000; /* Cambia el color de fondo de los elementos deshabilitados */
+    border-color: #ff0000; /* Cambia el color del borde de los elementos deshabilitados */
+}
+
+
 
 .wrapper {
     display: flex;

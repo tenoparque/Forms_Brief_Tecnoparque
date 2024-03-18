@@ -16,9 +16,10 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $roles = Role::paginate();
+        $roles = Role::paginate(2);
 
         return view('role.index', compact('roles'))
             ->with('i', (request()->input('page', 1) - 1) * $roles->perPage());
