@@ -157,33 +157,49 @@
                             '</label></div>';
                     });
                     $('#servicesComboBoxContainer').html(serviciosCheckboxes);
-                    //validacion si al menos uno de los servicios se encuentra seleccionado 
+                    
+// validaciones del boton de enviar -----------------------------------------------------------------------------------------------------------------
+                            function manejarCambioServicios() {
+                                var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
+                                var servicioNombre = $(this).closest('label').text().trim(); // Obtener el nombre del servicio seleccionado
 
-                  // Función para manejar el cambio en la selección de servicios
-                                function manejarCambioServicios() {
-                                    var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
-                                    var servicioNombre = $(this).closest('label').text().trim(); // Obtener el nombre del servicio seleccionado
-
-                                    if ($(this).is(':checked')) {
-                                        // Agregar el servicio al array si está seleccionado
-                                        serviciosSeleccionados.push({ id: servicioId, nombre: servicioNombre });
-                                    } else {
-                                        // Remover el servicio del array si está deseleccionado
-                                        serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
-                                            return servicio.id !== servicioId;
-                                        });
-                                    }
-
-                                    // Imprimir el array de servicios seleccionados en la consola
-                                    console.log(serviciosSeleccionados.length);
-
-                                    
-                                    
+                                if ($(this).is(':checked')) {
+                                    // Agregar el servicio al array si está seleccionado
+                                    serviciosSeleccionados.push({ id: servicioId, nombre: servicioNombre });
+                                } else {
+                                    // Remover el servicio del array si está deseleccionado
+                                    serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
+                                        return servicio.id !== servicioId;
+                                    });
                                 }
 
-                                // Manejar el cambio en la selección de servicios
-                                $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(manejarCambioServicios);
+                                // Imprimir el array de servicios seleccionados en la consola
+                                console.log(serviciosSeleccionados.length);
 
+                                // Llamar a la función para validar la aparición del botón de enviar solicitud
+                                validarBotonEnviar();
+                            }
+
+                        // Función para validar la aparición del botón de enviar solicitud
+                        function validarBotonEnviar() {
+                            var selectedOption = $('#id_tipos_de_solicitudes').val(); // Obtener el valor seleccionado
+
+                            // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
+                            if (selectedOption !== '' && serviciosSeleccionados.length !== 0) {
+                                // Mostrar el botón de enviar solicitud
+                                $('#boton').show();
+                            } else {
+                                // Ocultar el botón de enviar solicitud
+                                $('#boton').hide();
+                            }
+                        }
+
+                        // Manejar el cambio en la selección de servicios
+                        $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(manejarCambioServicios);
+
+                        // Manejar el cambio en la selección del tipo de solicitud
+                        $('#id_tipos_de_solicitudes').change(validarBotonEnviar);
+//-------------------------------------------------fin de las validaciones del boton de enviar--------------------------------------------------------
                     var datosUnicosTextboxes = '';
                     $.each(response.datos_unicos, function(index, datoUnico) {
                         var tipoDatoId = datoUnico.id_tipos_de_datos;
@@ -261,25 +277,6 @@
                 $('#btnEnviarSolicitud').hide();
             }
         };
-
-
-
-        $('#id_tipos_de_solicitudes').change(validacionBotonEnviar);
-        
-        function validacionBotonEnviar() {
-            var selectedOption = $(this).val(); // Obtener el valor seleccionado
-
-            // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
-            if (selectedOption !== '') {
-                // Mostrar el botón de enviar solicitud
-                $('#boton').show();
-            } else {
-                // Ocultar el botón de enviar solicitud
-                $('#boton').hide();
-            }
-        };
-
-
 
 
         $('#id_categoria_evento').change(function() {
