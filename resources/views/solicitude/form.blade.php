@@ -56,6 +56,11 @@
                             <div id="servicesComboBoxContainer" class="row">
                                 <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
                             </div>
+                            <div class="form-group col-md-4 my-3 otroServicioTextbox" style="display: none;">
+                                <label for="otroServicio">Especificar otro servicio:</label>
+                                <input type="text" id="otroServicio" name="otroServicio" class="form-control">
+                            </div>
+                            
                         </div>
     
                         <br>
@@ -110,6 +115,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            
                             </div>
                             
                             <input type="hidden" id="tipo_solicitud_id" name="tipo_solicitud_id">
@@ -159,26 +165,36 @@
                     $('#servicesComboBoxContainer').html(serviciosCheckboxes);
                     
 // validaciones del boton de enviar -----------------------------------------------------------------------------------------------------------------
-                            function manejarCambioServicios() {
-                                var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
-                                var servicioNombre = $(this).closest('label').text().trim(); // Obtener el nombre del servicio seleccionado
+function manejarCambioServicios() {
+    var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
+    var servicioNombre = $(this).closest('label').text().trim(); // Obtener el nombre del servicio seleccionado
 
-                                if ($(this).is(':checked')) {
-                                    // Agregar el servicio al array si está seleccionado
-                                    serviciosSeleccionados.push({ id: servicioId, nombre: servicioNombre });
-                                } else {
-                                    // Remover el servicio del array si está deseleccionado
-                                    serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
-                                        return servicio.id !== servicioId;
-                                    });
-                                }
+    if ($(this).is(':checked')) {
+        // Si el servicio seleccionado es "otro", mostrar el textbox
+        if (servicioNombre.toLowerCase() === 'otro') {
+            $(this).closest('.form-group').find('.otroServicioTextbox').show();
+        }
 
-                                // Imprimir el array de servicios seleccionados en la consola
-                                console.log(serviciosSeleccionados.length);
+        // Agregar el servicio al array si está seleccionado
+        serviciosSeleccionados.push({ id: servicioId, nombre: servicioNombre });
+    } else {
+        // Si el servicio deseleccionado es "otro", ocultar el textbox
+        if (servicioNombre.toLowerCase() === 'otro') {
+            $(this).closest('.form-group').find('.otroServicioTextbox').hide();
+        }
 
-                                // Llamar a la función para validar la aparición del botón de enviar solicitud
-                                validarBotonEnviar();
-                            }
+        // Remover el servicio del array si está deseleccionado
+        serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
+            return servicio.id !== servicioId;
+        });
+    }
+
+    // Imprimir el array de servicios seleccionados en la consola
+    console.log(serviciosSeleccionados.length);
+
+    // Llamar a la función para validar la aparición del botón de enviar solicitud
+    validarBotonEnviar();
+}
 
                         // Función para validar la aparición del botón de enviar solicitud
                         function validarBotonEnviar() {
