@@ -9,6 +9,7 @@ use App\Models\ElementosPorSolicitude;
 use App\Models\Estado;
 use App\Models\EstadosDeLasSolictude;
 use App\Models\EventosEspecialesPorCategoria;
+use App\Models\HistorialDeEstadosPorSolicitude;
 use App\Models\Solicitude;
 use App\Models\TiposDeDato;
 use App\Models\TiposDeSolicitude;
@@ -129,15 +130,17 @@ class SolicitudeController extends Controller
         $idEventoEspecialPorCategoria = $request->input('id_evento_especial');
         $serviciosSeleccionados = $request->input('servicios_por_tipo');
         // Obtener la fecha y hora actual del sistema
-        
+        $estadosDefecto = EstadosDeLasSolictude::where('orden_mostrado', 1)->value('id');
     
         // Combinar los datos de la solicitud con los valores predeterminados
         $data = array_merge($request->all(), [
             'id_usuario_que_realiza_la_solicitud' => $userId,
             'id_eventos_especiales_por_categorias' => $idEventoEspecialPorCategoria,
-            'id_estado_de_la_solicitud' => 1,
+            'id_estado_de_la_solicitud' => $estadosDefecto,
             'fecha_y_hora_de_la_solicitud' => $currentTime,
         ]);
+
+        
     
         // Validar los datte([
         //     // Aquí coloca las reglas de validación según los campos de la solicitud
@@ -170,6 +173,14 @@ class SolicitudeController extends Controller
                 ]);
             }
         }
+
+        
+        $cambioHistorial = new HistorialDeEstadosPorSolicitude();
+        $cambioHistorial->id_estados_s = $estadosDefecto;
+        $cambioHistorial->id_solicitudes = $solicitude->id;
+        $cambioHistorial->id_users=$userId;
+        $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
+        $cambioHistorial->save();
     
         
     
@@ -254,7 +265,15 @@ class SolicitudeController extends Controller
 
         $solicitude->id_estado_de_la_solicitud = $request->input('id_estado_de_la_solicitud');
         $solicitude->save();
-
+        $userId = Auth::id();
+        $cambioHistorial = new HistorialDeEstadosPorSolicitude();
+        $cambioHistorial->id_estados_s = $request->input('id_estado_de_la_solicitud');
+        $cambioHistorial->id_solicitudes = $solicitude->id;
+        $cambioHistorial->id_users=$userId;
+        $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
+        $cambioHistorial->save();
+        // Asignar el ID de la solicitud
+        
         // Crear una nueva instancia de HistorialDeModificacionesPorSolicitude
         $modificacion = new HistorialDeModificacionesPorSolicitude();
         $modificacion->id_soli = $solicitude->id; // Asignar el ID de la solicitud

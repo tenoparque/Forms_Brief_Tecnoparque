@@ -36,9 +36,11 @@
                                 <input class="form-control" id="search"
                                     placeholder="Ingrese el nombre de la categoria de eventos especiales..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('categorias-eventos-especiales.create') }}" class="btnCrear"
-                                    >{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play" ></i></a>
+                                    <a href="{{ route('categorias-eventos-especiales.create') }}" class="btn btn-outline"
+                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
+                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                    onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
+                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
                             </div>
                         </div>
                         <div class="table-responsive"

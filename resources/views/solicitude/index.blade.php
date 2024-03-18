@@ -42,15 +42,14 @@
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
-                                        <th>No</th>
-
-                                        <th>Tipo De Solicitud</th>
-                                        <th>Fecha Y Hora</th>
-                                        <th>nodo</th>
-                                        <th>Usuario</th>
-                                        <th>Eventos</th>
-                                        <th>Estado</th>
-                                        <th>Opciones</th>
+                                        <th>No</th>                                       
+										<th>Tipo De Solicitud</th>
+										<th>Fecha Y Hora</th>
+                                        <th>Nodo</th>
+										<th>Usuario</th>
+										<th>Evento</th>
+										<th>Estado</th>
+                                        <th>Opciones</th>                                      
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
