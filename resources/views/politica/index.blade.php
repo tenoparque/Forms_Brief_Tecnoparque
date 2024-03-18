@@ -37,9 +37,6 @@
                                 <input class="form-control" id="search" placeholder="Ingrese correo del usuario..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
 
-                                <a href="{{ route('politicas.create') }}" class="btnDCR"
-                                    >{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play iconDCR" ></i></a>
 
                                     <a href="{{ route('politicas.create') }}" class="btn btn-outline"
                                     style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
