@@ -24,6 +24,8 @@ class ElementosPorSolicitude extends Model
     static $rules = [
 		'id_solicitudes' => 'required',
 		'id_subservicios' => 'required',
+		//'otro_servicio' => 'required',
+
     ];
 
     protected $perPage = 20;
@@ -33,7 +35,7 @@ class ElementosPorSolicitude extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_solicitudes','id_subservicios'];
+    protected $fillable = ['id_solicitudes','id_subservicios', 'otro_servicio'];
 
 
     /**

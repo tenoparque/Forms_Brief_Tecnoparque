@@ -29,30 +29,30 @@ h1 {
 /* Código modificación paginación */
 
 .page-link {
-    color: #ff0000;
+    color: #002fff;
     /* Cambia el color del texto */
 }
 
 .page-item.active .page-link {
-    background-color: #ff0000;
+    background-color: #1100ff;
     /* Cambia el color de fondo del elemento activo */
-    border-color: #ff0000;
+    border-color: #2600ff;
     /* Cambia el color del borde del elemento activo */
 }
 
 .page-link:hover {
-    color: #ff0000;
+    color: #2f00ff;
     /* Cambia el color del texto al pasar el mouse */
     text-decoration: none;
     /* Elimina el subrayado al pasar el mouse */
 }
 
 .page-item.disabled .page-link {
-    color: #ff0000;
+    color: #4c00ff;
     /* Cambia el color del texto de los elementos deshabilitados */
-    background-color: #ff0000;
+    background-color: #2600ff;
     /* Cambia el color de fondo de los elementos deshabilitados */
-    border-color: #ff0000;
+    border-color: #3700ff;
     /* Cambia el color del borde de los elementos deshabilitados */
 }
 
@@ -238,7 +238,7 @@ table th {
 }
 
 #buttoncell {
-    padding: 15px;
+    padding: 8px;
 }
 
 /* --------------- solicitudes ---------------------- */
@@ -424,7 +424,8 @@ table th {
     border-radius: 35px;
     outline: none; 
     border: 2px solid #82DEF0;
-    cursor: pointer; 
+    cursor: pointer;
+    background: #fff; 
 
 
 }
@@ -444,6 +445,7 @@ table th {
     outline: none; 
     border: 2px solid #82DEF0;
     cursor: pointer; 
+    background: #fff;
 
 }
 
@@ -463,6 +465,7 @@ table th {
     outline: none; 
     border: 2px solid #82DEF0;
     cursor: pointer; 
+    background: #fff;
 }
 
 .iconEdit {
@@ -485,6 +488,7 @@ table th {
     outline: none; 
     border: 2px solid #82DEF0;
     cursor: pointer; 
+    background: #fff;
 }
 
 .btnRegresar:hover {
@@ -502,6 +506,7 @@ table th {
     outline: none;
     border: 2px solid #82DEF0;
     cursor: pointer;
+    background: #fff;
 }
 
 .btnGuardar:hover {
@@ -520,6 +525,7 @@ table th {
     outline: none;
     border: 2px solid #82DEF0;
     cursor: pointer;
+    background: #fff;
 }
 .btnDuplicar:hover {
     background-color: #b2ebf2;
@@ -538,6 +544,7 @@ table th {
     outline: none;
     border: 2px solid #82DEF0;
     cursor: pointer;
+    background: #fff;
 
 }
 .btnModificar:hover {

@@ -19,7 +19,7 @@
                                 <h1 class="primeraPalabraFlex" style="font-size:200%">{{ __('EDITAR') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex" style="font-size:200%">{{ __('EVENTO ESPECIALES POR CATEGORIA') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="font-size:200%">{{ __('EVENTO ESPECIAL POR CATEGORIA') }}</h1>
                             </div>
                         </div>
                     </div>

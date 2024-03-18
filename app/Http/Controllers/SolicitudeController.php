@@ -151,13 +151,14 @@ class SolicitudeController extends Controller
         $solicitude = Solicitude::create($data);
 
         foreach ($serviciosSeleccionados as $servicioId) {
-            // Crear un registro en la tabla elementos_por_solicitud
-            $elementoPorSolicitud = ElementosPorSolicitude::create([
+            $elementosPorSolicitud = ElementosPorSolicitude::create([
                 'id_solicitudes' => $solicitude->id,
                 'id_subservicios' => $servicioId,
-                // Otros campos que puedas necesitar
+                'otro_servicio' => "Brandon",
             ]);
         }
+        
+        
 
         foreach ($request->all() as $key => $value) {
             if (strpos($key, 'datos_unicos_por_solicitud_') !== false) {

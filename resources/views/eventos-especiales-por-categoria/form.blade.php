@@ -13,7 +13,7 @@
                     <select
                         style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
                         name="id_estado" id="id_estado" class="form-control selectpicker" data-style="btn-primary"
-                        title="Seleccionar Estado" required ">
+                        title="Seleccionar Estado" required>
                        @foreach ($estados as $estado)
                         <!-- We go through the models of the estados that we previously passed through the controller -->
                         <option value="{{ $estado->id }}"
@@ -65,8 +65,7 @@
             <select
                 style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
                 name="id_eventos_especiales" id="id_eventos_especiales" class="form-control selectpicker"
-                data-style="btn-primary" title="Seleccionar Categoria" required ">
-            <option value="" disabled selected>Seleccionar categoría...</option>
+                data-style="btn-primary" title="Seleccionar Categoria" required>
              @foreach ($categorias as $categoria)
                 <!-- We go through the models of the categorias that we previously passed through the controller -->
                 <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>

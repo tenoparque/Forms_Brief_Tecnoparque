@@ -114,6 +114,7 @@
                 $('.dataSearched').hide();
             }
 
+            
             $.ajax({
                 type: 'get',
                 url: "{{ URL::to('searchEstadoSolicitud') }}",
