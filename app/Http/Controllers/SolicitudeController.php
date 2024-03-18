@@ -247,14 +247,19 @@ class SolicitudeController extends Controller
     public function update(Request $request, Solicitude $solicitude)
     {
         // Validar los datos de entrada para la modificación
-        $request->validate([
-            'modificacion' => 'required',
-        ]);
+        //  $request->validate([
+        //     'modificacion' => 'required',
+        //     'id_estado_de_la_solicitud' => 'required|exists:estados_de_la_solicitud,id',
+        // ]);
+
+        $solicitude->id_estado_de_la_solicitud = $request->input('id_estado_de_la_solicitud');
+        $solicitude->save();
 
         // Crear una nueva instancia de HistorialDeModificacionesPorSolicitude
         $modificacion = new HistorialDeModificacionesPorSolicitude();
         $modificacion->id_soli = $solicitude->id; // Asignar el ID de la solicitud
         $modificacion->modificacion = $request->input('modificacion');
+        //$modificacion->id_estado_de_la_solicitud = $request->input('id_estado_de_la_solicitud'); // Recibir el ID del estado de la solicitud
         $modificacion->fecha_de_modificacion = Carbon::now(); // Establecer la fecha actual
 
         // Guardar la nueva modificación en el historial
