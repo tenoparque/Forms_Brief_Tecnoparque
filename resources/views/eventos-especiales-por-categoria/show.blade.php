@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="mt-3 d-flex justify-content-end">
-                <a href="{{ route('eventos-especiales-por-categorias.index') }}" class="btnDCR"
+                <a href="{{ route('eventos-especiales-por-categorias.index') }}" class="btnRegresar"
                     >
                     {{ __('REGRESAR') }}
                     <i class="fa-solid fa-circle-play fa-flip-both iconDCR" ></i>

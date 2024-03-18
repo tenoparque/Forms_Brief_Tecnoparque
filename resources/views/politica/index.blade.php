@@ -36,17 +36,13 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese correo del usuario..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-<<<<<<< HEAD
-                                <a href="{{ route('politicas.create') }}" class="btnDCR"
+
+                                <a href="{{ route('politicas.create') }}" class="btnCrear"
                                     >{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR" ></i></a>
-=======
-                                    <a href="{{ route('politicas.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
-                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                    onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
->>>>>>> 63a964a121b04a3e4648b8610d2d197fd13bd59f
+
+                                    
+
                             </div>
                         </div>
                         <div class="table-responsive"
@@ -72,9 +68,9 @@
                                             <td>{{ $politica->estado->nombre }}</td>
                                             <td>{{ $politica->titulo }}</td>
 
-                                            <td id="buttoncell">
+                                            <td >
                                                 <form action="{{ route('roles.destroy', $politica->id) }}" method="POST">
-                                                    <a class="btnDCR"
+                                                    <a class="btnDetalle"
                                                         
                                                         href="{{ route('politicas.show', $politica->id) }}"><i
                                                             class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
@@ -82,9 +78,9 @@
                                                         {{ __('Detalle') }}</a>
 
                                                     <a class="btnEdit"
-                                                        href="{{ route('politicas.edit', $politica->id) }}"><i
-                                                            class="fa-solid fa-pen-to-square fa-xs iconEdit"
-                                                            ></i> {{ __('Editar') }}</a>
+                                                        href="{{ route('politicas.edit', $politica->id) }}">
+                                                        <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i> 
+                                                            {{ __('Editar') }}</a>
 
                                                 </form>
                                             </td>
