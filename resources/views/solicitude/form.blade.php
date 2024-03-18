@@ -116,12 +116,14 @@
                             <input type="hidden" id="id_evento_especial" name="id_evento_especial">
 
                         </div>
+                        
+                    </div>
+                    <div id="boton">
                         <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
                             <button type="submit" class="btn btn-outline btnCED my-4">Enviar Solicitud <i
                                     class="fa-solid fa-circle-play iconCDE" ></i></button>
                         </div>
                     </div>
-                    
 
                    
                 </form>
@@ -253,6 +255,20 @@
             }
         });
 
+        $('#id_tipos_de_solicitudes').change(function() {
+            var selectedOption = $(this).val(); // Obtener el valor seleccionado
+
+            // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
+            if (selectedOption !== '') {
+                // Mostrar el botón de enviar solicitud
+                $('#boton').show();
+            } else {
+                // Ocultar el botón de enviar solicitud
+                $('#boton').hide();
+            }
+        });
+
+
 
 
         $('#id_categoria_evento').change(function() {
@@ -297,6 +313,12 @@
 
 <style>
     #btnEnviarSolicitud {
+        display: none; /* Por defecto, el botón está oculto */
+    }
+</style>
+
+<style>
+    #boton {
         display: none; /* Por defecto, el botón está oculto */
     }
 </style>
