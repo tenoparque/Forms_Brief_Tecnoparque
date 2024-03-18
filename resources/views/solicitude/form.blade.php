@@ -120,7 +120,7 @@
                             
                             <input type="hidden" id="tipo_solicitud_id" name="tipo_solicitud_id">
                             <input type="hidden" id="id_evento_especial" name="id_evento_especial">
-
+                           
                         </div>
                         
                     </div>
@@ -327,6 +327,17 @@ function manejarCambioServicios() {
         $('#eventosComboBoxContainer').change(function() {
     var selectedEvent = $(this).val(); // Obtain the selected ID
     $('#id_evento_especial').val(selectedEvent);
+
+    $('#solicitudForm').submit(function(event) {
+        // Obtener el valor del campo otroServicio
+        var otroServicioValor = $('#otroServicio').val();
+
+        // Asignar el valor al campo oculto otroServicioHidden
+        $('#otroServicioHidden').val(otroServicioValor);
+
+        // Continuar con el envío del formulario
+        return true;
+    });
 
     
 });

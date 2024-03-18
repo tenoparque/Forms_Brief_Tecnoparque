@@ -151,13 +151,26 @@ class SolicitudeController extends Controller
         $solicitude = Solicitude::create($data);
 
         foreach ($serviciosSeleccionados as $servicioId) {
-            // Crear un registro en la tabla elementos_por_solicitud
-            $elementoPorSolicitud = ElementosPorSolicitude::create([
-                'id_solicitudes' => $solicitude->id,
-                'id_subservicios' => $servicioId,
-                // Otros campos que puedas necesitar
-            ]);
+            // Inicializar el valor para el campo otro_servicio
+            $otroServicio = null;
+        
+            // Verificar si el servicio seleccionado es "otro"
+            if ($servicioId === 'otro') {
+                // Si el servicio es "otro", asignar el valor del campo otroServicioHidden si está presente
+                $otroServicio = $request->input('otroServicioHidden');
+            } elseif ($servicioId !== null) {
+                // Si el servicio no es "otro" y no es nulo, entonces se asume que es un servicio válido
+                // y se procede a crear el registro
+                $elementoPorSolicitud = ElementosPorSolicitude::create([
+                    'id_solicitudes' => $solicitude->id,
+                    'id_subservicios' => $servicioId,
+                    'otro_servicio' => $otroServicio,
+                    // Otros campos que puedas necesitar
+                ]);
+            }
         }
+        
+        
 
         foreach ($request->all() as $key => $value) {
             if (strpos($key, 'datos_unicos_por_solicitud_') !== false) {
