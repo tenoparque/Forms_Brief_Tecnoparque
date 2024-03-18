@@ -22,24 +22,39 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-
-                            @if ($historial->isNotEmpty())
-                                <p><strong>Fecha de última
-                                        modificación:</strong>{{ $historial->first()->fecha_de_modificacion }}</p>
-                                <p><strong>modificación:</strong>{{ $historial->first()->modificacion }}</p>
-                                <button type="button" class="btn btn-primary" id="btnVerHistorial" data-toggle="modal"
-                                    data-target="#historialModal">
-                                    Ver historial
-                                </button>
-                            @else
-                                <p>No hay historial de modificaciones</p>
-                            @endif
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card"
+                                    style="border-radius: 20px; border:none; margin-top: 5px;margin-block-end: 50px;">
+                                    <div class="card-body">
+                                        @if ($historial->isNotEmpty())
+                                            <p><strong>Fecha de última modificación:</strong>
+                                                {{ $historial->first()->fecha_de_modificacion }}</p>
+                                            <p
+                                                style="cursor:pointer; outline: none; width: 100%; max-width: 100%; height:45px;margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
+                                                <strong>Modificación:</strong> {{ $historial->first()->modificacion }}</p>
+                                            <button
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:140px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 87%; word-wrap: break-word; overflow-wrap: break-word;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';"type="button"
+                                                class="btn btn-outline" id="btnVerHistorial" data-toggle="modal"
+                                                data-target="#historialModal">
+                                                Ver historial
+                                                <i class="fa-solid fa-clock-rotate-left fa-sm" style="color: #642c78;"></i>
+                                                </a></button>
+                                        @else
+                                            <p>No hay historial de modificaciones</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
                     <div class="card-body">
-                        <div class="table-responsive" style="background-color: transparent; border-color:transparent; margin-block-start: 10px;">
+                        <div class="table-responsive"
+                            style="background-color: transparent; border-color:transparent; margin-block-start: 10px">
                             <table class="table table-bordered table-hover"
                                 style="background-color: transparent; border-color: transparent">
                                 <thead class="thead-dark">
@@ -124,18 +139,19 @@
                                 @endforeach
                             </ul>
                         </div>
-        <br><br>
+                        <br><br>
                         <h5>Datos por solicitud:</h5>
                         <div class="row">
                             @foreach ($datosPorSolicitud as $dato)
                                 <div class="">
-                                    <label style="cursor: initial; outline: none; width: 95%;
+                                    <label
+                                        style="cursor: initial; outline: none; width: 95%;
                                     
                                     
                                     
                                     height:20px; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;"><strong>{{ $dato->titulo }}:</strong></label>
                                     <input type="text" class="form-control" value="{{ $dato->dato }}" readonly
-                                        style="cursor: initial; outline: none; width: 100%; max-width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
+                                        style="cursor:pointer; outline: none; width: 100%; max-width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
                                 </div>
                             @endforeach
                         </div>
@@ -167,7 +183,7 @@
                 <div class="modal-body">
                     <ul>
                         @foreach ($historial as $item)
-                            <li>
+                            <li style=" word-wrap: break-word; overflow-wrap: break-word;">
                                 <strong>Fecha: </strong> {{ $item->fecha_de_modificacion }}
                                 <br>
                                 <strong>Modificación:</strong> {{ $item->modificacion }}
@@ -177,8 +193,15 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary cerrar-modal" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-outline cerrar-modal" data-dismiss="modal"
+                        style="color:#00324D; border:2px solid #82DEF0; width:150px;  height: 40px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%; word-wrap: break-word; overflow-wrap: break-word; display: flex; align-items: center;"
+                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                        onmouseout="this.style.backgroundColor='#FFFF';">
+                        Cerrar <i class="fa-solid fa-circle-xmark fa-sm" style="color: #642c78; margin-left: 5px;"></i>
+                    </button>
                 </div>
+                
+                
             </div>
         </div>
     </div>
