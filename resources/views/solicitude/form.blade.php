@@ -159,25 +159,30 @@
                     $('#servicesComboBoxContainer').html(serviciosCheckboxes);
                     //validacion si al menos uno de los servicios se encuentra seleccionado 
 
-                    $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(function() {
-                            var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
-                            var servicioNombre = $(this).closest('label').text().trim(); // Obtener el nombre del servicio seleccionado
+                  // Función para manejar el cambio en la selección de servicios
+                                function manejarCambioServicios() {
+                                    var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
+                                    var servicioNombre = $(this).closest('label').text().trim(); // Obtener el nombre del servicio seleccionado
 
-                            if ($(this).is(':checked')) {
-                                // Agregar el servicio al array si está seleccionado
-                                serviciosSeleccionados.push({ id: servicioId, nombre: servicioNombre });
-                            } else {
-                                // Remover el servicio del array si está deseleccionado
-                                serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
-                                    return servicio.id !== servicioId;
-                                });
-                            }
+                                    if ($(this).is(':checked')) {
+                                        // Agregar el servicio al array si está seleccionado
+                                        serviciosSeleccionados.push({ id: servicioId, nombre: servicioNombre });
+                                    } else {
+                                        // Remover el servicio del array si está deseleccionado
+                                        serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
+                                            return servicio.id !== servicioId;
+                                        });
+                                    }
 
-                            // Imprimir el array de servicios seleccionados en la consola
-                            console.log(serviciosSeleccionados.length);
-                        });
-       
+                                    // Imprimir el array de servicios seleccionados en la consola
+                                    console.log(serviciosSeleccionados.length);
 
+                                    
+                                    
+                                }
+
+                                // Manejar el cambio en la selección de servicios
+                                $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(manejarCambioServicios);
 
                     var datosUnicosTextboxes = '';
                     $.each(response.datos_unicos, function(index, datoUnico) {
