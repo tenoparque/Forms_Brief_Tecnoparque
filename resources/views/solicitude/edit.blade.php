@@ -38,6 +38,26 @@
 
                     <div class="card-body">
 
+                        <div id="comboboxEstado" style="display: none;">
+                            <h3>Estado de la Solicitud</h3>
+                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary"
+                                title="Seleccionar el estado de la solicitud" required>
+                                <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
+                                @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
+                                    <option value="{{ $estadoDeLaSolicitud->id }}"
+                                        {{ ($solicitude->id_estado_de_la_solicitud ?? '') == $estadoDeLaSolicitud->id ? 'selected' : '' }}>
+                                        {{ $estadoDeLaSolicitud->nombre }}
+                                    </option>
+                                @endforeach
+
+                                {{-- <option value="{{ $ciudad->id }}"
+                                    {{ ($nodo->id_ciudad ?? '') == $ciudad->id ? 'selected' : '' }}>
+                                    {{ $ciudad->nombre }}
+                                </option> --}}
+                            </select>
+                        </div>
+
+
                         <div id="campoTexto" style="display: none;">
                             <div class="form-group">
                                 <label for="modificacion">Modificación:</label>
@@ -118,11 +138,14 @@
         @csrf
         @method('PUT')
         <input type="hidden" name="modificacion" id="modificacionInput">
+        <input type="hidden" name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud_input">
+
     </form>
 
     <script>
         document.getElementById('btnAgregarModificacion').addEventListener('click', function() {
             document.getElementById('campoTexto').style.display = 'block';
+            document.getElementById('comboboxEstado').style.display = 'block';
             document.getElementById('btnGroupAgregar').style.display = 'none';
             document.getElementById('btnGroupCancelarEnviar').style.display = 'block';
         });
@@ -138,5 +161,12 @@
             document.getElementById('modificacionInput').value = modificacion;
             document.getElementById('formEnviarModificacion').submit();
         });
+
+        $('#id_estado_de_la_solicitud').change(function() {
+        var selectedEstadoId = $(this).val();
+        $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
+    });
+
+   
     </script>
 @endsection

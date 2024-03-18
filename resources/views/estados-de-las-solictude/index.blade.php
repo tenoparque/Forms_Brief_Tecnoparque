@@ -37,8 +37,7 @@
                                 <a href="{{ route('estados-de-las-solictudes.create') }}" class="btnCrear">{{ __('CREAR') }}
                                 <i class="fa-solid fa-circle-play iconDCR" ></i></a>
 
-                                <a href="{{ route('estados-de-las-solictudes.create') }}" class="btnDCR">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play iconDCR" ></i></a>
+                                
                                     <a href="{{ route('estados-de-las-solictudes.editar-orden') }}">Editar Orden Mostrado</a>
 
                             </div>

@@ -14,7 +14,9 @@
                             <div style="d-flex justify-content-between align-items-center">
                                 <div class="d-flex mt-3 mb-4">
                                     <div>
-                                        <h1 class="primeraPalabraFlex" style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)"> {{ __('SOLICITUDES') }}</h1>
+                                        <h1 class="primeraPalabraFlex"
+                                            style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)">
+                                            {{ __('SOLICITUDES') }}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +34,7 @@
                                 <input class="form-control" id="search" placeholder="xxx..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                                 <a href="{{ route('solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play iconDCR" ></i></a>
+                                    <i class="fa-solid fa-circle-play iconDCR"></i></a>
                             </div>
                         </div>
                         <div class="table-responsive"
@@ -41,6 +43,7 @@
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
                                         <th>No</th>
+<<<<<<< HEAD
                                         
 										<th>Tipo De Solicitud</th>
 										<th>Fecha Y Hora</th>
@@ -48,6 +51,15 @@
 										<th>Usuario</th>
 										<th>Eventos</th>
 										<th>Estado</th>
+=======
+
+                                        <th>Tipo De Solicitud</th>
+                                        <th>Fecha Y Hora</th>
+                                        <th>nodo</th>
+                                        <th>Usuario</th>
+                                        <th>Eventos</th>
+                                        <th>Estado</th>
+>>>>>>> f8b982718cc499a458285cf7a7d5b2a35f2c3aab
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -55,34 +67,34 @@
                                     @foreach ($solicitudes as $solicitude)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $solicitude->tiposdesolicitude->nombre }}</td>
-											<td>{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
+
+                                            <td>{{ $solicitude->tiposdesolicitude->nombre }}</td>
+                                            <td>{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
                                             <td>{{ $solicitude->user->nodo->nombre }}</td>
-											<td>{{ $solicitude->user->name }}</td>
-											<td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
-											<td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
+                                            <td>{{ $solicitude->user->name }}</td>
+                                            <td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+                                            <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
 
                                             <td id="buttoncell">
-                                            <a href="{{ route('solicitudes.show',$solicitude->id) }}" class="btnDetalle">
-                                                <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
-                                                {{ __('Detalle') }}
-                                                
-                                            </a>
-                                            
-                                            <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btnEdit"
-                                                >
-                                                <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
-                                                {{ __('Modificar') }}
-                                                
-                                            </a>
+                                                <a href="{{ route('solicitudes.show', $solicitude->id) }}"
+                                                    class="btnDetalle">
+                                                    <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
+                                                    {{ __('Detalle') }}
 
-                                            <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btnDetalle"
-                                                >
-                                                <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
-                                                {{ __('Duplicar') }}
-                                               
-                                            </a>
+                                                </a>
+
+                                                <a href="{{ route('solicitudes.edit', $solicitude->id) }}" class="btnModificar">
+                                                    <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
+                                                    {{ __('Modificar') }}
+
+                                                </a>
+
+                                                <a href="{{ route('solicitudes.edit', $solicitude->id) }}"
+                                                    class="btnDuplicar">
+                                                    <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
+                                                    {{ __('Duplicar') }}
+
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -153,5 +165,5 @@ for ($mes = 1; $mes <= 12; $mes++) {
                 {!! $solicitudes->links() !!}
             </div>
         </div>
-    </div>
-@endsection
+        </div>
+    @endsection

@@ -56,9 +56,9 @@
 
                                             <td>{{ $role->name }}</td>
                                             <!-- <td>{{ $role->guard_name }}</td> -->
-
+                                            <form action="{{ route('roles.show', $role->id) }}" method="POST">
                                             <td id="buttoncell">
-                                                <form action="{{ route('roles.show', $role->id) }}" method="POST">
+                                                
                                                     <a class="btnDetalle" href="{{ route('roles.show', $role->id) }}"><i
                                                             class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                         {{ __('Detalle') }}</a>
@@ -67,8 +67,9 @@
                                                             class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                                         {{ __('Editar') }}</a>
 
-                                                </form>
+                                                
                                             </td>
+                                        </form>
                                         </tr>
                                     @endforeach
                                 </tbody>

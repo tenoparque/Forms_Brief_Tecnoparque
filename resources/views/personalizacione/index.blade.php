@@ -90,7 +90,7 @@
                                             </td>
                                             <td>{{ $personalizacione->user->email }}</td>
                                             <td>{{ $personalizacione->estado->nombre }}</td>
-                                            <td  style="width:250px">
+                                            <td id="buttoncell"  style="width:250px">
 
                                                 <a href="{{ route('personalizaciones.show', $personalizacione->id) }}"
                                                     class="btnDetalle"

@@ -35,9 +35,9 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del estado..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                    <a href="{{ route('eventos-especiales-por-categorias.create') }}" class="btnCrear"
-                                    >{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play iconDCR" ></i></a>
+                                <a href="{{ route('eventos-especiales-por-categorias.create') }}"
+                                    class="btnCrear">{{ __('CREAR') }}
+                                    <i class="fa-solid fa-circle-play iconDCR"></i></a>
                             </div>
                         </div>
                         <div class="table-responsive"
@@ -67,22 +67,19 @@
                                             </td>
 
 
-                                            <td>
+                                            <td id="buttoncell">
                                                 <a href="{{ route('eventos-especiales-por-categorias.show', $eventosEspecialesPorCategoria->id) }}"
-                                                    class="btnDetalle"
-                                                    >
-                                                    <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
-                                                    ></i>
+                                                    class="btnDetalle">
+                                                    <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                     {{ __('Detalle') }}
-                                                   
+
                                                 </a>
 
                                                 <a href="{{ route('eventos-especiales-por-categorias.edit', $eventosEspecialesPorCategoria->id) }}"
-                                                    class="btnEdit"
-                                                    >
-                                                    <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
+                                                    class="btnEdit">
+                                                    <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                                     {{ __('Editar') }}
-                                                    
+
                                                 </a>
                                             </td>
                                         </tr>

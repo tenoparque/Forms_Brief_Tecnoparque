@@ -76,7 +76,7 @@
                                                     @endforeach
                                                 </td>
 
-                                                <td>
+                                                <td id="buttoncell">
                                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                                         <a class="btnDetalle" 
                                                             href="{{ route('users.show', $user->id) }}"> <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR" ></i> {{ __('Detalle') }}</a>
