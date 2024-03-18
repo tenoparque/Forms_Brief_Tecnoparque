@@ -78,11 +78,15 @@
 
                                                 <td id="buttoncell">
                                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                        <a class="btnDetalle" 
+                                                        <a class="btnDetalle" style="color:#00324D; border:2px solid #82DEF0; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; "
+                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                        onmouseout="this.style.backgroundColor='#FFFF';"
                                                             href="{{ route('users.show', $user->id) }}"> <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR" ></i> {{ __('Detalle') }}</a>
                                                            
-                                                        <a class="btnDetalle" 
-                                                            href="{{ route('users.edit', $user->id) }}"><i class="fa-solid fa-pen-to-square fa-xs iconEdit" "></i> {{ __('Editar') }}</a>
+                                                        <a class="btnDetalle" style="color:#00324D; border:2px solid #82DEF0; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; "
+                                                        onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                        onmouseout="this.style.backgroundColor='#FFFF';"
+                                                            href="{{ route('users.edit', $user->id) }}"><i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i> {{ __('Editar') }}</a>
                                                     </form>
                                                 </td>
                                             </tr>

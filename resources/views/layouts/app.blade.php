@@ -171,7 +171,7 @@
                                     
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('tipos-de-datos.index') }}" class="sidebar-link">Tipo de solicitudes</a>
+                                    <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de solicitudes</a>
                                     
                                 </li>
                                 <li class="sidebar-item">
