@@ -40,8 +40,7 @@
 
                         <div id="comboboxEstado" style="display: none;">
                             <h3>Estado de la Solicitud</h3>
-                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary"
-                                title="Seleccionar el estado de la solicitud" required>
+                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar el estado de la solicitud" required>
                                 <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
                                 @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
                                     <option value="{{ $estadoDeLaSolicitud->id }}"
@@ -49,11 +48,6 @@
                                         {{ $estadoDeLaSolicitud->nombre }}
                                     </option>
                                 @endforeach
-
-                                {{-- <option value="{{ $ciudad->id }}"
-                                    {{ ($nodo->id_ciudad ?? '') == $ciudad->id ? 'selected' : '' }}>
-                                    {{ $ciudad->nombre }}
-                                </option> --}}
                             </select>
                         </div>
 
@@ -158,9 +152,31 @@
 
         document.getElementById('btnEnviarModificacion').addEventListener('click', function() {
             var modificacion = document.getElementById('modificacion').value;
+
+             // Obtener el valor seleccionado del combobox
+            var selectedEstadoId = $('#id_estado_de_la_solicitud').val();
+            
+            // Obtener el valor actual del combobox oculto
+            var currentEstadoId = $('#id_estado_de_la_solicitud_input').val();
+
+            // Verificar si ha habido un cambio en la selección
+            if (selectedEstadoId !== currentEstadoId) {
+                // Asignar el nuevo valor al campo oculto
+                $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
+            }
+
+            // Verificar si se ha seleccionado un estado
+            if (!selectedEstadoId) {
+                // Mostrar un mensaje de error o tomar otra acción apropiada
+                alert('Por favor, selecciona un estado de la solicitud.');
+                return; // Detener el envío del formulario
+            }
+
+            // Asignar el valor de la modificación al campo oculto
+            document.getElementById('modificacionInput').value = modificacion;
             document.getElementById('modificacionInput').value = modificacion;
             document.getElementById('formEnviarModificacion').submit();
-        });
+            });
 
         $('#id_estado_de_la_solicitud').change(function() {
         var selectedEstadoId = $(this).val();
