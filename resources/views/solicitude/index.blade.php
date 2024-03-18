@@ -42,25 +42,13 @@
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
-                                        <th>No</th>
-<<<<<<< HEAD
-                                        
+                                        <th>No</th>                                       
 										<th>Tipo De Solicitud</th>
 										<th>Fecha Y Hora</th>
                                         <th>Nodo</th>
 										<th>Usuario</th>
 										<th>Eventos</th>
-										<th>Estado</th>
-=======
-
-                                        <th>Tipo De Solicitud</th>
-                                        <th>Fecha Y Hora</th>
-                                        <th>nodo</th>
-                                        <th>Usuario</th>
-                                        <th>Eventos</th>
-                                        <th>Estado</th>
->>>>>>> f8b982718cc499a458285cf7a7d5b2a35f2c3aab
-                                        <th>Opciones</th>
+										<th>Estado</th>                                   
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
