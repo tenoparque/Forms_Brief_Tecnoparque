@@ -149,7 +149,7 @@
             </div>
 
             <div class="box-footer my-2 d-flex justify-content-end">
-                <button type="submit" class="btnDCR" href="{{ route('users.create') }}"
+                <button type="submit" class="btnGuardar" href="{{ route('users.create') }}"
                    >{{ __('GUARDAR') }}
                     <i class="fa-solid fa-circle-plus fa-sm iconDCR" ></i></button>
             </div>

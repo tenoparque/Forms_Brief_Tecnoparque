@@ -83,8 +83,8 @@
                 </div>
             </div>
         </div>
-        <div>
-            <a href="{{ route('personalizaciones.index') }}" class="btnDCR"
+        <div class="mt-3 d-flex justify-content-end">
+            <a href="{{ route('personalizaciones.index') }}" class="btnRegresar"
                 >
                 {{ __('REGRESAR') }}
                 <i class="fa-solid fa-circle-play fa-flip-both iconDCR" ></i>

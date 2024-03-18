@@ -35,7 +35,7 @@
                 <div class="row mb-3">
                     <div class="col d-flex justify-content-between align-items-center">
                         <p style="color: transparent">.</p>
-                            <a href="{{ route('servicios-por-tipos-de-solicitudes.create') }}" class="btnDCR"
+                            <a href="{{ route('servicios-por-tipos-de-solicitudes.create') }}" class="btnCrear"
                             >{{ __('CREAR') }}
                             <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                     </div>
@@ -62,17 +62,19 @@
                                     <td>{{ $serviciosPorTiposDeSolicitude->estado->nombre }}</td>
 
                                     <td id="buttoncell">
-                                        <a class="btnDCR"
+                                        <a class="btnDetalle"
                                             
                                             href="{{ route('servicios-por-tipos-de-solicitudes.show', $serviciosPorTiposDeSolicitude->id) }}">
-                                            {{ __('Detalle') }}
                                             <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
-                                                ></i></a>
+                                                ></i>
+                                            {{ __('Detalle') }}
+                                            </a>
                                         <a class="btnEdit"
                                             
                                             href="{{ route('servicios-por-tipos-de-solicitudes.edit', $serviciosPorTiposDeSolicitude->id) }}">
+                                            <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                             {{ __('Editar') }} 
-                                            <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i></a>
+                                            </a>
                                     </td>
                                 </tr>
                             @endforeach

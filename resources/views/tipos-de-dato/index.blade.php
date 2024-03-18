@@ -35,7 +35,7 @@
                                 <input class="form-control" id="search"
                                     placeholder="Ingrese el nombre del tipo de dato..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('tipos-de-datos.create') }}" class="btnDCR">{{ __('CREAR') }}
+                                <a href="{{ route('tipos-de-datos.create') }}" class="btnCrear">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR"></i></a>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                             <td id="buttoncell">
                                                 <form action="{{ route('tipos-de-datos.show', $tiposDeDato->id) }}"
                                                     method="POST">
-                                                    <a class="btnDCR"
+                                                    <a class="btnDetalle"
                                                         href="{{ route('tipos-de-datos.show', $tiposDeDato->id) }}"><i
                                                             class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
                                                             ></i>

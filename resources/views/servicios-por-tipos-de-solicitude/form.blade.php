@@ -93,7 +93,7 @@
 
     </div>
     <div class="box-footer mt20" style="text-align: right; margin-right:3%;">
-        <button type="submit" class="btnDCR">
+        <button type="submit" class="btnGuardar">
             {{ __('GUARDAR') }}
             <i class="fa-solid fa-circle-plus fa-sm iconDCR"></i>
         </button>

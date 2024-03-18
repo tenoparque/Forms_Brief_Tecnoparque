@@ -34,7 +34,7 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del Tipo de Solicitud..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('tipos-de-solicitudes.create') }}" class="btnDCR">{{ __('CREAR') }}
+                                <a href="{{ route('tipos-de-solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                             </div>
                         </div>
@@ -57,17 +57,20 @@
                                             <td>{{ $tiposDeSolicitude->estado->nombre }}</td>
                                             <td id="buttoncell">
                                                 <form action="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}" method="POST">
-                                                    <a class="btnDCR" href="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}">
-                                                        {{ __('Detalle') }}
+                                                    <a class="btnDetalle" href="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}">
                                                         <i
                                                         class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
                                                         ></i>
+                                                        {{ __('Detalle') }}
+                                                        
                                                     </a>
 
                                                     <a class="btnEdit"
-                                                        href="{{ route('tipos-de-solicitudes.edit', $tiposDeSolicitude->id) }}"> {{ __('Editar') }}
+                                                        href="{{ route('tipos-de-solicitudes.edit', $tiposDeSolicitude->id) }}">
                                                         <i
-                                                        class="fa-solid fa-pen-to-square fa-xs iconEdit"></i></a>
+                                                        class="fa-solid fa-pen-to-square fa-xs iconEdit"></i> 
+                                                        {{ __('Editar') }}
+                                                        </a>
 
                                                 </form>
                                             </td>

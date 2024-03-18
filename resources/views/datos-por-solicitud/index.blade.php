@@ -54,16 +54,18 @@
 
                                             <td id="buttoncell"> 
                                            
-                                                <a href="{{ route('datos-por-solicituds.show',$datosPorSolicitud->id) }}" class="btnDCR"
+                                                <a href="{{ route('datos-por-solicituds.show',$datosPorSolicitud->id) }}" class="btn"
                                                     >
-                                                    {{ __('Detalle') }}
                                                     <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR" ></i>
+                                                    {{ __('Detalle') }}
+                                                    
                                                 </a>
                                                 
                                                 <a href="{{ route('datos-por-solicituds.edit',$datosPorSolicitud->id) }}" class="btnEdit"
                                                     >
-                                                    {{ __('Editar') }}
                                                     <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
+                                                    {{ __('Editar') }}
+                                                    
                                                 </a>
                                             
                                             

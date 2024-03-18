@@ -33,8 +33,14 @@
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del estado..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
+
+                                <a href="{{ route('estados-de-las-solictudes.create') }}" class="btnCrear">{{ __('CREAR') }}
+                                <i class="fa-solid fa-circle-play iconDCR" ></i></a>
+
                                 <a href="{{ route('estados-de-las-solictudes.create') }}" class="btnDCR">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR" ></i></a>
+                                    <a href="{{ route('estados-de-las-solictudes.editar-orden') }}">Editar Orden Mostrado</a>
+
                             </div>
                         </div>
                         <div class="table-responsive" style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
@@ -60,15 +66,18 @@
                                         <td>{{ $estadosDeLasSolictude->estado->nombre }}</td>
 
                                         <td id="buttoncell">
-                                            <a href="{{ route('estados-de-las-solictudes.show' ,$estadosDeLasSolictude->id) }}" class="btnDCR"
-                                                >{{ __('Detalle') }}
+                                            <a href="{{ route('estados-de-las-solictudes.show' ,$estadosDeLasSolictude->id) }}" class="btnDetalle"
+                                                >
                                                 <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR" ></i>
+                                                {{ __('Detalle') }}
+                                                
                                             </a>
                                             
                                             <a href="{{ route('estados-de-las-solictudes.edit' , $estadosDeLasSolictude->id) }}" class="btnEdit"
                                                 >
-                                                {{ __('Editar') }}
                                                 <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
+                                                {{ __('Editar') }}
+                                                
                                             </a>
                                             </td>
                                         </tr>

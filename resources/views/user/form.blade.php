@@ -93,7 +93,7 @@
 
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <button type="submit" class="btnDCR">
+                <button type="submit" class="btnGuardar">
                     {{ __('GUARDAR') }}
                     <i class="fa-solid fa-circle-plus fa-sm iconDCR" ></i>
                 </button>

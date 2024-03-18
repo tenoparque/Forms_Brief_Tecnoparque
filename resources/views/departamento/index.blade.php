@@ -37,7 +37,7 @@
                                 <input class="form-control" id="search"
                                     placeholder="Ingrese el nombre del departamento..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('departamentos.create') }}" class="btnDCR">{{ __('CREAR') }}
+                                <a href="{{ route('departamentos.create') }}" class="btnCrear">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR   " ></i></a>
                             </div>
                         </div>
@@ -59,15 +59,17 @@
                                             <td id="buttoncell">
 
                                                 <a href="{{ route('departamentos.show', $departamento->id) }}"
-                                                    class="btnDCR">
-                                                    {{ __('Detalle') }}
+                                                    class="btnDetalle">
                                                     <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
                                                         ></i>
+                                                    {{ __('Detalle') }}
+                                                    
                                                 </a>
 
                                                 <a href="{{ route('departamentos.edit', $departamento->id) }}" class="btnEdit">
-                                                    {{ __('Editar') }}
                                                     <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
+                                                    {{ __('Editar') }}
+                                                    
                                                 </a>
                                         </tr>
                                     @endforeach

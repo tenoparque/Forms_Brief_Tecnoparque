@@ -27,7 +27,7 @@
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del estado..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('estados.create') }}" class="btnDCR"
+                                <a href="{{ route('estados.create') }}" class="btnCrear"
                                 >{{ __('CREAR') }}
                                 <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                             </div>
@@ -53,14 +53,15 @@
                                         <td>{{ $estado->nombre }}</td>
 
                                         <td id="buttoncell">
-                                                <a href="{{ route('estados.show' ,$estado->id) }}" class="btnDCR">
+                                                <a href="{{ route('estados.show' ,$estado->id) }}" class="btnDetalle">
                                                     {{ __('Detalle') }}
                                                     <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR" ></i>
                                                 </a>
                                                 
                                                 <a href="{{ route('estados.edit' , $estado->id) }}" class="btnEdit">
-                                                    {{ __('Editar') }}
                                                     <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
+                                                    {{ __('Editar') }}
+                                                    
                                                 </a>
                                                     
                                             </td>

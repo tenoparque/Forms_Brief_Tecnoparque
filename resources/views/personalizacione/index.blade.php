@@ -32,7 +32,7 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el correo del usuario..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('personalizaciones.create') }}" class="btnDCR"
+                                <a href="{{ route('personalizaciones.create') }}" class="btnCrear"
                                     >{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                             </div>
@@ -90,21 +90,23 @@
                                             </td>
                                             <td>{{ $personalizacione->user->email }}</td>
                                             <td>{{ $personalizacione->estado->nombre }}</td>
-                                            <td id="buttoncell">
+                                            <td  style="width:250px">
 
                                                 <a href="{{ route('personalizaciones.show', $personalizacione->id) }}"
-                                                    class="btnDCR"
+                                                    class="btnDetalle"
                                                     >
-                                                    {{ __('Detalle') }}
                                                     <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
                                                         ></i>
+                                                    {{ __('Detalle') }}
+                                                    
                                                 </a>
 
                                                 <a href="{{ route('personalizaciones.edit', $personalizacione->id) }}"
                                                     class="btnEdit"
                                                     >
-                                                    {{ __('Editar') }}
                                                     <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
+                                                    {{ __('Editar') }}
+                                                    
                                                 </a>
 
 
