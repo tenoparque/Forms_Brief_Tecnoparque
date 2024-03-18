@@ -424,7 +424,8 @@ table th {
     border-radius: 35px;
     outline: none; 
     border: 2px solid #82DEF0;
-    cursor: pointer; 
+    cursor: pointer;
+    background: #fff; 
 
 
 }
@@ -444,6 +445,7 @@ table th {
     outline: none; 
     border: 2px solid #82DEF0;
     cursor: pointer; 
+    background: #fff;
 
 }
 
@@ -463,6 +465,7 @@ table th {
     outline: none; 
     border: 2px solid #82DEF0;
     cursor: pointer; 
+    background: #fff;
 }
 
 .iconEdit {
@@ -485,6 +488,7 @@ table th {
     outline: none; 
     border: 2px solid #82DEF0;
     cursor: pointer; 
+    background: #fff;
 }
 
 .btnRegresar:hover {
@@ -502,6 +506,7 @@ table th {
     outline: none;
     border: 2px solid #82DEF0;
     cursor: pointer;
+    background: #fff;
 }
 
 .btnGuardar:hover {
@@ -520,6 +525,7 @@ table th {
     outline: none;
     border: 2px solid #82DEF0;
     cursor: pointer;
+    background: #fff;
 }
 .btnDuplicar:hover {
     background-color: #b2ebf2;
@@ -538,6 +544,7 @@ table th {
     outline: none;
     border: 2px solid #82DEF0;
     cursor: pointer;
+    background: #fff;
 
 }
 .btnModificar:hover {
