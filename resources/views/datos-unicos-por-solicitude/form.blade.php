@@ -17,8 +17,7 @@
                         <select
                             style="width: 90%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
                             name="id_tipos_de_datos" id="id_tipos_de_datos" class="form-control selectpicker"
-                            data-style="btn-primary" title="Seleccionar un Tipo de Dato" required">
-                            <option value="" disabled selected>Seleccionar Dato...</option>
+                            data-style="btn-primary" title="Seleccionar un Tipo de Dato" required>
                             @foreach ($tiposDatos as $dato)
                                 <!-- We go through the models of the tiposDatos that we previously passed through the controller -->
                                 <option value="{{ $dato->id }}">{{ $dato->nombre }}</option>
@@ -44,7 +43,6 @@
                             name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
                             class="form-control selectpicker" data-style="btn-primary"
                             title="Seleccionar un Tipo de Solicitud" required style="margin-bottom: 10px;">
-                            <option value="" disabled selected>Seleccionar Solicitud...</option>
                             @foreach ($solicitudes as $solicitud)
                                 <!-- We go through the models of the solicitudes that we previously passed through the controller -->
                                 <option value="{{ $solicitud->id }}">{{ $solicitud->nombre }}</option>
