@@ -43,6 +43,15 @@
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
                                         <th>No</th>
+<<<<<<< HEAD
+                                        
+										<th>Tipo De Solicitud</th>
+										<th>Fecha Y Hora</th>
+                                        <th>Nodo</th>
+										<th>Usuario</th>
+										<th>Eventos</th>
+										<th>Estado</th>
+=======
 
                                         <th>Tipo De Solicitud</th>
                                         <th>Fecha Y Hora</th>
@@ -50,6 +59,7 @@
                                         <th>Usuario</th>
                                         <th>Eventos</th>
                                         <th>Estado</th>
+>>>>>>> f8b982718cc499a458285cf7a7d5b2a35f2c3aab
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -73,14 +83,14 @@
 
                                                 </a>
 
-                                                <a href="{{ route('solicitudes.edit', $solicitude->id) }}" class="btnEdit">
+                                                <a href="{{ route('solicitudes.edit', $solicitude->id) }}" class="btnModificar">
                                                     <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                                     {{ __('Modificar') }}
 
                                                 </a>
 
                                                 <a href="{{ route('solicitudes.edit', $solicitude->id) }}"
-                                                    class="btnDetalle">
+                                                    class="btnDuplicar">
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                     {{ __('Duplicar') }}
 
