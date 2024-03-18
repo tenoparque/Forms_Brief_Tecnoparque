@@ -13,6 +13,8 @@
                     <br>
                         <div class="form-group col-md-4 my-3">
                             <h5 for="id_tipos_de_solicitudes">Tipo de Solicitud</h5>
+
+                            
                             <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
                                 class="form-control selectpicker" data-style="btn-primary"
                                 title="Seleccionar un Tipo de Solicitud" required>
@@ -143,6 +145,7 @@
                 },
                 success: function(response) {
                     var serviciosCheckboxes = '';
+                    var serviciosSeleccionados = [];
                     $.each(response.servicios, function(index, servicio) {
                         serviciosCheckboxes +=
                             '<div class=" col-xl-6 col-lg-6 col-md-6 my-2"><label class=" checkboxSol"><input type="checkbox" class="checkboxSolInp"  name="servicios_por_tipo[]" value="' +
@@ -152,6 +155,27 @@
                             '</label></div>';
                     });
                     $('#servicesComboBoxContainer').html(serviciosCheckboxes);
+                    //validacion si al menos uno de los servicios se encuentra seleccionado 
+
+                    $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(function() {
+                            var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
+                            var servicioNombre = $(this).closest('label').text().trim(); // Obtener el nombre del servicio seleccionado
+
+                            if ($(this).is(':checked')) {
+                                // Agregar el servicio al array si está seleccionado
+                                serviciosSeleccionados.push({ id: servicioId, nombre: servicioNombre });
+                            } else {
+                                // Remover el servicio del array si está deseleccionado
+                                serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
+                                    return servicio.id !== servicioId;
+                                });
+                            }
+
+                            // Imprimir el array de servicios seleccionados en la consola
+                            console.log(serviciosSeleccionados.length);
+                        });
+       
+
 
                     var datosUnicosTextboxes = '';
                     $.each(response.datos_unicos, function(index, datoUnico) {
@@ -266,6 +290,8 @@
 
     
 });
+
+
 
 </script>
 
