@@ -159,6 +159,12 @@ a.sidebar-link:hover {
     position: relative;
 }
 
+.sidebar-dropdown li{
+    margin-left: 35px;
+    margin-right: 10px;
+
+}
+
 #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
     position: absolute;
     top: 0;
@@ -394,14 +400,12 @@ table th {
 }
 
 /*  */
-#buttoncell {
-    padding: 15px
-}
+
 
 /* Layout properties of the create, return and detail buttons. */
-.btnDCR {
+.btnCrear {
     margin-top: 20px;
-    padding: 8px 15px;
+    padding: 8px 30px;
     text-decoration: none;
     outline: none;
     color: #00324D;
@@ -411,11 +415,68 @@ table th {
     justify-items: center;
     position: relative;
 }
+
+.btnCrear:hover {
+    background-color: #b2ebf2;
+}
+
+/* bottom dettale */
+.btnDetalle {
+    margin-top: 10px;
+    padding:8px 15px;
+    text-decoration: none;
+    outline: none;
+    color: #00324D;
+    border: 2px solid #82DEF0;
+    cursor: pointer;
+    border-radius: 35px;
+    justify-items: center;
+    position: relative;
+}
+.btnDetalle:hover {
+    background-color: #b2ebf2;
+}
+
+
+/* bottom regresar */
+.btnRegresar {
+    margin-top: 20px;
+    padding: 8px 20px;
+    text-decoration: none;
+    outline: none;
+    color: #00324D;
+    border: 2px solid #82DEF0;
+    cursor: pointer;
+    border-radius: 35px;
+    justify-items: center;
+    position: relative;
+}
+.btnRegresar:hover {
+    background-color: #b2ebf2;
+}
+
+/* bottom guardar */
+.btnGuardar {
+    width: 140px;
+    height: 40px;
+    margin-top: 20px;
+    text-decoration: none;
+    outline: none;
+    color: #00324D;
+    border: 2px solid #82DEF0;
+    cursor: pointer;
+    border-radius: 35px;
+    justify-items: center;
+    position: relative;
+}
+.btnGuardar:hover {
+    background-color: #b2ebf2;
+}
+
+
+/* colo de icono de los botones detalle,regresar y crear */
 .iconDCR {
     color: #642c78;
-}
-.btnDCR:hover {
-    background-color: #b2ebf2;
 }
 
 /* edit button layout properties */
@@ -426,7 +487,7 @@ table th {
 .btnEdit{
   
     padding: 8px 20px;
-    margin-top: 20px;
+    margin: 10px;
     text-decoration: none;
     outline: none;
     color: #00324D;

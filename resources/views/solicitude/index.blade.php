@@ -31,7 +31,7 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="xxx..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('solicitudes.create') }}" class="btnDCR">{{ __('CREAR') }}
+                                <a href="{{ route('solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                             </div>
                         </div>
@@ -64,23 +64,24 @@
 											<td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
 
                                             <td id="buttoncell">
-                                            <a href="{{ route('solicitudes.show',$solicitude->id) }}" class="btnDCR">
-                                                {{ __('Detalle') }}
+                                            <a href="{{ route('solicitudes.show',$solicitude->id) }}" class="btnDetalle">
                                                 <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
+                                                {{ __('Detalle') }}
+                                                
                                             </a>
                                             
                                             <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btnEdit"
                                                 >
-                                                {{ __('Modificar') }}
                                                 <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
+                                                {{ __('Modificar') }}
+                                                
                                             </a>
 
-                                            <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btn btn-outline"
-                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                onmouseout="this.style.backgroundColor='#FFFF';">
-                                                {{ __('Duplicar') }}
+                                            <a href="{{ route('solicitudes.edit',$solicitude->id) }}" class="btnDetalle"
+                                                >
                                                 <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
+                                                {{ __('Duplicar') }}
+                                               
                                             </a>
                                             </td>
                                         </tr>

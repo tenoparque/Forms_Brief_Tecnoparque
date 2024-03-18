@@ -37,7 +37,7 @@
                         <input class="form-control" id="search"
                             placeholder="Ingrese el nombre del dato único por tipo de solicitud..."
                             style="width: 70%; border-radius: 50px; border-style: solid; border-width:3px; border-color: #DEE2E6 ">
-                        <a href="{{ route('datos-unicos-por-solicitudes.create') }}" class="btnDCR"
+                        <a href="{{ route('datos-unicos-por-solicitudes.create') }}" class="btnCrear"
                             >{{ __('CREAR') }}
                             <i class="fa-solid fa-circle-play iconDCR" ></i></a>
                     </div>
@@ -71,16 +71,18 @@
                                     <td id="buttoncell">
 
                                         <a href="{{ route('datos-unicos-por-solicitudes.show', $datosUnicosPorSolicitude->id) }}"
-                                            class="btnDCR"
+                                            class="btnDetalle"
                                            >
+                                           <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                             {{ __('Detalle') }}
-                                            <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
+                                            
                                         </a>
 
                                         <a href="{{ route('datos-unicos-por-solicitudes.edit', $datosUnicosPorSolicitude->id) }}"
                                             class="btnEdit">
-                                            {{ __('Editar') }}
                                             <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
+                                            {{ __('Editar') }}
+                                            
                                         </a>
 
                                     </td>

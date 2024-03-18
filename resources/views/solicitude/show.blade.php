@@ -44,7 +44,7 @@
                                 style="background-color: transparent; border-color: transparent">
                                 <thead class="thead-dark">
                                     <tr class="table-light" style="border-color:transparent">
-                                        <th class="table-light"  style="text-align: center; border-color:transparent">
+                                        <th class="table-light" style="text-align: center; border-color:transparent">
                                             <div style="margin-bottom: 10px;">
                                                 <i class="fa-solid fa-envelope-open-text fa-2xl"
                                                     style="color: #00314d;"></i>
@@ -127,10 +127,14 @@
 
                         <h5>Datos por solicitud:</h5>
                         @foreach ($datosPorSolicitud as $dato)
-                            <div class="form-group">
-                                <label><strong>{{ $dato->titulo }}:</strong></label>
-                                <input  type="text" class="form-control" value="{{ $dato->dato }}" readonly
-                                    style="cursor: initial; outline: none; width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label><strong>{{ $dato->titulo }}:</strong></label>
+                                        <input type="text" class="form-control" value="{{ $dato->dato }}" readonly
+                                            style="cursor: initial; outline: none; width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px">
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
 
@@ -138,13 +142,11 @@
 
 
                 </div>
-                <div>
-                    <a href="{{ route('solicitudes.index') }}" class="btn btn-outline"
-                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%;"
-                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                        onmouseout="this.style.backgroundColor='#FFFF';">
+                <div class="mt-3 d-flex justify-content-end">
+                    <a href="{{ route('solicitudes.index') }}" class="btnRegresar"
+                        >
                         {{ __('REGRESAR') }}
-                        <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
+                        <i class="fa-solid fa-circle-play fa-flip-both iconDCR" style="color: #642c78;"></i>
                     </a>
                 </div>
             </div>

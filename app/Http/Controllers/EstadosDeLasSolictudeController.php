@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EstadosDeLasSolictude;
 use App\Models\Estado;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 /**
  * Class EstadosDeLasSolictudeController
@@ -138,4 +139,42 @@ class EstadosDeLasSolictudeController extends Controller
     //     return redirect()->route('estados-de-las-solictudes.index')
     //         ->with('success', 'EstadosDeLasSolictude deleted successfully');
     // }
+
+    public function editarOrden()
+    {
+        $estadosDeLasSolictudes = EstadosDeLasSolictude::with('estado')->get();
+        return view('estados-de-las-solictude.editar-orden', compact('estadosDeLasSolictudes'));
+    }
+    
+    
+
+    public function actualizarOrden(Request $request)
+    {
+        // validates that there are no duplicates in the orden_mostrado of the records
+        $request->validate([
+            'orden_mostrado.*' => [
+                'required',
+                'integer',
+                function ($attribute, $value, $fail) use ($request) {
+                    $existingOrdenMostrado = EstadosDeLasSolictude::whereIn('id', array_keys($request->orden_mostrado))
+                        ->pluck('orden_mostrado')
+                        ->toArray();
+        
+                    $duplicates = array_diff_assoc($existingOrdenMostrado, array_unique($existingOrdenMostrado));
+        
+                    // Checking for duplicates in the displayed orden_mostrado numbers
+                    if (!empty($duplicates)) {
+                        $fail('No se pueden tener números de orden mostrado duplicados.');
+                    }
+                },
+            ],
+        ]);
+
+        // It will iterate to each record obtained.
+        foreach ($request->orden_mostrado as $id => $orden) {
+            EstadosDeLasSolictude::where('id', $id)->update(['orden_mostrado' => $orden]); // The database record containing the same id as the id of the previously obtained record will be edited.
+        }
+
+        return redirect()->route('estados-de-las-solictudes.index')->with('success', 'Orden mostrado actualizado correctamente'); // The index view is redirected to the estados-de-las-solictudes view if the displayed order has been updated correctly.
+    }
 }

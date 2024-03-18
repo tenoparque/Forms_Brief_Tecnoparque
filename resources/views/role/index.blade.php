@@ -35,7 +35,7 @@
                             <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el nombre del rol..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('roles.create') }}" class="btnDCR">{{ __('CREAR') }}
+                                <a href="{{ route('roles.create') }}" class="btnCrear">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR"></i></a>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
 
                                             <td id="buttoncell">
                                                 <form action="{{ route('roles.show', $role->id) }}" method="POST">
-                                                    <a class="btnDCR" href="{{ route('roles.show', $role->id) }}"><i
+                                                    <a class="btnDetalle" href="{{ route('roles.show', $role->id) }}"><i
                                                             class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                         {{ __('Detalle') }}</a>
 

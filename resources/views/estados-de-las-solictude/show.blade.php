@@ -51,7 +51,7 @@
 
                     </div>
                     <div class="mt-3 d-flex justify-content-end">
-                        <a href="{{ route('estados-de-las-solictudes.index') }}" class="btnDCR">
+                        <a href="{{ route('estados-de-las-solictudes.index') }}" class="btnRegresar">
                             {{ __('REGRESAR') }}
                             <i class="fa-solid fa-circle-play fa-flip-both iconDCR" ></i>
                         </a>
