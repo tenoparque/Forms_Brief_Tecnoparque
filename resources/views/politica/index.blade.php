@@ -45,11 +45,7 @@
                                     
 
 
-                                    <a href="{{ route('politicas.create') }}" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:120px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; "
-                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                    onmouseout="this.style.backgroundColor='#FFFF';">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play" style="color: #642c78;"></i></a>
+                                    
 
 
                             </div>
