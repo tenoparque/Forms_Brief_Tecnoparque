@@ -14,7 +14,11 @@
                 <tr>
                     <td>{{ $estado->nombre }}</td>
                     <td>
-                        <input type="number" name="orden_mostrado[{{ $estado->id }}]" class="orden-mostrado" value="{{ $estado->orden_mostrado }}" required>
+                        <select name="orden_mostrado[{{ $estado->id }}]" class="orden-mostrado" required>
+                            @for ($i = 1; $i <= count($estadosDeLasSolictudes); $i++)
+                                <option value="{{ $i }}" {{ $estado->orden_mostrado == $i ? 'selected' : '' }}>{{ $i }}</option>
+                            @endfor
+                        </select>
                     </td>
                 </tr>
             @endforeach
