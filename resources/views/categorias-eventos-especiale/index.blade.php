@@ -59,13 +59,13 @@
                                             <td>{{ $categoria->nombre }}</td>
                                             <td>{{ $categoria->estado->nombre }}</td>
                                             <td id="buttoncell">
-                                                <a  class="btnDetalle" href="{{ route('categorias-eventos-especiales.show', $categoria->id) }}"
+                                                <a  class="btnDetalle btn-outline" href="{{ route('categorias-eventos-especiales.show', $categoria->id) }}"
                                                    > 
                                                    <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                    {{ __('Detalle') }} 
                                                 </a>
 
-                                                <a  class="btnEdit" href="{{ route('categorias-eventos-especiales.edit', $categoria->id) }}"
+                                                <a  class="btnEdit btn-outline" href="{{ route('categorias-eventos-especiales.edit', $categoria->id) }}"
                                                    >
                                                    <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i> 
                                                    {{ __('Editar') }} 
