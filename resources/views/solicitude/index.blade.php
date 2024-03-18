@@ -47,8 +47,8 @@
 										<th>Fecha Y Hora</th>
                                         <th>Nodo</th>
 										<th>Usuario</th>
-										<th>Eventos</th>
-										<th>Estado</th>                                   
+										<th>Evento</th>
+										<th>Estado</th>   
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
