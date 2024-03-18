@@ -219,6 +219,7 @@ class SolicitudeController extends Controller
     public function edit($id)
     {
         $solicitude = Solicitude::find($id);
+        $estadosDeLaSolicitudes = EstadosDeLasSolictude::all();
 
         // Realiza una consulta para obtener los elementos por solicitud
         $elementos = DB::table('elementos_por_solicitudes')
@@ -233,7 +234,7 @@ class SolicitudeController extends Controller
                                 ->where('datos_por_solicitud.id_solicitudes', $id)
                                 ->get();
 
-        return view('solicitude.edit', compact('solicitude', 'elementos', 'datosPorSolicitud'));
+        return view('solicitude.edit', compact('solicitude', 'elementos', 'datosPorSolicitud','estadosDeLaSolicitudes'));
     }
 
     /**
