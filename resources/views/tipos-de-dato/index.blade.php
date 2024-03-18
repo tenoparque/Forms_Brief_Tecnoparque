@@ -84,11 +84,14 @@
 
                                 </tbody>
                             </table>
+                            <div class="class">
+                                {!! $tiposDeDatos->links() !!}
+                            </div>
                         </div>
                     </div>
 
                 </div>
-                {!! $tiposDeDatos->links() !!}
+               
             </div>
         </div>
     </section>

@@ -28,8 +28,7 @@
 
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +50,15 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
     @vite('resources/js/menuburger.js')
     @vite('resources/js/validateUserRegister.js')
+
+
+    {{-- bootstrap --}}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
 
 </head>
 
@@ -124,14 +132,16 @@
                             <ul id="eventos" class="sidebar-dropdown list-unstyled collapse"
                                 data-bs-parent="#sidebar">
                                 <li class="sidebar-item">
-                                    <a href="{{ route('categorias-eventos-especiales.index') }}" class="sidebar-link">Categoria de eventos </a>
-                                    
+                                    <a href="{{ route('categorias-eventos-especiales.index') }}"
+                                        class="sidebar-link">Categoria de eventos </a>
+
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('eventos-especiales-por-categorias.index') }}" class="sidebar-link">Eventos especiales </a>
-                                    
+                                    <a href="{{ route('eventos-especiales-por-categorias.index') }}"
+                                        class="sidebar-link">Eventos especiales </a>
+
                                 </li>
-                               
+
                             </ul>
                         </li>
                         <li class="sidebar-item">
@@ -145,15 +155,16 @@
                                 data-bs-parent="#sidebar">
                                 <li class="sidebar-item">
                                     <a href="{{ route('nodos.index') }}" class="sidebar-link">Nodos</a>
-                                    
+
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('departamentos.index') }}" class="sidebar-link">Departamentos</a>
-                                    
+                                    <a href="{{ route('departamentos.index') }}"
+                                        class="sidebar-link">Departamentos</a>
+
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="{{ route('ciudades.index') }}" class="sidebar-link">Ciudades</a>
-                                   
+
                                 </li>
                             </ul>
                         </li>
@@ -168,23 +179,27 @@
                                 data-bs-parent="#sidebar">
                                 <li class="sidebar-item">
                                     <a href="{{ route('solicitudes.index') }}" class="sidebar-link">Solicitudes</a>
-                                    
+
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('tipos-de-datos.index') }}" class="sidebar-link">Tipo de solicitudes</a>
-                                    
+                                    <a href="{{ route('tipos-de-datos.index') }}" class="sidebar-link">Tipo de
+                                        solicitudes</a>
+
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}" class="sidebar-link">Servicios x tipo de solicitud</a>
-                                    
+                                    <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}"
+                                        class="sidebar-link">Servicios x tipo de solicitud</a>
+
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('estados-de-las-solictudes.index') }}" class="sidebar-link">Estados de las solicitudes</a>
-                                   
+                                    <a href="{{ route('estados-de-las-solictudes.index') }}"
+                                        class="sidebar-link">Estados de las solicitudes</a>
+
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('datos-unicos-por-solicitudes.index') }}" class="sidebar-link">Datos únicos x solicitud</a>
-                                   
+                                    <a href="{{ route('datos-unicos-por-solicitudes.index') }}"
+                                        class="sidebar-link">Datos únicos x solicitud</a>
+
                                 </li>
                             </ul>
                         </li>
@@ -198,10 +213,11 @@
                             <ul id="datos" class="sidebar-dropdown list-unstyled collapse"
                                 data-bs-parent="#sidebar">
                                 <li class="sidebar-item">
-                                    <a href="{{ route('tipos-de-datos.index') }}" class="sidebar-link">Tipo de datos</a>
-                                   
+                                    <a href="{{ route('tipos-de-datos.index') }}" class="sidebar-link">Tipo de
+                                        datos</a>
+
                                 </li>
-                                
+
                             </ul>
                         </li>
                         {{-- <li class="sidebar-item">
@@ -232,10 +248,11 @@
                                 </li>
                             </ul>
                         </li> --}}
-                        
+
                     </ul>
                     <div class="sidebar-footer">
-                        <a href="{{ route('logout') }}" class="sidebar-link" onclick="event.preventDefault();
+                        <a href="{{ route('logout') }}" class="sidebar-link"
+                            onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
 
                             <i class="lni lni-exit"></i>
