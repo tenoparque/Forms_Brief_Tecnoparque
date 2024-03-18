@@ -19,7 +19,7 @@ class RoleController extends Controller
 
     public function index()
     {
-        $roles = Role::paginate(2);
+        $roles = Role::paginate();
 
         return view('role.index', compact('roles'))
             ->with('i', (request()->input('page', 1) - 1) * $roles->perPage());
