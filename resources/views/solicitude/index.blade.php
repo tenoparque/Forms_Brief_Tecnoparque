@@ -48,7 +48,8 @@
                                         <th>Nodo</th>
 										<th>Usuario</th>
 										<th>Evento</th>
-										<th>Estado</th>   
+										<th>Estado</th>
+                                        <th>Opciones</th>                                      
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
