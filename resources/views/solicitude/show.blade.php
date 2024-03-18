@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="table-responsive" style="background-color: transparent; border-color:transparent">
+                        <div class="table-responsive" style="background-color: transparent; border-color:transparent; margin-block-start: 10px;">
                             <table class="table table-bordered table-hover"
                                 style="background-color: transparent; border-color: transparent">
                                 <thead class="thead-dark">
