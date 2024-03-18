@@ -52,7 +52,8 @@
                                         
                                             <th>Nombre</th>
                                             <th>Estado</th>
-    
+                                            <th>Orden Mostrado</th>
+
                                             <th>Opciones</th>
                                         </tr>
                                     </tr>
@@ -64,6 +65,7 @@
                                         
                                         <td>{{ $estadosDeLasSolictude->nombre }}</td>
                                         <td>{{ $estadosDeLasSolictude->estado->nombre }}</td>
+                                        <td>{{ $estadosDeLasSolictude->orden_mostrado }}</td>
 
                                         <td id="buttoncell">
                                             <a href="{{ route('estados-de-las-solictudes.show' ,$estadosDeLasSolictude->id) }}" class="btnDetalle"

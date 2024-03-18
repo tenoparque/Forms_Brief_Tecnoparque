@@ -116,12 +116,14 @@
                             <input type="hidden" id="id_evento_especial" name="id_evento_especial">
 
                         </div>
+                        
+                    </div>
+                    <div id="boton">
                         <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
                             <button type="submit" class="btn btn-outline btnCED my-4">Enviar Solicitud <i
                                     class="fa-solid fa-circle-play iconCDE" ></i></button>
                         </div>
                     </div>
-                    
 
                    
                 </form>
@@ -157,25 +159,30 @@
                     $('#servicesComboBoxContainer').html(serviciosCheckboxes);
                     //validacion si al menos uno de los servicios se encuentra seleccionado 
 
-                    $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(function() {
-                            var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
-                            var servicioNombre = $(this).closest('label').text().trim(); // Obtener el nombre del servicio seleccionado
+                  // Función para manejar el cambio en la selección de servicios
+                                function manejarCambioServicios() {
+                                    var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
+                                    var servicioNombre = $(this).closest('label').text().trim(); // Obtener el nombre del servicio seleccionado
 
-                            if ($(this).is(':checked')) {
-                                // Agregar el servicio al array si está seleccionado
-                                serviciosSeleccionados.push({ id: servicioId, nombre: servicioNombre });
-                            } else {
-                                // Remover el servicio del array si está deseleccionado
-                                serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
-                                    return servicio.id !== servicioId;
-                                });
-                            }
+                                    if ($(this).is(':checked')) {
+                                        // Agregar el servicio al array si está seleccionado
+                                        serviciosSeleccionados.push({ id: servicioId, nombre: servicioNombre });
+                                    } else {
+                                        // Remover el servicio del array si está deseleccionado
+                                        serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
+                                            return servicio.id !== servicioId;
+                                        });
+                                    }
 
-                            // Imprimir el array de servicios seleccionados en la consola
-                            console.log(serviciosSeleccionados.length);
-                        });
-       
+                                    // Imprimir el array de servicios seleccionados en la consola
+                                    console.log(serviciosSeleccionados.length);
 
+                                    
+                                    
+                                }
+
+                                // Manejar el cambio en la selección de servicios
+                                $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(manejarCambioServicios);
 
                     var datosUnicosTextboxes = '';
                     $.each(response.datos_unicos, function(index, datoUnico) {
@@ -240,7 +247,9 @@
 }
 
  // Función para verificar la selección del combobox
- $('#id_tipos_de_solicitudes').change(function() {
+ $('#id_tipos_de_solicitudes').change(validacionDelombo);
+ 
+ function validacionDelombo() {
             var selectedOption = $(this).val(); // Obtener el valor seleccionado
 
             // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
@@ -251,7 +260,25 @@
                 // Ocultar el botón de enviar solicitud
                 $('#btnEnviarSolicitud').hide();
             }
-        });
+        };
+
+
+
+        $('#id_tipos_de_solicitudes').change(validacionBotonEnviar);
+        
+        function validacionBotonEnviar() {
+            var selectedOption = $(this).val(); // Obtener el valor seleccionado
+
+            // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
+            if (selectedOption !== '') {
+                // Mostrar el botón de enviar solicitud
+                $('#boton').show();
+            } else {
+                // Ocultar el botón de enviar solicitud
+                $('#boton').hide();
+            }
+        };
+
 
 
 
@@ -297,6 +324,12 @@
 
 <style>
     #btnEnviarSolicitud {
+        display: none; /* Por defecto, el botón está oculto */
+    }
+</style>
+
+<style>
+    #boton {
         display: none; /* Por defecto, el botón está oculto */
     }
 </style>
