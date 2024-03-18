@@ -9,6 +9,7 @@ use App\Models\ElementosPorSolicitude;
 use App\Models\Estado;
 use App\Models\EstadosDeLasSolictude;
 use App\Models\EventosEspecialesPorCategoria;
+use App\Models\HistorialDeEstadosPorSolicitude;
 use App\Models\Solicitude;
 use App\Models\TiposDeDato;
 use App\Models\TiposDeSolicitude;
@@ -254,7 +255,15 @@ class SolicitudeController extends Controller
 
         $solicitude->id_estado_de_la_solicitud = $request->input('id_estado_de_la_solicitud');
         $solicitude->save();
-
+        $userId = Auth::id();
+        $cambioHistorial = new HistorialDeEstadosPorSolicitude();
+        $cambioHistorial->id_estados_s = $request->input('id_estado_de_la_solicitud');
+        $cambioHistorial->id_solicitudes = $solicitude->id;
+        $cambioHistorial->id_users=$userId;
+        $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
+        $cambioHistorial->save();
+        // Asignar el ID de la solicitud
+        
         // Crear una nueva instancia de HistorialDeModificacionesPorSolicitude
         $modificacion = new HistorialDeModificacionesPorSolicitude();
         $modificacion->id_soli = $solicitude->id; // Asignar el ID de la solicitud
