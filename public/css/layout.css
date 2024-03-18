@@ -29,31 +29,39 @@ h1 {
 /* Código modificación paginación */
 
 .page-link {
-    color: #ff0000; /* Cambia el color del texto */
+    color: #ff0000;
+    /* Cambia el color del texto */
 }
 
 .page-item.active .page-link {
-    background-color: #ff0000; /* Cambia el color de fondo del elemento activo */
-    border-color: #ff0000; /* Cambia el color del borde del elemento activo */
+    background-color: #ff0000;
+    /* Cambia el color de fondo del elemento activo */
+    border-color: #ff0000;
+    /* Cambia el color del borde del elemento activo */
 }
 
 .page-link:hover {
-    color: #ff0000; /* Cambia el color del texto al pasar el mouse */
-    text-decoration: none; /* Elimina el subrayado al pasar el mouse */
+    color: #ff0000;
+    /* Cambia el color del texto al pasar el mouse */
+    text-decoration: none;
+    /* Elimina el subrayado al pasar el mouse */
 }
 
 .page-item.disabled .page-link {
-    color: #ff0000; /* Cambia el color del texto de los elementos deshabilitados */
-    background-color: #ff0000; /* Cambia el color de fondo de los elementos deshabilitados */
-    border-color: #ff0000; /* Cambia el color del borde de los elementos deshabilitados */
+    color: #ff0000;
+    /* Cambia el color del texto de los elementos deshabilitados */
+    background-color: #ff0000;
+    /* Cambia el color de fondo de los elementos deshabilitados */
+    border-color: #ff0000;
+    /* Cambia el color del borde de los elementos deshabilitados */
 }
 
 
 
 .wrapper {
     display: flex;
-   
-    
+
+
 
 }
 
@@ -62,7 +70,7 @@ h1 {
     width: 100%;
     transition: all 0.35s ease-in-out;
     overflow-y: auto;
-    
+
 }
 
 
@@ -83,7 +91,7 @@ h1 {
     border: 0;
 }
 
-.toggle-btn img{
+.toggle-btn img {
     width: 70%;
     height: 70%;
 }
@@ -142,7 +150,7 @@ h1 {
     width: 80%;
     opacity: 20;
     margin: 0 auto;
-    
+
 }
 
 .sidebar-link i {
@@ -159,7 +167,7 @@ a.sidebar-link:hover {
     position: relative;
 }
 
-.sidebar-dropdown li{
+.sidebar-dropdown li {
     margin-left: 35px;
     margin-right: 10px;
 
@@ -229,8 +237,8 @@ table th {
     text-align: center;
 }
 
-#buttoncell{
-    padding: 15px 0px 15px 10px;
+#buttoncell {
+    padding: 15px;
 }
 
 /* --------------- solicitudes ---------------------- */
@@ -408,16 +416,17 @@ table th {
 
 /* Layout properties of the create, return and detail buttons. */
 .btnCrear {
-    margin-top: 20px;
-    padding: 8px 30px;
+
+    display: inline-block;
+    padding: 6px 20px;
     text-decoration: none;
-    outline: none;
     color: #00324D;
-    border: 2px solid #82DEF0;
-    cursor: pointer;
     border-radius: 35px;
-    justify-items: center;
-    position: relative;
+    outline: none; 
+    border: 2px solid #82DEF0;
+    cursor: pointer; 
+
+
 }
 
 .btnCrear:hover {
@@ -426,81 +435,34 @@ table th {
 
 /* bottom dettale */
 .btnDetalle {
-    margin:0px 5px;
-    padding:8px 15px;
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 15px;
     text-decoration: none;
-    outline: none;
     color: #00324D;
-    border: 2px solid #82DEF0;
-    cursor: pointer;
     border-radius: 35px;
-    justify-items: center;
-    position: relative;
+    outline: none; 
+    border: 2px solid #82DEF0;
+    cursor: pointer; 
+
 }
+
 .btnDetalle:hover {
     background-color: #b2ebf2;
 }
 
-
-/* bottom regresar */
-.btnRegresar {
-    margin-top: 20px;
-    padding: 8px 20px;
-    text-decoration: none;
-    outline: none;
-    color: #00324D;
-    border: 2px solid #82DEF0;
-    cursor: pointer;
-    border-radius: 35px;
-    justify-items: center;
-    position: relative;
-}
-.btnRegresar:hover {
-    background-color: #b2ebf2;
-}
-
-/* bottom guardar */
-.btnGuardar {
-    width: 120px;
-    height: 20px;
-    margin-top: 20px;
-    text-decoration: none;
-    outline: none;
-    color: #00324D;
-    border: 2px solid #82DEF0;
-    cursor: pointer;
-    border-radius: 35px;
-    justify-items: center;
-    position: relative;
-}
-.btnGuardar:hover {
-    background-color: #b2ebf2;
-}
-
-
-/* colo de icono de los botones detalle,regresar y crear */
-.iconDCR {
-    color: #642c78;
-}
-
 /* edit button layout properties */
+
 .btnEdit {
-    margin: 10px 0px;
-    padding: 10px;
-}
-.btnEdit{
-  
-    padding: 8px 20px;
-    margin: 0px 5px;
+
+    display: inline-block;
+    padding: 6px 20px;
     text-decoration: none;
-    outline: none;
     color: #00324D;
-    border: 2px solid #82DEF0;
-    cursor: pointer;
     border-radius: 35px;
-    justify-content: center;
-    justify-items: center;
-    position: relative;
+    outline: none; 
+    border: 2px solid #82DEF0;
+    cursor: pointer; 
 }
 
 .iconEdit {
@@ -510,25 +472,108 @@ table th {
 .btnEdit:hover {
     background-color: #b2ebf2;
 }
+
+
+/* bottom regresar */
+.btnRegresar {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324D;
+    border-radius: 35px;
+    outline: none; 
+    border: 2px solid #82DEF0;
+    cursor: pointer; 
+}
+
+.btnRegresar:hover {
+    background-color: #b2ebf2;
+}
+
+/* bottom guardar */
+.btnGuardar {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324D;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82DEF0;
+    cursor: pointer;
+}
+
+.btnGuardar:hover {
+    background-color: #b2ebf2;
+}
+
+
+/* bottom duplicar */
+.btnDuplicar {
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324D;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82DEF0;
+    cursor: pointer;
+}
+.btnDuplicar:hover {
+    background-color: #b2ebf2;
+}
+
+
+/* bottom modificar */
+.btnModificar {
+
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324D;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82DEF0;
+    cursor: pointer;
+
+}
+.btnModificar:hover {
+    background-color: #b2ebf2;
+}
+
+/* colo de icono de los botones detalle,regresar y crear */
+.iconDCR {
+    color: #642c78;
+    vertical-align: middle;
+}
+
+
 /* image */
 #qrImage {
     max-width: 44%;
     max-height: 44%;
     margin: 10px;
 }
+
 #imageUrl {
     display: inline-block;
     margin-left: 8px;
 }
+
 /* ---------------------personalizacion--------------------- */
 .logoPersonalizacion {
     display: flex;
 }
+
 .ImgCeldaPesonalizacion {
     margin: 0 auto;
     max-width: 44%;
     max-height: 44%;
 }
+
 .PersonalizacionColor {
     display: grid;
     text-align: center;
@@ -549,19 +594,38 @@ table th {
 
 
 @media (max-width: 768px) {
-    
+
     .btnDetalle {
         display: block;
-        margin: 5px 0px;
-        padding:8px 15px;
-        
+        width: 100%;
         
     }
 
-    .btnEdit{
+    .btnEdit {
         display: block;
-        margin: 5px 0px;
-        padding: 8px 20px;
+        width: 100%;
         
+    }
+
+    .btnDuplicar {
+        display: block;
+        width: 100%;
+        
+    }
+
+    .btnModificar {
+        display: block;
+        width: 100%;
+        
+        font-size: .9em;
+    }
+    .btnCrear{
+       display: block;
+        
+        font-size: .9em; 
+    }
+
+    .iconDCR{
+        vertical-align: middle;
     }
 }

@@ -73,14 +73,14 @@
 
                                                 </a>
 
-                                                <a href="{{ route('solicitudes.edit', $solicitude->id) }}" class="btnEdit">
+                                                <a href="{{ route('solicitudes.edit', $solicitude->id) }}" class="btnModificar">
                                                     <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                                     {{ __('Modificar') }}
 
                                                 </a>
 
                                                 <a href="{{ route('solicitudes.edit', $solicitude->id) }}"
-                                                    class="btnDetalle">
+                                                    class="btnDuplicar">
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                     {{ __('Duplicar') }}
 
