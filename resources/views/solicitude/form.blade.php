@@ -247,7 +247,9 @@
 }
 
  // Función para verificar la selección del combobox
- $('#id_tipos_de_solicitudes').change(function() {
+ $('#id_tipos_de_solicitudes').change(validacionDelombo);
+ 
+ function validacionDelombo() {
             var selectedOption = $(this).val(); // Obtener el valor seleccionado
 
             // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
@@ -258,7 +260,7 @@
                 // Ocultar el botón de enviar solicitud
                 $('#btnEnviarSolicitud').hide();
             }
-        });
+        };
 
         $('#id_tipos_de_solicitudes').change(function() {
             var selectedOption = $(this).val(); // Obtener el valor seleccionado
