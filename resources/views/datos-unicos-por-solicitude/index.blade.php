@@ -94,9 +94,12 @@
 
                         </tbody>
                     </table>
-                    <div class="clas">
-                        {!! $datosUnicosPorSolicitudes->links() !!}
-                    </div>
+                    
+                        
+                    
+                </div>
+                <div class="mt-2">
+                    {!! $datosUnicosPorSolicitudes->links() !!}
                 </div>
             </div>
 
