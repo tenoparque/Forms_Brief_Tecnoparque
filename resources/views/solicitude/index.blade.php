@@ -78,16 +78,16 @@
 
                                                 </a>
 
-                                                <a  href="{{ route('solicitudes.duplicarFormulario', $solicitude->id) }}" class="btn btn-outline"
+                                                <a href="{{ route('solicitudes.duplicarFormulario', $solicitude->id) }}"
+                                                    class="btn btn-outline"
                                                     style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                                     onmouseover="this.style.backgroundColor='#b2ebf2';"
                                                     onmouseout="this.style.backgroundColor='#FFFF';">
                                                     {{ __('Duplicar') }}
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                 </a>
-                                                <button
-                                                    class="btnAsignar" id="btnVerAsignacion" data-toggle="modal"
-                                                data-target="#asignacionModal">
+                                                <button class="btnAsignar" id="btnVerAsignacion" data-toggle="modal"
+                                                    data-target="#asignacionModal">
                                                     <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
                                                     {{ __('Asignar a diseñador') }}
                                                 </button>
@@ -114,11 +114,14 @@
                                     </div>
                                     <div class="modal-body">
                                         <div style="position: relative;">
-                                            <select name="id_ciudad" id="id_ciudad" class="form-control selectpicker" data-style="btn-primary"
-                                                title="Seleccionar diseñador" required
+                                            <select name="id_ciudad" id="id_ciudad" class="form-control selectpicker"
+                                                data-style="btn-primary" title="Seleccionar diseñador" required
                                                 style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                                                 <option value="" disabled selected>Seleccionar diseñador...</option>
-                                                
+                                                {{-- @foreach ($users as $user)
+                                                    <option value="{{ $user->name }}">{{ $users->name }}
+                                                    </option>
+                                                @endforeach --}}
                                             </select>
                                             <div class="icono" style="right: 4%;">
                                                 <div class="circle-play">
@@ -140,10 +143,10 @@
                         </div>
 
                     </div>
-                   
 
 
-</body> 
+
+                    </body>
                 </div>
                 {!! $solicitudes->links() !!}
             </div>
@@ -156,7 +159,7 @@
                 // Abre el modal cuando se haga clic en el botón
                 $('#asignacionModal').modal('show');
             });
-    
+
             // Agrega un evento click a todos los botones de clase "cerrar-modal"
             document.querySelectorAll('.cerrar-modal').forEach(function(button) {
                 button.addEventListener('click', function() {
@@ -165,5 +168,4 @@
                 });
             });
         </script>
-
     @endsection
