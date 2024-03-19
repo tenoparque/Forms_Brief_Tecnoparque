@@ -116,11 +116,10 @@
 
                     </div>
                 </div>
-                <div>
-                    <a href="{{ route('solicitudes.index') }}" class="btnDCR"
-                       >
+                <div class="mt-3 d-flex justify-content-end">
+                    <a href="{{ route('solicitudes.index') }}" class="btnRegresar">
                         {{ __('REGRESAR') }}
-                        <i class="fa-solid fa-circle-play fa-flip-both iconDCR" ></i>
+                        <i class="fa-solid fa-circle-play fa-flip-both iconDCR"></i>
                     </a>
                 </div>
             </div>
