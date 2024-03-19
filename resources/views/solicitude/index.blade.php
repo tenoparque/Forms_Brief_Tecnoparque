@@ -56,7 +56,6 @@
                                     @foreach ($solicitudes as $solicitude)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-
                                             <td>{{ $solicitude->tiposdesolicitude->nombre }}</td>
                                             <td>{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
                                             <td>{{ $solicitude->user->nodo->nombre }}</td>
