@@ -42,9 +42,9 @@ class UserController extends Controller
             '<tr>
                 <td>' . ++$num . '</td>
                 <td>' . $user->name . '</td>
+                <td>' . $user->apellidos . '</td>
                 <td>' . $user->email . '</td>
                 <td>' . $user->celular . '</td>
-                <td>' . $user->apellidos . '</td>
                 <td>' . $user->nodo->nombre . '</td>
                 <td>' . $user->estado->nombre . '</td>
                 <td>';
@@ -54,8 +54,8 @@ class UserController extends Controller
                 $output .= $role->name;
                 if ($index !== $lastRoleIndex) {
                     $output .= '<br>';
-                }
             }
+        }
         
             $output .= '</td>
                             <td>

@@ -48,8 +48,8 @@
                                         <th>Email</th>
                                         <th>Celular</th>
                                         <th>Nodo</th>
-                                        <th>Rol</th>
                                         <th>Estado</th>
+                                        <th>Rol</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -63,6 +63,8 @@
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->celular }}</td>
                                                 <td>{{ $user->nodo->nombre }}</td>
+                                                
+                                                <td>{{ $user->estado->nombre }}</td>
                                                 <td>
                                                     @foreach ($user->roles as $role)
                                                         {{ $role->name }}
@@ -71,7 +73,6 @@
                                                         @endif
                                                     @endforeach
                                                 </td>
-                                                <td>{{ $user->estado->nombre }}</td>
                                                 
 
                                                 <td id="buttoncell">
