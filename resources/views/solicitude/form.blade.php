@@ -120,6 +120,8 @@
                             
                             <input type="hidden" id="tipo_solicitud_id" name="tipo_solicitud_id">
                             <input type="hidden" id="id_evento_especial" name="id_evento_especial">
+                            <input type="hidden" id="otroServicioHidden" name="otroServicioHidden">
+
                            
                         </div>
                         
@@ -141,6 +143,17 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+        $(document).ready(function() {
+    // Manejar el evento de cambio o entrada en el textbox de otro servicio
+    $('#otroServicio').on('input', function() {
+        // Obtener el valor del campo de texto
+        var otroServicioValor = $(this).val();
+        console.log(otroServicioValor);
+
+        // Actualizar el valor del campo oculto
+        $('#otroServicioHidden').val(otroServicioValor);
+    });
+});
     $(document).ready(function() {
         $('#id_tipos_de_solicitudes').change(function() {
             var selectedTypeId = $(this).val(); 
@@ -328,16 +341,9 @@ function manejarCambioServicios() {
     var selectedEvent = $(this).val(); // Obtain the selected ID
     $('#id_evento_especial').val(selectedEvent);
 
-    $('#solicitudForm').submit(function(event) {
-        // Obtener el valor del campo otroServicio
-        var otroServicioValor = $('#otroServicio').val();
 
-        // Asignar el valor al campo oculto otroServicioHidden
-        $('#otroServicioHidden').val(otroServicioValor);
 
-        // Continuar con el envío del formulario
-        return true;
-    });
+
 
     
 });

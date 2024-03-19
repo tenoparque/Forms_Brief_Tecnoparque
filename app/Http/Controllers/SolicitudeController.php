@@ -149,14 +149,32 @@ class SolicitudeController extends Controller
     
         // Crear la solicitud con los datos combinados
         $solicitude = Solicitude::create($data);
-
         foreach ($serviciosSeleccionados as $servicioId) {
-            $elementosPorSolicitud = ElementosPorSolicitude::create([
+            // Inicializar el valor para el campo otro_servicio
+            $otroServicio = null;
+        
+            // Verificar si el servicio seleccionado es "otro"
+            if ($servicioId === 'otro') {
+                $otroServicio = $request->input('otroServicioHidden');
+            } else {
+                // Consultar el servicio correspondiente al ID
+                $servicio = ServiciosPorTiposDeSolicitude::find($servicioId);
+        
+                // Verificar si el servicio existe y si su nombre es "otro"
+                if ($servicio && $servicio->nombre === 'otro') {
+                    $otroServicio = $request->input('otroServicioHidden');
+                }
+            }
+        
+            // Crear el registro
+            $elementoPorSolicitud = ElementosPorSolicitude::create([
                 'id_solicitudes' => $solicitude->id,
                 'id_subservicios' => $servicioId,
-                'otro_servicio' => "Brandon",
+                'otro_servicio' => $otroServicio,
+                // Otros campos que puedas necesitar
             ]);
         }
+        
         
         
 
