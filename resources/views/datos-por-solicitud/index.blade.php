@@ -75,9 +75,12 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="mt-2">
+                            {!! $datosPorSolicituds->links() !!}
+                        </div>
                     </div>
                 </div>
-                {!! $datosPorSolicituds->links() !!}
+               
             </div>
         </div>
     </div>

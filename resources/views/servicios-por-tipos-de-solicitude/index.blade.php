@@ -84,11 +84,15 @@
 
                         </tbody>
                     </table>
+                    
+                </div>
+                <div class="mt-2">
+                    {!! $serviciosPorTiposDeSolicitudes->links() !!}
                 </div>
             </div>
 
 
-            {!! $serviciosPorTiposDeSolicitudes->links() !!}
+            
         </div>
     </section>
 @endsection

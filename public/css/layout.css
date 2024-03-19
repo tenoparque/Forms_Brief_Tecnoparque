@@ -29,30 +29,30 @@ h1 {
 /* Código modificación paginación */
 
 .page-link {
-    color: #002fff;
+    color: #000000;
     /* Cambia el color del texto */
 }
 
 .page-item.active .page-link {
-    background-color: #1100ff;
+    background-color: #39A900;
     /* Cambia el color de fondo del elemento activo */
-    border-color: #2600ff;
+    border-color: #ffffff;
     /* Cambia el color del borde del elemento activo */
 }
 
 .page-link:hover {
-    color: #2f00ff;
+    color: #ff0000;
     /* Cambia el color del texto al pasar el mouse */
     text-decoration: none;
     /* Elimina el subrayado al pasar el mouse */
 }
 
 .page-item.disabled .page-link {
-    color: #4c00ff;
+    color: #ffffff;
     /* Cambia el color del texto de los elementos deshabilitados */
-    background-color: #2600ff;
+    background-color: #39A900;
     /* Cambia el color de fondo de los elementos deshabilitados */
-    border-color: #3700ff;
+    border-color: #f5f5f5;
     /* Cambia el color del borde de los elementos deshabilitados */
 }
 
