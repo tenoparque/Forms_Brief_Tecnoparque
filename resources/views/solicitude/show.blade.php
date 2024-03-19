@@ -52,7 +52,7 @@
                                                 data-target="#historialModal">
                                                 Ver historial
                                                 <i class="fa-solid fa-clock-rotate-left fa-sm" style="color: #642c78;"></i>
-                                                </a></button>
+                                                </button>
                                         @else
                                             <p>No hay historial de modificaciones</p>
                                         @endif
