@@ -139,61 +139,10 @@
                         </div>
 
                     </div>
-                    {{-- <title>Calendario con Días Excluidos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+                   
 
-        .calendar {
-            width: 300px;
-            margin: 0 auto;
-            margin-bottom: 20px;
-        }
 
-        .month {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .days {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .day {
-            width: calc(100% / 7);
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            border: 1px solid #ccc;
-        }
-    </style>
-</head>
-<body>
-<?php
-// Iterar sobre cada mes del año
-for ($mes = 1; $mes <= 12; $mes++) {
-    echo '<div class="calendar">';
-    echo '<div class="month">' . date('F', mktime(0, 0, 0, $mes, 1)) . ' 2024</div>'; // Obtener el nombre del mes
-    echo '<div class="days">';
-
-    // Iterar sobre los días del mes actual
-    $num_dias_mes = cal_days_in_month(CAL_GREGORIAN, $mes, 2024); // Año bisiesto, ejemplo 2024
-    for ($dia = 1; $dia <= $num_dias_mes; $dia++) {
-        $fecha_actual = '2024-' . sprintf('%02d', $mes) . '-' . sprintf('%02d', $dia); // Construir fecha en formato 'año-mes-día'
-
-        // Verificar si la fecha actual es un día que se desea excluir
-        if (!in_array($fecha_actual, $disabledDates)) {
-            echo '<div class="day">' . $dia . '</div>';
-        }
-    }
-
-    echo '</div>';
-    echo '</div>';
-}
-?>
-</body> --}}
+</body> 
                 </div>
                 {!! $solicitudes->links() !!}
             </div>
