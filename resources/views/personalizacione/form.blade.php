@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container " style="margin-left:25px">
 <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <div class="row">
         <div class="d-flex" style="margin-top: 2%; margin-bottom: 2%">
@@ -44,24 +44,30 @@
             {!! $errors->first('color_principal', '<div class="invalid-feedback">:message</div>') !!}
             </div> -->
         </div>
-        <div class="d-flex" style="margin-top: 2%; margin-bottom: 2%">
-            <label style="font-size: 18px; font-weight: bold; margin-left: 35px;margin-right: 15px; ">Color
-                principal</label>
-            <input style="border-color: #ececec; background-color:  #ececec; height: 38px;" id="color-picker-principal" name="color_principal"
-                value="{{ $personalizacione->color_principal }}" />
+        <div class="row " style="margin-top: 2%; margin-bottom: 2%">
 
-            <!-- Input para el color picker -->
-            <label style="font-size: 18px; font-weight: bold; margin-left: 35px;margin-right: 15px;">Color
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                <label style="font-size: 18px; font-weight: bold; ">Color
+                    principal</label>
+                <input style="border-radius:5px; border:1px solid #eaeaea;background:#fff; padding: calc(0.667* 16px) calc(2.667* 16px) calc(0.667* 16px) calc(0.667* 16px);" id="color-picker-principal" name="color_principal"
+                    value="{{ $personalizacione->color_principal }}" />
+            </div>
+
+            <div class="col-lg-4 col-md-12  col-sm-12 col-12">
+                <!-- Input para el color picker -->
+            <label style="font-size: 18px; font-weight: bold;">Color
                 Secundario</label>
-            <input style="border-color: #ececec; background-color:  #ececec; height: 38px;"  id="color-picker-secundario" name="color_secundario"
+            <input style="border-radius:5px; border:1px solid #eaeaea;background:#fff; padding: calc(0.667* 16px) calc(2.667* 16px) calc(0.667* 16px) calc(0.667* 16px);" id="color-picker-principal"  id="color-picker-secundario" name="color_secundario"
                 value="{{ $personalizacione->color_secundario }}" />
+            </div>
 
-            <!-- Input para el color picker -->
-            <label style="font-size: 18px; font-weight: bold; margin-right: 15px; margin-left: 35px;">Color
+            <div class=" col-lg-4 col-md-12 col-sm-12 col-12">
+                <!-- Input para el color picker -->
+            <label style="font-size: 18px; font-weight: bold; ">Color
                 Terciario</label>
-            <input style="border-color: #ececec; background-color:  #ececec; height: 38px;" id="color-picker-terciario" name="color_terciario"
+            <input style="border-radius:5px; border:1px solid #eaeaea;background:#fff; padding: calc(0.667* 16px) calc(2.667* 16px) calc(0.667* 16px) calc(0.667* 16px);" id="color-picker-principal" id="color-picker-terciario" name="color_terciario"
                 value="{{ $personalizacione->color_terciario }}" />
-
+            </div>
         </div>
         <!-- <div class="col-md-6">
             {{ Form::label('color_secundario', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
@@ -75,10 +81,10 @@
         </div> -->
         @if (Route::currentRouteName() === 'personalizaciones.edit')
             <div class="col-md-6">
-                <label for="id_estado" style="font-size: 18px; font-weight: bold; margin-left: 35px;">Estado</label>
+                <label for="id_estado" style="font-size: 18px; font-weight: bold;">Estado</label>
                 <div style="position: relative;">
                     <select
-                        style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
+                        style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
                         name="id_estado" id="id_estado" class="form-control selectpicker" data-style="btn-primary"
                         title="Seleccionar Estado" required>
                         @foreach ($estados as $estado)
@@ -88,7 +94,7 @@
                             </option>
                         @endforeach
                     </select>
-                    <div class="icono" style="right: 4%">
+                    <div class="icono" style="right: 7%">
                         <div class="circle-play">
                             <div class="circle"></div>
                             <div class="triangle"></div>
