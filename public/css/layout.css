@@ -264,6 +264,8 @@ table th {
 .LabelText {
     margin: 0.2% 0%;
     padding: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 
