@@ -44,13 +44,12 @@
                                     <tr style="border-width: 2px">
                                         <th>No</th>
                                         <th>Nombre</th>
+                                        <th>Apellidos</th>
                                         <th>Email</th>
                                         <th>Celular</th>
-                                        <th>Apellidos</th>
                                         <th>Nodo</th>
-                                        <th>Estado</th>
                                         <th>Rol</th>
-
+                                        <th>Estado</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -60,11 +59,10 @@
                                                 <td>{{ ++$i }}</td>
 
                                                 <td>{{ $user->name }}</td>
+                                                <td>{{ $user->apellidos }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->celular }}</td>
-                                                <td>{{ $user->apellidos }}</td>
                                                 <td>{{ $user->nodo->nombre }}</td>
-                                                <td>{{ $user->estado->nombre }}</td>
                                                 <td>
                                                     @foreach ($user->roles as $role)
                                                         {{ $role->name }}
@@ -73,6 +71,8 @@
                                                         @endif
                                                     @endforeach
                                                 </td>
+                                                <td>{{ $user->estado->nombre }}</td>
+                                                
 
                                                 <td id="buttoncell">
                                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
