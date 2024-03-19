@@ -233,8 +233,7 @@
                             $('input[type="checkbox"][value="' + idSubservicio + '"]').prop('checked', true);
                         });
                     @endif
-
-                        
+ 
                     // validaciones del boton de enviar -----------------------------------------------------------------------------------------------------------------
                     function manejarCambioServicios() {
                         var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
@@ -419,9 +418,6 @@
 
         
     });
-
-
-
 </script>
 
 <script>
