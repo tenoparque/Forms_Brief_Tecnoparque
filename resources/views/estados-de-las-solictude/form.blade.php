@@ -1,11 +1,11 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-
         <div class="form-group">
             {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold;bold; margin-left: 35px;']) }}
             {{ Form::text('nombre', $estadosDeLasSolictude->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;  margin-left: 25px; margin-bottom: 10px;']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        
         @if (Route::currentRouteName() === 'estados-de-las-solictudes.create')
         <div class="form-group">
             {{ Form::label('orden_mostrado', null, ['style' => 'font-size: 18px; font-weight: bold;bold; margin-left: 35px;']) }}
@@ -14,6 +14,7 @@
         @endif
 
         @if (Route::currentRouteName() === 'estados-de-las-solictudes.edit')
+        
             <div class="form-group">
                 <label style="font-size: 18px; font-weight: bold;bold; margin-left: 35px;" for="id_estado">Estado</label>
                 <div style="position: relative;">

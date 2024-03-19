@@ -25,7 +25,7 @@ class EstadosDeLasSolictude extends Model
     static $rules = [
 		'nombre' => 'required',
         'id_estado' => 'required',
-        'orden_mostrado' => 'required', // Agrega las reglas de validación según lo necesites
+        // 'orden_mostrado' => 'required', // Agrega las reglas de validación según lo necesites
     ];
 
     protected $perPage = 20;
