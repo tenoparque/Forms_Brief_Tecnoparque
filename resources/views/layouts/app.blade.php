@@ -148,7 +148,7 @@
                             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                 data-bs-target="#nodos" aria-expanded="false" aria-controls="auth">
                                 <i class="fa-solid fa-location-dot"></i>
-                                <span>------</span>
+                                <span>Tecnoparques</span>
                             </a>
                             <hr class="hrmenu">
                             <ul id="nodos" class="sidebar-dropdown list-unstyled collapse"

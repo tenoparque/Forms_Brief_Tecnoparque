@@ -11,7 +11,7 @@
                 <div class="">
                     <div class="card-header">
                         <div class="float-left">
-                            <div class="d-flex mt-3 mb-4">
+                            <div class="d-flex mt-3 mb-4" style=" padding-bottom: 25px;">
                                 <div>
                                     <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('DETALLE DE') }}</h1>
                                 </div>
@@ -26,8 +26,19 @@
                             <div class="col-md-12">
                                 <div class="card"
                                     style="border-radius: 20px; border:none; margin-top: 5px;margin-block-end: 50px;">
+                                    <div class="containerProgressBar">
+                                        <ul class="progressbar">
+                                            @foreach($estados as $estado)
+                                                <li class="{{ $estado->orden_mostrado <= $estadoActual->orden_mostrado ? 'active' : '' }}">
+                                                    <span>{{ $estado->nombre }}</span>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                     <div class="card-body">
                                         @if ($historial->isNotEmpty())
+                                            
+
                                             <p><strong>Fecha de última modificación:</strong>
                                                 {{ $historial->first()->fecha_de_modificacion }}</p>
                                             <p
@@ -45,16 +56,16 @@
                                         @else
                                             <p>No hay historial de modificaciones</p>
                                         @endif
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="card-body">
                         <div class="table-responsive"
-                            style="background-color: transparent; border-color:transparent; margin-block-start: 10px">
+                            style="background-color: transparent; border-color:transparent; margin-block-start: 10px;">
                             <table class="table table-bordered table-hover"
                                 style="background-color: transparent; border-color: transparent">
                                 <thead class="thead-dark">
@@ -130,7 +141,39 @@
                                 </tbody>
                             </table>
                         </div>
+
                         <br><br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card"
+                                    style="border-radius: 20px; border:none; margin-top: 5px;margin-block-end: 50px;">
+                                    <div class="card-body">
+                                        <h5 style="color: #00324D">ULTIMA MODIFICACION REALIZADA</h5>
+                                        <br>
+                                        @if ($historial->isNotEmpty())
+                                            <p><strong>Fecha de modificación:</strong>
+                                                {{ $historial->first()->fecha_de_modificacion }}</p>
+                                            <p
+                                                style="cursor:text; outline: none; width: 100%; max-width: 100%; height:45px;margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
+                                                <strong>Cambios:</strong> {{ $historial->first()->modificacion }}
+                                            </p>
+                                            <button
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:140px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 87%; word-wrap: break-word; overflow-wrap: break-word;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';"type="button"
+                                                class="btn btn-outline" id="btnVerHistorial" data-toggle="modal"
+                                                data-target="#historialModal">
+                                                Ver historial
+                                                <i class="fa-solid fa-clock-rotate-left fa-sm" style="color: #642c78;"></i>
+                                                </a></button>
+                                        @else
+                                            <p>No hay historial de modificaciones</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <strong>Servicios asociados:</strong>
                             <ul>
@@ -151,7 +194,7 @@
                                     
                                     height:20px; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;"><strong>{{ $dato->titulo }}:</strong></label>
                                     <input type="text" class="form-control" value="{{ $dato->dato }}" readonly
-                                        style="cursor:pointer; outline: none; width: 100%; max-width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
+                                        style="cursor: default;; outline: none; width: 100%; max-width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
                                 </div>
                             @endforeach
                         </div>
@@ -172,33 +215,105 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="historialModalLabel">Historial de modificaciones</h5>
-                    <button type="button" class="cerrar-modal" data-dismiss="modal" aria-label="Cerrar">
-                        <span aria-hidden="true">&times;</span>
+                    <h5 style="margin-right: 155px; position: relative; color: #00324D" class="modal-title" id="historialModalLabel">Historial de modificaciones</h5>
+                    <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal" aria-label="Cerrar">
+                        <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
                     </button>
                 </div>
                 <div class="modal-body">
                     <ul>
                         @foreach ($historial as $item)
-                            <li style=" word-wrap: break-word; overflow-wrap: break-word;">
-                                <strong>Fecha: </strong> {{ $item->fecha_de_modificacion }}
+                            <li style="word-wrap: break-word; overflow-wrap: break-word;">
+                                
+                                <strong>Fecha de Modificación:</strong> {{ $item->fecha_de_modificacion }}
                                 <br>
-                                <strong>Modificación:</strong> {{ $item->modificacion }}
+                                <strong>Detalles de la Modificación:</strong> {{ $item->modificacion }}
                                 <hr>
                             </li>
                         @endforeach
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btnModificar cerrar-modal " data-dismiss="modal">
-                        {{ __('Cerrar') }}<i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
+                    <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
+                        {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
                     </button>
                 </div>
-                
-                
+
+
             </div>
         </div>
     </div>
+    
+    <style>
+        .containerProgressBar {
+            background-color: rgb(231, 231, 231);
+            height: 200px;
+            width: 60%;
+            position: relative;
+            z-index: 1; /* Asegura que el div esté en frente */
+            overflow: hidden; /* Oculta el contenido que se desborda */
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .progressbar {
+            counter-reset: step;
+        }
+
+        .progressbar li {
+            list-style-type: none;
+            float: left;
+            width: 33.33%;
+            position: relative;
+            text-align: center;
+            z-index: 2; /* Keep circles behind the div */
+        }
+
+        .progressbar li span {
+            position: relative;
+        }
+
+        .progressbar li:before {
+            content: counter(step);
+            counter-increment: step;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #ddd;
+            display: block;
+            text-align: center;
+            margin: 0 auto 10px auto;
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        .progressbar li::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px; /* Increase line width if needed */
+            background-color: #ddd; /* Change line color */
+            top: 15px;
+            left: -46%;
+            z-index: -1; /* Keep lines behind the div */
+        }
+
+        .progressbar li:first-child::after {
+            content: none;
+        }
+
+        .progressbar li.active {
+            color: red;
+        }
+
+        .progressbar li.active:before {
+            border-color: red;
+        }
+
+        .progressbar li.active + li:after {
+            background-color: red;
+        }
+    </style>
 
     <script>
         // Agrega un evento click al botón "Ver historial"

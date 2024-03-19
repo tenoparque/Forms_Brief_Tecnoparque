@@ -219,6 +219,12 @@ class SolicitudeController extends Controller
     {
         $solicitude = Solicitude::find($id);
 
+        // Obtener todos los estados ordenados por 'orden_mostrado'
+        $estados = EstadosDeLasSolictude::orderBy('orden_mostrado')->get();
+    
+        // Obtener el estado actual de la solicitud
+        $estadoActual = $solicitude->estadosDeLasSolictude; // Cambio aquí, usando la relación estadosDeLasSolictude en lugar de estado
+
         // Obtener el historial de modificaciones
         $historial = HistorialDeModificacionesPorSolicitude::where('id_soli', $id)->latest()->get();
 
@@ -236,7 +242,7 @@ class SolicitudeController extends Controller
                                 ->get();
 
         // Retorna la vista con los datos necesarios
-        return view('solicitude.show', compact('solicitude', 'elementos', 'datosPorSolicitud', 'historial'));
+        return view('solicitude.show', compact('solicitude', 'elementos', 'datosPorSolicitud', 'historial','estados','estadoActual'));
 
     }
 
