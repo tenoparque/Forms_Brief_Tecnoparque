@@ -83,6 +83,12 @@
                                                     {{ __('Duplicar') }}
 
                                                 </a>
+                                                <a href="{{ route('solicitudes.index', $solicitude->id) }}"
+                                                    class="btnAsignar">
+                                                    <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
+                                                    {{ __('Asignar a usuario') }}
+
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
