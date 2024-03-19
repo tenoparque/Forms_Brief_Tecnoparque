@@ -394,8 +394,7 @@ table th {
     border: 2px solid #82DEF0;
     border-radius: 35px;
     display: inline-block;
-    height: 40px;
-    width: 150px;
+    
     justify-items: center;
 }
 
@@ -533,6 +532,22 @@ table th {
     background-color: #b2ebf2;
 }
 
+/* bottom asiganr */
+.btnAsignar {
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324D;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82DEF0;
+    cursor: pointer;
+    background: #fff;
+}
+.btnAsignar:hover {
+    background-color: #b2ebf2;
+}
 
 /* bottom modificar */
 .btnModificar {

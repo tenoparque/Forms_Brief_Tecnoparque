@@ -85,9 +85,10 @@
 
                                 </tbody>
                             </table>
-                            <div class="class">
-                                {!! $tiposDeDatos->links() !!}
-                            </div>
+                            
+                        </div>
+                        <div class="class mt-2">
+                            {!! $tiposDeDatos->links() !!}
                         </div>
                     </div>
 

@@ -105,10 +105,10 @@
                                             <h5 class="modal-title" id="qrModalLabel">Código QR</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                                         </div>
-                                        <div class="modal-body" style="margin-left: 20%; margin-block-end: 5%">
+                                        <div class="modal-body text-center" >
                                             {{-- Mostrar el código QR solo si la política está presente --}}
                                             @if ($politicas)
-                                                <img src="data:image/png;base64,{{ base64_encode($politicas->qr) }}" class="" alt="QR Code">
+                                                <img src="data:image/png;base64,{{ base64_encode($politicas->qr) }}" class="" alt="QR Code" style="width: 3in; height: 3in;">
                                             @else
                                                 <p>No hay registro de política con id_estado = 1</p>
                                             @endif
@@ -243,25 +243,25 @@ function manejarCambioServicios() {
 
                         if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
+                                '<div class="solicitudesDivText"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="date" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder="" min="' + getTodayDatePlus10Days() + '"></div>';
                         } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
+                                '<div class="solicitudesDivText"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="url" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
                         } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
+                                '<div class="solicitudesDivText"><label class="LabelText">' +
                                 datoUnico.nombre + '</label><input type="number" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
                         } else {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
+                                '<div class="solicitudesDivText"><label class="LabelText" style=" max-width: 100%; overflo:hidden;word-wrap:break-word;">' +
                                 datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
