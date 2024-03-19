@@ -11,7 +11,7 @@
                 <div class="">
                     <div class="card-header">
                         <div class="float-left">
-                            <div class="d-flex mt-3 mb-4">
+                            <div class="d-flex mt-3 mb-4" style=" padding-bottom: 25px;">
                                 <div>
                                     <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('DETALLE DE') }}</h1>
                                 </div>
@@ -21,40 +21,11 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card"
-                                    style="border-radius: 20px; border:none; margin-top: 5px;margin-block-end: 50px;">
-                                    <div class="card-body">
-                                        @if ($historial->isNotEmpty())
-                                            <p><strong>Fecha de última modificación:</strong>
-                                                {{ $historial->first()->fecha_de_modificacion }}</p>
-                                            <p
-                                                style="cursor:pointer; outline: none; width: 100%; max-width: 100%; height:45px;margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
-                                                <strong>Modificación:</strong> {{ $historial->first()->modificacion }}</p>
-                                            <button
-                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:140px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 87%; word-wrap: break-word; overflow-wrap: break-word;"
-                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                onmouseout="this.style.backgroundColor='#FFFF';"type="button"
-                                                class="btn btn-outline" id="btnVerHistorial" data-toggle="modal"
-                                                data-target="#historialModal">
-                                                Ver historial
-                                                <i class="fa-solid fa-clock-rotate-left fa-sm" style="color: #642c78;"></i>
-                                                </a></button>
-                                        @else
-                                            <p>No hay historial de modificaciones</p>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                     <div class="card-body">
                         <div class="table-responsive"
-                            style="background-color: transparent; border-color:transparent; margin-block-start: 10px">
+                            style="background-color: transparent; border-color:transparent; margin-block-start: 10px;">
                             <table class="table table-bordered table-hover"
                                 style="background-color: transparent; border-color: transparent">
                                 <thead class="thead-dark">
@@ -130,7 +101,38 @@
                                 </tbody>
                             </table>
                         </div>
+
                         <br><br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card"
+                                    style="border-radius: 20px; border:none; margin-top: 5px;margin-block-end: 50px;">
+                                    <div class="card-body">
+                                        <h5 style="color: #00324D">ULTIMA MODIFICACION REALIZADA</h5>
+                                        <br>
+                                        @if ($historial->isNotEmpty())
+                                            <p><strong>Fecha de modificación:</strong>
+                                                {{ $historial->first()->fecha_de_modificacion }}</p>
+                                            <p
+                                                style="cursor:text; outline: none; width: 100%; max-width: 100%; height:45px;margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
+                                                <strong>Cambios:</strong> {{ $historial->first()->modificacion }}</p>
+                                            <button
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:140px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 87%; word-wrap: break-word; overflow-wrap: break-word;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';"type="button"
+                                                class="btn btn-outline" id="btnVerHistorial" data-toggle="modal"
+                                                data-target="#historialModal">
+                                                Ver historial
+                                                <i class="fa-solid fa-clock-rotate-left fa-sm" style="color: #642c78;"></i>
+                                                </a></button>
+                                        @else
+                                            <p>No hay historial de modificaciones</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <strong>Servicios asociados:</strong>
                             <ul>
@@ -151,12 +153,12 @@
                                     
                                     height:20px; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;"><strong>{{ $dato->titulo }}:</strong></label>
                                     <input type="text" class="form-control" value="{{ $dato->dato }}" readonly
-                                        style="cursor:pointer; outline: none; width: 100%; max-width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
+                                        style="cursor: default;; outline: none; width: 100%; max-width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
                                 </div>
                             @endforeach
                         </div>
 
-                    </div>
+                    </div>               
                     <div class="d-flex justify-content-end">
                         <a href="{{ route('solicitudes.index') }}" class="btnRegresar">
                             {{ __('REGRESAR') }}
@@ -178,23 +180,23 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <ul>
-                        @foreach ($historial as $item)
-                            <li style=" word-wrap: break-word; overflow-wrap: break-word;">
-                                <strong>Fecha: </strong> {{ $item->fecha_de_modificacion }}
-                                <br>
-                                <strong>Modificación:</strong> {{ $item->modificacion }}
-                                <hr>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btnModificar cerrar-modal " data-dismiss="modal">
-                        {{ __('Cerrar') }}<i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
-                    </button>
-                </div>
-                
+    <ul>
+        @foreach ($historial as $item)
+            <li style="word-wrap: break-word; overflow-wrap: break-word;">
+                <strong>Fecha de Modificación:</strong> {{ $item->fecha_de_modificacion }}
+                <br>
+                <strong>Detalles de la Modificación:</strong> {{ $item->modificacion }}
+                <hr>
+            </li>
+        @endforeach
+    </ul>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
+        {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
+    </button>
+</div>
+
                 
             </div>
         </div>
