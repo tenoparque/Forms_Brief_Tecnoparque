@@ -21,6 +21,46 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card"
+                                    style="border-radius: 20px; border:none; margin-top: 5px;margin-block-end: 50px;">
+                                    <div class="containerProgressBar">
+                                        <ul class="progressbar">
+                                            @foreach($estados as $estado)
+                                                <li class="{{ $estado->orden_mostrado <= $estadoActual->orden_mostrado ? 'active' : '' }}">
+                                                    <span>{{ $estado->nombre }}</span>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        @if ($historial->isNotEmpty())
+                                            
+
+                                            <p><strong>Fecha de última modificación:</strong>
+                                                {{ $historial->first()->fecha_de_modificacion }}</p>
+                                            <p
+                                                style="cursor:pointer; outline: none; width: 100%; max-width: 100%; height:45px;margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
+                                                <strong>Modificación:</strong> {{ $historial->first()->modificacion }}</p>
+                                            <button
+                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:140px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 87%; word-wrap: break-word; overflow-wrap: break-word;"
+                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
+                                                onmouseout="this.style.backgroundColor='#FFFF';"type="button"
+                                                class="btn btn-outline" id="btnVerHistorial" data-toggle="modal"
+                                                data-target="#historialModal">
+                                                Ver historial
+                                                <i class="fa-solid fa-clock-rotate-left fa-sm" style="color: #642c78;"></i>
+                                                </a></button>
+                                        @else
+                                            <p>No hay historial de modificaciones</p>
+                                        @endif
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card-body">
@@ -203,6 +243,77 @@
             </div>
         </div>
     </div>
+    
+    <style>
+        .containerProgressBar {
+            background-color: rgb(231, 231, 231);
+            height: 200px;
+            width: 60%;
+            position: relative;
+            z-index: 1; /* Asegura que el div esté en frente */
+            overflow: hidden; /* Oculta el contenido que se desborda */
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .progressbar {
+            counter-reset: step;
+        }
+
+        .progressbar li {
+            list-style-type: none;
+            float: left;
+            width: 33.33%;
+            position: relative;
+            text-align: center;
+            z-index: 2; /* Keep circles behind the div */
+        }
+
+        .progressbar li span {
+            position: relative;
+        }
+
+        .progressbar li:before {
+            content: counter(step);
+            counter-increment: step;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #ddd;
+            display: block;
+            text-align: center;
+            margin: 0 auto 10px auto;
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        .progressbar li::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px; /* Increase line width if needed */
+            background-color: #ddd; /* Change line color */
+            top: 15px;
+            left: -46%;
+            z-index: -1; /* Keep lines behind the div */
+        }
+
+        .progressbar li:first-child::after {
+            content: none;
+        }
+
+        .progressbar li.active {
+            color: red;
+        }
+
+        .progressbar li.active:before {
+            border-color: red;
+        }
+
+        .progressbar li.active + li:after {
+            background-color: red;
+        }
+    </style>
 
     <script>
         // Agrega un evento click al botón "Ver historial"
