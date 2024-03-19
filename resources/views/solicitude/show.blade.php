@@ -157,13 +157,10 @@
                         </div>
 
                     </div>
-                    <div>
-                        <a href="{{ route('solicitudes.index') }}" class="btn btn-outline"
-                            style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:130px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%; word-wrap: break-word; overflow-wrap: break-word;"
-                            onmouseover="this.style.backgroundColor='#b2ebf2';"
-                            onmouseout="this.style.backgroundColor='#FFFF';">
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ route('solicitudes.index') }}" class="btnRegresar">
                             {{ __('REGRESAR') }}
-                            <i class="fa-solid fa-circle-play fa-flip-both" style="color: #642c78;"></i>
+                            <i class="fa-solid fa-circle-play fa-flip-both iconDCR"></i>
                         </a>
                     </div>
                 </div>
@@ -193,11 +190,8 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline cerrar-modal" data-dismiss="modal"
-                        style="color:#00324D; border:2px solid #82DEF0; width:150px;  height: 40px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 90%; word-wrap: break-word; overflow-wrap: break-word; display: flex; align-items: center;"
-                        onmouseover="this.style.backgroundColor='#b2ebf2';"
-                        onmouseout="this.style.backgroundColor='#FFFF';">
-                        {{ __('Cerrar') }}<i class="fa-solid fa-circle-xmark fa-sm" style="color: #642c78; margin-left: 5px;"></i>
+                    <button type="button" class="btnModificar " data-dismiss="modal">
+                        {{ __('Cerrar') }}<i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
                     </button>
                 </div>
                 
