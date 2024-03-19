@@ -105,10 +105,10 @@
                                             <h5 class="modal-title" id="qrModalLabel">Código QR</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                                         </div>
-                                        <div class="modal-body" style="margin-left: 20%; margin-block-end: 5%">
+                                        <div class="modal-body text-center" >
                                             {{-- Mostrar el código QR solo si la política está presente --}}
                                             @if ($politicas)
-                                                <img src="data:image/png;base64,{{ base64_encode($politicas->qr) }}" class="" alt="QR Code">
+                                                <img src="data:image/png;base64,{{ base64_encode($politicas->qr) }}" class="" alt="QR Code" style="width: 3in; height: 3in;">
                                             @else
                                                 <p>No hay registro de política con id_estado = 1</p>
                                             @endif
