@@ -79,10 +79,7 @@
                                                 </a>
 
                                                 <a href="{{ route('solicitudes.duplicarFormulario', $solicitude->id) }}"
-                                                    class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                    class="btnDuplicar">
                                                     {{ __('Duplicar') }}
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                 </a>

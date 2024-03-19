@@ -35,9 +35,7 @@
                             Ver historial
                             <i class="fa-solid fa-clock-rotate-left fa-sm" style="color: #642c78;"></i>
                         </button>
-                    @else
                         <p>No hay historial de modificaciones</p>
-                        @endif
                     </div>
                     <div class="row">
                         <div class="">
