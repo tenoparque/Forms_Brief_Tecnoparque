@@ -121,7 +121,7 @@ Route::post('/solicitudes/eventos', [SolicitudeController::class, 'eventos'])->n
 
 Route::post('/solicitudes/prueba', [SolicitudeController::class, 'prueba'])->name('solicitudes.prueba');
 
-
+Route::get('solicitudes/duplicar/{id}', [SolicitudeController::class, 'duplicarFormulario'])->name('solicitudes.duplicarFormulario');
 
 
 

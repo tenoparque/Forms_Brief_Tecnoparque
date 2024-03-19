@@ -313,6 +313,58 @@ class SolicitudeController extends Controller
             ->with('success', 'Modificación registrada exitosamente');
     }
 
+    public function duplicarFormulario($id)
+    {
+        // Obtener la solicitud por su ID
+        $solicitud = Solicitude::findOrFail($id);
+        $estados = EstadosDeLasSolictude::all();
+        $solicitudes = TiposDeSolicitude::all();
+        $especiales = EventosEspecialesPorCategoria::all();
+        $currentTime = $this->getCurrentTimeInBogota();
+        $fechasFestivas = $this->mostrarFechasFestivas();
+        $finesSemanas = $this->obtenerFinesDeSemana(); 
+        $disabledDates = array_merge($fechasFestivas, $finesSemanas);
+        $categoriaEventos = CategoriasEventosEspeciale::all();
+         // Recuperar el registro de la Politica con id_estado = 1
+         $politicas = Politica::where('id_estado', 1)->first();
+
+        // Obtener ids relacionadas con la solicitud a duplicar
+        $tipo_solicitud_id = $solicitud->id_tipos_de_solicitudes;
+        $id_evento_especial = $solicitud->id_eventos_especiales_por_categorias;
+
+        $evento_especial = EventosEspecialesPorCategoria::findOrFail($id_evento_especial);
+
+        // Obtener la categoría de eventos especiales asociada al evento especial
+        $id_categoria_evento = $evento_especial->id_eventos_especiales;
+
+        // Obtener los IDs de los subservicios asociados a esta solicitud
+        $idSubservicios = ElementosPorSolicitude::where('id_solicitudes', $id)
+        ->pluck('id_subservicios')
+        ->toArray();
+
+        $datosPorSolicitud = DatosPorSolicitud::where('id_solicitudes', $id)
+        ->pluck('dato', 'id_datos_unicos_por_solicitudes');
+
+        // // Imprimir los datos por solicitud
+        // dd($datosPorSolicitud);
+
+
+        // Redirigir a la vista 'solicitudes.create' y pasar el idTipoSolicitud como parámetro
+        return view('solicitude.create', compact(
+            'tipo_solicitud_id',
+            'id_categoria_evento',
+            'id_evento_especial',
+            'estados',
+            'solicitudes',
+            'especiales',
+            'politicas',
+            'currentTime',
+            'disabledDates',
+            'categoriaEventos',
+            'idSubservicios',
+            'datosPorSolicitud' 
+        ));    }
+
     // /**
     //  * Obtiene la hora actual en la zona horaria de Bogotá.
     //  *
