@@ -261,7 +261,7 @@ function manejarCambioServicios() {
                                 '" class="form-control  InputText" placeholder=""></div>';
                         } else {
                             datosUnicosTextboxes +=
-                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText">' +
+                                '<div class="solicitudesDivText col-xl-4 col-md-4"><label class="LabelText" style=" max-width: 100%; overflo:hidden;word-wrap:break-word;">' +
                                 datoUnico.nombre + '</label><input type="text" name="datos_unicos_por_solicitud_' +
                                 datoUnico.id +
                                 '" class="form-control  InputText" placeholder=""></div>';
