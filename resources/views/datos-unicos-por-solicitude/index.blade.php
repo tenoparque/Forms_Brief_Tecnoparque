@@ -94,16 +94,19 @@
 
                         </tbody>
                     </table>
+                    <div class="clas">
+                        {!! $datosUnicosPorSolicitudes->links() !!}
+                    </div>
                 </div>
             </div>
 
-            {!! $datosUnicosPorSolicitudes->links() !!}
+            
         </div>
     </section>
 
 
     </div>
-    {!! $datosUnicosPorSolicitudes->links() !!}
+    
     </div>
     </div>
     </section>
