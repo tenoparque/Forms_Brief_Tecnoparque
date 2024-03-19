@@ -190,7 +190,7 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btnModificar " data-dismiss="modal">
+                    <button type="button" class="btnModificar cerrar-modal " data-dismiss="modal">
                         {{ __('Cerrar') }}<i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
                     </button>
                 </div>
