@@ -157,7 +157,7 @@
     $(document).ready(function() {
         $('#id_tipos_de_solicitudes').change(function() {
             
-        
+            $('.otroServicioTextbox').hide();
         // Limpiar el valor del textbox de otro servicio
             $('#otroServicio').val('');
 
