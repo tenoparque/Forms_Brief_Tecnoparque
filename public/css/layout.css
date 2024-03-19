@@ -392,8 +392,7 @@ table th {
     border: 2px solid #82DEF0;
     border-radius: 35px;
     display: inline-block;
-    height: 40px;
-    width: 150px;
+    
     justify-items: center;
 }
 
