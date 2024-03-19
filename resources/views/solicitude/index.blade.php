@@ -20,6 +20,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <h5>
+                                La sumatoria es {{$suma}}
+                            </h5>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
