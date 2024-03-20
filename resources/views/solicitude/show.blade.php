@@ -58,7 +58,7 @@
                                 style="background-color: transparent; border-color: transparent">
                                 <thead class="thead-dark">
                                     <tr class="table-light" style="border-color:transparent">
-                                        <th class="table-light" style="text-align: center; border-color:transparent">
+                                        <th class="table-light" style="border-width: 2px; border-color:transparent">
                                             <div style="margin-bottom: 10px;">
                                                 <i class="fa-solid fa-envelope-open-text fa-2xl"
                                                     style="color: #00314d;"></i>

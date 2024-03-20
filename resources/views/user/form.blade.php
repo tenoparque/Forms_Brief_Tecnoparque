@@ -4,7 +4,7 @@
     <div class="row p-3">
         <div class="col-md-6">
             <div class="form-group">
-                {{ Form::label('nombres', null, ['style' => 'font-size: 16px;  color:black']) }}
+                {{ Form::label('nombres', null, ['style' => 'font-size: 16px;  color:#fff;']) }}
                 {{ Form::text('name', $user->name, [
                     'class' => 'form-control ' . ($errors->has('name') ? ' is-invalid' : ''),
                     'placeholder' => 'Nombres',
