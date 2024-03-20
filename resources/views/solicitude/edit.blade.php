@@ -103,7 +103,12 @@
                             <button class="btn btn-primary" id="btnAgregarModificacion">
                                 {{ __('Agregar Modificación') }}
                             </button>
+                            <button class="btn btn-primary" id="btnEditarEstado" >
+                                {{ __('Editar Estado') }}
+                            </button>
                         </div>
+
+                        {{-- BOTONERÍA MODIFICACIÓN --}}
                         <div class="float-right" id="btnGroupCancelarEnviar" style="display: none;">
                             <button class="btn btn-secondary mr-2" id="btnCancelar">
                                 {{ __('Cancelar') }}
@@ -112,11 +117,21 @@
                                 {{ __('Enviar Modificación') }}
                             </button>
                         </div>
+
+                        {{-- BOTONERÍA ESTADO --}}
+                        <div class="float-right" id="btnGroupCancelarEnviarEstado" style="display: none;">
+                            <button class="btn btn-secondary mr-2" id="btnCancelarEstado">
+                                {{ __('Cancelar') }}
+                            </button>
+                            <button type="submit" class="btn btn-success" id="btnEnviarEstado">
+                                {{ __('Actualizar Estado') }}
+                            </button>
+                        </div>
                     </div>
 
                     <div class="card-body">
 
-                        <div id="comboboxEstado" style="display: none;">
+                        <div id="txtModificar" style="display: none;">
                             <div id="campoTexto" style="display: none;">
                                 <div class="form-group">
                                     <label for="modificacion">Modificación:</label>
@@ -127,9 +142,9 @@
 
                         <br>
 
-                        
-                            <h3>Estado de la Solicitud</h3>
-                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
+                        <br>
+                        <h3 style="display: none" id="titEstadoSoli">Estado de la Solicitud</h3>
+                        <select id="cboEstados" style="display: none" name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
                                 class="form-control selectpicker" data-style="btn-primary"
                                 title="Seleccionar el estado de la solicitud" required disabled>
 
@@ -140,15 +155,7 @@
                                         {{ $estadoDeLaSolicitud->nombre }}
                                     </option>
                                 @endforeach
-                            </select>
-                        <br>
-
-                        <button class="btn btn-primary" id="btnEditarEstado" >Editar estado</button>
-
-                        <br><br>
-
-                        
-
+                        </select>
 
                         <div class="form-group">
                             <strong>Servicios asociados:</strong>
@@ -191,9 +198,12 @@
     </form>
 
     <script>
+
+        //Lógica botonería Modificación
+
         document.getElementById('btnAgregarModificacion').addEventListener('click', function() {
             document.getElementById('campoTexto').style.display = 'block';
-            document.getElementById('comboboxEstado').style.display = 'block';
+            document.getElementById('txtModificar').style.display = 'block';
             document.getElementById('btnGroupAgregar').style.display = 'none';
             document.getElementById('btnGroupCancelarEnviar').style.display = 'block';
         });
@@ -202,6 +212,22 @@
             document.getElementById('campoTexto').style.display = 'none';
             document.getElementById('btnGroupAgregar').style.display = 'block';
             document.getElementById('btnGroupCancelarEnviar').style.display = 'none';
+        });
+
+        //Lógica botonería Estados
+
+        document.getElementById('btnEditarEstado').addEventListener('click', function() {
+            document.getElementById('titEstadoSoli').style.display = 'block';
+            document.getElementById('cboEstados').style.display = 'block';
+            document.getElementById('btnGroupAgregar').style.display = 'none';
+            document.getElementById('btnGroupCancelarEnviarEstado').style.display = 'block';
+        });
+
+        document.getElementById('btnCancelarEstado').addEventListener('click', function() {
+            document.getElementById('titEstadoSoli').style.display = 'none';
+            document.getElementById('cboEstados').style.display = 'none';
+            document.getElementById('btnGroupAgregar').style.display = 'block';
+            document.getElementById('btnGroupCancelarEnviarEstado').style.display = 'none';
         });
 
         document.getElementById('btnEnviarModificacion').addEventListener('click', function() {

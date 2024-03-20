@@ -12,7 +12,7 @@ const images = [
 
 //Función para deshabilitar el Select para cambiar el estado de una solicitud
 document.getElementById('btnEditarEstado').addEventListener('click', function() {
-    document.getElementById('id_estado_de_la_solicitud').disabled = false;
+    document.getElementById('cboEstados').disabled = false;
 });
 
 function displayRandomBackgroundImage() {
