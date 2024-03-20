@@ -21,9 +21,12 @@ use Illuminate\Http\Request;
 use App\Models\Politica;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
 use App\Models\HistorialDeModificacionesPorSolicitude;
 use App\Models\User;
 
@@ -50,9 +53,16 @@ class SolicitudeController extends Controller
         return view('solicitude.index', compact('solicitudes' , 'disabledDates' , 'suma', 'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
-   
 
+     public static $valorProcesado;
 
+    public function procesarValor($valor)
+    {
+        Log::info("controlador - valor recibido: " . $valor);
+        self::$valorProcesado = $this->index($valor);
+        return self::$valorProcesado;
+    }
+     
     /**
      * Show the form for creating a new resource.
      *

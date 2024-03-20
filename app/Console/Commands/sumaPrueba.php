@@ -2,10 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\SolicitudeController;
 use App\Models\HistorialDeModificacionesPorSolicitude;
 use App\Models\Solicitude;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+
 
 class sumaPrueba extends Command
 {
@@ -29,6 +32,10 @@ class sumaPrueba extends Command
     public function handle()
     {
         $texto = Solicitude::count()+ HistorialDeModificacionesPorSolicitude::count();
-        Storage::append("archivo.txt", $texto);
+        //Storage::append("archivo.txt", $texto);
+        Log::info('Valor enviado al controlador:', ['valor' => $texto]);
+        (new SolicitudeController)->procesarValor($texto);
+        
+
     }
 }
