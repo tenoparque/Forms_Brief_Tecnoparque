@@ -519,6 +519,7 @@
             </div>
         </div>
     </div>
+    @endsection
 
     <script>
         // Agrega un evento click al botón "Ver historial"
@@ -535,4 +536,4 @@
             });
         });
     </script>
-@endsection
+
