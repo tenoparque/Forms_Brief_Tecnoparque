@@ -17,9 +17,16 @@ class PermissionSeeder extends Seeder
         // Creates Permissions
 
         // User Permissions
-        Permission::create(['name' => 'users.index']); // Index Users
-        Permission::create(['name' => 'users.create']); // Create Users
-        Permission::create(['name' => 'users.edit']); // Edit Users
-        Permission::create(['name' => 'users.show']); // Show Users
+        // Permission::create(['name' => 'users.index']); // Index Users
+        // Permission::create(['name' => 'users.create']); // Create Users
+        // Permission::create(['name' => 'users.edit']); // Edit Users
+        // Permission::create(['name' => 'users.show']); // Show Users
+
+        // Role Permissions
+        Permission::create(['name' => 'roles.index']); // Index Roles
+        Permission::create(['name' => 'roles.create']); // Create Roles
+        Permission::create(['name' => 'roles.edit']); // Edit Roles
+        Permission::create(['name' => 'roles.show']); // Show Roles
+
     }
 }
