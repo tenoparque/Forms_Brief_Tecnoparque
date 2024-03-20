@@ -286,12 +286,33 @@ class SolicitudeController extends Controller
      */
     public function update(Request $request, Solicitude $solicitude)
     {
-        // Validar los datos de entrada para la modificación
-        //  $request->validate([
-        //     'modificacion' => 'required',
-        //     'id_estado_de_la_solicitud' => 'required|exists:estados_de_la_solicitud,id',
-        // ]);
+         // Validar los datos de entrada para la modificación
+         $request->validate([
+            'modificacion' => 'required',
+        ]);
 
+        // Crear una nueva instancia de HistorialDeModificacionesPorSolicitude
+        $modificacion = new HistorialDeModificacionesPorSolicitude();
+        $modificacion->id_soli = $solicitude->id; // Asignar el ID de la solicitud
+        $modificacion->modificacion = $request->input('modificacion');
+        $modificacion->fecha_de_modificacion = Carbon::now(); // Establecer la fecha actual
+
+        // Guardar la nueva modificación en el historial
+        $modificacion->save();
+
+        return redirect()->route('solicitudes.index')
+            ->with('success', 'Modificación registrada exitosamente');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  Solicitude $solicitude
+     * @return \Illuminate\Http\Response
+     */
+    public function Actualizar_estado(Request $request, Solicitude $solicitude)
+    {
         $solicitude->id_estado_de_la_solicitud = $request->input('id_estado_de_la_solicitud');
         $solicitude->save();
         $userId = Auth::id();
@@ -301,21 +322,12 @@ class SolicitudeController extends Controller
         $cambioHistorial->id_users=$userId;
         $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
         $cambioHistorial->save();
-        // Asignar el ID de la solicitud
-        
-        // Crear una nueva instancia de HistorialDeModificacionesPorSolicitude
-        $modificacion = new HistorialDeModificacionesPorSolicitude();
-        $modificacion->id_soli = $solicitude->id; // Asignar el ID de la solicitud
-        $modificacion->modificacion = $request->input('modificacion');
-        //$modificacion->id_estado_de_la_solicitud = $request->input('id_estado_de_la_solicitud'); // Recibir el ID del estado de la solicitud
-        $modificacion->fecha_de_modificacion = Carbon::now(); // Establecer la fecha actual
-
-        // Guardar la nueva modificación en el historial
-        $modificacion->save();
 
         return redirect()->route('solicitudes.index')
-            ->with('success', 'Modificación registrada exitosamente');
+            ->with('success', 'Estado actualizado exitosamente');
     }
+
+    
 
     public function duplicarFormulario($id)
     {

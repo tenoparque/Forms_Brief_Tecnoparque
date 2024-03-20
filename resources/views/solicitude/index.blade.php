@@ -86,11 +86,11 @@
                                                     {{ __('Duplicar') }}
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                 </a>
-                                                <button class="btnAsignar" data-solicitud-id="{{ $solicitude->id }}" data-toggle="modal" data-target="#asignacionModal">
+                                                <button class="btnAsignar" id="btnVerAsignacion" data-toggle="modal"
+                                                    data-target="#asignacionModal">
                                                     <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
                                                     {{ __('Asignar a diseñador') }}
                                                 </button>
-                                                
                                             </td>
                                         </tr>
                                     @endforeach
@@ -103,40 +103,44 @@
                         </div>
 
                         <!-- Modal para mostrar la asiganción de una solicitud un diseñador-->
-                        <div class="modal fade" id="asignacionModal" tabindex="-1" role="dialog" aria-labelledby="historialModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="asignacionModal" tabindex="-1" role="dialog"
+                            aria-labelledby="historialModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 style="margin-left: 60px; position: relative; color: #00324D" class="modal-title" id="historialModalLabel">ASIGNAR SOLICITUD A UN DISEÑADOR</h5>
+                                        <h5 style="margin-left: 60px;  position: relative; color: #00324D"
+                                            class="modal-title" id="historialModalLabel">ASIGNAR SOLICITUD A UN DISEÑADOR
+                                        </h5>
                                     </div>
-                                    <form id="asignacionForm" action={{ route('solicitudes.asignar') }} method="POST">
-                                        @csrf
-                                        <input type="hidden" name="solicitud_id" id="solicitud_id">
-                                        <div class="modal-body">
-                                            <div style="position: relative;">
-                                                <select name="id_user" id="id_user" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar diseñador" required style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
-                                                    <option value="" disabled selected>Seleccionar diseñador...</option>
-                                                    @foreach ($usuarios as $user)
-                                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <div class="icono" style="right: 4%;">
-                                                    <div class="circle-play">
-                                                        <div class="circle"></div>
-                                                        <div class="triangle"></div>
-                                                    </div>
+                                    <div class="modal-body">
+                                        <div style="position: relative;">
+                                            <select name="id_ciudad" id="id_ciudad" class="form-control selectpicker"
+                                                data-style="btn-primary" title="Seleccionar diseñador" required
+                                                style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                                                <option value="" disabled selected>Seleccionar diseñador...</option>
+                                                 @foreach ($usuarios as $user)
+                                                    <option value="{{ $user->name }}">{{ $user->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <div class="icono" style="right: 4%;">
+                                                <div class="circle-play">
+                                                    <div class="circle"></div>
+                                                    <div class="triangle"></div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">{{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i></button>
-                                            <button type="submit" class="btnGuardar">{{ __('Guardar') }}</button>
-                                        </div>
-                                    </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
+                                            {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
+                                        </button>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
-                        
 
                     </div>
 
@@ -164,24 +168,4 @@
                 });
             });
         </script>
-        <script>
-            // Agrega un evento click al botón "Ver Asignación"
-            document.querySelectorAll('.btnAsignar').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    var solicitudId = button.getAttribute('data-solicitud-id');
-                    document.getElementById('solicitud_id').value = solicitudId;
-                    // Abre el modal cuando se haga clic en el botón
-                    $('#asignacionModal').modal('show');
-                });
-            });
-        
-            // Agrega un evento click a todos los botones de clase "cerrar-modal"
-            document.querySelectorAll('.cerrar-modal').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    // Cierra el modal cuando se haga clic en el botón
-                    $('#asignacionModal').modal('hide');
-                });
-            });
-        </script>
-        
     @endsection
