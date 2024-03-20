@@ -123,7 +123,7 @@ Route::post('/solicitudes/prueba', [SolicitudeController::class, 'prueba'])->nam
 
 Route::get('solicitudes/duplicar/{id}', [SolicitudeController::class, 'duplicarFormulario'])->name('solicitudes.duplicarFormulario');
 
-
+Route::put('solicitudes/solicitudes/{solicitude}/actualizar-estado', [SolicitudeController::class, 'Actualizar_estado'])->name('solicitudes.actualizar_estado');
 
 
 

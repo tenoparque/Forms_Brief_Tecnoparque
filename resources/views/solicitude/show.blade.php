@@ -50,7 +50,6 @@
     iconoCheck.style.display = 'inline-block';
 }
                     </script>
-
                     <div class="card-body">
                         <div class="table-responsive"
                             style="background-color: transparent; border-color:transparent; margin-block-start: 10px;">
