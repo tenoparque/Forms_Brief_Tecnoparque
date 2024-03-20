@@ -20,7 +20,7 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
      */
     public function index()
     {
-        $serviciosPorTiposDeSolicitudes = ServiciosPorTiposDeSolicitude::with('tiposDeSolicitude', 'estado')->paginate();
+        $serviciosPorTiposDeSolicitudes = ServiciosPorTiposDeSolicitude::with('tiposDeSolicitude', 'estado')->paginate(10);
 
         return view('servicios-por-tipos-de-solicitude.index', compact('serviciosPorTiposDeSolicitudes'))
             ->with('i', (request()->input('page', 1) - 1) * $serviciosPorTiposDeSolicitudes->perPage());
