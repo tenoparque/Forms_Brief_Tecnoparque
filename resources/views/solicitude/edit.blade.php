@@ -49,12 +49,12 @@
 
                         <br>
 
-                        <h3>Estado de la Solicitud</h3>
-                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar el estado de la solicitud" required disabled>
+                        
                             <h3>Estado de la Solicitud</h3>
                             <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
                                 class="form-control selectpicker" data-style="btn-primary"
-                                title="Seleccionar el estado de la solicitud" required>
+                                title="Seleccionar el estado de la solicitud" required disabled>
+
                                 <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
                                 @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
                                     <option value="{{ $estadoDeLaSolicitud->id }}"
