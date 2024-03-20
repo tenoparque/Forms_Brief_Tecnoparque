@@ -21,54 +21,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="float-right" id="btnGroupAgregar">
-                            <button class="btn btn-primary" id="btnAgregarModificacion">
-                                {{ __('Agregar Modificación') }}
-                            </button>
-                        </div>
-                        <div class="float-right" id="btnGroupCancelarEnviar" style="display: none;">
-                            <button class="btn btn-secondary mr-2" id="btnCancelar">
-                                {{ __('Cancelar') }}
-                            </button>
-                            <button type="submit" class="btn btn-success" id="btnEnviarModificacion">
-                                {{ __('Enviar Modificación') }}
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-
-                        <div id="comboboxEstado" style="display: none;">
-                            <div id="campoTexto" style="display: none;">
-                                <div class="form-group">
-                                    <label for="modificacion">Modificación:</label>
-                                    <textarea class="form-control" id="modificacion" name="modificacion" rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <h3>Estado de la Solicitud</h3>
-                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar el estado de la solicitud" required disabled>
-                            <h3>Estado de la Solicitud</h3>
-                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
-                                class="form-control selectpicker" data-style="btn-primary"
-                                title="Seleccionar el estado de la solicitud" required>
-                                <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
-                                @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
-                                    <option value="{{ $estadoDeLaSolicitud->id }}"
-                                        {{ ($solicitude->id_estado_de_la_solicitud ?? '') == $estadoDeLaSolicitud->id ? 'selected' : '' }}>
-                                        {{ $estadoDeLaSolicitud->nombre }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        <br>
-
-                        <button class="btn btn-success" id="btnEditarEstado" >Editar estado</button>
-
-                        <br><br>
-
                         <div class="table-responsive"
                             style="background-color: transparent; border-color:transparent; margin-block-start: 10px;">
                             <table class="table table-bordered table-hover"
@@ -147,6 +99,55 @@
                             </table>
                         </div>
 
+                        <div class="float-right" id="btnGroupAgregar">
+                            <button class="btn btn-primary" id="btnAgregarModificacion">
+                                {{ __('Agregar Modificación') }}
+                            </button>
+                        </div>
+                        <div class="float-right" id="btnGroupCancelarEnviar" style="display: none;">
+                            <button class="btn btn-secondary mr-2" id="btnCancelar">
+                                {{ __('Cancelar') }}
+                            </button>
+                            <button type="submit" class="btn btn-success" id="btnEnviarModificacion">
+                                {{ __('Enviar Modificación') }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div id="comboboxEstado" style="display: none;">
+                            <div id="campoTexto" style="display: none;">
+                                <div class="form-group">
+                                    <label for="modificacion">Modificación:</label>
+                                    <textarea class="form-control" id="modificacion" name="modificacion" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        
+                            <h3>Estado de la Solicitud</h3>
+                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
+                                class="form-control selectpicker" data-style="btn-primary"
+                                title="Seleccionar el estado de la solicitud" required disabled>
+
+                                <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
+                                @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
+                                    <option value="{{ $estadoDeLaSolicitud->id }}"
+                                        {{ ($solicitude->id_estado_de_la_solicitud ?? '') == $estadoDeLaSolicitud->id ? 'selected' : '' }}>
+                                        {{ $estadoDeLaSolicitud->nombre }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        <br>
+
+                        <button class="btn btn-primary" id="btnEditarEstado" >Editar estado</button>
+
+                        <br><br>
+
+                        
 
 
                         <div class="form-group">
