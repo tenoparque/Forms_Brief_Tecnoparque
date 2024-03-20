@@ -689,7 +689,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-color: #ccc; /* Cambiar el color del indicador para mostrar progreso */
 }
 
+/*Diseño servicios asociados*/
+.form-group {
+    margin-bottom: 15px;
+}
 
+.form-group label {
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
 
 
 @media (max-width: 768px) {
