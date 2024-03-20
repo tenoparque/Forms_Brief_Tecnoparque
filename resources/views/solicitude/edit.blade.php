@@ -98,14 +98,48 @@
                                 </tbody>
                             </table>
                         </div>
+                        <br>
+                        <div style="text-align: center">
+                            <div class="float-right" id="btnGroupAgregar">
+                                <button class="btn btn-primary" id="btnAgregarModificacion">
+                                    {{ __('Agregar Modificación') }}
+                                </button>
+                                <button class="btn btn-primary" id="btnEditarEstado">
+                                    {{ __('Editar Estado') }}
+                                </button>
+                            </div>
+                        </div>
 
-                        <div class="float-right" id="btnGroupAgregar">
-                            <button class="btn btn-primary" id="btnAgregarModificacion">
-                                {{ __('Agregar Modificación') }}
-                            </button>
-                            <button class="btn btn-primary" id="btnEditarEstado" >
-                                {{ __('Editar Estado') }}
-                            </button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div id="txtModificar" style="display: none;">
+                            <div id="campoTexto" style="display: none;">
+                                <div class="form-group">
+                                    <label for="modificacion">Modificación:</label>
+                                    <textarea class="form-control" id="modificacion" name="modificacion" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <br>
+                        <div id="comboboxEstado" style="display: none;">
+                            <h3>Estado de la Solicitud</h3>
+                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
+                                class="form-control selectpicker" data-style="btn-primary"
+                                title="Seleccionar el estado de la solicitud" required>
+                                <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
+                                @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
+                                    <option value="{{ $estadoDeLaSolicitud->id }}"
+                                        {{ ($solicitude->id_estado_de_la_solicitud ?? '') == $estadoDeLaSolicitud->id ? 'selected' : '' }}>
+                                        {{ $estadoDeLaSolicitud->nombre }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
 
                         {{-- BOTONERÍA MODIFICACIÓN --}}
@@ -126,33 +160,6 @@
                             <button type="submit" class="btn btn-success" id="btnEnviarEstado">
                                 {{ __('Actualizar Estado') }}
                             </button>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-
-                        <div id="txtModificar" style="display: none;">
-                            <div id="campoTexto" style="display: none;">
-                                <div class="form-group">
-                                    <label for="modificacion">Modificación:</label>
-                                    <textarea class="form-control" id="modificacion" name="modificacion" rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <br>
-                        <div id="comboboxEstado" style="display: none;">
-                            <h3>Estado de la Solicitud</h3>
-                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar el estado de la solicitud" required>
-                                <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
-                                @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
-                                    <option value="{{ $estadoDeLaSolicitud->id }}" {{ ($solicitude->id_estado_de_la_solicitud ?? '') == $estadoDeLaSolicitud->id ? 'selected' : '' }}>
-                                        {{ $estadoDeLaSolicitud->nombre }}
-                                    </option>
-                                @endforeach
-                            </select>
                         </div>
 
                         <div class="form-group">
@@ -186,13 +193,15 @@
 
     </section>
 
-    <form id="formEnviarModificacion" method="POST" action="{{ route('solicitudes.update', $solicitude->id) }}" style="display: none;">
+    <form id="formEnviarModificacion" method="POST" action="{{ route('solicitudes.update', $solicitude->id) }}"
+        style="display: none;">
         @csrf
         @method('PUT')
         <input type="hidden" name="modificacion" id="modificacionInput">
     </form>
 
-    <form id="formActualizarEstado" method="POST" action="{{ route('solicitudes.actualizar_estado', $solicitude->id) }}" style="display: none;">
+    <form id="formActualizarEstado" method="POST"
+        action="{{ route('solicitudes.actualizar_estado', $solicitude->id) }}" style="display: none;">
         @csrf
         @method('PUT')
         <input type="hidden" name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud_input">
@@ -200,7 +209,6 @@
 
 
     <script>
-
         //Lógica botonería Modificación
 
         document.getElementById('btnAgregarModificacion').addEventListener('click', function() {
@@ -232,29 +240,29 @@
             document.getElementById('comboboxEstado').style.display = 'none';
             document.getElementById('btnGroupAgregar').style.display = 'block';
             document.getElementById('btnGroupCancelarEnviarEstado').style.display = 'none';
-            });
+        });
 
         document.getElementById('btnEnviarEstado').addEventListener('click', function() {
-                // Obtener el valor seleccionado del combobox
-                var selectedEstadoId = $('#id_estado_de_la_solicitud').val();
+            // Obtener el valor seleccionado del combobox
+            var selectedEstadoId = $('#id_estado_de_la_solicitud').val();
 
-                // Verificar si se ha seleccionado un estado
-                if (!selectedEstadoId) {
-                    // Mostrar un mensaje de error o tomar otra acción apropiada
-                    alert('Por favor, selecciona un estado de la solicitud.');
-                    return; // Detener el envío del formulario
-                }
+            // Verificar si se ha seleccionado un estado
+            if (!selectedEstadoId) {
+                // Mostrar un mensaje de error o tomar otra acción apropiada
+                alert('Por favor, selecciona un estado de la solicitud.');
+                return; // Detener el envío del formulario
+            }
 
-                // Asignar el nuevo valor al campo oculto
-                $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
+            // Asignar el nuevo valor al campo oculto
+            $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
 
-                // Enviar el formulario
-                $('#formActualizarEstado').submit();
-                });
+            // Enviar el formulario
+            $('#formActualizarEstado').submit();
+        });
 
-                $('#id_estado_de_la_solicitud').change(function() {
-                var selectedEstadoId = $(this).val();
-                $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
+        $('#id_estado_de_la_solicitud').change(function() {
+            var selectedEstadoId = $(this).val();
+            $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
         });
 
         $('#id_estado_de_la_solicitud').change(function() {
