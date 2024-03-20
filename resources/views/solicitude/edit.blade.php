@@ -51,6 +51,10 @@
 
                         <h3>Estado de la Solicitud</h3>
                             <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar el estado de la solicitud" required disabled>
+                            <h3>Estado de la Solicitud</h3>
+                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
+                                class="form-control selectpicker" data-style="btn-primary"
+                                title="Seleccionar el estado de la solicitud" required>
                                 <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
                                 @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
                                     <option value="{{ $estadoDeLaSolicitud->id }}"
@@ -65,32 +69,75 @@
 
                         <br><br>
 
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
+                        <div class="table-responsive"
+                            style="background-color: transparent; border-color:transparent; margin-block-start: 10px;">
+                            <table class="table table-bordered table-hover"
+                                style="background-color: transparent; border-color: transparent">
                                 <thead class="thead-dark">
-                                    <tr style="border-width: 2px">
-                                        <th style="text-align: center">---</th>
-                                        <th style="text-align: center">---</th>
-                                        <th style="text-align: center">---</th>
-                                        <th style="text-align: center">---</th>
-                                        <th style="text-align: center">---</th>
-                                        <th style="text-align: center">---</th>
-                                        <th style="text-align: center">---</th>
-                                        <th style="text-align: center">---</th>
-                                        <th style="text-align: center">---</th>
+                                    <tr class="table-light" style="border-color:transparent">
+                                        <th class="table-light" style="border-width: 2px; border-color:transparent">
+                                            <div style="margin-bottom: 10px;">
+                                                <i class="fa-solid fa-envelope-open-text fa-2xl"
+                                                    style="color: #00314d;"></i>
+                                            </div>
+                                            <div>
+                                                Tipo de Solicitud
+                                            </div>
+                                        </th>
+
+                                        <th style="text-align: center">
+                                            <div style="margin-bottom: 10px;">
+                                                <i class="fa-solid fa-calendar-days fa-2xl" style="color: #00314d;"></i>
+                                            </div>
+                                            <div>
+                                                Fecha y Hora
+                                            </div>
+                                        </th>
+                                        <th style="text-align: center">
+                                            <div style="margin-bottom: 10px;">
+                                                <i class="fa-solid fa-circle-user fa-2xl" style="color: #00314d;"></i>
+                                            </div>
+                                            <div>
+                                                Usuario
+                                            </div>
+                                        </th>
+                                        <th style="text-align: center">
+                                            <div style="margin-bottom: 10px;">
+                                                <i class="fa-solid fa-location-dot fa-2xl" style="color: #00314d;"></i>
+                                            </div>
+                                            <div>
+                                                Nodo
+                                            </div>
+                                        </th>
+                                        <th style="text-align: center">
+                                            <div style="margin-bottom: 10px;">
+                                                <i class="fa-regular fa-calendar-check fa-2xl" style="color: #00314d;"></i>
+                                            </div>
+                                            <div>
+                                                Eventos
+                                            </div>
+                                        </th>
+                                        <th style="text-align: center">
+                                            <div style="margin-bottom: 10px;">
+                                                <i class="fa-solid fa-shuffle fa-2xl" style="color: #00314d;"></i>
+                                            </div>
+                                            <div>
+                                                Estado
+                                            </div>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
-                                    <tr>
-                                        <td>{{ $solicitude->tiposdesolicitude->nombre }}</td>
-                                        <td>{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
-                                        <td>{{ $solicitude->user->name }}</td>
-                                        <td>{{ $solicitude->user->nodo->nombre }}</td>
-                                        <td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
-                                        <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
-                                        <td>{{ $solicitude->user->nodo->nombre }}</td>
-                                        <td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
-                                        <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
+                                    <tr class="table-light" style="border-color:transparent">
+                                        <td style="text-align: center">{{ $solicitude->tiposdesolicitude->nombre }}</td>
+                                        <td style="text-align: center">{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
+                                        <td style="text-align: center">{{ $solicitude->user->name }}</td>
+                                        <td style="text-align: center">{{ $solicitude->user->nodo->nombre }}</td>
+                                        <td style="text-align: center">
+                                            {{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+                                        <td style="text-align: center">{{ $solicitude->estadosDeLasSolictude->nombre }}
+                                        </td>
+
                                     </tr>
                                 </tbody>
                                 <!-- Another tbody is created for the search records -->

@@ -98,13 +98,16 @@
                             </li>
                         @endcan
 
-                        <li class="sidebar-item">
-                            <a href="{{ route('roles.index') }}" class="sidebar-link">
-                                <i class="lni lni-user"></i>
-                                <span>Rol</span>
-                            </a>
-                            <hr class="hrmenu">
-                        </li>
+                        @can('roles.index')
+                            <li class="sidebar-item">
+                                <a href="{{ route('roles.index') }}" class="sidebar-link">
+                                    <i class="lni lni-user"></i>
+                                    <span>Rol</span>
+                                </a>
+                                <hr class="hrmenu">
+                            </li>
+                        @endcan
+
                         <li class="sidebar-item">
                             <a href="{{ route('estados.index') }}" class="sidebar-link">
                                 <i class="lni lni-reload"></i>
