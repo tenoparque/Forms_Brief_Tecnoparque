@@ -18,6 +18,7 @@ use App\Http\Controllers\TiposDeSolicitudeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Models\DatosUnicosPorSolicitude;
+use App\Models\Solicitude;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -132,3 +133,4 @@ Route::post('/solicitudes/asignar', [SolicitudeController::class, 'asignarSolici
 
 
 
+Route::get('/suma', [SolicitudeController::class, 'suma']); // Roles Searching Route

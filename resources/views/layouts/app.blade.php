@@ -162,31 +162,40 @@
                         </li>
 
                         @can('departamentos.index')
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                                    data-bs-target="#nodos" aria-expanded="false" aria-controls="auth">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <span>Tecnoparques</span>
-                                </a>
-                                <hr class="hrmenu">
-                                <ul id="nodos" class="sidebar-dropdown list-unstyled collapse"
-                                    data-bs-parent="#sidebar">
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('nodos.index') }}" class="sidebar-link">Nodos</a>
+                            @can('nodos.index')
+                                <li class="sidebar-item">
+                                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                        data-bs-target="#nodos" aria-expanded="false" aria-controls="auth">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span>Tecnoparques</span>
+                                    </a>
+                                    <hr class="hrmenu">
+                                    <ul id="nodos" class="sidebar-dropdown list-unstyled collapse"
+                                        data-bs-parent="#sidebar">
+                                        @can('nodos.index')
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('nodos.index') }}" class="sidebar-link">Nodos</a>
 
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('departamentos.index') }}"
-                                            class="sidebar-link">Departamentos</a>
+                                            </li>
+                                        @endcan
 
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('ciudades.index') }}" class="sidebar-link">Ciudades</a>
+                                        @can('departamentos.index')
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('departamentos.index') }}"
+                                                    class="sidebar-link">Departamentos</a>
 
-                                    </li>
-                                </ul>
-                            </li>
-                        @endcan
+                                            </li>
+                                        @endcan
+
+                                        
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('ciudades.index') }}" class="sidebar-link">Ciudades</a>
+                                            </li>
+                                        
+                                    </ul>
+                                </li>
+                            @endcan
+                        @endcan 
                         
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
