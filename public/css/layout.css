@@ -1,5 +1,5 @@
 /* sidebar */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 * {
     font-family: "Work Sans", sans-serif;
@@ -25,7 +25,6 @@ h1 {
     font-size: 1.5rem;
 }
 
-
 /* Código modificación paginación */
 
 .page-link {
@@ -34,7 +33,7 @@ h1 {
 }
 
 .page-item.active .page-link {
-    background-color: #39A900;
+    background-color: #39a900;
     /* Cambia el color de fondo del elemento activo */
     border-color: #ffffff;
     /* Cambia el color del borde del elemento activo */
@@ -50,19 +49,14 @@ h1 {
 .page-item.disabled .page-link {
     color: #ffffff;
     /* Cambia el color del texto de los elementos deshabilitados */
-    background-color: #39A900;
+    background-color: #39a900;
     /* Cambia el color de fondo de los elementos deshabilitados */
     border-color: #f5f5f5;
     /* Cambia el color del borde de los elementos deshabilitados */
 }
 
-
-
 .wrapper {
     display: flex;
-
-
-
 }
 
 .main {
@@ -70,10 +64,7 @@ h1 {
     width: 100%;
     transition: all 0.35s ease-in-out;
     overflow-y: auto;
-
 }
-
-
 
 #sidebar.expand {
     width: 260px;
@@ -104,11 +95,10 @@ h1 {
     /* Centra horizontalmente el contenido */
     margin-top: 50px;
     margin-bottom: 20px;
-
 }
 
 .sidebar-logo a {
-    color: #FFF;
+    color: #fff;
     font-size: 1.15rem;
     font-weight: 600;
 }
@@ -124,18 +114,15 @@ h1 {
 }
 
 .sidebar-nav .sidebar-link {
-    padding: .625rem 1.625rem;
+    padding: 0.625rem 1.625rem;
     color: #fff;
     display: block;
     font-size: 0.9rem;
     white-space: nowrap;
-
-
 }
 
-
 .sidebar-link {
-    padding: .625rem 1.625rem;
+    padding: 0.625rem 1.625rem;
     color: #fff;
     display: block;
     font-size: 0.9rem;
@@ -150,16 +137,15 @@ h1 {
     width: 80%;
     opacity: 20;
     margin: 0 auto;
-
 }
 
 .sidebar-link i {
     font-size: 1.1rem;
-    margin-right: .75rem;
+    margin-right: 0.75rem;
 }
 
 a.sidebar-link:hover {
-    background-color: rgba(255, 255, 255, .075);
+    background-color: rgba(255, 255, 255, 0.075);
     border-left: 3px solid #3b7ddd;
 }
 
@@ -170,7 +156,6 @@ a.sidebar-link:hover {
 .sidebar-dropdown li {
     margin-left: 35px;
     margin-right: 10px;
-
 }
 
 #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
@@ -183,7 +168,7 @@ a.sidebar-link:hover {
     display: none;
 }
 
-#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
     display: block;
     max-height: 15em;
     width: 100%;
@@ -192,7 +177,7 @@ a.sidebar-link:hover {
 
 #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
     border: solid;
-    border-width: 0 .075rem .075rem 0;
+    border-width: 0 0.075rem 0.075rem 0;
     content: "";
     display: inline-block;
     padding: 2px;
@@ -200,12 +185,12 @@ a.sidebar-link:hover {
     right: 1.5rem;
     top: 1.4rem;
     transform: rotate(-135deg);
-    transition: all .2s ease-out;
+    transition: all 0.2s ease-out;
 }
 
 #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
     transform: rotate(45deg);
-    transition: all .2s ease-out;
+    transition: all 0.2s ease-out;
 }
 
 #sidebar.expand .textbrief,
@@ -213,18 +198,10 @@ a.sidebar-link:hover {
     display: block;
 }
 
-
-
 #sidebar:not(.expand) .textbrief,
 #sidebar:not(.expand) .textbriefsol {
     display: none;
 }
-
-
-
-
-
-
 
 /* estilos index/users */
 
@@ -258,7 +235,6 @@ table th {
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
 }
 
 .LabelText {
@@ -267,7 +243,6 @@ table th {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
-
 
 /* Estilo para el contenedor del checkbox */
 .checkboxSol {
@@ -307,8 +282,8 @@ table th {
     border-radius: 50%;
 }
 
-.checkboxSol .checkboxSolInp:checked+.check .inner-eye {
-    background-color: #39A900;
+.checkboxSol .checkboxSolInp:checked + .check .inner-eye {
+    background-color: #39a900;
     /* Cambia el color de fondo cuando está marcado */
 }
 
@@ -317,14 +292,10 @@ table th {
     color: #222;
 }
 
-
-
-
-
 /* button */
 .btnEnviar {
-    color: #00324D;
-    border: 2px solid #82DEF0;
+    color: #00324d;
+    border: 2px solid #82def0;
     height: 40px;
     width: 100%;
     max-width: 180px;
@@ -333,23 +304,20 @@ table th {
     justify-content: center;
     justify-items: center;
     background: #fff;
-
 }
 
 .iBtnBrief {
     color: #642c78;
 }
 
-
 /* -------- table form brief ---- */
 .table-formbrief {
-    background-color: #DEE2E6;
+    background-color: #dee2e6;
     border-radius: 18px;
     border-style: solid;
     border-width: 2px;
-    border-color: #dee2e6
+    border-color: #dee2e6;
 }
-
 
 /* --------------------------Politicas ------------------ */
 
@@ -370,12 +338,9 @@ table th {
     display: none;
 }
 
-
-
 /* QR*/
 .imgQr {
     display: flex;
-
 }
 
 .ImgQrPoliticas {
@@ -384,23 +349,21 @@ table th {
     max-height: 44%;
 }
 
-
 /* botones */
 
 /* btn upload image */
 .btnCED {
     color: #000000;
     padding: 8px 12px;
-    border: 2px solid #82DEF0;
+    border: 2px solid #82def0;
     border-radius: 35px;
     display: inline-block;
-    
+
     justify-items: center;
 }
 
 .iconCDE {
     color: #642c78;
-
 }
 
 .btnCED i {
@@ -414,21 +377,17 @@ table th {
 
 /*  */
 
-
 /* Layout properties of the create, return and detail buttons. */
 .btnCrear {
-
     display: inline-block;
     padding: 6px 20px;
     text-decoration: none;
-    color: #00324D;
+    color: #00324d;
     border-radius: 35px;
-    outline: none; 
-    border: 2px solid #82DEF0;
+    outline: none;
+    border: 2px solid #82def0;
     cursor: pointer;
-    background: #fff; 
-
-
+    background: #fff;
 }
 
 .btnCrear:hover {
@@ -441,13 +400,12 @@ table th {
     margin: 5px 0px;
     padding: 6px 15px;
     text-decoration: none;
-    color: #00324D;
+    color: #00324d;
     border-radius: 35px;
-    outline: none; 
-    border: 2px solid #82DEF0;
-    cursor: pointer; 
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
     background: #fff;
-
 }
 
 .btnDetalle:hover {
@@ -457,15 +415,14 @@ table th {
 /* edit button layout properties */
 
 .btnEdit {
-
     display: inline-block;
     padding: 6px 20px;
     text-decoration: none;
-    color: #00324D;
+    color: #00324d;
     border-radius: 35px;
-    outline: none; 
-    border: 2px solid #82DEF0;
-    cursor: pointer; 
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
     background: #fff;
 }
 
@@ -477,18 +434,17 @@ table th {
     background-color: #b2ebf2;
 }
 
-
 /* bottom regresar */
 .btnRegresar {
     margin-top: 20px;
     display: inline-block;
     padding: 6px 20px;
     text-decoration: none;
-    color: #00324D;
+    color: #00324d;
     border-radius: 35px;
-    outline: none; 
-    border: 2px solid #82DEF0;
-    cursor: pointer; 
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
     background: #fff;
 }
 
@@ -502,10 +458,10 @@ table th {
     display: inline-block;
     padding: 6px 20px;
     text-decoration: none;
-    color: #00324D;
+    color: #00324d;
     border-radius: 35px;
     outline: none;
-    border: 2px solid #82DEF0;
+    border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
 }
@@ -514,17 +470,16 @@ table th {
     background-color: #b2ebf2;
 }
 
-
 /* bottom duplicar */
 .btnDuplicar {
     display: inline-block;
     margin: 5px 0px;
     padding: 6px 20px;
     text-decoration: none;
-    color: #00324D;
+    color: #00324d;
     border-radius: 35px;
     outline: none;
-    border: 2px solid #82DEF0;
+    border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
 }
@@ -538,10 +493,10 @@ table th {
     margin: 5px 0px;
     padding: 6px 20px;
     text-decoration: none;
-    color: #00324D;
+    color: #00324d;
     border-radius: 35px;
     outline: none;
-    border: 2px solid #82DEF0;
+    border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
 }
@@ -551,18 +506,16 @@ table th {
 
 /* bottom modificar */
 .btnModificar {
-
     display: inline-block;
     margin: 5px 0px;
     padding: 6px 20px;
     text-decoration: none;
-    color: #00324D;
+    color: #00324d;
     border-radius: 35px;
     outline: none;
-    border: 2px solid #82DEF0;
+    border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
-
 }
 .btnModificar:hover {
     background-color: #b2ebf2;
@@ -573,7 +526,6 @@ table th {
     color: #642c78;
     vertical-align: middle;
 }
-
 
 /* image */
 #qrImage {
@@ -603,7 +555,6 @@ table th {
     text-align: center;
 }
 
-
 .ChildrenPersonalizacion {
     justify-self: center;
     align-self: center;
@@ -615,41 +566,150 @@ table th {
     margin: 10px;
 }
 
+/*diseño progressbar*/
+
+.containerProgressBar {
+    background-color: rgb(231, 231, 231);
+    height: 200px;
+    width: 60%;
+    position: relative;
+    z-index: 1;
+    /* Asegura que el div esté en frente */
+    overflow: hidden;
+    /* Oculta el contenido que se desborda */
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    display:grid ;
+}
+
+.progressbar li {
+    list-style-type: none;
+    float: left;
+    width: 33.33%;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+
+}
+
+.progressbar li span {
+    position: relative;
+    color: #555; /* Color del texto */
+    font-size: 14px; /* Tamaño de la fuente */
+    display: block;
+}
+
+.progressbar {
+    list-style-type: none;
+    counter-reset: step;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.progressbar li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    /* Increase line width if needed */
+    background-color: #ddd;
+    /* Change line color */
+    top: 15px;
+    left: -46%;
+    z-index: -1;
+    /* Keep lines behind the div */
+}
+.progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+   
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.progressbar li.active::before {
+    background-color: #007bff; /* Color de fondo del indicador activo */
+    border-color: #007bff; /* Borde del indicador activo */
+    color: #fff; /* Color del texto del indicador activo */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra alrededor del indicador activo */
+}
+.progressbar li.active ~ li::before {
+    border-color: #ccc; /* Cambiar el color del indicador para mostrar progreso */
+}
+.progressbar li.active + li:after {
+
+    background: linear-gradient(to right, #007bff, #39a900); /* Degradado de color de izquierda a derecha */
+    transition: width 0.3s ease;
+    height: 3px;
+   
+}
+
+.progressbar li:first-child::after {
+    content: none;
+}
+
+.progressbar li.active {
+    color: #39a900;
+}
+
+.progressbar li.active:before {
+    border-color:#39a900
+}
+
+.progressbar li.active + li:after {
+    background-color: #39a900;
+    
+}
+
+.progressbar li.active ~ li::before {
+    border-color: #ccc; /* Cambiar el color del indicador para mostrar progreso */
+}
+
+
 
 
 @media (max-width: 768px) {
-
     .btnDetalle {
         display: block;
         width: 100%;
-        
     }
 
     .btnEdit {
         display: block;
         width: 100%;
-        
     }
 
     .btnDuplicar {
         display: block;
         width: 100%;
-        
     }
 
     .btnModificar {
         display: block;
         width: 100%;
-        
-        font-size: .9em;
+
+        font-size: 0.9em;
     }
-    .btnCrear{
-       display: block;
-        
-        font-size: .9em; 
+    .btnCrear {
+        display: block;
+
+        font-size: 0.9em;
     }
 
-    .iconDCR{
+    .iconDCR {
         vertical-align: middle;
     }
+    /* diseño containerProgressBar*/
 }
