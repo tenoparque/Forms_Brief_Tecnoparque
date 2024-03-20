@@ -374,6 +374,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-items: center;
 }
 
+.btnCED:hover{
+    background-color: #b2ebf2;
+}
+
 .iconCDE {
     color: #642c78;
 }

@@ -87,7 +87,12 @@ class NodoController extends Controller
     {
         $request->merge(['id_estado' => 1]);
 
-        request()->validate(Nodo::$rules);
+        // request()->validate(Nodo::$rules);
+
+        $request->validate([
+            'name' => ['required'],
+            'id_ciudad' => ['required']
+        ]);
 
         $nodo = Nodo::create($request->all());
 

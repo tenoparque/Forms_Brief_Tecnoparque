@@ -4,8 +4,13 @@
     <div class="row p-3">
         <div class="col-md-6">
             <div class="form-group">
-                {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold; margin-left: 35px']) }}
-                {{ Form::text('name', $user->name, ['class' => 'form-control ' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombres','style' =>'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px']) }}
+                {{ Form::label('nombres', null, ['style' => 'font-size: 16px;  color:black']) }}
+                {{ Form::text('name', $user->name, [
+                    'class' => 'form-control ' . ($errors->has('name') ? ' is-invalid' : ''),
+                    'placeholder' => 'Nombres',
+                    'style' =>
+                        'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px',
+                ]) }}
                 {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
@@ -22,7 +27,7 @@
                 {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
-                {{ Form::label('celular', null, ['style' => 'font-size: 16px;font-weight: bold;  color:black']) }}
+                {{ Form::label('celular', null, ['style' => 'font-size: 16px;  color:black']) }}
                 {{ Form::text('celular', $user->celular, ['class' => 'form-control' . ($errors->has('celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                 {!! $errors->first('celular', '<div class="invalid-feedback">:message</div>') !!}
             </div>
@@ -31,7 +36,7 @@
             <div class="row">
                 <div class="col-md-4">
 
-                    {{ Form::label('nodo', null, ['style' => 'font-size: 16px; font-weight: bold; color:black']) }}
+                    {{ Form::label('nodo', null, ['style' => 'font-size: 16px; color:black']) }}
                     <div style="position: relative;">
                         {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                         <div class="icono" onclick="toggleSelect()">
@@ -60,40 +65,38 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label style="font-size: 16px;  color:black" for="role">Roles:</label>
-                        <div style="position: relative; width: 100%;">
-                            <select
-                                style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
-                                name="role" id="role" class="form-control">
-                                @foreach ($roles as $id => $role)
-                                    <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>
-                                        {{ $role }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <div class="icono" onclick="toggleSelect()">
-                                <div class="circle-play">
-                                    <div class="circle"></div>
-                                    <div class="triangle"></div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label style="font-size: 16px;  color:black" for="role">Roles:</label>
+                            <div style="position: relative; width: 100%;">
+                                <select
+                                    style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
+                                    name="role" id="role" class="form-control">
+                                    @foreach ($roles as $id => $role)
+                                        <option value="{{ $role }}"
+                                            {{ $user->hasRole($role) ? 'selected' : '' }}>
+                                            {{ $role }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <div class="icono" onclick="toggleSelect()">
+                                    <div class="circle-play">
+                                        <div class="circle"></div>
+                                        <div class="triangle"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-
-                </div>
-
+               
 
             </div>
             <div class="col-md-12" style="text-align: right;">
                 <button type="submit" class="btnGuardar">
                     {{ __('GUARDAR') }}
-                    <i class="fa-solid fa-circle-plus fa-sm iconDCR"></i>
+                    <i class="fa-solid fa-circle-plus fa-sm iconDCR" ></i>
                 </button>
             </div>
         </div>
-
-    </div>
-
 </section>
