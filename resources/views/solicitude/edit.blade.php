@@ -215,16 +215,13 @@
             document.getElementById('btnGroupAgregar').style.display = 'block';
             document.getElementById('btnGroupCancelarEnviar').style.display = 'none';
         });
-
-        //Lógica botonería Estados
-
-        document.getElementById('btnEditarEstado').addEventListener('click', function() {
-            document.getElementById('titEstadoSoli').style.display = 'block';
-            document.getElementById('cboEstados').style.display = 'block';
-            document.getElementById('btnGroupAgregar').style.display = 'none';
-            document.getElementById('btnGroupCancelarEnviarEstado').style.display = 'block';
+        document.getElementById('btnEnviarModificacion').addEventListener('click', function() {
+            var modificacion = document.getElementById('modificacion').value;
+            document.getElementById('modificacionInput').value = modificacion;
+            document.getElementById('formEnviarModificacion').submit();
         });
 
+        //Lógica botonería Estados
         document.getElementById('btnEditarEstado').addEventListener('click', function() {
             document.getElementById('comboboxEstado').style.display = 'block';
             document.getElementById('btnGroupAgregar').style.display = 'none';
