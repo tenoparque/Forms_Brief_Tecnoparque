@@ -54,14 +54,20 @@ class SolicitudeController extends Controller
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
 
-     public static $valorProcesado;
+     public  $valorProcesado;
 
     public function procesarValor($valor)
     {
         Log::info("controlador - valor recibido: " . $valor);
-        self::$valorProcesado = $this->index($valor);
-        return self::$valorProcesado;
+        $valorProcesado = $this->index($valor);
+        return $this->$valorProcesado;
     }
+    public function suma()
+    {
+        $prueba= $this->valorProcesado;
+        return view('solicitude.suma', compact('prueba'));
+    }
+
      
     /**
      * Show the form for creating a new resource.
