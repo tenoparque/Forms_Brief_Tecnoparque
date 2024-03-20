@@ -143,7 +143,7 @@
                             </select>
                         <br>
 
-                        <button class="btn btn-success" id="btnEditarEstado" >Editar estado</button>
+                        <button class="btn btn-primary" id="btnEditarEstado" >Editar estado</button>
 
                         <br><br>
 
