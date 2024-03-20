@@ -143,19 +143,17 @@
                         <br>
 
                         <br>
-                        <h3 style="display: none" id="titEstadoSoli">Estado de la Solicitud</h3>
-                        <select id="cboEstados" style="display: none" name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
-                                class="form-control selectpicker" data-style="btn-primary"
-                                title="Seleccionar el estado de la solicitud" required disabled>
-
+                        <div id="comboboxEstado" style="display: none;">
+                            <h3>Estado de la Solicitud</h3>
+                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar el estado de la solicitud" required>
                                 <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
                                 @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
-                                    <option value="{{ $estadoDeLaSolicitud->id }}"
-                                        {{ ($solicitude->id_estado_de_la_solicitud ?? '') == $estadoDeLaSolicitud->id ? 'selected' : '' }}>
+                                    <option value="{{ $estadoDeLaSolicitud->id }}" {{ ($solicitude->id_estado_de_la_solicitud ?? '') == $estadoDeLaSolicitud->id ? 'selected' : '' }}>
                                         {{ $estadoDeLaSolicitud->nombre }}
                                     </option>
                                 @endforeach
-                        </select>
+                            </select>
+                        </div>
 
                         <div class="form-group">
                             <strong>Servicios asociados:</strong>
@@ -188,14 +186,18 @@
 
     </section>
 
-    <form id="formEnviarModificacion" method="POST" action="{{ route('solicitudes.update', $solicitude->id) }}"
-        style="display: none;">
+    <form id="formEnviarModificacion" method="POST" action="{{ route('solicitudes.update', $solicitude->id) }}" style="display: none;">
         @csrf
         @method('PUT')
         <input type="hidden" name="modificacion" id="modificacionInput">
-        <input type="hidden" name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud_input">
-
     </form>
+
+    <form id="formActualizarEstado" method="POST" action="{{ route('solicitudes.actualizar_estado', $solicitude->id) }}" style="display: none;">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud_input">
+    </form>
+
 
     <script>
 
@@ -223,39 +225,39 @@
             document.getElementById('btnGroupCancelarEnviarEstado').style.display = 'block';
         });
 
-        document.getElementById('btnCancelarEstado').addEventListener('click', function() {
-            document.getElementById('titEstadoSoli').style.display = 'none';
-            document.getElementById('cboEstados').style.display = 'none';
-            document.getElementById('btnGroupAgregar').style.display = 'block';
-            document.getElementById('btnGroupCancelarEnviarEstado').style.display = 'none';
+        document.getElementById('btnEditarEstado').addEventListener('click', function() {
+            document.getElementById('comboboxEstado').style.display = 'block';
+            document.getElementById('btnGroupAgregar').style.display = 'none';
+            document.getElementById('btnGroupCancelarEnviarEstado').style.display = 'block';
         });
 
-        document.getElementById('btnEnviarModificacion').addEventListener('click', function() {
-            var modificacion = document.getElementById('modificacion').value;
+        document.getElementById('btnCancelarEstado').addEventListener('click', function() {
+            document.getElementById('comboboxEstado').style.display = 'none';
+            document.getElementById('btnGroupAgregar').style.display = 'block';
+            document.getElementById('btnGroupCancelarEnviarEstado').style.display = 'none';
+            });
 
-            // Obtener el valor seleccionado del combobox
-            var selectedEstadoId = $('#id_estado_de_la_solicitud').val();
+        document.getElementById('btnEnviarEstado').addEventListener('click', function() {
+                // Obtener el valor seleccionado del combobox
+                var selectedEstadoId = $('#id_estado_de_la_solicitud').val();
 
-            // Obtener el valor actual del combobox oculto
-            var currentEstadoId = $('#id_estado_de_la_solicitud_input').val();
+                // Verificar si se ha seleccionado un estado
+                if (!selectedEstadoId) {
+                    // Mostrar un mensaje de error o tomar otra acción apropiada
+                    alert('Por favor, selecciona un estado de la solicitud.');
+                    return; // Detener el envío del formulario
+                }
 
-            // Verificar si ha habido un cambio en la selección
-            if (selectedEstadoId !== currentEstadoId) {
                 // Asignar el nuevo valor al campo oculto
                 $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
-            }
 
-            // Verificar si se ha seleccionado un estado
-            if (!selectedEstadoId) {
-                // Mostrar un mensaje de error o tomar otra acción apropiada
-                alert('Por favor, selecciona un estado de la solicitud.');
-                return; // Detener el envío del formulario
-            }
+                // Enviar el formulario
+                $('#formActualizarEstado').submit();
+                });
 
-            // Asignar el valor de la modificación al campo oculto
-            document.getElementById('modificacionInput').value = modificacion;
-            document.getElementById('modificacionInput').value = modificacion;
-            document.getElementById('formEnviarModificacion').submit();
+                $('#id_estado_de_la_solicitud').change(function() {
+                var selectedEstadoId = $(this).val();
+                $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
         });
 
         $('#id_estado_de_la_solicitud').change(function() {
