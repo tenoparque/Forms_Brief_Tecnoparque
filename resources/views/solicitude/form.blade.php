@@ -3,8 +3,8 @@
     <div class="row m-3">
         <div class="">
             <div class="d-flex">
-                <h2 class="primeraPalabraFlex mb-0" style="font-size: 200%"> FORMULARIO </h2>
-                <h2 class="segundaPalabraFlex" style="font-size: 200%"> BRIEF</h2>
+                <h2 class="primeraPalabraFlex mb-0" style="font-size: 200%; font-weight: 900;"> FORMULARIO </h2>
+                <h2 class="segundaPalabraFlex" style="font-size: 200%; font-weight: 900;"> BRIEF</h2>
 
             </div>
             <div class="">
