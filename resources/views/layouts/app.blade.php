@@ -210,23 +210,27 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                                data-bs-target="#datos" aria-expanded="false" aria-controls="auth">
-                                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                                <span>Datos</span>
-                            </a>
-                            <hr class="hrmenu">
-                            <ul id="datos" class="sidebar-dropdown list-unstyled collapse"
-                                data-bs-parent="#sidebar">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('tipos-de-datos.index') }}" class="sidebar-link">Tipo de
-                                        datos</a>
 
-                                </li>
+                        @can ('tiposDeDato.index')
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                    data-bs-target="#datos" aria-expanded="false" aria-controls="auth">
+                                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                    <span>Datos</span>
+                                </a>
+                                <hr class="hrmenu">
+                                <ul id="datos" class="sidebar-dropdown list-unstyled collapse"
+                                    data-bs-parent="#sidebar">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('tipos-de-datos.index') }}" class="sidebar-link">Tipo de
+                                            datos</a>
 
-                            </ul>
-                        </li>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        @endcan
+                        
                         {{-- <li class="sidebar-item">
                             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                 data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
