@@ -132,7 +132,7 @@
                                 <option value="{{ $role->name }}">{{ $role->name }}</option>
                             @endforeach
                         </select>
-                        <div class="icono" onclick="toggleSelect()">
+                        <div class="icono">
                             <div class="circle-play">
                                 <div class="circle"></div>
                                 <div class="triangle"></div>

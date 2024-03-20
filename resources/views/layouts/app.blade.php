@@ -87,13 +87,17 @@
                         </div>
                     </div>
                     <ul class="sidebar-nav">
-                        <li class="sidebar-item">
-                            <a href="{{ route('users.index') }}" class="sidebar-link">
-                                <i class="lni lni-users"></i>
-                                <span>Usuarios</span>
-                            </a>
-                            <hr class="hrmenu">
-                        </li>
+
+                        @can('users.index')
+                            <li class="sidebar-item">
+                                <a href="{{ route('users.index') }}" class="sidebar-link">
+                                    <i class="lni lni-users"></i>
+                                    <span>Usuarios</span>
+                                </a>
+                                <hr class="hrmenu">
+                            </li>
+                        @endcan
+
                         <li class="sidebar-item">
                             <a href="{{ route('roles.index') }}" class="sidebar-link">
                                 <i class="lni lni-user"></i>

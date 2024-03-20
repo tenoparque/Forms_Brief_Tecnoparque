@@ -20,6 +20,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <h5>
+                                La sumatoria es {{$suma}}
+                            </h5>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -42,14 +45,14 @@
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
-                                        <th>No</th>                                       
-										<th>Tipo De Solicitud</th>
-										<th>Fecha Y Hora</th>
+                                        <th>No</th>
+                                        <th>Tipo De Solicitud</th>
+                                        <th>Fecha Y Hora</th>
                                         <th>Nodo</th>
-										<th>Usuario</th>
-										<th>Evento</th>
-										<th>Estado</th>
-                                        <th>Opciones</th>                                      
+                                        <th>Usuario</th>
+                                        <th>Evento</th>
+                                        <th>Estado</th>
+                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
@@ -71,25 +74,23 @@
 
                                                 </a>
 
-                                                <a href="{{ route('solicitudes.edit', $solicitude->id) }}" class="btnModificar">
+                                                <a href="{{ route('solicitudes.edit', $solicitude->id) }}"
+                                                    class="btnModificar">
                                                     <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                                     {{ __('Modificar') }}
 
                                                 </a>
 
-                                                <a  href="{{ route('solicitudes.duplicarFormulario', $solicitude->id) }}" class="btn btn-outline"
-                                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:110px; cursor: pointer;  border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                                                    onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                    onmouseout="this.style.backgroundColor='#FFFF';">
+                                                <a href="{{ route('solicitudes.duplicarFormulario', $solicitude->id) }}"
+                                                    class="btnDuplicar">
                                                     {{ __('Duplicar') }}
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                 </a>
-                                                <a href="{{ route('solicitudes.index', $solicitude->id) }}"
-                                                    class="btnAsignar">
+                                                <button class="btnAsignar" id="btnVerAsignacion" data-toggle="modal"
+                                                    data-target="#asignacionModal">
                                                     <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
-                                                    {{ __('Asignar a usuario') }}
-
-                                                </a>
+                                                    {{ __('Asignar a diseñador') }}
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -100,14 +101,71 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <!-- Modal para mostrar la asiganción de una solicitud un diseñador-->
+                        <div class="modal fade" id="asignacionModal" tabindex="-1" role="dialog"
+                            aria-labelledby="historialModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 style="margin-left: 60px;  position: relative; color: #00324D"
+                                            class="modal-title" id="historialModalLabel">ASIGNAR SOLICITUD A UN DISEÑADOR
+                                        </h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div style="position: relative;">
+                                            <select name="id_ciudad" id="id_ciudad" class="form-control selectpicker"
+                                                data-style="btn-primary" title="Seleccionar diseñador" required
+                                                style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                                                <option value="" disabled selected>Seleccionar diseñador...</option>
+                                                 @foreach ($usuarios as $user)
+                                                    <option value="{{ $user->name }}">{{ $user->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <div class="icono" style="right: 4%;">
+                                                <div class="circle-play">
+                                                    <div class="circle"></div>
+                                                    <div class="triangle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
+                                            {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                   
 
 
-</body> 
+
+                    </body>
                 </div>
                 {!! $solicitudes->links() !!}
             </div>
         </div>
         </div>
+
+        <script>
+            // Agrega un evento click al botón "Ver Asignación"
+            document.getElementById('btnVerAsignacion').addEventListener('click', function() {
+                // Abre el modal cuando se haga clic en el botón
+                $('#asignacionModal').modal('show');
+            });
+
+            // Agrega un evento click a todos los botones de clase "cerrar-modal"
+            document.querySelectorAll('.cerrar-modal').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    // Cierra el modal cuando se haga clic en el botón
+                    $('#asignacionModal').modal('hide');
+                });
+            });
+        </script>
     @endsection

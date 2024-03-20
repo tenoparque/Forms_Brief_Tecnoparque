@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use App\Models\HistorialDeModificacionesPorSolicitude;
-
+use App\Models\User;
 
 /**
  * Class SolicitudeController
@@ -42,8 +42,9 @@ class SolicitudeController extends Controller
         $fechasFestivas = $this->mostrarFechasFestivas();
         $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
-
-        return view('solicitude.index', compact('solicitudes' , 'disabledDates'))
+        $suma = Solicitude::count() + HistorialDeModificacionesPorSolicitude::count();
+        $usuarios = User::all();
+        return view('solicitude.index', compact('solicitudes' , 'disabledDates' , 'suma', 'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
    

@@ -163,14 +163,15 @@
             console.log("El idTipo es: " + tipoId);
         } else {
             console.error("La ID del tipo de solicitud no es válida.");
-        }   
-        // Llama a la función para verificar la selección del combo
-        verificarSeleccionCombo();    
+        }     
 
         // Seleccionar automáticamente el valor del combo de categoría
         var idCategoriaEvento = {{ $id_categoria_evento }};
         $('#id_categoria_evento').val(idCategoriaEvento).change(); // Agrega .change() para disparar el evento change
         console.log("ID de la categoría seleccionada:", idCategoriaEvento);
+
+        $('#btnEnviarSolicitud').show();
+        
     @endif
 
     });
@@ -187,6 +188,9 @@
 
             // Llamar a la función con el valor seleccionado del combo
             obtenerDatosPorTipo(tipoId);
+            //No mostrar input otro
+            $('.otroServicioTextbox').hide();
+            
         });
     });
 </script>
@@ -223,16 +227,16 @@
                                 '</label></div>';
                         });
                         $('#servicesComboBoxContainer').html(serviciosCheckboxes);
-                        
                         @if(isset($idSubservicios) && count($idSubservicios) > 0)
-                        // Obtener las IDs de los subservicios a seleccionar
-                        var idSubservicios = {{ json_encode($idSubservicios) }};
+                            // Obtener las IDs de los subservicios a seleccionar
+                            var idSubservicios = {{ json_encode($idSubservicios) }};
 
-                        // Seleccionar los checkboxes correspondientes a las IDs de los subservicios
-                        idSubservicios.forEach(function(idSubservicio) {
-                            $('input[type="checkbox"][value="' + idSubservicio + '"]').prop('checked', true);
-                        });
-                    @endif
+                            // Seleccionar los checkboxes correspondientes a las IDs de los subservicios
+                            idSubservicios.forEach(function(idSubservicio) {
+                                $('input[type="checkbox"][value="' + idSubservicio + '"]').prop('checked', true);
+                            });
+                            
+                        @endif
  
                     // validaciones del boton de enviar -----------------------------------------------------------------------------------------------------------------
                     function manejarCambioServicios() {
@@ -420,21 +424,6 @@
     });
 </script>
 
-<script>
-    // Define la función para verificar la selección del combo
-    function verificarSeleccionCombo() {
-        var selectedOption = $('#id_tipos_de_solicitudes').val(); // Obtener el valor seleccionado
-
-        // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
-        if (selectedOption !== '') {
-            // Mostrar el botón de enviar solicitud
-            $('#btnEnviarSolicitud').show();
-        } else {
-            // Ocultar el botón de enviar solicitud
-            $('#btnEnviarSolicitud').hide();
-        }
-    }
-</script>
 
 <style>
     #btnEnviarSolicitud {
