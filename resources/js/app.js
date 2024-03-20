@@ -9,6 +9,12 @@ const images = [
     // Agrega más rutas de imagen aquí
 ];
 
+
+//Función para deshabilitar el Select para cambiar el estado de una solicitud
+document.getElementById('btnEditarEstado').addEventListener('click', function() {
+    document.getElementById('id_estado_de_la_solicitud').disabled = false;
+});
+
 function displayRandomBackgroundImage() {
     const randomImage = images[Math.floor(Math.random() * images.length)];
     document.body.style.backgroundImage = `url(${randomImage})`;
