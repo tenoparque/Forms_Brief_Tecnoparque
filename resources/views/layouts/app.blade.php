@@ -27,13 +27,23 @@
 
 
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+
+
+
         rel="stylesheet">
+
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- JQUERY Reference -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -56,9 +66,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-    </script>
+    
+   
 
 </head>
 
@@ -190,8 +199,9 @@
                                 </li>
                                 <li class="sidebar-item">
 
-                                    <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de solicitudes</a>
-                                    
+                                    <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de
+                                        solicitudes</a>
+
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}"
@@ -211,7 +221,7 @@
                             </ul>
                         </li>
 
-                        @can ('tiposDeDato.index')
+                        @can('tiposDeDato.index')
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                     data-bs-target="#datos" aria-expanded="false" aria-controls="auth">
@@ -230,7 +240,7 @@
                                 </ul>
                             </li>
                         @endcan
-                        
+
                         {{-- <li class="sidebar-item">
                             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                 data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
