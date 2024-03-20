@@ -163,7 +163,7 @@
                     </div>
                     <div id="boton">
                         <div class="col-md-12 d-flex justify-content-end buttomBriefDiv">
-                            <button type="submit" class="btn btn-outline btnCED my-4">Enviar Solicitud <i
+                            <button type="submit" class="btnCED my-4">Enviar Solicitud <i
                                     class="fa-solid fa-circle-play iconCDE"></i></button>
                         </div>
                     </div>
