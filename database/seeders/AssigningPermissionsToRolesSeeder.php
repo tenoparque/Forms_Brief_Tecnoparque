@@ -20,7 +20,8 @@ class AssigningPermissionsToRolesSeeder extends Seeder
         // Verificar si el rol existe
         if ($rol) {
             // Asignar permisos al rol
-            $rol->givePermissionTo(['users.index', 'users.create', 'users.edit','users.show']);
+            // $rol->givePermissionTo(['users.index', 'users.create', 'users.edit','users.show']);
+            $rol->givePermissionTo(['roles.index', 'roles.create', 'roles.edit','roles.show']);
             $this->command->info('Permisos asignados al rol correctamente.');
         } else {
             $this->command->error('El rol especificado no existe en la base de datos.');
