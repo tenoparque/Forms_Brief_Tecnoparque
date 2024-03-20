@@ -39,8 +39,18 @@
                     <div class="card-body">
 
                         <div id="comboboxEstado" style="display: none;">
-                            <h3>Estado de la Solicitud</h3>
-                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar el estado de la solicitud" required>
+                            <div id="campoTexto" style="display: none;">
+                                <div class="form-group">
+                                    <label for="modificacion">Modificación:</label>
+                                    <textarea class="form-control" id="modificacion" name="modificacion" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <h3>Estado de la Solicitud</h3>
+                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar el estado de la solicitud" required disabled>
                                 <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
                                 @foreach ($estadosDeLaSolicitudes as $estadoDeLaSolicitud)
                                     <option value="{{ $estadoDeLaSolicitud->id }}"
@@ -49,16 +59,11 @@
                                     </option>
                                 @endforeach
                             </select>
-                        </div>
+                        <br>
 
+                        <button class="btn btn-success" id="btnEditarEstado" >Editar estado</button>
 
-                        <div id="campoTexto" style="display: none;">
-                            <div class="form-group">
-                                <label for="modificacion">Modificación:</label>
-                                <textarea class="form-control" id="modificacion" name="modificacion" rows="3"></textarea>
-                            </div>
-                        </div>
-
+                        <br><br>
 
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
@@ -95,7 +100,7 @@
                             </table>
                         </div>
 
-                        
+
 
                         <div class="form-group">
                             <strong>Servicios asociados:</strong>
@@ -107,12 +112,13 @@
                         </div>
 
                         <h5>Datos por solicitud:</h5>
-                            @foreach ($datosPorSolicitud as $dato)
-                                <div class="form-group">
-                                    <label><strong>{{ $dato->titulo }}:</strong></label>
-                                    <input type="text" class="form-control" value="{{ $dato->dato }}" readonly style="cursor: initial; outline: none;">
-                                </div>
-                            @endforeach
+                        @foreach ($datosPorSolicitud as $dato)
+                            <div class="form-group">
+                                <label><strong>{{ $dato->titulo }}:</strong></label>
+                                <input type="text" class="form-control" value="{{ $dato->dato }}" readonly
+                                    style="cursor: initial; outline: none;">
+                            </div>
+                        @endforeach
 
                     </div>
                 </div>
@@ -127,7 +133,8 @@
 
     </section>
 
-    <form id="formEnviarModificacion" method="POST" action="{{ route('solicitudes.update', $solicitude->id) }}" style="display: none;">
+    <form id="formEnviarModificacion" method="POST" action="{{ route('solicitudes.update', $solicitude->id) }}"
+        style="display: none;">
         @csrf
         @method('PUT')
         <input type="hidden" name="modificacion" id="modificacionInput">
@@ -152,9 +159,9 @@
         document.getElementById('btnEnviarModificacion').addEventListener('click', function() {
             var modificacion = document.getElementById('modificacion').value;
 
-             // Obtener el valor seleccionado del combobox
+            // Obtener el valor seleccionado del combobox
             var selectedEstadoId = $('#id_estado_de_la_solicitud').val();
-            
+
             // Obtener el valor actual del combobox oculto
             var currentEstadoId = $('#id_estado_de_la_solicitud_input').val();
 
@@ -175,13 +182,11 @@
             document.getElementById('modificacionInput').value = modificacion;
             document.getElementById('modificacionInput').value = modificacion;
             document.getElementById('formEnviarModificacion').submit();
-            });
+        });
 
         $('#id_estado_de_la_solicitud').change(function() {
-        var selectedEstadoId = $(this).val();
-        $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
-    });
-
-   
+            var selectedEstadoId = $(this).val();
+            $('#id_estado_de_la_solicitud_input').val(selectedEstadoId);
+        });
     </script>
 @endsection
