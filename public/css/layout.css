@@ -410,7 +410,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
-
+.btnCancelar{
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
+    background: #fff;
+    vertical-align:-1px;
+    
+    } 
+.btnCancelar:hover {
+        background-color: #b2ebf2;
+    }
 .btnCrear:hover {
     background-color: #b2ebf2;
 }
@@ -504,6 +520,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
+
+
+.btnAgregarModificacion{
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
+    background: #fff;
+}
+.btnAgregarModificacion:hover{
+    background-color: #b2ebf2;
+}
+
 .btnDuplicar:hover {
     background-color: #b2ebf2;
 }
@@ -539,7 +573,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: #fff;
 }
 
-.btnEnviar{
+.btnEnviarModificacion{
     display: inline-block;
     margin: 5px 0px;
     padding: 6px 20px;
@@ -551,6 +585,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
+.btnEnviarModificacion:hover {
+    background-color: #b2ebf2;
+}
+.btnActualizarestado{
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
+    background: #fff;
+}
+
+
+
 .btnModificar:hover {
     background-color: #b2ebf2;
 }
