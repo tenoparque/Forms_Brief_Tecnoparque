@@ -118,10 +118,10 @@
                                                 data-style="btn-primary" title="Seleccionar diseñador" required
                                                 style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                                                 <option value="" disabled selected>Seleccionar diseñador...</option>
-                                                {{-- @foreach ($users as $user)
-                                                    <option value="{{ $user->name }}">{{ $users->name }}
+                                                 @foreach ($usuarios as $user)
+                                                    <option value="{{ $user->name }}">{{ $user->name }}
                                                     </option>
-                                                @endforeach --}}
+                                                @endforeach
                                             </select>
                                             <div class="icono" style="right: 4%;">
                                                 <div class="circle-play">
