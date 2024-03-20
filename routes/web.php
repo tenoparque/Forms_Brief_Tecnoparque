@@ -127,5 +127,8 @@ Route::get('solicitudes/duplicar/{id}', [SolicitudeController::class, 'duplicarF
 
 
 
+Route::post('/solicitudes/asignar', [SolicitudeController::class, 'asignarSolicitud'])->name('solicitudes.asignar');
+
+
 
 

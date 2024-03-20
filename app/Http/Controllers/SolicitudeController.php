@@ -10,6 +10,9 @@ use App\Models\Estado;
 use App\Models\EstadosDeLasSolictude;
 use App\Models\EventosEspecialesPorCategoria;
 use App\Models\HistorialDeEstadosPorSolicitude;
+use App\Models\Historial;
+use App\Models\HistorialDeUsuariosPorSolicitude;
+
 use App\Models\Solicitude;
 use App\Models\TiposDeDato;
 use App\Models\TiposDeSolicitude;
@@ -460,7 +463,33 @@ public function obtenerFinesDeSemana()
     return $weekends;
 }
 
-   
+   /**
+     * Asigna una solicitud a un diseñador.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function asignarSolicitud(Request $request)
+    {
+        //dd($request->all());
+
+        // Validar los datos recibidos en la solicitud
+        // $request->validate([
+        //     'solicitud_id' => 'required|exists:solicitudes,id',
+        //     'usuario_id' => 'required|exists:users,id',
+        // ]);
+
+        // Crear un nuevo registro en el historial de asignaciones
+        $prueba = HistorialDeUsuariosPorSolicitude::create([
+            'id_solicitudes' => $request->solicitud_id,
+            'id_users' => $request->id_user,
+            'fecha_asignación' => now(), // Se utiliza la fecha actual
+            'id_estados' => 1, // Asignar el estado correspondiente
+        ]);
+
+        // Redireccionar o devolver una respuesta JSON según sea necesario
+        return redirect()->back()->with('success', 'Solicitud asignada correctamente al diseñador.');
+    }
 
     /**
      * @param int $id
