@@ -221,9 +221,10 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer"style="display: none;">
+                    
                     <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
-                        {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
+                        {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR" style="padding: 10px"></i>
                     </button>
                 </div>
 

@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <div class="table-responsive"
-                            style="background-color: transparent; border-color:transparent; margin-block-start: 10px;">
+                            style="background-color: transparent; border-color:transparent; margin-block-start: 40px;">
                             <table class="table table-bordered table-hover"
                                 style="background-color: transparent; border-color: transparent">
                                 <thead class="thead-dark">
@@ -144,10 +144,10 @@
 
                         {{-- BOTONERÍA MODIFICACIÓN --}}
                         <div class="float-right" id="btnGroupCancelarEnviar" style="display: none;">
-                            <button class="btn btn-secondary mr-2" id="btnCancelar">
-                                {{ __('Cancelar') }}
+                            <button class="btnEnviar" id="btnCancelar">
+                                {{ __('Cancelar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
                             </button>
-                            <button type="submit" class="btn btn-success" id="btnEnviarModificacion">
+                            <button type="submit" class="btn btn-outline" id="btnEnviarModificacion">
                                 {{ __('Enviar Modificación') }}
                             </button>
                         </div>
