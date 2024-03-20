@@ -319,6 +319,18 @@ table th {
     border-color: #dee2e6;
 }
 
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url('../images/date.png');
+    background-size: 100%; /* Ajusta el tamaño de la imagen para que se adapte al contenedor */
+    background-repeat: no-repeat;
+    /* background-position: center; Ajusta la posición para centrar el icono */
+    width: 20px; /* Ajusta el ancho del icono según necesites */
+    height: 20px; /* Ajusta la altura del icono según necesites */
+     
+    cursor: pointer; /* Agrega el cursor de selección */
+}
+
 /* --------------------------Politicas ------------------ */
 
 /* Input : forma de boton */
