@@ -261,14 +261,14 @@
                         '</label></div>';
                 });
                 $('#servicesComboBoxContainer').html(serviciosCheckboxes);
+                 // Si hay subservicios preseleccionados, seleccionarlos y activar el evento de cambio
                 @if (isset($idSubservicios) && count($idSubservicios) > 0)
-                    // Obtener las IDs de los subservicios a seleccionar
                     var idSubservicios = {{ json_encode($idSubservicios) }};
-
-                    // Seleccionar los checkboxes correspondientes a las IDs de los subservicios
                     idSubservicios.forEach(function(idSubservicio) {
-                        $('input[type="checkbox"][value="' + idSubservicio + '"]').prop('checked',
-                            true);
+                        var checkbox = $('input[type="checkbox"][value="' + idSubservicio + '"]');
+                        checkbox.prop('checked', true);
+                        
+                        manejarCambioServicios.call(checkbox.get(0));
                     });
                 @endif
 
@@ -303,7 +303,6 @@
 
                     // Imprimir el array de servicios seleccionados en la consola
                     console.log(serviciosSeleccionados.length);
-
                     // Llamar a la función para validar la aparición del botón de enviar solicitud
                     validarBotonEnviar();
                 }
@@ -324,8 +323,10 @@
                 }
 
                 // Manejar el cambio en la selección de servicios
+                // Manejar el cambio en la selección de servicios
                 $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(
                     manejarCambioServicios);
+
 
                 // Manejar el cambio en la selección del tipo de solicitud
                 $('#id_tipos_de_solicitudes').change(validarBotonEnviar);
