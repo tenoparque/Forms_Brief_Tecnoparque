@@ -50,7 +50,13 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'nodos.create']); // Create Nodos
         // Permission::create(['name' => 'nodos.edit']); // Edit Nodos
         // Permission::create(['name' => 'nodos.show']); // Show Nodos
+    
+        // Ciudades Permissions
 
+        Permission::create(['name' => 'ciudades.index']); // Index Ciudades
+        Permission::create(['name' => 'ciudades.create']); // Create Ciudades
+        Permission::create(['name' => 'ciudades.edit']); // Edit Ciudades
+        Permission::create(['name' => 'ciudades.show']); // Show Ciudades
 
     }
 }
