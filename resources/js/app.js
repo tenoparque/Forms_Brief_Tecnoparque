@@ -43,24 +43,20 @@ $(document).ready(function() {
             eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
         }
     });
-});
- /*color del sidebar al hacer click sobre una opcion*/ 
 
-$(".sidebar-nav .sidebar-item .sidebar-link").click(function() {
-    // Guarda el href del enlace en localStorage
-    localStorage.setItem('activeLink', $(this).attr('href'));
-});
+    // Guarda el href del enlace en localStorage cuando se hace clic
+    $(".sidebar-nav .sidebar-item .sidebar-link").click(function() {
+        localStorage.setItem('activeLink', $(this).attr('href'));
+    });
 
-// Cuando la página se carga
-$(document).ready(function() {
-    // Obtiene el href del enlace activo de localStorage
+    // Obtiene el href del enlace activo de localStorage cuando la página se carga
     var activeLink = localStorage.getItem('activeLink');
 
-    // Si hay un enlace activo guardado
+    // Si hay un enlace activo guardado, agrega la clase 'active-link' al enlace activo
     if(activeLink) {
-        // Agrega la clase 'active-link' al enlace activo
         $('a[href="' + activeLink + '"]').addClass('active-link');
     }
 });
+
 
 
