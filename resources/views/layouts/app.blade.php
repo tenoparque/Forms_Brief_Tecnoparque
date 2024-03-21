@@ -240,11 +240,14 @@
                                     </li>
                                 @endcan
 
-                                <li class="sidebar-item">
-                                    <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}"
-                                        class="sidebar-link">Servicios x tipo de solicitud</a>
+                                @can('serviciosPorTiposSolicitudes.index') {{-- Validate that you have the serviciosPorTiposSolicitudes.index permission to be able to display the Servicios Por Tipos de Solicitudes item. --}}
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}"
+                                            class="sidebar-link">Servicios x tipo de solicitud
+                                        </a>
+                                    </li>
+                                @endcan
 
-                                </li>
                                 <li class="sidebar-item">
                                     <a href="{{ route('estados-de-las-solictudes.index') }}"
                                         class="sidebar-link">Estados de las solicitudes</a>
