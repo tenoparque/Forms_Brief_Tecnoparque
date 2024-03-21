@@ -117,9 +117,16 @@ class PermissionSeeder extends Seeder
 
         // Estados de las Solicitudes
 
-        Permission::create(['name' => 'estadosSolicitudes.index']); // Index Estados de las Solicitudes Permissions
-        Permission::create(['name' => 'estadosSolicitudes.create']); // Create Estados de las Solicitudes Permissions
-        Permission::create(['name' => 'estadosSolicitudes.edit']); // Edit Estados de las Solicitudes Permissions
-        Permission::create(['name' => 'estadosSolicitudes.show']); // Show Estados de las Solicitudes Permissions
+        // Permission::create(['name' => 'estadosSolicitudes.index']); // Index Estados de las Solicitudes Permissions
+        // Permission::create(['name' => 'estadosSolicitudes.create']); // Create Estados de las Solicitudes Permissions
+        // Permission::create(['name' => 'estadosSolicitudes.edit']); // Edit Estados de las Solicitudes Permissions
+        // Permission::create(['name' => 'estadosSolicitudes.show']); // Show Estados de las Solicitudes Permissions
+
+        // Datos Unicos Por Solicitud
+
+        // Permission::create(['name' => 'datosUnicosSolicitud.index']); // Index Datos Unicos Por Solicitud Permissions
+        // Permission::create(['name' => 'datosUnicosSolicitud.create']); // Create Datos Unicos Por Solicitud Permissions
+        // Permission::create(['name' => 'datosUnicosSolicitud.edit']); // Edit Datos Unicos Por Solicitud Permissions
+        // Permission::create(['name' => 'datosUnicosSolicitud.show']); // Show Datos Unicos Por Solicitud Permissions
     }
 }
