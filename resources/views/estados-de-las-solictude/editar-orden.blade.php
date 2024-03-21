@@ -28,7 +28,7 @@
     
                             <div style="position: relative">
                                 <select name="orden_mostrado[{{ $estado->id }}]" class="orden-mostrado form-control" required
-                                    style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding:6px 12px; -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: pointer">
+                                    style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding:6px 12px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                                     @for ($i = 1; $i <= count($estadosDeLasSolictudes); $i++)
                                         <option value="{{ $i }}"
                                             {{ $estado->orden_mostrado == $i ? 'selected' : '' }}>
