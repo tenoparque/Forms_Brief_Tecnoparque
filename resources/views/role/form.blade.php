@@ -4,13 +4,9 @@
     <div class="box-body">
         
         <div class="form-group">
-<<<<<<< HEAD
-            {{ Form::label('name', null, ['style' => 'font-size: 18px; font-weight: bold; margin-left: 35px;']) }}
-            {{ Form::text('name', isset($role) ? $role->name : '', ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre','style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px; margin-left: 25px;']) }}
-=======
-            {{ Form::label('Nombres',null,['style' => 'font-size: 18px; font-weight: bold; margin-left: 35px;']) }}
-            {{ Form::text('name', $role->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name','style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px; margin-left: 25px;']) }}
->>>>>>> f49590f3568a62052e92642fcca45afd7631bf0f
+            
+            {{ Form::label('Nombre',null,['style' => 'font-size: 18px; font-weight: bold; margin-left: 35px;']) }}
+            {{ Form::text('name', $role->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre','style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px; margin-left: 25px;']) }}
             {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
