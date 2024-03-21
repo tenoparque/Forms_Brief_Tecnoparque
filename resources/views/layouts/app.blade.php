@@ -248,11 +248,14 @@
                                     </li>
                                 @endcan
 
-                                <li class="sidebar-item">
-                                    <a href="{{ route('estados-de-las-solictudes.index') }}"
-                                        class="sidebar-link">Estados de las solicitudes</a>
+                                @can('estadosSolicitudes.index') {{-- Validate that you have the estadosSolicitudes.index permission to be able to display the Estados de las Solicitudes item. --}}
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('estados-de-las-solictudes.index') }}"
+                                            class="sidebar-link">Estados de las solicitudes
+                                        </a>
+                                    </li>
+                                @endcan
 
-                                </li>
                                 <li class="sidebar-item">
                                     <a href="{{ route('datos-unicos-por-solicitudes.index') }}"
                                         class="sidebar-link">Datos únicos x solicitud</a>
