@@ -124,13 +124,17 @@
                             </a>
                             <hr class="hrmenu">
                         </li>
-                        <li class="sidebar-item">
-                            <a href="{{ route('politicas.index') }}" class="sidebar-link">
-                                <i class="lni lni-handshake"></i>
-                                <span>Politicas</span>
-                            </a>
-                            <hr class="hrmenu">
-                        </li>
+                        
+                        @can('politicas.index') {{-- Validate that you have the politicas.index permission to be able to display the Politicas item. --}}
+                            <li class="sidebar-item">
+                                <a href="{{ route('politicas.index') }}" class="sidebar-link">
+                                    <i class="lni lni-handshake"></i>
+                                    <span>Politicas</span>
+                                </a>
+                                <hr class="hrmenu">
+                            </li>
+                        @endcan
+                        
                         <li class="sidebar-item">
                             <a href="{{ route('personalizaciones.index') }}" class="sidebar-link">
                                 <i class="fa-regular fa-pen-to-square"></i>
