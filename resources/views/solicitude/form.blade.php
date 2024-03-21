@@ -12,7 +12,8 @@
 
                     <br>
                     <div class="form-group col-md-12 my-3">
-                        <h5 for="id_tipos_de_solicitudes" style="font-size: 18px; font-weight: bold;">Tipo de Solicitud</h5>
+                        <h5 for="id_tipos_de_solicitudes" style="font-size: 18px; font-weight: bold;">Tipo de Solicitud
+                        </h5>
 
 
                         <div style="position: relative">
@@ -88,13 +89,15 @@
 
 
                         <div class="form-group my-2">
-                            <h5  style="font-size: 18px; font-weight: bold; ">Servicios</h5>
+                            <h5 style="font-size: 18px; font-weight: bold; ">Servicios</h5>
                             <div id="servicesComboBoxContainer" class="row">
                                 <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
                             </div>
                             <div class="form-group col-md-12 my-3 otroServicioTextbox" style="display: none;">
-                                <label for="otroServicio" style="font-size: 18px; font-weight: bold;">Especificar otro servicio:</label>
-                                <input type="text" id="otroServicio" name="otroServicio" class="form-control" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; ">
+                                <label for="otroServicio" style="font-size: 18px; font-weight: bold;">Especificar otro
+                                    servicio:</label>
+                                <input type="text" id="otroServicio" name="otroServicio" class="form-control"
+                                    style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; ">
                             </div>
 
                         </div>
@@ -261,13 +264,13 @@
                         '</label></div>';
                 });
                 $('#servicesComboBoxContainer').html(serviciosCheckboxes);
-                 // Si hay subservicios preseleccionados, seleccionarlos y activar el evento de cambio
+                // Si hay subservicios preseleccionados, seleccionarlos y activar el evento de cambio
                 @if (isset($idSubservicios) && count($idSubservicios) > 0)
                     var idSubservicios = {{ json_encode($idSubservicios) }};
                     idSubservicios.forEach(function(idSubservicio) {
                         var checkbox = $('input[type="checkbox"][value="' + idSubservicio + '"]');
                         checkbox.prop('checked', true);
-                        
+
                         manejarCambioServicios.call(checkbox.get(0));
                     });
                 @endif

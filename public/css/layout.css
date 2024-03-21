@@ -681,7 +681,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /*diseño progressbar*/
 
 .containerProgressBar {
-    background-color: rgb(231, 231, 231);
     height: 200px;
     width: 60%;
     position: relative;
