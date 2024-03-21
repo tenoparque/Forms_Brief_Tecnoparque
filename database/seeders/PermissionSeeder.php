@@ -67,9 +67,16 @@ class PermissionSeeder extends Seeder
 
         // Personalizaciones Permissions
 
-        Permission::create(['name' => 'personalizaciones.index']); // Index Personalizaciones
-        Permission::create(['name' => 'personalizaciones.create']); // Create Personalizaciones
-        Permission::create(['name' => 'personalizaciones.edit']); // Edit Personalizaciones
-        Permission::create(['name' => 'personalizaciones.show']); // Show Personalizaciones
+        // Permission::create(['name' => 'personalizaciones.index']); // Index Personalizaciones
+        // Permission::create(['name' => 'personalizaciones.create']); // Create Personalizaciones
+        // Permission::create(['name' => 'personalizaciones.edit']); // Edit Personalizaciones
+        // Permission::create(['name' => 'personalizaciones.show']); // Show Personalizaciones
+
+        // Estados Permissions
+
+        Permission::create(['name' => 'estados.index']); // Index Estados
+        Permission::create(['name' => 'estados.create']); // Create Estados
+        Permission::create(['name' => 'estados.edit']); // Edit Estados
+        Permission::create(['name' => 'estados.show']); // Show Estados
     }
 }

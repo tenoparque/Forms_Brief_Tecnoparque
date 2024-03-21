@@ -117,13 +117,15 @@
                             </li>
                         @endcan
 
-                        <li class="sidebar-item">
-                            <a href="{{ route('estados.index') }}" class="sidebar-link">
-                                <i class="lni lni-reload"></i>
-                                <span>Estados</span>
-                            </a>
-                            <hr class="hrmenu">
-                        </li>
+                        @can('estados.index') {{-- Validate that you have the estados.index permission to be able to display the Estados item. --}}
+                            <li class="sidebar-item">
+                                <a href="{{ route('estados.index') }}" class="sidebar-link">
+                                    <i class="lni lni-reload"></i>
+                                    <span>Estados</span>
+                                </a>
+                                <hr class="hrmenu">
+                            </li>
+                        @endcan
                         
                         @can('politicas.index') {{-- Validate that you have the politicas.index permission to be able to display the Politicas item. --}}
                             <li class="sidebar-item">
