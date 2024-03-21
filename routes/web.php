@@ -133,4 +133,4 @@ Route::post('/solicitudes/asignar', [SolicitudeController::class, 'asignarSolici
 
 
 
-Route::get('/suma', [SolicitudeController::class, 'suma']); // Roles Searching Route
+

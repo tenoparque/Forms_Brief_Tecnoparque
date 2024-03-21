@@ -62,11 +62,8 @@ class SolicitudeController extends Controller
         $valorProcesado = $this->index($valor);
         return $this->$valorProcesado;
     }
-    public function suma()
-    {
-        $prueba= $this->valorProcesado;
-        return view('solicitude.suma', compact('prueba'));
-    }
+
+    
 
      
     /**
