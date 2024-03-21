@@ -19,6 +19,9 @@ class AssigningPermissionsToRolesSeeder extends Seeder
         
         // Verificar si el rol existe
         if ($rol) {
+
+
+            
             // Asignar permisos al rol
             // $rol->givePermissionTo(['users.index', 'users.create', 'users.edit','users.show']);
             // $rol->givePermissionTo(['roles.index', 'roles.create', 'roles.edit','roles.show']);
@@ -32,7 +35,8 @@ class AssigningPermissionsToRolesSeeder extends Seeder
             // $rol->givePermissionTo(['categoriasEventosEspeciales.index', 'categoriasEventosEspeciales.create', 'categoriasEventosEspeciales.edit','categoriasEventosEspeciales.show']);
             // $rol->givePermissionTo(['eventosEspeciales.index', 'eventosEspeciales.create', 'eventosEspeciales.edit','eventosEspeciales.show']);
             // $rol->givePermissionTo(['solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show']);
-            $rol->givePermissionTo(['tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show']);
+            // $rol->givePermissionTo(['tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show']);
+            $rol->givePermissionTo(['serviciosPorTiposSolicitudes.index', 'serviciosPorTiposSolicitudes.create', 'serviciosPorTiposSolicitudes.edit','serviciosPorTiposSolicitudes.show']);
 
             $this->command->info('Permisos asignados correctamente.');
         } else {
