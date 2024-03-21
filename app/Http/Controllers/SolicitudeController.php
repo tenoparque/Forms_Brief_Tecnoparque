@@ -401,21 +401,7 @@ public function procesarValor()
             'elementoConOtroServicio' 
         ));    }
 
-    // /**
-    //  * Obtiene la hora actual en la zona horaria de Bogotá.
-    //  *
-    //  * @return string|null
-    //  */
-    // public function getCurrentTimeInBogota()
-    // {
-    //     $response = Http::get('https://timeapi.io/api/Time/current/zone?timeZone=America/Bogota');
-
-    //     if ($response->successful()) {
-    //         return $response['dateTime'];
-    //     } else {
-    //         return null;
-    //     }
-    // }
+   
 
     /**
  * Obtiene la hora actual en la zona horaria de Bogotá.

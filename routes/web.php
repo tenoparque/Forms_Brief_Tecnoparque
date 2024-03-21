@@ -130,6 +130,9 @@ Route::put('solicitudes/solicitudes/{solicitude}/actualizar-estado', [Solicitude
 
 Route::post('/solicitudes/asignar', [SolicitudeController::class, 'asignarSolicitud'])->name('solicitudes.asignar');
 
+
+// Esta es la ruta que comunica la solicitud desde la vista index de solicitudes con el metodo en el controlador que lo que hace es retornar la totalidad
+// de solicitudes e historial de solicitudes que se llevan en el momento
 Route::get('/procesarValor', [SolicitudeController::class, 'procesarValor'])->name('solicitudes.procesarValor');
 
 
