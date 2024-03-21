@@ -216,56 +216,59 @@
                             </li>
                         @endcan
                         
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                                data-bs-target="#solicitudes" aria-expanded="false" aria-controls="auth">
-                                <i class="fa-solid fa-envelope-open-text"></i>
-                                <span>Solicitud</span>
-                            </a>
-                            <hr class="hrmenu">
-                            <ul id="solicitudes" class="sidebar-dropdown list-unstyled collapse"
-                                data-bs-parent="#sidebar">
+                        {{-- Here we validate that you must have at least one of these permissions to pass to the second validation layer --}}
+                        @canany(['solicitudes.index', 'tiposSolicitudes.index', 'serviciosPorTiposSolicitudes.index','estadosSolicitudes.index','datosUnicosSolicitud.index'])
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                    data-bs-target="#solicitudes" aria-expanded="false" aria-controls="auth">
+                                    <i class="fa-solid fa-envelope-open-text"></i>
+                                    <span>Solicitud</span>
+                                </a>
+                                <hr class="hrmenu">
+                                <ul id="solicitudes" class="sidebar-dropdown list-unstyled collapse"
+                                    data-bs-parent="#sidebar">
 
-                                @can('solicitudes.index') {{-- Validate that you have the solicitudes.index permission to be able to display the Solicitudes item. --}}
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('solicitudes.index') }}" class="sidebar-link">Solicitudes</a>
-                                    </li>
-                                @endcan
+                                    @can('solicitudes.index') {{-- Validate that you have the solicitudes.index permission to be able to display the Solicitudes item. --}}
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('solicitudes.index') }}" class="sidebar-link">Solicitudes</a>
+                                        </li>
+                                    @endcan
 
-                                @can('tiposSolicitudes.index') {{-- Validate that you have the tiposSolicitudes.index permission to be able to display the Tipos de Solicitudes item. --}}
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de
-                                            solicitudes
-                                        </a>
-                                    </li>
-                                @endcan
+                                    @can('tiposSolicitudes.index') {{-- Validate that you have the tiposSolicitudes.index permission to be able to display the Tipos de Solicitudes item. --}}
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de
+                                                solicitudes
+                                            </a>
+                                        </li>
+                                    @endcan
 
-                                @can('serviciosPorTiposSolicitudes.index') {{-- Validate that you have the serviciosPorTiposSolicitudes.index permission to be able to display the Servicios Por Tipos de Solicitudes item. --}}
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}"
-                                            class="sidebar-link">Servicios x tipo de solicitud
-                                        </a>
-                                    </li>
-                                @endcan
+                                    @can('serviciosPorTiposSolicitudes.index') {{-- Validate that you have the serviciosPorTiposSolicitudes.index permission to be able to display the Servicios Por Tipos de Solicitudes item. --}}
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}"
+                                                class="sidebar-link">Servicios x tipo de solicitud
+                                            </a>
+                                        </li>
+                                    @endcan
 
-                                @can('estadosSolicitudes.index') {{-- Validate that you have the estadosSolicitudes.index permission to be able to display the Estados de las Solicitudes item. --}}
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('estados-de-las-solictudes.index') }}"
-                                            class="sidebar-link">Estados de las solicitudes
-                                        </a>
-                                    </li>
-                                @endcan
+                                    @can('estadosSolicitudes.index') {{-- Validate that you have the estadosSolicitudes.index permission to be able to display the Estados de las Solicitudes item. --}}
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('estados-de-las-solictudes.index') }}"
+                                                class="sidebar-link">Estados de las solicitudes
+                                            </a>
+                                        </li>
+                                    @endcan
 
-                                @can('datosUnicosSolicitud.index') {{-- Validate that you have the datosUnicosSolicitud.index permission to be able to display the Datos Unicos Por Solicitud item. --}}
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('datos-unicos-por-solicitudes.index') }}"
-                                            class="sidebar-link">Datos únicos x solicitud
-                                        </a>
-                                    </li>    
-                                @endcan
-                                
-                            </ul>
-                        </li>
+                                    @can('datosUnicosSolicitud.index') {{-- Validate that you have the datosUnicosSolicitud.index permission to be able to display the Datos Unicos Por Solicitud item. --}}
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('datos-unicos-por-solicitudes.index') }}"
+                                                class="sidebar-link">Datos únicos x solicitud
+                                            </a>
+                                        </li>    
+                                    @endcan
+                                    
+                                </ul>
+                            </li>
+                        @endcan
 
                         @can('tiposDeDato.index')
                             <li class="sidebar-item">
