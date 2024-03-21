@@ -134,7 +134,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card"
-                                    style="border-radius: 20px; border:none; margin-top: 5px;margin-block-end: 50px;">
+                                    style="border-radius: 20px; border:none; margin-top: 5px;margin-block-end: 40px;">
                                     <div class="card-body">
                                         <h5 style="color: #00324D">ULTIMA MODIFICACION REALIZADA</h5>
                                         <br>
@@ -145,15 +145,14 @@
                                                 style="cursor:text; outline: none; width: 100%; max-width: 100%; height:45px;margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
                                                 <strong>Cambios:</strong> {{ $historial->first()->modificacion }}
                                             </p>
-                                            <button
-                                                style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:140px; cursor: pointer; border-radius: 35px; margin-top:18px; justify-content: center; justify-items: center; margin-left: 87%; word-wrap: break-word; overflow-wrap: break-word;"
-                                                onmouseover="this.style.backgroundColor='#b2ebf2';"
-                                                onmouseout="this.style.backgroundColor='#FFFF';"type="button"
-                                                class="btn btn-outline" id="btnVerHistorial" data-toggle="modal"
-                                                data-target="#historialModal">
-                                                Ver historial
-                                                <i class="fa-solid fa-clock-rotate-left fa-sm" style="color: #642c78;"></i>
-                                                </a></button>
+                                            <div class="align-right">
+                                                <button style="margin-left:85%" type="button" class="btnVerHistorial" id="btnVerHistorial" data-toggle="modal" data-target="#historialModal">
+                                                    Ver historial
+                                                    <i class="fa-solid fa-clock-rotate-left fa-sm iconDCR"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            
                                         @else
                                             <p>No hay historial de modificaciones</p>
                                         @endif
