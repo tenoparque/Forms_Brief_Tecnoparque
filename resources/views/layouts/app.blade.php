@@ -232,12 +232,14 @@
                                     </li>
                                 @endcan
 
-                                <li class="sidebar-item">
+                                @can('tiposSolicitudes.index') {{-- Validate that you have the tiposSolicitudes.index permission to be able to display the Tipos de Solicitudes item. --}}
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de
+                                            solicitudes
+                                        </a>
+                                    </li>
+                                @endcan
 
-                                    <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de
-                                        solicitudes</a>
-
-                                </li>
                                 <li class="sidebar-item">
                                     <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}"
                                         class="sidebar-link">Servicios x tipo de solicitud</a>

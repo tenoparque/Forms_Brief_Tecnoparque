@@ -32,6 +32,7 @@ class AssigningPermissionsToRolesSeeder extends Seeder
             // $rol->givePermissionTo(['categoriasEventosEspeciales.index', 'categoriasEventosEspeciales.create', 'categoriasEventosEspeciales.edit','categoriasEventosEspeciales.show']);
             // $rol->givePermissionTo(['eventosEspeciales.index', 'eventosEspeciales.create', 'eventosEspeciales.edit','eventosEspeciales.show']);
             // $rol->givePermissionTo(['solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show']);
+            $rol->givePermissionTo(['tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show']);
 
             $this->command->info('Permisos asignados correctamente.');
         } else {

@@ -95,10 +95,17 @@ class PermissionSeeder extends Seeder
 
         // Solicitudes Permissions
 
-        // Permission::create(['name' => 'solicitudes.index']); // Solicitudes Permissions
-        // Permission::create(['name' => 'solicitudes.create']); // Solicitudes Permissions
-        // Permission::create(['name' => 'solicitudes.edit']); // Solicitudes Permissions
-        // Permission::create(['name' => 'solicitudes.show']); // Solicitudes Permissions
+        // Permission::create(['name' => 'solicitudes.index']); // Index Solicitudes Permissions
+        // Permission::create(['name' => 'solicitudes.create']); // Create Solicitudes Permissions
+        // Permission::create(['name' => 'solicitudes.edit']); // Edit Solicitudes Permissions
+        // Permission::create(['name' => 'solicitudes.show']); // Show Solicitudes Permissions
+
+        // Tipos de Solicitudes Permissions
+
+        Permission::create(['name' => 'tiposSolicitudes.index']); // Index Tipos de Solicitudes Permissions
+        Permission::create(['name' => 'tiposSolicitudes.create']); // Create Tipos de Solicitudes Permissions
+        Permission::create(['name' => 'tiposSolicitudes.edit']); // Edit Tipos de Solicitudes Permissions
+        Permission::create(['name' => 'tiposSolicitudes.show']); // Show Tipos de Solicitudes Permissions
 
     }
 }
