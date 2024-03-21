@@ -54,19 +54,17 @@ class SolicitudeController extends Controller
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
 
-     public  $valorProcesado;
+     public function procesarValor($valor)
+     {
+         Log::info("controlador - valor recibido: " . $valor);
+         // Aquí procesas tu valor si es necesario antes de pasarlo a la vista
+         $valorProcesado = $this->index($valor);
+         
+         return view('solicitude.index', compact('valorProcesado')); // Envía el valor a la vista
+     }
+     
 
-    public function procesarValor($valor)
-    {
-        Log::info("controlador - valor recibido: " . $valor);
-        $valorProcesado = $this->index($valor);
-        return $this->$valorProcesado;
-    }
-    public function suma()
-    {
-        $prueba= $this->valorProcesado;
-        return view('solicitude.suma', compact('prueba'));
-    }
+    
 
      
     /**
