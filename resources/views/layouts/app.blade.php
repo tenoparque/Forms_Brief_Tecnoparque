@@ -97,7 +97,7 @@
                     </div>
                     <ul class="sidebar-nav">
 
-                        @can('users.index')
+                        @can('users.index') {{-- Validate that you have the users.index permission to be able to watch the users item (link). --}}
                             <li class="sidebar-item">
                                 <a href="{{ route('users.index') }}" class="sidebar-link">
                                     <i class="lni lni-users"></i>
@@ -107,7 +107,7 @@
                             </li>
                         @endcan
 
-                        @can('roles.index')
+                        @can('roles.index') {{-- Validate that you have the roles.index permission to be able to watch the roles item (link). --}}
                             <li class="sidebar-item">
                                 <a href="{{ route('roles.index') }}" class="sidebar-link">
                                     <i class="lni lni-user"></i>
@@ -161,41 +161,45 @@
                             </ul>
                         </li>
 
-                        @can('departamentos.index')
-                            @can('nodos.index')
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                                        data-bs-target="#nodos" aria-expanded="false" aria-controls="auth">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        <span>Tecnoparques</span>
-                                    </a>
-                                    <hr class="hrmenu">
-                                    <ul id="nodos" class="sidebar-dropdown list-unstyled collapse"
-                                        data-bs-parent="#sidebar">
-                                        @can('nodos.index')
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('nodos.index') }}" class="sidebar-link">Nodos</a>
+                        {{-- Here you validate that you have the permissions of the different links in the drop-down list. --}}
+                        @can('departamentos.index') {{-- First, the departamentos.index permit is validated. --}}
+                            @can('nodos.index') {{-- Second, the nodos.index permit is validated. --}}
+                                @can('ciudades.index') {{-- Then, the ciudades.index permission is validated. --}}
+                                    <li class="sidebar-item">
+                                        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                            data-bs-target="#nodos" aria-expanded="false" aria-controls="auth">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <span>Tecnoparques</span>
+                                        </a>
+                                        <hr class="hrmenu">
+                                        <ul id="nodos" class="sidebar-dropdown list-unstyled collapse"
+                                            data-bs-parent="#sidebar">
 
-                                            </li>
-                                        @endcan
+                                            @can('nodos.index') {{-- Validate that you have the nodos.index permission to be able to display the Nodos item. --}}
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('nodos.index') }}" class="sidebar-link">Nodos</a>
 
-                                        @can('departamentos.index')
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('departamentos.index') }}"
-                                                    class="sidebar-link">Departamentos</a>
+                                                </li>
+                                            @endcan
 
-                                            </li>
-                                        @endcan
+                                            @can('departamentos.index')  {{-- Validate that you have the departamentos.index permission to be able to display the Departamentos item. --}}
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('departamentos.index') }}"
+                                                        class="sidebar-link">Departamentos</a>
+                                                </li>
+                                            @endcan
 
                                         
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('ciudades.index') }}" class="sidebar-link">Ciudades</a>
-                                            </li>
-                                        
-                                    </ul>
-                                </li>
+                                            @can('ciudades.index') {{-- Validate that you have the ciudades.index permission to be able to display the Ciudades item. --}}
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('ciudades.index') }}" class="sidebar-link">Ciudades</a>
+                                                </li>
+                                            @endcan
+                                        </ul>
+                                    </li>
+                                @endcan
                             @endcan
-                        @endcan 
+                        @endcan
                         
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
