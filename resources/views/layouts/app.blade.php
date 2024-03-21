@@ -60,6 +60,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
     @vite('resources/js/menuburger.js')
     @vite('resources/js/validateUserRegister.js')
+    
 
 
     {{-- bootstrap --}}
@@ -224,10 +225,13 @@
                             <hr class="hrmenu">
                             <ul id="solicitudes" class="sidebar-dropdown list-unstyled collapse"
                                 data-bs-parent="#sidebar">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('solicitudes.index') }}" class="sidebar-link">Solicitudes</a>
 
-                                </li>
+                                @can('solicitudes.index') {{-- Validate that you have the solicitudes.index permission to be able to display the Solicitudes item. --}}
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('solicitudes.index') }}" class="sidebar-link">Solicitudes</a>
+                                    </li>
+                                @endcan
+
                                 <li class="sidebar-item">
 
                                     <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de
@@ -350,7 +354,7 @@
                                 <!-- Carta Derecha -->
                                 <div class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12">
                                     @if (isset($logo))
-                                        <img class="img-fluid" id="logoHeader"
+                                        <img class="ImgHeader" id="logoHeader"
                                             src="data:image/png;base64,{{ base64_encode($logo) }}"></img>
                                     @endif
                                 </div>

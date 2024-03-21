@@ -376,11 +376,13 @@ public function procesarValor()
         ->pluck('id_subservicios')
         ->toArray();
 
+        // Obtener los elementos con información adicional "otro_servicio"
+        $elementoConOtroServicio = ElementosPorSolicitude::where('id_solicitudes', $id)
+        ->whereNotNull('otro_servicio')
+        ->value('otro_servicio');
+
         $datosPorSolicitud = DatosPorSolicitud::where('id_solicitudes', $id)
         ->pluck('dato', 'id_datos_unicos_por_solicitudes');
-
-        // // Imprimir los datos por solicitud
-        // dd($datosPorSolicitud);
 
 
         // Redirigir a la vista 'solicitudes.create' y pasar el idTipoSolicitud como parámetro
@@ -396,7 +398,8 @@ public function procesarValor()
             'disabledDates',
             'categoriaEventos',
             'idSubservicios',
-            'datosPorSolicitud' 
+            'datosPorSolicitud',
+            'elementoConOtroServicio' 
         ));    }
 
     // /**
