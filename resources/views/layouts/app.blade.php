@@ -156,11 +156,15 @@
                             <hr class="hrmenu">
                             <ul id="eventos" class="sidebar-dropdown list-unstyled collapse"
                                 data-bs-parent="#sidebar">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('categorias-eventos-especiales.index') }}"
-                                        class="sidebar-link">Categoria de eventos </a>
 
-                                </li>
+                                @can('categoriasEventosEspeciales.index') {{-- Validate that you have the categoriasEventosEspeciales.index permission to be able to display the Categorias de Eventos Especiales Permissions item. --}}
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('categorias-eventos-especiales.index') }}"
+                                            class="sidebar-link">Categoria de eventos 
+                                        </a>
+                                    </li>
+                                @endcan
+
                                 <li class="sidebar-item">
                                     <a href="{{ route('eventos-especiales-por-categorias.index') }}"
                                         class="sidebar-link">Eventos especiales </a>
