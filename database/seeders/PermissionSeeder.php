@@ -53,10 +53,18 @@ class PermissionSeeder extends Seeder
     
         // Ciudades Permissions
 
-        Permission::create(['name' => 'ciudades.index']); // Index Ciudades
-        Permission::create(['name' => 'ciudades.create']); // Create Ciudades
-        Permission::create(['name' => 'ciudades.edit']); // Edit Ciudades
-        Permission::create(['name' => 'ciudades.show']); // Show Ciudades
+        // Permission::create(['name' => 'ciudades.index']); // Index Ciudades
+        // Permission::create(['name' => 'ciudades.create']); // Create Ciudades
+        // Permission::create(['name' => 'ciudades.edit']); // Edit Ciudades
+        // Permission::create(['name' => 'ciudades.show']); // Show Ciudades
 
+        // Politicas Permissions
+
+        // Permission::create(['name' => 'politicas.index']); // Index Politicas
+        // Permission::create(['name' => 'politicas.create']); // Create Politicas
+        // Permission::create(['name' => 'politicas.edit']); // Edit Politicas
+        // Permission::create(['name' => 'politicas.show']); // Show Politicas
+
+        
     }
 }
