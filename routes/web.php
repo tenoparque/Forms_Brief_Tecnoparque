@@ -130,6 +130,10 @@ Route::put('solicitudes/solicitudes/{solicitude}/actualizar-estado', [Solicitude
 
 Route::post('/solicitudes/asignar', [SolicitudeController::class, 'asignarSolicitud'])->name('solicitudes.asignar');
 
+Route::get('/procesarValor', [SolicitudeController::class, 'procesarValor'])->name('solicitudes.procesarValor');
+
+
+
 
 
 

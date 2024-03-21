@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Http\Controllers\SolicitudeController;
 use App\Models\HistorialDeModificacionesPorSolicitude;
+use App\Models\Prueba;
+
 use App\Models\Solicitude;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
@@ -32,9 +34,25 @@ class sumaPrueba extends Command
     public function handle()
     {
         $texto = Solicitude::count()+ HistorialDeModificacionesPorSolicitude::count();
-        //Storage::append("archivo.txt", $texto);
-        Log::info('Valor enviado al controlador:', ['valor' => $texto]);
-        (new SolicitudeController)->procesarValor($texto);
+        $ultimoRegistro = Prueba::latest()->first();
+
+        // Verificar si hay un último registro
+        if ($ultimoRegistro) {
+            // Obtener el valor del último registro
+            $valorUltimoRegistro = $ultimoRegistro->numero;
+    
+            // Comparar el valor recibido con el valor del último registro
+            if ($texto != $valorUltimoRegistro) {
+                // Si son diferentes, actualizar el valor del último registro
+                $ultimoRegistro->numero = $texto;
+                $ultimoRegistro->save();
+            }
+        } else {
+            // Si no hay un último registro, crear uno nuevo con el valor recibido
+            $prueba = new Prueba();
+            $prueba->numero = $texto;
+            $prueba->save();
+        }
         
 
     }
