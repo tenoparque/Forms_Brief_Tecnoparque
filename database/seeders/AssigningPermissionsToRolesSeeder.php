@@ -27,7 +27,10 @@ class AssigningPermissionsToRolesSeeder extends Seeder
             // $rol->givePermissionTo(['nodos.index', 'nodos.create', 'nodos.edit','nodos.show']);
             // $rol->givePermissionTo(['ciudades.index', 'ciudades.create', 'ciudades.edit','ciudades.show']);
             // $rol->givePermissionTo(['politicas.index', 'politicas.create', 'politicas.edit','politicas.show']);
-            $rol->givePermissionTo(['personalizaciones.index', 'personalizaciones.create', 'personalizaciones.edit','personalizaciones.show']);
+            // $rol->givePermissionTo(['personalizaciones.index', 'personalizaciones.create', 'personalizaciones.edit','personalizaciones.show']);
+            // $rol->givePermissionTo(['estados.index', 'estados.create', 'estados.edit','estados.show']);
+            // $rol->givePermissionTo(['categoriasEventosEspeciales.index', 'categoriasEventosEspeciales.create', 'categoriasEventosEspeciales.edit','categoriasEventosEspeciales.show']);
+            $rol->givePermissionTo(['eventosEspeciales.index', 'eventosEspeciales.create', 'eventosEspeciales.edit','eventosEspeciales.show']);
             $this->command->info('Permisos asignados correctamente.');
         } else {
             $this->command->error('El rol especificado no existe en la base de datos.');

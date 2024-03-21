@@ -67,9 +67,30 @@ class PermissionSeeder extends Seeder
 
         // Personalizaciones Permissions
 
-        Permission::create(['name' => 'personalizaciones.index']); // Index Personalizaciones
-        Permission::create(['name' => 'personalizaciones.create']); // Create Personalizaciones
-        Permission::create(['name' => 'personalizaciones.edit']); // Edit Personalizaciones
-        Permission::create(['name' => 'personalizaciones.show']); // Show Personalizaciones
+        // Permission::create(['name' => 'personalizaciones.index']); // Index Personalizaciones
+        // Permission::create(['name' => 'personalizaciones.create']); // Create Personalizaciones
+        // Permission::create(['name' => 'personalizaciones.edit']); // Edit Personalizaciones
+        // Permission::create(['name' => 'personalizaciones.show']); // Show Personalizaciones
+
+        // Estados Permissions
+
+        // Permission::create(['name' => 'estados.index']); // Index Estados
+        // Permission::create(['name' => 'estados.create']); // Create Estados
+        // Permission::create(['name' => 'estados.edit']); // Edit Estados
+        // Permission::create(['name' => 'estados.show']); // Show Estados
+
+        // Categorias de Eventos Especiales Permissions
+
+        // Permission::create(['name' => 'categoriasEventosEspeciales.index']); // Index Categorias de Eventos Especiales Permissions
+        // Permission::create(['name' => 'categoriasEventosEspeciales.create']); // Create Categorias de Eventos Especiales Permissions
+        // Permission::create(['name' => 'categoriasEventosEspeciales.edit']); // Edit Categorias de Eventos Especiales Permissions
+        // Permission::create(['name' => 'categoriasEventosEspeciales.show']); // Show Categorias de Eventos Especiales Permissions
+
+        // Eventos Especiales Permissions
+
+        Permission::create(['name' => 'eventosEspeciales.index']); // Index Eventos Especiales Permissions
+        Permission::create(['name' => 'eventosEspeciales.create']); // Create Eventos Especiales Permissions
+        Permission::create(['name' => 'eventosEspeciales.edit']); // Edit Eventos Especiales Permissions
+        Permission::create(['name' => 'eventosEspeciales.show']); // Show Eventos Especiales Permissions
     }
 }

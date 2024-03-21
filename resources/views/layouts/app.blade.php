@@ -117,13 +117,15 @@
                             </li>
                         @endcan
 
-                        <li class="sidebar-item">
-                            <a href="{{ route('estados.index') }}" class="sidebar-link">
-                                <i class="lni lni-reload"></i>
-                                <span>Estados</span>
-                            </a>
-                            <hr class="hrmenu">
-                        </li>
+                        @can('estados.index') {{-- Validate that you have the estados.index permission to be able to display the Estados item. --}}
+                            <li class="sidebar-item">
+                                <a href="{{ route('estados.index') }}" class="sidebar-link">
+                                    <i class="lni lni-reload"></i>
+                                    <span>Estados</span>
+                                </a>
+                                <hr class="hrmenu">
+                            </li>
+                        @endcan
                         
                         @can('politicas.index') {{-- Validate that you have the politicas.index permission to be able to display the Politicas item. --}}
                             <li class="sidebar-item">
@@ -145,28 +147,37 @@
                             </li>
                         @endcan
                         
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                                data-bs-target="#eventos" aria-expanded="false" aria-controls="auth">
-                                <i class="fa-regular fa-calendar-days"></i>
-                                <span> Eventos</span>
-                            </a>
-                            <hr class="hrmenu">
-                            <ul id="eventos" class="sidebar-dropdown list-unstyled collapse"
-                                data-bs-parent="#sidebar">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('categorias-eventos-especiales.index') }}"
-                                        class="sidebar-link">Categoria de eventos </a>
+                        {{-- Here we validate that you must have at least one of these permissions to pass to the second validation layer --}}
+                        @canany(['categoriasEventosEspeciales.index', 'eventosEspeciales.index'])
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                                    data-bs-target="#eventos" aria-expanded="false" aria-controls="auth">
+                                    <i class="fa-regular fa-calendar-days"></i>
+                                    <span> Eventos</span>
+                                </a>
+                                <hr class="hrmenu">
+                                <ul id="eventos" class="sidebar-dropdown list-unstyled collapse"
+                                    data-bs-parent="#sidebar">
 
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('eventos-especiales-por-categorias.index') }}"
-                                        class="sidebar-link">Eventos especiales </a>
+                                    @can('categoriasEventosEspeciales.index') {{-- Validate that you have the categoriasEventosEspeciales.index permission to be able to display the Categorias de Eventos Especiales Permissions item. --}}
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('categorias-eventos-especiales.index') }}"
+                                                class="sidebar-link">Categoria de eventos 
+                                            </a>
+                                        </li>
+                                    @endcan
 
-                                </li>
+                                    @can('eventosEspeciales.index') {{-- Validate that you have the eventosEspeciales.index permission to be able to display the Eventos Especiales Permissions item. --}}
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('eventos-especiales-por-categorias.index') }}"
+                                                class="sidebar-link">Eventos especiales 
+                                            </a>
+                                        </li>
+                                    @endcan
 
-                            </ul>
-                        </li>
+                                </ul>
+                            </li>
+                        @endcan
 
                         {{-- Here we validate that you must have at least one of these permissions to pass to the second validation layer --}}
                         @canany(['departamentos.index', 'nodos.index', 'ciudades.index'])

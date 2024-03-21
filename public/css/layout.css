@@ -16,6 +16,10 @@ a {
     text-decoration: none;
 }
 
+select{
+    cursor: pointer
+}
+
 li {
     list-style: none;
 }
@@ -627,6 +631,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .iconDCR {
     color: #642c78;
     vertical-align: middle;
+}
+
+/* Icono comboBox */
+
+.icono{
+    cursor: pointer
 }
 
 /* image */
