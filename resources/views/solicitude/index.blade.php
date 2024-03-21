@@ -21,7 +21,10 @@
                                 </div>
                             </div>
 
-                            <div id="valor-actualizado"></div>
+                            <div id="valor-actualizado">
+                                {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
+
+                            </div>
 
 
                         </div>
@@ -175,26 +178,26 @@
                             xhr.open("GET",  "{{ ('procesarValor') }}", true);
                             // Manejar la respuesta
                             xhr.onreadystatechange = function() {
-    if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
-        if (xhr.status === 200) { // Si la solicitud ha tenido éxito
-            var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
-            console.log(respuesta.campoValor);
-            
-            // Actualizar el valor en el elemento HTML
-            document.getElementById('valor-actualizado').textContent ="valor "+ respuesta.campoValor;
-        } else {
-            console.error('Error en la solicitud: '+ xhr.status ); // Imprimir el estado del error en la consola
-        }
-    }
-};
-;
+                            if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
+                                if (xhr.status === 200) { // Si la solicitud ha tenido éxito
+                                    var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
+                                    console.log(respuesta.campoValor);
+                                    
+                                    // Actualizar el valor en el elemento HTML
+                                    document.getElementById('valor-actualizado').textContent ="valor "+ respuesta.campoValor;
+                                } else {
+                                    console.error('Error en la solicitud: '+ xhr.status ); // Imprimir el estado del error en la consola
+                                }
+                            }
+                        };
+                        ;
 
                             // Enviar la solicitud con un cuerpo vacío
                             xhr.send();
                         }
 
                         // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
-                        setInterval(hacerSolicitud, 5000); // 5000 milisegundos = 5 segundos
+                        setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
         </script>
 
          
