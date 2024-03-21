@@ -256,11 +256,14 @@
                                     </li>
                                 @endcan
 
-                                <li class="sidebar-item">
-                                    <a href="{{ route('datos-unicos-por-solicitudes.index') }}"
-                                        class="sidebar-link">Datos únicos x solicitud</a>
-
-                                </li>
+                                @can('datosUnicosSolicitud.index') {{-- Validate that you have the datosUnicosSolicitud.index permission to be able to display the Datos Unicos Por Solicitud item. --}}
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('datos-unicos-por-solicitudes.index') }}"
+                                            class="sidebar-link">Datos únicos x solicitud
+                                        </a>
+                                    </li>    
+                                @endcan
+                                
                             </ul>
                         </li>
 

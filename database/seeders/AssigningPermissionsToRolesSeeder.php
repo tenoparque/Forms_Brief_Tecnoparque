@@ -37,7 +37,9 @@ class AssigningPermissionsToRolesSeeder extends Seeder
             // $rol->givePermissionTo(['solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show']);
             // $rol->givePermissionTo(['tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show']);
             // $rol->givePermissionTo(['serviciosPorTiposSolicitudes.index', 'serviciosPorTiposSolicitudes.create', 'serviciosPorTiposSolicitudes.edit','serviciosPorTiposSolicitudes.show']);
-            $rol->givePermissionTo(['estadosSolicitudes.index', 'estadosSolicitudes.create', 'estadosSolicitudes.edit','estadosSolicitudes.show']);
+            // $rol->givePermissionTo(['estadosSolicitudes.index', 'estadosSolicitudes.create', 'estadosSolicitudes.edit','estadosSolicitudes.show']);
+            // $rol->givePermissionTo(['datosUnicosSolicitud.index', 'datosUnicosSolicitud.create', 'datosUnicosSolicitud.edit','datosUnicosSolicitud.show']);
+
 
             $this->command->info('Permisos asignados correctamente.');
         } else {
