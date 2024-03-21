@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 use App\Models\HistorialDeModificacionesPorSolicitude;
+use App\Models\Prueba;
 use App\Models\User;
 
 /**
@@ -48,20 +49,22 @@ class SolicitudeController extends Controller
         $fechasFestivas = $this->mostrarFechasFestivas();
         $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
-        $suma = Solicitude::count() + HistorialDeModificacionesPorSolicitude::count();
         $usuarios = User::all();
-        return view('solicitude.index', compact('solicitudes' , 'disabledDates' , 'suma', 'usuarios'))
+        return view('solicitude.index', compact('solicitudes' , 'disabledDates' ,  'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
 
-     public function procesarValor($valor)
-     {
-         Log::info("controlador - valor recibido: " . $valor);
-         // Aquí procesas tu valor si es necesario antes de pasarlo a la vista
-         $valorProcesado = $this->index($valor);
-         
-         return view('solicitude.index', compact('valorProcesado')); // Envía el valor a la vista
-     }
+public function procesarValor()
+{
+    $ultimoRegistro = Prueba::latest()->first();
+
+    // Obtener el valor del campo deseado
+    $campoValor = $ultimoRegistro->numero; // Reemplaza "nombre_del_campo" con el nombre del campo que deseas obtener
+
+    // Devolver el valor del campo en formato JSON
+    return response()->json(['campoValor' => $campoValor]);
+}
+
      
 
     
