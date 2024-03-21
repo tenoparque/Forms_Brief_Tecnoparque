@@ -102,10 +102,31 @@ class PermissionSeeder extends Seeder
 
         // Tipos de Solicitudes Permissions
 
-        Permission::create(['name' => 'tiposSolicitudes.index']); // Index Tipos de Solicitudes Permissions
-        Permission::create(['name' => 'tiposSolicitudes.create']); // Create Tipos de Solicitudes Permissions
-        Permission::create(['name' => 'tiposSolicitudes.edit']); // Edit Tipos de Solicitudes Permissions
-        Permission::create(['name' => 'tiposSolicitudes.show']); // Show Tipos de Solicitudes Permissions
+        // Permission::create(['name' => 'tiposSolicitudes.index']); // Index Tipos de Solicitudes Permissions
+        // Permission::create(['name' => 'tiposSolicitudes.create']); // Create Tipos de Solicitudes Permissions
+        // Permission::create(['name' => 'tiposSolicitudes.edit']); // Edit Tipos de Solicitudes Permissions
+        // Permission::create(['name' => 'tiposSolicitudes.show']); // Show Tipos de Solicitudes Permissions
 
+        // Servicios Por Tipos de Solicitudes
+
+        // Permission::create(['name' => 'serviciosPorTiposSolicitudes.index']); // Index Servicios Por Tipos de Solicitudes Permissions
+        // Permission::create(['name' => 'serviciosPorTiposSolicitudes.create']); // Create Servicios Por Tipos de Solicitudes Permissions
+        // Permission::create(['name' => 'serviciosPorTiposSolicitudes.edit']); // Edit Servicios Por Tipos de Solicitudes Permissions
+        // Permission::create(['name' => 'serviciosPorTiposSolicitudes.show']); // Show Servicios Por Tipos de Solicitudes Permissions
+
+
+        // Estados de las Solicitudes
+
+        // Permission::create(['name' => 'estadosSolicitudes.index']); // Index Estados de las Solicitudes Permissions
+        // Permission::create(['name' => 'estadosSolicitudes.create']); // Create Estados de las Solicitudes Permissions
+        // Permission::create(['name' => 'estadosSolicitudes.edit']); // Edit Estados de las Solicitudes Permissions
+        // Permission::create(['name' => 'estadosSolicitudes.show']); // Show Estados de las Solicitudes Permissions
+
+        // Datos Unicos Por Solicitud
+
+        // Permission::create(['name' => 'datosUnicosSolicitud.index']); // Index Datos Unicos Por Solicitud Permissions
+        // Permission::create(['name' => 'datosUnicosSolicitud.create']); // Create Datos Unicos Por Solicitud Permissions
+        // Permission::create(['name' => 'datosUnicosSolicitud.edit']); // Edit Datos Unicos Por Solicitud Permissions
+        // Permission::create(['name' => 'datosUnicosSolicitud.show']); // Show Datos Unicos Por Solicitud Permissions
     }
 }
