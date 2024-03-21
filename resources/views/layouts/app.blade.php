@@ -165,11 +165,13 @@
                                     </li>
                                 @endcan
 
-                                <li class="sidebar-item">
-                                    <a href="{{ route('eventos-especiales-por-categorias.index') }}"
-                                        class="sidebar-link">Eventos especiales </a>
-
-                                </li>
+                                @can('eventosEspeciales.index') {{-- Validate that you have the eventosEspeciales.index permission to be able to display the Eventos Especiales Permissions item. --}}
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('eventos-especiales-por-categorias.index') }}"
+                                            class="sidebar-link">Eventos especiales 
+                                        </a>
+                                    </li>
+                                @endcan
 
                             </ul>
                         </li>

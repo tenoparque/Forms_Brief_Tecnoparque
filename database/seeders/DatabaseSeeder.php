@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // $this->call(PermissionSeeder::class); // Calling the PermissionSeeder
-        // $this->call(AssigningPermissionsToRolesSeeder::class);
+        $this->call(AssigningPermissionsToRolesSeeder::class);
     }
 }
