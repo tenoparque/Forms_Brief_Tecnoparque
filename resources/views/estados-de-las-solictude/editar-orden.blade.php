@@ -7,10 +7,10 @@
         <div style="d-flex justify-content-between align-items-center">
             <div class="d-flex mt-3 mb-4">
                 <div>
-                    <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('EDITAR ESTADO ') }}</h1>
+                    <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('EDITAR') }}</h1>
                 </div>
                 <div>
-                    <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('DE LA SOLICITUD') }}</h1>
+                    <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('ORDEN DE LOS ESTADOS ') }}</h1>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
     
                             <div style="position: relative">
                                 <select name="orden_mostrado[{{ $estado->id }}]" class="orden-mostrado form-control" required
-                                    style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding:6px 12px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                                    style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding:6px 12px; -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: pointer">
                                     @for ($i = 1; $i <= count($estadosDeLasSolictudes); $i++)
                                         <option value="{{ $i }}"
                                             {{ $estado->orden_mostrado == $i ? 'selected' : '' }}>
@@ -49,7 +49,7 @@
             </div>
 
             <div class="box-footer" style="text-align: right;margin-right:3%;">
-                <button type="submit" class="btnGuardar">Guardar
+                <button type="submit" class="btnGuardar">GUARDAR
                     <i class="fa-solid fa-circle-plus fa-sm iconDCR"></i>
                 </button>
             </div>
