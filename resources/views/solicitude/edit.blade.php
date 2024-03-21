@@ -99,28 +99,30 @@
                             </table>
                         </div>
                         <br>
-                        <div style="text-align: center">
+                        <div style="text-align:right">
                             <div class="float-right" id="btnGroupAgregar">
-                                <button class="btn btn-primary" id="btnAgregarModificacion">
-                                    {{ __('Agregar Modificación') }}
+                                <button class="btnAgregarModificacion" id="btnAgregarModificacion">
+                                    {{ __('Agregar Modificación') }}<i class="fa-solid fa-plus fa-lg iconDCR"
+                                        style="color: #643178; margin-left: 5px;"></i>
                                 </button>
-                                <button class="btn btn-primary" id="btnEditarEstado">
-                                    {{ __('Editar Estado') }}
-                                </button>
+
+                                <button class="btnAgregarModificacion" id="btnEditarEstado">
+                                    {{ __('Editar Estado') }}<i class="fa-solid fa-pen-to-square fa-lg"
+                                        style="color: #39a900;margin-left: 5px;"></i>
                             </div>
                         </div>
-
-
                     </div>
 
                     <div class="card-body">
-
-                        <div id="txtModificar" style="display: none;">
+                        <div id="txtModificar" style="display: none; margin-block-end: -40px">
                             <div id="campoTexto" style="display: none;">
                                 <div class="form-group">
-                                    <label for="modificacion">Modificación:</label>
-                                    <textarea class="form-control" id="modificacion" name="modificacion" rows="3"></textarea>
+                                    <label style="color:#00314d; margin-top: 10px;margin-block-end:5px; margin-left: 15px "
+                                        for="modificacion">MODIFICACION :</label>
+                                    <textarea class="form-control" id="modificacion" name="modificacion" rows="3"
+                                        placeholder="Escribe aquí la modificacion a realizar..."></textarea>
                                 </div>
+
                             </div>
                         </div>
 
@@ -128,8 +130,9 @@
 
                         <br>
                         <div id="comboboxEstado" style="display: none;">
-                            <h3>Estado de la Solicitud</h3>
-                            <select name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
+                            <h5 style="margin-left: 30px; color:#00314d">Estado de la Solicitud</h5>
+                            <div style="position: relative">
+                            <select style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;margin-block-end: 15px;" name="id_estado_de_la_solicitud" id="id_estado_de_la_solicitud"
                                 class="form-control selectpicker" data-style="btn-primary"
                                 title="Seleccionar el estado de la solicitud" required>
                                 <option value="" disabled selected>Seleccionar Estado de la Solicitud...</option>
@@ -140,27 +143,41 @@
                                     </option>
                                 @endforeach
                             </select>
+                            <div class="icono" style="right: 4%">
+                                <div class="circle-play">
+                                    <div class="circle"></div>
+                                    <div class="triangle"></div>
+                                </div>
+                            </div>
                         </div>
 
                         {{-- BOTONERÍA MODIFICACIÓN --}}
-                        <div class="float-right" id="btnGroupCancelarEnviar" style="display: none;">
-                            <button class="btnEnviar" id="btnCancelar">
-                                {{ __('Cancelar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
-                            </button>
-                            <button type="submit" class="btn btn-outline" id="btnEnviarModificacion">
-                                {{ __('Enviar Modificación') }}
-                            </button>
+                        <div style="margin-left:72%">
+                            <div class="float-right" id="btnGroupCancelarEnviar" style="display: none;">
+                                <button class="btnCancelar" id="btnCancelar">
+                                    {{ __('Cancelar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"
+                                        style="vertical-align:-1px;"></i>
+                                </button>
+                                <button type="submit" class="btnEnviarModificacion" id="btnEnviarModificacion">
+                                    {{ __('Enviar Modificación') }}<i class="fa-solid fa-share-from-square fa-sm iconDCR"
+                                        style="vertical-align:-1px; margin-left: 4px;"></i>
+                                </button>
+                            </div>
+
+                            {{-- BOTONERÍA ESTADO --}}
+                            <div class="float-right" id="btnGroupCancelarEnviarEstado" style="display: none;">
+                                <button class="btnCancelar" id="btnCancelarEstado">
+                                    {{ __('Cancelar') }}<i class="fa-solid fa-circle-xmark fa-sm iconDCR"
+                                        style="vertical-align:-1px; margin-left: 4px;"></i>
+                                </button>
+                                </button>
+                                <button type="submit" class="btnActualizarestado" id="btnEnviarEstado">
+                                    {{ __('Actualizar Estado') }}<i class="fa-solid fa-rotate fa-sm iconDCR"
+                                        style="vertical-align:-1px; margin-left: 4px;"></i>
+                                </button>
+                            </div>
                         </div>
 
-                        {{-- BOTONERÍA ESTADO --}}
-                        <div class="float-right" id="btnGroupCancelarEnviarEstado" style="display: none;">
-                            <button class="btn btn-secondary mr-2" id="btnCancelarEstado">
-                                {{ __('Cancelar') }}
-                            </button>
-                            <button type="submit" class="btn btn-success" id="btnEnviarEstado">
-                                {{ __('Actualizar Estado') }}
-                            </button>
-                        </div>
 
                         <div class="form-group">
                             <strong>Servicios asociados:</strong>
@@ -174,7 +191,8 @@
                         <h5>Datos por solicitud:</h5>
                         @foreach ($datosPorSolicitud as $dato)
                             <div class="form-group">
-                                <label><strong>{{ $dato->titulo }}:</strong></label>
+                                <label
+                                    style="cursor: default;; outline: none; width: 100%; max-width: 100%; height:45px; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;"><strong>{{ $dato->titulo }}:</strong></label>
                                 <input type="text" class="form-control" value="{{ $dato->dato }}" readonly
                                     style="cursor: initial; outline: none;">
                             </div>
