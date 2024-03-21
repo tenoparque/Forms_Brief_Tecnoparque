@@ -876,3 +876,7 @@ input[type="text"] {
     }
     /* diseño containerProgressBar*/
 }
+.swal2-confirm {
+    background-color: #39a900!important; /* Cambia esto al color de fondo que desees */
+    color: white !important; /* Cambia esto al color de texto que desees */
+}

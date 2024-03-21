@@ -29,6 +29,8 @@
                             @csrf
 
                             @include('departamento.form')
+                            @include('sweetalert::alert')
+
 
                         </form>
                     </div>
