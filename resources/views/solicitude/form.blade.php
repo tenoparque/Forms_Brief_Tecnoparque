@@ -283,16 +283,6 @@
                         });
                     @endif
                 }
-                // Si hay subservicios preseleccionados, seleccionarlos y activar el evento de cambio
-                @if (isset($idSubservicios) && count($idSubservicios) > 0)
-                    var idSubservicios = {{ json_encode($idSubservicios) }};
-                    idSubservicios.forEach(function(idSubservicio) {
-                        var checkbox = $('input[type="checkbox"][value="' + idSubservicio + '"]');
-                        checkbox.prop('checked', true);
-
-                        manejarCambioServicios.call(checkbox.get(0));
-                    });
-                @endif
 
                 // validaciones del boton de enviar -----------------------------------------------------------------------------------------------------------------
                 function manejarCambioServicios() {
