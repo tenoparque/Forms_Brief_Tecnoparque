@@ -444,7 +444,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
-
+.btnEditarEstado{
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 15px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
+    background: #fff;
+}
+.btnEditarEstado:hover {
+    background-color: #b2ebf2;
+}
 .btnDetalle:hover {
     background-color: #b2ebf2;
 }
@@ -600,7 +614,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
-
+.btnActualizarestado:hover{
+    background-color: #b2ebf2;
+}
 
 
 .btnModificar:hover {
