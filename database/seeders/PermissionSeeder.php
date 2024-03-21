@@ -65,6 +65,11 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'politicas.edit']); // Edit Politicas
         // Permission::create(['name' => 'politicas.show']); // Show Politicas
 
-        
+        // Personalizaciones Permissions
+
+        Permission::create(['name' => 'personalizaciones.index']); // Index Personalizaciones
+        Permission::create(['name' => 'personalizaciones.create']); // Create Personalizaciones
+        Permission::create(['name' => 'personalizaciones.edit']); // Edit Personalizaciones
+        Permission::create(['name' => 'personalizaciones.show']); // Show Personalizaciones
     }
 }

@@ -135,13 +135,16 @@
                             </li>
                         @endcan
                         
-                        <li class="sidebar-item">
-                            <a href="{{ route('personalizaciones.index') }}" class="sidebar-link">
-                                <i class="fa-regular fa-pen-to-square"></i>
-                                <span>Personalizaciones</span>
-                            </a>
-                            <hr class="hrmenu">
-                        </li>
+                        @can('personalizaciones.index') {{-- Validate that you have the personalizaciones.index permission to be able to display the Personalizaciones item. --}}
+                            <li class="sidebar-item">
+                                <a href="{{ route('personalizaciones.index') }}" class="sidebar-link">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <span>Personalizaciones</span>
+                                </a>
+                                <hr class="hrmenu">
+                            </li>
+                        @endcan
+                        
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                 data-bs-target="#eventos" aria-expanded="false" aria-controls="auth">
