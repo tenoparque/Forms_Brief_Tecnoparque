@@ -28,6 +28,7 @@
                             @csrf
 
                             @include('role.form')
+                            @include('sweetalert::alert')
 
                         </form>
                     </div>

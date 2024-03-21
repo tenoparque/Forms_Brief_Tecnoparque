@@ -82,6 +82,8 @@
 
     </style> --}}
 
+    @include('sweetalert::alert')
+
     <div class="wrapper">
         @if (Route::currentRouteName() !== 'login')
             <div class="wrapper">
