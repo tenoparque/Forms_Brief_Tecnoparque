@@ -224,10 +224,13 @@
                             <hr class="hrmenu">
                             <ul id="solicitudes" class="sidebar-dropdown list-unstyled collapse"
                                 data-bs-parent="#sidebar">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('solicitudes.index') }}" class="sidebar-link">Solicitudes</a>
 
-                                </li>
+                                @can('solicitudes.index') {{-- Validate that you have the solicitudes.index permission to be able to display the Solicitudes item. --}}
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('solicitudes.index') }}" class="sidebar-link">Solicitudes</a>
+                                    </li>
+                                @endcan
+
                                 <li class="sidebar-item">
 
                                     <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de

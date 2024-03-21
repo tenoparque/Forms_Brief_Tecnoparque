@@ -88,9 +88,17 @@ class PermissionSeeder extends Seeder
 
         // Eventos Especiales Permissions
 
-        Permission::create(['name' => 'eventosEspeciales.index']); // Index Eventos Especiales Permissions
-        Permission::create(['name' => 'eventosEspeciales.create']); // Create Eventos Especiales Permissions
-        Permission::create(['name' => 'eventosEspeciales.edit']); // Edit Eventos Especiales Permissions
-        Permission::create(['name' => 'eventosEspeciales.show']); // Show Eventos Especiales Permissions
+        // Permission::create(['name' => 'eventosEspeciales.index']); // Index Eventos Especiales Permissions
+        // Permission::create(['name' => 'eventosEspeciales.create']); // Create Eventos Especiales Permissions
+        // Permission::create(['name' => 'eventosEspeciales.edit']); // Edit Eventos Especiales Permissions
+        // Permission::create(['name' => 'eventosEspeciales.show']); // Show Eventos Especiales Permissions
+
+        // Solicitudes Permissions
+
+        // Permission::create(['name' => 'solicitudes.index']); // Solicitudes Permissions
+        // Permission::create(['name' => 'solicitudes.create']); // Solicitudes Permissions
+        // Permission::create(['name' => 'solicitudes.edit']); // Solicitudes Permissions
+        // Permission::create(['name' => 'solicitudes.show']); // Solicitudes Permissions
+
     }
 }
