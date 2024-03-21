@@ -20,9 +20,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h5>
-                                La sumatoria es {{$suma}}
-                            </h5>
+
                             <div id="valor-actualizado"></div>
 
 

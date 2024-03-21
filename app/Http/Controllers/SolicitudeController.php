@@ -49,9 +49,8 @@ class SolicitudeController extends Controller
         $fechasFestivas = $this->mostrarFechasFestivas();
         $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
-        $suma = Solicitude::count() + HistorialDeModificacionesPorSolicitude::count();
         $usuarios = User::all();
-        return view('solicitude.index', compact('solicitudes' , 'disabledDates' , 'suma', 'usuarios'))
+        return view('solicitude.index', compact('solicitudes' , 'disabledDates' ,  'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
 
