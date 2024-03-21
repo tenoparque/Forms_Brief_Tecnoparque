@@ -9,7 +9,7 @@
         @if (Route::currentRouteName() === 'estados-de-las-solictudes.create')
         <div class="form-group">
             {{ Form::label('orden_mostrado', null, ['style' => 'font-size: 18px; font-weight: bold;bold; margin-left: 35px;']) }}
-            {{ Form::number('orden_mostrado', $ultimoOrdenMostrado + 1, ['class' => 'form-control', 'readonly' => true, 'style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;  margin-left: 25px; margin-bottom: 10px;']) }}
+            {{ Form::number('orden_mostrado', $ultimoOrdenMostrado + 1, ['class' => 'form-control', 'readonly' => true, 'style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;  margin-left: 25px; margin-bottom: 10px; cursor: default']) }}
         </div>
         @endif
 

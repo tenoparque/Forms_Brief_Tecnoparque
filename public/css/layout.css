@@ -16,6 +16,10 @@ a {
     text-decoration: none;
 }
 
+select{
+    cursor: pointer
+}
+
 li {
     list-style: none;
 }
@@ -444,7 +448,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
-
+.btnEditarEstado{
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 15px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
+    background: #fff;
+}
+.btnEditarEstado:hover {
+    background-color: #b2ebf2;
+}
 .btnDetalle:hover {
     background-color: #b2ebf2;
 }
@@ -600,7 +618,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
-
+.btnActualizarestado:hover{
+    background-color: #b2ebf2;
+}
 
 
 .btnModificar:hover {
@@ -613,6 +633,27 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     vertical-align: middle;
 }
 
+/* Icono comboBox */
+
+.icono{
+    cursor: pointer
+}
+
+.btnVerHistorial{
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
+    background: #fff;
+   
+    
+
+}
 /* image */
 #qrImage {
     max-width: 44%;
@@ -655,7 +696,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /*diseño progressbar*/
 
 .containerProgressBar {
-    background-color: rgb(231, 231, 231);
     height: 200px;
     width: 60%;
     position: relative;
