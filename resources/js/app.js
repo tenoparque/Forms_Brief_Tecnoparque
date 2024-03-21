@@ -3,6 +3,10 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 
 // Define la función para mostrar una imagen de fondo aleatoria
+// Definir una variable global para almacenar la última imagen utilizada
+let lastImageIndex = -1;
+
+// Función para mostrar una imagen de fondo aleatoria
 function displayRandomBackgroundImage() {
     const images = [
         'images/fondoBrief4.jpg',
@@ -11,19 +15,36 @@ function displayRandomBackgroundImage() {
         // Agrega más rutas de imagen aquí
     ];
 
-    const randomImage = images[Math.floor(Math.random() * images.length)];
+    // Seleccionar un índice aleatorio diferente al de la última imagen utilizada
+    let randomImageIndex = Math.floor(Math.random() * images.length);
+    while (randomImageIndex === lastImageIndex) {
+        randomImageIndex = Math.floor(Math.random() * images.length);
+    }
+
+    // Guardar el índice de la imagen actual para la próxima vez
+    lastImageIndex = randomImageIndex;
+
+    // Obtener la ruta de la imagen aleatoria
+    const randomImage = images[randomImageIndex];
+
+    // Establecer la imagen de fondo y evitar que se repita
     document.body.style.backgroundImage = `url(${randomImage})`;
-    document.body.style.backgroundRepeat = 'repeat';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundSize = 'cover'; // Ajustar tamaño de la imagen al contenedor
 }
 
-// Define la función que se ejecutará cuando el DOM esté completamente cargado
+// Función para inicializar
 function initialize() {
-    // Verifica si estamos en la vista de inicio de sesión
+    // Verificar si estamos en la vista de inicio de sesión
     if (window.location.pathname.includes('/login')) {
-        displayRandomBackgroundImage(); // Muestra una imagen de fondo aleatoria inicialmente
-        setInterval(displayRandomBackgroundImage, 1000); // Cambia la imagen de fondo cada segundo
+        displayRandomBackgroundImage(); // Mostrar una imagen de fondo aleatoria inicialmente
+        setInterval(displayRandomBackgroundImage, 5000); // Cambiar la imagen de fondo cada segundo
     }
 }
+
+// Llamar a la función de inicialización cuando el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', initialize);
+
 
 // Registra el evento DOMContentLoaded para ejecutar la función initialize cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', initialize);
