@@ -94,7 +94,7 @@
                                 <!-- Las opciones de los servicios se llenarán dinámicamente aquí -->
                             </div>
                             <div class="form-group col-md-12 my-3 otroServicioTextbox" style="display: none;">
-<<<<<<< HEAD
+
                                 <label for="otroServicio" style="font-size: 18px; font-weight: bold;">Especificar otro servicio:</label>
                                 <input type="text" id="otroServicio" name="otroServicio" class="form-control" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; ">
                                     
@@ -108,15 +108,6 @@
                                         $('#otroServicioHidden').val("{{ $elementoConOtroServicio }}");
                                     </script>
                                  @endif
-                            
-=======
-                                <label for="otroServicio" style="font-size: 18px; font-weight: bold;">Especificar otro
-                                    servicio:</label>
-                                <input type="text" id="otroServicio" name="otroServicio" class="form-control"
-                                    style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; ">
->>>>>>> 8c82561951ec28a84c9b3fdfd7f6238fedc7ea5c
-                            </div>
-
                         </div>
 
                         <br>
@@ -279,7 +270,6 @@
                         '</label></div>';
                 });
                 $('#servicesComboBoxContainer').html(serviciosCheckboxes);
-<<<<<<< HEAD
 
                 if (cambioAutomatico ===true) {
                     // Si hay subservicios preseleccionados, seleccionarlos y activar el evento de cambio
@@ -293,7 +283,6 @@
                         });
                     @endif
                 }
-=======
                 // Si hay subservicios preseleccionados, seleccionarlos y activar el evento de cambio
                 @if (isset($idSubservicios) && count($idSubservicios) > 0)
                     var idSubservicios = {{ json_encode($idSubservicios) }};
@@ -304,7 +293,6 @@
                         manejarCambioServicios.call(checkbox.get(0));
                     });
                 @endif
->>>>>>> 8c82561951ec28a84c9b3fdfd7f6238fedc7ea5c
 
                 // validaciones del boton de enviar -----------------------------------------------------------------------------------------------------------------
                 function manejarCambioServicios() {
