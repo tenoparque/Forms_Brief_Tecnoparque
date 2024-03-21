@@ -60,6 +60,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
     @vite('resources/js/menuburger.js')
     @vite('resources/js/validateUserRegister.js')
+    
 
 
     {{-- bootstrap --}}
@@ -353,7 +354,7 @@
                                 <!-- Carta Derecha -->
                                 <div class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12">
                                     @if (isset($logo))
-                                        <img class="img-fluid" id="logoHeader"
+                                        <img class="ImgHeader" id="logoHeader"
                                             src="data:image/png;base64,{{ base64_encode($logo) }}"></img>
                                     @endif
                                 </div>
