@@ -47,26 +47,22 @@ class SolicitudeController extends Controller
         $solicitudes = Solicitude::paginate();
         //$currentTime = $this->getCurrentTimeInBogota();
         $fechasFestivas = $this->mostrarFechasFestivas();
-        $finesSemanas = $this->obtenerFinesDeSemana();
+        $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
         $usuarios = User::all();
-        return view('solicitude.index', compact('solicitudes', 'disabledDates', 'usuarios'))
-            ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
-    }
+        return view('solicitude.index', compact('solicitudes' , 'disabledDates' ,  'usuarios'))
+             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
+     }
 
-    public function search(Request $request)
+     public function search(Request $request)
     {
-        $output = ""; // The output variable is defined and initialized
-        $solicitudes = DB::table('solicitudes')
-            ->join('tipos_de_solicitudes', 'solicitudes.id_tipos_de_solicitudes', '=', 'tipos_de_solicitudes.id')
-            ->where('tipos_de_solicitudes.nombre', 'LIKE', '%' . $request->search . '%')
-            ->select('tipos_de_solicitudes.nombre')
-            ->get(); // We make the query through the Solicitud name
+        $output= ""; // The output variable is defined and initialized
+        $solicitudes = Solicitude::where('id', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Solicitud name
 
         // We use the loop foreach to iterate the aggregation of records
-        foreach ($solicitudes as $solicitude) {
-            $output .=
-                '<tr>
+        foreach($solicitudes as $solicitude){
+            $output .= 
+            '<tr>
                 <td>' . $solicitude->id . '</td>
                 <td>' . $solicitude->tiposDeSolicitude->nombre . '</td>
                 <td>' . $solicitude->fecha_y_hora_de_la_solicitud . '</td>
@@ -96,22 +92,22 @@ class SolicitudeController extends Controller
         return response($output); // We return the response by sending as parameter the output variable
     }
 
-    public function procesarValor()
-    {
-        $ultimoRegistro = Prueba::latest()->first();
+public function procesarValor()
+{
+    $ultimoRegistro = Prueba::latest()->first();
 
-        // Obtener el valor del campo deseado
-        $campoValor = $ultimoRegistro->numero; // Reemplaza "nombre_del_campo" con el nombre del campo que deseas obtener
+    // Obtener el valor del campo deseado
+    $campoValor = $ultimoRegistro->numero; // Reemplaza "nombre_del_campo" con el nombre del campo que deseas obtener
 
-        // Devolver el valor del campo en formato JSON
-        return response()->json(['campoValor' => $campoValor]);
-    }
+    // Devolver el valor del campo en formato JSON
+    return response()->json(['campoValor' => $campoValor]);
+}
 
+     
 
+    
 
-
-
-
+     
     /**
      * Show the form for creating a new resource.
      *
@@ -125,13 +121,13 @@ class SolicitudeController extends Controller
         $especiales = EventosEspecialesPorCategoria::all();
         $currentTime = $this->getCurrentTimeInBogota();
         $fechasFestivas = $this->mostrarFechasFestivas();
-        $finesSemanas = $this->obtenerFinesDeSemana();
+        $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
         $categoriaEventos = CategoriasEventosEspeciale::all();
-        // Recuperar el registro de la Politica con id_estado = 1
-        $politicas = Politica::where('id_estado', 1)->first();
+         // Recuperar el registro de la Politica con id_estado = 1
+         $politicas = Politica::where('id_estado', 1)->first();
 
-        return view('solicitude.create', compact('solicitude', 'estados', 'solicitudes', 'especiales', 'politicas', 'currentTime', 'disabledDates', 'categoriaEventos'));
+        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'politicas','currentTime', 'disabledDates', 'categoriaEventos'));
     }
 
     /**
@@ -146,7 +142,7 @@ class SolicitudeController extends Controller
 
         // Obtener los datos únicos por solicitud asociados al tipo de solicitud seleccionado
         $datosUnicos = DatosUnicosPorSolicitude::where('id_tipos_de_solicitudes', $selectedTypeId)->get();
-
+    
         // Obtener los servicios por solicitud asociados al tipo de solicitud seleccionado
         $servicios = ServiciosPorTiposDeSolicitude::where('id_tipo_de_solicitud', $selectedTypeId)->get();
         $tiposDeDatos = TiposDeDato::all();
@@ -159,7 +155,7 @@ class SolicitudeController extends Controller
     }
 
 
-    /**
+     /**
      * Process the selected ID from the dropdown.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -174,7 +170,7 @@ class SolicitudeController extends Controller
         // Devolver los datos en formato JSON
         return response()->json([
             'evento' => $eventosAsociados
-
+           
         ]);
     }
 
@@ -194,7 +190,7 @@ class SolicitudeController extends Controller
         $serviciosSeleccionados = $request->input('servicios_por_tipo');
         // Obtener la fecha y hora actual del sistema
         $estadosDefecto = EstadosDeLasSolictude::where('orden_mostrado', 1)->value('id');
-
+    
         // Combinar los datos de la solicitud con los valores predeterminados
         $data = array_merge($request->all(), [
             'id_usuario_que_realiza_la_solicitud' => $userId,
@@ -203,32 +199,32 @@ class SolicitudeController extends Controller
             'fecha_y_hora_de_la_solicitud' => $currentTime,
         ]);
 
-
-
+        
+    
         // Validar los datte([
         //     // Aquí coloca las reglas de validación según los campos de la solicitud
         // ]);os del formulario
         // $request->valida
-
+    
         // Crear la solicitud con los datos combinados
         $solicitude = Solicitude::create($data);
         foreach ($serviciosSeleccionados as $servicioId) {
             // Inicializar el valor para el campo otro_servicio
             $otroServicio = null;
-
+        
             // Verificar si el servicio seleccionado es "otro"
             if ($servicioId === 'otro') {
                 $otroServicio = $request->input('otroServicioHidden');
             } else {
                 // Consultar el servicio correspondiente al ID
                 $servicio = ServiciosPorTiposDeSolicitude::find($servicioId);
-
+        
                 // Verificar si el servicio existe y si su nombre es "otro"
                 if ($servicio && $servicio->nombre === 'otro') {
                     $otroServicio = $request->input('otroServicioHidden');
                 }
             }
-
+        
             // Crear el registro
             $elementoPorSolicitud = ElementosPorSolicitude::create([
                 'id_solicitudes' => $solicitude->id,
@@ -237,41 +233,41 @@ class SolicitudeController extends Controller
                 // Otros campos que puedas necesitar
             ]);
         }
-
-
-
+        
+        
+        
 
         foreach ($request->all() as $key => $value) {
             if (strpos($key, 'datos_unicos_por_solicitud_') !== false) {
                 // Extraer el ID del subservicio del nombre del campo
                 $id_subservicio = substr($key, strlen('datos_unicos_por_solicitud_'));
-
+    
                 // Crear un nuevo registro en la tabla datos_por_solicitud
                 DatosPorSolicitud::create([
                     'id_solicitudes' => $solicitude->id,
                     'id_datos_unicos_por_solicitudes' => $id_subservicio,
                     'dato' => $value
-
+                    
                 ]);
             }
         }
 
-
+        
         $cambioHistorial = new HistorialDeEstadosPorSolicitude();
         $cambioHistorial->id_estados_s = $estadosDefecto;
         $cambioHistorial->id_solicitudes = $solicitude->id;
-        $cambioHistorial->id_users = $userId;
+        $cambioHistorial->id_users=$userId;
         $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
         $cambioHistorial->save();
-
-
-
-
+    
+        
+    
+    
         // Redireccionar con un mensaje de éxito
         return redirect()->route('solicitudes.index')
             ->with('success', 'Solicitud creada exitosamente.');
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -284,7 +280,7 @@ class SolicitudeController extends Controller
 
         // Obtener todos los estados ordenados por 'orden_mostrado'
         $estados = EstadosDeLasSolictude::orderBy('orden_mostrado')->get();
-
+    
         // Obtener el estado actual de la solicitud
         $estadoActual = $solicitude->estadosDeLasSolictude; // Cambio aquí, usando la relación estadosDeLasSolictude en lugar de estado
 
@@ -293,19 +289,19 @@ class SolicitudeController extends Controller
 
         // Realiza una consulta para obtener los elementos por solicitud
         $elementos = DB::table('elementos_por_solicitudes')
-            ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
-            ->select('servicios_por_tipos_de_solicitudes.nombre')
-            ->where('elementos_por_solicitudes.id_solicitudes', $id)
-            ->get();
+                        ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
+                        ->select('servicios_por_tipos_de_solicitudes.nombre')
+                        ->where('elementos_por_solicitudes.id_solicitudes', $id)
+                        ->get();
 
-        $datosPorSolicitud = DB::table('datos_por_solicitud')
-            ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
-            ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
-            ->where('datos_por_solicitud.id_solicitudes', $id)
-            ->get();
+        $datosPorSolicitud =  DB::table('datos_por_solicitud')
+                                ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
+                                ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
+                                ->where('datos_por_solicitud.id_solicitudes', $id)
+                                ->get();
 
         // Retorna la vista con los datos necesarios
-        return view('solicitude.show', compact('solicitude', 'elementos', 'datosPorSolicitud', 'historial', 'estados', 'estadoActual'));
+        return view('solicitude.show', compact('solicitude', 'elementos', 'datosPorSolicitud', 'historial','estados','estadoActual'));
 
     }
 
@@ -322,18 +318,18 @@ class SolicitudeController extends Controller
 
         // Realiza una consulta para obtener los elementos por solicitud
         $elementos = DB::table('elementos_por_solicitudes')
-            ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
-            ->select('servicios_por_tipos_de_solicitudes.nombre')
-            ->where('elementos_por_solicitudes.id_solicitudes', $id)
-            ->get();
+                        ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
+                        ->select('servicios_por_tipos_de_solicitudes.nombre')
+                        ->where('elementos_por_solicitudes.id_solicitudes', $id)
+                        ->get();
 
-        $datosPorSolicitud = DB::table('datos_por_solicitud')
-            ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
-            ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
-            ->where('datos_por_solicitud.id_solicitudes', $id)
-            ->get();
+        $datosPorSolicitud =  DB::table('datos_por_solicitud')
+                                ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
+                                ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
+                                ->where('datos_por_solicitud.id_solicitudes', $id)
+                                ->get();
 
-        return view('solicitude.edit', compact('solicitude', 'elementos', 'datosPorSolicitud', 'estadosDeLaSolicitudes'));
+        return view('solicitude.edit', compact('solicitude', 'elementos', 'datosPorSolicitud','estadosDeLaSolicitudes'));
     }
 
     /**
@@ -345,8 +341,8 @@ class SolicitudeController extends Controller
      */
     public function update(Request $request, Solicitude $solicitude)
     {
-        // Validar los datos de entrada para la modificación
-        $request->validate([
+         // Validar los datos de entrada para la modificación
+         $request->validate([
             'modificacion' => 'required',
         ]);
 
@@ -378,7 +374,7 @@ class SolicitudeController extends Controller
         $cambioHistorial = new HistorialDeEstadosPorSolicitude();
         $cambioHistorial->id_estados_s = $request->input('id_estado_de_la_solicitud');
         $cambioHistorial->id_solicitudes = $solicitude->id;
-        $cambioHistorial->id_users = $userId;
+        $cambioHistorial->id_users=$userId;
         $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
         $cambioHistorial->save();
 
@@ -386,7 +382,7 @@ class SolicitudeController extends Controller
             ->with('success', 'Estado Actualizado Exitosamente');
     }
 
-
+    
 
     public function duplicarFormulario($id)
     {
@@ -397,11 +393,11 @@ class SolicitudeController extends Controller
         $especiales = EventosEspecialesPorCategoria::all();
         $currentTime = $this->getCurrentTimeInBogota();
         $fechasFestivas = $this->mostrarFechasFestivas();
-        $finesSemanas = $this->obtenerFinesDeSemana();
+        $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
         $categoriaEventos = CategoriasEventosEspeciale::all();
-        // Recuperar el registro de la Politica con id_estado = 1
-        $politicas = Politica::where('id_estado', 1)->first();
+         // Recuperar el registro de la Politica con id_estado = 1
+         $politicas = Politica::where('id_estado', 1)->first();
 
         // Obtener ids relacionadas con la solicitud a duplicar
         $tipo_solicitud_id = $solicitud->id_tipos_de_solicitudes;
@@ -414,16 +410,16 @@ class SolicitudeController extends Controller
 
         // Obtener los IDs de los subservicios asociados a esta solicitud
         $idSubservicios = ElementosPorSolicitude::where('id_solicitudes', $id)
-            ->pluck('id_subservicios')
-            ->toArray();
+        ->pluck('id_subservicios')
+        ->toArray();
 
         // Obtener los elementos con información adicional "otro_servicio"
         $elementoConOtroServicio = ElementosPorSolicitude::where('id_solicitudes', $id)
-            ->whereNotNull('otro_servicio')
-            ->value('otro_servicio');
+        ->whereNotNull('otro_servicio')
+        ->value('otro_servicio');
 
         $datosPorSolicitud = DatosPorSolicitud::where('id_solicitudes', $id)
-            ->pluck('dato', 'id_datos_unicos_por_solicitudes');
+        ->pluck('dato', 'id_datos_unicos_por_solicitudes');
 
 
         // Redirigir a la vista 'solicitudes.create' y pasar el idTipoSolicitud como parámetro
@@ -440,133 +436,122 @@ class SolicitudeController extends Controller
             'categoriaEventos',
             'idSubservicios',
             'datosPorSolicitud',
-            'elementoConOtroServicio'
-        )
-        );
-    }
+            'elementoConOtroServicio' 
+        ));    }
 
+   
+
+    /**
+ * Obtiene la hora actual en la zona horaria de Bogotá.
+ *
+ * @return array|null
+ */
+public function getCurrentTimeInBogota()
+{
+    $response = Http::get('https://timeapi.io/api/Time/current/zone?timeZone=America/Bogota', [
+        'timeZone' => 'America/Bogota',
+    ]);
+
+    if ($response->successful()) {
+        $dateTime = $response['dateTime'];
+        $dateTimeParts = explode('T', $dateTime); // Separar la fecha y la hora
+
+        // Formatear la fecha y la hora en el formato de MySQL (YYYY-MM-DD HH:MM:SS)
+        $formattedDateTime = $dateTimeParts[0] . ' ' . substr($dateTimeParts[1], 0, 8);
+
+        return $formattedDateTime;
+    } else {
+        return null;
+    }
+}
 
 
     /**
-     * Obtiene la hora actual en la zona horaria de Bogotá.
-     *
-     * @return array|null
-     */
-    public function getCurrentTimeInBogota()
-    {
-        $response = Http::get('https://timeapi.io/api/Time/current/zone?timeZone=America/Bogota', [
-            'timeZone' => 'America/Bogota',
-        ]);
+ * Obtiene la hora actual en la zona horaria de Bogotá.
+ *
+ * @return array|null
+ */
 
-        if ($response->successful()) {
-            $dateTime = $response['dateTime'];
-            $dateTimeParts = explode('T', $dateTime); // Separar la fecha y la hora
+public function mostrarFechasFestivas()
+{
+    // Lista de días festivos
+    $dias_festivos = [
+        '2024-01-01',
+        '2024-03-25',
+        '2024-03-28' ,
+        '2024-03-29' ,
+        '2024-05-01',
+        '2024-05-13',
+        '2024-06-03',
+        '2024-06-10',
+        '2024-07-01' ,
+        '2024-07-20' ,
+        '2024-08-07' ,
+        '2024-10-12',
+        '2024-11-04' ,
+        '2024-11-11',
+        '2024-12-08',
+        '2024-12-25'
+    ];
 
-            // Formatear la fecha y la hora en el formato de MySQL (YYYY-MM-DD HH:MM:SS)
-            $formattedDateTime = $dateTimeParts[0] . ' ' . substr($dateTimeParts[1], 0, 8);
-
-            return $formattedDateTime;
-        } else {
-            return null;
-        }
-    }
-
-
-    /**
-     * Obtiene la hora actual en la zona horaria de Bogotá.
-     *
-     * @return array|null
-     */
-
-    public function mostrarFechasFestivas()
-    {
-        // Lista de días festivos
-        $dias_festivos = [
-            '2024-01-01',
-            '2024-03-25',
-            '2024-03-28',
-            '2024-03-29',
-            '2024-05-01',
-            '2024-05-13',
-            '2024-06-03',
-            '2024-06-10',
-            '2024-07-01',
-            '2024-07-20',
-            '2024-08-07',
-            '2024-10-12',
-            '2024-11-04',
-            '2024-11-11',
-            '2024-12-08',
-            '2024-12-25'
-        ];
-
-        // Pasar los datos a la vista
-        return $dias_festivos;
-    }
+    // Pasar los datos a la vista
+    return $dias_festivos;
+}
 
 
-    public function obtenerFinesDeSemana()
-    {
-        $year = 2024; // Año para el que se desea obtener los fines de semana
-        $weekends = [];
+public function obtenerFinesDeSemana()
+{
+    $year = 2024; // Año para el que se desea obtener los fines de semana
+    $weekends = [];
 
-        // Iterar sobre todos los días del año
-        for ($month = 1; $month <= 12; $month++) {
-            for ($day = 1; $day <= Carbon::createFromDate($year, $month, 1)->daysInMonth; $day++) {
-                $date = Carbon::createFromDate($year, $month, $day);
-
-                // Verificar si el día es fin de semana
-                if ($date->isWeekend()) {
-                    $weekends[] = $date->toDateString(); // Agregar el día a la lista de fines de semana
-                }
+    // Iterar sobre todos los días del año
+    for ($month = 1; $month <= 12; $month++) {
+        for ($day = 1; $day <= Carbon::createFromDate($year, $month, 1)->daysInMonth; $day++) {
+            $date = Carbon::createFromDate($year, $month, $day);
+            
+            // Verificar si el día es fin de semana
+            if ($date->isWeekend()) {
+                $weekends[] = $date->toDateString(); // Agregar el día a la lista de fines de semana
             }
         }
-
-        return $weekends;
     }
 
-    /**
+    return $weekends;
+}
+
+   /**
      * Asigna una solicitud a un diseñador.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-
+   
+    
     public function asignarSolicitud(Request $request)
     {
         // Validar los datos recibidos en la solicitud si es necesario
-        $request->validate([
+         $request->validate([
             'solicitudId' => 'required|exists:solicitudes,id',
             'designerId' => 'required|exists:users,id',
-        ]);
-
+         ]);
+    
         // Acceder a los datos del formulario
         $solicitudId = $request->input('solicitudId');
         $designerId = $request->input('designerId');
-
-        //  $request->validate([
-        //     'solicitudId' => 'required|exists:solicitudes,id',
-        //     'designerId' => 'required|exists:users,id',
-        //  ]);
     
-        // Acceder a los datos del formulario
-        $solicitudId = $request->input('solicitud_id');
-        $designerId = $request->input('usuario_id');
-        
         // Crear un nuevo registro en el historial de asignaciones
         $historial = new HistorialDeUsuariosPorSolicitude();
         $historial->id_solicitudes = $solicitudId;
         $historial->id_users = $designerId;
-        $historial->fecha_asignación = now();
+        $historial->fecha_asignacion = now();
         $historial->id_estados = 1; // Asignar el estado correspondiente
         $historial->save();
-
+    
         // Redireccionar o devolver una respuesta JSON según sea necesario
         return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador.');
     }
-
-
+    
+    
     /**
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
