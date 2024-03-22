@@ -111,6 +111,9 @@ class Solicitude extends Model
     public function tiposDeSolicitude()
     {
         return $this->hasOne('App\Models\TiposDeSolicitude', 'id', 'id_tipos_de_solicitudes');
+
+        return $this->belongsTo('App\TipoDeSolicitud', 'id_tipos_de_solicitudes');
+
     }
     
     /**
