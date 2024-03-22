@@ -544,19 +544,10 @@ class SolicitudeController extends Controller
     {
         // Validar los datos recibidos en la solicitud si es necesario
         $request->validate([
-            'solicitudId' => 'required|exists:solicitudes,id',
-            'designerId' => 'required|exists:users,id',
+            'solicitud_id' => 'required|exists:solicitudes,id',
+            'usuario_id' => 'required|exists:users,id',
         ]);
 
-        // Acceder a los datos del formulario
-        $solicitudId = $request->input('solicitudId');
-        $designerId = $request->input('designerId');
-
-        //  $request->validate([
-        //     'solicitudId' => 'required|exists:solicitudes,id',
-        //     'designerId' => 'required|exists:users,id',
-        //  ]);
-    
         // Acceder a los datos del formulario
         $solicitudId = $request->input('solicitud_id');
         $designerId = $request->input('usuario_id');
