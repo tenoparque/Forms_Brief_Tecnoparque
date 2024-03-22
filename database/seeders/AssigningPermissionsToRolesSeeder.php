@@ -13,37 +13,56 @@ class AssigningPermissionsToRolesSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        // Obtener el rol por su nombre
-        $rol = Role::where('name', 'Super Admin')->first();
-        
-        // Verificar si el rol existe
-        if ($rol) {
+        // Definir datos de permisos y roles
+        $permissionsToRoles = [
+            // 'Super Admin' => [
+            //     'users.index', 'users.create', 'users.edit', 'users.show',
+            //     'roles.index', 'roles.create', 'roles.edit', 'roles.show',
+            //     Agrega más permisos según sea necesario
+            // ],
+            // Agrega más roles y permisos según sea necesario
 
+            // 'Admin' => [
+            //     'politicas.index', 'politicas.create', 'politicas.edit','politicas.show',
+            //     'personalizaciones.index', 'personalizaciones.create', 'personalizaciones.edit','personalizaciones.show',
+            //     'users.index', 'users.create', 'users.edit','users.show',
+            //     'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show',
+            //     'tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show',
+            //     'serviciosPorTiposSolicitudes.index', 'serviciosPorTiposSolicitudes.create', 'serviciosPorTiposSolicitudes.edit','serviciosPorTiposSolicitudes.show',
+            //     'datosUnicosSolicitud.index', 'datosUnicosSolicitud.create', 'datosUnicosSolicitud.edit','datosUnicosSolicitud.show',
+            // ],
 
+            // 'Dinamizador' => [
+            //     'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
+            // ],
 
-            // Asignar permisos al rol
-            // $rol->givePermissionTo(['users.index', 'users.create', 'users.edit','users.show']);
-            // $rol->givePermissionTo(['roles.index', 'roles.create', 'roles.edit','roles.show']);
-            // $rol->givePermissionTo(['tiposDeDato.index', 'tiposDeDato.create', 'tiposDeDato.edit','tiposDeDato.show']);
-            // $rol->givePermissionTo(['departamentos.index', 'departamentos.create', 'departamentos.edit','departamentos.show']);
-            // $rol->givePermissionTo(['nodos.index', 'nodos.create', 'nodos.edit','nodos.show']);
-            // $rol->givePermissionTo(['ciudades.index', 'ciudades.create', 'ciudades.edit','ciudades.show']);
-            // $rol->givePermissionTo(['politicas.index', 'politicas.create', 'politicas.edit','politicas.show']);
-            // $rol->givePermissionTo(['personalizaciones.index', 'personalizaciones.create', 'personalizaciones.edit','personalizaciones.show']);
-            // $rol->givePermissionTo(['estados.index', 'estados.create', 'estados.edit','estados.show']);
-            // $rol->givePermissionTo(['categoriasEventosEspeciales.index', 'categoriasEventosEspeciales.create', 'categoriasEventosEspeciales.edit','categoriasEventosEspeciales.show']);
-            // $rol->givePermissionTo(['eventosEspeciales.index', 'eventosEspeciales.create', 'eventosEspeciales.edit','eventosEspeciales.show']);
-            // $rol->givePermissionTo(['solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show']);
-            // $rol->givePermissionTo(['tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show']);
-            // $rol->givePermissionTo(['serviciosPorTiposSolicitudes.index', 'serviciosPorTiposSolicitudes.create', 'serviciosPorTiposSolicitudes.edit','serviciosPorTiposSolicitudes.show']);
-            // $rol->givePermissionTo(['estadosSolicitudes.index', 'estadosSolicitudes.create', 'estadosSolicitudes.edit','estadosSolicitudes.show']);
-            // $rol->givePermissionTo(['datosUnicosSolicitud.index', 'datosUnicosSolicitud.create', 'datosUnicosSolicitud.edit','datosUnicosSolicitud.show']);
+            // 'Articulador' => [
+            //     'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
+            // ],
 
+            // 'Designer' => [
+            //     'solicitudes.index', 'solicitudes.edit','solicitudes.show', 'estadosSolicitudes.change',
+            // ],
 
-            $this->command->info('Permisos asignados correctamente.');
-        } else {
-            $this->command->error('El rol especificado no existe en la base de datos.');
+            // 'Activador Nacional' => [
+            //     'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
+            // ],
+
+        ];
+
+        // Iterar sobre los datos de permisos y roles
+        foreach ($permissionsToRoles as $roleName => $permissions) {
+            // Obtener el rol por su nombre
+            $rol = Role::where('name', $roleName)->first();
+            
+            // Verificar si el rol existe
+            if ($rol) {
+                // Asignar permisos al rol
+                $rol->syncPermissions($permissions);
+                $this->command->info('Permisos asignados correctamente para el rol: ' . $roleName);
+            } else {
+                $this->command->error('El rol especificado (' . $roleName . ') no existe en la base de datos.');
+            }
         }
     }
 }

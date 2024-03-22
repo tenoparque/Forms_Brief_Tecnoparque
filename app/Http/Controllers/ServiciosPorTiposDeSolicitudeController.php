@@ -54,7 +54,7 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
         $serviciosPorTiposDeSolicitude = ServiciosPorTiposDeSolicitude::create($request->all());
 
         return redirect()->route('servicios-por-tipos-de-solicitudes.index')
-            ->with('success', 'ServiciosPorTiposDeSolicitude created successfully.');
+            ->with('success', 'Servicio Tipo De Solicitud Creado Exitosamente');
     }
 
     /**
@@ -99,7 +99,7 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
         $id->update($request->all());
 
         return redirect()->route('servicios-por-tipos-de-solicitudes.index')
-            ->with('success', 'ServiciosPorTiposDeSolicitude updated successfully');
+            ->with('success', 'Servicio Tipo De Solicitud Actualizado Exitosamente');
     }
 
     /**

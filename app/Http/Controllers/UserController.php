@@ -60,7 +60,7 @@ class UserController extends Controller
             $output .= '</td>
                             <td>
                                 <a href="' . route('users.show', $user->id) . '" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                    style="color:#00324D; background-color: #ffff; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                     onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
                                     onmouseout="this.style.backgroundColor=\'#FFFF\';">
                                     <i class="fa fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
@@ -68,7 +68,7 @@ class UserController extends Controller
                                 </a>
         
                                 <a href="' . route('users.edit', $user->id) . '" class="btn btn-outline"
-                                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                                    style="color:#00324D; background-color: #ffff; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
                                     onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
                                     onmouseout="this.style.backgroundColor=\'#FFFF\';">
                                     <i class="fa fa-pen-to-square fa-xs" style="color: #39a900;"></i>
@@ -108,7 +108,7 @@ class UserController extends Controller
         $user = User::create($request->all());
 
         return redirect()->route('users.index')
-            ->with('success', 'User created successfully.');
+            ->with('success', 'Usuario Creado Exitosamente');
     }
 
     /**
@@ -176,7 +176,7 @@ class UserController extends Controller
     }
 
     return redirect()->route('users.index')
-        ->with('success', 'User updated successfully');
+        ->with('success', 'Usuario Actualizado Exitosamente');
 }
 
 
@@ -190,6 +190,6 @@ class UserController extends Controller
         $user = User::find($id)->delete();
 
         return redirect()->route('users.index')
-            ->with('success', 'User deleted successfully');
+            ->with('success', 'Usuario Eliminado Exitosamente');
     }
 }
