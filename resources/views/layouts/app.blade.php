@@ -85,7 +85,8 @@
     @include('sweetalert::alert')
 
     <div class="wrapper">
-        @if (Route::currentRouteName() !== 'login')
+        {{-- Este bloque de código se ejecutará si la ruta actual NO coincide con ninguna de las rutas de login, password.request o password.reset --}}
+        @if (!request()->routeIs('login') && !request()->routeIs('password.request') && !request()->routeIs('password.reset'))
             <div class="wrapper">
                 <aside id="sidebar">
                     <button class="toggle-btn" type="button">
