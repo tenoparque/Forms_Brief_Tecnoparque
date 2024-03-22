@@ -26,7 +26,6 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('categorias-eventos-especiales.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
-                            @include('sweetalert::alert')
                             @include('categorias-eventos-especiale.form')
                            
 
