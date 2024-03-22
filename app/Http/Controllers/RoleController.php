@@ -37,11 +37,19 @@ class RoleController extends Controller
                 <td>' . $rol->id . '</td>
                 <td>' . $rol->name . '</td>
                 <td>
-                    <a href="' . url('/roles/' . $rol->id) . '" class="btn btn-sm btn-primary">
-                        <i class="fa fa-fw fa-eye"></i> Show
+                    <a href="' . url('/roles/' . $rol->id) . '" class="btn btn-outline"
+                    style="color:#00324D; background-color: #ffff; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                    onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
+                    onmouseout="this.style.backgroundColor=\'#FFFF\';">
+                    <i class="fa fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
+                    Detalle
                     </a>
-                    <a href="' . url('/roles/' . $rol->id . '/edit') . '" class="btn btn-sm btn-success">
-                        <i class="fa fa-fw fa-edit"></i> Edit
+                    <a href="' . url('/roles/' . $rol->id . '/edit') . '" class="btn btn-outline"
+                    style="color:#00324D; background-color: #ffff; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                    onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
+                    onmouseout="this.style.backgroundColor=\'#FFFF\';">
+                    <i class="fa fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                    Editar
                     </a>
                 </td>
             </tr>';
