@@ -130,7 +130,7 @@ class DatosUnicosPorSolicitudeController extends Controller
         $datosUnicosPorSolicitude->update($request->all());
 
         return redirect()->route('datos-unicos-por-solicitudes.index')
-            ->with('success', 'Dato Unico  Editado Exitosamente');
+            ->with('success', 'Dato Unico Actualizado Exitosamente');
     }
 
     // /**

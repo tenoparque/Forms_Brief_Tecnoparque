@@ -29,6 +29,7 @@
                             @csrf
 
                             @include('politica.form')
+                            @include('sweetalert::alert')
 
                         </form>
                     </div>

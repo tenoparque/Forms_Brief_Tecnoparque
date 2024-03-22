@@ -28,6 +28,7 @@
                             @csrf
 
                             @include('nodo.form')
+                            @include('sweetalert::alert')
 
                         </form>
                     </div>

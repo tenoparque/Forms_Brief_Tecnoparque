@@ -318,7 +318,7 @@ public function procesarValor()
         $modificacion->save();
 
         return redirect()->route('solicitudes.index')
-            ->with('success', 'Modificación registrada exitosamente');
+            ->with('success', 'Modificación Registrada Exitosamente');
     }
 
     /**
@@ -341,7 +341,7 @@ public function procesarValor()
         $cambioHistorial->save();
 
         return redirect()->route('solicitudes.index')
-            ->with('success', 'Estado actualizado exitosamente');
+            ->with('success', 'Estado Actualizado Exitosamente');
     }
 
     
@@ -506,7 +506,7 @@ public function obtenerFinesDeSemana()
         ]);
 
         // Redireccionar o devolver una respuesta JSON según sea necesario
-        return redirect()->back()->with('success', 'Solicitud asignada correctamente al diseñador.');
+        return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador.');
     }
 
     /**

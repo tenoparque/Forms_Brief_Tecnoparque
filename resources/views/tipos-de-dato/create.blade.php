@@ -28,6 +28,7 @@
                             @csrf
 
                             @include('tipos-de-dato.form')
+                            @include('sweetalert::alert')
 
                         </form>
                     </div>

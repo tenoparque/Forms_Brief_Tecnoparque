@@ -116,7 +116,7 @@ class DepartamentoController extends Controller
         $departamento->update($request->all());
 
         return redirect()->route('departamentos.index')
-            ->with('success', 'Departamento Editado Exitosamente');
+            ->with('success', 'Departamento Actualizado Exitosamente');
     }
 
     // /**
