@@ -29,6 +29,7 @@
                             @csrf
 
                             @include('personalizacione.form')
+                            @include('sweetalert::alert')
 
                         </form>
                     </div>

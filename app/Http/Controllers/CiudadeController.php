@@ -122,7 +122,7 @@ class CiudadeController extends Controller
         $ciudade->update($request->all());
 
         return redirect()->route('ciudades.index')
-            ->with('success', 'Ciudad Editada Exitosamente');
+            ->with('success', 'Ciudad Actualizada Exitosamente');
     }
 
     /**

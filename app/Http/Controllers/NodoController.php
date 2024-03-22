@@ -97,7 +97,7 @@ class NodoController extends Controller
         $nodo = Nodo::create($request->all());
 
         return redirect()->route('nodos.index')
-            ->with('success', 'Nodo created successfully.');
+            ->with('success', 'Nodo Creado Exitosamente');
     }
 
     /**
@@ -142,7 +142,7 @@ class NodoController extends Controller
         $nodo->update($request->all());
 
         return redirect()->route('nodos.index')
-            ->with('success', 'Nodo updated successfully');
+            ->with('success', 'Nodo Actualizado Exitosamente');
     }
 
     // /**

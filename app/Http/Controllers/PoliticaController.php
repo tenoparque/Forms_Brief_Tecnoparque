@@ -119,7 +119,7 @@ class PoliticaController extends Controller
             // Guardar la instancia de Politica en la base de datos
             $politica->save();
 
-            return redirect()->route('politicas.index')->with('success', 'Política creada exitosamente.');
+            return redirect()->route('politicas.index')->with('success', 'Política Creada Exitosamente.');
         }
 
         // Si no se cargó ningún archivo, volver atrás con un mensaje de error
@@ -189,7 +189,7 @@ class PoliticaController extends Controller
         $politica->update($request->except('qr'));
 
         return redirect()->route('politicas.index')
-            ->with('success', 'Politica updated successfully');
+            ->with('success', 'Politica Actualizada Exitosamente');
     }
 
     /**

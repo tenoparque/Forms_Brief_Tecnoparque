@@ -116,7 +116,7 @@ class EstadoController extends Controller
         $estado->update($request->all());
 
         return redirect()->route('estados.index')
-            ->with('success', 'Estado Editado Exitosamente');
+            ->with('success', 'Estado Actualizado Exitosamente');
     }
 
     /**

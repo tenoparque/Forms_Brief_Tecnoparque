@@ -29,6 +29,8 @@
                         @csrf
 
                         @include('tipos-de-solicitude.form')
+                        @include('sweetalert::alert')
+
 
                     </form>
                 </div>

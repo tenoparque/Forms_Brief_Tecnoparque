@@ -91,7 +91,7 @@ class DatosPorSolicitudController extends Controller
         $datosPorSolicitud->update($request->all());
 
         return redirect()->route('datos-por-solicituds.index')
-            ->with('success', 'Dato Por Solicitud Editado Exitosamente');
+            ->with('success', 'Dato Por Solicitud Actualizada Exitosamente');
     }
 
     // /**

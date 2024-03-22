@@ -80,7 +80,7 @@ class EstadosDeLasSolictudeController extends Controller
         $estadosDeLasSolictude = EstadosDeLasSolictude::create($request->all());
 
         return redirect()->route('estados-de-las-solictudes.index')
-            ->with('success', 'Estado de la Solictud Creado Exitosamente');
+            ->with('success', 'Estado de la Solicitud Creada Exitosamente');
     }
 
     /**
@@ -124,7 +124,7 @@ class EstadosDeLasSolictudeController extends Controller
         $estadosDeLasSolictude->update($request->all());
 
         return redirect()->route('estados-de-las-solictudes.index')
-            ->with('success', 'Estado De La Solictud Editado Exitosamente');
+            ->with('success', 'Estado De La Solictud Actualizada Exitosamente');
     }
 
     // /**
@@ -175,6 +175,6 @@ class EstadosDeLasSolictudeController extends Controller
             EstadosDeLasSolictude::where('id', $id)->update(['orden_mostrado' => $orden]); // The database record containing the same id as the id of the previously obtained record will be edited.
         }
 
-        return redirect()->route('estados-de-las-solictudes.index')->with('success', 'Orden mostrado actualizado correctamente'); // The index view is redirected to the estados-de-las-solictudes view if the displayed order has been updated correctly.
+        return redirect()->route('estados-de-las-solictudes.index')->with('success', 'Orden Mostrado Actualizada Exitosamente'); // The index view is redirected to the estados-de-las-solictudes view if the displayed order has been updated correctly.
     }
 }

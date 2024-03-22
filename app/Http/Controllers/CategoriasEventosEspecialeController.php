@@ -123,7 +123,7 @@ class CategoriasEventosEspecialeController extends Controller
         $categoriasEventosEspeciale->update($request->all());
 
         return redirect()->route('categorias-eventos-especiales.index')
-            ->with('success', 'Categoria Editado Exitosamente');
+            ->with('success', 'Categoria Actualizada Exitosamente');
     }
 
     // /**
