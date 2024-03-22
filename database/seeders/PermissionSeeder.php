@@ -122,11 +122,18 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'estadosSolicitudes.edit']); // Edit Estados de las Solicitudes Permissions
         // Permission::create(['name' => 'estadosSolicitudes.show']); // Show Estados de las Solicitudes Permissions
 
+        // Cambiar estado de solicitud
+        Permission::create(['name' => 'estadosSolicitudes.change']);
+
+
         // Datos Unicos Por Solicitud
 
         // Permission::create(['name' => 'datosUnicosSolicitud.index']); // Index Datos Unicos Por Solicitud Permissions
         // Permission::create(['name' => 'datosUnicosSolicitud.create']); // Create Datos Unicos Por Solicitud Permissions
         // Permission::create(['name' => 'datosUnicosSolicitud.edit']); // Edit Datos Unicos Por Solicitud Permissions
         // Permission::create(['name' => 'datosUnicosSolicitud.show']); // Show Datos Unicos Por Solicitud Permissions
+
+        // Poder hacer modificacion en solicitudes
+        Permission::create(['name' => 'solicitudes.modification']);
     }
 }
