@@ -23,7 +23,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        View::composer(['home','auth.login','auth.register','nodo.index'], UserRoleComposer::class);
+        View::composer(['home','auth.register','layouts.app'], UserRoleComposer::class);
         View::composer(['auth.login','layouts.app'] , CustomizationComposer::class);
     }
 }

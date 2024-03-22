@@ -545,11 +545,20 @@ class SolicitudeController extends Controller
         $solicitudId = $request->input('solicitudId');
         $designerId = $request->input('designerId');
 
+        //  $request->validate([
+        //     'solicitudId' => 'required|exists:solicitudes,id',
+        //     'designerId' => 'required|exists:users,id',
+        //  ]);
+    
+        // Acceder a los datos del formulario
+        $solicitudId = $request->input('solicitud_id');
+        $designerId = $request->input('usuario_id');
+        
         // Crear un nuevo registro en el historial de asignaciones
         $historial = new HistorialDeUsuariosPorSolicitude();
         $historial->id_solicitudes = $solicitudId;
         $historial->id_users = $designerId;
-        $historial->fecha_asignacion = now();
+        $historial->fecha_asignación = now();
         $historial->id_estados = 1; // Asignar el estado correspondiente
         $historial->save();
 

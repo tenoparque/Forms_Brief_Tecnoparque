@@ -23,10 +23,7 @@
 
                             <div id="valor-actualizado">
                                 {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
-
                             </div>
-
-
                         </div>
                     </div>
                     <div class="card-body">
@@ -85,7 +82,7 @@
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                 </a>
                                                
-                                                <button class="btnAsignar" onclick="abrirModalAsignacion({{ $solicitude->id }})" data-toggle="modal" data-target="#asignacionModal">
+                                                <button class="btnAsignar" onclick="abrirModalAsignacion({{ $solicitude->id }})">
                                                     <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
                                                     {{ __('Asignar a diseñador') }}
                                                 </button>
@@ -100,70 +97,19 @@
                             </table>
                         </div>
 
-
-                        
-                       <!-- Modal para mostrar la asiganción de una solicitud un diseñador-->
-<div class="modal fade" id="asignacionModal" tabindex="-1" role="dialog" aria-labelledby="historialModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 style="margin-left: 60px; position: relative; color: #00324D" class="modal-title" id="historialModalLabel">ASIGNAR SOLICITUD A UN DISEÑADOR</h5>
-            </div>
-            <div class="modal-body">
-                <div style="position: relative;">
-                    <select name="id_user" id="id_user" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar diseñador" required style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
-                        <option value="" disabled selected>Seleccionar diseñador...</option>
-                        @foreach ($usuarios as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endforeach
-                    </select>
-                    <div class="icono" style="right: 4%;">
-                        <div class="circle-play">
-                            <div class="circle"></div>
-                            <div class="triangle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
-                    {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
-                </button>
-                <!-- Botón para guardar la asignación -->
-                <button type="button" class="btnGuardar" onclick="guardarAsignacion()">
-                    {{ __('Guardar') }} <i class="fa-solid fa-save fa-sm iconDCR"></i>
-                </button>
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-
-                    </div>
-
-
-
-
-                        <!-- Modal para mostrar la asiganción de una solicitud un diseñador-->
-                        <!-- Modal para mostrar la asiganción de una solicitud un diseñador-->
-                        <div class="modal fade" id="asignacionModal" tabindex="-1" role="dialog"
-                            aria-labelledby="historialModalLabel" aria-hidden="true">
+                        <!-- Modal para mostrar la asignación de una solicitud un diseñador -->
+                        <div class="modal fade" id="asignacionModal" tabindex="-1" role="dialog" aria-labelledby="historialModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 style="margin-left: 60px; position: relative; color: #00324D"
-                                            class="modal-title" id="historialModalLabel">ASIGNAR SOLICITUD A UN DISEÑADOR
-                                        </h5>
+                                        <h5 style="margin-left: 60px; position: relative; color: #00324D" class="modal-title" id="historialModalLabel">ASIGNAR SOLICITUD A UN DISEÑADOR</h5>
                                     </div>
                                     <div class="modal-body">
                                         <div style="position: relative;">
-                                            <select name="id_ciudad" id="id_ciudad" class="form-control selectpicker"
-                                                data-style="btn-primary" title="Seleccionar diseñador" required
-                                                style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                                            <select name="id_user" id="id_user" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar diseñador" required style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                                                 <option value="" disabled selected>Seleccionar diseñador...</option>
                                                 @foreach ($usuarios as $user)
-                                                    <option value="{{ $user->name }}">{{ $user->name }}</option>
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
                                                 @endforeach
                                             </select>
                                             <div class="icono" style="right: 4%;">
@@ -175,24 +121,24 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
+                                        <button type="button" class="btnModificar cerrar-modal" onclick="cerrarModalAsignacion()">
                                             {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
                                         </button>
-                                        <!-- Agregar el botón de guardar aquí -->
-                                        <button type="button" class="btnGuardar">
+                                        <!-- Botón para guardar la asignación -->
+                                        <button type="button" class="btnGuardar" onclick="guardarAsignacion()">
                                             {{ __('Guardar') }} <i class="fa-solid fa-save fa-sm iconDCR"></i>
                                         </button>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    </body>
                 </div>
                 {!! $solicitudes->links() !!}
             </div>
         </div>
+<<<<<<< HEAD
         </div>
 
 
@@ -227,102 +173,67 @@
 
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+    </section>
+>>>>>>> 7d379372d9ead54210a015efa483c13009744289
 
-        <script>
+    <form id="asignacionForm" action="{{ route('solicitudes.asignar') }}" method="POST">
+        @csrf
+        <input type="hidden" name="solicitud_id" id="solicitud_id">
+        <input type="hidden" name="usuario_id" id="usuario_id">
+    </form>
 
-            // Agrega un evento click al botón "Ver Asignación"
-            document.getElementById('btnVerAsignacion').addEventListener('click', function() {
-                // Abre el modal cuando se haga clic en el botón
-                $('#asignacionModal').modal('show');
-            });
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            // Agrega un evento click a todos los botones de clase "cerrar-modal"
-            document.querySelectorAll('.cerrar-modal').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    // Cierra el modal cuando se haga clic en el botón
-                    $('#asignacionModal').modal('hide');
-                });
-            });
+    <script>
+        function hacerSolicitud() {
+            var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
+            // Configurar la solicitud
+            xhr.open("GET", "{{ 'procesarValor' }}", true);
+            // Manejar la respuesta
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
+                    if (xhr.status === 200) { // Si la solicitud ha tenido éxito
+                        var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
+                        console.log(respuesta.campoValor);
 
-
-            function hacerSolicitud() {
-                var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
-                // Configurar la solicitud
-                xhr.open("GET", "{{ 'procesarValor' }}", true);
-                // Manejar la respuesta
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
-                        if (xhr.status === 200) { // Si la solicitud ha tenido éxito
-                            var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
-                            console.log(respuesta.campoValor);
-
-                            // Actualizar el valor en el elemento HTML
-                            document.getElementById('valor-actualizado').textContent = "valor " + respuesta.campoValor;
-                        } else {
-                            console.error('Error en la solicitud: ' + xhr
+                        // Actualizar el valor en el elemento HTML
+                        document.getElementById('valor-actualizado').textContent = "valor " + respuesta.campoValor;
+                    } else {
+                        console.error('Error en la solicitud: ' + xhr
                             .status); // Imprimir el estado del error en la consola
-                        }
                     }
-                };;
+                }
+            };
 
-                // Enviar la solicitud con un cuerpo vacío
-                xhr.send();
-            }
+            // Enviar la solicitud con un cuerpo vacío
+            xhr.send();
+        }
 
-            // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
-            setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
-        </script>
+        // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
+        setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
 
-<script>
-    // Variable para almacenar el ID de la solicitud
-    let solicitudId;
+        function abrirModalAsignacion(idSolicitud) {
+            // Mostrar el modal de asignación de diseñador
+            $('#asignacionModal').modal('show');
+            // Establecer el ID de la solicitud en el campo oculto del formulario
+            $('#solicitud_id').val(idSolicitud);
+        }
 
-    // Función para abrir el modal de asignación y guardar el ID de la solicitud
-    function abrirModalAsignacion(id) {
-        // Guardar el ID de la solicitud
-        solicitudId = id;
-        // Abrir el modal de asignación
-        $('#asignacionModal').modal('show');
-    }
+        function guardarAsignacion() {
+            // Obtener el ID del usuario seleccionado
+            var usuarioId = $('#id_user').val();
+            // Establecer el ID del usuario en el campo oculto del formulario
+            $('#usuario_id').val(usuarioId);
+            // Enviar el formulario
+            $('#asignacionForm').submit();
+        }
 
-   // Definición única de guardarAsignacion()
-function guardarAsignacion() {
-    // Obtener el ID del diseñador seleccionado
-    const designerId = document.getElementById('id_user').value;
+        function cerrarModalAsignacion() {
+            // Mostrar el modal de asignación de diseñador
+            $('#asignacionModal').modal('hide');
+        }
+    </script>
 
-    // Si deseas enviar una solicitud AJAX para guardar la asignación, puedes hacerlo aquí
-    // Por ejemplo:
-    $.ajax({
-         type: 'POST',
-         url: '{{ route('solicitudes.asignar') }}',
-         data: {
-             solicitudId: solicitudId,
-             designerId: designerId
-         },
-         success: function(response) {
-             // Manejar la respuesta del servidor si es necesario
-             console.log('Asignación guardada correctamente.');
-         },
-         error: function(xhr, status, error) {
-             // Manejar errores si es necesario
-             console.error('Error al guardar la asignación:', error);
-         }
-     });
+@endsection
 
-    // Aquí puedes incluir cualquier otra lógica que necesites para guardar la asignación
-
-    // Mostrar en consola los IDs de la solicitud y del diseñador seleccionado
-    console.log('ID de la solicitud:', solicitudId);
-    console.log('ID del diseñador seleccionado:', designerId);
-
-    // Cerrar el modal de asignación
-    $('#asignacionModal').modal('hide');
-}
-
-</script>
-
-         
-              
-        
-
-    @endsection
