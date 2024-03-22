@@ -197,22 +197,6 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script>
-
-            // Agrega un evento click al botón "Ver Asignación"
-            document.getElementById('btnVerAsignacion').addEventListener('click', function() {
-                // Abre el modal cuando se haga clic en el botón
-                $('#asignacionModal').modal('show');
-            });
-
-            // Agrega un evento click a todos los botones de clase "cerrar-modal"
-            document.querySelectorAll('.cerrar-modal').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    // Cierra el modal cuando se haga clic en el botón
-                    $('#asignacionModal').modal('hide');
-                });
-            });
-
-
             function hacerSolicitud() {
                 var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
                 // Configurar la solicitud
@@ -231,7 +215,7 @@
                             .status); // Imprimir el estado del error en la consola
                         }
                     }
-                };;
+                };
 
                 // Enviar la solicitud con un cuerpo vacío
                 xhr.send();
