@@ -20,6 +20,7 @@
                             @csrf
 
                             @include('user.form')
+                            @include('sweetalert::alert')
 
                         </form>
                     </div>

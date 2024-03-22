@@ -28,6 +28,7 @@
                             @csrf
 
                             @include('estados-de-las-solictude.form')
+                            @include('sweetalert::alert')
 
                             
 

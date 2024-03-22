@@ -56,7 +56,7 @@ class DatosUnicosPorSolicitudeController extends Controller
         $datosUnicosPorSolicitude = DatosUnicosPorSolicitude::create($request->all());
 
         return redirect()->route('datos-unicos-por-solicitudes.index')
-            ->with('success', 'DatosUnicosPorSolicitude created successfully.');
+            ->with('success', 'Dato Unico Creado Exitosamente');
     }
 
     public function search(Request $request)
@@ -130,7 +130,7 @@ class DatosUnicosPorSolicitudeController extends Controller
         $datosUnicosPorSolicitude->update($request->all());
 
         return redirect()->route('datos-unicos-por-solicitudes.index')
-            ->with('success', 'DatosUnicosPorSolicitude updated successfully');
+            ->with('success', 'Dato Unico  Editado Exitosamente');
     }
 
     // /**

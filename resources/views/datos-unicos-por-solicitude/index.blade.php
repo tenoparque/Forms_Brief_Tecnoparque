@@ -25,12 +25,6 @@
                     </div>
                 </div>
             </div>
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-            @endif
-
             <div class="">
                 <div class="row mb-3">
                     <div class="col d-flex justify-content-between align-items-center">

@@ -79,7 +79,7 @@ class CategoriasEventosEspecialeController extends Controller
         $categoriasEventosEspeciale = CategoriasEventosEspeciale::create($request->all());
 
         return redirect()->route('categorias-eventos-especiales.index')
-            ->with('success', 'CategoriasEventosEspeciale created successfully.');
+            ->with('success', 'Categoria Creada Exitosamente');
     }
 
     /**
@@ -123,7 +123,7 @@ class CategoriasEventosEspecialeController extends Controller
         $categoriasEventosEspeciale->update($request->all());
 
         return redirect()->route('categorias-eventos-especiales.index')
-            ->with('success', 'CategoriasEventosEspeciale updated successfully');
+            ->with('success', 'Categoria Editado Exitosamente');
     }
 
     // /**

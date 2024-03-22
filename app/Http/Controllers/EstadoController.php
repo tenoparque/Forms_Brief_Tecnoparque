@@ -48,7 +48,7 @@ class EstadoController extends Controller
         $estado = Estado::create($request->all());
 
         return redirect()->route('estados.index')
-            ->with('success', 'Estado created successfully.');
+            ->with('success', 'Estado Creado Exitosamente');
     }
 
     public function search(Request $request)
@@ -116,7 +116,7 @@ class EstadoController extends Controller
         $estado->update($request->all());
 
         return redirect()->route('estados.index')
-            ->with('success', 'Estado updated successfully');
+            ->with('success', 'Estado Editado Exitosamente');
     }
 
     /**

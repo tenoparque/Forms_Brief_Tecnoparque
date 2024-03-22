@@ -85,7 +85,8 @@ class RegisterController extends Controller
             // If the role is found it is assigned to the user
             $user->assignRole($role);
         }
-
+        
+        session()->with('alert-success', '¡Usuario creado exitosamente!');
         return $user;
     }
 

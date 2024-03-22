@@ -80,7 +80,7 @@ class EstadosDeLasSolictudeController extends Controller
         $estadosDeLasSolictude = EstadosDeLasSolictude::create($request->all());
 
         return redirect()->route('estados-de-las-solictudes.index')
-            ->with('success', 'EstadosDeLasSolictude created successfully.');
+            ->with('success', 'Estado de la Solictud Creado Exitosamente');
     }
 
     /**
@@ -124,7 +124,7 @@ class EstadosDeLasSolictudeController extends Controller
         $estadosDeLasSolictude->update($request->all());
 
         return redirect()->route('estados-de-las-solictudes.index')
-            ->with('success', 'EstadosDeLasSolictude updated successfully');
+            ->with('success', 'Estado De La Solictud Editado Exitosamente');
     }
 
     // /**

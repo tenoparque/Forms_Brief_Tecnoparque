@@ -29,6 +29,7 @@
                             @csrf
 
                             @include('estado.form')
+                            @include('sweetalert::alert')
 
                         </form>
                     </div>

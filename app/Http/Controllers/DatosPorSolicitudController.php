@@ -48,7 +48,7 @@ class DatosPorSolicitudController extends Controller
         $datosPorSolicitud = DatosPorSolicitud::create($request->all());
 
         return redirect()->route('datos-por-solicituds.index')
-            ->with('success', 'DatosPorSolicitud created successfully.');
+            ->with('success', 'Dato Por Solicitud Creado Exitosamente');
     }
 
     /**
@@ -91,7 +91,7 @@ class DatosPorSolicitudController extends Controller
         $datosPorSolicitud->update($request->all());
 
         return redirect()->route('datos-por-solicituds.index')
-            ->with('success', 'DatosPorSolicitud updated successfully');
+            ->with('success', 'Dato Por Solicitud Editado Exitosamente');
     }
 
     // /**

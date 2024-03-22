@@ -28,6 +28,7 @@
                             @csrf
 
                             @include('datos-unicos-por-solicitude.form')
+                            @include('sweetalert::alert')
 
                         </form>
                     </div>

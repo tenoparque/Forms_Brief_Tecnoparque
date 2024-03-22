@@ -73,7 +73,7 @@ class DepartamentoController extends Controller
         $departamento = Departamento::create($request->all());
 
         return redirect()->route('departamentos.index')
-            ->with('success', 'Departamento creado con exito');
+            ->with('success', 'Departamento Creado Exitosamente');
     }
 
     /**
@@ -116,7 +116,7 @@ class DepartamentoController extends Controller
         $departamento->update($request->all());
 
         return redirect()->route('departamentos.index')
-            ->with('success', 'Departamento editado con exito');
+            ->with('success', 'Departamento Editado Exitosamente');
     }
 
     // /**

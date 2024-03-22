@@ -20,6 +20,7 @@
                             @csrf
 
                             @include('historial-de-modificaciones-por-solicitude.form')
+                            
 
                         </form>
                     </div>

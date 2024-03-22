@@ -876,7 +876,60 @@ input[type="text"] {
     }
     /* diseño containerProgressBar*/
 }
+/*DISEÑO AL SWEETALERT*/
 .swal2-confirm {
-    background-color: #39a900!important; /* Cambia esto al color de fondo que desees */
-    color: white !important; /* Cambia esto al color de texto que desees */
+    background-color: #39a900!important; 
+    color: white !important;
+     
+}
+.swal2-popup {
+    font-size: 1.6rem !important;
+    width: 600px !important;
+  }
+  .swal2-popup {
+    font-size: 16px !important;
+    width: 500px !important;
+    border-radius: 20px !important; /* Reduciendo el radio del borde */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Agregando una sombra suave */
+    background-color: #ffffff; /* Cambiando el color de fondo */
+    padding: 20px; /* Agregando espacio interno */
+    color: #333333; /* Cambiando el color del texto */
+}
+
+.swal2-title {
+    font-size: 24px !important; /* Cambiando el tamaño del título */
+    color: #333333; /* Cambiando el color del título */
+}
+
+.swal2-content {
+    font-size: 18px !important; /* Cambiando el tamaño del contenido */
+    color: #666666; /* Cambiando el color del contenido */
+}
+
+.swal2-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.swal2-actions .swal2-confirm {
+    color: #ffffff; /* Cambiando el color del texto del botón de confirmación */
+    border: none; /* Quitando el borde */
+    padding: 10px 20px; /* Ajustando el relleno */
+    margin: 0 10px; /* Agregando margen entre botones */
+    border-radius: 5px; /* Agregando un pequeño radio de borde */
+}
+
+.swal2-actions .swal2-cancel {
+    background-color: #ffffff; /* Cambiando el color de fondo del botón de cancelar */
+    color: #333333; /* Cambiando el color del texto del botón de cancelar */
+    border: 1px solid #cccccc; /* Agregando un borde al botón de cancelar */
+    padding: 10px 20px; /* Ajustando el relleno */
+    margin: 0 10px; /* Agregando margen entre botones */
+    border-radius: 5px; /* Agregando un pequeño radio de borde */
+}
+
+/* Agregando estilos para el botón de cierre */
+.swal2-close {
+    color: #999999;
+    font-size: 24px;
 }

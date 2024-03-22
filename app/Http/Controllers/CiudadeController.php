@@ -77,7 +77,7 @@ class CiudadeController extends Controller
         $ciudade = Ciudade::create($request->all());
 
         return redirect()->route('ciudades.index')
-            ->with('success', 'Ciudade created successfully.');
+            ->with('success', 'Ciudad Creada Exitosamente');
     }
 
     /**
@@ -122,7 +122,7 @@ class CiudadeController extends Controller
         $ciudade->update($request->all());
 
         return redirect()->route('ciudades.index')
-            ->with('success', 'Ciudade updated successfully');
+            ->with('success', 'Ciudad Editada Exitosamente');
     }
 
     /**

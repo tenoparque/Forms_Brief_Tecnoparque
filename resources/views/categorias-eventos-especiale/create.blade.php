@@ -28,6 +28,7 @@
                             @csrf
 
                             @include('categorias-eventos-especiale.form')
+                            @include('sweetalert::alert')
 
                         </form>
                     </div>
