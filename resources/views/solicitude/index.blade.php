@@ -138,51 +138,60 @@
                 {!! $solicitudes->links() !!}
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <form id="asignacionForm" action="{{ route('solicitudes.asignar') }}" method="POST">
+        @csrf
+        <input type="hidden" name="solicitud_id" id="solicitud_id">
+        <input type="hidden" name="usuario_id" id="usuario_id">
+    </form>
 
-<script>
-    function hacerSolicitud() {
-        var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
-        // Configurar la solicitud
-        xhr.open("GET", "{{ 'procesarValor' }}", true);
-        // Manejar la respuesta
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
-                if (xhr.status === 200) { // Si la solicitud ha tenido éxito
-                    var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
-                    console.log(respuesta.campoValor);
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-                    // Actualizar el valor en el elemento HTML
-                    document.getElementById('valor-actualizado').textContent = "valor " + respuesta.campoValor;
-                } else {
-                    console.error('Error en la solicitud: ' + xhr
-                        .status); // Imprimir el estado del error en la consola
+    <script>
+        function hacerSolicitud() {
+            var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
+            // Configurar la solicitud
+            xhr.open("GET", "{{ 'procesarValor' }}", true);
+            // Manejar la respuesta
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
+                    if (xhr.status === 200) { // Si la solicitud ha tenido éxito
+                        var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
+                        console.log(respuesta.campoValor);
+
+                        // Actualizar el valor en el elemento HTML
+                        document.getElementById('valor-actualizado').textContent = "valor " + respuesta.campoValor;
+                    } else {
+                        console.error('Error en la solicitud: ' + xhr
+                            .status); // Imprimir el estado del error en la consola
+                    }
                 }
-            }
-        };
+            };
 
-        // Enviar la solicitud con un cuerpo vacío
-        xhr.send();
-    }
+            // Enviar la solicitud con un cuerpo vacío
+            xhr.send();
+        }
 
-    // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
-    setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
+        // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
+        setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
 
-    function abrirModalAsignacion(idSolicitud) {
-        // Mostrar el modal de asignación de diseñador
-        $('#asignacionModal').modal('show');
-        // Aquí puedes realizar cualquier otra operación relacionada con la apertura del modal, como cargar datos adicionales si es necesario
-    }
+        function abrirModalAsignacion(idSolicitud) {
+            // Mostrar el modal de asignación de diseñador
+            $('#asignacionModal').modal('show');
+            // Establecer el ID de la solicitud en el campo oculto del formulario
+            $('#solicitud_id').val(idSolicitud);
+        }
 
-    function guardarAsignacion() {
-        // Aquí puedes escribir la lógica para guardar la asignación del diseñador
-        // Por ejemplo, puedes enviar una solicitud AJAX al servidor para guardar los datos
-        // Una vez que la asignación se haya guardado correctamente, puedes cerrar el modal
-        $('#asignacionModal').modal('hide');
-    }
-</script>
+        function guardarAsignacion() {
+            // Obtener el ID del usuario seleccionado
+            var usuarioId = $('#id_user').val();
+            // Establecer el ID del usuario en el campo oculto del formulario
+            $('#usuario_id').val(usuarioId);
+            // Enviar el formulario
+            $('#asignacionForm').submit();
+        }
+    </script>
 
 @endsection
+
