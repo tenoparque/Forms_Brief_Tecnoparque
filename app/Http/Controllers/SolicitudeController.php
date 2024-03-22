@@ -50,11 +50,6 @@ class SolicitudeController extends Controller
         $fechasFestivas = $this->mostrarFechasFestivas();
         $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
-        $usuarios = User::all();
-        return view('solicitude.index', compact('solicitudes' , 'disabledDates' ,  'usuarios'))
-             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
-     }
-
         $usuarios = User::whereHas('roles', function ($query) {
             $query->where('name', 'Designer');
         })->get();
@@ -538,32 +533,20 @@ public function obtenerFinesDeSemana()
     public function asignarSolicitud(Request $request)
     {
         // Validar los datos recibidos en la solicitud si es necesario
-<<<<<<< HEAD
          $request->validate([
-            'solicitudId' => 'required|exists:solicitudes,id',
-            'designerId' => 'required|exists:users,id',
+            'solicitud_id' => 'required|exists:solicitudes,id',
+            'usuario_id' => 'required|exists:users,id',
          ]);
     
         // Acceder a los datos del formulario
-        $solicitudId = $request->input('solicitudId');
-        $designerId = $request->input('designerId');
-    
-=======
-        $request->validate([
-            'solicitud_id' => 'required|exists:solicitudes,id',
-            'usuario_id' => 'required|exists:users,id',
-        ]);
-
-        // Acceder a los datos del formulario
         $solicitudId = $request->input('solicitud_id');
         $designerId = $request->input('usuario_id');
-        
->>>>>>> a5c82e4bbc72a0782896a96b73b62846f173c881
+    
         // Crear un nuevo registro en el historial de asignaciones
         $historial = new HistorialDeUsuariosPorSolicitude();
         $historial->id_solicitudes = $solicitudId;
         $historial->id_users = $designerId;
-        $historial->fecha_asignacion = now();
+        $historial->fecha_asignación = now();
         $historial->id_estados = 1; // Asignar el estado correspondiente
         $historial->save();
     
