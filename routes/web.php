@@ -109,8 +109,11 @@ Route::resource('solicitudes', SolicitudeController::class);
 
 Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolicitudeController::class);
 
+// servicios-por-tipos-de-solicitudes
 Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class)->parameters([
     'servicios-por-tipos-de-solicitudes' => 'id']);
+// search
+Route::get('/searchServiciosPorTiposDeSolicitude', [ServiciosPorTiposDeSolicitudeController::class, 'search']); // Nodos Searching Route
 
 Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
 

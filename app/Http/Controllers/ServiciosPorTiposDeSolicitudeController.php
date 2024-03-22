@@ -26,6 +26,39 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $serviciosPorTiposDeSolicitudes->perPage());
     }
 
+    public function search(Request $request)
+{
+    $num = 0;
+    $output = ""; // Inicializar la variable de salida
+    $searchTerm = $request->search; // Obtener el término de búsqueda
+
+    // Realizar la consulta utilizando el término de búsqueda en la columna 'nombre'
+    $serviciosPorTiposDeSolicitudes = ServiciosPorTiposDeSolicitude::where('nombre', 'LIKE', '%'.$searchTerm.'%')->get();
+
+    // Recorrer los resultados y construir la salida HTML
+    foreach ($serviciosPorTiposDeSolicitudes as $servicioPorTipoDeSolicitud) {
+        $output .= 
+        '<tr>
+            <td>' . ++$num . '</td>
+            <td>' . $servicioPorTipoDeSolicitud->nombre . '</td>
+            <td>' . $servicioPorTipoDeSolicitud->tiposDeSolicitude->nombre . '</td> <!-- Asumiendo que tienes esta relación definida -->
+            <td>' . $servicioPorTipoDeSolicitud->estado->nombre . '</td>
+            <td>
+                <a href="' . route('servicios-por-tipos-de-solicitudes.show', $servicioPorTipoDeSolicitud->id) . '" class="btnDetalle">
+                    <i class="fa fa-eye fa-xs iconDCR"></i> Detalle
+                </a>
+                <a href="' . route('servicios-por-tipos-de-solicitudes.edit', $servicioPorTipoDeSolicitud->id) . '" class="btnEdit">
+                    <i class="fa fa-pen-to-square fa-xs iconEdit"></i> Editar
+                </a>
+            </td>
+        </tr>';
+    }
+
+    // Devolver la respuesta como una respuesta HTTP con la salida HTML generada
+    return response($output);
+}
+
+
     /**
      * Show the form for creating a new resource.
      *

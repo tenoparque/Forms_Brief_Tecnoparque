@@ -27,8 +27,11 @@
             </div>          
             <div class="">
                 <div class="row mb-3">
+                    <p style="color: transparent">.</p>
                     <div class="col d-flex justify-content-between align-items-center">
-                        <p style="color: transparent">.</p>
+                        
+                        <input class="form-control" id="search" placeholder="Ingrese el nombre deL nodo..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
+
                         <a href="{{ route('servicios-por-tipos-de-solicitudes.create') }}" class="btnCrear"
                         >{{ __('CREAR') }}
                         <i class="fa-solid fa-circle-play iconDCR"></i></a>
@@ -89,4 +92,34 @@
             
         </div>
     </section>
+
+    <!-- JS Scripts -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // javascript and ajax code
+        $('#search').on('keyup',function()
+        {
+            $value=$(this).val();
+
+            if ($value) {
+                $('.alldata').hide();
+                $('.dataSearched').show();
+            } else {
+                $('.alldata').show();
+                $('.dataSearched').hide(); 
+            }
+
+            $.ajax({
+                type: 'get',
+                url: "{{ URL::to('searchServiciosPorTiposDeSolicitude') }}",
+                data:{'search': $value},
+
+                success:function(data)
+                {
+                    $('#Content').html(data);
+                }
+            });
+        })
+    </script>
 @endsection
