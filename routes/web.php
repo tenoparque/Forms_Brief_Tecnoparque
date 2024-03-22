@@ -106,6 +106,7 @@ Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeControll
 Route::resource('personalizaciones', PersonalizacioneController::class);
 
 Route::resource('solicitudes', SolicitudeController::class);
+Route::get('/searchSolicitude', [SolicitudeController::class, 'search']); // solicitudes Searching Route
 
 Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolicitudeController::class);
 

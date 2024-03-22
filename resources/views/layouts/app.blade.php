@@ -357,11 +357,12 @@
                                 <div class="col-xl-9 col-lg-7 col-md-8 col-sm-8 col-12 mb-3 ">
                                     <div class="">
                                         <div class="text-wel mx-5">
-                                            <h5 class="welcoRe">BIENVENIDO</h5>
+                                            <h5 class="welcoRe" style="text-transform: uppercase">BIENVENIDO {{ $nombreUsuario }}</h5>
+                                            <h4></h4>
                                             <div>
                                                 <h2>
-                                                    <span class="primeraPalabraFlex">SUPER -</span><span
-                                                        class="segundaPalabraFlex"> ADMIN</span>
+                                                    <span class="primeraPalabraFlex">ROL: </span><span
+                                                        class="segundaPalabraFlex"> {{ $nombreRol }}</span>
                                                 </h2>
                                             </div>
                                         </div>
