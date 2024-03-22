@@ -121,7 +121,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
+                                        <button type="button" class="btnModificar cerrar-modal" onclick="cerrarModalAsignacion()">
                                             {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
                                         </button>
                                         <!-- Botón para guardar la asignación -->
@@ -190,6 +190,11 @@
             $('#usuario_id').val(usuarioId);
             // Enviar el formulario
             $('#asignacionForm').submit();
+        }
+
+        function cerrarModalAsignacion() {
+            // Mostrar el modal de asignación de diseñador
+            $('#asignacionModal').modal('hide');
         }
     </script>
 
