@@ -19,6 +19,7 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 @include('solicitude.form')
+                                @include('sweetalert::alert')
                             </form>
                         </div>
                     </div>

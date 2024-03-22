@@ -41,20 +41,15 @@ class NodoController extends Controller
                 <td>' . $nodo->nombre . '</td>
                 <td>' . $nodo->ciudade->nombre . '</td>
                 <td>
-                    <a href="' . route('nodos.show', $nodo->id) . '" class="btn btn-outline"
-                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                        onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
-                        onmouseout="this.style.backgroundColor=\'#FFFF\';">
+                    <a href="' . route('nodos.show', $nodo->id) . '" class="btnDetalle">
+                        
+                        <i class="fa fa-eye fa-xs iconDCR" ></i>
                         Detalle
-                        <i class="fa fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
                     </a>
 
-                    <a href="' . route('nodos.edit', $nodo->id) . '" class="btn btn-outline"
-                        style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
-                        onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
-                        onmouseout="this.style.backgroundColor=\'#FFFF\';">
-                        Editar
-                        <i class="fa fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                    <a href="' . route('nodos.edit', $nodo->id) . '" class="btnEdit">
+                        
+                        <i class="fa fa-pen-to-square fa-xs iconEdit" ></i>Editar
                     </a>
                 </td>
             </tr>';
@@ -97,7 +92,7 @@ class NodoController extends Controller
         $nodo = Nodo::create($request->all());
 
         return redirect()->route('nodos.index')
-            ->with('success', 'Nodo created successfully.');
+            ->with('success', 'Nodo Creado Exitosamente');
     }
 
     /**
@@ -142,7 +137,7 @@ class NodoController extends Controller
         $nodo->update($request->all());
 
         return redirect()->route('nodos.index')
-            ->with('success', 'Nodo updated successfully');
+            ->with('success', 'Nodo Actualizado Exitosamente');
     }
 
     // /**

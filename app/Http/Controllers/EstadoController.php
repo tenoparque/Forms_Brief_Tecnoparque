@@ -63,11 +63,11 @@ class EstadoController extends Controller
                 <td>' . $estado->id . '</td>
                 <td>' . $estado->nombre . '</td>
                 <td>
-                    <a href="' . url('/estados/' . $estado->id) . '" class="btn btn-sm btn-primary">
-                        <i class="fa fa-fw fa-eye"></i> Show
+                    <a href="' . url('/estados/' . $estado->id) . '" class="btnDetalle">
+                        <i class="fa fa-fw fa-eye iconDCR"></i> Detalle
                     </a>
-                    <a href="' . url('/estados/' . $estado->id . '/edit') . '" class="btn btn-sm btn-success">
-                        <i class="fa fa-fw fa-edit"></i> Edit
+                    <a href="' . url('/estados/' . $estado->id . '/edit') . '" class="btnEdit">
+                        <i class="fa fa-fw fa-edit iconEdit"></i> Editar
                     </a>
                 </td>
             </tr>';
@@ -116,7 +116,7 @@ class EstadoController extends Controller
         $estado->update($request->all());
 
         return redirect()->route('estados.index')
-            ->with('success', 'Estado Editado Exitosamente');
+            ->with('success', 'Estado Actualizado Exitosamente');
     }
 
     /**

@@ -130,7 +130,7 @@ class PersonalizacioneController extends Controller
         // Guardar la instancia en la base de datos
         $personalizacion->save();
 
-        return redirect()->route('personalizaciones.index')->with('success', 'Personalizacion creada exitosamente.');
+        return redirect()->route('personalizaciones.index')->with('success', 'Personalizacion Creada Exitosamente.');
     }
 
         return back()->withInput()->with('error', 'Debe seleccionar una imagen.');
@@ -202,7 +202,7 @@ class PersonalizacioneController extends Controller
         $personalizacione->update($request->except('logo'));
 
         return redirect()->route('personalizaciones.index')
-            ->with('success', 'Personalizacione updated successfully');
+            ->with('success', 'Personalizacion Actualizada Exitosamente ');
     }
 
     // /**
