@@ -15,38 +15,50 @@ class AssigningPermissionsToRolesSeeder extends Seeder
     {
         // Definir datos de permisos y roles
         $permissionsToRoles = [
-            // 'Super Admin' => [
-            //     'users.index', 'users.create', 'users.edit', 'users.show',
-            //     'roles.index', 'roles.create', 'roles.edit', 'roles.show',
-            //     Agrega más permisos según sea necesario
-            // ],
-            // Agrega más roles y permisos según sea necesario
+            'Super Admin' => [
+                'users.index', 'users.create', 'users.edit', 'users.show',
+                'roles.index', 'roles.create', 'roles.edit', 'roles.show',
+                'tiposDeDato.index', 'tiposDeDato.create', 'tiposDeDato.edit','tiposDeDato.show',
+                'departamentos.index', 'departamentos.create', 'departamentos.edit','departamentos.show',
+                'nodos.index', 'nodos.create', 'nodos.edit','nodos.show',
+                'ciudades.index', 'ciudades.create', 'ciudades.edit','ciudades.show',
+                'politicas.index', 'politicas.create', 'politicas.edit','politicas.show',
+                'personalizaciones.index', 'personalizaciones.create', 'personalizaciones.edit','personalizaciones.show',
+                'estados.index', 'estados.create', 'estados.edit','estados.show',
+                'categoriasEventosEspeciales.index', 'categoriasEventosEspeciales.create', 'categoriasEventosEspeciales.edit','categoriasEventosEspeciales.show',
+                'eventosEspeciales.index', 'eventosEspeciales.create', 'eventosEspeciales.edit','eventosEspeciales.show',
+                'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
+                'tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show',
+                'serviciosPorTiposSolicitudes.index', 'serviciosPorTiposSolicitudes.create', 'serviciosPorTiposSolicitudes.edit','serviciosPorTiposSolicitudes.show',
+                'estadosSolicitudes.index', 'estadosSolicitudes.create', 'estadosSolicitudes.edit','estadosSolicitudes.show', 'estadosSolicitudes.change', 
+                'datosUnicosSolicitud.index', 'datosUnicosSolicitud.create', 'datosUnicosSolicitud.edit','datosUnicosSolicitud.show',
+            ],
 
-            // 'Admin' => [
-            //     'politicas.index', 'politicas.create', 'politicas.edit','politicas.show',
-            //     'personalizaciones.index', 'personalizaciones.create', 'personalizaciones.edit','personalizaciones.show',
-            //     'users.index', 'users.create', 'users.edit','users.show',
-            //     'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show',
-            //     'tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show',
-            //     'serviciosPorTiposSolicitudes.index', 'serviciosPorTiposSolicitudes.create', 'serviciosPorTiposSolicitudes.edit','serviciosPorTiposSolicitudes.show',
-            //     'datosUnicosSolicitud.index', 'datosUnicosSolicitud.create', 'datosUnicosSolicitud.edit','datosUnicosSolicitud.show',
-            // ],
+            'Admin' => [
+                'politicas.index', 'politicas.create', 'politicas.edit','politicas.show',
+                'personalizaciones.index', 'personalizaciones.create', 'personalizaciones.edit','personalizaciones.show',
+                'users.index', 'users.create', 'users.edit','users.show',
+                'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification','estadosSolicitudes.change',
+                'tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show',
+                'serviciosPorTiposSolicitudes.index', 'serviciosPorTiposSolicitudes.create', 'serviciosPorTiposSolicitudes.edit','serviciosPorTiposSolicitudes.show',
+                'datosUnicosSolicitud.index', 'datosUnicosSolicitud.create', 'datosUnicosSolicitud.edit','datosUnicosSolicitud.show',
+            ],
 
-            // 'Dinamizador' => [
-            //     'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
-            // ],
+            'Dinamizador' => [
+                'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
+            ],
 
-            // 'Articulador' => [
-            //     'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
-            // ],
+            'Articulador' => [
+                'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
+            ],
 
-            // 'Designer' => [
-            //     'solicitudes.index', 'solicitudes.edit','solicitudes.show', 'estadosSolicitudes.change',
-            // ],
+            'Designer' => [
+                'solicitudes.index', 'solicitudes.edit','solicitudes.show', 'estadosSolicitudes.change',
+            ],
 
-            // 'Activador Nacional' => [
-            //     'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
-            // ],
+            'Activador Nacional' => [
+                'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
+            ],
 
         ];
 
@@ -54,7 +66,7 @@ class AssigningPermissionsToRolesSeeder extends Seeder
         foreach ($permissionsToRoles as $roleName => $permissions) {
             // Obtener el rol por su nombre
             $rol = Role::where('name', $roleName)->first();
-            
+              
             // Verificar si el rol existe
             if ($rol) {
                 // Asignar permisos al rol
