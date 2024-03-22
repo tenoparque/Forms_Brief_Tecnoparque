@@ -50,12 +50,10 @@ class SolicitudeController extends Controller
         $fechasFestivas = $this->mostrarFechasFestivas();
         $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
-<<<<<<< HEAD
         $usuarios = User::all();
         return view('solicitude.index', compact('solicitudes' , 'disabledDates' ,  'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
-=======
 
         $usuarios = User::whereHas('roles', function ($query) {
             $query->where('name', 'Designer');
@@ -63,10 +61,6 @@ class SolicitudeController extends Controller
         return view('solicitude.index', compact('solicitudes' , 'disabledDates' ,  'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
-
-        
-
->>>>>>> a5c82e4bbc72a0782896a96b73b62846f173c881
 
      public function search(Request $request)
     {
