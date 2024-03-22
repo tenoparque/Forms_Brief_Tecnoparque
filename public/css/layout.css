@@ -765,18 +765,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .progressbar li:before {
     content: counter(step);
     counter-increment: step;
-   
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    border: 1px solid #ddd;
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
     display: block;
     text-align: center;
     margin: 0 auto 10px auto;
     border-radius: 50%;
-    background-color: white;
-    transition: all 0.3s ease;
+    background-color:#dee2e6;
+   margin: auto;
+   padding: 0;
 }
+.progressbar li:before{
+    content: counter(step);
+    counter-increment: step;
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color:#dee2e6;
+   margin: auto;
+   padding: 0;
+}
+
+
+
 
 .progressbar li.active::before {
     background-color: #007bff; /* Color de fondo del indicador activo */
@@ -795,7 +811,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
    
 }
 
-.progressbar li:first-child::after {
+
+
+
+
+/* .progressbar li:first-child::after {
     content: none;
 }
 
@@ -814,7 +834,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .progressbar li.active ~ li::before {
     border-color: #ccc; /* Cambiar el color del indicador para mostrar progreso */
-}
+/* } */ 
 
 /*Diseño servicios asociados*/
 .form-group {

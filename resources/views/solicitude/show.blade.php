@@ -23,6 +23,21 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row top justify-content-center">
+                            <div class="col-3 text-center">
+                                <img src="../images/Mesa de trabajo 1.png" alt="icon" class="img-fluid" style="max-width: 100px;">
+                            </div>
+                            <div class="col-3 text-center">
+                                <img src="../images/iconos Brief-02.png" alt="icon" class="img-fluid" style="max-width: 100px;">
+                            </div>
+                            <div class="col-3 text-center">
+                                <img src="../images/iconos Brief-03.png" alt="icon" class="img-fluid" style="max-width: 100px;">
+                            </div>
+                            <div class="col-3 text-center">
+                                <img src="../images/iconos Brief-04.png" alt="icon" class="img-fluid" style="max-width: 100px;">
+                            </div>
+                        </div>
+                        
                         <div class="row">
                             <div class="">
                                 <div class="containerProgressBar" style="width: 95%; margin-left: 28px; margin-block-end: 50px; margin-block-end: 5%">
