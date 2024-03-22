@@ -525,28 +525,33 @@ public function obtenerFinesDeSemana()
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+   
+    
     public function asignarSolicitud(Request $request)
     {
-        //dd($request->all());
-
-        // Validar los datos recibidos en la solicitud
-        // $request->validate([
-        //     'solicitud_id' => 'required|exists:solicitudes,id',
-        //     'usuario_id' => 'required|exists:users,id',
-        // ]);
-
+        // Validar los datos recibidos en la solicitud si es necesario
+         $request->validate([
+            'solicitudId' => 'required|exists:solicitudes,id',
+            'designerId' => 'required|exists:users,id',
+         ]);
+    
+        // Acceder a los datos del formulario
+        $solicitudId = $request->input('solicitudId');
+        $designerId = $request->input('designerId');
+    
         // Crear un nuevo registro en el historial de asignaciones
-        $prueba = HistorialDeUsuariosPorSolicitude::create([
-            'id_solicitudes' => $request->solicitud_id,
-            'id_users' => $request->id_user,
-            'fecha_asignación' => now(), // Se utiliza la fecha actual
-            'id_estados' => 1, // Asignar el estado correspondiente
-        ]);
-
+        $historial = new HistorialDeUsuariosPorSolicitude();
+        $historial->id_solicitudes = $solicitudId;
+        $historial->id_users = $designerId;
+        $historial->fecha_asignacion = now();
+        $historial->id_estados = 1; // Asignar el estado correspondiente
+        $historial->save();
+    
         // Redireccionar o devolver una respuesta JSON según sea necesario
         return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador.');
     }
-
+    
+    
     /**
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse

@@ -84,8 +84,8 @@
                                                     {{ __('Duplicar') }}
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                 </a>
-                                                <button class="btnAsignar" id="btnVerAsignacion" data-toggle="modal"
-                                                    data-target="#asignacionModal">
+                                               
+                                                <button class="btnAsignar" onclick="abrirModalAsignacion({{ $solicitude->id }})" data-toggle="modal" data-target="#asignacionModal">
                                                     <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
                                                     {{ __('Asignar a diseñador') }}
                                                 </button>
@@ -99,6 +99,51 @@
                                 </tbody>
                             </table>
                         </div>
+
+
+                        
+                       <!-- Modal para mostrar la asiganción de una solicitud un diseñador-->
+<div class="modal fade" id="asignacionModal" tabindex="-1" role="dialog" aria-labelledby="historialModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="margin-left: 60px; position: relative; color: #00324D" class="modal-title" id="historialModalLabel">ASIGNAR SOLICITUD A UN DISEÑADOR</h5>
+            </div>
+            <div class="modal-body">
+                <div style="position: relative;">
+                    <select name="id_user" id="id_user" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar diseñador" required style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                        <option value="" disabled selected>Seleccionar diseñador...</option>
+                        @foreach ($usuarios as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
+                    </select>
+                    <div class="icono" style="right: 4%;">
+                        <div class="circle-play">
+                            <div class="circle"></div>
+                            <div class="triangle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
+                    {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
+                </button>
+                <!-- Botón para guardar la asignación -->
+                <button type="button" class="btnGuardar" onclick="guardarAsignacion()">
+                    {{ __('Guardar') }} <i class="fa-solid fa-save fa-sm iconDCR"></i>
+                </button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+                    </div>
+
+
+
 
                         <!-- Modal para mostrar la asiganción de una solicitud un diseñador-->
                         <!-- Modal para mostrar la asiganción de una solicitud un diseñador-->
@@ -142,6 +187,7 @@
                             </div>
                         </div>
                     </div>
+
                     </body>
                 </div>
                 {!! $solicitudes->links() !!}
@@ -151,6 +197,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script>
+
             // Agrega un evento click al botón "Ver Asignación"
             document.getElementById('btnVerAsignacion').addEventListener('click', function() {
                 // Abre el modal cuando se haga clic en el botón
@@ -164,6 +211,7 @@
                     $('#asignacionModal').modal('hide');
                 });
             });
+
 
             function hacerSolicitud() {
                 var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
@@ -192,4 +240,57 @@
             // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
             setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
         </script>
+
+<script>
+    // Variable para almacenar el ID de la solicitud
+    let solicitudId;
+
+    // Función para abrir el modal de asignación y guardar el ID de la solicitud
+    function abrirModalAsignacion(id) {
+        // Guardar el ID de la solicitud
+        solicitudId = id;
+        // Abrir el modal de asignación
+        $('#asignacionModal').modal('show');
+    }
+
+   // Definición única de guardarAsignacion()
+function guardarAsignacion() {
+    // Obtener el ID del diseñador seleccionado
+    const designerId = document.getElementById('id_user').value;
+
+    // Si deseas enviar una solicitud AJAX para guardar la asignación, puedes hacerlo aquí
+    // Por ejemplo:
+    $.ajax({
+         type: 'POST',
+         url: '{{ route('solicitudes.asignar') }}',
+         data: {
+             solicitudId: solicitudId,
+             designerId: designerId
+         },
+         success: function(response) {
+             // Manejar la respuesta del servidor si es necesario
+             console.log('Asignación guardada correctamente.');
+         },
+         error: function(xhr, status, error) {
+             // Manejar errores si es necesario
+             console.error('Error al guardar la asignación:', error);
+         }
+     });
+
+    // Aquí puedes incluir cualquier otra lógica que necesites para guardar la asignación
+
+    // Mostrar en consola los IDs de la solicitud y del diseñador seleccionado
+    console.log('ID de la solicitud:', solicitudId);
+    console.log('ID del diseñador seleccionado:', designerId);
+
+    // Cerrar el modal de asignación
+    $('#asignacionModal').modal('hide');
+}
+
+</script>
+
+         
+              
+        
+
     @endsection
