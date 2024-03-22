@@ -138,7 +138,6 @@
                 {!! $solicitudes->links() !!}
             </div>
         </div>
-<<<<<<< HEAD
         </div>
 
 
@@ -173,9 +172,7 @@
 
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-=======
     </section>
->>>>>>> 7d379372d9ead54210a015efa483c13009744289
 
     <form id="asignacionForm" action="{{ route('solicitudes.asignar') }}" method="POST">
         @csrf
