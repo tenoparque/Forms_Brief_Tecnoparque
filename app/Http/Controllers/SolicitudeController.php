@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 use App\Models\HistorialDeModificacionesPorSolicitude;
+use App\Models\ModelHasRole;
 use App\Models\Prueba;
 use App\Models\User;
 
@@ -49,7 +50,9 @@ class SolicitudeController extends Controller
         $fechasFestivas = $this->mostrarFechasFestivas();
         $finesSemanas = $this->obtenerFinesDeSemana(); 
         $disabledDates = array_merge($fechasFestivas, $finesSemanas);
-        $usuarios = User::all();
+        $usuarios = User::whereHas('roles', function ($query) {
+            $query->where('name', 'Designer');
+        })->get();
         return view('solicitude.index', compact('solicitudes' , 'disabledDates' ,  'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
