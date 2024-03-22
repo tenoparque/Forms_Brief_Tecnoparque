@@ -38,11 +38,11 @@ class TiposDeDatoController extends Controller
                 <td>' . $tipo->nombre . '</td>
                 <td>' . $tipo->estado->nombre . '</td>
                 <td>
-                    <a href="' . url('/tipos-de-datos/' . $tipo->id) . '" class="btn btn-sm btn-primary">
-                        <i class="fa fa-fw fa-eye"></i> Show
+                    <a href="' . url('/tipos-de-datos/' . $tipo->id) . '" class="btnDetalle">
+                        <i class="fa fa-fw fa-eye iconDCR"></i> Detalle
                     </a>
-                    <a href="' . url('/tipos-de-datos/' . $tipo->id . '/edit') . '" class="btn btn-sm btn-success">
-                        <i class="fa fa-fw fa-edit"></i> Edit
+                    <a href="' . url('/tipos-de-datos/' . $tipo->id . '/edit') . '" class="btnEdit">
+                        <i class="fa fa-fw fa-edit iconEdit"></i> Editar
                     </a>
                 </td>
             </tr>';

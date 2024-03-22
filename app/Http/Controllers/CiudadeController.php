@@ -38,11 +38,11 @@ class CiudadeController extends Controller
                 <td>' . $ciudade->nombre . '</td>
                 <td>' . $ciudade->departamento->nombre . '</td>
                 <td>
-                    <a href="' . url('/ciudades/' . $ciudade->id) . '" class="btn btn-sm btn-primary">
-                        <i class="fa fa-fw fa-eye"></i> Show
+                    <a href="' . url('/ciudades/' . $ciudade->id) . '" class="btnDetalle">
+                        <i class="fa fa-fw fa-eye iconDCR"></i> Detalle
                     </a>
-                    <a href="' . url('/ciudades/' . $ciudade->id . '/edit') . '" class="btn btn-sm btn-success">
-                        <i class="fa fa-fw fa-edit"></i> Edit
+                    <a href="' . url('/ciudades/' . $ciudade->id . '/edit') . '" class="btnEdit">
+                        <i class="fa fa-fw fa-edit iconEdit"></i> Editar
                     </a>
                 </td>
             </tr>';
