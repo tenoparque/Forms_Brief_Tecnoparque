@@ -362,7 +362,7 @@
                                             <div>
                                                 <h2>
                                                     <span class="primeraPalabraFlex">ROL: </span><span
-                                                        class="segundaPalabraFlex"> {{ $nombreRol }}</span>
+                                                        class="segundaPalabraFlex" style="text-transform: uppercase"> {{ $nombreRol }}</span>
                                                 </h2>
                                             </div>
                                         </div>
@@ -412,6 +412,7 @@
     .primeraPalabraFlex {
         margin-right: 10px;
         color: {{ $colorSecundario }};
+        font-weight: 700;
 
     }
 
