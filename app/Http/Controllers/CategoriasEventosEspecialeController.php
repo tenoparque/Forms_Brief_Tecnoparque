@@ -38,11 +38,11 @@ class CategoriasEventosEspecialeController extends Controller
                 <td>' . $categoriaEventosEspecial->nombre . '</td>
                 <td>' . $categoriaEventosEspecial->estado->nombre . '</td>
                 <td>
-                    <a href="' . url('/categorias-eventos-especiales/' . $categoriaEventosEspecial->id) . '" class="btn btn-sm btn-primary">
-                        <i class="fa fa-fw fa-eye"></i> Show
+                    <a href="' . url('/categorias-eventos-especiales/' . $categoriaEventosEspecial->id) . '" class="btnDetalle">
+                        <i class="fa fa-fw fa-eye iconDCR"></i> Detalle
                     </a>
-                    <a href="' . url('/categorias-eventos-especiales/' . $categoriaEventosEspecial->id . '/edit') . '" class="btn btn-sm btn-success">
-                        <i class="fa fa-fw fa-edit"></i> Edit
+                    <a href="' . url('/categorias-eventos-especiales/' . $categoriaEventosEspecial->id . '/edit') . '" class="btnEdit">
+                        <i class="fa fa-fw fa-edit iconEdit"></i> Editar
                     </a>
                 </td>
             </tr>';
@@ -79,7 +79,7 @@ class CategoriasEventosEspecialeController extends Controller
         $categoriasEventosEspeciale = CategoriasEventosEspeciale::create($request->all());
 
         return redirect()->route('categorias-eventos-especiales.index')
-            ->with('success', 'Categoria Creada Exitosamente');
+            ->with('success', 'CategoriasEventosEspeciale created successfully.');
     }
 
     /**
@@ -123,7 +123,11 @@ class CategoriasEventosEspecialeController extends Controller
         $categoriasEventosEspeciale->update($request->all());
 
         return redirect()->route('categorias-eventos-especiales.index')
+<<<<<<< HEAD
             ->with('success', 'Categoria Actualizada Exitosamente');
+=======
+            ->with('success', 'CategoriasEventosEspeciale updated successfully');
+>>>>>>> 3a42255f1266eb552b1364550173074a8f4a9c24
     }
 
     // /**

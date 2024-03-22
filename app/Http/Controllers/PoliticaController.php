@@ -51,11 +51,11 @@ class PoliticaController extends Controller
                     <td>' . $politica->titulo . '</td>
                     
                     <td>
-                        <a href="' . url('/politicas/' . $politica->id) . '" class="btn btn-sm btn-primary">
-                            <i class="fa fa-fw fa-eye"></i> Show
+                        <a href="' . url('/politicas/' . $politica->id) . '" class="btnDetalle">
+                            <i class="fa fa-fw fa-eye iconDCR"></i> Detalle
                         </a>
-                        <a href="' . url('/politicas/' . $politica->id . '/edit') . '" class="btn btn-sm btn-success">
-                            <i class="fa fa-fw fa-edit"></i> Edit
+                        <a href="' . url('/politicas/' . $politica->id . '/edit') . '" class="btnEdit">
+                            <i class="fa fa-fw fa-edit iconEdit"></i> Editar
                         </a>
                     </td>
                 </tr>';

@@ -28,22 +28,31 @@ class EstadosDeLasSolictudeController extends Controller
 
     public function search(Request $request)
     {
-        $output= ""; // The output variable is defined and initialized
-        $estadosDeLasSolicitudes = EstadosDeLasSolictude::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Estado de la Solicitud name
+        $output = ""; // The output variable is defined and initialized
+        $estadosDeLasSolicitudes = EstadosDeLasSolictude::where('nombre', 'LIKE', '%' . $request->search . '%')->get(); // We make the query through the Estado de la Solicitud name
 
         // We use the loop foreach to iterate the aggregation of records
-        foreach($estadosDeLasSolicitudes as $estadosDeLaSolicitud){
-            $output .= 
-            '<tr>
+        foreach ($estadosDeLasSolicitudes as $estadosDeLaSolicitud) {
+            $output .=
+                '<tr>
                 <td>' . $estadosDeLaSolicitud->id . '</td>
                 <td>' . $estadosDeLaSolicitud->nombre . '</td>
                 <td>' . $estadosDeLaSolicitud->estado->nombre . '</td>
+                <td>' . $estadosDeLaSolicitud->orden_mostrado . '</td>
                 <td>
-                    <a href="' . url('/estados-de-las-solictudes/' . $estadosDeLaSolicitud->id) . '" class="btn btn-sm btn-primary">
-                        <i class="fa fa-fw fa-eye"></i> Show
+                    <a href="' . url('/estados-de-las-solictudes/' . $estadosDeLaSolicitud->id) . '" class="btn btn-outline"
+                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                    onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
+                    onmouseout="this.style.backgroundColor=\'#FFFF\';">
+                    <i class="fa fa-eye fa-xs" style="color: #642c78; margin-left: 5px;"></i>
+                    Detalle
                     </a>
-                    <a href="' . url('/estados-de-las-solictudes/' . $estadosDeLaSolicitud->id . '/edit') . '" class="btn btn-sm btn-success">
-                        <i class="fa fa-fw fa-edit"></i> Edit
+                    <a href="' . url('/estados-de-las-solictudes/' . $estadosDeLaSolicitud->id . '/edit') . '" class="btn btn-outline"
+                    style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
+                    onmouseover="this.style.backgroundColor=\'#b2ebf2\';"
+                    onmouseout="this.style.backgroundColor=\'#FFFF\';">
+                    <i class="fa fa-pen-to-square fa-xs" style="color: #39a900;"></i>
+                    Editar
                     </a>
                 </td>
             </tr>';
@@ -62,7 +71,7 @@ class EstadosDeLasSolictudeController extends Controller
         $estadosDeLasSolictude = new EstadosDeLasSolictude();
         $ultimoOrdenMostrado = EstadosDeLasSolictude::max('orden_mostrado');
         $estados = Estado::all(); // We obtain all Estados models from the database
-        return view('estados-de-las-solictude.create', compact('estadosDeLasSolictude','ultimoOrdenMostrado')); // We pass the variables $estadosDeLasSolictude and $estados to the view
+        return view('estados-de-las-solictude.create', compact('estadosDeLasSolictude', 'ultimoOrdenMostrado')); // We pass the variables $estadosDeLasSolictude and $estados to the view
     }
 
     /**
@@ -145,8 +154,8 @@ class EstadosDeLasSolictudeController extends Controller
         $estadosDeLasSolictudes = EstadosDeLasSolictude::with('estado')->get();
         return view('estados-de-las-solictude.editar-orden', compact('estadosDeLasSolictudes'));
     }
-    
-    
+
+
 
     public function actualizarOrden(Request $request)
     {
@@ -159,11 +168,11 @@ class EstadosDeLasSolictudeController extends Controller
                     $existingOrdenMostrado = EstadosDeLasSolictude::whereIn('id', array_keys($request->orden_mostrado))
                         ->pluck('orden_mostrado')
                         ->toArray();
-        
+
                     $duplicates = array_diff_assoc($existingOrdenMostrado, array_unique($existingOrdenMostrado));
-        
+
                     // Checking for duplicates in the displayed orden_mostrado numbers
-                    if (!empty($duplicates)) {
+                    if (!empty ($duplicates)) {
                         $fail('No se pueden tener números de orden mostrado duplicados.');
                     }
                 },
