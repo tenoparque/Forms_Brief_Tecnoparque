@@ -138,6 +138,40 @@
                 {!! $solicitudes->links() !!}
             </div>
         </div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // javascript and ajax code
+        $('#search').on('keyup',function()
+        {
+            $value=$(this).val();
+
+            if ($value) {
+                $('.alldata').hide();
+                $('.dataSearched').show();
+            } else {
+                $('.alldata').show();
+                $('.dataSearched').hide(); 
+            }
+
+            $.ajax({
+                type: 'get',
+                url: "{{ URL::to('searchSolicitude') }}",
+                data:{'search': $value},
+
+                success:function(data)
+                {
+                    $('#Content').html(data);
+                }
+            });
+        })
+    </script>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </section>
 
     <form id="asignacionForm" action="{{ route('solicitudes.asignar') }}" method="POST">
