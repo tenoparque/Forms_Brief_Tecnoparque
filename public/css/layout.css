@@ -649,7 +649,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* Icono comboBox */
 
 .icono{
-    cursor: pointer
+    cursor: pointer;
 }
 
 .btnVerHistorial{

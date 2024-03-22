@@ -85,7 +85,7 @@
     @include('sweetalert::alert')
 
     <div class="wrapper">
-        @if (Route::currentRouteName() !== 'login')
+        @if (Route::currentRouteName() == 'login' && Route::currentRouteName() == 'password/reset ')
             <div class="wrapper">
                 <aside id="sidebar">
                     <button class="toggle-btn" type="button">
