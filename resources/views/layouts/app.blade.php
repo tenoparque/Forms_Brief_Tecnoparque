@@ -478,5 +478,11 @@
         border-left: 12px solid {{ $colorPrincipal }};
     }
 </style>
+<script>
+    window.onbeforeunload = function() {
+    history.replaceState(null, null, location.pathname);
+}
+
+</script>
 
 </html>
