@@ -52,7 +52,7 @@ Route::get('/searchDatoUnico', [DatosUnicosPorSolicitudeController::class, 'sear
 Route::resource('estados', EstadoController::class)->middleware('permission:estados.index'); // Estados route with permission
 
 // Politicas
-Route::resource('politicas',PoliticaController ::class); // Politicas Route
+Route::resource('politicas',PoliticaController ::class)->middleware('permission:politicas.index'); // Politicas Route with permission
 
 // Departamentos
 Route::resource('departamentos', DepartamentoController::class); // Departamentos Route
