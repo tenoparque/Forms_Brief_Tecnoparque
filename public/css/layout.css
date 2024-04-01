@@ -706,144 +706,172 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 10px;
 }
 
+
+
+
 /*diseño progressbar*/
 
-.containerProgressBar {
-    height: 200px;
-    width: 60%;
-    position: relative;
-    z-index: 1;
-    /* Asegura que el div esté en frente */
+/*#progressbar{
+    margin-bottom: 30px;
     overflow: hidden;
-    /* Oculta el contenido que se desborda */
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    display:grid ;
-}
-
-.progressbar li {
-    list-style-type: none;
-    float: left;
-    width: 33.33%;
-    position: relative;
-    text-align: center;
-    z-index: 2;
-
-}
-
-.progressbar li span {
-    position: relative;
-    color: #555; /* Color del texto */
-    font-size: 14px; /* Tamaño de la fuente */
-    display: block;
-}
-
-.progressbar {
-    list-style-type: none;
+    padding-left: 0;
+    margin-top: 30px;
     counter-reset: step;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-
-.progressbar li::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    /* Increase line width if needed */
-    background-color: #ddd;
-    /* Change line color */
-    top: 15px;
-    left: -46%;
-    z-index: -1;
-    /* Keep lines behind the div */
-}
-.progressbar li:before {
-    content: counter(step);
-    counter-increment: step;
-    width: 40px;
-    height: 40px;
-    line-height: 45px;
-    display: block;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    background-color:#dee2e6;
-   margin: auto;
-   padding: 0;
-}
-
-.progressbar li::before{
-    width: 40px;
-    height: 40px;
-    line-height: 45px;
-    display: block;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    background-color:#dee2e6;
-   margin: auto;
-   padding: 0;
-    
-}
-.progressbar li:before {
-    content: counter(step);
-    counter-increment: step;
-    /* ... tus otros estilos ... */
-}
-
-.progressbar li.active:before {
-    content: "\2713"; /* Este es el código Unicode para el símbolo de verificación */
-    /* ... tus otros estilos ... */
-}
-
-
-
-.progressbar li.active::before {
-    background-color: #642c78; /* Color de fondo del indicador activo */
-    border-color: #642c78; /* Borde del indicador activo */
-    color: #fff; 
-    box-shadow: 0 0 5pxrgb(128, 0, 128); /* Sombra alrededor del indicador activo */
-}
-.progressbar li.active ~ li::before {
-    border-color: #ccc; /* Cambiar el color del indicador para mostrar progreso */
-}
-.progressbar li.active + li:after {
-
-    background: linear-gradient(to right, #007bff, #39a900); /* Degradado de color de izquierda a derecha */
-    transition: width 0.3s ease;
-    height: 3px;
+   
    
 }
 
-
-
-
-
-/* .progressbar li:first-child::after {
-    content: none;
+#progressbar li {
+    list-style-type: none;
+    float: left;
+    width: 25%;
+    position: relative;
+    text-align: center;
+    z-index: 3; 
+    float: left;
+    text-transform: uppercase;
+}
+#progressbar li:before {
+    content: '1';
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    background: #c5cae9;
+    border-radius: 50%;
+    margin: 0 auto  10px auto;
+    padding: auto;
+    position: relative;
+    z-index: 1; 
+    border: 1 px solid #007bff;
+}
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+    position: relative;
+    left: -50%;
+    top: 14px; 
+}
+#progressbar .step0::before{
+   font-family: serif;
+   content:'';
+   content: counter(step);
+   counter-increment: step;
+   color:#fff;
+   position: relative;
+   z-index: 3; 
 }
 
-.progressbar li.active {
-    color: #39a900;
-}
+/*conector barra*/
+ /*#progressbar li::after{
+    content: '';
+    width: 97%;
+    height: 12px;
+    background-color:#c5cae9 ;
+    position: absolute;
+    top: 16.7%;
+    left: 0%;
+    z-index: -1;
 
-.progressbar li.active:before {
-    border-color:#39a900
 }
-
-.progressbar li.active + li:after {
-    background-color: #39a900;
+#progressbar li:last-child::after{
+    border: top right radius 10px; 
+    border-bottom-right-radius: 10px;
+    position:absolute;
+    left: -50%;
+}
+#progressbar li:nth-child(2)::after,
+#progressbar li:nth-child(3)::after {
+    left: -50%;
+}
+#progressbar li:first-child::after{
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    left: 50%;
+}
+#progressbar li.active::before,
+#progressbar li.active::after{
+    background-color:#39a900;
     
 }
+#progressbar li.active::before{
+    font-family: serif;
+    content: "\2713";
+}
+*/
+.cardsoli {
+    z-index: 2;
+    position: relative;}
 
-.progressbar li.active ~ li::before {
-    border-color: #ccc; /* Cambiar el color del indicador para mostrar progreso */
-/* } */ 
+
+.progressbar{
+    counter-reset: step;
+}
+.progressbar li{
+    list-style-type: none;
+    float: left;
+    width: 25% !important;
+    position: relative;
+    text-align:center;
+}
+.progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border: 2px solid #FFF;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    z-index: 2; /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
+    background-color: #ddd;
+}
+
+.progressbar li::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 7px;
+    background-color: #ddd;
+    top: 15px;
+    left: -50%;
+    z-index: -1; /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
+}
+.progressbar  li:first-child::after {
+    content: none;
+}
+.progressbar li.active{
+    color: #642c78 ;
+}
+.progressbar li.active + li::after {
+    background: linear-gradient(to right, #007bff, #39a900);
+}
+.progressbar li.active::before{
+    content: "\2714";
+    color: #FFF; 
+    font-size: 24px; /* Ajusta el tamaño según sea necesario */
+    font-weight: bold; /* Hace que la marca de verificación sea más gruesa */
+    background-color: #642c78;
+    border-color: #642c78;
+    box-shadow: 0 0 5px rgb(128, 0, 128);
+    border:#FFF;
+ 
+}
+.progressbar li.active::before {
+    background-color: #642c78; 
+    border-color: #642c78;
+    box-shadow: 0 0 5pxrgb(128, 0, 128);
+}
+
+
+
+
 
 /*Diseño servicios asociados*/
 .form-group {

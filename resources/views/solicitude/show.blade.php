@@ -2,13 +2,11 @@
 
 @section('template_title')
     {{ $solicitude->name ?? " __('Show') Solicitude" }}
-
 @endsection
 
 @section('content')
-
     <section class="container shadow p-4 my-5 bg-light rounded">
-        <div class="container">
+        <div class="container cardsoli">
             <div class="col-sm-12">
                 <div class="">
                     <div class="card-header">
@@ -24,28 +22,34 @@
                             </div>
                         </div>
                         <div class="row top justify-content-center">
-                            <div class="col-3 text-center">
-                                <img src="../images/Mesa de trabajo 1.png" alt="icon" class="img-fluid" style="max-width: 100px;">
+                            <div style="padding-left:70px;" class="col-3 text-center">
+                                <img src="../images/Mesa de trabajo 1.png" alt="icon" class="img-fluid"
+                                    style="max-width: 100px;">
+                            </div>
+                            <div style="padding-left: 55px " class="col-3 text-center">
+                                <img src="../images/iconos Brief-02.png" alt="icon" class="img-fluid"
+                                    style="max-width: 100px;">
                             </div>
                             <div class="col-3 text-center">
-                                <img src="../images/iconos Brief-02.png" alt="icon" class="img-fluid" style="max-width: 100px;">
+                                <img src="../images/iconos Brief-03.png" alt="icon" class="img-fluid"
+                                    style="max-width: 100px;">
                             </div>
                             <div class="col-3 text-center">
-                                <img src="../images/iconos Brief-03.png" alt="icon" class="img-fluid" style="max-width: 100px;">
-                            </div>
-                            <div class="col-3 text-center">
-                                <img src="../images/iconos Brief-04.png" alt="icon" class="img-fluid" style="max-width: 100px;">
+                                <img src="../images/iconos Brief-04.png" alt="icon" class="img-fluid"
+                                    style="max-width: 100px;">
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="">
-                                <div class="containerProgressBar" style="width: 95%; margin-left: 28px; margin-block-end: 50px; margin-block-end: 5%">
-                                    <ul class="progressbar">
+                                <div class="containerProgressBar">
+                                    <ul id="progressbar" class="progressbar">
                                         @foreach ($estados as $estado)
-                                            <li class="{{ $estado->orden_mostrado <= $estadoActual->orden_mostrado ? 'active' : '' }} {{ $estado->nombre }}">
+                                            <li
+                                                class="step0 {{ $estado->orden_mostrado <= $estadoActual->orden_mostrado ? 'active' : '' }} {{ $estado->nombre }}">
                                                 <span>{{ $estado->nombre }}</span>
-                                                <i class="fas fa-check-circle" style="display: none;"></i> <!-- Icono de check -->
+                                                <i class="fas fa-check-circle" style="display: none;"></i>
+                                                <!-- Icono de check -->
                                             </li>
                                         @endforeach
                                     </ul>
@@ -55,17 +59,16 @@
 
                     </div>
                     <script>
-
                         function cambiarEstado() {
-    // Aquí obtén el índice del estado actual o cualquier otra lógica necesaria para determinar cuál estado se ha completado
-    // Supongamos que tienes una variable llamada 'indiceEstadoActual' que representa el índice del estado actual
+                            // Aquí obtén el índice del estado actual o cualquier otra lógica necesaria para determinar cuál estado se ha completado
+                            // Supongamos que tienes una variable llamada 'indiceEstadoActual' que representa el índice del estado actual
 
-    // Mostrar el icono de check correspondiente al estado completado
-    const iconoCheck = document.querySelectorAll('.progressbar li i')[indiceEstadoActual];
-    iconoCheck.style.display = 'inline-block';
-}
+                            // Mostrar el icono de check correspondiente al estado completado
+                            const iconoCheck = document.querySelectorAll('.progressbar li i')[indiceEstadoActual];
+                            iconoCheck.style.display = 'inline-block';
+                        }
                     </script>
-                    <div class="card-body">
+                    <div style="margin-top: 80px" class="card-body">
                         <div class="table-responsive"
                             style="background-color: transparent; border-color:transparent; margin-block-start: 10px;">
                             <table class="table table-bordered table-hover"
@@ -161,13 +164,12 @@
                                                 <strong>Cambios:</strong> {{ $historial->first()->modificacion }}
                                             </p>
                                             <div class="align-right">
-                                                <button style="margin-left:85%" type="button" class="btnVerHistorial" id="btnVerHistorial" data-toggle="modal" data-target="#historialModal">
+                                                <button style="margin-left:85%" type="button" class="btnVerHistorial"
+                                                    id="btnVerHistorial" data-toggle="modal" data-target="#historialModal">
                                                     Ver historial
                                                     <i class="fa-solid fa-clock-rotate-left fa-sm iconDCR"></i>
                                                 </button>
                                             </div>
-                                            
-                                            
                                         @else
                                             <p>No hay historial de modificaciones</p>
                                         @endif
@@ -233,7 +235,7 @@
                     </ul>
                 </div>
                 <div class="modal-footer"style="display: none;">
-                    
+
                     <button type="button" class="btnModificar cerrar-modal" data-dismiss="modal">
                         {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR" style="padding: 10px"></i>
                     </button>
