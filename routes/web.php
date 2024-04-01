@@ -97,9 +97,8 @@ Route::get('/searchPersonalizaciones', [PersonalizacioneController::class, 'sear
 // Datos Unicos por Solicitudes
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class)->middleware('permission:datosUnicosSolicitud.index'); // Datos Unicos por Solicitud Route with permission
 
-
-
-Route::resource('solicitudes', SolicitudeController::class);
+// Solicitudes
+Route::resource('solicitudes', SolicitudeController::class)->middleware('permission:solicitudes.index'); // Solicitudes Route with permission
 Route::get('/searchSolicitude', [SolicitudeController::class, 'search']); // solicitudes Searching Route
 
 Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolicitudeController::class);
