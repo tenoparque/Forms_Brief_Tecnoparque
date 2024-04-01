@@ -69,11 +69,11 @@ Route::get('/searchRol', [RoleController::class, 'search']); // Roles Searching 
 // Estados de las solicitudes
 Route::get('/estados-de-las-solictudes/editar-orden', [EstadosDeLasSolictudeController::class, 'editarOrden'])->name('estados-de-las-solictudes.editar-orden'); // Route to go to the editar-orden view
 Route::put('/estados-de-las-solictudes/actualizar-orden', [EstadosDeLasSolictudeController::class, 'actualizarOrden'])->name('estados-de-las-solictudes.actualizar-orden'); // Route for the method actualizar-orden to update the orden_mostrado
-Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class)->middleware('permission:estadosSolicitudes.index'); // Estados de las solicitudes
+Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class)->middleware('permission:estadosSolicitudes.index'); // Estados de las solicitudes Route with permission
 Route::get('/searchEstadoSolicitud', [EstadosDeLasSolictudeController::class, 'search']); // Estados de las solicitudes Searching Route
 
 // Tipos de Datos
-Route::resource('tipos-de-datos', TiposDeDatoController::class);
+Route::resource('tipos-de-datos', TiposDeDatoController::class)->middleware('permission:tiposDeDato.index'); // Tipos de Dato Route with permission
 
 // Categorias de Eventos Especiales
 Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class); // Categorias de Eventos Especiales
