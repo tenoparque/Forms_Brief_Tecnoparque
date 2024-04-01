@@ -63,7 +63,7 @@ Route::resource('nodos', NodoController::class)->middleware('permission:nodos.in
 Route::get('/searchNodo', [NodoController::class, 'search']); // Nodos Searching Route
 
 // Roles
-Route::resource('roles', RoleController::class); // Roles Route
+Route::resource('roles', RoleController::class)->middleware('permission:roles.index'); // Roles Route with permissionv
 Route::get('/searchRol', [RoleController::class, 'search']); // Roles Searching Route
 
 // Estados de las solicitudes
