@@ -81,8 +81,9 @@
                                                     {{ __('Duplicar') }}
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                 </a>
-                                               
-                                                <button class="btnAsignar" onclick="abrirModalAsignacion({{ $solicitude->id }})">
+
+                                                <button class="btnAsignar"
+                                                    onclick="abrirModalAsignacion({{ $solicitude->id }})">
                                                     <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
                                                     {{ __('Asignar a diseñador') }}
                                                 </button>
@@ -98,18 +99,23 @@
                         </div>
 
                         <!-- Modal para mostrar la asignación de una solicitud un diseñador -->
-                        <div class="modal fade" id="asignacionModal" tabindex="-1" role="dialog" aria-labelledby="historialModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="asignacionModal" tabindex="-1" role="dialog"
+                            aria-labelledby="historialModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 style="margin-left: 60px; position: relative; color: #00324D" class="modal-title" id="historialModalLabel">ASIGNAR SOLICITUD A UN DISEÑADOR</h5>
+                                        <h5 style="margin-left: 60px; position: relative; color: #00324D"
+                                            class="modal-title" id="historialModalLabel">ASIGNAR SOLICITUD A UN DISEÑADOR
+                                        </h5>
                                     </div>
                                     <div class="modal-body">
                                         <div style="position: relative;">
-                                            <select name="id_user" id="id_user" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar diseñador" required style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                                            <select name="id_user" id="id_user" class="form-control selectpicker"
+                                                data-style="btn-primary" title="Seleccionar diseñador" required
+                                                style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                                                 <option value="" disabled selected>Seleccionar diseñador...</option>
                                                 @foreach ($usuarios as $user)
-                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                                                 @endforeach
                                             </select>
                                             <div class="icono" style="right: 4%;">
@@ -121,7 +127,8 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btnModificar cerrar-modal" onclick="cerrarModalAsignacion()">
+                                        <button type="button" class="btnModificar cerrar-modal"
+                                            onclick="cerrarModalAsignacion()">
                                             {{ __('Cerrar') }} <i class="fa-solid fa-circle-xmark fa-sm iconDCR"></i>
                                         </button>
                                         <!-- Botón para guardar la asignación -->
@@ -129,7 +136,7 @@
                                             {{ __('Guardar') }} <i class="fa-solid fa-save fa-sm iconDCR"></i>
                                         </button>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -142,32 +149,32 @@
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-        // javascript and ajax code
-        $('#search').on('keyup',function()
-        {
-            $value=$(this).val();
+        <script>
+            // javascript and ajax code
+            $('#search').on('keyup', function() {
+                $value = $(this).val();
 
-            if ($value) {
-                $('.alldata').hide();
-                $('.dataSearched').show();
-            } else {
-                $('.alldata').show();
-                $('.dataSearched').hide(); 
-            }
-
-            $.ajax({
-                type: 'get',
-                url: "{{ URL::to('searchSolicitude') }}",
-                data:{'search': $value},
-
-                success:function(data)
-                {
-                    $('#Content').html(data);
+                if ($value) {
+                    $('.alldata').hide();
+                    $('.dataSearched').show();
+                } else {
+                    $('.alldata').show();
+                    $('.dataSearched').hide();
                 }
-            });
-        })
-    </script>
+
+                $.ajax({
+                    type: 'get',
+                    url: "{{ URL::to('searchSolicitude') }}",
+                    data: {
+                        'search': $value
+                    },
+
+                    success: function(data) {
+                        $('#Content').html(data);
+                    }
+                });
+            })
+        </script>
 
 
 
@@ -227,10 +234,11 @@
         }
 
         function cerrarModalAsignacion() {
-            // Mostrar el modal de asignación de diseñador
+            // Restablecer el valor predeterminado del select
+            $('#id_user').prop('selectedIndex', 0);
+
+            // Ocultar el modal de asignación de diseñador
             $('#asignacionModal').modal('hide');
         }
     </script>
-
 @endsection
-
