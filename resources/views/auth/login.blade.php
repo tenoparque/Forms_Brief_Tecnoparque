@@ -107,7 +107,7 @@
 
                             <div class="forgot">
                                 <a class="btn btn-link" href="{{ route('password.request') }}" style="white-space: nowrap;">
-                                    {{ __('¿ Olvidaste tu contraseña?') }}
+                                    {{ __('¿Olvidaste tu contraseña?') }}
                                 </a>
                             </div>
 

@@ -348,7 +348,7 @@
 
         <div class="main">
             <div class="">
-                <main class="">
+                <main class="" style="">
                     @if (Route::currentRouteName() !== 'login')
                         <header class="container-fluid  "
                             style="align-items: center; margin-top: 55px; margin-bottom: 50px">
