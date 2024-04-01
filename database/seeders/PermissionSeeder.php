@@ -18,24 +18,24 @@ class PermissionSeeder extends Seeder
 
         // User Permissions
         
-        // Permission::create(['name' => 'users.index']); // Index Users
-        // Permission::create(['name' => 'users.create']); // Create Users
-        // Permission::create(['name' => 'users.edit']); // Edit Users
-        // Permission::create(['name' => 'users.show']); // Show Users
+        Permission::create(['name' => 'users.index']); // Index Users
+        Permission::create(['name' => 'users.create']); // Create Users
+        Permission::create(['name' => 'users.edit']); // Edit Users
+        Permission::create(['name' => 'users.show']); // Show Users
 
-        // // Role Permissions
+        // Role Permissions
 
-        // Permission::create(['name' => 'roles.index']); // Index Roles
-        // Permission::create(['name' => 'roles.create']); // Create Roles
-        // Permission::create(['name' => 'roles.edit']); // Edit Roles
-        // Permission::create(['name' => 'roles.show']); // Show Roles
+        Permission::create(['name' => 'roles.index']); // Index Roles
+        Permission::create(['name' => 'roles.create']); // Create Roles
+        Permission::create(['name' => 'roles.edit']); // Edit Roles
+        Permission::create(['name' => 'roles.show']); // Show Roles
 
-        // Tipos de Dato Permissions
+        //Tipos de Dato Permissions
 
-        // Permission::create(['name' => 'tiposDeDato.index']); // Index Tipos de Dato
-        // Permission::create(['name' => 'tiposDeDato.create']); // Create Tipos de Dato
-        // Permission::create(['name' => 'tiposDeDato.edit']); // Edit Tipos de Dato
-        // Permission::create(['name' => 'tiposDeDato.show']); // Show Tipos de Dato
+        Permission::create(['name' => 'tiposDeDato.index']); // Index Tipos de Dato
+        Permission::create(['name' => 'tiposDeDato.create']); // Create Tipos de Dato
+        Permission::create(['name' => 'tiposDeDato.edit']); // Edit Tipos de Dato
+        Permission::create(['name' => 'tiposDeDato.show']); // Show Tipos de Dato
 
         // Departamentos Permissions
 
@@ -107,7 +107,7 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'tiposSolicitudes.edit']); // Edit Tipos de Solicitudes Permissions
         Permission::create(['name' => 'tiposSolicitudes.show']); // Show Tipos de Solicitudes Permissions
 
-        // Servicios Por Tipos de Solicitudes
+        //Servicios Por Tipos de Solicitudes
 
         Permission::create(['name' => 'serviciosPorTiposSolicitudes.index']); // Index Servicios Por Tipos de Solicitudes Permissions
         Permission::create(['name' => 'serviciosPorTiposSolicitudes.create']); // Create Servicios Por Tipos de Solicitudes Permissions
@@ -115,18 +115,18 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'serviciosPorTiposSolicitudes.show']); // Show Servicios Por Tipos de Solicitudes Permissions
 
 
-        // Estados de las Solicitudes
+       // Estados de las Solicitudes
 
         Permission::create(['name' => 'estadosSolicitudes.index']); // Index Estados de las Solicitudes Permissions
         Permission::create(['name' => 'estadosSolicitudes.create']); // Create Estados de las Solicitudes Permissions
         Permission::create(['name' => 'estadosSolicitudes.edit']); // Edit Estados de las Solicitudes Permissions
         Permission::create(['name' => 'estadosSolicitudes.show']); // Show Estados de las Solicitudes Permissions
 
-        // Cambiar estado de solicitud
-        // Permission::create(['name' => 'estadosSolicitudes.change']);
+       // Cambiar estado de solicitud
+        Permission::create(['name' => 'estadosSolicitudes.change']);
 
 
-        // Datos Unicos Por Solicitud
+        //Datos Unicos Por Solicitud
 
         Permission::create(['name' => 'datosUnicosSolicitud.index']); // Index Datos Unicos Por Solicitud Permissions
         Permission::create(['name' => 'datosUnicosSolicitud.create']); // Create Datos Unicos Por Solicitud Permissions
@@ -134,6 +134,6 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'datosUnicosSolicitud.show']); // Show Datos Unicos Por Solicitud Permissions
 
         // Poder hacer modificacion en solicitudes
-        // Permission::create(['name' => 'solicitudes.modification']);
+        Permission::create(['name' => 'solicitudes.modification']);
     }
 }
