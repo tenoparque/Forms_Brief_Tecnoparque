@@ -43,7 +43,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 // Ciudades
-Route::resource('ciudades', CiudadeController::class); // Ciudades Route
+Route::resource('ciudades', CiudadeController::class)->middleware('permission:ciudades.index'); // Ciudades Route with permission
 Route::get('/searchCiudad', [CiudadeController::class, 'search']); // Ciudades Searching Route
 
 Route::get('/searchDatoUnico', [DatosUnicosPorSolicitudeController::class, 'search']); // datos unicos por solicitudes Searching Route
