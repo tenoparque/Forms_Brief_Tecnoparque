@@ -55,8 +55,8 @@ Route::resource('estados', EstadoController::class)->middleware('permission:esta
 Route::resource('politicas',PoliticaController ::class)->middleware('permission:politicas.index'); // Politicas Route with permission
 
 // Departamentos
-Route::resource('departamentos', DepartamentoController::class); // Departamentos Route
-Route::get('/searchDepartamento', [DepartamentoController::class, 'search']); // Ciudades Searching Route
+Route::resource('departamentos', DepartamentoController::class)->middleware('permission:departamentos.index'); // Departamentos Route with permission
+Route::get('/searchDepartamento', [DepartamentoController::class, 'search']); // Departamento Searching Route
 
 // Nodos
 Route::resource('nodos', NodoController::class); // Nodos Route
