@@ -50,6 +50,7 @@ Route::get('/searchDatoUnico', [DatosUnicosPorSolicitudeController::class, 'sear
 
 // Estados
 Route::resource('estados', EstadoController::class)->middleware('permission:estados.index'); // Estados route with permission
+Route::get('/searchEstados', [EstadoController::class, 'search']); // Estados Searching Route
 
 // Politicas
 Route::resource('politicas',PoliticaController ::class)->middleware('permission:politicas.index'); // Politicas Route with permission
@@ -83,13 +84,9 @@ Route::get('/searchCategoriaEvento', [CategoriasEventosEspecialeController::clas
 Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class)->middleware('permission:tiposSolicitudes.index'); // Tipos de Solicitudes Route with permission
 Route::get('/searchTipoSolicitud', [TiposDeSolicitudeController::class, 'search']); // Tipos de Solicitudes Searching Route
 
-//Estados
-Route::get('/searchEstados', [EstadoController::class, 'search']); // Estados Searching Route
-
 //Eventos especiales por categorias
+Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class)->middleware('permission:eventosEspeciales.index'); // Eventos Especiales por Categoria Route with permission
 Route::get('/searchEventosEspeciales', [EventosEspecialesPorCategoriaController::class, 'search']); // Eventos especiales por categorias Searching Route
-Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class);
-
 
 //Personalizaciones
 Route::get('/searchPersonalizaciones', [PersonalizacioneController::class, 'search']); // Tipos de Solicitudes Searching Route
