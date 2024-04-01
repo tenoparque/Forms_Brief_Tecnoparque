@@ -85,7 +85,7 @@ class NodoController extends Controller
         // request()->validate(Nodo::$rules);
 
         $request->validate([
-            'name' => ['required'],
+            'nombre' => ['required'],
             'id_ciudad' => ['required']
         ]);
 
