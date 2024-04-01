@@ -80,7 +80,7 @@ Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeContr
 Route::get('/searchCategoriaEvento', [CategoriasEventosEspecialeController::class, 'search']); // Categorias de Eventos Especiales Searching Route
 
 // Tipos de Solicitudes
-Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class); // Tipos de Solicitudes
+Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class)->middleware('permission:tiposSolicitudes.index'); // Tipos de Solicitudes Route with permission
 Route::get('/searchTipoSolicitud', [TiposDeSolicitudeController::class, 'search']); // Tipos de Solicitudes Searching Route
 
 //Estados
