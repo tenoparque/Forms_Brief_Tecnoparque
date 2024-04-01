@@ -59,7 +59,7 @@ Route::resource('departamentos', DepartamentoController::class)->middleware('per
 Route::get('/searchDepartamento', [DepartamentoController::class, 'search']); // Departamento Searching Route
 
 // Nodos
-Route::resource('nodos', NodoController::class); // Nodos Route
+Route::resource('nodos', NodoController::class)->middleware('permission:nodos.index'); // Nodos Route with permission
 Route::get('/searchNodo', [NodoController::class, 'search']); // Nodos Searching Route
 
 // Roles
