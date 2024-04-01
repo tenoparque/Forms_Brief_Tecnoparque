@@ -202,7 +202,7 @@
                         console.log(respuesta.campoValor);
 
                         // Actualizar el valor en el elemento HTML
-                        document.getElementById('valor-actualizado').textContent = "valor " + respuesta.campoValor;
+                        document.getElementById('valor-actualizado').textContent = "Número Total de Solicitudes Recibidas " + respuesta.campoValor;
                     } else {
                         console.error('Error en la solicitud: ' + xhr
                             .status); // Imprimir el estado del error en la consola
