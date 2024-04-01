@@ -43,7 +43,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 // Ciudades
-Route::resource('ciudades', CiudadeController::class); // Ciudades Route
+Route::resource('ciudades', CiudadeController::class)->middleware('permission:ciudades.index'); // Ciudades Route with permission
 Route::get('/searchCiudad', [CiudadeController::class, 'search']); // Ciudades Searching Route
 
 Route::get('/searchDatoUnico', [DatosUnicosPorSolicitudeController::class, 'search']); // datos unicos por solicitudes Searching Route
@@ -52,31 +52,31 @@ Route::get('/searchDatoUnico', [DatosUnicosPorSolicitudeController::class, 'sear
 Route::resource('estados', EstadoController::class)->middleware('permission:estados.index'); // Estados route with permission
 
 // Politicas
-Route::resource('politicas',PoliticaController ::class); // Politicas Route
+Route::resource('politicas',PoliticaController ::class)->middleware('permission:politicas.index'); // Politicas Route with permission
 
 // Departamentos
-Route::resource('departamentos', DepartamentoController::class); // Departamentos Route
-Route::get('/searchDepartamento', [DepartamentoController::class, 'search']); // Ciudades Searching Route
+Route::resource('departamentos', DepartamentoController::class)->middleware('permission:departamentos.index'); // Departamentos Route with permission
+Route::get('/searchDepartamento', [DepartamentoController::class, 'search']); // Departamento Searching Route
 
 // Nodos
-Route::resource('nodos', NodoController::class); // Nodos Route
+Route::resource('nodos', NodoController::class)->middleware('permission:nodos.index'); // Nodos Route with permission
 Route::get('/searchNodo', [NodoController::class, 'search']); // Nodos Searching Route
 
 // Roles
-Route::resource('roles', RoleController::class); // Roles Route
+Route::resource('roles', RoleController::class)->middleware('permission:roles.index'); // Roles Route with permission
 Route::get('/searchRol', [RoleController::class, 'search']); // Roles Searching Route
 
 // Estados de las solicitudes
 Route::get('/estados-de-las-solictudes/editar-orden', [EstadosDeLasSolictudeController::class, 'editarOrden'])->name('estados-de-las-solictudes.editar-orden'); // Route to go to the editar-orden view
 Route::put('/estados-de-las-solictudes/actualizar-orden', [EstadosDeLasSolictudeController::class, 'actualizarOrden'])->name('estados-de-las-solictudes.actualizar-orden'); // Route for the method actualizar-orden to update the orden_mostrado
-Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class); // Estados de las solicitudes
+Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class)->middleware('permission:estadosSolicitudes.index'); // Estados de las solicitudes Route with permission
 Route::get('/searchEstadoSolicitud', [EstadosDeLasSolictudeController::class, 'search']); // Estados de las solicitudes Searching Route
 
 // Tipos de Datos
-Route::resource('tipos-de-datos', TiposDeDatoController::class);
+Route::resource('tipos-de-datos', TiposDeDatoController::class)->middleware('permission:tiposDeDato.index'); // Tipos de Dato Route with permission
 
 // Categorias de Eventos Especiales
-Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class); // Categorias de Eventos Especiales
+Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class)->middleware('permission:categoriasEventosEspeciales.index'); // Categorias de Eventos Especiales Route with permission
 Route::get('/searchCategoriaEvento', [CategoriasEventosEspecialeController::class, 'search']); // Categorias de Eventos Especiales Searching Route
 
 // Tipos de Solicitudes
