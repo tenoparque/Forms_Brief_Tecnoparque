@@ -54,6 +54,7 @@ Route::get('/searchEstados', [EstadoController::class, 'search']); // Estados Se
 
 // Politicas
 Route::resource('politicas',PoliticaController ::class)->middleware('permission:politicas.index'); // Politicas Route with permission
+Route::get('/searchPoliticas', [PoliticaController::class, 'search']); // politicas Searching Route
 
 // Departamentos
 Route::resource('departamentos', DepartamentoController::class)->middleware('permission:departamentos.index'); // Departamentos Route with permission
@@ -75,6 +76,7 @@ Route::get('/searchEstadoSolicitud', [EstadosDeLasSolictudeController::class, 's
 
 // Tipos de Datos
 Route::resource('tipos-de-datos', TiposDeDatoController::class)->middleware('permission:tiposDeDato.index'); // Tipos de Dato Route with permission
+Route::get('/searchTiposDato', [TiposDeDatoController::class, 'search']); // Tipos de Datos Searching Route
 
 // Categorias de Eventos Especiales
 Route::resource('categorias-eventos-especiales', CategoriasEventosEspecialeController::class)->middleware('permission:categoriasEventosEspeciales.index'); // Categorias de Eventos Especiales Route with permission
@@ -84,36 +86,27 @@ Route::get('/searchCategoriaEvento', [CategoriasEventosEspecialeController::clas
 Route::resource('tipos-de-solicitudes', TiposDeSolicitudeController::class)->middleware('permission:tiposSolicitudes.index'); // Tipos de Solicitudes Route with permission
 Route::get('/searchTipoSolicitud', [TiposDeSolicitudeController::class, 'search']); // Tipos de Solicitudes Searching Route
 
-//Eventos especiales por categorias
+// Eventos especiales por categorias
 Route::resource('eventos-especiales-por-categorias', EventosEspecialesPorCategoriaController::class)->middleware('permission:eventosEspeciales.index'); // Eventos Especiales por Categoria Route with permission
 Route::get('/searchEventosEspeciales', [EventosEspecialesPorCategoriaController::class, 'search']); // Eventos especiales por categorias Searching Route
 
-//Personalizaciones
+// Personalizaciones
+Route::resource('personalizaciones', PersonalizacioneController::class)->middleware('permission:personalizaciones.index'); // personalizaciones Route with permission
 Route::get('/searchPersonalizaciones', [PersonalizacioneController::class, 'search']); // Tipos de Solicitudes Searching Route
+   
+// Datos Unicos por Solicitudes
+Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class)->middleware('permission:datosUnicosSolicitud.index'); // Datos Unicos por Solicitud Route with permission
 
-
-//Politicas
-Route::get('/searchPoliticas', [PoliticaController::class, 'search']); // politicas Searching Route
-
-//Tipos de datos 
-Route::get('/searchTiposDato', [TiposDeDatoController::class, 'search']); // politicas Searching Route
-
-
-
-Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class);
-
-Route::resource('personalizaciones', PersonalizacioneController::class);
-
-Route::resource('solicitudes', SolicitudeController::class);
+// Solicitudes
+Route::resource('solicitudes', SolicitudeController::class)->middleware('permission:solicitudes.index'); // Solicitudes Route with permission
 Route::get('/searchSolicitude', [SolicitudeController::class, 'search']); // solicitudes Searching Route
 
 Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolicitudeController::class);
 
 // servicios-por-tipos-de-solicitudes
 Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class)->parameters([
-    'servicios-por-tipos-de-solicitudes' => 'id']);
-// search
-Route::get('/searchServiciosPorTiposDeSolicitude', [ServiciosPorTiposDeSolicitudeController::class, 'search']); // Nodos Searching Route
+    'servicios-por-tipos-de-solicitudes' => 'id'])->middleware('permission:serviciosPorTiposSolicitudes.index'); // Servicios por Tipo de Solicitud Route with permission
+Route::get('/searchServiciosPorTiposDeSolicitude', [ServiciosPorTiposDeSolicitudeController::class, 'search']); // Servicios por Tipo de Solicitud Searching Route
 
 Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
 
