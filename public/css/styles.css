@@ -61,6 +61,12 @@ col-md-6{
 }
 
 /* Estilos para el formulario de cambiar contraseña */
+
+
+
+form{
+    min-width: 400px;
+}
 .card-header {
     background-color: #39A900;
     color: white;
@@ -83,11 +89,34 @@ col-md-6{
     
 }
 
-.btn-primary-email {
-    background-color: #4d0040;
-    color: white;
-    margin-bottom: 10%;
-    margin-block-start: 4%;
+
+.form-control{
+    width: 100%; 
+    padding: 7px ;
+    margin: 9px 0;
+    border-radius: 50px; 
+    border-style: solid; 
+    border-width:1px; 
+    border-color: #ececec; 
+    background-color:  #ececec;
+    height:45px; 
+    margin-bottom: 10px;
+}
+
+.form-control:focus{
+    background-color: #ececec
+}
+.btnEmail {
+    font-size: 16px;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
+    background: #fff;
     
 }
 
@@ -165,7 +194,7 @@ button {
 }
 
 button:hover {
-    background-color:#038c5a;
+     background-color: #b2ebf2;
 }
 
 button:focus {
