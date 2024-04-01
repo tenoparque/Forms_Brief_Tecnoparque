@@ -29,6 +29,16 @@
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
+                                <label><input type="radio" name="parametro" value="tipo"> Tipo de Solicitud</label>
+                                {{-- <label><input type="radio" name="parametro" value="fecha"> Fecha y Hora</label> --}}
+                                <label><input type="radio" name="parametro" value="nodo"> Nodo</label>
+                                {{-- <label><input type="radio" name="parametro" value="usuario"> Usuario</label> --}}
+                                <label><input type="radio" name="parametro" value="evento"> Evento</label>
+                                <label><input type="radio" name="parametro" value="estado"> Estado</label>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col d-flex justify-content-between align-items-center">
                                 <input class="form-control" id="search" placeholder="Ingrese el tipo de solicitud..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                                 <a href="{{ route('solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
@@ -150,10 +160,18 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
+            $('input[name="parametro"]').change(function() {
+    // Obtener el valor seleccionado del radio button
+    $parametro = $(this).val();
+    //console.log(parametro);
+    // Realizar la búsqueda con el parámetro seleccionado
+    $('#search').attr('placeholder', 'Ingrese el ' + parametro + '...');
+});
+
             // javascript and ajax code
             $('#search').on('keyup', function() {
                 $value = $(this).val();
-
+                console.log($value);
                 if ($value) {
                     $('.alldata').hide();
                     $('.dataSearched').show();
@@ -161,12 +179,14 @@
                     $('.alldata').show();
                     $('.dataSearched').hide();
                 }
-
+                $parametro = $('input[name="parametro"]:checked').val();
+                console.log($parametro);
                 $.ajax({
                     type: 'get',
                     url: "{{ URL::to('searchSolicitude') }}",
                     data: {
-                        'search': $value
+                        'search': $value,
+                        'valor': $parametro
                     },
 
                     success: function(data) {

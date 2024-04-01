@@ -59,8 +59,26 @@ class SolicitudeController extends Controller
 
      public function search(Request $request)
     {
+        $parametro = $request->input('valor');
         $output= ""; // The output variable is defined and initialized
-        $solicitudes = Solicitude::where('id', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Solicitud name
+
+        if($parametro == 'tipo'){
+            $tipoId = TiposDeSolicitude::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
+            $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $tipoId)->get();
+        }
+        elseif($parametro == 'evento') {
+            // Hacer lo mismo para el evento especial por categoría
+            $eventoId = EventosEspecialesPorCategoria::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
+            $solicitudes = Solicitude::whereIn('id_eventos_especiales_por_categorias', $eventoId)->get();
+        }
+        elseif($parametro == 'estado') {
+            // Hacer lo mismo para el evento especial por categoría
+            $eventoId = EstadosDeLasSolictude::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
+            $solicitudes = Solicitude::whereIn('id_estado_de_la_solicitud', $eventoId)->get();
+        } 
+
+
+       
 
         // We use the loop foreach to iterate the aggregation of records
         foreach($solicitudes as $solicitude){
