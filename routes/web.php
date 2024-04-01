@@ -48,9 +48,11 @@ Route::get('/searchCiudad', [CiudadeController::class, 'search']); // Ciudades S
 
 Route::get('/searchDatoUnico', [DatosUnicosPorSolicitudeController::class, 'search']); // datos unicos por solicitudes Searching Route
 
-Route::resource('estados', EstadoController::class);
+// Estados
+Route::resource('estados', EstadoController::class)->middleware('permission:estados.index'); // Estados route with permission
 
-Route::resource('politicas',PoliticaController ::class);
+// Politicas
+Route::resource('politicas',PoliticaController ::class); // Politicas Route
 
 // Departamentos
 Route::resource('departamentos', DepartamentoController::class); // Departamentos Route
