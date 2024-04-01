@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <div class="row top justify-content-center">
-                            <div style="padding-left:70px;" class="col-3 text-center">
+                            <div style="padding-left:80px;" class="col-3 text-center">
                                 <img src="../images/Mesa de trabajo 1.png" alt="icon" class="img-fluid"
                                     style="max-width: 100px;">
                             </div>
