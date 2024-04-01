@@ -63,13 +63,13 @@ Route::resource('nodos', NodoController::class)->middleware('permission:nodos.in
 Route::get('/searchNodo', [NodoController::class, 'search']); // Nodos Searching Route
 
 // Roles
-Route::resource('roles', RoleController::class)->middleware('permission:roles.index'); // Roles Route with permissionv
+Route::resource('roles', RoleController::class)->middleware('permission:roles.index'); // Roles Route with permission
 Route::get('/searchRol', [RoleController::class, 'search']); // Roles Searching Route
 
 // Estados de las solicitudes
 Route::get('/estados-de-las-solictudes/editar-orden', [EstadosDeLasSolictudeController::class, 'editarOrden'])->name('estados-de-las-solictudes.editar-orden'); // Route to go to the editar-orden view
 Route::put('/estados-de-las-solictudes/actualizar-orden', [EstadosDeLasSolictudeController::class, 'actualizarOrden'])->name('estados-de-las-solictudes.actualizar-orden'); // Route for the method actualizar-orden to update the orden_mostrado
-Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class); // Estados de las solicitudes
+Route::resource('estados-de-las-solictudes', EstadosDeLasSolictudeController::class)->middleware('permission:estadosSolicitudes.index'); // Estados de las solicitudes
 Route::get('/searchEstadoSolicitud', [EstadosDeLasSolictudeController::class, 'search']); // Estados de las solicitudes Searching Route
 
 // Tipos de Datos
