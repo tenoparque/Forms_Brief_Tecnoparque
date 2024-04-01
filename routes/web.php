@@ -105,9 +105,8 @@ Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolic
 
 // servicios-por-tipos-de-solicitudes
 Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class)->parameters([
-    'servicios-por-tipos-de-solicitudes' => 'id']);
-// search
-Route::get('/searchServiciosPorTiposDeSolicitude', [ServiciosPorTiposDeSolicitudeController::class, 'search']); // Nodos Searching Route
+    'servicios-por-tipos-de-solicitudes' => 'id'])->middleware('permission:serviciosPorTiposSolicitudes.index'); // Servicios por Tipo de Solicitud Route with permission
+Route::get('/searchServiciosPorTiposDeSolicitude', [ServiciosPorTiposDeSolicitudeController::class, 'search']); // Servicios por Tipo de Solicitud Searching Route
 
 Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
 
