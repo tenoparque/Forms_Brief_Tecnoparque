@@ -34,7 +34,7 @@ class EnviarCorreoCredenciales extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Enviar Correo Credenciales',
+            subject: 'Credenciales de ingreso a Brief',
         );
     }
 
