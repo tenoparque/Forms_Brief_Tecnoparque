@@ -11,7 +11,22 @@ body {
 
 
 /* Estilos para el formulario de inicio de sesión / login  */
-
+.card_login {
+    background-color: rgba(50, 158, 4, 0.822);
+    border-radius: 20px;
+    width: 86% ;
+    margin-left: 8%;
+    height: 80%;
+    padding: 4%;
+    padding-top: 14%;
+    margin-block-start: 17% ;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    transition: 0.3s;
+    display: flex;    
+}
 
 .my-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.884);
@@ -44,8 +59,36 @@ col-md-6{
 }
 
 
+.btn-primary {
+    background-color: #00324D;
+    border:  none;
+    color: white;
+    width: 50%;
+    border-radius: 15px;
+    padding: 3% 10%;
+    margin-bottom: 18%;
+    cursor: pointer;
+}
 
+.btn-primary:hover {
+    background-color: #038c5a;
+}
 
+.titulo{
+  text-align: center;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 800;
+  font-size: 720%;
+  color: #ffffff;
+  
+}
+
+.subtitulo{
+    color: #f1e53d;
+    text-align: center;
+    font-size:170%;
+    font-weight: 300;
+}
 .logo{
     width: 100%;
     height: 130;
@@ -61,12 +104,6 @@ col-md-6{
 }
 
 /* Estilos para el formulario de cambiar contraseña */
-
-
-
-form{
-    min-width: 400px;
-}
 .card-header {
     background-color: #39A900;
     color: white;
@@ -89,34 +126,11 @@ form{
     
 }
 
-
-.form-control{
-    width: 100%; 
-    padding: 7px ;
-    margin: 9px 0;
-    border-radius: 50px; 
-    border-style: solid; 
-    border-width:1px; 
-    border-color: #ececec; 
-    background-color:  #ececec;
-    height:45px; 
-    margin-bottom: 10px;
-}
-
-.form-control:focus{
-    background-color: #ececec
-}
-.btnEmail {
-    font-size: 16px;
-    margin: 5px 0px;
-    padding: 6px 20px;
-    text-decoration: none;
-    color: #00324d;
-    border-radius: 35px;
-    outline: none;
-    border: 2px solid #82def0;
-    cursor: pointer;
-    background: #fff;
+.btn-primary-email {
+    background-color: #00324D;
+    color: white;
+    margin-bottom: 10%;
+    margin-block-start: 4%;
     
 }
 
@@ -194,7 +208,7 @@ button {
 }
 
 button:hover {
-     background-color: #b2ebf2;
+    background-color:#038c5a;
 }
 
 button:focus {
@@ -202,14 +216,11 @@ button:focus {
     box-shadow: 0 0 0 2px ;
 }
 .btn-outline-custom {
-    color:#364d00;
+    color:#00324D;
     border:2px solid #82DEF0;
     height: 50px; font-size: 20px;
     cursor: pointer;
     border-radius: 35px; justify-content: center;
     justify-items: center;
 }
-
-
-
 
