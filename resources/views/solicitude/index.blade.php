@@ -72,7 +72,7 @@
                                             <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
 
                                             <td id="buttoncell">
-                                                <a href="{{ route('solicitudes.show', $solicitude->id) }}"
+                                                <a  style="margin-left: 50px" href="{{ route('solicitudes.show', $solicitude->id) }}"
                                                     class="btnDetalle">
                                                     <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                     {{ __('Detalle') }}
@@ -92,7 +92,7 @@
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                 </a>
 
-                                                <button class="btnAsignar"
+                                                <button style="margin-left: 130px" class="btnAsignar"
                                                     onclick="abrirModalAsignacion({{ $solicitude->id }})">
                                                     <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
                                                     {{ __('Asignar a diseñador') }}
