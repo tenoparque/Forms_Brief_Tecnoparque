@@ -79,6 +79,16 @@ $(document).ready(function() {
     }
 });
 
+Swal.fire({
+    title: '¡Éxito!',
+    text: 'Operación realizada con éxito',
+    icon: 'success',
+}).then((result) => {
+    // Recarga la página cuando la alerta se cierre
+    if (result.isConfirmed) {
+        location.reload();
+    }
+});
 
 
 
