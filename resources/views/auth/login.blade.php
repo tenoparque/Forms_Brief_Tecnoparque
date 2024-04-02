@@ -68,15 +68,15 @@
 
                 <div class="card_login">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login') }}" style="min-width: 400px">
                             @csrf
                             <H1 class="titulo">Brief</H1>
                             <h3 class="subtitulo">Plataforma de solicitudes</h3>
                             <br>
                             <br>
-                            <div class="row mb-3 ">
+                            <div class="mb-3 " style="padding: 10px 0">
                                 <div class="col-md-9 ">
-                                    <input style="margin-left: 21%; width: 100%; " id="email" placeholder="CORREO"
+                                    <input style="margin-left: 13%; width: 110%; " id="email" placeholder="CORREO"
                                         type="email" class="form-control @error('email') is-invalid @enderror"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -88,12 +88,13 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="col-md-9 d-flex align-items-center" style="margin-left: 11%">
-                                    <input style="margin-left: 5.3%; margin-block-start: 4%" id="password"
+                                <div class="col-md-9 " >
+                                    <input style="margin-left:13%;width: 110%; " id="password"
                                         placeholder="CONTRASEÑA" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
-                                    <span style="margin-block-start: 4%" class="eye-icon"
+                                    <span style="margin-block-start: 4%;position:relative
+                                    ; top:-10px;" class="eye-icon"
                                         onclick="togglePasswordVisibility()">
                                         <i class="fa fa-eye-slash"></i>
                                     </span>
