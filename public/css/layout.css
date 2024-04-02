@@ -663,9 +663,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
-   
-    
 
+}
+.btnVerHistorial:hover{
+    background-color: #b2ebf2;
 }
 /* image */
 #qrImage {
