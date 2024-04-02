@@ -66,7 +66,7 @@
                     </span>
                 @enderror
             </div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
                 <label style="font-size: 16px; color:black" for="password"
                     class="form-label col-12 ">{{ __('Contraseña') }}</label>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
@@ -87,7 +87,7 @@
                     autocomplete="new-password"
                     style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;">
 
-            </div>
+            </div> -->
 
             <div class="col-md-6">
 

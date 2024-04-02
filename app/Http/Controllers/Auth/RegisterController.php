@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role as SpatieRol;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EnviarCorreoCredenciales;
 
 class RegisterController extends Controller
 {
@@ -54,7 +56,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -66,11 +68,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        // Generar una contraseña aleatoria
+        $password = $this->generateRandomPassword();
+
         $user = User::create([
             'name' => $data['name'], // Obtaining the name value provided through the name attribute
             'apellidos' => $data['apellidos'], // Obtaining the apellidos value provided through the name attribute
             'email' => $data['email'], // Obtaining the email value provided through the name attribute
-            'password' => Hash::make($data['password']), // Getting the value of the password through the name attribute and hashed at the same time
+            'password' => Hash::make($password), // Getting the value of the password through the name attribute and hashed at the same time
             'celular' => $data ['celular'], // Obtaining the celular value provided through the name attribute
             'id_nodo' => $data['id_nodo'], // Obtaining the id_nodo value provided through the name attribute
             'id_estado' => 1 // Assigned the default active value
@@ -85,9 +91,23 @@ class RegisterController extends Controller
             // If the role is found it is assigned to the user
             $user->assignRole($role);
         }
+
+        // Envía las credenciales por correo electrónico al usuario
+        Mail::to($user->email)->send(new EnviarCorreoCredenciales($user, $password));
     
         return $user;
     }
+
+    // Función para generar una contraseña aleatoria
+    private function generateRandomPassword($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $password = '';
+        for ($i = 0; $i < $length; $i++) {
+            $password .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $password;
+    }
+
 
     /**
      *  Crea
