@@ -111,7 +111,7 @@ Route::get('/searchServiciosPorTiposDeSolicitude', [ServiciosPorTiposDeSolicitud
 Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
 
 // Users
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->middleware('permission:users.index'); // Users Route with permission
 Route::get('/searchUser', [UserController::class, 'search']);
 
 Route::post('/solicitudes/eventos', [SolicitudeController::class, 'eventos'])->name('solicitudes.eventos');
