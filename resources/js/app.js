@@ -79,6 +79,17 @@ $(document).ready(function() {
     }
 });
 
+Swal.fire({
+    title: '¡Éxito!',
+    text: 'Operación realizada con éxito',
+    icon: 'success',
+}).then((result) => {
+    // Recarga la página cuando la alerta se cierre
+    if (result.isConfirmed) {
+        location.reload();
+    }
+});
+
 // Simulación del progreso
 const steps = document.querySelectorAll('.step');
 let currentStep = 0;
@@ -103,7 +114,6 @@ document.addEventListener('keydown', (event) => {
     updateProgress();
   }
 });
-
 
 
 
