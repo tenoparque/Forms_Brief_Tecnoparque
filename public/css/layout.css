@@ -326,7 +326,9 @@ header{
     justify-content: center;
     justify-items: center;
     background: #fff;
+    
 }
+
 
 .iBtnBrief {
     color: #642c78;
@@ -815,32 +817,41 @@ input[type="text"] {
     .btnDetalle {
         display: block;
         width: 100%;
+        margin: 0;
     }
 
     .btnEdit {
         display: block;
         width: 100%;
+        margin: 0;
     }
 
     .btnDuplicar {
         display: block;
         width: 100%;
+        margin: 0;
+        margin: 0;
     }
 
     .btnModificar {
         display: block;
         width: 100%;
+        margin: 0;
 
         font-size: 0.9em;
     }
     .btnCrear {
         display: block;
-
         font-size: 0.9em;
     }
 
     .iconDCR {
         vertical-align: middle;
+    }
+    .btnAsignar{
+        display: block;
+        width: 100%;
+        margin: 0; 
     }
     /* diseño containerProgressBar*/
 }

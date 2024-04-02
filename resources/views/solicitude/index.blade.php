@@ -71,8 +71,8 @@
                                             <td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
                                             <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
 
-                                            <td id="buttoncell">
-                                                <a  style="margin-left:9%" href="{{ route('solicitudes.show', $solicitude->id) }}"
+                                            <td  style="justify-content: center;" id="buttoncell">
+                                                <a  style="margin-left:7%" href="{{ route('solicitudes.show', $solicitude->id) }}"
                                                     class="btnDetalle">
                                                     <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                     {{ __('Detalle') }}
@@ -92,7 +92,7 @@
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
                                                 </a>
 
-                                                <button style="margin-left: 25%" class="btnAsignar"
+                                                <button style="margin-left: 25%; justify-content: center;" class="btnAsignar"
                                                     onclick="abrirModalAsignacion({{ $solicitude->id }})">
                                                     <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
                                                     {{ __('Asignar a diseñador') }}

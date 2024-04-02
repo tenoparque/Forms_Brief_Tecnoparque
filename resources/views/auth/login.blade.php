@@ -88,14 +88,9 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="col-md-9 " >
-                                    <input style="margin-left:13%;width: 110%; " id="password"
-                                        placeholder="CONTRASEÑA" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password">
-                                    <span style="margin-block-start: 4%;position:relative
-                                    ; top:-10px;" class="eye-icon"
-                                        onclick="togglePasswordVisibility()">
+                                <div class="col-md-9 position-relative">
+                                    <input style="width: 110%; margin-left: 13%;border-bottom: gray" id="password" placeholder="CONTRASEÑA" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <span style="position: absolute; top: 50%;right: -18%; transform: translateY(-50%);" class="eye-icon" onclick="togglePasswordVisibility()">
                                         <i class="fa fa-eye-slash"></i>
                                     </span>
                                     @error('password')
@@ -105,7 +100,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            
                             <div class="forgot">
                                 <a class="btn btn-link" href="{{ route('password.request') }}" style="white-space: nowrap;">
                                     {{ __('¿Olvidaste tu contraseña?') }}
