@@ -67,6 +67,9 @@
                             const iconoCheck = document.querySelectorAll('.progressbar li i')[indiceEstadoActual];
                             iconoCheck.style.display = 'inline-block';
                         }
+
+
+                        
                     </script>
                     <div style="margin-top: 80px" class="card-body">
                         <div class="table-responsive"
@@ -262,5 +265,9 @@
                 $('#historialModal').modal('hide');
             });
         });
+
+
+        
     </script>
+    
 @endsection

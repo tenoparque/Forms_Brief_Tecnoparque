@@ -706,103 +706,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 10px;
 }
 
-
-
-
 /*diseño progressbar*/
 
-/*#progressbar{
-    margin-bottom: 30px;
-    overflow: hidden;
-    padding-left: 0;
-    margin-top: 30px;
-    counter-reset: step;
-   
-   
-}
-
-#progressbar li {
-    list-style-type: none;
-    float: left;
-    width: 25%;
-    position: relative;
-    text-align: center;
-    z-index: 3; 
-    float: left;
-    text-transform: uppercase;
-}
-#progressbar li:before {
-    content: '1';
-    width: 40px;
-    height: 40px;
-    line-height: 45px;
-    display: block;
-    font-size: 20px;
-    background: #c5cae9;
-    border-radius: 50%;
-    margin: 0 auto  10px auto;
-    padding: auto;
-    position: relative;
-    z-index: 1; 
-    border: 1 px solid #007bff;
-}
-#progressbar li:after {
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: #ddd;
-    position: relative;
-    left: -50%;
-    top: 14px; 
-}
-#progressbar .step0::before{
-   font-family: serif;
-   content:'';
-   content: counter(step);
-   counter-increment: step;
-   color:#fff;
-   position: relative;
-   z-index: 3; 
-}
-
-/*conector barra*/
- /*#progressbar li::after{
-    content: '';
-    width: 97%;
-    height: 12px;
-    background-color:#c5cae9 ;
-    position: absolute;
-    top: 16.7%;
-    left: 0%;
-    z-index: -1;
-
-}
-#progressbar li:last-child::after{
-    border: top right radius 10px; 
-    border-bottom-right-radius: 10px;
-    position:absolute;
-    left: -50%;
-}
-#progressbar li:nth-child(2)::after,
-#progressbar li:nth-child(3)::after {
-    left: -50%;
-}
-#progressbar li:first-child::after{
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    position: absolute;
-    left: 50%;
-}
-#progressbar li.active::before,
-#progressbar li.active::after{
-    background-color:#39a900;
-    
-}
-#progressbar li.active::before{
-    font-family: serif;
-    content: "\2713";
-}
-*/
 .cardsoli {
     z-index: 2;
     position: relative;}
@@ -817,6 +722,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 25% !important;
     position: relative;
     text-align:center;
+    font-size: 18px;
+    font-weight: bold;
 }
 .progressbar li:before {
     content: counter(step);
@@ -841,26 +748,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #ddd;
     top: 15px;
     left: -50%;
-    z-index: -1; /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
+    z-index: -1;
+   /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
 }
 .progressbar  li:first-child::after {
     content: none;
 }
 .progressbar li.active{
     color: #642c78 ;
+   
 }
+
 .progressbar li.active + li::after {
-    background: linear-gradient(to right, #007bff, #39a900);
+    background: linear-gradient(to right, #00324d, #39a900);
 }
+
 .progressbar li.active::before{
     content: "\2714";
     color: #FFF; 
-    font-size: 24px; /* Ajusta el tamaño según sea necesario */
-    font-weight: bold; /* Hace que la marca de verificación sea más gruesa */
+    font-size: 24px; 
+    font-weight: bold; 
     background-color: #642c78;
-    border-color: #642c78;
+    border-color:#FFF;
     box-shadow: 0 0 5px rgb(128, 0, 128);
     border:#FFF;
+    
  
 }
 .progressbar li.active::before {
@@ -868,8 +780,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-color: #642c78;
     box-shadow: 0 0 5pxrgb(128, 0, 128);
 }
-
-
 
 
 
