@@ -266,7 +266,7 @@ header{
     overflow-wrap: break-word;
 }
 
-/* Estilo para el contenedor del checkbox */
+/* ------------Estilo para el contenedor del checkbox --------------*/
 .checkboxSol {
     display: flex;
     align-items: center;
@@ -332,7 +332,7 @@ header{
     color: #642c78;
 }
 
-/* -------- table form brief ---- */
+/* ---------------- table form brief ----------- */
 .table-formbrief {
     background-color: #dee2e6;
     border-radius: 18px;
@@ -355,7 +355,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* --------------------------Politicas ------------------ */
 
-/* Input : forma de boton */
+/*---------------- Input : forma de boton ---------------*/
 
 .file {
     display: inline-block;
@@ -372,7 +372,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
-/* QR*/
+/*------------ QR---------------*/
 .imgQr {
     display: flex;
 }
@@ -385,7 +385,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* botones */
 
-/* btn upload image */
+/* -----------btn upload image-------------- */
 .btnCED {
     color: #000000;
     padding: 8px 12px;
@@ -415,7 +415,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /*  */
 
-/* Layout properties of the create, return and detail buttons. */
+/*----------- Layout properties of the create, return and detail buttons. -----------------*/
 .btnCrear {
     display: inline-block;
     padding: 6px 20px;
@@ -448,7 +448,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom dettale */
+/* ------------bottom dettale----------- */
 .btnDetalle {
     display: inline-block;
     margin: 5px 0px;
@@ -480,7 +480,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* edit button layout properties */
+/*-------------- edit button layout properties------------ */
 
 .btnEdit {
     display: inline-block;
@@ -502,7 +502,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom regresar */
+/* ------------bottom regresar------------ */
 .btnRegresar {
     margin-top: 20px;
     display: inline-block;
@@ -520,7 +520,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom guardar */
+/* -----------bottom guardar--------------- */
 .btnGuardar {
     margin-top: 10px;
     display: inline-block;
@@ -538,7 +538,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom duplicar */
+/* ------------bottom duplicar------------- */
 .btnDuplicar {
     display: inline-block;
     margin: 5px 0px;
@@ -590,7 +590,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom modificar */
+/*----------------- bottom modificar--------------------- */
 .btnModificar {
     display: inline-block;
     margin: 5px 0px;
@@ -706,7 +706,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 10px;
 }
 
-/*diseño progressbar*/
+/*------------diseño progressbar------------*/
 
 .cardsoli {
     z-index: 2;
@@ -783,7 +783,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 
-/*Diseño servicios asociados*/
+/*-------------Diseño servicios asociados----------------*/
 .form-group {
     margin-bottom: 15px;
 }
