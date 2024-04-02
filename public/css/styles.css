@@ -115,8 +115,7 @@ col-md-6{
     max-width: 1000px;
     margin: 200px auto;
     flex-grow: 1;
-    background: #fff;
-
+    background-image: linear-gradient(to bottom, #fbfbfb, #fbfbfb );
 }
 
 .form__emailPass{
