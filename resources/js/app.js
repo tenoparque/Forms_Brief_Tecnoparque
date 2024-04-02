@@ -79,6 +79,41 @@ $(document).ready(function() {
     }
 });
 
+Swal.fire({
+    title: '¡Éxito!',
+    text: 'Operación realizada con éxito',
+    icon: 'success',
+}).then((result) => {
+    // Recarga la página cuando la alerta se cierre
+    if (result.isConfirmed) {
+        location.reload();
+    }
+});
+
+// Simulación del progreso
+const steps = document.querySelectorAll('.step');
+let currentStep = 0;
+
+function updateProgress() {
+  steps.forEach((step, index) => {
+    if (index <= currentStep) {
+      step.classList.add('active');
+    } else {
+      step.classList.remove('active');
+    }
+  });
+}
+
+// Ejemplo: Avanzar al siguiente paso
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowRight') {
+    currentStep = Math.min(currentStep + 1, steps.length - 1);
+    updateProgress();
+  } else if (event.key === 'ArrowLeft') {
+    currentStep = Math.max(currentStep - 1, 0);
+    updateProgress();
+  }
+});
 
 
 

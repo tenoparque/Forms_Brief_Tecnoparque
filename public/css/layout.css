@@ -266,7 +266,7 @@ header{
     overflow-wrap: break-word;
 }
 
-/* Estilo para el contenedor del checkbox */
+/* ------------Estilo para el contenedor del checkbox --------------*/
 .checkboxSol {
     display: flex;
     align-items: center;
@@ -332,7 +332,7 @@ header{
     color: #642c78;
 }
 
-/* -------- table form brief ---- */
+/* ---------------- table form brief ----------- */
 .table-formbrief {
     background-color: #dee2e6;
     border-radius: 18px;
@@ -355,7 +355,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* --------------------------Politicas ------------------ */
 
-/* Input : forma de boton */
+/*---------------- Input : forma de boton ---------------*/
 
 .file {
     display: inline-block;
@@ -372,7 +372,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
-/* QR*/
+/*------------ QR---------------*/
 .imgQr {
     display: flex;
 }
@@ -385,7 +385,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* botones */
 
-/* btn upload image */
+/* -----------btn upload image-------------- */
 .btnCED {
     color: #000000;
     padding: 8px 12px;
@@ -415,7 +415,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /*  */
 
-/* Layout properties of the create, return and detail buttons. */
+/*----------- Layout properties of the create, return and detail buttons. -----------------*/
 .btnCrear {
     display: inline-block;
     padding: 6px 20px;
@@ -448,7 +448,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom dettale */
+/* ------------bottom dettale----------- */
 .btnDetalle {
     display: inline-block;
     margin: 5px 0px;
@@ -480,7 +480,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* edit button layout properties */
+/*-------------- edit button layout properties------------ */
 
 .btnEdit {
     display: inline-block;
@@ -502,7 +502,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom regresar */
+/* ------------bottom regresar------------ */
 .btnRegresar {
     margin-top: 20px;
     display: inline-block;
@@ -520,7 +520,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom guardar */
+/* -----------bottom guardar--------------- */
 .btnGuardar {
     margin-top: 10px;
     display: inline-block;
@@ -538,7 +538,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom duplicar */
+/* ------------bottom duplicar------------- */
 .btnDuplicar {
     display: inline-block;
     margin: 5px 0px;
@@ -590,7 +590,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #b2ebf2;
 }
 
-/* bottom modificar */
+/*----------------- bottom modificar--------------------- */
 .btnModificar {
     display: inline-block;
     margin: 5px 0px;
@@ -663,9 +663,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
-   
-    
 
+}
+.btnVerHistorial:hover{
+    background-color: #b2ebf2;
 }
 /* image */
 #qrImage {
@@ -706,146 +707,84 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 10px;
 }
 
-/*diseño progressbar*/
+/*------------diseño progressbar------------*/
 
-.containerProgressBar {
-    height: 200px;
-    width: 60%;
-    position: relative;
-    z-index: 1;
-    /* Asegura que el div esté en frente */
-    overflow: hidden;
-    /* Oculta el contenido que se desborda */
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    display:grid ;
+.cardsoli {
+    z-index: 2;
+    position: relative;}
+
+
+.progressbar{
+    counter-reset: step;
 }
-
-.progressbar li {
+.progressbar li{
     list-style-type: none;
     float: left;
-    width: 33.33%;
+    width: 25% !important;
     position: relative;
-    text-align: center;
-    z-index: 2;
-
+    text-align:center;
+    font-size: 18px;
+    font-weight: bold;
 }
-
-.progressbar li span {
-    position: relative;
-    color: #555; /* Color del texto */
-    font-size: 14px; /* Tamaño de la fuente */
+.progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border: 2px solid #FFF;
     display: block;
-}
-
-.progressbar {
-    list-style-type: none;
-    counter-reset: step;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    z-index: 2; /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
+    background-color: #ddd;
 }
 
 .progressbar li::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 100%;
-    height: 2px;
-    /* Increase line width if needed */
+    height: 7px;
     background-color: #ddd;
-    /* Change line color */
     top: 15px;
-    left: -46%;
+    left: -50%;
     z-index: -1;
-    /* Keep lines behind the div */
+   /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
 }
-.progressbar li:before {
-    content: counter(step);
-    counter-increment: step;
-    width: 40px;
-    height: 40px;
-    line-height: 45px;
-    display: block;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    background-color:#dee2e6;
-   margin: auto;
-   padding: 0;
+.progressbar  li:first-child::after {
+    content: none;
 }
-
-.progressbar li::before{
-    width: 40px;
-    height: 40px;
-    line-height: 45px;
-    display: block;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    background-color:#dee2e6;
-   margin: auto;
-   padding: 0;
-    
-}
-.progressbar li:before {
-    content: counter(step);
-    counter-increment: step;
-    /* ... tus otros estilos ... */
-}
-
-.progressbar li.active:before {
-    content: "\2713"; /* Este es el código Unicode para el símbolo de verificación */
-    /* ... tus otros estilos ... */
-}
-
-
-
-.progressbar li.active::before {
-    background-color: #642c78; /* Color de fondo del indicador activo */
-    border-color: #642c78; /* Borde del indicador activo */
-    color: #fff; 
-    box-shadow: 0 0 5pxrgb(128, 0, 128); /* Sombra alrededor del indicador activo */
-}
-.progressbar li.active ~ li::before {
-    border-color: #ccc; /* Cambiar el color del indicador para mostrar progreso */
-}
-.progressbar li.active + li:after {
-
-    background: linear-gradient(to right, #007bff, #39a900); /* Degradado de color de izquierda a derecha */
-    transition: width 0.3s ease;
-    height: 3px;
+.progressbar li.active{
+    color: #642c78 ;
    
 }
 
-
-
-
-
-/* .progressbar li:first-child::after {
-    content: none;
+.progressbar li.active + li::after {
+    background: linear-gradient(to right, #00324d, #39a900);
 }
 
-.progressbar li.active {
-    color: #39a900;
-}
-
-.progressbar li.active:before {
-    border-color:#39a900
-}
-
-.progressbar li.active + li:after {
-    background-color: #39a900;
+.progressbar li.active::before{
+    content: "\2714";
+    color: #FFF; 
+    font-size: 24px; 
+    font-weight: bold; 
+    background-color: #642c78;
+    border-color:#FFF;
+    box-shadow: 0 0 5px rgb(128, 0, 128);
+    border:#FFF;
     
+ 
+}
+.progressbar li.active::before {
+    background-color: #642c78; 
+    border-color: #642c78;
+    box-shadow: 0 0 5pxrgb(128, 0, 128);
 }
 
-.progressbar li.active ~ li::before {
-    border-color: #ccc; /* Cambiar el color del indicador para mostrar progreso */
-/* } */ 
 
-/*Diseño servicios asociados*/
+
+/*-------------Diseño servicios asociados----------------*/
 .form-group {
     margin-bottom: 15px;
 }
