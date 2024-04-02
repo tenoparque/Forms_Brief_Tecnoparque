@@ -104,7 +104,33 @@ col-md-6{
 }
 
 /* Estilos para el formulario de cambiar contraseña */
-.card-header {
+.flex-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    outline: 10px solid #39a900;
+    border-radius: 0.4%;
+    max-width: 1000px;
+    margin: 200px auto;
+    flex-grow: 1;
+    background: #fff;
+
+}
+
+.form__emailPass{
+    min-width: 400px;
+    flex: 1;
+    text-align: center;
+    padding: 30px;
+    order: 2;
+ 
+}
+
+.titlerestablecer{
+    position: relative;
+    bottom: 50px;
     background-color: #39A900;
     color: white;
     margin-bottom:10px;
@@ -112,6 +138,7 @@ col-md-6{
     font-family:"Work Sans", sans-serif;
     font-size: 150%;
     border-radius: 40px;
+
 }
 
 .email {
@@ -126,12 +153,40 @@ col-md-6{
     
 }
 
-.btn-primary-email {
-    background-color: #00324D;
-    color: white;
-    margin-bottom: 10%;
-    margin-block-start: 4%;
+.form_inputResetPass{
+    width: 100%; 
+    padding: 7px ;
+    margin: 9px 0;
+    border-radius: 50px; 
+    border-style: solid; 
+    border-width:1px; 
+    border-color: #ececec; 
+    background-color:  #ececec;
+    height:45px; 
+    margin-bottom: 10px;
+}
+
+.form_inputResetPass:focus{
+    background-color: #ececec
+}
+
+.btnEmail {
+    font-size: 16px;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
+    background: #fff;
+
     
+}
+
+.btnEmail:hover{
+    background: #b2ebf2;
 }
 
 
@@ -158,6 +213,38 @@ font-family:"Work Sans", sans-serif;
 .txtEma{
     width: 100%;
     margin-left: 0%;
+}
+
+.form-img {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    min-width: 300px;
+    max-width: 400px;
+    order: 1;
+}
+
+
+
+
+
+
+.img-container {
+    margin: auto;
+}
+
+
+.img-container div {
+    border-radius: 50%;
+    text-align: center;
+    padding: 0;
+}
+
+
+.form-img img {
+    width: 100%;
+    margin: auto;
+    max-width: 200px;
 }
     
 /* Estilos para el formulario  user */
