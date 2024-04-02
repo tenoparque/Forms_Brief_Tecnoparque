@@ -130,7 +130,7 @@ col-md-6{
 .titlerestablecer{
     position: relative;
     bottom: 50px;
-    background-color: #39A900;
+    background-color: rgba(57, 169, 0, 0.0);
     color: white;
     margin-bottom:10px;
     font-weight: bold;
