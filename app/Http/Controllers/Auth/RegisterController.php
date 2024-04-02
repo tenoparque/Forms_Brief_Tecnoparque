@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role as SpatieRol;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EnviarCorreoCredenciales;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,17 +31,20 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
     protected function create(array $data)
     {
+        // Generar una contraseña aleatoria
+        $password = $this->generateRandomPassword();
+
         $user = User::create([
             'name' => $data['name'],
             'apellidos' => $data['apellidos'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($password),
             'celular' => $data ['celular'],
             'id_nodo' => $data['id_nodo'],
             'id_estado' => 1
@@ -53,8 +58,8 @@ class RegisterController extends Controller
             $user->assignRole($role);
         }
 
-        // Aquí puedes agregar cualquier lógica adicional que necesites después de asignar el rol al usuario
-        // Por ejemplo, enviar correos electrónicos, registrar eventos, etc.
+        // Envía las credenciales por correo electrónico al usuario
+        Mail::to($user->email)->send(new EnviarCorreoCredenciales($user, $password));
 
         return $user;
     }
@@ -84,8 +89,16 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
-        // Sobrescribimos este método para evitar el inicio de sesión automático
-        // Redirigimos al usuario a la página de inicio
         return redirect($this->redirectPath())->with('status', 'Usuario registrado correctamente.');
+    }
+
+    // Función para generar una contraseña aleatoria
+    private function generateRandomPassword($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $password = '';
+        for ($i = 0; $i < $length; $i++) {
+            $password .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $password;
     }
 }
