@@ -51,8 +51,7 @@ class SolicitudeController extends Controller
         $usuarios = User::whereHas('roles', function ($query) {
             $query->where('name', 'Designer');
         })->get();
-        return view('solicitude.index', compact('solicitudes' , 'usuarios'))
-
+        return view('solicitude.index', compact('solicitudes' ,   'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
 
@@ -117,10 +116,20 @@ class SolicitudeController extends Controller
     }
 
 
-    public function pdf(){
+    public function pdf(Request $request){
+        // $solicitudes = Solicitude::all();
+        $parametro = $request->input('valor');
+        $output= ""; // The output variable is defined and initialized
+        log::info($parametro);
+       $numero = 0;
+       $numero ++;
+       log::info($numero);
         $solicitudes = Solicitude::all();
-        $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
-        //return $pdf->download('NumeroDeSolcitudes.pdf');
+        // log::info('jose '.$cosa);
+        // log::info('brandon '.$solicitudes->count());
+        
+    $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
+        // //return $pdf->download('NumeroDeSolcitudes.pdf');
 
         return $pdf->stream();
 
