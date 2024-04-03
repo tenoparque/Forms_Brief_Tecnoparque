@@ -11,7 +11,7 @@
                         <div style="text-align: center; margin-block-start: -60px">
                             <img src="/images/contraseña.png" alt="Imagen">
                         </div>
-                        <h5 style="margin-block-start: 20px;text-align: center;" class="titulo">{{ __('Reset Password') }}
+                        <h5 style="margin-block-start: 20px;text-align: center;" class="titulo">{{ __('Restablecer Contraseña') }}
                         </h5>
 
                         <div class="card-body">
@@ -22,7 +22,7 @@
 
                                 <div class="form-group row">
                                     <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
 
                                     <div class="col-md-6">
                                         <input
@@ -40,34 +40,34 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input
-                                            style="width: 120%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px; id="password"
-                                            type="password" class="form-control @error('password') is-invalid @enderror"
-                                            name="password" required autocomplete="new-password">
-
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+                                    <div class="col-md-6 position-relative">
+                                        <input style="width: 120%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;"
+                                            id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"
+                                            required autocomplete="new-password">
+                                        <!-- Ícono de visibilidad de la contraseña -->
+                                        <span style="position: absolute; top: 50%; right: -9%; transform: translateY(-50%);" class="eye-icon" onclick="togglePasswordVisibility('password')">
+                                            <i class="fa fa-eye-slash"></i>
+                                        </span>
                                         @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
-
+                                
                                 <div class="form-group row">
-                                    <label for="password-confirm"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input
-                                            style="width: 120%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;id="password-confirm"
-                                            type="password" class="form-control" name="password_confirmation" required
-                                            autocomplete="new-password">
+                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Contraseña') }}</label>
+                                    <div class="col-md-6 position-relative">
+                                        <input style="width: 120%; border-radius: 50px; border-style: solid; border-width: 4px; border-color: #ececec; background-color: #ececec; height: 45px; margin-bottom: 10px;"
+                                            id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                        <span style="position: absolute; top: 50%; right: -9%; transform: translateY(-50%);" class="eye-icon" onclick="togglePasswordVisibility('password-confirm')">
+                                            <i class="fa fa-eye-slash"></i>
+                                        </span>
                                     </div>
                                 </div>
+                                
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
@@ -191,4 +191,22 @@
             
         </div>
     </div>
+    <script>
+       
+function togglePasswordVisibility(fieldId) {
+  var passwordField = document.getElementById(fieldId);
+  var eyeIcon = passwordField.nextElementSibling.querySelector('i');
+
+  if (passwordField.type === 'password') {
+      passwordField.type = 'text';
+      eyeIcon.classList.remove('fa-eye-slash');
+      eyeIcon.classList.add('fa-eye');
+  } else {
+      passwordField.type = 'password';
+      eyeIcon.classList.remove('fa-eye');
+      eyeIcon.classList.add('fa-eye-slash');
+  }
+}
+
+    </script>
 @endsection

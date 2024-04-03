@@ -286,4 +286,35 @@
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        
+$(document).ready(function() {
+    $('.eye-icon').click(function() {
+        const passwordInput = $('#password');
+        const eyeIcon = $('.eye-icon i');
+
+        if (passwordInput.attr('type') === 'password') {
+            passwordInput.attr('type', 'text');
+            eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
+        } else {
+            passwordInput.attr('type', 'password');
+            eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+    });
+
+    // Guarda el href del enlace en localStorage cuando se hace clic
+    $(".sidebar-nav .sidebar-item .sidebar-link").click(function() {
+        localStorage.setItem('activeLink', $(this).attr('href'));
+    });
+
+    // Obtiene el href del enlace activo de localStorage cuando la página se carga
+    var activeLink = localStorage.getItem('activeLink');
+
+    // Si hay un enlace activo guardado, agrega la clase 'active-link' al enlace activo
+    if(activeLink) {
+        $('a[href="' + activeLink + '"]').addClass('active-link');
+    }
+});
+
+    </script>
 @endsection
