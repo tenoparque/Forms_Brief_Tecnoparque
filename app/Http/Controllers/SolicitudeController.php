@@ -33,6 +33,7 @@ use App\Models\Prueba;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+
 /**
  * Class SolicitudeController
  * @package App\Http\Controllers
@@ -44,16 +45,33 @@ class SolicitudeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $solicitudes = Solicitude::paginate();
-        //$currentTime = $this->getCurrentTimeInBogota();
+       
+        $usuarioAutenticado = Auth::user();
+        $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
+        $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
+        $nodoUsuario = $usuarioAutenticado->id_nodo;
+
+        if ($rolSuperAdmin) {
+            $solicitudes = Solicitude::paginate();
+        } else {
+            $solicitudes = Solicitude::whereHas('user', function ($query) use ($nodoUsuario) {
+                $query->where('id_nodo', $nodoUsuario);
+            })->paginate();
+        }
+        
         $usuarios = User::whereHas('roles', function ($query) {
-            $query->where('name', 'Designer');
+            $query->whereIn('name', ['Designer', 'Admin', 'Activador Nacional']);
         })->get();
-        return view('solicitude.index', compact('solicitudes' ,   'usuarios'))
-             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
-     }
+
+
+        return view('solicitude.index', compact('solicitudes', 'usuarios'))
+            ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
+    }
+
+
 
      public function search(Request $request)
     {
@@ -116,10 +134,17 @@ class SolicitudeController extends Controller
     }
 
 
-    public function pdf(){
+    public function pdf(Request $request){
+        // $solicitudes = Solicitude::all();
+        $parametro = $request->input('valor');
+        $output= ""; // The output variable is defined and initialized
+        log::info($parametro);
         $solicitudes = Solicitude::all();
-        $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
-        //return $pdf->download('NumeroDeSolcitudes.pdf');
+        // log::info('jose '.$cosa);
+        // log::info('brandon '.$solicitudes->count());
+        
+    $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
+        // //return $pdf->download('NumeroDeSolcitudes.pdf');
 
         return $pdf->stream();
 
