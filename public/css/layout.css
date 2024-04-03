@@ -29,6 +29,16 @@ h1 {
     font-size: 1.5rem;
 }
 
+/* Código para modificar el diseño del botón Inicar sesión desde el correo */
+
+.logInEma:hover {
+    background-color: #45a049;
+}
+
+.logInEma:active {
+    background-color: #3e8e41;
+}
+
 /* Código modificación paginación */
 
 .pagination {
