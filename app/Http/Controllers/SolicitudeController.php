@@ -48,16 +48,7 @@ class SolicitudeController extends Controller
 
     public function index()
     {
-<<<<<<< HEAD
-        $solicitudes = Solicitude::paginate();
-        //$currentTime = $this->getCurrentTimeInBogota();
-        $usuarios = User::whereHas('roles', function ($query) {
-            $query->where('name', 'Designer');
-        })->get();
-        return view('solicitude.index', compact('solicitudes' ,   'usuarios'))
-             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
-     }
-=======
+       
         $usuarioAutenticado = Auth::user();
         $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
         $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
@@ -80,7 +71,7 @@ class SolicitudeController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
     }
 
->>>>>>> 4fcc043f74d9579f2ab467af37467c127ebddc30
+
 
      public function search(Request $request)
     {
@@ -148,9 +139,6 @@ class SolicitudeController extends Controller
         $parametro = $request->input('valor');
         $output= ""; // The output variable is defined and initialized
         log::info($parametro);
-       $numero = 0;
-       $numero ++;
-       log::info($numero);
         $solicitudes = Solicitude::all();
         // log::info('jose '.$cosa);
         // log::info('brandon '.$solicitudes->count());
