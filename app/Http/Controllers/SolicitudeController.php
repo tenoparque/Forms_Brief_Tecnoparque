@@ -33,6 +33,7 @@ use App\Models\Prueba;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+
 /**
  * Class SolicitudeController
  * @package App\Http\Controllers
@@ -44,8 +45,10 @@ class SolicitudeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
+<<<<<<< HEAD
         $solicitudes = Solicitude::paginate();
         //$currentTime = $this->getCurrentTimeInBogota();
         $usuarios = User::whereHas('roles', function ($query) {
@@ -54,6 +57,30 @@ class SolicitudeController extends Controller
         return view('solicitude.index', compact('solicitudes' ,   'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
+=======
+        $usuarioAutenticado = Auth::user();
+        $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
+        $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
+        $nodoUsuario = $usuarioAutenticado->id_nodo;
+
+        if ($rolSuperAdmin) {
+            $solicitudes = Solicitude::paginate();
+        } else {
+            $solicitudes = Solicitude::whereHas('user', function ($query) use ($nodoUsuario) {
+                $query->where('id_nodo', $nodoUsuario);
+            })->paginate();
+        }
+        
+        $usuarios = User::whereHas('roles', function ($query) {
+            $query->whereIn('name', ['Designer', 'Admin', 'Activador Nacional']);
+        })->get();
+
+
+        return view('solicitude.index', compact('solicitudes', 'usuarios'))
+            ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
+    }
+
+>>>>>>> 4fcc043f74d9579f2ab467af37467c127ebddc30
 
      public function search(Request $request)
     {
