@@ -17,21 +17,18 @@
                     @endif
                     @csrf
 
-                    <div class="form__section-resetPass">
+                    <div  class="form__section-resetPass">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        <label for="email"class="label__resetPass">{{ __('Correo electrónico') }}</label>
-
-                        <input placeholder="Correo electrónico" id="email"
+                        <label style=" font-weight:400;"for="email"class="label__resetPass">{{ __('Correo electrónico') }}</label>
+                        <input  placeholder="Correo electrónico" id="email"
                             type="email"class="form-control @error('email')   is-invalid @enderror form_inputResetPass"
                             name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                     </div>
-
-
                     <div class="form__section-resetPass">
                         <button type="submit" class="btnEmail">Enviar link de restablecimiento
                             <i class="fa-solid fa-user-shield fa-lg" style="color: #642c78; margin:5px"></i>
@@ -42,10 +39,14 @@
                 <div class="form__img-resetPass">
                     <div class="img__container-resetPass">
                         <div>
-                            <img src="../images/recursos/email_green.png" alt="">
+                            <img src="
+                            
+                            
+                            
+                            /images/recursos/email_green.png" alt="">
                         </div>
                     </div>
-                    <div class="title__form-resetPass">{{ __('Restablecer contraseña') }}
+                    <div style="margin-block-start: 7px;text-align: center;color: #00324D" class="title__form-resetPass">{{ __('Restablecer contraseña') }}
                         
                     </div>
                 </div>

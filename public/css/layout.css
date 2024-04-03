@@ -583,14 +583,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .custom-btn {
     display: inline-block;
     margin: 5px 0px;
-    padding: 6px 20px;
+    padding: 6px 30px;
     text-decoration: none;
     color: #00324d;
     border-radius: 35px;
     outline: none;
     border: 2px solid #82def0;
     cursor: pointer;
-    background: #fff;}
+    background: #fff;
+    margin-left: 38px;
+    width:265px;
+   
+}
 
 .custom-btn:hover{
     background-color: #b2ebf2;
