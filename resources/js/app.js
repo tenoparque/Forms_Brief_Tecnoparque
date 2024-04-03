@@ -50,6 +50,9 @@ document.addEventListener('DOMContentLoaded', initialize);
 document.addEventListener('DOMContentLoaded', initialize);
 
 
+
+
+
 Swal.fire({
     title: '¡Éxito!',
     text: 'Operación realizada con éxito',
