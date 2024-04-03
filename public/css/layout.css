@@ -605,7 +605,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
-    margin-left: 38px;
+margin-left: 38px;
     width:265px;
    
 
