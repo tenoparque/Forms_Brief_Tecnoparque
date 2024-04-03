@@ -608,6 +608,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-left: 38px;
     width:265px;
 
+margin-left: 38px;
+    width:265px;
+   
+
+
+}
 
 .custom-btn:hover {
     background-color: #b2ebf2;
@@ -1031,5 +1037,4 @@ input[type="text"] {
     background-image: url('/images/fondoBrief4.jpg');
     /* Ruta de la imagen */
     ;
-}
 }
