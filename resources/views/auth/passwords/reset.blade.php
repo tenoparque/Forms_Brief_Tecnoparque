@@ -71,9 +71,9 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="custom-btn">
+                                        <button style="margin-left: 50px width:100px" type="submit" class="custom-btn">
                                             {{ __('Restablecer Contraseña') }}<i class="fa-solid fa-user-shield fa-lg"
-                                                style="color: #642c78; margin:5px"></i>
+                                                style="color: #642c78; margin:5px "></i>
                                         </button>
                                     </div>
                                 </div>

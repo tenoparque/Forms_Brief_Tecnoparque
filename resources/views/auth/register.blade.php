@@ -89,7 +89,7 @@
 
             </div> -->
 
-            <div class="col-md-6">
+            <div class="col-md-4">
 
                 <label style="font-size: 16px; color:black" for="id_nodo"
                     class="form-label col-12 ">{{ __('Nodo') }}</label>
@@ -119,7 +119,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label style="font-size: 16px; color:black" for="role"
                     class="form-label col-12 ">{{ __('Rol') }}</label>
                 <div class="col-md-12">

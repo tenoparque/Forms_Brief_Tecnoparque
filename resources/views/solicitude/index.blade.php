@@ -10,6 +10,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card-header">
+                        <a href="{{route('solicitudes.pdf')}}" class="btn btn-success" target="_blank">PDF</a>
                         <div style="d-flex justify-content-between align-items-center">
                             <div style="d-flex justify-content-between align-items-center">
                                 <div class="d-flex mt-3 mb-4">
