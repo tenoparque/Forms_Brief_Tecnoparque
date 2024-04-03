@@ -52,6 +52,7 @@ class SolicitudeController extends Controller
             $query->where('name', 'Designer');
         })->get();
         return view('solicitude.index', compact('solicitudes' , 'usuarios'))
+
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
 
@@ -82,7 +83,6 @@ class SolicitudeController extends Controller
 
 
        
-
         // We use the loop foreach to iterate the aggregation of records
         foreach($solicitudes as $solicitude){
             $output .= 
@@ -115,6 +115,17 @@ class SolicitudeController extends Controller
 
         return response($output); // We return the response by sending as parameter the output variable
     }
+
+
+    public function pdf(){
+        $solicitudes = Solicitude::all();
+        $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
+        //return $pdf->download('NumeroDeSolcitudes.pdf');
+
+        return $pdf->stream();
+
+    }
+    
 
 public function procesarValor()
 {
@@ -525,14 +536,6 @@ public function getCurrentTimeInBogota()
     }
     
 
-    public function pdf(){
-        $solicitudes = Solicitude::all();
-        $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
-        return $pdf->download('NumeroDeSolcitudes.pdf');
-
-        //return $pdf->stream();
-
-    }
     
     /**
      * @param int $id

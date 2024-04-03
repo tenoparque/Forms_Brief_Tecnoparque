@@ -8,10 +8,10 @@
             <div class="col-md-6">
                 <div class="flex-container" style="margin-block-start: 200px">
                     <div class="card reset">
-                        <div style="text-align: center; margin-block-start: -60px">
+                        <div style="text-align: center; margin-block-start: -80px">
                             <img src="/images/contraseña.png" alt="Imagen">
                         </div>
-                        <h5 style="margin-block-start: 20px;text-align: center;" class="titulo">{{ __('Restablecer Contraseña') }}
+                        <h5 style="margin-block-start: 10px;text-align: center;margin-block-end:30px" class="titulo">{{ __('Restablecer Contraseña') }}
                         </h5>
 
                         <div class="card-body">
@@ -21,7 +21,7 @@
                                 <input type="hidden" name="token" value="{{ $token }}">
 
                                 <div class="form-group row">
-                                    <label for="email"
+                                    <label style="text-align: right;font-weight:400; color:#00324D"for="email"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
 
                                     <div class="col-md-6">
@@ -38,9 +38,8 @@
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+                                    <label style=" font-style: none; text-align: right;font-weight:400; color:#00324D" for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
                                     <div class="col-md-6 position-relative">
                                         <input style="width: 120%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;"
                                             id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"
@@ -58,7 +57,7 @@
                                 </div>
                                 
                                 <div class="form-group row">
-                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Contraseña') }}</label>
+                                    <label style="text-align: right;font-weight:400;  color:#00324D" for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Contraseña') }}</label>
                                     <div class="col-md-6 position-relative">
                                         <input style="width: 120%; border-radius: 50px; border-style: solid; border-width: 4px; border-color: #ececec; background-color: #ececec; height: 45px; margin-bottom: 10px;"
                                             id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -71,7 +70,7 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button style="margin-left: 50px width:100px" type="submit" class="custom-btn">
+                                        <button type="submit" class="custom-btn">
                                             {{ __('Restablecer Contraseña') }}<i class="fa-solid fa-user-shield fa-lg"
                                                 style="color: #642c78; margin:5px "></i>
                                         </button>
