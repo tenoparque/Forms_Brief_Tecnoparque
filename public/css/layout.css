@@ -16,7 +16,7 @@ a {
     text-decoration: none;
 }
 
-select{
+select {
     cursor: pointer
 }
 
@@ -42,16 +42,17 @@ h1 {
 /* Código modificación paginación */
 
 .pagination {
-    justify-content: flex-end; /* Alinea los elementos a la derecha */
+    justify-content: flex-end;
+    /* Alinea los elementos a la derecha */
 }
 
 .page-link {
-    color:#007bff;
+    color: #007bff;
     /* Cambia el color del texto */
 }
 
 .page-item.active .page-link {
-    
+
     background-color: #39a900;
     /* Cambia el color de fondo del elemento activo */
     border-color: #ffffff;
@@ -68,7 +69,7 @@ h1 {
 .page-item.disabled .page-link {
     color: #ffffff;
     /* Cambia el color del texto de los elementos deshabilitados */
-   
+
     /* Cambia el color de fondo de los elementos deshabilitados */
     border-color: #ffffff;
     /* Cambia el color del borde de los elementos deshabilitados */
@@ -187,7 +188,7 @@ a.sidebar-link:hover {
     display: none;
 }
 
-#sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
     display: block;
     max-height: 15em;
     width: 100%;
@@ -239,12 +240,13 @@ table th {
 
 /* -------------------header----------------------- */
 
-header{
+header {
     max-width: 100%;
-    max-height: 100px;                     ;
+    max-height: 100px;
     overflow: hidden;
 }
-.ImgHeader{
+
+.ImgHeader {
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -314,7 +316,7 @@ header{
     border-radius: 50%;
 }
 
-.checkboxSol .checkboxSolInp:checked + .check .inner-eye {
+.checkboxSol .checkboxSolInp:checked+.check .inner-eye {
     background-color: #39a900;
     /* Cambia el color de fondo cuando está marcado */
 }
@@ -336,7 +338,7 @@ header{
     justify-content: center;
     justify-items: center;
     background: #fff;
-    
+
 }
 
 
@@ -356,13 +358,17 @@ header{
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     background-image: url('../images/date.png');
-    background-size: 100%; /* Ajusta el tamaño de la imagen para que se adapte al contenedor */
+    background-size: 100%;
+    /* Ajusta el tamaño de la imagen para que se adapte al contenedor */
     background-repeat: no-repeat;
     /* background-position: center; Ajusta la posición para centrar el icono */
-    width: 20px; /* Ajusta el ancho del icono según necesites */
-    height: 20px; /* Ajusta la altura del icono según necesites */
-     
-    cursor: pointer; /* Agrega el cursor de selección */
+    width: 20px;
+    /* Ajusta el ancho del icono según necesites */
+    height: 20px;
+    /* Ajusta la altura del icono según necesites */
+
+    cursor: pointer;
+    /* Agrega el cursor de selección */
 }
 
 /* --------------------------Politicas ------------------ */
@@ -408,7 +414,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-items: center;
 }
 
-.btnCED:hover{
+.btnCED:hover {
     background-color: #b2ebf2;
 }
 
@@ -439,7 +445,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
-.btnCancelar{
+
+.btnCancelar {
     display: inline-block;
     margin: 5px 0px;
     padding: 6px 20px;
@@ -450,12 +457,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
-    vertical-align:-1px;
-    
-    } 
+    vertical-align: -1px;
+
+}
+
 .btnCancelar:hover {
-        background-color: #b2ebf2;
-    }
+    background-color: #b2ebf2;
+}
+
 .btnCrear:hover {
     background-color: #b2ebf2;
 }
@@ -473,7 +482,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
-.btnEditarEstado{
+
+.btnEditarEstado {
     display: inline-block;
     margin: 5px 0px;
     padding: 6px 15px;
@@ -485,9 +495,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
+
 .btnEditarEstado:hover {
     background-color: #b2ebf2;
 }
+
 .btnDetalle:hover {
     background-color: #b2ebf2;
 }
@@ -565,7 +577,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 
-.btnAgregarModificacion{
+.btnAgregarModificacion {
     display: inline-block;
     margin: 5px 0px;
     padding: 6px 20px;
@@ -577,9 +589,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
-.btnAgregarModificacion:hover{
+
+.btnAgregarModificacion:hover {
     background-color: #b2ebf2;
 }
+
 .custom-btn {
     display: inline-block;
     margin: 5px 0px;
@@ -590,9 +604,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     outline: none;
     border: 2px solid #82def0;
     cursor: pointer;
-    background: #fff;}
+    background: #fff;
+}
 
-.custom-btn:hover{
+.custom-btn:hover {
     background-color: #b2ebf2;
 }
 
@@ -613,6 +628,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
+
 .btnAsignar:hover {
     background-color: #b2ebf2;
 }
@@ -631,7 +647,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: #fff;
 }
 
-.btnEnviarModificacion{
+.btnEnviarModificacion {
     display: inline-block;
     margin: 5px 0px;
     padding: 6px 20px;
@@ -643,10 +659,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
+
 .btnEnviarModificacion:hover {
     background-color: #b2ebf2;
 }
-.btnActualizarestado{
+
+.btnActualizarestado {
     display: inline-block;
     margin: 5px 0px;
     padding: 6px 20px;
@@ -658,7 +676,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
-.btnActualizarestado:hover{
+
+.btnActualizarestado:hover {
     background-color: #b2ebf2;
 }
 
@@ -675,11 +694,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* Icono comboBox */
 
-.icono{
+.icono {
     cursor: pointer;
 }
 
-.btnVerHistorial{
+.btnVerHistorial {
     display: inline-block;
     margin: 5px 0px;
     padding: 6px 20px;
@@ -692,9 +711,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: #fff;
 
 }
-.btnVerHistorial:hover{
+
+.btnVerHistorial:hover {
     background-color: #b2ebf2;
 }
+
 /* image */
 #qrImage {
     max-width: 44%;
@@ -738,21 +759,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .cardsoli {
     z-index: 2;
-    position: relative;}
+    position: relative;
+}
 
 
-.progressbar{
+.progressbar {
     counter-reset: step;
 }
-.progressbar li{
+
+.progressbar li {
     list-style-type: none;
     float: left;
     width: 25% !important;
     position: relative;
-    text-align:center;
+    text-align: center;
     font-size: 18px;
     font-weight: bold;
 }
+
 .progressbar li:before {
     content: counter(step);
     counter-increment: step;
@@ -764,7 +788,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-align: center;
     margin: 0 auto 10px auto;
     border-radius: 50%;
-    z-index: 2; /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
+    z-index: 2;
+    /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
     background-color: #ddd;
 }
 
@@ -777,34 +802,37 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     top: 15px;
     left: -50%;
     z-index: -1;
-   /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
-}
-.progressbar  li:first-child::after {
-    content: none;
-}
-.progressbar li.active{
-    color: #642c78 ;
-   
+    /* Ajustar el z-index para que esté delante del card pero detrás de los círculos */
 }
 
-.progressbar li.active + li::after {
+.progressbar li:first-child::after {
+    content: none;
+}
+
+.progressbar li.active {
+    color: #642c78;
+
+}
+
+.progressbar li.active+li::after {
     background: linear-gradient(to right, #00324d, #39a900);
 }
 
-.progressbar li.active::before{
-    content: "\2714";
-    color: #FFF; 
-    font-size: 24px; 
-    font-weight: bold; 
-    background-color: #642c78;
-    border-color:#FFF;
-    box-shadow: 0 0 5px rgb(128, 0, 128);
-    border:#FFF;
-    
- 
-}
 .progressbar li.active::before {
-    background-color: #642c78; 
+    content: "\2714";
+    color: #FFF;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #642c78;
+    border-color: #FFF;
+    box-shadow: 0 0 5px rgb(128, 0, 128);
+    border: #FFF;
+
+
+}
+
+.progressbar li.active::before {
+    background-color: #642c78;
     border-color: #642c78;
     box-shadow: 0 0 5pxrgb(128, 0, 128);
 }
@@ -865,6 +893,7 @@ input[type="text"] {
 
         font-size: 0.9em;
     }
+
     .btnCrear {
         display: block;
         font-size: 0.9em;
@@ -873,41 +902,62 @@ input[type="text"] {
     .iconDCR {
         vertical-align: middle;
     }
-    .btnAsignar{
+
+    .btnAsignar {
         display: block;
         width: 100%;
-        margin: 0; 
+        margin: 0;
     }
+
+
+    header {
+        max-width: 100%;
+        max-height: 20vh;
+        overflow: hidden;
+    }
+
     /* diseño containerProgressBar*/
 }
+
 /*DISEÑO AL SWEETALERT*/
 .swal2-confirm {
-    background-color: #39a900!important; 
+    background-color: #39a900 !important;
     color: white !important;
-     
+
 }
+
 .swal2-popup {
     font-size: 1.6rem !important;
     width: 600px !important;
-  }
-  .swal2-popup {
+}
+
+.swal2-popup {
     font-size: 16px !important;
     width: 500px !important;
-    border-radius: 20px !important; /* Reduciendo el radio del borde */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Agregando una sombra suave */
-    background-color: #ffffff; /* Cambiando el color de fondo */
-    padding: 20px; /* Agregando espacio interno */
-    color: #333333; /* Cambiando el color del texto */
+    border-radius: 20px !important;
+    /* Reduciendo el radio del borde */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    /* Agregando una sombra suave */
+    background-color: #ffffff;
+    /* Cambiando el color de fondo */
+    padding: 20px;
+    /* Agregando espacio interno */
+    color: #333333;
+    /* Cambiando el color del texto */
 }
 
 .swal2-title {
-    font-size: 24px !important; /* Cambiando el tamaño del título */
-    color: #333333; /* Cambiando el color del título */
+    font-size: 24px !important;
+    /* Cambiando el tamaño del título */
+    color: #333333;
+    /* Cambiando el color del título */
 }
 
 .swal2-content {
-    font-size: 18px !important; /* Cambiando el tamaño del contenido */
-    color: #666666; /* Cambiando el color del contenido */
+    font-size: 18px !important;
+    /* Cambiando el tamaño del contenido */
+    color: #666666;
+    /* Cambiando el color del contenido */
 }
 
 .swal2-actions {
@@ -916,20 +966,31 @@ input[type="text"] {
 }
 
 .swal2-actions .swal2-confirm {
-    color: #ffffff; /* Cambiando el color del texto del botón de confirmación */
-    border: none; /* Quitando el borde */
-    padding: 10px 20px; /* Ajustando el relleno */
-    margin: 0 10px; /* Agregando margen entre botones */
-    border-radius: 5px; /* Agregando un pequeño radio de borde */
+    color: #ffffff;
+    /* Cambiando el color del texto del botón de confirmación */
+    border: none;
+    /* Quitando el borde */
+    padding: 10px 20px;
+    /* Ajustando el relleno */
+    margin: 0 10px;
+    /* Agregando margen entre botones */
+    border-radius: 5px;
+    /* Agregando un pequeño radio de borde */
 }
 
 .swal2-actions .swal2-cancel {
-    background-color: #ffffff; /* Cambiando el color de fondo del botón de cancelar */
-    color: #333333; /* Cambiando el color del texto del botón de cancelar */
-    border: 1px solid #cccccc; /* Agregando un borde al botón de cancelar */
-    padding: 10px 20px; /* Ajustando el relleno */
-    margin: 0 10px; /* Agregando margen entre botones */
-    border-radius: 5px; /* Agregando un pequeño radio de borde */
+    background-color: #ffffff;
+    /* Cambiando el color de fondo del botón de cancelar */
+    color: #333333;
+    /* Cambiando el color del texto del botón de cancelar */
+    border: 1px solid #cccccc;
+    /* Agregando un borde al botón de cancelar */
+    padding: 10px 20px;
+    /* Ajustando el relleno */
+    margin: 0 10px;
+    /* Agregando margen entre botones */
+    border-radius: 5px;
+    /* Agregando un pequeño radio de borde */
 }
 
 /* Agregando estilos para el botón de cierre */
@@ -937,11 +998,12 @@ input[type="text"] {
     color: #999999;
     font-size: 24px;
 }
+
 /* -------------------restablecer contraseña-----------------*/
 
-.reset{
+.reset {
     border-radius: 20px;
-    width: 77% ;
+    width: 77%;
     margin-left: 8%;
     height: 80%;
     padding: 4%;
@@ -949,21 +1011,22 @@ input[type="text"] {
     text-align: center;
     justify-items: center;
     justify-content: center;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     transition: 0.3s;
-    display: block;    
+    display: block;
 }
+
 .titulo {
-    color: #00324d; 
-    text-align: center; 
-    font-size: 24px; 
+    color: #00324d;
+    text-align: center;
+    font-size: 24px;
     font-weight: bold;
     margin-block-start: -40px;
     margin-block-end: 40px;
 }
-.resetpass{
-    background-image: url('/images/fondoBrief4.jpg'); /* Ruta de la imagen */
+
+.resetpass {
+    background-image: url('/images/fondoBrief4.jpg');
+    /* Ruta de la imagen */
     ;
 }
-   
-
