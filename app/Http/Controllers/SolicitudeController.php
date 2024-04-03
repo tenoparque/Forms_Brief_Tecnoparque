@@ -31,6 +31,7 @@ use App\Models\HistorialDeModificacionesPorSolicitude;
 use App\Models\ModelHasRole;
 use App\Models\Prueba;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /**
  * Class SolicitudeController
@@ -47,13 +48,10 @@ class SolicitudeController extends Controller
     {
         $solicitudes = Solicitude::paginate();
         //$currentTime = $this->getCurrentTimeInBogota();
-        $fechasFestivas = $this->mostrarFechasFestivas();
-        $finesSemanas = $this->obtenerFinesDeSemana(); 
-        $disabledDates = array_merge($fechasFestivas, $finesSemanas);
         $usuarios = User::whereHas('roles', function ($query) {
             $query->where('name', 'Designer');
         })->get();
-        return view('solicitude.index', compact('solicitudes' , 'disabledDates' ,  'usuarios'))
+        return view('solicitude.index', compact('solicitudes' ,   'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
 
@@ -84,7 +82,6 @@ class SolicitudeController extends Controller
 
 
        
-
         // We use the loop foreach to iterate the aggregation of records
         foreach($solicitudes as $solicitude){
             $output .= 
@@ -117,6 +114,17 @@ class SolicitudeController extends Controller
 
         return response($output); // We return the response by sending as parameter the output variable
     }
+
+
+    public function pdf(){
+        $solicitudes = Solicitude::all();
+        $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
+        //return $pdf->download('NumeroDeSolcitudes.pdf');
+
+        return $pdf->stream();
+
+    }
+    
 
 public function procesarValor()
 {
@@ -418,9 +426,6 @@ public function procesarValor()
         $solicitudes = TiposDeSolicitude::all();
         $especiales = EventosEspecialesPorCategoria::all();
         $currentTime = $this->getCurrentTimeInBogota();
-        $fechasFestivas = $this->mostrarFechasFestivas();
-        $finesSemanas = $this->obtenerFinesDeSemana(); 
-        $disabledDates = array_merge($fechasFestivas, $finesSemanas);
         $categoriaEventos = CategoriasEventosEspeciale::all();
          // Recuperar el registro de la Politica con id_estado = 1
          $politicas = Politica::where('id_estado', 1)->first();
@@ -458,7 +463,6 @@ public function procesarValor()
             'especiales',
             'politicas',
             'currentTime',
-            'disabledDates',
             'categoriaEventos',
             'idSubservicios',
             'datosPorSolicitud',
@@ -498,53 +502,6 @@ public function getCurrentTimeInBogota()
  * @return array|null
  */
 
-public function mostrarFechasFestivas()
-{
-    // Lista de días festivos
-    $dias_festivos = [
-        '2024-01-01',
-        '2024-03-25',
-        '2024-03-28' ,
-        '2024-03-29' ,
-        '2024-05-01',
-        '2024-05-13',
-        '2024-06-03',
-        '2024-06-10',
-        '2024-07-01' ,
-        '2024-07-20' ,
-        '2024-08-07' ,
-        '2024-10-12',
-        '2024-11-04' ,
-        '2024-11-11',
-        '2024-12-08',
-        '2024-12-25'
-    ];
-
-    // Pasar los datos a la vista
-    return $dias_festivos;
-}
-
-
-public function obtenerFinesDeSemana()
-{
-    $year = 2024; // Año para el que se desea obtener los fines de semana
-    $weekends = [];
-
-    // Iterar sobre todos los días del año
-    for ($month = 1; $month <= 12; $month++) {
-        for ($day = 1; $day <= Carbon::createFromDate($year, $month, 1)->daysInMonth; $day++) {
-            $date = Carbon::createFromDate($year, $month, $day);
-            
-            // Verificar si el día es fin de semana
-            if ($date->isWeekend()) {
-                $weekends[] = $date->toDateString(); // Agregar el día a la lista de fines de semana
-            }
-        }
-    }
-
-    return $weekends;
-}
-
    /**
      * Asigna una solicitud a un diseñador.
      *
@@ -577,6 +534,7 @@ public function obtenerFinesDeSemana()
         return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador.');
     }
     
+
     
     /**
      * @param int $id
