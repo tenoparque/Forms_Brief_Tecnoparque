@@ -1,16 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
-<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-<div class="container-fluid" style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; min-height: 100vh; margin-block-start: -190px">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="flex-container" style="margin-block-start: 200px">
-                
-                    <form method="POST" class="form__emailPass" action="{{ route('password.email') }}">
-                        <div class="card-header  titlerestablecer">{{ __('Restablecer contraseña') }}</div>
-=======
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <div class=""
         style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; min-height: 100vh; margin-block-start: -190px">
@@ -19,7 +9,7 @@
 
 
                 <form class="form-resetPass" method="POST" action="{{ route('password.email') }}">
->>>>>>> 33d6ec8b99b16792841a0394e528ccb31d0d7b7c
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
