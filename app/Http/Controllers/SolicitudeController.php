@@ -31,6 +31,7 @@ use App\Models\HistorialDeModificacionesPorSolicitude;
 use App\Models\ModelHasRole;
 use App\Models\Prueba;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /**
  * Class SolicitudeController
@@ -577,6 +578,15 @@ public function obtenerFinesDeSemana()
         return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador.');
     }
     
+
+    public function pdf(){
+        $solicitudes = Solicitude::all();
+        $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
+        return $pdf->download('NumeroDeSolcitudes.pdf');
+
+        //return $pdf->stream();
+
+    }
     
     /**
      * @param int $id
