@@ -82,7 +82,6 @@ class SolicitudeController extends Controller
 
 
        
-
         // We use the loop foreach to iterate the aggregation of records
         foreach($solicitudes as $solicitude){
             $output .= 
@@ -120,9 +119,9 @@ class SolicitudeController extends Controller
     public function pdf(){
         $solicitudes = Solicitude::all();
         $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
-        return $pdf->download('NumeroDeSolcitudes.pdf');
+        //return $pdf->download('NumeroDeSolcitudes.pdf');
 
-        //return $pdf->stream();
+        return $pdf->stream();
 
     }
     
