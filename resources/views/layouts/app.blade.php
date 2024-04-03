@@ -355,6 +355,7 @@
                             <div class="row d-flex justify-content-between">
                                 <!-- Carta Izquierda -->
                                 <div class="col-xl-9 col-lg-7 col-md-8 col-sm-8 col-12 mb-3 ">
+                                    @if (!request()->routeIs('password.reset'))
                                     <div class="">
                                         <div class="text-wel mx-5">
                                             <h5 class="welcoRe" style="text-transform: uppercase">BIENVENIDO {{ $nombreUsuario }}</h5>
@@ -366,7 +367,9 @@
                                                 </h2>
                                             </div>
                                         </div>
+
                                     </div>
+                                    @endif
                                 </div>
 
                                 <!-- Carta Derecha -->
