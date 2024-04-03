@@ -7,10 +7,6 @@
         <div class="col-md-6">
             <div class="flex-container" style="margin-block-start: 200px">
                 
-
-              
-                    
-
                     <form method="POST" class="form__emailPass" action="{{ route('password.email') }}">
                         <div class="card-header  titlerestablecer">{{ __('Restablecer contraseña') }}</div>
                     @if (session('status'))
