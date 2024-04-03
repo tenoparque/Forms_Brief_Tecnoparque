@@ -48,13 +48,10 @@ class SolicitudeController extends Controller
     {
         $solicitudes = Solicitude::paginate();
         //$currentTime = $this->getCurrentTimeInBogota();
-        $fechasFestivas = $this->mostrarFechasFestivas();
-        $finesSemanas = $this->obtenerFinesDeSemana(); 
-        $disabledDates = array_merge($fechasFestivas, $finesSemanas);
         $usuarios = User::whereHas('roles', function ($query) {
             $query->where('name', 'Designer');
         })->get();
-        return view('solicitude.index', compact('solicitudes' , 'disabledDates' ,  'usuarios'))
+        return view('solicitude.index', compact('solicitudes' , 'usuarios'))
              ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
      }
 
