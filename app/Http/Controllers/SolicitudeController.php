@@ -72,10 +72,15 @@ class SolicitudeController extends Controller
             $solicitudes = Solicitude::whereIn('id_eventos_especiales_por_categorias', $eventoId)->get();
         }
         elseif($parametro == 'estado') {
-            // Hacer lo mismo para el evento especial por categoría
+            // Hacer lo mismo para el estado de la solicitud
             $estadoId = EstadosDeLasSolictude::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
             $solicitudes = Solicitude::whereIn('id_estado_de_la_solicitud', $estadoId)->get();
         } 
+        elseif($parametro == 'usuario') {
+            // Hacer lo mismo para el usuario que realiza la solicitud 
+            $usuarioId = User::where('name', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
+            $solicitudes = Solicitude::whereIn('id_usuario_que_realiza_la_solicitud', $usuarioId)->get();
+        }
 
 
        

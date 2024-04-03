@@ -580,6 +580,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .btnAgregarModificacion:hover{
     background-color: #b2ebf2;
 }
+.custom-btn {
+    display: inline-block;
+    margin: 5px 0px;
+    padding: 6px 20px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid #82def0;
+    cursor: pointer;
+    background: #fff;}
+
+.custom-btn:hover{
+    background-color: #b2ebf2;
+}
 
 .btnDuplicar:hover {
     background-color: #b2ebf2;
@@ -922,3 +937,33 @@ input[type="text"] {
     color: #999999;
     font-size: 24px;
 }
+/* -------------------restablecer contraseña-----------------*/
+
+.reset{
+    border-radius: 20px;
+    width: 77% ;
+    margin-left: 8%;
+    height: 80%;
+    padding: 4%;
+    padding-top: 14%;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    transition: 0.3s;
+    display: block;    
+}
+.titulo {
+    color: #00324d; 
+    text-align: center; 
+    font-size: 24px; 
+    font-weight: bold;
+    margin-block-start: -40px;
+    margin-block-end: 40px;
+}
+.resetpass{
+    background-image: url('/images/fondoBrief4.jpg'); /* Ruta de la imagen */
+    ;
+}
+   
+
