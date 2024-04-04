@@ -194,15 +194,6 @@
                         $('#Content').html(data);
                     }
                 });
-
-                $.ajax({
-                    type: 'get',
-                    url: "{{ URL::to('pdfSolicitud') }}",
-                    data: {
-                        'search': $value,
-                        'valor': $parametro
-                    }
-                });
             })
         </script>
 

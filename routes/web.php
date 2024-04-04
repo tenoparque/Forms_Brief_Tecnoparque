@@ -138,6 +138,3 @@ Route::get('/procesarValor', [SolicitudeController::class, 'procesarValor'])->na
 
 
 
-
-
-Route::get('/pdfSolicitud', [SolicitudeController::class, 'pdf']); // solicitudes Searching Route

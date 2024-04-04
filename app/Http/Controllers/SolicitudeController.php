@@ -151,16 +151,10 @@ class SolicitudeController extends Controller
     }
 
 
-    public function pdf(Request $request){
-        // $solicitudes = Solicitude::all();
-        $parametro = $request->input('valor');
-        $output= ""; // The output variable is defined and initialized
-        log::info($parametro);
+    public function pdf(){
         $solicitudes = Solicitude::all();
-        // log::info('jose '.$cosa);
-        // log::info('brandon '.$solicitudes->count());
-        
-    $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
+   
+     $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
         // //return $pdf->download('NumeroDeSolcitudes.pdf');
 
         return $pdf->stream();
