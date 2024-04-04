@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Log;
 
 use App\Models\HistorialDeModificacionesPorSolicitude;
 use App\Models\ModelHasRole;
+use App\Models\Nodo;
 use App\Models\Prueba;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -66,8 +67,12 @@ class SolicitudeController extends Controller
             $query->whereIn('name', ['Designer', 'Admin', 'Activador Nacional']);
         })->get();
 
+        $usuariosDesigner = User::whereHas('roles', function ($query) {
+            $query->whereIn('name', ['Designer']);
+        })->get();
 
-        return view('solicitude.index', compact('solicitudes', 'usuarios'))
+
+        return view('solicitude.index', compact('solicitudes', 'usuarios', 'usuariosDesigner'))
             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
     }
 
@@ -98,10 +103,16 @@ class SolicitudeController extends Controller
             $solicitudes = Solicitude::whereIn('id_usuario_que_realiza_la_solicitud', $usuarioId)->get();
         }
         elseif($parametro == 'designer') {
-            // Hacer lo mismo para el usuario que realiza la solicitud 
+            // Hacer lo mismo para el usuario que se le asigna la solicitud 
             $usuarioId = User::where('name', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
             $idSolicitud = HistorialDeUsuariosPorSolicitude::where('id_users' , $usuarioId)->pluck('id_solicitudes')->toArray();
             $solicitudes = Solicitude::whereIn('id', $idSolicitud)->get();
+        }
+        elseif($parametro == 'nodo') {
+            // Hacer lo mismo para el nodo 
+            $nodoId = Nodo::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
+            $idUser = User::where('id_nodo' , $nodoId)->pluck('id')->toArray();
+            $solicitudes = Solicitude::whereIn('id_usuario_que_realiza_la_solicitud', $idUser)->get();
         }
 
 
@@ -140,16 +151,10 @@ class SolicitudeController extends Controller
     }
 
 
-    public function pdf(Request $request){
-        // $solicitudes = Solicitude::all();
-        $parametro = $request->input('valor');
-        $output= ""; // The output variable is defined and initialized
-        log::info($parametro);
+    public function pdf(){
         $solicitudes = Solicitude::all();
-        // log::info('jose '.$cosa);
-        // log::info('brandon '.$solicitudes->count());
-        
-    $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
+   
+     $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
         // //return $pdf->download('NumeroDeSolcitudes.pdf');
 
         return $pdf->stream();
