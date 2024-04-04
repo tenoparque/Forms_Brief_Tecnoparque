@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8" style="width: 40%">
+            <div class="col-md-12" style="width: 40%">
 
                 <div class="card_login">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}" style="min-width: 400px">
+                        <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <H1 class="titulo">Brief</H1>
                             <h3 class="subtitulo">Plataforma de solicitudes</h3>

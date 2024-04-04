@@ -9,26 +9,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="card-header">
-                        <a href="{{route('solicitudes.pdf')}}" class="btn btn-success" target="_blank">PDF</a>
-                        <div style="d-flex justify-content-between align-items-center">
-                            <div style="d-flex justify-content-between align-items-center">
-                                <div class="d-flex mt-3 mb-4">
-                                    <div>
-                                        <h1 class="primeraPalabraFlex"
-                                            style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)">
-                                            {{ __('SOLICITUDES') }}</h1>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="valor-actualizado">
-                                {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="card-body">
-                        <div class="row mb-3"style="padding-bottom:20px" >
+                        <div class="row mb-3"style="padding-bottom:20px">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
                                 <label class=" checkboxSol"><input   class="checkboxSolInp" type="radio" name="parametro" value="nodo"><span class="check"><span class="inner-eye"></span></span>  Nodo</label> 
@@ -38,14 +21,34 @@
                                 <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col d-flex justify-content-between align-items-center">
-                                <input class="form-control" id="search" placeholder="Ingrese el tipo de solicitud..."
-                                    style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                <a href="{{ route('solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play iconDCR"></i></a>
+                        <div class="card-header">
+                            <div class="row mb-3">
+                                <div class="col d-flex justify-content-between align-items-center">
+                                    <input class="form-control" id="search" placeholder="Ingrese el tipo de solicitud..."
+                                        style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
+                                    <a href="{{route('solicitudes.pdf')}}" class="btnpdf" target="_blank"><i class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78;"></i></a>
+                                    <a href="{{ route('solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
+                                        <i class="fa-solid fa-circle-play iconDCR"></i></a>
+                                </div>
+
+                                
+                            </div>
+                            <div style="d-flex justify-content-between align-items-center">
+                                <div style="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex mt-3 mb-4">
+                                        <div>
+                                            <h1 class="primeraPalabraFlex"
+                                                style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)">
+                                                {{ __('SOLICITUDES') }}</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="valor-actualizado">
+                                    {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
+                                </div>
                             </div>
                         </div>
+                        
                         <div class="table-responsive"
                             style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                             <table class="table table-bordered table-hover">

@@ -3,11 +3,11 @@ body {
     background-image: url('');
 
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .card_login {
         width: 90%;
     }
-}
+} */
 
 
 /* Estilos para el formulario de inicio de sesión / login  */
@@ -319,4 +319,56 @@ button:focus {
     border-radius: 35px; justify-content: center;
     justify-items: center;
 }
+/* @media (max-width: 768px) {
 
+    .card_login {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+    #password{
+        display: block;
+      width: 100%;
+      margin: 0;
+    }
+    #email{
+        display: block;
+      width: 100%;
+      margin: 0;
+    }
+    .my-card:hover{
+        display: block;
+      width: 100%;
+      margin: 0;
+    }
+    .card-header{
+        display: block;
+      width: 100%;
+      margin: 0;
+    }
+    .btn-primary {
+        display: block;
+      width: 100%;
+      margin: 0;
+    }
+    .titulo{
+        display: block;
+      width: 100%;
+      margin: 0;
+    }
+    .subtitulo{
+        display: block;
+      width: 100%;
+      margin: 0;
+    }
+    .logo{
+        display: block;
+      width: 100%;
+      margin: 0;
+    }
+    .forgot{
+        display: block;
+      width: 100%;
+      margin: 0;
+    }
+} */

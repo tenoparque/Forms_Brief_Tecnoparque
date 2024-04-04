@@ -557,6 +557,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     background: #fff;
 }
+.btnpdf{
+    
+    margin-top: 10px;
+    display: inline-block;
+    padding: 6px 30px;
+    text-decoration: none;
+    color: #00324d;
+    border-radius: 35px;
+    outline: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    background: transparent;
+    margin-bottom: 20px;
+    margin-left: 55px;
+}
 
 .btnGuardar:hover {
     background-color: #b2ebf2;
