@@ -41,7 +41,7 @@
                                 </div>
                             </div>     
                             <div class="forgot">
-                                <a style="font-size:16px" class="btn btn-link" href="{{ route('password.request') }}" style="white-space: nowrap;">
+                                <a style="color:#c4ecff;font-size:16px" class="btn btn-link" href="{{ route('password.request') }}" style="white-space: nowrap;">
                                     {{ __('¿Olvidaste tu contraseña?') }}
                                 </a>
                             </div>
