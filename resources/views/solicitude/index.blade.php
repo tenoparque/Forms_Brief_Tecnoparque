@@ -11,7 +11,7 @@
                 <div class="col-sm-12">
                     
                     <div class="card-body">
-                        <div class="row mb-3"style="padding-bottom:20px">
+                        <div class="row mb-3"style="padding-bottom:20px; margin;margin-block-start: 50px;">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
                                 <label class=" checkboxSol"><input   class="checkboxSolInp" type="radio" name="parametro" value="nodo"><span class="check"><span class="inner-eye"></span></span>  Nodo</label> 
@@ -29,9 +29,7 @@
                                     <a href="{{route('solicitudes.pdf')}}" class="btnpdf" target="_blank"><i class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78;"></i></a>
                                     <a href="{{ route('solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
                                         <i class="fa-solid fa-circle-play iconDCR"></i></a>
-                                </div>
-
-                                
+                                </div>                               
                             </div>
                             <div style="d-flex justify-content-between align-items-center">
                                 <div style="d-flex justify-content-between align-items-center">

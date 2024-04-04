@@ -571,6 +571,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: transparent;
     margin-bottom: 20px;
     margin-left: 55px;
+    
 }
 
 .btnGuardar:hover {
