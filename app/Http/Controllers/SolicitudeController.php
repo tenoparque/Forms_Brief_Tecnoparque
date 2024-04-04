@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Log;
 
 use App\Models\HistorialDeModificacionesPorSolicitude;
 use App\Models\ModelHasRole;
+use App\Models\Nodo;
 use App\Models\Prueba;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -102,10 +103,16 @@ class SolicitudeController extends Controller
             $solicitudes = Solicitude::whereIn('id_usuario_que_realiza_la_solicitud', $usuarioId)->get();
         }
         elseif($parametro == 'designer') {
-            // Hacer lo mismo para el usuario que realiza la solicitud 
+            // Hacer lo mismo para el usuario que se le asigna la solicitud 
             $usuarioId = User::where('name', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
             $idSolicitud = HistorialDeUsuariosPorSolicitude::where('id_users' , $usuarioId)->pluck('id_solicitudes')->toArray();
             $solicitudes = Solicitude::whereIn('id', $idSolicitud)->get();
+        }
+        elseif($parametro == 'nodo') {
+            // Hacer lo mismo para el nodo 
+            $nodoId = Nodo::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
+            $idUser = User::where('id_nodo' , $nodoId)->pluck('id')->toArray();
+            $solicitudes = Solicitude::whereIn('id_usuario_que_realiza_la_solicitud', $idUser)->get();
         }
 
 

@@ -31,8 +31,7 @@
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
                                 <label><input type="radio" name="parametro" value="tipo"> Tipo de Solicitud</label>
-                                {{-- <label><input type="radio" name="parametro" value="fecha"> Fecha y Hora</label> --}}
-                                {{-- <label><input type="radio" name="parametro" value="nodo"> Nodo</label> --}}
+                                <label><input type="radio" name="parametro" value="nodo"> Nodo</label> 
                                  <label><input type="radio" name="parametro" value="usuario"> Usuario Creador</label> 
                                 <label><input type="radio" name="parametro" value="evento"> Evento</label>
                                 <label><input type="radio" name="parametro" value="estado"> Estado</label>
