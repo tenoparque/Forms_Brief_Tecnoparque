@@ -126,7 +126,7 @@
                                                 data-style="btn-primary" title="Seleccionar diseñador" required
                                                 style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 10px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                                                 <option value="" disabled selected>Seleccionar diseñador...</option>
-                                                @foreach ($usuarios as $user)
+                                                @foreach ($usuariosDesigner as $user)
                                                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                                                 @endforeach
                                             </select>

@@ -66,8 +66,12 @@ class SolicitudeController extends Controller
             $query->whereIn('name', ['Designer', 'Admin', 'Activador Nacional']);
         })->get();
 
+        $usuariosDesigner = User::whereHas('roles', function ($query) {
+            $query->whereIn('name', ['Designer']);
+        })->get();
 
-        return view('solicitude.index', compact('solicitudes', 'usuarios'))
+
+        return view('solicitude.index', compact('solicitudes', 'usuarios', 'usuariosDesigner'))
             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
     }
 
