@@ -28,14 +28,14 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="row mb-3">
+                        <div class="row mb-3"style="padding-bottom:20px" >
                             <div class="col d-flex justify-content-between align-items-center">
-                                <label><input type="radio" name="parametro" value="tipo"> Tipo de Solicitud</label>
-                                <label><input type="radio" name="parametro" value="nodo"> Nodo</label> 
-                                 <label><input type="radio" name="parametro" value="usuario"> Usuario Creador</label> 
-                                <label><input type="radio" name="parametro" value="evento"> Evento</label>
-                                <label><input type="radio" name="parametro" value="estado"> Estado</label>
-                                <label><input type="radio" name="parametro" value="designer">Diseñador</label>
+                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
+                                <label class=" checkboxSol"><input   class="checkboxSolInp" type="radio" name="parametro" value="nodo"><span class="check"><span class="inner-eye"></span></span>  Nodo</label> 
+                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="evento"><span class="check"><span class="inner-eye"></span></span>  Evento</label>
+                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="estado"><span class="check"><span class="inner-eye"></span></span>  Estado</label>
+                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="designer"><span class="check"><span class="inner-eye"></span></span> Diseñador</label>
+                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
                             </div>
                         </div>
                         <div class="row mb-3">
