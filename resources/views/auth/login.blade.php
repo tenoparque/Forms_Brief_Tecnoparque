@@ -16,7 +16,7 @@
                             <br>
                             <div class="mb-3 " style="padding: 10px 0">
                                 <div class="col-md-9 ">
-                                    <input style="margin-left: 13%; width: 110%; border-radius: 12px;padding:9px;" id="email" placeholder="CORREO"
+                                    <input id="email" placeholder="CORREO"
                                         type="email" class="form-control @error('email') is-invalid @enderror"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -29,7 +29,7 @@
                             </div>
                             <div class="mb-3">
                                 <div class="col-md-9 position-relative">
-                                    <input style="width: 110%; margin-left: 13%;border-radius: 12px;padding:9px;" id="password" placeholder="CONTRASEÑA" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input  id="password" placeholder="CONTRASEÑA" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                     <span style="position: absolute; top: 50%;right: -18%; transform: translateY(-50%);" class="eye-icon" onclick="togglePasswordVisibility()">
                                         <i class="fa fa-eye-slash"></i>
                                     </span>
