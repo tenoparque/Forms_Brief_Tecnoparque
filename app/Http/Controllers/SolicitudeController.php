@@ -97,6 +97,12 @@ class SolicitudeController extends Controller
             $usuarioId = User::where('name', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
             $solicitudes = Solicitude::whereIn('id_usuario_que_realiza_la_solicitud', $usuarioId)->get();
         }
+        elseif($parametro == 'designer') {
+            // Hacer lo mismo para el usuario que realiza la solicitud 
+            $usuarioId = User::where('name', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
+            $idSolicitud = HistorialDeUsuariosPorSolicitude::where('id_users' , $usuarioId)->pluck('id_solicitudes')->toArray();
+            $solicitudes = Solicitude::whereIn('id', $idSolicitud)->get();
+        }
 
 
        

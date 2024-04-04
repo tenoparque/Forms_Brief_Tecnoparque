@@ -33,9 +33,10 @@
                                 <label><input type="radio" name="parametro" value="tipo"> Tipo de Solicitud</label>
                                 {{-- <label><input type="radio" name="parametro" value="fecha"> Fecha y Hora</label> --}}
                                 {{-- <label><input type="radio" name="parametro" value="nodo"> Nodo</label> --}}
-                                 <label><input type="radio" name="parametro" value="usuario"> Usuario</label> 
+                                 <label><input type="radio" name="parametro" value="usuario"> Usuario Creador</label> 
                                 <label><input type="radio" name="parametro" value="evento"> Evento</label>
                                 <label><input type="radio" name="parametro" value="estado"> Estado</label>
+                                <label><input type="radio" name="parametro" value="designer">Diseñador</label>
                             </div>
                         </div>
                         <div class="row mb-3">
