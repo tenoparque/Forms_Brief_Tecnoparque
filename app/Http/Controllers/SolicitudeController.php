@@ -97,6 +97,12 @@ class SolicitudeController extends Controller
             $usuarioId = User::where('name', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
             $solicitudes = Solicitude::whereIn('id_usuario_que_realiza_la_solicitud', $usuarioId)->get();
         }
+        elseif($parametro == 'designer') {
+            // Hacer lo mismo para el usuario que realiza la solicitud 
+            $usuarioId = User::where('name', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
+            $idSolicitud = HistorialDeUsuariosPorSolicitude::where('id_users' , $usuarioId)->pluck('id_solicitudes')->toArray();
+            $solicitudes = Solicitude::whereIn('id', $idSolicitud)->get();
+        }
 
 
        
@@ -178,15 +184,12 @@ public function procesarValor()
         $estados = EstadosDeLasSolictude::all();
         $solicitudes = TiposDeSolicitude::all();
         $especiales = EventosEspecialesPorCategoria::all();
-        $currentTime = $this->getCurrentTimeInBogota();
-        $fechasFestivas = $this->mostrarFechasFestivas();
-        $finesSemanas = $this->obtenerFinesDeSemana(); 
-        $disabledDates = array_merge($fechasFestivas, $finesSemanas);
+       
         $categoriaEventos = CategoriasEventosEspeciale::all();
          // Recuperar el registro de la Politica con id_estado = 1
          $politicas = Politica::where('id_estado', 1)->first();
 
-        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'politicas','currentTime', 'disabledDates', 'categoriaEventos'));
+        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'politicas','categoriaEventos'));
     }
 
     /**
