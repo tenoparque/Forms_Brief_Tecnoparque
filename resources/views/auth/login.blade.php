@@ -26,7 +26,7 @@
                                     border-radius: 12px;
                                     padding:9px;
                                     color:#000;
-                                    padding-left: 15px;"
+                                    padding-left: 15px;background-color: #DEE2E6;"
                                         id="email" placeholder="CORREO" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
