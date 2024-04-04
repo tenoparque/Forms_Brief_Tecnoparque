@@ -543,29 +543,34 @@ public function getCurrentTimeInBogota()
      */
    
     
-    public function asignarSolicitud(Request $request)
-    {
-        // Validar los datos recibidos en la solicitud si es necesario
-         $request->validate([
-            'solicitud_id' => 'required|exists:solicitudes,id',
-            'usuario_id' => 'required|exists:users,id',
-         ]);
-    
-        // Acceder a los datos del formulario
-        $solicitudId = $request->input('solicitud_id');
-        $designerId = $request->input('usuario_id');
-    
-        // Crear un nuevo registro en el historial de asignaciones
-        $historial = new HistorialDeUsuariosPorSolicitude();
-        $historial->id_solicitudes = $solicitudId;
-        $historial->id_users = $designerId;
-        $historial->fecha_asignación = now();
-        $historial->id_estados = 1; // Asignar el estado correspondiente
-        $historial->save();
-    
-        // Redireccionar o devolver una respuesta JSON según sea necesario
-        return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador.');
-    }
+     public function asignarSolicitud(Request $request)
+{
+    // Validar los datos recibidos en la solicitud si es necesario
+    $request->validate([
+        'solicitud_id' => 'required|exists:solicitudes,id',
+        'usuario_id' => 'required|exists:users,id',
+    ]);
+
+    $solicitudId = $request->input('solicitud_id');
+    $designerId = $request->input('usuario_id');
+
+    // Buscar y desactivar todos los registros activos con la misma id_solicitud
+    HistorialDeUsuariosPorSolicitude::where('id_solicitudes', $solicitudId)
+        ->where('id_estados', 1) // '1' puede representar el estado activo, asegúrate de ajustarlo según tu esquema
+        ->update(['id_estados' => 2]);
+
+    // Crear un nuevo registro en el historial de asignaciones con el nuevo estado activo
+    $historial = new HistorialDeUsuariosPorSolicitude();
+    $historial->id_solicitudes = $solicitudId;
+    $historial->id_users = $designerId;
+    $historial->fecha_asignación = now();
+    $historial->id_estados = 1; // Asignar el estado activo
+    $historial->save();
+
+    return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador.');
+}
+
+     
     
 
     
