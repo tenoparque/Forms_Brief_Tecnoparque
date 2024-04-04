@@ -66,10 +66,17 @@ class RegisterController extends Controller
 
     protected function showRegistrationForm()
     {
-        $nodos = Nodo::all(); 
+        $nodos = Nodo::all();
+        $usuarioAutenticado = Auth::user();
+       // Verificar si el usuario autenticado es un super admin
+    if ($usuarioAutenticado->hasRole('Super Admin')) {
+        // Si el usuario es un super admin, obtener todos los roles
         $roles = Role::all();
-
-        return view('auth.register', ['nodos' => $nodos], ['roles' => $roles]);
+    } else {
+        // Si el usuario no es un super admin, obtener todos los roles excepto el de "super admin"
+        $roles = Role::where('name', '<>', 'super admin')->get();
+    }
+    return view('auth.register', compact('nodos', 'roles'));
     }
 
     public function register(Request $request)
