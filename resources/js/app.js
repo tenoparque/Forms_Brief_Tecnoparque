@@ -33,6 +33,7 @@ function displayRandomBackgroundImage() {
     document.body.style.backgroundSize = 'cover'; // Ajustar tamaño de la imagen al contenedor
 }
 
+
 // Función para inicializar
 function initialize() {
     // Verificar si estamos en la vista de inicio de sesión
