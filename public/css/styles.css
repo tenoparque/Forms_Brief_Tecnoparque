@@ -18,8 +18,17 @@ body {
 }
 
 
-
-
+.flex__direction-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: rgb(56, 168,0,0.8);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    transition: 0.3s; 
+   
+}
 
 .form-login{
     width: 100%;
