@@ -794,7 +794,7 @@ margin-left: 38px;
 .progressbar li {
     list-style-type: none;
     float: left;
-    width: 25% !important;
+    width: 20% !important;
     position: relative;
     text-align: center;
     font-size: 18px;

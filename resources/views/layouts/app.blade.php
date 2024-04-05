@@ -38,13 +38,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-
-
-
         rel="stylesheet">
 
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- JQUERY Reference -->
@@ -62,15 +59,15 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
     @vite('resources/js/menuburger.js')
     @vite('resources/js/validateUserRegister.js')
-    
+
 
 
     {{-- bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
-    
-   
+
+
 
 </head>
 
@@ -96,14 +93,16 @@
                     </button>
                     <div class="d-flex">
 
-                        <div class="sidebar-logo">
-                            <img src="../images/recursos/foto-perfil.png" alt="" class="img-fluid"
-                                width="50%" height=50%>
+                        <div class="sidebar-logo" style="text-align: center">
+                            <img style="cursor: pointer" src="../images/recursos/foto-perfil.png" alt=""
+                                class="img-fluid" width="50%" height=50%>
+                            <p style="color: white; cursor: default">Mi perfil</p>
                         </div>
                     </div>
                     <ul class="sidebar-nav">
 
-                        @can('users.index') {{-- Validate that you have the users.index permission to be able to watch the users item (link). --}}
+                        @can('users.index')
+                            {{-- Validate that you have the users.index permission to be able to watch the users item (link). --}}
                             <li class="sidebar-item">
                                 <a href="{{ route('users.index') }}" class="sidebar-link">
                                     <i class="lni lni-users"></i>
@@ -113,7 +112,8 @@
                             </li>
                         @endcan
 
-                        @can('roles.index') {{-- Validate that you have the roles.index permission to be able to watch the roles item (link). --}}
+                        @can('roles.index')
+                            {{-- Validate that you have the roles.index permission to be able to watch the roles item (link). --}}
                             <li class="sidebar-item">
                                 <a href="{{ route('roles.index') }}" class="sidebar-link">
                                     <i class="lni lni-user"></i>
@@ -123,7 +123,8 @@
                             </li>
                         @endcan
 
-                        @can('estados.index') {{-- Validate that you have the estados.index permission to be able to display the Estados item. --}}
+                        @can('estados.index')
+                            {{-- Validate that you have the estados.index permission to be able to display the Estados item. --}}
                             <li class="sidebar-item">
                                 <a href="{{ route('estados.index') }}" class="sidebar-link">
                                     <i class="lni lni-reload"></i>
@@ -132,8 +133,9 @@
                                 <hr class="hrmenu">
                             </li>
                         @endcan
-                        
-                        @can('politicas.index') {{-- Validate that you have the politicas.index permission to be able to display the Politicas item. --}}
+
+                        @can('politicas.index')
+                            {{-- Validate that you have the politicas.index permission to be able to display the Politicas item. --}}
                             <li class="sidebar-item">
                                 <a href="{{ route('politicas.index') }}" class="sidebar-link">
                                     <i class="lni lni-handshake"></i>
@@ -142,8 +144,9 @@
                                 <hr class="hrmenu">
                             </li>
                         @endcan
-                        
-                        @can('personalizaciones.index') {{-- Validate that you have the personalizaciones.index permission to be able to display the Personalizaciones item. --}}
+
+                        @can('personalizaciones.index')
+                            {{-- Validate that you have the personalizaciones.index permission to be able to display the Personalizaciones item. --}}
                             <li class="sidebar-item">
                                 <a href="{{ route('personalizaciones.index') }}" class="sidebar-link">
                                     <i class="fa-regular fa-pen-to-square"></i>
@@ -152,31 +155,33 @@
                                 <hr class="hrmenu">
                             </li>
                         @endcan
-                        
+
                         {{-- Here we validate that you must have at least one of these permissions to pass to the second validation layer --}}
                         @canany(['categoriasEventosEspeciales.index', 'eventosEspeciales.index'])
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                     data-bs-target="#eventos" aria-expanded="false" aria-controls="auth">
                                     <i class="fa-regular fa-calendar-days"></i>
-                                    <span> Eventos</span>
+                                    <span>Eventos</span>
                                 </a>
                                 <hr class="hrmenu">
                                 <ul id="eventos" class="sidebar-dropdown list-unstyled collapse"
                                     data-bs-parent="#sidebar">
 
-                                    @can('categoriasEventosEspeciales.index') {{-- Validate that you have the categoriasEventosEspeciales.index permission to be able to display the Categorias de Eventos Especiales Permissions item. --}}
+                                    @can('categoriasEventosEspeciales.index')
+                                        {{-- Validate that you have the categoriasEventosEspeciales.index permission to be able to display the Categorias de Eventos Especiales Permissions item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('categorias-eventos-especiales.index') }}"
-                                                class="sidebar-link">Categoria de eventos 
+                                                class="sidebar-link">Categoria de eventos
                                             </a>
                                         </li>
                                     @endcan
 
-                                    @can('eventosEspeciales.index') {{-- Validate that you have the eventosEspeciales.index permission to be able to display the Eventos Especiales Permissions item. --}}
+                                    @can('eventosEspeciales.index')
+                                        {{-- Validate that you have the eventosEspeciales.index permission to be able to display the Eventos Especiales Permissions item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('eventos-especiales-por-categorias.index') }}"
-                                                class="sidebar-link">Eventos especiales 
+                                                class="sidebar-link">Eventos especiales
                                             </a>
                                         </li>
                                     @endcan
@@ -197,22 +202,25 @@
                                 <ul id="nodos" class="sidebar-dropdown list-unstyled collapse"
                                     data-bs-parent="#sidebar">
 
-                                    @can('nodos.index') {{-- Validate that you have the nodos.index permission to be able to display the Nodos item. --}}
+                                    @can('nodos.index')
+                                        {{-- Validate that you have the nodos.index permission to be able to display the Nodos item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('nodos.index') }}" class="sidebar-link">Nodos</a>
 
                                         </li>
                                     @endcan
 
-                                    @can('departamentos.index')  {{-- Validate that you have the departamentos.index permission to be able to display the Departamentos item. --}}
+                                    @can('departamentos.index')
+                                        {{-- Validate that you have the departamentos.index permission to be able to display the Departamentos item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('departamentos.index') }}"
                                                 class="sidebar-link">Departamentos</a>
                                         </li>
                                     @endcan
 
-                                
-                                    @can('ciudades.index') {{-- Validate that you have the ciudades.index permission to be able to display the Ciudades item. --}}
+
+                                    @can('ciudades.index')
+                                        {{-- Validate that you have the ciudades.index permission to be able to display the Ciudades item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('ciudades.index') }}" class="sidebar-link">Ciudades</a>
                                         </li>
@@ -220,9 +228,10 @@
                                 </ul>
                             </li>
                         @endcan
-                        
+
                         {{-- Here we validate that you must have at least one of these permissions to pass to the second validation layer --}}
-                        @canany(['solicitudes.index', 'tiposSolicitudes.index', 'serviciosPorTiposSolicitudes.index','estadosSolicitudes.index','datosUnicosSolicitud.index'])
+                        @canany(['solicitudes.index', 'tiposSolicitudes.index', 'serviciosPorTiposSolicitudes.index',
+                            'estadosSolicitudes.index', 'datosUnicosSolicitud.index'])
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                     data-bs-target="#solicitudes" aria-expanded="false" aria-controls="auth">
@@ -233,13 +242,15 @@
                                 <ul id="solicitudes" class="sidebar-dropdown list-unstyled collapse"
                                     data-bs-parent="#sidebar">
 
-                                    @can('solicitudes.index') {{-- Validate that you have the solicitudes.index permission to be able to display the Solicitudes item. --}}
+                                    @can('solicitudes.index')
+                                        {{-- Validate that you have the solicitudes.index permission to be able to display the Solicitudes item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('solicitudes.index') }}" class="sidebar-link">Solicitudes</a>
                                         </li>
                                     @endcan
 
-                                    @can('tiposSolicitudes.index') {{-- Validate that you have the tiposSolicitudes.index permission to be able to display the Tipos de Solicitudes item. --}}
+                                    @can('tiposSolicitudes.index')
+                                        {{-- Validate that you have the tiposSolicitudes.index permission to be able to display the Tipos de Solicitudes item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('tipos-de-solicitudes.index') }}" class="sidebar-link">Tipo de
                                                 solicitudes
@@ -247,7 +258,8 @@
                                         </li>
                                     @endcan
 
-                                    @can('serviciosPorTiposSolicitudes.index') {{-- Validate that you have the serviciosPorTiposSolicitudes.index permission to be able to display the Servicios Por Tipos de Solicitudes item. --}}
+                                    @can('serviciosPorTiposSolicitudes.index')
+                                        {{-- Validate that you have the serviciosPorTiposSolicitudes.index permission to be able to display the Servicios Por Tipos de Solicitudes item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('servicios-por-tipos-de-solicitudes.index') }}"
                                                 class="sidebar-link">Servicios x tipo de solicitud
@@ -255,7 +267,8 @@
                                         </li>
                                     @endcan
 
-                                    @can('estadosSolicitudes.index') {{-- Validate that you have the estadosSolicitudes.index permission to be able to display the Estados de las Solicitudes item. --}}
+                                    @can('estadosSolicitudes.index')
+                                        {{-- Validate that you have the estadosSolicitudes.index permission to be able to display the Estados de las Solicitudes item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('estados-de-las-solictudes.index') }}"
                                                 class="sidebar-link">Estados de las solicitudes
@@ -263,14 +276,15 @@
                                         </li>
                                     @endcan
 
-                                    @can('datosUnicosSolicitud.index') {{-- Validate that you have the datosUnicosSolicitud.index permission to be able to display the Datos Unicos Por Solicitud item. --}}
+                                    @can('datosUnicosSolicitud.index')
+                                        {{-- Validate that you have the datosUnicosSolicitud.index permission to be able to display the Datos Unicos Por Solicitud item. --}}
                                         <li class="sidebar-item">
                                             <a href="{{ route('datos-unicos-por-solicitudes.index') }}"
                                                 class="sidebar-link">Datos únicos x solicitud
                                             </a>
-                                        </li>    
+                                        </li>
                                     @endcan
-                                    
+
                                 </ul>
                             </li>
                         @endcan
@@ -290,39 +304,17 @@
                                             datos</a>
 
                                     </li>
-
                                 </ul>
                             </li>
                         @endcan
 
-                        {{-- <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                                data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-                                <i class="lni lni-layout"></i>
-                                <span>solicitudes</span>
+                        <li class="sidebar-item">
+                            <a href="{{ route('solicitudes.pdf') }}" class="sidebar-link">
+                                <i class="fa-solid fa-chart-simple"></i>
+                                <span>Reportes y Estadísticas</span>
                             </a>
                             <hr class="hrmenu">
-                            <ul id="multi" class="sidebar-dropdown list-unstyled collapse"
-                                data-bs-parent="#sidebar">
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
-                                        data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
-                                        Tipos de solicitudes
-                                    </a>
-                                    <hr class="hrmenu">
-                                    <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
-                                        <li class="sidebar-item">
-                                            <a href="#" class="sidebar-link">Link 1</a>
-                                            <hr class="hrmenu">
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="#" class="sidebar-link">Link 2</a>
-                                            <hr class="hrmenu">
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li> --}}
+                        </li>
 
                     </ul>
                     <div class="sidebar-footer">
@@ -358,19 +350,22 @@
                                 <!-- Carta Izquierda -->
                                 <div class="col-xl-9 col-lg-7 col-md-8 col-sm-8 col-12 mb-3 ">
                                     @if (!request()->routeIs('password.reset'))
-                                    <div class="">
-                                        <div class="text-wel mx-5">
-                                            <h5 class="welcoRe" style="text-transform: uppercase">BIENVENIDO {{ $nombreUsuario }}</h5>
-                                            <h4></h4>
-                                            <div>
-                                                <h2>
-                                                    <span class="primeraPalabraFlex">ROL: </span><span
-                                                        class="segundaPalabraFlex" style="text-transform: uppercase"> {{ $nombreRol }}</span>
-                                                </h2>
+                                        <div class="">
+                                            <div class="text-wel mx-5">
+                                                <h5 class="welcoRe" style="text-transform: uppercase">BIENVENIDO
+                                                    {{ $nombreUsuario }}</h5>
+                                                <h4></h4>
+                                                <div>
+                                                    <h2>
+                                                        <span class="primeraPalabraFlex">ROL: </span><span
+                                                            class="segundaPalabraFlex"
+                                                            style="text-transform: uppercase">
+                                                            {{ $nombreRol }}</span>
+                                                    </h2>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </div>
+                                        </div>
                                     @endif
                                 </div>
 
@@ -487,9 +482,8 @@
 </style>
 <script>
     window.onbeforeunload = function() {
-    history.replaceState(null, null, location.pathname);
-}
-
+        history.replaceState(null, null, location.pathname);
+    }
 </script>
 
 </html>
