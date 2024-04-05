@@ -94,9 +94,10 @@
                     </button>
                     <div class="d-flex">
 
-                        <div class="sidebar-logo">
-                            <img src="../images/recursos/foto-perfil.png" alt="" class="img-fluid"
+                        <div class="sidebar-logo" style="text-align: center">
+                            <img style="cursor: pointer" src="../images/recursos/foto-perfil.png" alt="" class="img-fluid"
                                 width="50%" height=50%>
+                                <p style="color: white; cursor: default">Mi perfil</p>
                         </div>
                     </div>
                     <ul class="sidebar-nav">
@@ -157,7 +158,7 @@
                                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                     data-bs-target="#eventos" aria-expanded="false" aria-controls="auth">
                                     <i class="fa-regular fa-calendar-days"></i>
-                                    <span> Eventos</span>
+                                    <span>Eventos</span>
                                 </a>
                                 <hr class="hrmenu">
                                 <ul id="eventos" class="sidebar-dropdown list-unstyled collapse"
