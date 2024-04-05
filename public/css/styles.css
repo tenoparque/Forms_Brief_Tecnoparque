@@ -81,11 +81,18 @@ body {
     outline: none;
     color: #000;
     font-size: 14px;
+    padding-left: 3%;
 }
 .form__inputLogin:focus{
     background: #ececec;
    
 }
+.forgot{
+     padding-top:2%;
+     padding-bottom: 1%;
+    }
+     
+
 
 .eye-icon{
     position: absolute;
@@ -94,32 +101,31 @@ body {
 }
 
 .button-login{
-    font-size: 16px;
+    font-size: 15px;
     margin: 10px 0 0 0;
-    padding: 6px 40px;
+    padding: 7px 32px;
     text-decoration: none;
     color: #fff;
-    border-radius: 35px;
+    border-radius: 15px;
     outline: none;
-    
+    font-weight: 600;
     cursor: pointer;
     background: #25354b;
     margin-block-end: 30px;
+    border-color: none;
 }
 
 .button-login:hover{
-    background: #b2ebf2;
+    background: #00324d;
 }
 
 .img-login{ 
     margin: 0;
     padding: 0;
     margin-bottom: 10px;
-  
-    
     margin-top: -30px;
     min-width: 300px;
-   max-width: 400px;
+    max-width: 400px;
 }
 
 

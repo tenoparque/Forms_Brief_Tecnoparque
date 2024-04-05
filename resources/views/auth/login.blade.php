@@ -38,7 +38,7 @@
                         @enderror
                     </div>
                 </div>
-                <div>
+                <div class="forgot">
                     <a href="{{ route('password.request') }}">
                         {{ __('¿Olvidaste tu contraseña?') }}
                     </a>
@@ -59,9 +59,6 @@
                 </div>
             </form>
         </div>
-
-
-
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
