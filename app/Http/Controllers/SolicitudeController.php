@@ -58,10 +58,19 @@ class SolicitudeController extends Controller
         if ($rolSuperAdmin) {
             $solicitudes = Solicitude::paginate();
         } else {
-            $solicitudes = Solicitude::whereHas('user', function ($query) use ($nodoUsuario) {
-                $query->where('id_nodo', $nodoUsuario);
-            })->paginate();
+            if ($usuarioAutenticado->hasRole('Designer')) {
+                $solicitudes = Solicitude::whereHas('historial', function ($query) use ($usuarioAutenticado) {
+                    $query->where('id_users', $usuarioAutenticado->id)
+                          ->where('id_estados', 1);
+                })->paginate();
+                
+            } else {
+                $solicitudes = Solicitude::whereHas('user', function ($query) use ($nodoUsuario) {
+                    $query->where('id_nodo', $nodoUsuario);
+                })->paginate();
+            }
         }
+        
         
         $usuarios = User::whereHas('roles', function ($query) {
             $query->whereIn('name', ['Designer', 'Admin', 'Activador Nacional']);
