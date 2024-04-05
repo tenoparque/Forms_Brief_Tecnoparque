@@ -28,7 +28,7 @@
                             <table class="table table-bordered table-hover" >
                                 <thead class="thead-dark">
                                     <tr style="text-align: center">
-                                        <th>No</th>
+                                        {{-- <th>No</th> --}}
 
                                         <th style=" width: 30%">Logo</th>
                                         <th>Color Principal</th>
@@ -43,7 +43,7 @@
                                 <tbody class="alldata" >
                                     @foreach ($personalizaciones as $personalizacione)
                                         <tr >
-                                            <td>{{ ++$i }}</td>
+                                            {{-- <td>{{ ++$i }}</td> --}}
                                             <td>
                                                <div class="logoPersonalizacion" style="">
                                                 <img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}"
