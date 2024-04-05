@@ -24,13 +24,13 @@
                             </div>
                         
                             <div class="row mb-3"style="padding-bottom:2px; margin;margin-block-start: 50px">
-                                <div class="col d-flex justify-content-between align-items-center">
-                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
-                                    <label class=" checkboxSol"><input   class="checkboxSolInp" type="radio" name="parametro" value="nodo"><span class="check"><span class="inner-eye"></span></span>  Nodo</label> 
-                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="evento"><span class="check"><span class="inner-eye"></span></span>  Evento</label>
-                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="estado"><span class="check"><span class="inner-eye"></span></span>  Estado</label>
-                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="designer"><span class="check"><span class="inner-eye"></span></span> Diseñador</label>
-                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
+                                <div class="check__radio-solici">
+                                    <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp "  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
+                                    <label class=" checkboxSol check__label-solici"><input   class="checkboxSolInp" type="radio" name="parametro" value="nodo"><span class="check"><span class="inner-eye"></span></span>  Nodo</label> 
+                                    <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="evento"><span class="check"><span class="inner-eye"></span></span>  Evento</label>
+                                    <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="estado"><span class="check"><span class="inner-eye"></span></span>  Estado</label>
+                                    <label class=" checkboxSol  check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="designer"><span class="check"><span class="inner-eye"></span></span> Diseñador</label>
+                                    <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
                                 </div>
                             </div>
                         
@@ -76,8 +76,8 @@
                                             <td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
                                             <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
 
-                                            <td  style="justify-content: center;" id="buttoncell">
-                                                <a  style="margin-left:7%" href="{{ route('solicitudes.show', $solicitude->id) }}"
+                                            <td   id="buttoncell" class="celda__opc-solici">
+                                                <a   href="{{ route('solicitudes.show', $solicitude->id) }}"
                                                     class="btnDetalle">
                                                     <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                     {{ __('Detalle') }}
@@ -93,11 +93,12 @@
 
                                                 <a href="{{ route('solicitudes.duplicarFormulario', $solicitude->id) }}"
                                                     class="btnDuplicar">
-                                                    {{ __('Duplicar') }}
                                                     <i class="fa-solid fa-clone fa-xs" style="color: #642c78;"></i>
+                                                    {{ __('Duplicar') }}
+                                                    
                                                 </a>
 
-                                                <button style="margin-left: 25%; justify-content: center;" class="btnAsignar"
+                                                <button  class="btnAsignar"
                                                     onclick="abrirModalAsignacion({{ $solicitude->id }})">
                                                     <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
                                                     {{ __('Asignar a diseñador') }}

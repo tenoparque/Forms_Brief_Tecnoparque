@@ -236,6 +236,16 @@ table th {
 
 #buttoncell {
     padding: 8px;
+    
+}
+
+.celda__opc-solici{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    
 }
 
 /* -------------------header----------------------- */
@@ -344,6 +354,16 @@ header {
 
 .iBtnBrief {
     color: #642c78;
+}
+
+.check__radio-solici{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.check__label-solici{
+    padding: 10px;
 }
 
 /* ---------------- table form brief ----------- */
@@ -472,7 +492,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* ------------bottom dettale----------- */
 .btnDetalle {
     display: inline-block;
-    margin: 5px 0px;
+    margin: 5px 2px;
     padding: 6px 20px;
     text-decoration: none;
     color: #00324d;
@@ -660,7 +680,7 @@ margin-left: 38px;
 /*----------------- bottom modificar--------------------- */
 .btnModificar {
     display: inline-block;
-    margin: 5px 0px;
+    margin: 5px 5px;
     padding: 6px 20px;
     text-decoration: none;
     color: #00324d;
@@ -895,6 +915,7 @@ input[type="text"] {
         display: block;
         width: 100%;
         margin: 0;
+        margin: 5px 5px;
     }
 
     .btnEdit {
@@ -914,6 +935,7 @@ input[type="text"] {
         display: block;
         width: 100%;
         margin: 0;
+        margin: 5px 5px;
 
         font-size: 0.9em;
     }
@@ -931,6 +953,8 @@ input[type="text"] {
         display: block;
         width: 100%;
         margin: 0;
+        margin: 3px 2px;
+        font-size: 10px;
     }
 
 
@@ -940,9 +964,8 @@ input[type="text"] {
         overflow: hidden;
     }
 
-    /* diseño containerProgressBar*/
+    
 }
-
 /*DISEÑO AL SWEETALERT*/
 .swal2-confirm {
     background-color: #39a900 !important;
