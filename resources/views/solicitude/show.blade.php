@@ -22,23 +22,23 @@
                             </div>
                         </div>
                         <div class="row top justify-content-center">
-                            <div style="padding-left:80px;" class="col-3 text-center">
-                                <img src="../images/Mesa de trabajo 1.png" alt="icon" class="img-fluid"
-                                    style="max-width: 100px;">
-                            </div>
-                            <div style="padding-left: 55px " class="col-3 text-center">
-                                <img src="../images/iconos Brief-02.png" alt="icon" class="img-fluid"
-                                    style="max-width: 100px;">
+                            <div style="padding-left:3%;" class="col-3 text-center">
+                                <img src="../images/Mesa de trabajo 1.png" alt="icon" class="img-fluid" style="max-width: 100px;">
                             </div>
                             <div class="col-3 text-center">
-                                <img src="../images/iconos Brief-03.png" alt="icon" class="img-fluid"
-                                    style="max-width: 100px;">
+                                <img src="../images/iconos Brief-02.png" alt="icon" class="img-fluid" style="max-width: 100px; margin-right: 40%;">
                             </div>
-                            <div class="col-3 text-center">
-                                <img src="../images/iconos Brief-04.png" alt="icon" class="img-fluid"
-                                    style="max-width: 100px;">
+                            <div class="col-2 text-center">
+                                <img src="../images/iconos Brief-03.png" alt="icon" class="img-fluid" style="max-width: 100px; margin-left: -95%;">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img src="../images/ajustes.png" alt="icon" class="img-fluid" style="max-width: 50px; margin-block-start: 23px; margin-right: 65%;">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img src="../images/iconos Brief-04.png" alt="icon" class="img-fluid" style="max-width: 100px;">
                             </div>
                         </div>
+                        
 
                         <div class="row">
                             <div class="">
