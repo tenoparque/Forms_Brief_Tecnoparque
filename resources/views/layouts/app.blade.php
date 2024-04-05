@@ -389,6 +389,38 @@
 
 <!-- All the shared styles will be here -->
 <style>
+
+    /* LOGIN */
+    .flex__direction-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    background-color: {{ $colorPrincipal }}E9;
+    
+    transition: 0.3s; 
+}
+.titulo__login{
+    font-family: "Work Sans", sans-serif;
+    font-weight: 800;
+    font-size: 710%;
+    color: #fff;
+    padding-top: 80px ;
+    margin: 0;
+}
+
+.subtitulo__login{
+    color: {{ $colorTerciario }};
+    font-size: 170%;
+    font-weight: 300;
+    font-family: "Work Sans", sans-serif;
+    padding: 0 0 0 0;
+    margin: 0;
+    margin-bottom: 12px;
+    margin-block-start: -2%;
+}
     #sidebar {
         width: 70px;
         min-width: 70px;
