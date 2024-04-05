@@ -17,6 +17,7 @@ body {
     padding-top: 10vh;
 }
 
+
 .flex__direction-login{
     display: flex;
     justify-content: center;
@@ -25,31 +26,8 @@ body {
     border-radius: 20px;
     background-color: rgb(56, 168,0,0.8);
     box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-    transition: 0.3s;
-  
+    transition: 0.3s; 
    
-    
-   
-}
-
-.titulo__login{
-    font-family: "Work Sans", sans-serif;
-    font-weight: 800;
-    font-size: 710%;
-    color: #fff;
-    padding-top: 80px ;
-    margin: 0;
-}
-
-.subtitulo__login{
-    color: #f1e53d;
-    font-size: 170%;
-    font-weight: 300;
-    font-family: "Work Sans", sans-serif;
-    padding: 0 0 0 0;
-    margin: 0;
-    margin-bottom: 12px;
-    margin-block-start: -2%;
 }
 
 .form-login{

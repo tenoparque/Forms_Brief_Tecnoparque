@@ -83,12 +83,13 @@ class PersonalizacioneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $personalizacione = new Personalizacione();
-        $estados = Estado::all();
-        return view('personalizacione.create', compact('personalizacione'));
-    }
+    
+    // public function create()
+    // {
+    //     $personalizacione = new Personalizacione();
+    //     $estados = Estado::all();
+    //     return view('personalizacione.create', compact('personalizacione'));
+    // }
 
     /**
      * Store a newly created resource in storage.
