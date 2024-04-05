@@ -11,15 +11,29 @@
                 <div class="col-sm-12">
                     
                     <div class="card-body">
-                        <div class="row mb-3"style="padding-bottom:20px; margin;margin-block-start: 50px;">
-                            <div class="col d-flex justify-content-between align-items-center">
-                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
-                                <label class=" checkboxSol"><input   class="checkboxSolInp" type="radio" name="parametro" value="nodo"><span class="check"><span class="inner-eye"></span></span>  Nodo</label> 
-                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="evento"><span class="check"><span class="inner-eye"></span></span>  Evento</label>
-                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="estado"><span class="check"><span class="inner-eye"></span></span>  Estado</label>
-                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="designer"><span class="check"><span class="inner-eye"></span></span> Diseñador</label>
-                                <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
+                        
+                        <div style="d-flex justify-content-between align-items-center">
+                            <div style="d-flex justify-content-between align-items-center;">
+                                <div class="d-flex mt-3 mb-4">
+                                    <div >
+                                        <h1 class="primeraPalabraFlex"
+                                            style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)">
+                                            {{ __('SOLICITUDES') }}</h1>
+                                    </div>
+                                </div>
                             </div>
+                        
+                            <div class="row mb-3"style="padding-bottom:2px; margin;margin-block-start: 50px">
+                                <div class="col d-flex justify-content-between align-items-center">
+                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
+                                    <label class=" checkboxSol"><input   class="checkboxSolInp" type="radio" name="parametro" value="nodo"><span class="check"><span class="inner-eye"></span></span>  Nodo</label> 
+                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="evento"><span class="check"><span class="inner-eye"></span></span>  Evento</label>
+                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="estado"><span class="check"><span class="inner-eye"></span></span>  Estado</label>
+                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="designer"><span class="check"><span class="inner-eye"></span></span> Diseñador</label>
+                                    <label class=" checkboxSol"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
+                                </div>
+                            </div>
+                        
                         </div>
                         <div class="card-header">
                             <div class="row mb-3">
@@ -31,20 +45,8 @@
                                         <i class="fa-solid fa-circle-play iconDCR"></i></a>
                                 </div>                               
                             </div>
-                            <div style="d-flex justify-content-between align-items-center">
-                                <div style="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex mt-3 mb-4">
-                                        <div>
-                                            <h1 class="primeraPalabraFlex"
-                                                style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)">
-                                                {{ __('SOLICITUDES') }}</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="margin-bottom: 20px" id="valor-actualizado">
-                                    {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
-                                </div>
-                                
+                            <div style="margin-bottom: 20px" id="valor-actualizado">
+                                {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
                             </div>
                         </div>
                         

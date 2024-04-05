@@ -17,7 +17,7 @@
                                 <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('EDITAR') }}</h1>
                             </div>
                             <div>
-                                <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('USUARIOS') }}</h1>
+                                <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('USUARIO') }}</h1>
                             </div>
                         </div>
                     </div>
