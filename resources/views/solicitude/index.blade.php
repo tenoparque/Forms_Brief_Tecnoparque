@@ -41,9 +41,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="valor-actualizado">
+                                <div style="margin-bottom: 20px" id="valor-actualizado">
                                     {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
                                 </div>
+                                
                             </div>
                         </div>
                         
