@@ -2,85 +2,71 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12" style="width: 40%">
-
-                <div class="card_login">
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <H1 class="titulo">Brief</H1>
-                            <h3 class="subtitulo">Plataforma de solicitudes</h3>
-                            <br>
-                            <br>
-                            <div class="mb-3 " style="padding: 10px 0">
-                                <div class="col-md-9 ">
-                                    <input
-                                        style=" border: none; 
-                                    box-shadow: inset 0 0 5px rgba(0,0,0,0.4); 
-                                    border-radius: 5px; 
-                                    outline: none;
-                                    width: 110%; 
-                                    margin-left: 13%;
-                                    border-radius: 12px;
-                                    padding:9px;
-                                    color:#000;
-                                    padding-left: 15px;background-color: #e0e0e0;"
-                                        id="email" placeholder="CORREO" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="col-md-9 position-relative">
-                                    <input id="password" placeholder="CONTRASEÑA" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password">
-                                    <span style="position: absolute; top: 50%;right: -18%; transform: translateY(-50%);"
-                                        class="eye-icon" onclick="togglePasswordVisibility()">
-                                        <i class="fa fa-eye-slash"></i>
-                                    </span>
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="forgot">
-                                <a style="color:#c4ecff;font-size:16px" class="btn btn-link"
-                                    href="{{ route('password.request') }}" style="white-space: nowrap;">
-                                    {{ __('¿Olvidaste tu contraseña?') }}
-                                </a>
-                            </div>
-                            <div class="row mb-0">
-                                <div class="col-md-8 offset-md-2">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('ENTRAR') }}
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="div_logo">
-                                <img class="logo" src="../images/RedTecno.png" alt="">
-                            </div>
-                        </form>
+    <div class="flex-container">
+        <div class="flex__direction-login">
+            <form method="POST" action="{{ route('login') }}" class="form-login">
+                @csrf
+                <H1 class="titulo__login">Brief</H1>
+                <h3 class="subtitulo__login">Plataforma de solicitudes</h3>
+                <br>
+                <br>
+                <div>
+                    <div class="flex__directionInput">
+                        <input id="email"  placeholder="CORREO" type="email"
+                            class="form-control form__inputLogin @error('email') is-invalid @enderror" name="email"
+                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+    
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-
                 </div>
-            </div>
+                <div>
+                    <div class="flex__directionInput">
+                        <input id="password" placeholder="CONTRASEÑA" type="password"
+                            class="form-control  @error('password') form__inputLogin is-invalid @enderror" name="password" required
+                            autocomplete="current-password">
+                        <span class="eye-icon" onclick="togglePasswordVisibility()">
+                            <i class="fa fa-eye-slash"></i>
+                        </span>
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div>
+                    <a href="{{ route('password.request') }}">
+                        {{ __('¿Olvidaste tu contraseña?') }}
+                    </a>
+                </div>
+                <div>
+                    <div>
+                        <button type="submit" class="button-login">
+                            {{ __('ENTRAR') }}
+                        </button>
+                    </div>
+                </div>
+                <div class="img-login">
+                    <div class="img__container-login">
+                        <div>
+                            <img src="../images/RedTecno.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
+
+
+
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
+       $(document).ready(function() {
             $('.eye-icon').click(function() {
                 const passwordInput = $('#password');
                 const eyeIcon = $('.eye-icon i');
