@@ -132,6 +132,7 @@
             txtPassw.disabled = false;
         } else {
             txtPassw.disabled = true;
+            txtPassw.value = '';
         }
     });
 
@@ -141,6 +142,7 @@
             txtCPassw.disabled = false;
         } else {
             txtCPassw.disabled = true;
+            txtCPassw.value = '';
         }
     });
 </script>
