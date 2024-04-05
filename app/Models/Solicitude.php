@@ -120,6 +120,11 @@ class Solicitude extends Model
     {
         return $this->hasOne('App\Models\User', 'id', 'id_usuario_que_realiza_la_solicitud');
     }
+
+    public function historial()
+    {
+        return $this->hasMany(HistorialDeUsuariosPorSolicitude::class, 'id_solicitudes');
+    }
     
 
 }
