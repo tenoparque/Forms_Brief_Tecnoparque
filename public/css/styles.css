@@ -64,8 +64,8 @@ body {
 
 
 .eye-icon{
-    position: absolute;
-    transform: translate(140px,-1px);
+    
+    transform: translate(140px,-34px);
     
 }
 
