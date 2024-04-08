@@ -19,14 +19,13 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        Solicitudes Realizadas {{$propias}}<br>
-
-                        Modificaciones Realizadas {{$totalModificaciones}}
-                    </div>
-                    <div style="margin-bottom: 20px" id="valor-actualizado">
+                    <div style="margin-bottom: 20px" id="valor1">
                         {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
                     </div>
+                    <div style="margin-bottom: 20px" id="valor2">
+                        {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
+                    </div>
+            
 
                     @if (session()->has('alert-success'))
                         <div class="alert alert-success">
@@ -111,10 +110,11 @@
                 }
             }
         });
+      
         function hacerSolicitud() {
             var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
             // Configurar la solicitud
-            xhr.open("GET", "{{ 'procesarValor' }}", true);
+            xhr.open("GET", "{{ 'prueba' }}", true);
             // Manejar la respuesta
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
@@ -123,7 +123,9 @@
                         console.log(respuesta.campoValor);
 
                         // Actualizar el valor en el elemento HTML
-                        document.getElementById('valor-actualizado').textContent = "Número Total de Solicitudes Recibidas " + respuesta.campoValor;
+                        document.getElementById('valor1').textContent = "Número Total de Solicitudes Recibidas " + respuesta.solicitudes;
+                        document.getElementById('valor2').textContent = "Número Total de Modificaciones " + respuesta.modificaciones;
+
                     } else {
                         console.error('Error en la solicitud: ' + xhr
                             .status); // Imprimir el estado del error en la consola
