@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistorialDeModificacionesPorSolicitude;
 use Illuminate\Http\Request;
 use App\Models\Solicitude;
 use App\Models\Nodo;
@@ -30,6 +31,11 @@ class HomeController extends Controller
     {
         $usuarioAutenticado = Auth::user();
         $propias = Solicitude::with('id_usuario_de_la_solicitud', $usuarioAutenticado)->count();
+        $totalModificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', function ($query) use ($usuarioAutenticado) {
+            $query->select('id')
+                  ->from('solicitudes')
+                  ->where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id);
+        })->count();
         $data = DB::table('solicitudes')
         ->join('users', 'solicitudes.id_usuario_que_realiza_la_solicitud', '=', 'users.id')
         ->join('nodos', 'users.id_nodo', '=', 'nodos.id')
@@ -38,6 +44,6 @@ class HomeController extends Controller
         ->orderBy('nodos.nombre')
         ->get();
 
-        return view('home', compact('data', 'propias'));
+        return view('home', compact('data', 'propias', 'totalModificaciones'));
     }
 }
