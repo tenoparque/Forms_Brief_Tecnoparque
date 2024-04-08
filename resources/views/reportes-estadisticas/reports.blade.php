@@ -31,20 +31,19 @@
                         <input class="form-control" id="search"
                             placeholder="Ingrese el nombre del dato único por tipo de solicitud..."
                             style="width: 70%; border-radius: 50px; border-style: solid; border-width:3px; border-color: #DEE2E6 ">
-                            <a href="{{ route('solicitudes.pdf') }}" class="btnCrear"
-                            >{{ __('CREAR') }}
-                            <i class="fa-solid fa-circle-play iconDCR" ></i></a>
+                        <a href="{{ route('solicitudes.pdf') }}" class="btnCrear">{{ __('CREAR') }}
+                            <i class="fa-solid fa-circle-play iconDCR"></i></a>
                     </div>
                 </div>
             </div>
 
-            
+
         </div>
     </section>
 
 
     </div>
-    
+
     </div>
     </div>
     </section>
@@ -67,7 +66,7 @@
 
             $.ajax({
                 type: 'get',
-                url: "{{ URL::to('searchDatoUnico') }}",
+                url: "{{ URL::to('') }}",
                 data: {
                     'search': $value
                 },
