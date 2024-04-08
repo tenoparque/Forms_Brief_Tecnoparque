@@ -8,6 +8,7 @@ use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\EstadosDeLasSolictudeController;
 use App\Http\Controllers\EventosEspecialesPorCategoriaController;
 use App\Http\Controllers\HistorialDeModificacionesPorSolicitudeController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NodoController;
 use App\Http\Controllers\PersonalizacioneController;
 use App\Http\Controllers\PoliticaController;
@@ -133,7 +134,10 @@ Route::post('/solicitudes/asignar', [SolicitudeController::class, 'asignarSolici
 
 // Esta es la ruta que comunica la solicitud desde la vista index de solicitudes con el metodo en el controlador que lo que hace es retornar la totalidad
 // de solicitudes e historial de solicitudes que se llevan en el momento
-Route::get('/procesarValor', [SolicitudeController::class, 'procesarValor'])->name('solicitudes.procesarValor');
+// Route::get('/procesarValor', [SolicitudeController::class, 'procesarValor'])->name('solicitudes.procesarValor');
+
+Route::get('/prueba', [HomeController::class, 'prueba'])->name('home.prueba');
+
 
 
 

@@ -254,6 +254,16 @@ header {
 
 /* --------------- solicitudes ---------------------- */
 
+.filtros{
+    display: flex;
+   flex-wrap: wrap;
+}
+.checkfiltro{
+  padding-right: 95px;
+  padding-bottom: 20px;
+}
+
+
 .InputText {
     border-radius: 100px;
     display: block;
@@ -938,6 +948,13 @@ input[type="text"] {
         max-width: 100%;
         max-height: 20vh;
         overflow: hidden;
+    }
+
+    .checkfiltro{
+        max-width: 100%;
+        max-height: 20vh;
+    
+
     }
 
     /* diseño containerProgressBar*/

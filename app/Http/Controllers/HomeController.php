@@ -29,13 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $usuarioAutenticado = Auth::user();
-        $propias = Solicitude::with('id_usuario_de_la_solicitud', $usuarioAutenticado)->count();
-        $totalModificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', function ($query) use ($usuarioAutenticado) {
-            $query->select('id')
-                  ->from('solicitudes')
-                  ->where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id);
-        })->count();
+       
         $data = DB::table('solicitudes')
         ->join('users', 'solicitudes.id_usuario_que_realiza_la_solicitud', '=', 'users.id')
         ->join('nodos', 'users.id_nodo', '=', 'nodos.id')
@@ -44,6 +38,33 @@ class HomeController extends Controller
         ->orderBy('nodos.nombre')
         ->get();
 
-        return view('home', compact('data', 'propias', 'totalModificaciones'));
+        return view('home', compact('data'));
     }
+
+    public function prueba()
+{
+    $usuarioAutenticado = Auth::user();
+    $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
+    $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
+    $nodoUsuario = $usuarioAutenticado->id_nodo;
+    
+    if ($rolSuperAdmin) {
+        $propias = Solicitude::count();
+        $totalModificaciones = HistorialDeModificacionesPorSolicitude::count();
+        $total = $propias + $totalModificaciones;
+    } else {
+        $propias = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)->count();
+        
+        $totalModificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', function ($query) use ($usuarioAutenticado) {
+            $query->select('id')
+                  ->from('solicitudes')
+                  ->where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id);
+        })->count();
+        $total = $propias + $totalModificaciones;
+
+    }
+
+    return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total]);
+}
+
 }

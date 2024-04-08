@@ -171,16 +171,16 @@ class SolicitudeController extends Controller
     }
     
 
-public function procesarValor()
-{
-    $ultimoRegistro = Prueba::latest()->first();
+// public function procesarValor()
+// {
+//     $ultimoRegistro = Prueba::latest()->first();
 
-    // Obtener el valor del campo deseado
-    $campoValor = $ultimoRegistro->numero; // Reemplaza "nombre_del_campo" con el nombre del campo que deseas obtener
+//     // Obtener el valor del campo deseado
+//     $campoValor = $ultimoRegistro->numero; // Reemplaza "nombre_del_campo" con el nombre del campo que deseas obtener
 
-    // Devolver el valor del campo en formato JSON
-    return response()->json(['campoValor' => $campoValor]);
-}
+//     // Devolver el valor del campo en formato JSON
+//     return response()->json(['campoValor' => $campoValor]);
+// }
 
      
 
