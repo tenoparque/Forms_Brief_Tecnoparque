@@ -44,6 +44,8 @@ Auth::routes();
 Route::get('/solicitudes/pdf', [SolicitudeController::class, 'pdf'])->name('solicitudes.pdf');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/reports', [SolicitudeController::class, 'reports'])->name('reportes-estadisticas.reports');
+
 
 
 // Ciudades

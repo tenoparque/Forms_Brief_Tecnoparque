@@ -85,6 +85,10 @@ class SolicitudeController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
     }
 
+    public function reports(){
+        return view('reportes-estadisticas.reports');
+    }
+
 
 
      public function search(Request $request)
