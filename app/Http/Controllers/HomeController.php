@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Solicitude;
 use App\Models\Nodo;
 use DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -26,6 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $usuarioAutenticado = Auth::user();
+        $propias = Solicitude::with('id_usuario_de_la_solicitud', $usuarioAutenticado)->count();
         $data = DB::table('solicitudes')
         ->join('users', 'solicitudes.id_usuario_que_realiza_la_solicitud', '=', 'users.id')
         ->join('nodos', 'users.id_nodo', '=', 'nodos.id')
@@ -34,6 +38,6 @@ class HomeController extends Controller
         ->orderBy('nodos.nombre')
         ->get();
 
-        return view('home', compact('data'));
+        return view('home', compact('data', 'propias'));
     }
 }

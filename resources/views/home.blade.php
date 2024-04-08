@@ -9,6 +9,7 @@
                         <div style="d-flex justify-content-between align-items-center">
                             <div style="d-flex justify-content-between align-items-center">
                                 <div class="d-flex mt-3 mb-4">
+                                   
                                     <div>
                                         <h1 class="primeraPalabraFlex"
                                             style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)">
@@ -17,6 +18,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        Solicitudes propias{{$propias}}
                     </div>
                     <div style="margin-bottom: 20px" id="valor-actualizado">
                         {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
