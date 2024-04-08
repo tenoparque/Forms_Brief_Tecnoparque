@@ -18,6 +18,9 @@
                             </div>
                         </div>
                     </div>
+                    <div style="margin-bottom: 20px" id="valor-actualizado">
+                        {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
+                    </div>
 
                     @if (session()->has('alert-success'))
                         <div class="alert alert-success">
@@ -102,5 +105,31 @@
                 }
             }
         });
+        function hacerSolicitud() {
+            var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
+            // Configurar la solicitud
+            xhr.open("GET", "{{ 'procesarValor' }}", true);
+            // Manejar la respuesta
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
+                    if (xhr.status === 200) { // Si la solicitud ha tenido éxito
+                        var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
+                        console.log(respuesta.campoValor);
+
+                        // Actualizar el valor en el elemento HTML
+                        document.getElementById('valor-actualizado').textContent = "Número Total de Solicitudes Recibidas " + respuesta.campoValor;
+                    } else {
+                        console.error('Error en la solicitud: ' + xhr
+                            .status); // Imprimir el estado del error en la consola
+                    }
+                }
+            };
+
+            // Enviar la solicitud con un cuerpo vacío
+            xhr.send();
+        }
+
+        // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
+        setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
     </script>
 @endsection
