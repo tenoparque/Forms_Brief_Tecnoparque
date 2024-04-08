@@ -49,6 +49,17 @@
                             <option value="" disabled selected>Seleccione el dato x tipo de dato...</option>
                         </select>
                     </div>
+                    <div class="col-md-3">
+                        <select id="cuartoCombo" name="cuartoCombo" class="form-control selectpicker" data-style="btn-primary"
+                            title="Seleccionar la Ciudad" required
+                            style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                            <option value="" disabled selected>Seleccionar Ciudad...</option>
+                            @foreach ($tiposSolicitudes as $ciudad)
+                                <option value="{{ $ciudad->id }}">{{ $ciudad->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    
                     <div class="col-md-1">
                         <a href="{{ route('solicitudes.pdf') }}" class="btnpdf" target="_blank"><i
                                 class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78; margin-left: -60px;"></i></a>
@@ -71,31 +82,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        // javascript and ajax code
-        $('#search').on('keyup', function() {
-            $value = $(this).val();
-
-            if ($value) {
-                $('.alldata').hide();
-                $('.dataSearched').show();
-            } else {
-                $('.alldata').show();
-                $('.dataSearched').hide();
-            }
-
-            $.ajax({
-                type: 'get',
-                url: "{{ URL::to('') }}",
-                data: {
-                    'search': $value
-                },
-
-                success: function(data) {
-                    $('#Content').html(data);
-                }
-            });
-        })
-
+    
         document.getElementById('slcReport').addEventListener('change', function() {
             var slcReport = this.value;
             var slcTipoDato = document.getElementById('slcTipoDato');
