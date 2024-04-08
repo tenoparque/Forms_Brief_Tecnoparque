@@ -123,3 +123,25 @@
     </div>
     </div>
 </section>
+
+<script>
+    document.getElementById('chkPassw').addEventListener('click', function(){
+        var txtPassw = document.getElementById('txtPassw');
+        if(this.checked){
+            txtPassw.disabled = false;
+        } else {
+            txtPassw.disabled = true;
+            txtPassw.value = '';
+        }
+    });
+
+    document.getElementById('chkPassw').addEventListener('click', function(){
+        var txtCPassw = document.getElementById('txtCPassw');
+        if(this.checked){
+            txtCPassw.disabled = false;
+        } else {
+            txtCPassw.disabled = true;
+            txtCPassw.value = '';
+        }
+    });
+</script>
