@@ -101,6 +101,13 @@
                         </div>
                     </div>
                     <ul class="sidebar-nav">
+                            <li class="sidebar-item">
+                                <a href="{{ route('home') }}" class="sidebar-link">
+                                    <i class="lni lni-home"></i></i>
+                                    <span>Home</span>
+                                </a>
+                                <hr class="hrmenu">
+                            </li>
 
                         @can('users.index')
                             {{-- Validate that you have the users.index permission to be able to watch the users item (link). --}}
