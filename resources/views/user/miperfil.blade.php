@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            
+
             <div class="form-group">
                 {{ Form::label('apellidos', null, ['style' => 'font-size: 16px;  color:black']) }}
                 {{ Form::text('apellidos', $user->apellidos, ['class' => 'form-control' . ($errors->has('apellidos') ? ' is-invalid' : ''), 'placeholder' => 'Apellidos', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
@@ -39,9 +39,9 @@
             <div class="row">
                 <div class="col-md-4">
 
-                    {{ Form::label('nodo', null, ['style' => 'font-size: 16px; color:black']) }}
+                    {{ Form::label('nodo', null, ['style' => 'font-size: 16px;  color: ; font-weight: bold']) }}
                     <div style="position: relative;">
-                        {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
+                        {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                         <div class="icono" onclick="toggleSelect()">
                             <div class="circle-play">
                                 <div class="circle"></div>
@@ -68,38 +68,58 @@
                     </div>
                 </div>
 
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label style="font-size: 16px;  color:black" for="role">Roles:</label>
-                            <div style="position: relative; width: 100%;">
-                                <select
-                                    style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
-                                    name="role" id="role" class="form-control">
-                                    @foreach ($roles as $id => $role)
-                                        <option value="{{ $role }}"
-                                            {{ $user->hasRole($role) ? 'selected' : '' }}>
-                                            {{ $role }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <div class="icono" onclick="toggleSelect()">
-                                    <div class="circle-play">
-                                        <div class="circle"></div>
-                                        <div class="triangle"></div>
-                                    </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label style="font-size: 16px;  color:black" for="role">Roles</label>
+                        <div style="position: relative; width: 100%;">
+                            <select
+                                style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
+                                name="role" id="role" class="form-control">
+                                @foreach ($roles as $id => $role)
+                                    <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>
+                                        {{ $role }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <div class="icono" onclick="toggleSelect()">
+                                <div class="circle-play">
+                                    <div class="circle"></div>
+                                    <div class="triangle"></div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-               
 
-            </div>
-            <div class="col-md-12" style="text-align: right;">
-                <button type="submit" class="btnGuardar">
-                    {{ __('GUARDAR') }}
-                    <i class="fa-solid fa-circle-plus fa-sm iconDCR" ></i>
-                </button>
+                </div>
+
+                <div class="col-md-12"
+                    style="align-content: center; margin-block-end: 15px; margin-block-start: 5px">
+                    <input type="checkbox" id="chkPassw" style="cursor: pointer"> ¿Desea actualizar su contraseña actual?</input>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ Form::label('contraseña', null, ['style' => 'font-size: 16px;  color:black']) }}
+                        {{ Form::text('contraseña', null, ['id' => 'txtPassw', 'class' => 'form-control' . ($errors->has('contraseña') ? ' is-invalid' : ''), 'placeholder' => 'Contraseña', 'disabled' => 'disabled', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
+                        {!! $errors->first('contraseña', '<div class="invalid-feedback">:message</div>') !!}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ Form::label('confirmar contraseña', null, ['style' => 'font-size: 16px;  color:black']) }}
+                        {{ Form::text('confirmar contraseña', null, ['id' => 'txtCPassw', 'class' => 'form-control' . ($errors->has('confirmar contraseña') ? ' is-invalid' : ''), 'placeholder' => 'Confirmar contraseña', 'disabled' => 'disabled', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
+                        {!! $errors->first('confirmar-contraseña', '<div class="invalid-feedback">:message</div>') !!}
+                    </div>
+                </div>
             </div>
         </div>
+
+    </div>
+    <div class="col-md-12" style="text-align: right;">
+        <button type="submit" class="btnGuardar">
+            {{ __('GUARDAR') }}
+            <i class="fa-solid fa-circle-plus fa-sm iconDCR"></i>
+        </button>
+    </div>
+    </div>
 </section>
