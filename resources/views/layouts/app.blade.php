@@ -310,7 +310,7 @@
                         @endcan
 
                         <li class="sidebar-item">
-                            <a href="{{ route('solicitudes.pdf') }}" class="sidebar-link">
+                            <a href="{{ route('reportes-estadisticas.reports') }}" class="sidebar-link">
                                 <i class="fa-solid fa-chart-simple"></i>
                                 <span>Reportes y Estadísticas</span>
                             </a>
