@@ -20,7 +20,9 @@
                         </div>
                     </div>
                     <div>
-                        Solicitudes propias{{$propias}}
+                        Solicitudes Realizadas {{$propias}}<br>
+
+                        Modificaciones Realizadas {{$totalModificaciones}}
                     </div>
                     <div style="margin-bottom: 20px" id="valor-actualizado">
                         {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
