@@ -51,6 +51,7 @@ class HomeController extends Controller
     if ($rolSuperAdmin) {
         $propias = Solicitude::count();
         $totalModificaciones = HistorialDeModificacionesPorSolicitude::count();
+        $total = $propias + $totalModificaciones;
     } else {
         $propias = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)->count();
         
@@ -59,9 +60,11 @@ class HomeController extends Controller
                   ->from('solicitudes')
                   ->where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id);
         })->count();
+        $total = $propias + $totalModificaciones;
+
     }
 
-    return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones]);
+    return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total]);
 }
 
 }

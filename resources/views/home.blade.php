@@ -25,6 +25,9 @@
                     <div style="margin-bottom: 20px" id="valor2">
                         {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
                     </div>
+                    <div style="margin-bottom: 20px" id="valor3">
+                        {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
+                    </div>
             
 
                     @if (session()->has('alert-success'))
@@ -125,6 +128,8 @@
                         // Actualizar el valor en el elemento HTML
                         document.getElementById('valor1').textContent = "Número Total de Solicitudes Recibidas " + respuesta.solicitudes;
                         document.getElementById('valor2').textContent = "Número Total de Modificaciones " + respuesta.modificaciones;
+                        document.getElementById('valor3').textContent = "Total: " + respuesta.total;
+
 
                     } else {
                         console.error('Error en la solicitud: ' + xhr
