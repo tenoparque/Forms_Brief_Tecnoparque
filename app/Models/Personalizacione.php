@@ -58,6 +58,7 @@ class Personalizacione extends Model
     {
         return $this->hasOne('App\Models\User', 'id', 'id_users');
     }
+
     
 
 }

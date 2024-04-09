@@ -973,10 +973,6 @@ input[type="text"] {
         max-height: 20vh;
         overflow: hidden;
     }
-
-<<<<<<< HEAD
-    
-=======
     .checkfiltro{
         max-width: 100%;
         max-height: 20vh;
@@ -994,7 +990,7 @@ input[type="text"] {
 
 
    /* diseño containerProgressBar*/
->>>>>>> 814285fe852d9610ca5b85f7278126403ffbd0f9
+
 }
 /*DISEÑO AL SWEETALERT*/
 .swal2-confirm {
@@ -1108,3 +1104,6 @@ input[type="text"] {
     /* Ruta de la imagen */
     ;
 }
+
+/* vista reset-pass-correo */
+
