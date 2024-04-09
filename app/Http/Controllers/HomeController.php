@@ -47,11 +47,19 @@ class HomeController extends Controller
     $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
     $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
     $nodoUsuario = $usuarioAutenticado->id_nodo;
+    $tiposDeSolicitudes = [];
     
     if ($rolSuperAdmin) {
         $propias = Solicitude::count();
         $totalModificaciones = HistorialDeModificacionesPorSolicitude::count();
         $total = $propias + $totalModificaciones;
+
+        $tiposDeSolicitudes = Solicitude::join('tipos_de_solicitudes', 'solicitudes.id_tipos_de_solicitudes', '=', 'tipos_de_solicitudes.id')
+        ->select('tipos_de_solicitudes.nombre', DB::raw('COUNT(*) as total'))
+        ->groupBy('tipos_de_solicitudes.nombre')
+        ->orderBy('total', 'desc')
+        ->limit(5)
+        ->get();
     } else {
         $propias = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)->count();
         
@@ -62,9 +70,15 @@ class HomeController extends Controller
         })->count();
         $total = $propias + $totalModificaciones;
 
+        $tiposDeSolicitudes = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)
+        ->join('tipos_de_solicitudes', 'solicitudes.id_tipos_de_solicitudes', '=', 'tipos_de_solicitudes.id')
+        ->select('tipos_de_solicitudes.nombre', DB::raw('COUNT(*) as total'))
+        ->groupBy('tipos_de_solicitudes.nombre')
+        ->orderBy('total', 'desc')
+        ->get();
     }
 
-    return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total]);
+    return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes]);
 }
 
 }

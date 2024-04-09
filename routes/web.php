@@ -143,6 +143,7 @@ Route::get('/prueba', [HomeController::class, 'prueba'])->name('home.prueba');
 
 
 
+Route::post('/enviar-dato', [SolicitudeController::class, 'prepararDatosParaPDF'])->name('enviar.dato');
 
 
 

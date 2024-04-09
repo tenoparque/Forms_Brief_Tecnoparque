@@ -77,12 +77,42 @@
                     <!-- Fin de las tarjetas de estadísticas -->
 
                     <!-- Gráfico con Chart.js -->
+                    
                     <div class="row mt-4">
                         <div class="col-md-12">
                             <canvas id="myChart" width="400" height="100"></canvas>
                         </div>
                     </div>
+                        
                     <!-- Fin del Gráfico con Chart.js -->
+                    <!-- Tarjetas de estadísticas -->
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <div class="card bg-crema">
+                                <div class="card-body">
+                                    <h5 class="card-title">Proporción Solicitudes </h5>
+                                    <canvas id="donaChart" style="width: 100%;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-crema">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tipos de solicitudes</h5>
+                                    <canvas id="barChart" style="width: 100%;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-crema">
+                                <div class="card-body">
+                                    <h5 class="card-title">Solicitudes Finalizadas</h5>
+                                    <canvas id="donaChartInCard" style="width: 100%;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin de las tarjetas de estadísticas -->
 
                 </div>
             </div>
@@ -125,10 +155,11 @@
                         var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
                         console.log(respuesta.campoValor);
 
+                        
                         // Actualizar el valor en el elemento HTML
-                        document.getElementById('valor1').textContent = "Número Total de Solicitudes Recibidas " + respuesta.solicitudes;
-                        document.getElementById('valor2').textContent = "Número Total de Modificaciones " + respuesta.modificaciones;
+                       
                         document.getElementById('valor3').textContent = "Total: " + respuesta.total;
+                        actualizarDonaChart(respuesta, respuesta.tiposDeSolicitudes);
 
 
                     } else {
@@ -137,12 +168,87 @@
                     }
                 }
             };
-
             // Enviar la solicitud con un cuerpo vacío
             xhr.send();
         }
 
+
+        var donaChart = null;
+        var barChart = null;
+        // Función para actualizar la gráfica tipo dona con los nuevos datos
+        function actualizarDonaChart(datos, tiposDeSolicitudes) {
+            // Obtener el contexto del lienzo de la gráfica tipo dona
+            var donaCtx = document.getElementById('donaChart').getContext('2d');
+
+            // Crear la gráfica tipo dona
+            if (!donaChart) {
+            donaChart = new Chart(donaCtx, {
+                type: 'doughnut', // Tipo de gráfica
+                data: {
+                    labels: ['Solicitudes', 'Modificaciones'], // Etiquetas
+                    datasets: [{
+                        label: 'Solicitudes vs. Modificaciones', // Etiqueta del conjunto de datos
+                        data: [datos.solicitudes, datos.modificaciones], // Datos
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)', // Color para solicitudes
+                            'rgba(54, 162, 235, 0.5)' // Color para modificaciones
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)', // Color del borde para solicitudes
+                            'rgba(54, 162, 235, 1)' // Color del borde para modificaciones
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    // Opciones de la gráfica (si es necesario)
+                }
+            });
+        }else {
+            // Si ya hay una instancia existente, actualiza los datos
+            donaChart.data.datasets[0].data = [datos.solicitudes, datos.modificaciones];
+            donaChart.update(); // Actualizar la gráfica
+        }
+
+            // Crear la gráfica de tipo dona para otro conjunto de datos (reemplaza esto con tus datos)
+            var otroDonaCtx = document.getElementById('barChart').getContext('2d');
+            if (!barChart) {
+                barChart = new Chart(otroDonaCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: tiposDeSolicitudes.map(function(tipo) { return tipo.nombre; }),
+                    datasets: [{
+                        label: 'Cantidad de Solicitudes',
+                        data: tiposDeSolicitudes.map(function(tipo) { return tipo.total; }),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)', // Color para Tipo 1
+                            'rgba(54, 162, 235, 0.5)', // Color para Tipo 2
+                            // Agrega más colores según sea necesario
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)', // Color del borde para Tipo 1
+                            'rgba(54, 162, 235, 1)', // Color del borde para Tipo 2
+                            // Agrega más colores según sea necesario
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    // Opciones de la gráfica (si es necesario)
+                }
+            });
+        }else {
+        // Si ya hay una instancia existente, actualiza los datos
+        barChart.data.labels = tiposDeSolicitudes.map(function(tipo) { return tipo.nombre; });
+        barChart.data.datasets[0].data = tiposDeSolicitudes.map(function(tipo) { return tipo.total; });
+        barChart.update(); // Actualizar la gráfica
+    }
+
+    }
         // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
         setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
-    </script>
+
+
+        
+</script>
 @endsection
