@@ -23,16 +23,8 @@
                                 </div>
                             </div>
                         
-<<<<<<< HEAD
+
                             <div class="row mb-3"style="padding-bottom:2px; margin;margin-block-start: 50px">
-                                <div class="check__radio-solici">
-                                    <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp "  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
-                                    <label class=" checkboxSol check__label-solici"><input   class="checkboxSolInp" type="radio" name="parametro" value="nodo"><span class="check"><span class="inner-eye"></span></span>  Nodo</label> 
-                                    <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="evento"><span class="check"><span class="inner-eye"></span></span>  Evento</label>
-                                    <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="estado"><span class="check"><span class="inner-eye"></span></span>  Estado</label>
-                                    <label class=" checkboxSol  check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="designer"><span class="check"><span class="inner-eye"></span></span> Diseñador</label>
-                                    <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
-=======
                             <div class="Containerfiltros">
                                 <div class="filtros">
                                     <label class=" checkboxSol checkfiltro"><input  class="checkboxSolInp"  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
@@ -41,7 +33,7 @@
                                     <label class=" checkboxSol checkfiltro"><input  class="checkboxSolInp"  type="radio" name="parametro" value="estado"><span class="check"><span class="inner-eye"></span></span>  Estado</label>
                                     <label class=" checkboxSol checkfiltro"><input  class="checkboxSolInp"  type="radio" name="parametro" value="designer"><span class="check"><span class="inner-eye"></span></span> Diseñador</label>
                                     <label class=" checkboxSol checkfiltro"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
->>>>>>> 814285fe852d9610ca5b85f7278126403ffbd0f9
+
                                 </div>
                             </div>
                         
