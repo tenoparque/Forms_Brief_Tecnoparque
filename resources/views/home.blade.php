@@ -246,7 +246,7 @@
 
     }
         // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
-        setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
+        setInterval(hacerSolicitud, 5000); // 5000 milisegundos = 5 segundos
 
 
         
