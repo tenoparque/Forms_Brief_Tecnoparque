@@ -143,8 +143,12 @@
                 }
             }
         });
+
+        var intervalo = setInterval(hacerSolicitud, 5000);
       
         function hacerSolicitud() {
+
+            clearInterval(intervalo);
             var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
             // Configurar la solicitud
             xhr.open("GET", "{{ 'prueba' }}", true);
@@ -153,9 +157,7 @@
                 if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
                     if (xhr.status === 200) { // Si la solicitud ha tenido éxito
                         var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
-                        console.log(respuesta.campoValor);
-
-                        
+    
                         // Actualizar el valor en el elemento HTML
                        
                         document.getElementById('valor3').textContent = "Total: " + respuesta.total;
@@ -166,6 +168,7 @@
                         console.error('Error en la solicitud: ' + xhr
                             .status); // Imprimir el estado del error en la consola
                     }
+                    intervalo = setInterval(hacerSolicitud, 5000);
                 }
             };
             // Enviar la solicitud con un cuerpo vacío
@@ -246,7 +249,7 @@
 
     }
         // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
-        setInterval(hacerSolicitud, 5000); // 5000 milisegundos = 5 segundos
+        // intervalo = setInterval(hacerSolicitud, 5000); // 5000 milisegundos = 5 segundos
 
 
         
