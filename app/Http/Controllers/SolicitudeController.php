@@ -170,9 +170,8 @@ class SolicitudeController extends Controller
         $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $selectedOptionId)->get();
         
         // Retorna un array con los datos que necesitas para la vista
-        return [
-            'solicitudes' => $solicitudes,
-        ];
+        return  $solicitudes;
+        
     }
 
     public function pdf(Request $request) {
