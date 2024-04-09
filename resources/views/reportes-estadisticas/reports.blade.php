@@ -82,12 +82,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-      $(document).ready(function() {
-        $('#cuartoCombo').change(function() {
-            var ciudadId = $(this).val(); // Obtener el ID de la ciudad seleccionada
-            console.log("ID de la ciudad seleccionada:", ciudadId);
-        });
-    });
         document.getElementById('slcReport').addEventListener('change', function() {
             var slcReport = this.value;
             var slcTipoDato = document.getElementById('slcTipoDato');
