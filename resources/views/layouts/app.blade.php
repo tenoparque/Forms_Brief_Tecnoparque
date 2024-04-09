@@ -525,5 +525,22 @@
         history.replaceState(null, null, location.pathname);
     }
 </script>
+<script>
+   $(document).ready(function() {
+    // Obtener la URL de la página actual
+    var url = window.location.href;
+
+    // Recorrer todos los enlaces del menú lateral
+    $('.sidebar-link').each(function() {
+        // Si la URL del enlace coincide con la URL de la página actual
+        if (this.href === url) {
+            // Añadir la clase 'active' al enlace
+            $(this).addClass('active');
+        }
+    });
+});
+
+
+</script>
 
 </html>
