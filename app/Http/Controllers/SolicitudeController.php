@@ -165,15 +165,16 @@ class SolicitudeController extends Controller
     }
 
 
-    public function pdf(){
+    public function prepararDatosParaPDF() {
         $solicitudes = Solicitude::all();
-   
-     $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
-        // //return $pdf->download('NumeroDeSolcitudes.pdf');
-
-        return $pdf->stream();
-
+        return view('solicitude.pdf', compact('solicitudes'));
     }
+    
+    public function pdf() {
+        $pdf = PDF::loadHTML($this->prepararDatosParaPDF()->render());
+        return $pdf->stream();
+    }
+    
     
 
 // public function procesarValor()
