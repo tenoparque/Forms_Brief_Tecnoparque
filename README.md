@@ -69,4 +69,6 @@ creado por:
 -Johan Oviedo 
 -Diego Garcia 
 -Darien Pesca
+-Deicy Jejen 
+Joseph Almeida
 -comit de prueba

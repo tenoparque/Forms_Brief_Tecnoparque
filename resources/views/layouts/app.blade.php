@@ -39,6 +39,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+        
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -100,6 +101,13 @@
                         </div>
                     </div>
                     <ul class="sidebar-nav">
+                            <li class="sidebar-item">
+                                <a href="{{ route('home') }}" class="sidebar-link">
+                                    <i class="lni lni-home"></i></i>
+                                    <span>Home</span>
+                                </a>
+                                <hr class="hrmenu">
+                            </li>
 
                         @can('users.index')
                             {{-- Validate that you have the users.index permission to be able to watch the users item (link). --}}
@@ -309,7 +317,7 @@
                         @endcan
 
                         <li class="sidebar-item">
-                            <a href="{{ route('solicitudes.pdf') }}" class="sidebar-link">
+                            <a href="{{ route('reportes-estadisticas.reports') }}" class="sidebar-link">
                                 <i class="fa-solid fa-chart-simple"></i>
                                 <span>Reportes y Estadísticas</span>
                             </a>

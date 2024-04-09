@@ -23,6 +23,7 @@
                                 </div>
                             </div>
                         
+<<<<<<< HEAD
                             <div class="row mb-3"style="padding-bottom:2px; margin;margin-block-start: 50px">
                                 <div class="check__radio-solici">
                                     <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp "  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
@@ -31,6 +32,16 @@
                                     <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="estado"><span class="check"><span class="inner-eye"></span></span>  Estado</label>
                                     <label class=" checkboxSol  check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="designer"><span class="check"><span class="inner-eye"></span></span> Diseñador</label>
                                     <label class=" checkboxSol check__label-solici"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
+=======
+                            <div class="Containerfiltros">
+                                <div class="filtros">
+                                    <label class=" checkboxSol checkfiltro"><input  class="checkboxSolInp"  type="radio" name="parametro" value="tipo"><span class="check"><span class="inner-eye"></span></span> Tipo de Solicitud</label>
+                                    <label class=" checkboxSol checkfiltro"><input   class="checkboxSolInp" type="radio" name="parametro" value="nodo"><span class="check"><span class="inner-eye"></span></span>  Nodo</label> 
+                                    <label class=" checkboxSol checkfiltro"><input  class="checkboxSolInp"  type="radio" name="parametro" value="evento"><span class="check"><span class="inner-eye"></span></span>  Evento</label>
+                                    <label class=" checkboxSol checkfiltro"><input  class="checkboxSolInp"  type="radio" name="parametro" value="estado"><span class="check"><span class="inner-eye"></span></span>  Estado</label>
+                                    <label class=" checkboxSol checkfiltro"><input  class="checkboxSolInp"  type="radio" name="parametro" value="designer"><span class="check"><span class="inner-eye"></span></span> Diseñador</label>
+                                    <label class=" checkboxSol checkfiltro"><input  class="checkboxSolInp"  type="radio" name="parametro" value="usuario"><span class="check"><span class="inner-eye"></span></span>  Usuario Creador</label> 
+>>>>>>> 814285fe852d9610ca5b85f7278126403ffbd0f9
                                 </div>
                             </div>
                         
@@ -45,9 +56,7 @@
                                         <i class="fa-solid fa-circle-play iconDCR"></i></a>
                                 </div>                               
                             </div>
-                            <div style="margin-bottom: 20px" id="valor-actualizado">
-                                {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
-                            </div>
+                           
                         </div>
                         
                         <div class="table-responsive"
@@ -216,32 +225,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-        function hacerSolicitud() {
-            var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
-            // Configurar la solicitud
-            xhr.open("GET", "{{ 'procesarValor' }}", true);
-            // Manejar la respuesta
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
-                    if (xhr.status === 200) { // Si la solicitud ha tenido éxito
-                        var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
-                        console.log(respuesta.campoValor);
-
-                        // Actualizar el valor en el elemento HTML
-                        document.getElementById('valor-actualizado').textContent = "Número Total de Solicitudes Recibidas " + respuesta.campoValor;
-                    } else {
-                        console.error('Error en la solicitud: ' + xhr
-                            .status); // Imprimir el estado del error en la consola
-                    }
-                }
-            };
-
-            // Enviar la solicitud con un cuerpo vacío
-            xhr.send();
-        }
-
-        // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
-        setInterval(hacerSolicitud, 1000); // 5000 milisegundos = 5 segundos
+       
 
         function abrirModalAsignacion(idSolicitud) {
             // Mostrar el modal de asignación de diseñador

@@ -14,12 +14,21 @@ body {
 .flex-container{
     display: flex;
     justify-content: center;
-    padding-top: 10vh;
+    padding: 10vh;
 }
 
 
-
-
+.flex__direction-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: rgb(56, 168,0,0.8);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    transition: 0.3s; 
+   
+}
 
 .form-login{
     width: 100%;
@@ -64,7 +73,7 @@ body {
 
 
 .eye-icon{
-    
+   
     transform: translate(140px,-34px);
     
 }
@@ -360,3 +369,10 @@ button:focus {
       margin: 0;
     }
 } */
+.alert.alert-danger {   
+    background-color: #f8d7da;
+    color: #39A900;
+    border-color: #f5c6cb;
+    padding: 10px;
+    margin-bottom: 15px;
+}

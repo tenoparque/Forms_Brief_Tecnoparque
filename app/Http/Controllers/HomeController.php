@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistorialDeModificacionesPorSolicitude;
 use Illuminate\Http\Request;
 use App\Models\Solicitude;
 use App\Models\Nodo;
 use DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -26,6 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+       
         $data = DB::table('solicitudes')
         ->join('users', 'solicitudes.id_usuario_que_realiza_la_solicitud', '=', 'users.id')
         ->join('nodos', 'users.id_nodo', '=', 'nodos.id')
@@ -36,4 +40,31 @@ class HomeController extends Controller
 
         return view('home', compact('data'));
     }
+
+    public function prueba()
+{
+    $usuarioAutenticado = Auth::user();
+    $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
+    $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
+    $nodoUsuario = $usuarioAutenticado->id_nodo;
+    
+    if ($rolSuperAdmin) {
+        $propias = Solicitude::count();
+        $totalModificaciones = HistorialDeModificacionesPorSolicitude::count();
+        $total = $propias + $totalModificaciones;
+    } else {
+        $propias = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)->count();
+        
+        $totalModificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', function ($query) use ($usuarioAutenticado) {
+            $query->select('id')
+                  ->from('solicitudes')
+                  ->where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id);
+        })->count();
+        $total = $propias + $totalModificaciones;
+
+    }
+
+    return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total]);
+}
+
 }

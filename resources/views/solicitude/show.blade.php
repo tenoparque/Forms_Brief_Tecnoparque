@@ -32,7 +32,7 @@
                                 <img src="../images/iconos Brief-03.png" alt="icon" class="img-fluid" style="max-width: 100px; margin-left: -95%;">
                             </div>
                             <div class="col-2 text-center">
-                                <img src="../images/ajustes.png" alt="icon" class="img-fluid" style="max-width: 50px; margin-block-start: 23px; margin-right: 65%;">
+                                <img src="../images/ajustes.png" alt="icon" class="img-fluid-ajustes" style="max-width: 50px; margin-block-start: 23px; margin-right: 65%;">
                             </div>
                             <div class="col-2 text-center">
                                 <img src="../images/iconos Brief-04.png" alt="icon" class="img-fluid" style="max-width: 100px;">

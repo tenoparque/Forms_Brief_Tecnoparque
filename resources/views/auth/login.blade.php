@@ -91,4 +91,5 @@
             }
         });
     </script>
+<script></script>
 @endsection

@@ -264,6 +264,16 @@ header {
 
 /* --------------- solicitudes ---------------------- */
 
+.filtros{
+    display: flex;
+   flex-wrap: wrap;
+}
+.checkfiltro{
+  padding-right: 95px;
+  padding-bottom: 20px;
+}
+
+
 .InputText {
     border-radius: 100px;
     display: block;
@@ -964,7 +974,27 @@ input[type="text"] {
         overflow: hidden;
     }
 
+<<<<<<< HEAD
     
+=======
+    .checkfiltro{
+        max-width: 100%;
+        max-height: 20vh;
+    
+
+    }
+
+    .invalid-feedback {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    
+   
+
+
+   /* diseño containerProgressBar*/
+>>>>>>> 814285fe852d9610ca5b85f7278126403ffbd0f9
 }
 /*DISEÑO AL SWEETALERT*/
 .swal2-confirm {

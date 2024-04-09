@@ -83,12 +83,13 @@ class PersonalizacioneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $personalizacione = new Personalizacione();
-        $estados = Estado::all();
-        return view('personalizacione.create', compact('personalizacione'));
-    }
+    
+    // public function create()
+    // {
+    //     $personalizacione = new Personalizacione();
+    //     $estados = Estado::all();
+    //     return view('personalizacione.create', compact('personalizacione'));
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -107,7 +108,7 @@ class PersonalizacioneController extends Controller
         ]);
 
     $request->validate([
-        'logo' => 'required|image|max:60', // Validar que sea una imagen con un tamaño máximo de 60KB
+        'logo' => 'required|image|max:900', // Validar que sea una imagen con un tamaño máximo de 900KB
     ]);
 
     // Validar los datos del formulario
@@ -182,7 +183,7 @@ class PersonalizacioneController extends Controller
 
          // Validar la nueva imagen
         $request->validate([
-        'logo' => 'image|max:60', // Validar que sea una imagen con un tamaño máximo de 60KB
+        'logo' => 'image|max:900', // Validar que sea una imagen con un tamaño máximo de 900KB
         ]);
 
        // Validar los datos del formulario
