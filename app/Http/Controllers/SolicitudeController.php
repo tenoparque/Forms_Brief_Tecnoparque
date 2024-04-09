@@ -165,17 +165,26 @@ class SolicitudeController extends Controller
     }
 
 
-    public function prepararDatosParaPDF() {
-        $solicitudes = Solicitude::all();
-        return view('solicitude.pdf', compact('solicitudes'));
+    public function prepararDatosParaPDF(Request $request) {
+        $selectedOptionId = $request->input('selectedOptionId');
+        $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $selectedOptionId)->get();
+        
+        // Retorna un array con los datos que necesitas para la vista
+        return [
+            'solicitudes' => $solicitudes,
+        ];
     }
-    
-    public function pdf() {
-        $pdf = PDF::loadHTML($this->prepararDatosParaPDF()->render());
+
+    public function pdf(Request $request) {
+        // Llama al método para preparar los datos para el PDF
+        $viewData = $this->prepararDatosParaPDF($request);
+        
+        // Genera el PDF a partir de los datos preparados
+        $pdf = PDF::loadView('solicitude.pdf', $viewData);
+        
+        // Devuelve el PDF para visualización o descarga
         return $pdf->stream();
     }
-    
-    
 
 // public function procesarValor()
 // {
