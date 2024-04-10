@@ -82,28 +82,28 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
-        $('#cuartoCombo').change(function() {
-            var selectedOptionId = $(this).val(); // Obtiene el valor del atributo 'value' de la opción seleccionada
+    //     $(document).ready(function() {
+    //     $('#cuartoCombo').change(function() {
+    //         var selectedOptionId = $(this).val(); // Obtiene el valor del atributo 'value' de la opción seleccionada
 
-            // Realiza la solicitud AJAX
-            $.ajax({
-                url: "{{ route('enviar.dato') }}", // Ruta hacia el método en el controlador
-                type: "POST",
-                data: {
-                    _token: "{{ csrf_token() }}", // Agrega el token CSRF para seguridad
-                    selectedOptionId: selectedOptionId // Envía el valor seleccionado como 'selectedOptionId'
-                },
-                success: function(response) {
-                    // Maneja la respuesta del servidor si es necesario
-                    console.log(response);
-                },
-                error: function(xhr, status, error) {
-                    console.error(error); // Manejo de errores
-                }
-            });
-        });
-    });
+    //         // Realiza la solicitud AJAX
+    //         $.ajax({
+    //             
+    //             type: "POST",
+    //             data: {
+    //                 _token: "{{ csrf_token() }}", // Agrega el token CSRF para seguridad
+    //                 selectedOptionId: selectedOptionId // Envía el valor seleccionado como 'selectedOptionId'
+    //             },
+    //             success: function(response) {
+    //                 // Maneja la respuesta del servidor si es necesario
+    //                 console.log(response);
+    //             },
+    //             error: function(xhr, status, error) {
+    //                 console.error(error); // Manejo de errores
+    //             }
+    //         });
+    //     });
+    // });
         document.getElementById('slcReport').addEventListener('change', function() {
             var slcReport = this.value;
             var slcTipoDato = document.getElementById('slcTipoDato');
