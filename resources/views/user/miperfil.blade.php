@@ -146,15 +146,96 @@
     });
 </script> --}}
 
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Mi perfil</title>
 </head>
 <body>
-    <h1>Prrra</h1>
+    <h1>Test</h1>
 </body>
-</html>
+</html> --}}
+
+<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+
+<section class="container shadow p-4 my-5 bg-light rounded" style="back">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row p-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: 16px;  color:black">Nombres</label>
+                            <input type="text" name="name" class="form-control" placeholder="Nombres"
+                                style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="font-size: 16px;  color:black">Correo</label>
+                            <input type="text" name="email" class="form-control" placeholder="Correo"
+                                style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label style="font-size: 16px;  color:black">Apellidos</label>
+                            <input type="text" name="apellidos" class="form-control" placeholder="Apellidos"
+                                style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="font-size: 16px;  color:black">Celular</label>
+                            <input type="text" name="celular" class="form-control" placeholder="Celular"
+                                style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+
+                                <label style="font-size: 16px;  color:black; font-weight: bold">Nodo</label>
+                                <div style="position: relative;">
+                                    <select name="id_nodo" class="form-control"
+                                        style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                                        <option>Nodo 1</option>
+                                        <!-- Agrega aquí las demás opciones -->
+                                    </select>
+                                    <div class="icono" onclick="toggleSelect()">
+                                        <div class="circle-play">
+                                            <div class="circle"></div>
+                                            <div class="triangle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label style="font-size: 16px;  color:black">Estado</label>
+                                    <div style="position: relative;">
+                                        <select name="id_nodo" class="form-control"
+                                            style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                                            <option>Estado 1</option>
+                                            <!-- Agrega aquí las demás opciones -->
+                                        </select>
+                                        <div class="icono" onclick="toggleSelect()">
+                                            <div class="circle-play">
+                                                <div class="circle"></div>
+                                                <div class="triangle"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
