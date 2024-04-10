@@ -77,18 +77,16 @@
                     <!-- Fin de las tarjetas de estadísticas -->
 
                     <!-- Gráfico con Chart.js -->
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <canvas id="grafica_mes_a_mes"  width="400" height="100"></canvas>
-                        </div>
+                    <div id="valor3">
+                        <!-- Este div es opcional, dependiendo de dónde quieras mostrar la nueva gráfica -->
+                        <canvas id="grafica_mes_a_mes" width="400" height="200"></canvas>
                     </div>
 
                     <div class="row mt-4">
                         <div class="col-md-12">
-                            <canvas id="garfica_nodos_solicitudes" width="400" height="100"></canvas>
+                            <canvas id="myChart" width="400" height="100"></canvas>
                         </div>
                     </div>
-
 
                     <!-- Fin del Gráfico con Chart.js -->
                     <!-- Tarjetas de estadísticas -->
@@ -101,17 +99,8 @@
                             flex-direction: column;
                             text-align: center;">
                                 <div class="card-body" style="width: 65%;">
-
-                    <!-- Fin del Gráfico con Chart.js -->
-
-                    <!-- Tarjetas con graficos -->
-                    <div class="row mt-4">
-                        <div class="col-md-4">
-                            <div class="card bg-crema">
-                                <div class="card-body">
-
                                     <h5 class="card-title">Proporción Solicitudes </h5>
-                                    <canvas id="grafico_solicitudes_modificaciones" style="width: 100%;"></canvas>
+                                    <canvas id="donaChart" style="width: 100%;"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +109,7 @@
                                 style="display: flex;justify-content: center;align-items: center;flex-direction: column;text-align: center;">
                                 <div class="card-body" style="width: 65%;">
                                     <h5 class="card-title">Tipos de solicitudes</h5>
-                                    <canvas id="grafico_tipos_solicitudes" style="width: 100%;"></canvas>
+                                    <canvas id="barChart" style="width: 100%;"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -134,8 +123,8 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var ctx = document.getElementById('garfica_nodos_solicitudes').getContext('2d');
-        var garfica_nodos_solicitudes = new Chart(ctx, {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: {!! $data->pluck('nombre') !!},
@@ -157,7 +146,6 @@
                 }
             }
         });
-        
 
         var intervalo = setInterval(hacerSolicitud, 5000);
 
@@ -193,16 +181,15 @@
 
         hacerSolicitud();
 
-        var grafico_solicitudes_modificaciones = null;
-        var grafico_tipos_solicitudes = null;
+        var donaChart = null;
+        var barChart = null;
         var grafica_mes_a_mes = null;
         // Función para actualizar la gráfica tipo dona con los nuevos datos
         function actualizarGraficos(datos, tiposDeSolicitudes) {
             // Obtener el contexto del lienzo de la gráfica tipo dona
-            var donaCtx = document.getElementById('grafico_solicitudes_modificaciones').getContext('2d');
+            var donaCtx = document.getElementById('donaChart').getContext('2d');
 
             // Crear la gráfica tipo dona
-<<<<<<< HEAD
             if (!donaChart) {
                 donaChart = new Chart(donaCtx, {
                     type: 'doughnut', // Tipo de gráfica
@@ -272,103 +259,8 @@
                     return tipo.total;
                 });
                 barChart.update(); // Actualizar la gráfica
-=======
-            if (!grafico_solicitudes_modificaciones) {
-                grafico_solicitudes_modificaciones = new Chart(donaCtx, {
-                type: 'doughnut', // Tipo de gráfica
-                data: {
-                    labels: ['Solicitudes', 'Modificaciones'], // Etiquetas
-                    datasets: [{
-                        label: 'Total', // Etiqueta del conjunto de datos
-                        data: [datos.solicitudes, datos.modificaciones], // Datos
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)', // Color para solicitudes
-                            'rgba(54, 162, 235, 0.5)' // Color para modificaciones
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)', // Color del borde para solicitudes
-                            'rgba(54, 162, 235, 1)' // Color del borde para modificaciones
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    // Opciones de la gráfica (si es necesario)
-                }
-            });
-        }else {
-            // Si ya hay una instancia existente, actualiza los datos
-            grafico_solicitudes_modificaciones.data.datasets[0].data = [datos.solicitudes, datos.modificaciones];
-            grafico_solicitudes_modificaciones.update(); // Actualizar la gráfica
-        }
-
-            // Crear la gráfica de tipo dona para otro conjunto de datos (reemplaza esto con tus datos)
-            var otroDonaCtx = document.getElementById('grafico_tipos_solicitudes').getContext('2d');
-            if (!grafico_tipos_solicitudes) {
-                grafico_tipos_solicitudes = new Chart(otroDonaCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: tiposDeSolicitudes.map(function(tipo) { return tipo.nombre; }),
-                    datasets: [{
-                        label: 'Cantidad de Solicitudes',
-                        data: tiposDeSolicitudes.map(function(tipo) { return tipo.total; }),
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)', // Color para Tipo 1
-                            'rgba(54, 162, 235, 0.5)', // Color para Tipo 2
-                            // Agrega más colores según sea necesario
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)', // Color del borde para Tipo 1
-                            'rgba(54, 162, 235, 1)', // Color del borde para Tipo 2
-                            // Agrega más colores según sea necesario
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    // Opciones de la gráfica (si es necesario)
-                }
-            });
-        }else {
-        // Si ya hay una instancia existente, actualiza los datos
-        grafico_tipos_solicitudes.data.labels = tiposDeSolicitudes.map(function(tipo) { return tipo.nombre; });
-        grafico_tipos_solicitudes.data.datasets[0].data = tiposDeSolicitudes.map(function(tipo) { return tipo.total; });
-        grafico_tipos_solicitudes.update(); // Actualizar la gráfica
-    }
-
-
-    // Función para formatear la fecha en formato "mes año"
-    function formatearFecha(anio, mes) {
-        const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Dicicembre'];
-        return meses[mes - 1] ;
-    }
-
-    var grafica_por_mes = document.getElementById('grafica_mes_a_mes').getContext('2d');
-
-    // Crear la gráfica tipo línea
-    if (!grafica_mes_a_mes) {
-        grafica_mes_a_mes = new Chart(grafica_por_mes, {
-            type: 'bar', // Tipo de gráfica
-            data: {
-                labels: datos.datos_mes_a_mes.map(function(data) {
-                    return formatearFecha(data.anio, data.mes); // Crear etiquetas en formato "mes año"
-                }),
-                datasets: [{
-                    label: 'Solicitudes Mes a Mes', // Etiqueta del conjunto de datos
-                    data: datos.datos_mes_a_mes.map(function(data) {
-                        return data.total_solicitudes; // Obtener el total de solicitudes
-                    }),
-                    backgroundColor: 'rgba(255, 206, 86, 0.2)', // Color de fondo
-                    borderColor: 'rgba(255, 206, 86, 1)', // Color del borde
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                // Opciones de la gráfica (si es necesario)
->>>>>>> 76478fab7a12ebf9186ba5abed5c074b5945c646
             }
 
-<<<<<<< HEAD
 
             // Función para formatear la fecha en formato "mes año"
             function formatearFecha(anio, mes) {
@@ -418,19 +310,4 @@
         // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
         // intervalo = setInterval(hacerSolicitud, 5000); // 5000 milisegundos = 5 segundos
     </script>
-=======
-    }
-        
-    window.addEventListener('resize', function() {
-        // Verifica si la gráfica está definida
-        if (garfica_nodos_solicitudes) {
-            garfica_nodos_solicitudes.resize();
-        }
-        if (grafica_mes_a_mes) {
-            grafica_mes_a_mes.resize();
-        }
-    });
-
-</script>
->>>>>>> 76478fab7a12ebf9186ba5abed5c074b5945c646
 @endsection
