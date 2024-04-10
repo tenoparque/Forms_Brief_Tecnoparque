@@ -44,8 +44,11 @@
                                     <input class="form-control" id="search" placeholder="Ingrese el tipo de solicitud..."
                                         style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                                     <a href="{{route('solicitudes.pdf')}}" class="btnpdf" target="_blank"><i class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78;"></i></a>
-                                    <a href="{{ route('solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
-                                        <i class="fa-solid fa-circle-play iconDCR"></i></a>
+                                    
+                                    @can('solicitudes.create')
+                                        <a href="{{ route('solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
+                                            <i class="fa-solid fa-circle-play iconDCR"></i></a>
+                                    @endcan
                                 </div>                               
                             </div>
                            

@@ -28,8 +28,8 @@ class UserController extends Controller
     }
 
     public function miperfil(){
-        $users = User::all();
-        return view ('user.miperfil', compact('users'));
+        $user = User::all();
+        return view ('user.miperfil', compact('user'));
     }
 
     public function search(Request $request)
