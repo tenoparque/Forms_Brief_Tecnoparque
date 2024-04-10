@@ -148,7 +148,7 @@
             }
         });
 
-        var intervalo = setInterval(hacerSolicitud, 2000);
+        var intervalo = setInterval(hacerSolicitud, 5000);
       
         function hacerSolicitud() {
 
@@ -172,13 +172,15 @@
                         console.error('Error en la solicitud: ' + xhr
                             .status); // Imprimir el estado del error en la consola
                     }
-                    intervalo = setInterval(hacerSolicitud, 2000);
+                    intervalo = setInterval(hacerSolicitud, 5000);
                 }
             };
             // Enviar la solicitud con un cuerpo vacío
             xhr.send();
         }
 
+
+        hacerSolicitud();
 
         var donaChart = null;
         var barChart = null;
