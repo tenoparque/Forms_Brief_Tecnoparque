@@ -34,10 +34,10 @@ class CiudadeController extends Controller
         foreach($ciudades as $ciudade){
             $output .= 
             '<tr>
-                <td>' . $ciudade->id . '</td>
-                <td>' . $ciudade->nombre . '</td>
-                <td>' . $ciudade->departamento->nombre . '</td>
-                <td>
+                <td data-titulo="No">' . $ciudade->id . '</td>
+                <td data-titulo="Nombre">' . $ciudade->nombre . '</td>
+                <td data-titulo="Departamento">' . $ciudade->departamento->nombre . '</td>
+                <td >
                     <a href="' . url('/ciudades/' . $ciudade->id) . '" class="btnDetalle">
                         <i class="fa fa-fw fa-eye iconDCR"></i> Detalle
                     </a>

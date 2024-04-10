@@ -44,11 +44,11 @@ class PoliticaController extends Controller
             foreach ($politicas as $politica) {
                 $output .= 
                 '<tr>
-                    <td>' . $politica->id . '</td>
-                    <td>' . $politica->descripcion . '</td>
-                    <td>' . $user->email . '</td>
-                    <td>' . $politica->estado->nombre . '</td>
-                    <td>' . $politica->titulo . '</td>
+                    <td data-titulo="No">' . $politica->id . '</td>
+                    <td data-titulo="Descripcion">' . $politica->descripcion . '</td>
+                    <td data-titulo="Email Usuario">' . $user->email . '</td>
+                    <td data-titulo="Estado">' . $politica->estado->nombre . '</td>
+                    <td data-titulo="Politica titulo">' . $politica->titulo . '</td>
                     
                     <td>
                         <a href="' . url('/politicas/' . $politica->id) . '" class="btnDetalle">

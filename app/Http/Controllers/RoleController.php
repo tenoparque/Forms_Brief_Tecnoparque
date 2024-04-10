@@ -34,8 +34,8 @@ class RoleController extends Controller
         foreach($roles as $rol){
             $output .= 
             '<tr>
-                <td>' . $rol->id . '</td>
-                <td>' . $rol->name . '</td>
+                <td data-titulo="No">' . $rol->id . '</td>
+                <td data-titulo="Nombre Rol">' . $rol->name . '</td>
                 <td>
                     <a href="' . url('/roles/' . $rol->id) . '" class="btn btn-outline"
                     style="color:#00324D; background-color: #ffff; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"
