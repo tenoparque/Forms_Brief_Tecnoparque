@@ -10,7 +10,7 @@
                 <h3 class="subtitulo__login">Plataforma de solicitudes</h3>
                 <br>
                 <br>
-                <div>
+              
                     <div class="flex__directionInput">
                         <input id="email"  placeholder="CORREO" type="email"
                             class="form-control form__inputLogin @error('email') is-invalid @enderror" name="email"
@@ -22,12 +22,26 @@
                         </span>
                         @enderror
                     </div>
-                </div>
-                <div>
-                    <div class="flex__directionInput">
+              
+             
+                    <div class="flex__directionInput  inputPassLogin">
                         <input id="password" placeholder="CONTRASEÑA" type="password"
                             class="form-control  @error('password') form__inputLogin is-invalid @enderror" name="password" required
-                            autocomplete="current-password">
+                            autocomplete="current-password" style="width: 80%;
+                            margin: 0px;
+                            padding: 11px;
+                            border-radius: 12px;
+                            border-width:4px;
+                            border-style: solid;
+                            border-color: #ececec;
+                            background-color:  #ececec;
+                            box-shadow: inset 0 0 5px rgb(0,0,0,.4);
+                            border:none;
+                            outline: none;
+                            color: #000;
+                            font-size: 14px;
+                            padding-left: 3%;"
+                            >
                         <span class="eye-icon" onclick="togglePasswordVisibility()">
                             <i class="fa fa-eye-slash"></i>
                         </span>
@@ -37,7 +51,7 @@
                         </span>
                         @enderror
                     </div>
-                </div>
+              
                 <div class="forgot">
                     <a href="{{ route('password.request') }}">
                         {{ __('¿Olvidaste tu contraseña?') }}

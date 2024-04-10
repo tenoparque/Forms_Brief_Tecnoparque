@@ -92,27 +92,21 @@
 
                     <!-- Tarjetas con graficos -->
                     <div class="row mt-4">
-                        <div class="col-md-4">
-                            <div class="card bg-crema">
+                        <div class="col-md-6">
+                            <div class="card bg-crema"                                 
+                            style="display: flex;justify-content: center;align-items: center;flex-direction: column;text-align: center;">
                                 <div class="card-body">
                                     <h5 class="card-title">Proporción Solicitudes </h5>
                                     <canvas id="grafico_solicitudes_modificaciones" style="width: 100%;"></canvas>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card bg-crema">
+                        <div class="col-md-6">
+                            <div class="card bg-crema" 
+                            style="display: flex;justify-content: center;align-items: center;flex-direction: column;text-align: center;">
                                 <div class="card-body">
                                     <h5 class="card-title">Tipos de solicitudes</h5>
                                     <canvas id="grafico_tipos_solicitudes" style="width: 100%;"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card bg-crema">
-                                <div class="card-body">
-                                    <h5 class="card-title">Solicitudes Finalizadas</h5>
-                                    <canvas id="donaChartInCard" style="width: 100%;"></canvas>
                                 </div>
                             </div>
                         </div>
