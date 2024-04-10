@@ -190,8 +190,6 @@ class SolicitudeController extends Controller
 
 
     public function pdf(Request $request) {
-        $contenido = $this->obtenerSolicitudes($request);
-
         $contenido = '<!DOCTYPE html>
         <html>
           <head>
