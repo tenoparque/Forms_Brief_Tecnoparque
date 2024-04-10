@@ -77,9 +77,9 @@ body {
 
 
 .eye-icon{
-   position: absolute;
-    top: 30px;
-    left: 330px;
+   position: relative;
+    top: -32px;
+    left: 140px;
     
 }
 
