@@ -39,7 +39,9 @@
                     <label style="font-size: 16px;  color: ; font-weight: bold">Nodo</label>
                     <div style="position: relative;">
                         <select name="id_nodo" class="form-control" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
-                            <!-- Opciones del select -->
+                            @foreach ($user as $user)
+                                <option value="{{ $user->id }}">{{ $user->nombre }}</option>
+                            @endforeach
                         </select>
                         <div class="icono" onclick="toggleSelect()">
                             <div class="circle-play">
@@ -82,19 +84,19 @@
                 
                 <div class="col-md-12"
                     style="align-content: center; margin-block-end: 15px; margin-block-start: 5px">
-                    <input type="checkbox" id="chkPassw" style="cursor: pointer"> ¿Desea actualizar su contraseña actual?</input>
+                    <input type="checkbox" id="chkPassw" style="cursor: pointer;"> ¿Desea actualizar su contraseña actual?</input>
                 </div>
                 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label style="font-size: 16px;  color:black">Contraseña</label>
-                        <input type="text" id="txtPassw" class="form-control" placeholder="Contraseña" disabled style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                        <label id="lblPassw" style="font-size: 16px; display: none; color:black">Contraseña</label>
+                        <input type="text" id="txtPassw" class="form-control" placeholder="Contraseña" disabled style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; display: none">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label style="font-size: 16px;  color:black">Confirmar contraseña</label>
-                        <input type="text" id="txtCPassw" class="form-control" placeholder="Confirmar contraseña" disabled style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                        <label id="lblCPassw" style="font-size: 16px; display: none; color:black">Confirmar contraseña</label>
+                        <input type="text" id="txtCPassw" class="form-control" placeholder="Confirmar contraseña" disabled style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; display: none">
                     </div>
                 </div>
                 
@@ -140,23 +142,52 @@
 <script>
     document.getElementById('chkPassw').addEventListener('click', function(){
         var txtPassw = document.getElementById('txtPassw');
+
         if(this.checked){
             txtPassw.disabled = false;
+            txtPassw.style.display = 'block';
+            lblPassw.style.display = 'block';
         } else {
             txtPassw.disabled = true;
+            txtPassw.style.display = 'none';
+            lblPassw.style.display = 'none';
             txtPassw.value = '';
         }
     });
 
     document.getElementById('chkPassw').addEventListener('click', function(){
         var txtCPassw = document.getElementById('txtCPassw');
+
         if(this.checked){
             txtCPassw.disabled = false;
+            txtCPassw.style.display = 'block';
         } else {
             txtCPassw.disabled = true;
+            txtCPassw.style.display = 'none';
             txtCPassw.value = '';
         }
     });
+
+    document.getElementById('chkPassw').addEventListener('click', function(){
+        var lblPassw = document.getElementById('lblPassw');
+
+        if(this.checked){
+            lblPassw.style.display = 'block';
+        } else {
+            lblPassw.style.display = 'none';
+        }
+    });
+
+    document.getElementById('chkPassw').addEventListener('click', function(){
+        var lblCPassw = document.getElementById('lblCPassw');
+
+        if(this.checked){
+            lblCPassw.style.display = 'block';
+        } else {
+            lblCPassw.style.display = 'none';
+        }
+    });
+
 </script>
 
 @endsection
