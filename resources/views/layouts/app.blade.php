@@ -39,7 +39,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-        
+
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -94,20 +94,23 @@
                     </button>
                     <div class="d-flex">
 
-                        <div class="sidebar-logo" style="text-align: center">
-                            <img style="cursor: pointer" src="../images/recursos/foto-perfil.png" alt=""
-                                class="img-fluid" width="50%" height=50%>
+                        <div class="sidebar-logo" style="text-align: center;">
+                            <a href="{{ route('user.miperfil') }}">
+                                <img style="cursor: pointer;"
+                                    src="../images/recursos/foto-perfil.png" alt="" class="img-fluid"
+                                    width="50%" height=50%>
+                            </a>
                             <p style="color: white; cursor: default">Mi perfil</p>
                         </div>
                     </div>
                     <ul class="sidebar-nav">
-                            <li class="sidebar-item">
-                                <a href="{{ route('home') }}" class="sidebar-link">
-                                    <i class="lni lni-home"></i></i>
-                                    <span>Home</span>
-                                </a>
-                                <hr class="hrmenu">
-                            </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('home') }}" class="sidebar-link">
+                                <i class="lni lni-home"></i></i>
+                                <span>Home</span>
+                            </a>
+                            <hr class="hrmenu">
+                        </li>
 
                         @can('users.index')
                             {{-- Validate that you have the users.index permission to be able to watch the users item (link). --}}
@@ -397,38 +400,39 @@
 
 <!-- All the shared styles will be here -->
 <style>
-
     /* LOGIN */
-    .flex__direction-login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
-    background-color: {{ $colorPrincipal }}E9;
-    
-    transition: 0.3s; 
-}
-.titulo__login{
-    font-family: "Work Sans", sans-serif;
-    font-weight: 800;
-    font-size: 710%;
-    color: #fff;
-    padding-top: 80px ;
-    margin: 0;
-}
+    .flex__direction-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        background-color: {{ $colorPrincipal }}E9;
 
-.subtitulo__login{
-    color: {{ $colorTerciario }};
-    font-size: 170%;
-    font-weight: 300;
-    font-family: "Work Sans", sans-serif;
-    padding: 0 0 0 0;
-    margin: 0;
-    margin-bottom: 12px;
-    margin-block-start: -2%;
-}
+        transition: 0.3s;
+    }
+
+    .titulo__login {
+        font-family: "Work Sans", sans-serif;
+        font-weight: 800;
+        font-size: 710%;
+        color: #fff;
+        padding-top: 80px;
+        margin: 0;
+    }
+
+    .subtitulo__login {
+        color: {{ $colorTerciario }};
+        font-size: 170%;
+        font-weight: 300;
+        font-family: "Work Sans", sans-serif;
+        padding: 0 0 0 0;
+        margin: 0;
+        margin-bottom: 12px;
+        margin-block-start: -2%;
+    }
+
     #sidebar {
         width: 70px;
         min-width: 70px;
@@ -526,21 +530,19 @@
     }
 </script>
 <script>
-   $(document).ready(function() {
-    // Obtener la URL de la página actual
-    var url = window.location.href;
+    $(document).ready(function() {
+        // Obtener la URL de la página actual
+        var url = window.location.href;
 
-    // Recorrer todos los enlaces del menú lateral
-    $('.sidebar-link').each(function() {
-        // Si la URL del enlace coincide con la URL de la página actual
-        if (this.href === url) {
-            // Añadir la clase 'active' al enlace
-            $(this).addClass('active');
-        }
+        // Recorrer todos los enlaces del menú lateral
+        $('.sidebar-link').each(function() {
+            // Si la URL del enlace coincide con la URL de la página actual
+            if (this.href === url) {
+                // Añadir la clase 'active' al enlace
+                $(this).addClass('active');
+            }
+        });
     });
-});
-
-
 </script>
 
 </html>

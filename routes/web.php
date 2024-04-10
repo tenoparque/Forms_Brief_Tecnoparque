@@ -44,8 +44,12 @@ Auth::routes();
 Route::get('/solicitudes/pdf', [SolicitudeController::class, 'pdf'])->name('solicitudes.pdf');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Ruta que redirecciona a la vista 'Reportes y Estadísticas' 
 Route::get('/reports', [SolicitudeController::class, 'reports'])->name('reportes-estadisticas.reports');
 
+//Ruta para editar el perfil de usuario
+Route::get('/miperfil', [UserController::class, 'miperfil'])->name('user.miperfil');
 
 
 // Ciudades
@@ -138,7 +142,7 @@ Route::post('/solicitudes/asignar', [SolicitudeController::class, 'asignarSolici
 // de solicitudes e historial de solicitudes que se llevan en el momento
 // Route::get('/procesarValor', [SolicitudeController::class, 'procesarValor'])->name('solicitudes.procesarValor');
 
-Route::get('/prueba', [HomeController::class, 'prueba'])->name('home.prueba');
+Route::get('/datosGraficas', [HomeController::class, 'datosGraficas'])->name('home.datosGraficas');
 
 
 
