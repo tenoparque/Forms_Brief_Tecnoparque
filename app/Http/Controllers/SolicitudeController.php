@@ -179,14 +179,6 @@ class SolicitudeController extends Controller
              return $vista;
          }
 
-    // public function prepararDatosParaPDF(Request $request) {
-    //         $selectedOptionId = $request->input('selectedOptionId');
-    //         $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $selectedOptionId)->get();
-            
-    //         // Retorna un array con los datos que necesitas para la vista
-    //         return view('solicitude.pdf', compact('solicitudes'));
-            
-    //     }
 
 
     public function pdf(Request $request) {
