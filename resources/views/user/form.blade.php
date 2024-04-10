@@ -89,27 +89,6 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="col-md-12"
-                    style="align-content: center; margin-block-end: 15px; margin-block-start: 5px">
-                    <input type="checkbox" id="chkPassw" style="cursor: pointer"> ¿Desea actualizar su contraseña actual?</input>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        {{ Form::label('contraseña', null, ['style' => 'font-size: 16px;  color:black']) }}
-                        {{ Form::text('contraseña', null, ['id' => 'txtPassw', 'class' => 'form-control' . ($errors->has('contraseña') ? ' is-invalid' : ''), 'placeholder' => 'Contraseña', 'disabled' => 'disabled', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
-                        {!! $errors->first('contraseña', '<div class="invalid-feedback">:message</div>') !!}
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        {{ Form::label('confirmar contraseña', null, ['style' => 'font-size: 16px;  color:black']) }}
-                        {{ Form::text('confirmar contraseña', null, ['id' => 'txtCPassw', 'class' => 'form-control' . ($errors->has('confirmar contraseña') ? ' is-invalid' : ''), 'placeholder' => 'Confirmar contraseña', 'disabled' => 'disabled', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
-                        {!! $errors->first('confirmar-contraseña', '<div class="invalid-feedback">:message</div>') !!}
-                    </div>
                 </div>
             </div>
         </div>
@@ -129,9 +108,11 @@
     document.getElementById('chkPassw').addEventListener('click', function(){
         var txtPassw = document.getElementById('txtPassw');
         if(this.checked){
-            txtPassw.disabled = false;
+            // txtPassw.disabled = false;
+            txtPassw.style.display = 'block'
         } else {
-            txtPassw.disabled = true;
+            //txtPassw.disabled = true;
+            txtPassw.style.display = 'none'
             txtPassw.value = '';
         }
     });
