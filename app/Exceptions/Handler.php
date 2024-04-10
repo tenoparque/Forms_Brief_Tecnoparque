@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -26,5 +29,18 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * We manipulate the render method to handle HTTP request exceptions in a customized way.
+     */
+    public function render($request, Throwable $exception): Response
+    {
+        // If the exception occurs due to authentication problems
+        if ($exception instanceof AuthorizationException) {
+            return Response::view('errors.403', [], 403); // Through a response we return the error view and also the HTTP status code.
+        }
+
+        return parent::render($request, $exception);
     }
 }
