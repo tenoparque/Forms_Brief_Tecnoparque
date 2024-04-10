@@ -29,16 +29,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-       
-        $data = DB::table('solicitudes')
-        ->join('users', 'solicitudes.id_usuario_que_realiza_la_solicitud', '=', 'users.id')
-        ->join('nodos', 'users.id_nodo', '=', 'nodos.id')
-        ->select('nodos.nombre', DB::raw('COUNT(*) as total_solicitudes'))
-        ->groupBy('nodos.nombre')
-        ->orderBy('nodos.nombre')
-        ->get();
+    
 
-        return view('home', compact('data'));
+        return view('home');
     }
 
     public function datosGraficas()
@@ -64,7 +57,32 @@ class HomeController extends Controller
             $solicitudes = Solicitude::select(DB::raw('COUNT(*) as total_solicitudes, YEAR(created_at) as anio, MONTH(created_at) as mes'))
             ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
             ->get();
-        } else {
+
+            foreach ($solicitudes as $solicitud) {
+                $mes = $solicitud->mes;
+                $anio = $solicitud->anio;
+                $totalSolicitudes = $solicitud->total_solicitudes;
+        
+                // Agregar los datos al array
+                $datosMesAMes[] = [
+                    'mes' => $mes,
+                    'anio' => $anio,
+                    'total_solicitudes' => $totalSolicitudes
+                ];
+            }
+
+            $data = DB::table('solicitudes')
+            ->join('users', 'solicitudes.id_usuario_que_realiza_la_solicitud', '=', 'users.id')
+            ->join('nodos', 'users.id_nodo', '=', 'nodos.id')
+            ->select('nodos.nombre', DB::raw('COUNT(*) as total_solicitudes'))
+            ->groupBy('nodos.nombre')
+            ->orderBy('nodos.nombre')
+            ->get();
+
+
+            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'data' => $data ]);
+
+            } else {
             $propias = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)->count();
             
             $totalModificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', function ($query) use ($usuarioAutenticado) {
@@ -85,23 +103,24 @@ class HomeController extends Controller
             ->select(DB::raw('COUNT(*) as total_solicitudes, YEAR(created_at) as anio, MONTH(created_at) as mes'))
             ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
             ->get();
+
+            foreach ($solicitudes as $solicitud) {
+                $mes = $solicitud->mes;
+                $anio = $solicitud->anio;
+                $totalSolicitudes = $solicitud->total_solicitudes;
+        
+                // Agregar los datos al array
+                $datosMesAMes[] = [
+                    'mes' => $mes,
+                    'anio' => $anio,
+                    'total_solicitudes' => $totalSolicitudes
+                ];
+            }
+
+            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes]);
+
         }
 
-        foreach ($solicitudes as $solicitud) {
-            $mes = $solicitud->mes;
-            $anio = $solicitud->anio;
-            $totalSolicitudes = $solicitud->total_solicitudes;
-    
-            // Agregar los datos al array
-            $datosMesAMes[] = [
-                'mes' => $mes,
-                'anio' => $anio,
-                'total_solicitudes' => $totalSolicitudes
-            ];
-        }
-    
-
-        return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes]);
     }
 
 }
