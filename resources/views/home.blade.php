@@ -144,14 +144,14 @@
             }
         });
 
-        var intervalo = setInterval(hacerSolicitud, 5000);
+        var intervalo = setInterval(hacerSolicitud, 2000);
       
         function hacerSolicitud() {
 
             clearInterval(intervalo);
             var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
             // Configurar la solicitud
-            xhr.open("GET", "{{ 'prueba' }}", true);
+            xhr.open("GET", "{{ 'datosGraficas' }}", true);
             // Manejar la respuesta
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
@@ -168,7 +168,7 @@
                         console.error('Error en la solicitud: ' + xhr
                             .status); // Imprimir el estado del error en la consola
                     }
-                    intervalo = setInterval(hacerSolicitud, 5000);
+                    intervalo = setInterval(hacerSolicitud, 2000);
                 }
             };
             // Enviar la solicitud con un cuerpo vacío

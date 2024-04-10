@@ -138,7 +138,7 @@ Route::post('/solicitudes/asignar', [SolicitudeController::class, 'asignarSolici
 // de solicitudes e historial de solicitudes que se llevan en el momento
 // Route::get('/procesarValor', [SolicitudeController::class, 'procesarValor'])->name('solicitudes.procesarValor');
 
-Route::get('/prueba', [HomeController::class, 'prueba'])->name('home.prueba');
+Route::get('/datosGraficas', [HomeController::class, 'datosGraficas'])->name('home.datosGraficas');
 
 
 
