@@ -167,105 +167,26 @@ class SolicitudeController extends Controller
 
         return response($output); // We return the response by sending as parameter the output variable
     }
-    public function pdfDos(Request $request) {
-        //     // Llama al método para preparar los datos para el PDF
-        $selectedOptionId = $request->input('selectedOptionId');
-        $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $selectedOptionId)->get();
+    // public function pdfDos(Request $request) {
+    //     //     // Llama al método para preparar los datos para el PDF
+    //     $selectedOptionId = $request->input('selectedOptionId');
+    //     $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $selectedOptionId)->get();
             
-        //     // Genera el PDF a partir de los datos preparados
-             $vista = view('solicitude.pdf', compact('solicitudes'));
+    //     //     // Genera el PDF a partir de los datos preparados
+    //          $vista = view('solicitude.pdf', compact('solicitudes'));
             
-    // Devuelve el PDF para visualización o descarga
-             return $vista;
-         }
+    // // Devuelve el PDF para visualización o descarga
+    //          return $vista;
+    //      }
 
 
 
-    public function pdf(Request $request) {
-        $contenido = '<!DOCTYPE html>
-        <html>
-          <head>
-            <style>
-              table {
-                width: 100%%;
-                text-align: center;
-              } 
-            </style>
-          </head>
-          <body>
-            <img src="%s" alt="%s" style="width: 100px;"><br>
-         
-            <h1>Bienvenido de nuevo a %s</h1>
-            <p>Versión <b>%s</b></p>
-            <p>%s</p>
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>John Doe</td>
-                  <td>jhon@doe.com</td>
-                  <td>$2,532</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>John Doe</td>
-                  <td>jhon@doe.com</td>
-                  <td>$712</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>John Doe</td>
-                  <td>jhon@doe.com</td>
-                  <td>$6,250</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>John Doe</td>
-                  <td>jhon@doe.com</td>
-                  <td>$8,152</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>John Doe</td>
-                  <td>jhon@doe.com</td>
-                  <td>$596</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>John Doe</td>
-                  <td>jhon@doe.com</td>
-                  <td>$1,756</td>
-                </tr>
-              </tbody>
-            </table>
-          </body>
-        </html>';
-        $filename ='Brandon.pdf';
-        $options = new Options();
-        $options->set('isRemoteEnabled', true);
-   
-        // Instancia de la clase
-        $dompdf = new Dompdf($options);
-   
-        // Cargar el contenido HTML
-        $dompdf->loadHtml($contenido);
-        $dompdf->setPaper('A4', 'portrait');
- 
-        // Renderizar HTML como PDF
-        $dompdf->render();
-   
-        // Salida para descargar
-        $dompdf->stream($filename);
-        
-        // Retorna un array con los datos que necesitas para la vista
+    public function pdf() {
+        // $selectedOptionId = $request->input('selectedOptionId');
+        $solicitudes = Solicitude::where('id_tipos_de_solicitudes', 1)->get();
+        log::info($solicitudes);
+        $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
+        return $pdf->stream();
     }
 
 

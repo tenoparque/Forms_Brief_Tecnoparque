@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <section class="container shadow p-3  my-5 bg-light rounded">
         <div class="d-flex mt-3 mb-4">
             <div>

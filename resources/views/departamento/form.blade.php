@@ -1,4 +1,10 @@
 <div class="box box-info padding-1">
+    .alert.alert-danger {
+        color: #642c78;
+    }
+    .invalid-feedback{
+        color:  #642c78;
+    }
     <div class="box-body">
         <div class="form-group">
             {{ Form::label('nombre', null, ['style' => 'font-size: 18px; font-weight: bold ; margin-left: 35px;']) }}

@@ -83,11 +83,12 @@
                         </div>
                     </div>
                     
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <canvas id="garfica_nodos_solicitudes" width="400" height="100"></canvas>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <canvas id="garfica_nodos_solicitudes" width="400" height="100"></canvas>
+                            </div>
                         </div>
-                    </div>
+                    
                     <!-- Fin del Gráfico con Chart.js -->
 
                     <!-- Tarjetas con graficos -->
@@ -119,29 +120,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var ctx = document.getElementById('garfica_nodos_solicitudes').getContext('2d');
-        var garfica_nodos_solicitudes = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: {!! $data->pluck('nombre') !!},
-                datasets: [{
-                    label: 'Cantidad de Solicitudes por Nodo',
-                    data: {!! $data->pluck('total_solicitudes') !!},
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
+    
         
 
         var intervalo = setInterval(hacerSolicitud, 5000);
@@ -175,46 +154,85 @@
             xhr.send();
         }
 
-
-        hacerSolicitud();
-
+        var garfica_nodos_solicitudes = null;
         var grafico_solicitudes_modificaciones = null;
         var grafico_tipos_solicitudes = null;
         var grafica_mes_a_mes = null;
         // Función para actualizar la gráfica tipo dona con los nuevos datos
         function actualizarGraficos(datos, tiposDeSolicitudes) {
+
+
+            
+
+            if (datos.data && datos.data.length > 0) {
+                var barraCtx = document.getElementById('garfica_nodos_solicitudes').getContext('2d');
+                // Crear la gráfica de barras
+                if (!garfica_nodos_solicitudes) {
+                    garfica_nodos_solicitudes = new Chart(barraCtx, {
+                    type: 'bar', // Tipo de gráfica
+                    data: {
+                        labels: datos.data.map(function(item) { return item.nombre; }), // Etiquetas para el eje X
+                        datasets: [{
+                            label: 'Solicitudes por Nodo', // Etiqueta del conjunto de datos
+                            data: datos.data.map(function(item) { return item.total_solicitudes; }), // Datos para el eje Y
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo de las barras
+                            borderColor: 'rgba(75, 192, 192, 1)', // Color del borde de las barras
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+                } else {
+                    // Si ya existe una instancia de la gráfica, actualizar los datos
+                    garfica_nodos_solicitudes.data.labels = datos.data.map(function(item) { return item.nombre; });
+                    garfica_nodos_solicitudes.data.datasets[0].data = datos.data.map(function(item) { return item.total_solicitudes; });
+                    garfica_nodos_solicitudes.update(); // Actualizar la gráfica
+                }
+            }   
+
+
+
             // Obtener el contexto del lienzo de la gráfica tipo dona
             var donaCtx = document.getElementById('grafico_solicitudes_modificaciones').getContext('2d');
 
-            // Crear la gráfica tipo dona
-            if (!grafico_solicitudes_modificaciones) {
-                grafico_solicitudes_modificaciones = new Chart(donaCtx, {
-                type: 'doughnut', // Tipo de gráfica
-                data: {
-                    labels: ['Solicitudes', 'Modificaciones'], // Etiquetas
-                    datasets: [{
-                        label: 'Total', // Etiqueta del conjunto de datos
-                        data: [datos.solicitudes, datos.modificaciones], // Datos
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)', // Color para solicitudes
-                            'rgba(54, 162, 235, 0.5)' // Color para modificaciones
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)', // Color del borde para solicitudes
-                            'rgba(54, 162, 235, 1)' // Color del borde para modificaciones
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    // Opciones de la gráfica (si es necesario)
+                // Crear la gráfica tipo dona
+                if (!grafico_solicitudes_modificaciones) {
+                    grafico_solicitudes_modificaciones = new Chart(donaCtx, {
+                    type: 'doughnut', // Tipo de gráfica
+                    data: {
+                        labels: ['Solicitudes', 'Modificaciones'], // Etiquetas
+                        datasets: [{
+                            label: 'Total', // Etiqueta del conjunto de datos
+                            data: [datos.solicitudes, datos.modificaciones], // Datos
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.5)', // Color para solicitudes
+                                'rgba(54, 162, 235, 0.5)' // Color para modificaciones
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)', // Color del borde para solicitudes
+                                'rgba(54, 162, 235, 1)' // Color del borde para modificaciones
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        // Opciones de la gráfica (si es necesario)
+                    }
+                });
+                }else {
+                    // Si ya hay una instancia existente, actualiza los datos
+                    grafico_solicitudes_modificaciones.data.datasets[0].data = [datos.solicitudes, datos.modificaciones];
+                    grafico_solicitudes_modificaciones.update(); // Actualizar la gráfica
                 }
-            });
-        }else {
-            // Si ya hay una instancia existente, actualiza los datos
-            grafico_solicitudes_modificaciones.data.datasets[0].data = [datos.solicitudes, datos.modificaciones];
-            grafico_solicitudes_modificaciones.update(); // Actualizar la gráfica
-        }
+            
 
             // Crear la gráfica de tipo dona para otro conjunto de datos (reemplaza esto con tus datos)
             var otroDonaCtx = document.getElementById('grafico_tipos_solicitudes').getContext('2d');
@@ -293,6 +311,8 @@
     }
 
     }
+
+    hacerSolicitud();
         
     window.addEventListener('resize', function() {
         // Verifica si la gráfica está definida

@@ -1,7 +1,8 @@
 <div class="box box-info padding-1">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <div class="box-body">
 
-        @foreach($errors->all() as $error)
+        @foreach ($errors->all() as $error)
             <p>{{ $error }}</p>
         @endforeach
 

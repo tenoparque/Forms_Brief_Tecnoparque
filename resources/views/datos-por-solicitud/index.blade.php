@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">

@@ -1228,5 +1228,12 @@ input[type="text"] {
         width: calc(50% - 20px);
     }
 
+    
+}
+.alert.alert-danger {
+    color: #642c78;
+}
+.invalid-feedback{
+    color:  #642c78;
 }
 

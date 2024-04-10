@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <div class="flex-container">
         <div class="flex__direction-login">
@@ -18,7 +19,7 @@
     
                         @error('email')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                            <strong >{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>

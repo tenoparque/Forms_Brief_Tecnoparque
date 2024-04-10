@@ -147,7 +147,7 @@ Route::get('/datosGraficas', [HomeController::class, 'datosGraficas'])->name('ho
 
 
 
-Route::post('/enviar-dato', [SolicitudeController::class, 'pdfDos'])->name('enviar.dato');
+Route::post('/enviar-dato', [SolicitudeController::class, 'pdf'])->name('enviar.dato');
 
 
 
