@@ -77,25 +77,26 @@
                     <!-- Fin de las tarjetas de estadísticas -->
 
                     <!-- Gráfico con Chart.js -->
-                    <div id="valor3">
-                        <!-- Este div es opcional, dependiendo de dónde quieras mostrar la nueva gráfica -->
-                        <canvas id="grafica_mes_a_mes" width="400" height="200"></canvas>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <canvas id="grafica_mes_a_mes"  width="400" height="100"></canvas>
+                        </div>
                     </div>
                     
                     <div class="row mt-4">
                         <div class="col-md-12">
-                            <canvas id="myChart" width="400" height="100"></canvas>
+                            <canvas id="garfica_nodos_solicitudes" width="400" height="100"></canvas>
                         </div>
                     </div>
-                        
                     <!-- Fin del Gráfico con Chart.js -->
-                    <!-- Tarjetas de estadísticas -->
+
+                    <!-- Tarjetas con graficos -->
                     <div class="row mt-4">
                         <div class="col-md-4">
                             <div class="card bg-crema">
                                 <div class="card-body">
                                     <h5 class="card-title">Proporción Solicitudes </h5>
-                                    <canvas id="donaChart" style="width: 100%;"></canvas>
+                                    <canvas id="grafico_solicitudes_modificaciones" style="width: 100%;"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +104,7 @@
                             <div class="card bg-crema">
                                 <div class="card-body">
                                     <h5 class="card-title">Tipos de solicitudes</h5>
-                                    <canvas id="barChart" style="width: 100%;"></canvas>
+                                    <canvas id="grafico_tipos_solicitudes" style="width: 100%;"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -124,8 +125,8 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
+        var ctx = document.getElementById('garfica_nodos_solicitudes').getContext('2d');
+        var garfica_nodos_solicitudes = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: {!! $data->pluck('nombre') !!},
@@ -147,6 +148,7 @@
                 }
             }
         });
+        
 
         var intervalo = setInterval(hacerSolicitud, 5000);
       
@@ -182,17 +184,17 @@
 
         hacerSolicitud();
 
-        var donaChart = null;
-        var barChart = null;
+        var grafico_solicitudes_modificaciones = null;
+        var grafico_tipos_solicitudes = null;
         var grafica_mes_a_mes = null;
         // Función para actualizar la gráfica tipo dona con los nuevos datos
         function actualizarGraficos(datos, tiposDeSolicitudes) {
             // Obtener el contexto del lienzo de la gráfica tipo dona
-            var donaCtx = document.getElementById('donaChart').getContext('2d');
+            var donaCtx = document.getElementById('grafico_solicitudes_modificaciones').getContext('2d');
 
             // Crear la gráfica tipo dona
-            if (!donaChart) {
-            donaChart = new Chart(donaCtx, {
+            if (!grafico_solicitudes_modificaciones) {
+                grafico_solicitudes_modificaciones = new Chart(donaCtx, {
                 type: 'doughnut', // Tipo de gráfica
                 data: {
                     labels: ['Solicitudes', 'Modificaciones'], // Etiquetas
@@ -216,14 +218,14 @@
             });
         }else {
             // Si ya hay una instancia existente, actualiza los datos
-            donaChart.data.datasets[0].data = [datos.solicitudes, datos.modificaciones];
-            donaChart.update(); // Actualizar la gráfica
+            grafico_solicitudes_modificaciones.data.datasets[0].data = [datos.solicitudes, datos.modificaciones];
+            grafico_solicitudes_modificaciones.update(); // Actualizar la gráfica
         }
 
             // Crear la gráfica de tipo dona para otro conjunto de datos (reemplaza esto con tus datos)
-            var otroDonaCtx = document.getElementById('barChart').getContext('2d');
-            if (!barChart) {
-                barChart = new Chart(otroDonaCtx, {
+            var otroDonaCtx = document.getElementById('grafico_tipos_solicitudes').getContext('2d');
+            if (!grafico_tipos_solicitudes) {
+                grafico_tipos_solicitudes = new Chart(otroDonaCtx, {
                 type: 'doughnut',
                 data: {
                     labels: tiposDeSolicitudes.map(function(tipo) { return tipo.nombre; }),
@@ -249,9 +251,9 @@
             });
         }else {
         // Si ya hay una instancia existente, actualiza los datos
-        barChart.data.labels = tiposDeSolicitudes.map(function(tipo) { return tipo.nombre; });
-        barChart.data.datasets[0].data = tiposDeSolicitudes.map(function(tipo) { return tipo.total; });
-        barChart.update(); // Actualizar la gráfica
+        grafico_tipos_solicitudes.data.labels = tiposDeSolicitudes.map(function(tipo) { return tipo.nombre; });
+        grafico_tipos_solicitudes.data.datasets[0].data = tiposDeSolicitudes.map(function(tipo) { return tipo.total; });
+        grafico_tipos_solicitudes.update(); // Actualizar la gráfica
     }
 
 
@@ -297,10 +299,16 @@
     }
 
     }
-        // Llamar a la función hacerSolicitud cada cierto tiempo (por ejemplo, cada 5 segundos)
-        // intervalo = setInterval(hacerSolicitud, 5000); // 5000 milisegundos = 5 segundos
-
-
         
+    window.addEventListener('resize', function() {
+        // Verifica si la gráfica está definida
+        if (garfica_nodos_solicitudes) {
+            garfica_nodos_solicitudes.resize();
+        }
+        if (grafica_mes_a_mes) {
+            grafica_mes_a_mes.resize();
+        }
+    });
+
 </script>
 @endsection
