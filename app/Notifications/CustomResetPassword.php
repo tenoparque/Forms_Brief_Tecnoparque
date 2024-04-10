@@ -43,13 +43,14 @@ class CustomResetPassword extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-    ->view('mails.reset-Pass-correo',['token' =>$this->token,'user' => $this->user]);
+    ->view('mails.reset-Pass-correo',['token' =>$this->token,'user' => $this->user])
+    ->line(Lang::get('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]));
+
                    
                     // ->subject(Lang::get('Cambio de contraseña'))
                     // ->greeting('¡Hola!')
                     // ->line(Lang::get('Está siendo notificado mediante este correo electrónico debido a que hemos registrado una petición de restablecimiento de contraseña para su cuenta..'))
                     // ->action('diego', route('password.reset',['token' => $this->token]))
-                    // ->line(Lang::get('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
                     // ->line(Lang::get('If you did not request a password reset, no further action is required.'));
                     
     }
