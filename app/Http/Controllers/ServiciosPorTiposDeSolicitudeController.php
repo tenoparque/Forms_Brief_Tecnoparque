@@ -39,10 +39,10 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
     foreach ($serviciosPorTiposDeSolicitudes as $servicioPorTipoDeSolicitud) {
         $output .= 
         '<tr>
-            <td>' . ++$num . '</td>
-            <td>' . $servicioPorTipoDeSolicitud->nombre . '</td>
-            <td>' . $servicioPorTipoDeSolicitud->tiposDeSolicitude->nombre . '</td> <!-- Asumiendo que tienes esta relación definida -->
-            <td>' . $servicioPorTipoDeSolicitud->estado->nombre . '</td>
+            <td data-titulo="No">' . ++$num . '</td>
+            <td data-titulo="Nombre servicion por tipo de solicitud">' . $servicioPorTipoDeSolicitud->nombre . '</td>
+            <td data-titulo=Nombre tipo de solicitud">' . $servicioPorTipoDeSolicitud->tiposDeSolicitude->nombre . '</td> <!-- Asumiendo que tienes esta relación definida -->
+            <td data-titulo="Estado Nombre">' . $servicioPorTipoDeSolicitud->estado->nombre . '</td>
             <td>
                 <a href="' . route('servicios-por-tipos-de-solicitudes.show', $servicioPorTipoDeSolicitud->id) . '" class="btnDetalle">
                     <i class="fa fa-eye fa-xs iconDCR"></i> Detalle

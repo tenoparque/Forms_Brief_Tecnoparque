@@ -35,10 +35,10 @@ class EstadosDeLasSolictudeController extends Controller
         foreach ($estadosDeLasSolicitudes as $estadosDeLaSolicitud) {
             $output .=
                 '<tr>
-                <td>' . $estadosDeLaSolicitud->id . '</td>
-                <td>' . $estadosDeLaSolicitud->nombre . '</td>
-                <td>' . $estadosDeLaSolicitud->estado->nombre . '</td>
-                <td>' . $estadosDeLaSolicitud->orden_mostrado . '</td>
+                <td data-titulo="No">' . $estadosDeLaSolicitud->id . '</td>
+                <td data-titulo="Nombre Solicitud">' . $estadosDeLaSolicitud->nombre . '</td>
+                <td data-titulo="Estado">' . $estadosDeLaSolicitud->estado->nombre . '</td>
+                <td data-titulo="Orden Mostrado">' . $estadosDeLaSolicitud->orden_mostrado . '</td>
                 <td>
                     <a href="' . url('/estados-de-las-solictudes/' . $estadosDeLaSolicitud->id) . '" class="btn btn-outline"
                     style="color:#00324D; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"

@@ -45,14 +45,14 @@ class UserController extends Controller
         foreach ($users as $user) {
             $output .= 
             '<tr>
-                <td>' . ++$num . '</td>
-                <td>' . $user->name . '</td>
-                <td>' . $user->apellidos . '</td>
-                <td>' . $user->email . '</td>
-                <td>' . $user->celular . '</td>
-                <td>' . $user->nodo->nombre . '</td>
-                <td>' . $user->estado->nombre . '</td>
-                <td>';
+                <td data-titulo="No">' . ++$num . '</td>
+                <td data-titulo="Nombre">' . $user->name . '</td>
+                <td data-titulo="Apellidos">' . $user->apellidos . '</td>
+                <td data-titulo="Email">' . $user->email . '</td>
+                <td data-titulo="Celular">' . $user->celular . '</td>
+                <td data-titulo="Nombre Nodo">' . $user->nodo->nombre . '</td>
+                <td data-titulo="Estado">' . $user->estado->nombre . '</td>
+                <td data-titulo="">';
 
             $lastRoleIndex = count($user->roles) - 1;
             foreach ($user->roles as $index => $role) {

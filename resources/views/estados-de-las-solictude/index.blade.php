@@ -59,11 +59,11 @@
                                 <tbody class="alldata">
                                     @foreach ($estadosDeLasSolictudes as $estadosDeLasSolictude)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
 
-                                            <td>{{ $estadosDeLasSolictude->nombre }}</td>
-                                            <td>{{ $estadosDeLasSolictude->estado->nombre }}</td>
-                                            <td>{{ $estadosDeLasSolictude->orden_mostrado }}</td>
+                                            <td data-titulo="Nombre">{{ $estadosDeLasSolictude->nombre }}</td>
+                                            <td data-titulo="Estado">{{ $estadosDeLasSolictude->estado->nombre }}</td>
+                                            <td data-titulo="Orden Mostrado">{{ $estadosDeLasSolictude->orden_mostrado }}</td>
 
                                             <td id="buttoncell">
                                                 <a href="{{ route('estados-de-las-solictudes.show', $estadosDeLasSolictude->id) }}"

@@ -47,9 +47,9 @@
                                 <tbody class="alldata">
                                     @foreach ($tiposDeSolicitudes as $tiposDeSolicitude)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $tiposDeSolicitude->nombre }}</td>
-                                            <td>{{ $tiposDeSolicitude->estado->nombre }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
+                                            <td data-titulo="Nombre">{{ $tiposDeSolicitude->nombre }}</td>
+                                            <td data-titulo="Estado">{{ $tiposDeSolicitude->estado->nombre }}</td>
                                             <td id="buttoncell">
                                                 <form action="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}" method="POST">
                                                     <a class="btnDetalle" href="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}">

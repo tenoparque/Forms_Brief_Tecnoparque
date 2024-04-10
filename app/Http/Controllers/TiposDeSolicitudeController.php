@@ -34,9 +34,9 @@ class TiposDeSolicitudeController extends Controller
         foreach($tiposDeSolicitudes as $tipoDeSolicitud){
             $output .= 
             '<tr>
-                <td>' . $tipoDeSolicitud->id . '</td>
-                <td>' . $tipoDeSolicitud->nombre . '</td>
-                <td>' . $tipoDeSolicitud->estado->nombre . '</td>
+                <td data-titulo="No">' . $tipoDeSolicitud->id . '</td>
+                <td data-titulo="Nombre">' . $tipoDeSolicitud->nombre . '</td>
+                <td data-titulo="Tipo de solicitud Nombre">' . $tipoDeSolicitud->estado->nombre . '</td>
                 <td>
                     <a href="' . url('/tipos-de-solicitudes/' . $tipoDeSolicitud->id) . '" class="btn btn-outline"
                     style="color:#00324D; background-color: #ffff; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"

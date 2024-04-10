@@ -46,13 +46,13 @@ class PersonalizacioneController extends Controller
                 $logoBase64 = base64_encode($personalizacion->logo);
                 $output .= 
                 '<tr>
-                    <td>' . $personalizacion->id . '</td>
-                    <td><img style="display: flex"  src="data:image/png;base64,' . $logoBase64 . '" alt="LOGO" class="ImgCeldaPesonalizacion"></td>
-                    <td> ' . $personalizacion->color_principal . '</td>
-                    <td>' . $personalizacion->color_secundario . '</td>
-                    <td>' . $personalizacion->color_terciario . '</td>
-                    <td>' . $user->email . '</td>
-                    <td>' . $personalizacion->estado->nombre . '</td>
+                    <td data-titulo="No">' . $personalizacion->id . '</td>
+                    <td data-titulo="Img Logo"><img style="display: flex"  src="data:image/png;base64,' . $logoBase64 . '" alt="LOGO" class="ImgCeldaPesonalizacion"></td>
+                    <td data-titulo="Color Principal"> ' . $personalizacion->color_principal . '</td>
+                    <td data-titulo="Color Segundario">' . $personalizacion->color_secundario . '</td>
+                    <td data-titulo="Color Terciario">' . $personalizacion->color_terciario . '</td>
+                    <td data-titulo="Email Usuario">' . $user->email . '</td>
+                    <td data-titulo="Estado">' . $personalizacion->estado->nombre . '</td>
                     
                     <td>
                         <a href="' . url('/personalizaciones/' . $personalizacion->id) . '" class="btn btn-outline"

@@ -34,10 +34,10 @@ class CategoriasEventosEspecialeController extends Controller
         foreach($categoriasEventosEspeciales as $categoriaEventosEspecial){
             $output .= 
             '<tr>
-                <td>' . $categoriaEventosEspecial->id . '</td>
-                <td>' . $categoriaEventosEspecial->nombre . '</td>
-                <td>' . $categoriaEventosEspecial->estado->nombre . '</td>
-                <td>
+                <td data-titulo="No">' . $categoriaEventosEspecial->id . '</td>
+                <td data-titulo="Nombre">' . $categoriaEventosEspecial->nombre . '</td>
+                <td data-titulo="Estado">' . $categoriaEventosEspecial->estado->nombre . '</td>
+                <td data-titulo="">
                     <a href="' . url('/categorias-eventos-especiales/' . $categoriaEventosEspecial->id) . '" class="btnDetalle">
                         <i class="fa fa-fw fa-eye iconDCR"></i> Detalle
                     </a>

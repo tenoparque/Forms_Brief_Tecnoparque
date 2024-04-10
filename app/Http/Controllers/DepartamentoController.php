@@ -33,8 +33,8 @@ class DepartamentoController extends Controller
         foreach($departamentos as $departamento){
             $output .= 
             '<tr>
-                <td>' . $departamento->id . '</td>
-                <td>' . $departamento->nombre . '</td>
+                <td data-titulo="No">' . $departamento->id . '</td>
+                <td data-titulo="Nombre">' . $departamento->nombre . '</td>
                 <td>
                     <a href="' . url('/departamentos/' . $departamento->id) . '" class="btn btn-outline"
                     style="color:#00324D; background-color: #ffff; border:2px solid #82DEF0; height: 40px; width:100px; cursor: pointer; border-radius: 35px; justify-content: center; justify-items: center; position: relative;"

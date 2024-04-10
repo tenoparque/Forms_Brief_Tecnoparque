@@ -34,10 +34,10 @@ class TiposDeDatoController extends Controller
         foreach($tiposDatos as $tipo){
             $output .= 
             '<tr>
-                <td>' . $tipo->id . '</td>
-                <td>' . $tipo->nombre . '</td>
-                <td>' . $tipo->estado->nombre . '</td>
-                <td>
+                <td data-titulo="No">' . $tipo->id . '</td>
+                <td data-titulo="Nombre">' . $tipo->nombre . '</td>
+                <td data-titulo="Estado">' . $tipo->estado->nombre . '</td>
+                <td >
                     <a href="' . url('/tipos-de-datos/' . $tipo->id) . '" class="btnDetalle">
                         <i class="fa fa-fw fa-eye iconDCR"></i> Detalle
                     </a>

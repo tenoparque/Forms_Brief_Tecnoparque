@@ -37,9 +37,9 @@ class NodoController extends Controller
         foreach($nodos as $nodo){
             $output .= 
             '<tr>
-                <td>' . ++$num . '</td>
-                <td>' . $nodo->nombre . '</td>
-                <td>' . $nodo->ciudade->nombre . '</td>
+                <td data-titulo="No">' . ++$num . '</td>
+                <td data-titulo="Nombre">' . $nodo->nombre . '</td>
+                <td data-titulo="Ciudad">' . $nodo->ciudade->nombre . '</td>
                 <td>
                     <a href="' . route('nodos.show', $nodo->id) . '" class="btnDetalle">
                         
