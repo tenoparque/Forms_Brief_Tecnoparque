@@ -50,8 +50,8 @@
                                 <tbody class="alldata">
                                     @foreach ($departamentos as $departamento)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $departamento->nombre }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
+                                            <td data-titulo="Nombre">{{ $departamento->nombre }}</td>
                                             <td id="buttoncell">
 
                                                 <a href="{{ route('departamentos.show', $departamento->id) }}"

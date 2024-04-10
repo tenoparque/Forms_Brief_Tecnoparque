@@ -40,11 +40,11 @@
                                 <tbody>
                                     @foreach ($historialDeModificacionesPorSolicitudes as $historialDeModificacionesPorSolicitude)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
                                             
-											<td>{{ $historialDeModificacionesPorSolicitude->id_soli }}</td>
-											<td>{{ $historialDeModificacionesPorSolicitude->modificacion }}</td>
-											<td>{{ $historialDeModificacionesPorSolicitude->fecha_de_modificacion }}</td>
+											<td data-titulo="Id Solic">{{ $historialDeModificacionesPorSolicitude->id_soli }}</td>
+											<td data-titulo="Modificacion">{{ $historialDeModificacionesPorSolicitude->modificacion }}</td>
+											<td data-titulo="Fecha de Modificacion">{{ $historialDeModificacionesPorSolicitude->fecha_de_modificacion }}</td>
 
                                             <td>
                                                     <a class="btn btn-sm btn-primary " href="{{ route('historial-de-modificaciones-por-solicitudes.show',$historialDeModificacionesPorSolicitude->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>

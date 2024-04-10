@@ -53,14 +53,14 @@
                         <tbody class="">
                             @foreach ($datosUnicosPorSolicitudes as $datosUnicosPorSolicitude)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
+                                    <td data-titulo="No">{{ ++$i }}</td>
 
-                                    <td>{{ $datosUnicosPorSolicitude->nombre }}</td>
-                                    <td>{{ $datosUnicosPorSolicitude->tiposDeDato->nombre }}</td>
-                                    <td>
+                                    <td data-titulo="Nombre">{{ $datosUnicosPorSolicitude->nombre }}</td>
+                                    <td data-titulo="Tipo De Dato">{{ $datosUnicosPorSolicitude->tiposDeDato->nombre }}</td>
+                                    <td data-titulo="Tipo De Solicitud">
                                         <p>{{ $datosUnicosPorSolicitude->tiposDeSolicitude->nombre }}</p>
                                     </td>
-                                    <td>{{ $datosUnicosPorSolicitude->estado->nombre }}</td>
+                                    <td data-titulo="Estado">{{ $datosUnicosPorSolicitude->estado->nombre }}</td>
 
                                     <td id="buttoncell">
 

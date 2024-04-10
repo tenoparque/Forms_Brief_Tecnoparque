@@ -44,9 +44,9 @@
                                 <tbody class="alldata">
                                     @foreach ($nodos as $nodo)
                                     <tr>
-                                        <td>{{ ++$i }}</td>
-                                        <td>{{ $nodo->nombre }}</td>
-                                        <td>{{ $nodo->ciudade->nombre }}</td>
+                                        <td data-titulo="No">{{ ++$i }}</td>
+                                        <td data-titulo="Nombre">{{ $nodo->nombre }}</td>
+                                        <td data-titulo="Ciudad">{{ $nodo->ciudade->nombre }}</td>
                                         <td id="buttoncell"> 
                                            
                                             <a href="{{ route('nodos.show' ,$nodo->id) }}" class="btnDetalle">

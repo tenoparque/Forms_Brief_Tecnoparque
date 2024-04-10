@@ -53,16 +53,16 @@
                                 <tbody class="alldata">
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
 
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->apellidos }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->celular }}</td>
-                                            <td>{{ $user->nodo->nombre }}</td>
+                                            <td data-titulo="Nombre">{{ $user->name }}</td>
+                                            <td data-titulo="Apellidos">{{ $user->apellidos }}</td>
+                                            <td data-titulo="Email">{{ $user->email }}</td>
+                                            <td data-titulo="Celular">{{ $user->celular }}</td>
+                                            <td data-titulo="Nodo">{{ $user->nodo->nombre }}</td>
 
-                                            <td>{{ $user->estado->nombre }}</td>
-                                            <td>
+                                            <td data-titulo="Estado">{{ $user->estado->nombre }}</td>
+                                            <td data-titulo="Rol">
                                                 @foreach ($user->roles as $role)
                                                     {{ $role->name }}
                                                     @if (!$loop->last)

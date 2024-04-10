@@ -51,11 +51,11 @@
                         <tbody class="alldata">
                             @foreach ($serviciosPorTiposDeSolicitudes as $serviciosPorTiposDeSolicitude)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
+                                    <td data-titulo="No">{{ ++$i }}</td>
 
-                                    <td>{{ $serviciosPorTiposDeSolicitude->nombre }}</td>
-                                    <td>{{ $serviciosPorTiposDeSolicitude->tiposDeSolicitude->nombre }}</td>
-                                    <td>{{ $serviciosPorTiposDeSolicitude->estado->nombre }}</td>
+                                    <td data-titulo="Nombre">{{ $serviciosPorTiposDeSolicitude->nombre }}</td>
+                                    <td data-titulo="Tipo de Solicitud">{{ $serviciosPorTiposDeSolicitude->tiposDeSolicitude->nombre }}</td>
+                                    <td data-titulo="Estado">{{ $serviciosPorTiposDeSolicitude->estado->nombre }}</td>
 
                                     <td id="buttoncell">
                                         <a class="btnDetalle"

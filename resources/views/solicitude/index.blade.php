@@ -69,13 +69,13 @@
                                 <tbody class="alldata">
                                     @foreach ($solicitudes as $solicitude)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $solicitude->tiposdesolicitude->nombre }}</td>
-                                            <td>{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
-                                            <td>{{ $solicitude->user->nodo->nombre }}</td>
-                                            <td>{{ $solicitude->user->name }}</td>
-                                            <td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
-                                            <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
+                                            <td data-titulo="Tipo De Solicitud">{{ $solicitude->tiposdesolicitude->nombre }}</td>
+                                            <td data-titulo="Fecha Y Hora">{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
+                                            <td data-titulo="Nodo">{{ $solicitude->user->nodo->nombre }}</td>
+                                            <td data-titulo="Usuario">{{ $solicitude->user->name }}</td>
+                                            <td data-titulo="Evento">{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+                                            <td data-titulo="Estado">{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
 
                                             <td   id="buttoncell" class="celda__opc-solici">
                                                 <a   href="{{ route('solicitudes.show', $solicitude->id) }}"

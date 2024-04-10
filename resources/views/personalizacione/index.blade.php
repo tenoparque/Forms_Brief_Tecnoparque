@@ -44,12 +44,13 @@
                                     @foreach ($personalizaciones as $personalizacione)
                                         <tr >
                                             {{-- <td>{{ ++$i }}</td> --}}
-                                            <td>
+                                            <td data-titulo="Logo">
                                                <div class="logoPersonalizacion" style="">
                                                 <img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}"
-                                                alt="LOGO" class="ImgCeldaPesonalizacion" ></td>
+                                                alt="LOGO" class="ImgCeldaPesonalizacion" >
+                                            </td>
                                                </div>
-                                            <td>
+                                            <td data-titulo="Color Principal">
                                                 <div class="PersonalizacionColor" >
                                                     <div class="ChildrenPersonalizacion"
                                                         style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_principal }}; ">
@@ -57,7 +58,7 @@
                                                     {{ $personalizacione->color_principal }}
                                                 </div>
                                             </td>
-                                            <td >
+                                            <td data-titulo="Color Secundario" >
                                                 <div class="PersonalizacionColor">
                                                     <div class="ChildrenPersonalizacion"
                                                         style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_secundario }}; ">
@@ -65,7 +66,7 @@
                                                     {{ $personalizacione->color_secundario }}
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td data-titulo="Color Terciario">
                                                 <div class="PersonalizacionColor" >
                                                     <div class="ChildrenPersonalizacion"
 
@@ -74,8 +75,8 @@
                                                     {{ $personalizacione->color_terciario }}
                                                 </div>
                                             </td>
-                                            <td>{{ $personalizacione->user->email }}</td>
-                                            <td>{{ $personalizacione->estado->nombre }}</td>
+                                            <td data-titulo="Email de Usuario">{{ $personalizacione->user->email }}</td>
+                                            <td data-titulo="Estado">{{ $personalizacione->estado->nombre }}</td>
                                             <td id="buttoncell" >
 
                                                 <a href="{{ route('personalizaciones.show', $personalizacione->id) }}"

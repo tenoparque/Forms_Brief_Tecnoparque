@@ -45,10 +45,10 @@
                                 <tbody>
                                     @foreach ($elementosPorSolicitudes as $elementosPorSolicitude)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
                                             
-											<td>{{ $elementosPorSolicitude->id_solicitudes }}</td>
-											<td>{{ $elementosPorSolicitude->id_subservicios }}</td>
+											<td data-titulo="Id Solicitudes">{{ $elementosPorSolicitude->id_solicitudes }}</td>
+											<td data-titulo="Id Subservicios">{{ $elementosPorSolicitude->id_subservicios }}</td>
 
                                             <td>
                                                 <form action="{{ route('elementos-por-solicitudes.destroy',$elementosPorSolicitude->id) }}" method="POST">
