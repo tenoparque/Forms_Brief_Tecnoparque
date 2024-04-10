@@ -24,6 +24,6 @@ class ViewServiceProvider extends ServiceProvider
     {
         //
         View::composer(['home','auth.register','layouts.app'], UserRoleComposer::class);
-        View::composer(['auth.login','layouts.app','mails.credenciales-correo','auth.passwords.email','mails.reset-Pass-correo'] , CustomizationComposer::class);
+        View::composer(['auth.login','layouts.app','mails.credenciales-correo','auth.passwords.email','mails.reset-Pass-correo','errors.logo'] , CustomizationComposer::class);
     }
 }
