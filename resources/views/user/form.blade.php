@@ -108,9 +108,11 @@
     document.getElementById('chkPassw').addEventListener('click', function(){
         var txtPassw = document.getElementById('txtPassw');
         if(this.checked){
-            txtPassw.disabled = false;
+            // txtPassw.disabled = false;
+            txtPassw.style.display = 'block'
         } else {
-            txtPassw.disabled = true;
+            //txtPassw.disabled = true;
+            txtPassw.style.display = 'none'
             txtPassw.value = '';
         }
     });
