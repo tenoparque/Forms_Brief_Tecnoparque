@@ -1,4 +1,5 @@
 <div class="container">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <div class="row">
 
         <div class="col-md-6">

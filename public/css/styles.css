@@ -370,10 +370,11 @@ button:focus {
       margin: 0;
     }
 } */
-.alert.alert-danger {   
-    background-color: #f8d7da;
-    color: #39A900;
-    border-color: #f5c6cb;
-    padding: 10px;
-    margin-bottom: 15px;
+.alert.alert-danger {
+    color: #642c78;
 }
+.invalid-feedback{
+    color:  #642c78;
+}
+
+
