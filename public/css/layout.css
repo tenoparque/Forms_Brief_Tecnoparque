@@ -314,6 +314,7 @@ header {
 }
 
 .check {
+   display: block;
     position: relative;
     height: 24px;
     width: 24px;
@@ -325,6 +326,7 @@ header {
     align-items: center;
     justify-content: center;
     box-sizing: content-box;
+    flex-shrink:0;
     /* Añadido para garantizar el modelo de caja border-box */
 }
 
