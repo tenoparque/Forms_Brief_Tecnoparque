@@ -50,10 +50,10 @@
                                 <tbody class="alldata">
                                     @foreach ($tiposDeDatos as $tiposDeDato)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
 
-                                            <td>{{ $tiposDeDato->nombre }}</td>
-                                            <td>{{ $tiposDeDato->estado->nombre }}</td>
+                                            <td data-titulo="Nombre">{{ $tiposDeDato->nombre }}</td>
+                                            <td data-titulo="Estado">{{ $tiposDeDato->estado->nombre }}</td>
 
                                             <td id="buttoncell">
                                                 <form action="{{ route('tipos-de-datos.show', $tiposDeDato->id) }}"

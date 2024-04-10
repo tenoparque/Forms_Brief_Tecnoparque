@@ -47,9 +47,9 @@
                                 <tbody class="alldata">
                                     @foreach ($roles as $role)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
 
-                                            <td>{{ $role->name }}</td>
+                                            <td data-titulo="Nombre">{{ $role->name }}</td>
                                             <!-- <td>{{ $role->guard_name }}</td> -->
                                             <form action="{{ route('roles.show', $role->id) }}" method="POST">
                                             <td id="buttoncell">

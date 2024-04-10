@@ -50,9 +50,9 @@
                                 <tbody class="alldata">
                                     @foreach ($ciudades as $ciudade)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $ciudade->nombre }}</td>
-                                            <td>{{ $ciudade->departamento->nombre }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
+                                            <td data-titulo="Nombre">{{ $ciudade->nombre }}</td>
+                                            <td data-titulo="Departamento">{{ $ciudade->departamento->nombre }}</td>
                                             <td id="buttoncell">
                                                 <a href="{{ route('ciudades.show', $ciudade->id) }}" class="btnDetalle">
                                                     <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>

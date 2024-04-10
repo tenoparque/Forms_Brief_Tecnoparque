@@ -43,9 +43,9 @@
                                 <tbody class="alldata">
                                     @foreach ($estados as $estado)
                                     <tr>
-                                        <td>{{ ++$i }}</td>
+                                        <td data-titulo="No">{{ ++$i }}</td>
                                         
-                                        <td>{{ $estado->nombre }}</td>
+                                        <td data-titulo="Nombre">{{ $estado->nombre }}</td>
 
                                         <td id="buttoncell">
                                                 <a href="{{ route('estados.show' ,$estado->id) }}" class="btnDetalle">

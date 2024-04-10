@@ -59,11 +59,11 @@
                                 <tbody class="alldata">
                                     @foreach ($eventosEspecialesPorCategorias as $eventosEspecialesPorCategoria)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td data-titulo="No">{{ ++$i }}</td>
 
-                                            <td>{{ $eventosEspecialesPorCategoria->nombre }}</td>
-                                            <td>{{ $eventosEspecialesPorCategoria->estado->nombre }}</td>
-                                            <td>{{ $eventosEspecialesPorCategoria->categoriasEventosEspeciale->nombre }}
+                                            <td data-titulo="Nombre">{{ $eventosEspecialesPorCategoria->nombre }}</td>
+                                            <td data-titulo="Estado">{{ $eventosEspecialesPorCategoria->estado->nombre }}</td>
+                                            <td data-titulo="Eevento Especial">{{ $eventosEspecialesPorCategoria->categoriasEventosEspeciale->nombre }}
                                             </td>
 
 
