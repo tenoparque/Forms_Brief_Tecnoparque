@@ -27,6 +27,11 @@ class UserController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $users->perPage());
     }
 
+    public function miperfil(){
+        $users = User::all();
+        return view ('user.miperfil', compact('users'));
+    }
+
     public function search(Request $request)
     {
         $num = 0;
