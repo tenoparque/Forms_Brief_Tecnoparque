@@ -43,7 +43,7 @@
             <div class="col-md-4">
                 <label style="font-size: 16px; color:black" for="celular"
                     class="form-label col-12 ">{{ __('Celular') }}</label>
-                <input id="celular" type="text" class="form-control @error('celular') is-invalid @enderror"
+                <input id="celular" type="number" class="form-control @error('celular') is-invalid @enderror"
                     name="celular" value="{{ old('Celular') }}" required autocomplete="celular"
                     style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;  border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;">
                 @error('celular')
@@ -67,27 +67,27 @@
                 @enderror
             </div>
             <!-- <div class="col-md-4">
-                <label style="font-size: 16px; color:black" for="password"
-                    class="form-label col-12 ">{{ __('Contraseña') }}</label>
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                    name="password" required autocomplete="new-password"
-                    style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;">
+                    <label style="font-size: 16px; color:black" for="password"
+                        class="form-label col-12 ">{{ __('Contraseña') }}</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        name="password" required autocomplete="new-password"
+                        style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;">
 
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+                    @error('password')
+        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+    @enderror
+                </div>
 
-            <div class="col-md-4">
-                <label style="font-size: 16px; color:black" for="password-confirm"
-                    class="form-label col-12 ">{{ __('Confirmar contraseña') }}</label>
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
-                    autocomplete="new-password"
-                    style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;">
+                <div class="col-md-4">
+                    <label style="font-size: 16px; color:black" for="password-confirm"
+                        class="form-label col-12 ">{{ __('Confirmar contraseña') }}</label>
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
+                        autocomplete="new-password"
+                        style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;">
 
-            </div> -->
+                </div> -->
 
             <div class="col-md-4">
 
@@ -149,10 +149,20 @@
             </div>
 
             <div class="box-footer my-2 d-flex justify-content-end">
-                <button type="submit" class="btnGuardar" href="{{ route('users.create') }}"
-                   >{{ __('GUARDAR') }}
-                    <i class="fa-solid fa-circle-plus fa-sm iconDCR" ></i></button>
+                <button type="submit" class="btnGuardar" href="{{ route('users.create') }}">{{ __('GUARDAR') }}
+                    <i class="fa-solid fa-circle-plus fa-sm iconDCR"></i></button>
             </div>
         </form>
     </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#celular').keypress(function(e) {
+                if (this.value.length == 10) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 @endsection
