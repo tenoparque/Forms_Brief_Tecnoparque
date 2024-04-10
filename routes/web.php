@@ -44,8 +44,12 @@ Auth::routes();
 Route::get('/solicitudes/pdf', [SolicitudeController::class, 'pdf'])->name('solicitudes.pdf');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Ruta que redirecciona a la vista 'Reportes y Estadísticas' 
 Route::get('/reports', [SolicitudeController::class, 'reports'])->name('reportes-estadisticas.reports');
 
+//Ruta para editar el perfil de usuario
+Route::get('/miperfil', [UserController::class, 'miperfil'])->name('user.miperfil');
 
 
 // Ciudades

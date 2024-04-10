@@ -24,15 +24,23 @@
                               </h1>
                               <p style="color: #666; font-size: 16px;padding-bottom: 15px;">Está siendo notificado
                                   mediante este correo
-                                  electrónico debido a que hemos registrado una petición de restablecimiento de
+                                  electrónico debido a que ha solicitdado una petición de restablecimiento de
                                   contraseña
                                   para su cuenta.</p>
-                              <p>@lang('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.' . config('auth.defaults.passwords') . '.expire')])</p>
+
 
 
                               <a class="btnResetYourPassword"
                                   style="border: 2px solid #82def0;color: #00324d;border-radius: 35px;background: #fff; padding: 10px 24px;text-align: center;text-decoration: none;font-size: 14px;"
                                   href="{{ route('password.reset', ['token' => $token]) }}">Cambia tu contraseña</a>
+
+                                  <a class="btnResetYourPassword"
+                                 
+                                  href="{{ route('password.reset', ['token' => $token]) }}">
+                                  {{ $token }}
+                              </a>
+
+
                           </td>
                       </tr>
                   </table>

@@ -48,15 +48,15 @@
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
-                                <tbody class="alldata">
+                                <tbody >
                                     @foreach ($politicas as $politica)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td data-titulo="No" >{{ ++$i }}</td>
 
-                                            <td>{{ $politica->descripcion }}</td>
-                                            <td>{{ $politica->user->email }}</td>
-                                            <td>{{ $politica->estado->nombre }}</td>
-                                            <td>{{ $politica->titulo }}</td>
+                                            <td data-titulo="Descripcion" >{{ $politica->descripcion }}</td>
+                                            <td data-titulo="Usuario">{{ $politica->user->email }}</td>
+                                            <td data-titulo="Estado">{{ $politica->estado->nombre }}</td>
+                                            <td data-titulo="Titulo">{{ $politica->titulo }}</td>
 
                                             <td  id="buttoncell">
                                                 <form action="{{ route('roles.destroy', $politica->id) }}" method="POST">

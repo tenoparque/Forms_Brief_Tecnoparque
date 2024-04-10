@@ -60,6 +60,10 @@ class HomeController extends Controller
             ->orderBy('total', 'desc')
             ->limit(5)
             ->get();
+
+            $solicitudes = Solicitude::select(DB::raw('COUNT(*) as total_solicitudes, YEAR(created_at) as anio, MONTH(created_at) as mes'))
+            ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
+            ->get();
         } else {
             $propias = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)->count();
             
@@ -76,9 +80,28 @@ class HomeController extends Controller
             ->groupBy('tipos_de_solicitudes.nombre')
             ->orderBy('total', 'desc')
             ->get();
+
+            $solicitudes = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)
+            ->select(DB::raw('COUNT(*) as total_solicitudes, YEAR(created_at) as anio, MONTH(created_at) as mes'))
+            ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
+            ->get();
         }
 
-        return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes]);
+        foreach ($solicitudes as $solicitud) {
+            $mes = $solicitud->mes;
+            $anio = $solicitud->anio;
+            $totalSolicitudes = $solicitud->total_solicitudes;
+    
+            // Agregar los datos al array
+            $datosMesAMes[] = [
+                'mes' => $mes,
+                'anio' => $anio,
+                'total_solicitudes' => $totalSolicitudes
+            ];
+        }
+    
+
+        return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes]);
     }
 
 }

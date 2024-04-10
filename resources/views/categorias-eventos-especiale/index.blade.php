@@ -50,9 +50,9 @@
                                 <tbody class="alldata">
                                     @foreach ($categoriasEventosEspeciales as $categoria)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $categoria->nombre }}</td>
-                                            <td>{{ $categoria->estado->nombre }}</td>
+                                            <td data-titulo="no">{{ ++$i }}</td>
+                                            <td data-titulo="Nombre">{{ $categoria->nombre }}</td>
+                                            <td data-titulo="Estado">{{ $categoria->estado->nombre }}</td>
                                             <td id="buttoncell">
                                                 <a  class="btnDetalle btn-outline" href="{{ route('categorias-eventos-especiales.show', $categoria->id) }}"
                                                    > 
