@@ -32,34 +32,33 @@
                             style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px; padding-left: 5px">
                             <option value="" disabled selected>Seleccione el tipo de reporte a generar...</option>
                             <option value="Solicitud">Solicitud</option>
-                            <option value="Nodo">Nodo</option>
-                            <option value="Historial de Modificaciones">Historial de Modificaciones</option>
-                            <option value="Diseñador">Diseñador</option>
+
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <select id="slcTipoDato" title="Seleccionar TipoDato" required
-                            style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px; padding-left: 5px">
-                            <option value="" disabled selected>Seleccione el tipo de dato a filtrar...</option>
-                        </select>
-                    </div>
+
                     <div class="col-md-3">
-                        <select title="Seleccionar DatoxTipo" required
+                        <select title="Seleccionar DatoxTipo" required id="selectReport4"
                             style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px; padding-left: 5px">
                             <option value="" disabled selected>Seleccione el dato x tipo de dato...</option>
+                            <option value="Nodo">Nodo</option>
+                            <option value="Estados De Las Solictudes">Estados De Las Solictudes</option>
+                            <option value="Eventos Especiales Por Categoria">Eventos Especiales Por Categoria</option>
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <select id="cuartoCombo" name="cuartoCombo" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar la Ciudad" required style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                        <select id="cuartoCombo" name="cuartoCombo" class="form-control selectpicker"
+                            data-style="btn-primary" title="Seleccionar la Ciudad" required
+                            style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                             <option value="" disabled selected>Seleccionar Ciudad...</option>
-                            @foreach ($tiposSolicitudes as $ciudad)
+                            {{-- @foreach ($tiposSolicitudes as $ciudad)
                                 <option value="{{ $ciudad->id }}">{{ $ciudad->nombre }}</option>
-                            @endforeach
+                            @endforeach --}}
                         </select>
                     </div>
-                    
+
                     <div class="col-md-1">
-                        <a href="#" class="btnpdf" target="_blank" onclick="generarPDF()"><i class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78; margin-left: -60px;"></i></a>
+                        <a href="#" class="btnpdf" target="_blank" onclick="generarPDF()"><i
+                                class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78; margin-left: -60px;"></i></a>
                     </div>
                 </div>
             </div>
@@ -79,37 +78,103 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-    function generarPDF() {
-        var cuartoComboValue = document.getElementById('cuartoCombo').value;
-        var url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoComboValue);
-        window.open(url, '_blank');
-    }
-        document.getElementById('slcReport').addEventListener('change', function() {
-            var slcReport = this.value;
-            var slcTipoDato = document.getElementById('slcTipoDato');
+        function generarPDF() {
+            var cuartoComboValue = document.getElementById('cuartoCombo').value;
+            var url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoComboValue);
+            window.open(url, '_blank');
+        }
 
-            // Limpia las opciones existentes
-            slcTipoDato.innerHTML = "";
+        // Esperar a que el DOM esté cargado
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     // Obtener el select de reporte y el select de tipo de dato
+        //     var slcReport = document.getElementById("selectReport4");
+        //     var slcTipoDato = document.getElementById("cuartoCombo");
 
-            var opcionPorDefecto = document.createElement('option');
-            opcionPorDefecto.text = 'Seleccione el tipo de dato a filtrar...';
-            opcionPorDefecto.value = '';
-            opcionPorDefecto.disabled = true;
-            opcionPorDefecto.selected = true;
-            slcTipoDato.add(opcionPorDefecto);
+        //     // Agregar un event listener para el cambio en el select de reporte
+        //     slcReport.addEventListener("change", function() {
+        //         // Limpiar el select de tipo de dato
+        //         slcTipoDato.innerHTML =
+        //             "<option value='' disabled selected>Seleccione el tipo de dato a filtrar...</option>";
 
-            if (slcReport == 'Solicitud') {
-                // Definimos las opciones que queremos agregar
-                var opciones = ['Tipo de Solicitud', 'Nodo', 'Evento', 'Estado'];
+        //         // Obtener el valor seleccionado en el select de reporte
+        //         var selectedReport = slcReport.value;
 
-                // Agrega las opciones al segundo select
-                for (var i = 0; i < opciones.length; i++) {
-                    var opcion = document.createElement('option');
-                    opcion.text = opciones[i];
-                    opcion.value = opciones[i];
-                    slcTipoDato.add(opcion);
-                }
-            }
-        });
+        //         // Si el reporte seleccionado es 'Nodo', mostrar las opciones de nodos
+        //         if (selectedReport === "Nodo") {
+        //             // Recuperar las opciones de nodos y agregarlas al select de tipo de dato
+        //             var nodos = {!! json_encode($nodos) !!};
+        //             nodos.forEach(function(nodo) {
+        //                 var option = document.createElement("option");
+        //                 option.text = nodo.nombre;
+        //                 option.value = nodo.id;
+        //                 slcTipoDato.add(option);
+        //             });
+
+        //         }
+        //         // Agregar más casos según los otros tipos de reporte
+        //     });
+        //     slcTipoDato.addEventListener("change", function() {
+        //         // Obtener el valor seleccionado en el select de tipo de dato
+        //         var selectedNodeId = slcTipoDato.value;
+        //         // Obtener el nombre seleccionado en el select de reporte
+        //         var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
+        //         console.log("ID del nodo seleccionado:", selectedNodeId);
+        //         console.log("Nombre del reporte seleccionado:", selectedReportName);
+        //     });
+        // });
+
+        // Esperar a que el DOM esté cargado
+        document.addEventListener("DOMContentLoaded", function() {
+    // Obtener el select de reporte y el select de tipo de dato
+    var slcReport = document.getElementById("selectReport4");
+    var slcTipoDato = document.getElementById("cuartoCombo");
+
+    // Agregar un event listener para el cambio en el select de reporte
+    slcReport.addEventListener("change", function() {
+        // Limpiar el select de tipo de dato
+        slcTipoDato.innerHTML =
+            "<option value='' disabled selected>Seleccione el tipo de dato a filtrar...</option>";
+
+        // Obtener el valor seleccionado en el select de reporte
+        var selectedReport = slcReport.value;
+
+        // Recuperar las opciones según el reporte seleccionado
+        if (selectedReport === "Nodo") {
+            var nodos = {!! json_encode($nodos) !!};
+            nodos.forEach(function(nodo) {
+                var option = document.createElement("option");
+                option.text = nodo.nombre;
+                option.value = nodo.id;
+                slcTipoDato.add(option);
+            });
+        } else if (selectedReport === "Estados De Las Solictudes") {
+            var estados = {!! json_encode($estados) !!};
+            estados.forEach(function(estado) {
+                var option = document.createElement("option");
+                option.text = estado.nombre;
+                option.value = estado.id;
+                slcTipoDato.add(option);
+            });
+        } else if (selectedReport === "Eventos Especiales Por Categoria") {
+            var eventos = {!! json_encode($eventosSolicitud) !!};
+            eventos.forEach(function(evento) {
+                var option = document.createElement("option");
+                option.text = evento.nombre;
+                option.value = evento.id;
+                slcTipoDato.add(option);
+            });
+        }
+    });
+
+    // Agregar un event listener para el cambio en el select de tipo de dato
+    slcTipoDato.addEventListener("change", function() {
+        // Obtener el valor seleccionado en el select de tipo de dato
+        var selectedDataId = slcTipoDato.value;
+        // Obtener el nombre seleccionado en el select de reporte
+        var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
+        console.log("ID del dato seleccionado:", selectedDataId);
+        console.log("Nombre del reporte seleccionado:", selectedReportName);
+    });
+});
     </script>
 @endsection
