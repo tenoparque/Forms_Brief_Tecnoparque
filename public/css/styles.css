@@ -322,64 +322,25 @@ button:focus {
     border-radius: 35px; justify-content: center;
     justify-items: center;
 }
-/* @media (max-width: 768px) {
 
-    .card_login {
-      display: block;
-      width: 100%;
-      margin: 0;
-    }
-    #password{
-        display: block;
-      width: 100%;
-      margin: 0;
-    }
-    #email{
-        display: block;
-      width: 100%;
-      margin: 0;
-    }
-    .my-card:hover{
-        display: block;
-      width: 100%;
-      margin: 0;
-    }
-    .card-header{
-        display: block;
-      width: 100%;
-      margin: 0;
-    }
-    .btn-primary {
-        display: block;
-      width: 100%;
-      margin: 0;
-    }
-    .titulo{
-        display: block;
-      width: 100%;
-      margin: 0;
-    }
-    .subtitulo{
-        display: block;
-      width: 100%;
-      margin: 0;
-    }
-    .logo{
-        display: block;
-      width: 100%;
-      margin: 0;
-    }
-    .forgot{
-        display: block;
-      width: 100%;
-      margin: 0;
-    }
-} */
 .alert.alert-danger {
     color: #642c78;
 }
 .invalid-feedback{
     color:  #642c78;
+}
+
+
+@media(max-width:30em) {
+    .eye-icon{
+       position: absolute;
+        top: 32px;
+        left: 240px;
+        
+    }
+    .inputPassLogin{
+        position: relative;
+    }
 }
 
 
