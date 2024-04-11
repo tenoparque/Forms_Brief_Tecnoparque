@@ -91,7 +91,12 @@ class SolicitudeController extends Controller
 
     public function reports(){
         $tiposSolicitudes = TiposDeSolicitude::all();
-        return view('reportes-estadisticas.reports', compact('tiposSolicitudes'));
+
+        $nodos = Nodo::all();
+        $estados = EstadosDeLasSolictude::all();
+        $eventosSolicitud = EventosEspecialesPorCategoria::all();
+        
+        return view('reportes-estadisticas.reports', compact('tiposSolicitudes','nodos','estados','eventosSolicitud'));
     }
 
 
