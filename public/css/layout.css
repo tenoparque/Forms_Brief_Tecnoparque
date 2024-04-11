@@ -503,9 +503,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* ------------bottom dettale----------- */
 .btnDetalle {
-    display: inline-block;
-    margin: 5px 2px;
-    padding: 6px 20px;
+    display: block;
+    margin: 5px;
+    padding: 10px;
     text-decoration: none;
     color: #00324d;
     border-radius: 35px;
@@ -513,6 +513,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
+    width: calc(50% - 20px);
 }
 
 .btnEditarEstado {
@@ -1050,18 +1051,30 @@ input[type="text"] {
 @media screen and (max-width: 769px)  {
     .btnDetalle {
         display: block;
-        width: 100%;
-        margin: 0;
-       font-size: .9em;
-       width: 100%;
+        margin: 3px !important;
+        padding: 6px !important;
+        text-decoration: none;
+        color: #00324d;
+        border-radius: 35px;
+        outline: none;
+        border: 2px solid #82def0;
+        cursor: pointer;
+        background: #fff;
+        width: calc(50% - 20px) !important;
     }
 
     .btnEdit {
         display: block;
-        width: 100%;
-        margin: 0;
-        font-size: .9em;
-        width: 100%;
+        margin: 3px !important;
+        padding: 6px !important;
+        text-decoration: none;
+        color: #00324d;
+        border-radius: 35px;
+        outline: none;
+        border: 2px solid #82def0;
+        cursor: pointer;
+        background: #fff;
+        width: calc(50% - 20px) !important;
     }
 
     .btnDuplicar {
@@ -1082,7 +1095,17 @@ input[type="text"] {
 
     .btnCrear {
         display: block;
-        font-size: 0.9em;
+        margin: 3px !important;
+        padding: 6px !important;
+        text-decoration: none;
+        color: #00324d;
+        border-radius: 35px;
+        outline: none;
+        border: 2px solid #82def0;
+        cursor: pointer;
+        background: #fff;
+        width: calc(40% - 15px) !important;
+        
     }
 
     .iconDCR {
