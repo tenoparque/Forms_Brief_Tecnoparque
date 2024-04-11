@@ -84,45 +84,7 @@
             window.open(url, '_blank');
         }
 
-        // Esperar a que el DOM esté cargado
-        // document.addEventListener("DOMContentLoaded", function() {
-        //     // Obtener el select de reporte y el select de tipo de dato
-        //     var slcReport = document.getElementById("selectReport4");
-        //     var slcTipoDato = document.getElementById("cuartoCombo");
-
-        //     // Agregar un event listener para el cambio en el select de reporte
-        //     slcReport.addEventListener("change", function() {
-        //         // Limpiar el select de tipo de dato
-        //         slcTipoDato.innerHTML =
-        //             "<option value='' disabled selected>Seleccione el tipo de dato a filtrar...</option>";
-
-        //         // Obtener el valor seleccionado en el select de reporte
-        //         var selectedReport = slcReport.value;
-
-        //         // Si el reporte seleccionado es 'Nodo', mostrar las opciones de nodos
-        //         if (selectedReport === "Nodo") {
-        //             // Recuperar las opciones de nodos y agregarlas al select de tipo de dato
-        //             var nodos = {!! json_encode($nodos) !!};
-        //             nodos.forEach(function(nodo) {
-        //                 var option = document.createElement("option");
-        //                 option.text = nodo.nombre;
-        //                 option.value = nodo.id;
-        //                 slcTipoDato.add(option);
-        //             });
-
-        //         }
-        //         // Agregar más casos según los otros tipos de reporte
-        //     });
-        //     slcTipoDato.addEventListener("change", function() {
-        //         // Obtener el valor seleccionado en el select de tipo de dato
-        //         var selectedNodeId = slcTipoDato.value;
-        //         // Obtener el nombre seleccionado en el select de reporte
-        //         var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
-        //         console.log("ID del nodo seleccionado:", selectedNodeId);
-        //         console.log("Nombre del reporte seleccionado:", selectedReportName);
-        //     });
-        // });
-
+       
         // Esperar a que el DOM esté cargado
         document.addEventListener("DOMContentLoaded", function() {
     // Obtener el select de reporte y el select de tipo de dato
