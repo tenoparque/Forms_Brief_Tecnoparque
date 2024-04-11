@@ -23,19 +23,19 @@
                         </div>
                         <div class="row top justify-content-center">
                             <div style="padding-left:3%;" class="col-3 text-center">
-                                <img src="../images/Mesa de trabajo 1.png" alt="icon" class="img-fluid" style="max-width: 100px;">
+                                <img src="../images/Mesa de trabajo 1.png" alt="icon" class="img-fluid imgProgress1" style="max-width: 100px;">
                             </div>
                             <div class="col-3 text-center">
-                                <img src="../images/iconos Brief-02.png" alt="icon" class="img-fluid" style="max-width: 100px; margin-right: 40%;">
+                                <img src="../images/iconos Brief-02.png" alt="icon" class="img-fluid imgProgress2" style="max-width: 100px; margin-right: 40%;">
                             </div>
                             <div class="col-2 text-center">
-                                <img src="../images/iconos Brief-03.png" alt="icon" class="img-fluid" style="max-width: 100px; margin-left: -95%;">
+                                <img src="../images/iconos Brief-03.png" alt="icon" class="img-fluid imgProgress3" style="max-width: 100px; margin-left: -95%;">
                             </div>
                             <div class="col-2 text-center">
-                                <img src="../images/ajustes.png" alt="icon" class="img-fluid-ajustes" style="max-width: 50px; margin-block-start: 23px; margin-right: 65%;">
+                                <img src="../images/ajustes.png" alt="icon" class="img-fluid imgProgress4" style="max-width: 50px; margin-block-start: 23px; margin-right: 65%;">
                             </div>
                             <div class="col-2 text-center">
-                                <img src="../images/iconos Brief-04.png" alt="icon" class="img-fluid" style="max-width: 100px;">
+                                <img src="../images/iconos Brief-04.png" alt="icon" class="img-fluid imgProgress5 " style="max-width: 100px;">
                             </div>
                         </div>
                         
