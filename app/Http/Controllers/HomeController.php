@@ -6,6 +6,7 @@ use App\Models\HistorialDeModificacionesPorSolicitude;
 use Illuminate\Http\Request;
 use App\Models\Solicitude;
 use App\Models\Nodo;
+use App\Models\User;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,7 +81,52 @@ class HomeController extends Controller
             ->get();
 
 
-            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'data' => $data ]);
+            //Consultas para asignadas
+
+            // Obtener todos los usuarios con rol DESIGNER
+            $usuariosDesigners = User::role('DESIGNER')->pluck('id');
+
+            // Consultar el número de historiales con id_estados = 1 para cada usuario
+            $historiales = DB::table('historial_de_usuarios_por_solicitudes')
+                ->whereIn('id_users', $usuariosDesigners)
+                ->where('id_estados', 1)
+                ->select('id_users', DB::raw('COUNT(*) as cantidad'))
+                ->groupBy('id_users')
+                ->get();
+
+            // Construir un array asociativo con la cantidad de historiales para cada usuario
+            $datosGraficaAsignadas = [];
+            foreach ($usuariosDesigners as $usuarioId) {
+                $cantidadHistoriales = $historiales->where('id_users', $usuarioId)->first();
+                if ($cantidadHistoriales) {
+                    $datosGraficaAsignadas[] = ['usuario' => $usuarioId, 'cantidad' => $cantidadHistoriales->cantidad];
+                } else {
+                    $datosGraficaAsignadas[] = ['usuario' => $usuarioId, 'cantidad' => 0];
+                }
+            }
+
+            // Obtener los nombres de los usuarios
+            $nombresUsuarios = User::whereIn('id', $usuariosDesigners)->pluck('name', 'id');
+
+            // Combinar los datos de la gráfica con los nombres de los usuarios
+            foreach ($datosGraficaAsignadas as &$dato) {
+                $dato['nombre'] = $nombresUsuarios[$dato['usuario']];
+            }
+
+            // Ordenar los datos por nombre de usuario
+            usort($datosGraficaAsignadas, function ($a, $b) {
+                return strcmp($a['nombre'], $b['nombre']);
+            });
+
+            // Obtener los nombres de los usuarios para etiquetas de la gráfica
+            $etiquetas = array_column($datosGraficaAsignadas, 'nombre');
+
+            // Obtener las cantidades de historiales para los datos de la gráfica
+            $cantidades_asignadas = array_column($datosGraficaAsignadas, 'cantidad');
+            
+
+
+            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'data' => $data,'etiquetas' => $etiquetas ,'cantidades_asignadas' => $cantidades_asignadas]);
 
             } else {
             $propias = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)->count();

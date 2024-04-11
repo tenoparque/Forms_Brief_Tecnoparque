@@ -88,6 +88,12 @@
                                 <canvas id="garfica_nodos_solicitudes" width="400" height="100"></canvas>
                             </div>
                         </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <canvas id="grafica_cantidades_asignadas" width="400" height="100"></canvas>
+                            </div>
+                        </div>
                     
                     <!-- Fin del Gráfico con Chart.js -->
 
@@ -153,8 +159,43 @@
         var grafico_solicitudes_modificaciones = null;
         var grafico_tipos_solicitudes = null;
         var grafica_mes_a_mes = null;
+        var grafica_cantidades_asignadas = null;
         // Función para actualizar la gráfica tipo dona con los nuevos datos
         function actualizarGraficos(datos, tiposDeSolicitudes) {
+
+            if (datos.cantidades_asignadas && datos.cantidades_asignadas.length > 0) {
+                var barraCtx = document.getElementById('grafica_cantidades_asignadas').getContext('2d');
+                // Crear la gráfica de barras
+                if (!grafica_cantidades_asignadas) {
+                    grafica_cantidades_asignadas = new Chart(barraCtx, {
+                        type: 'bar', // Tipo de gráfica
+                        data: {
+                            labels: datos.etiquetas, // Etiquetas para el eje X
+                            datasets: [{
+                                label: 'Solicitudes Asignadas', // Etiqueta del conjunto de datos
+                                data: datos.cantidades_asignadas, // Datos para el eje Y
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo de las barras
+                                borderColor: 'rgba(75, 192, 192, 1)', // Color del borde de las barras
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                } else {
+                    // Si ya existe una instancia de la gráfica, actualizar los datos
+                    grafica_cantidades_asignadas.data.labels = datos.etiquetas;
+                    grafica_cantidades_asignadas.data.datasets[0].data = datos.cantidades_asignadas;
+                    grafica_cantidades_asignadas.update(); // Actualizar la gráfica
+                }
+            }
 
 
             
@@ -319,6 +360,9 @@
         }
         if (grafica_mes_a_mes) {
             grafica_mes_a_mes.resize();
+        }
+        if (grafica_cantidades_asignadas) {
+            grafica_cantidades_asignadas.resize();
         }
     });
 
