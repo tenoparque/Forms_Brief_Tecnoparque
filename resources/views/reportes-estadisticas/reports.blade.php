@@ -59,7 +59,7 @@
                     </div>
                     
                     <div class="col-md-1">
-                        <a href="#" class="btnpdf" target="_blank" onclick="generarPDF()"><i class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78; margin-left: -60px;"></i></a>>
+                        <a href="#" class="btnpdf" target="_blank" onclick="generarPDF()"><i class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78; margin-left: -60px;"></i></a>
                     </div>
                 </div>
             </div>
