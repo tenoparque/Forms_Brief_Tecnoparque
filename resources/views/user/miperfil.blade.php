@@ -8,41 +8,38 @@
     <link rel="stylesheet" href="{{ asset('css/slayouts.css') }}">
 
     <div class="row p-3">
-        <div class="col-md-6">
+        <div class="col-md-6">      
             <div class="form-group">
-                <label style="font-size: 16px;  color:black">Nombres</label>
-                <input type="text" name="name" class="form-control" placeholder="Nombres" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px">
+                {{ Form::label('nombres', null, ['style' => 'font-size: 16px;  color:black']) }}
+                <input value="{{$user->name}}" type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nombres" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px">
+                {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
             </div>
     
             <div class="form-group">
                 <label style="font-size: 16px;  color:black">Correo</label>
-                <input type="text" name="email" class="form-control" placeholder="Correo" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                <input value="{{$user->email}}" type="text" name="email" class="form-control" placeholder="Correo" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
             </div>
         </div>
         <div class="col-md-6">
     
             <div class="form-group">
                 <label style="font-size: 16px;  color:black">Apellidos</label>
-                <input type="text" name="apellidos" class="form-control" placeholder="Apellidos" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                <input value="{{$user->apellidos}}" type="text" name="apellidos" class="form-control" placeholder="Apellidos" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
             </div>
     
             <div class="form-group">
                 <label style="font-size: 16px;  color:black">Celular</label>
-                <input type="text" name="celular" class="form-control" placeholder="Celular" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
+                <input value="{{$user->celular}}" type="text" name="celular" class="form-control" placeholder="Celular" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
             </div>
     
         </div>
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-4">
-    
-                    <label style="font-size: 16px;  color: ; font-weight: bold">Nodo</label>
+
+                    {{ Form::label('nodo', null, ['style' => 'font-size: 16px;  color: ; font-weight: bold']) }}
                     <div style="position: relative;">
-                        <select name="id_nodo" class="form-control" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
-                            @foreach ($user as $user)
-                                <option value="{{ $user->id }}">{{ $user->nombre }}</option>
-                            @endforeach
-                        </select>
+                        {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                         <div class="icono" onclick="toggleSelect()">
                             <div class="circle-play">
                                 <div class="circle"></div>
@@ -50,33 +47,41 @@
                             </div>
                         </div>
                     </div>
-    
+                    {!! $errors->first('id_nodo', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
     
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label style="font-size: 16px;  color:black">Estado</label>
+                        {{ Form::label('estado', null, ['style' => 'font-size: 16px;  color:black']) }}
                         <div style="position: relative;">
-                            <select name="id_estado" class="form-control" style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
-                                <!-- Opciones del select -->
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label style="font-size: 16px;  color:black" for="role">Roles</label>
-                        <div style="position: relative; width: 100%;">
-                            <select
-                                style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
-                                name="role" id="role" class="form-control">
-                                <!-- Opciones del select -->
-                            </select>
+                            {{ Form::select('id_estado', $estados->pluck('nombre', 'id')->toArray(), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
                             <div class="icono" onclick="toggleSelect()">
                                 <div class="circle-play">
                                     <div class="circle"></div>
                                     <div class="triangle"></div>
                                 </div>
+                            </div>
+                        </div>
+                        {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
+                    </div>
+                    {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
+                </div>
+                <div class="col-md-4">
+                    <label style="font-size: 16px;  color:black" for="role">Roles</label>
+                    <div style="position: relative; width: 100%;">
+                        <select
+                            style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
+                            name="role" id="role" class="form-control">
+                            {{-- @foreach ($roles as $id => $role)
+                                <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>
+                                    {{ $role }}
+                                </option>
+                            @endforeach --}}
+                        </select>
+                        <div class="icono" onclick="toggleSelect()">
+                            <div class="circle-play">
+                                <div class="circle"></div>
+                                <div class="triangle"></div>
                             </div>
                         </div>
                     </div>
