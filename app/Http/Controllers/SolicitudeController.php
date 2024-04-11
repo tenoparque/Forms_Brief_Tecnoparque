@@ -181,9 +181,12 @@ class SolicitudeController extends Controller
 
 
 
-    public function pdf() {
-        // $selectedOptionId = $request->input('selectedOptionId');
-        $solicitudes = Solicitude::where('id_tipos_de_solicitudes', 1)->get();
+    public function pdf(Request $request) {
+        $selectedOptionId = $request->input('selectedOptionId');
+        log::info($selectedOptionId);
+        $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $selectedOptionId)->get();
+        log::info($solicitudes);
+        sleep(3);
         log::info($solicitudes);
         $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
         return $pdf->stream();
