@@ -50,9 +50,7 @@
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <select id="cuartoCombo" name="cuartoCombo" class="form-control selectpicker" data-style="btn-primary"
-                            title="Seleccionar la Ciudad" required
-                            style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                        <select id="cuartoCombo" name="cuartoCombo" class="form-control selectpicker" data-style="btn-primary" title="Seleccionar la Ciudad" required style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                             <option value="" disabled selected>Seleccionar Ciudad...</option>
                             @foreach ($tiposSolicitudes as $ciudad)
                                 <option value="{{ $ciudad->id }}">{{ $ciudad->nombre }}</option>
@@ -61,8 +59,7 @@
                     </div>
                     
                     <div class="col-md-1">
-                        <a href="{{ route('solicitudes.pdf') }}" class="btnpdf" target="_blank"><i
-                                class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78; margin-left: -60px;"></i></a>
+                        <a href="#" class="btnpdf" target="_blank" onclick="generarPDF()"><i class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78; margin-left: -60px;"></i></a>>
                     </div>
                 </div>
             </div>
@@ -82,28 +79,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-     $(document).ready(function() {
-    $('#cuartoCombo').change(function() {
-           var selectedOptionId = $(this).val(); // Obtiene el valor del atributo 'value' de la opción seleccionada
-            console.log(selectedOptionId);
-    //        // Realiza la solicitud AJAX
-           $.ajax({
-            url: "{{ route('enviar.dato') }}", // Ruta hacia el método en el controlador
-             type: "POST",
-                data: {
-                     _token: "{{ csrf_token() }}", // Agrega el token CSRF para seguridad
-                     selectedOptionId: selectedOptionId // Envía el valor seleccionado como 'selectedOptionId'
-                 },
-                 success: function(response) {
-                     // Maneja la respuesta del servidor si es necesario
-                     console.log(response);
-                 },
-                 error: function(xhr, status, error) {
-                     console.error(error); // Manejo de errores
-                 }
-             });
-         });
-     });
+    function generarPDF() {
+        var cuartoComboValue = document.getElementById('cuartoCombo').value;
+        var url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoComboValue);
+        window.open(url, '_blank');
+    }
         document.getElementById('slcReport').addEventListener('change', function() {
             var slcReport = this.value;
             var slcTipoDato = document.getElementById('slcTipoDato');
