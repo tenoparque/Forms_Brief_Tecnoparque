@@ -41,6 +41,10 @@ class Handler extends ExceptionHandler
             return Response::view('errors.403', [], 403); // Through a response we return the error view and also the HTTP status code.
         }
 
+        if ($exception instanceof ModelNotFoundException || $exception instanceof NotFoundHttpException) {
+            return Response::view('errors.404', [], 404);
+        }        
+
         return parent::render($request, $exception);
     }
 }
