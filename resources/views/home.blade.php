@@ -128,30 +128,25 @@
         function hacerSolicitud() {
 
             clearInterval(intervalo);
-            var xhr = new XMLHttpRequest(); // Crear un nuevo objeto XMLHttpRequest
-            // Configurar la solicitud
-            xhr.open("GET", "{{ 'datosGraficas' }}", true);
-            // Manejar la respuesta
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) { // Si la solicitud ha terminado
-                    if (xhr.status === 200) { // Si la solicitud ha tenido éxito
-                        var respuesta = JSON.parse(xhr.responseText); // Parsear la respuesta JSON
-    
-                        // Actualizar el valor en el elemento HTML
-                       
-                        document.getElementById('valor3').textContent = "Total: " + respuesta.total;
-                        actualizarGraficos(respuesta, respuesta.tiposDeSolicitudes);
-
-
-                    } else {
-                        console.error('Error en la solicitud: ' + xhr
-                            .status); // Imprimir el estado del error en la consola
+                fetch("{{ route('home.datosGraficas') }}") // Utiliza la función route de Laravel para obtener la URL del endpoint
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la solicitud: ' + response.status);
                     }
+                    return response.json();
+                })
+                .then(data => {
+                    // Actualizar el valor en el elemento HTML
+                    document.getElementById('valor3').textContent = "Total: " + data.total;
+                    // Llamar a la función para actualizar las gráficas
+                    actualizarGraficos(data, data.tiposDeSolicitudes);
+                })
+                .catch(error => {
+                    console.error('Error en la solicitud:', error);
+                })
+                .finally(() => {
                     intervalo = setInterval(hacerSolicitud, 5000);
-                }
-            };
-            // Enviar la solicitud con un cuerpo vacío
-            xhr.send();
+                });
         }
 
         var garfica_nodos_solicitudes = null;
