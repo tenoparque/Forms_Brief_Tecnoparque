@@ -6,7 +6,11 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Nodo;
 use App\Models\Estado;
+use App\Models\Role;
+use Spatie\Permission\Models\Role as SpatieRol;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 /**
  * Class UserController
@@ -28,8 +32,12 @@ class UserController extends Controller
     }
 
     public function miperfil(){
-        $user = User::all();
-        return view ('user.miperfil', compact('user'));
+        $user = Auth::user();
+        $estados = Estado::all();
+        $nodos = Nodo::all();
+        // $roles = Role::all();
+
+        return view ('user.miperfil', compact('user', 'estados', 'nodos'));
     }
 
     public function search(Request $request)

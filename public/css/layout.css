@@ -504,6 +504,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* ------------bottom dettale----------- */
 .btnDetalle {
     display: inline-block;
+    margin: 5px 2px;
     padding: 6px 20px;
     text-decoration: none;
     color: #00324d;
