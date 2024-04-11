@@ -128,7 +128,7 @@
         function hacerSolicitud() {
 
             clearInterval(intervalo);
-                fetch("{{ route('home.datosGraficas') }}") // Utiliza la función route de Laravel para obtener la URL del endpoint
+                fetch("{{ route('datosGraficas') }}") // Utiliza la función route de Laravel para obtener la URL del endpoint
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Error en la solicitud: ' + response.status);
@@ -307,7 +307,10 @@
 
     }
 
-    hacerSolicitud();
+    document.addEventListener("DOMContentLoaded", function() {
+        // Llamar a hacerSolicitud una vez que el documento esté listo
+        hacerSolicitud();
+    });
         
     window.addEventListener('resize', function() {
         // Verifica si la gráfica está definida
