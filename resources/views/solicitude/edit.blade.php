@@ -170,7 +170,6 @@
                                 </button>
                             </div>
                         </div>
-
                         {{-- BOTONERÍA ESTADO --}}
                         <div class="botoneriaEstado" style="text-align: right; margin-block-start: 5%; margin-right: 50px;">
                             <div class="align-right" id="btnGroupCancelarEnviarEstado" style="display: none;">
@@ -197,9 +196,9 @@
                         <h5>Datos por solicitud:</h5>
                         @foreach ($datosPorSolicitud as $dato)
                             <div class="form-group">
-                                <label><strong>{{ $dato->titulo }}:</strong></label>
+                                <label style=" cursor: default;; outline: none; width: 97%; max-width: 100%; height:45px;margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;""><strong>{{ $dato->titulo }}:</strong></label>
                                 <input type="text" class="form-control" value="{{ $dato->dato }}" readonly
-                                    style="cursor: initial; outline: none;">
+                                style="cursor: default;; outline: none; width: 100%; max-width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
                             </div>
                         @endforeach
 
