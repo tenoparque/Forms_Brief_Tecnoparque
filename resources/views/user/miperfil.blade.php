@@ -12,9 +12,9 @@
         <div class="container">
             <div class="row">
                 <div class="d-flex mt-3 mb-4">
-                    <div >
+                    <div>
                         <h1 class="primeraPalabraFlex"
-                            style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">
+                            style="margin-right: 0; font-size: 200%; font-weight: 900; color: rgb(0, 49, 77)">
                             {{ __('MI PERFIL') }}</h1>
                     </div>
 
@@ -86,7 +86,7 @@
                             {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
                         </div>
                         <div class="col-md-4">
-                            <label style="font-size: 16px;  color:black" for="role">Roles</label>
+                            <label style="font-size: 16px; color:black; font-weight: bold" for="role">Roles</label>
                             <div style="position: relative; width: 100%;">
                                 <select
                                     style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
