@@ -59,7 +59,7 @@
                                             <td data-titulo="Estado">{{ $politica->estado->nombre }}</td>
                                             <td data-titulo="Titulo">{{ $politica->titulo }}</td>
 
-                                            <td  id="buttoncell">
+                                            <td  id="buttoncell" >
                                                 <form action="{{ route('roles.destroy', $politica->id) }}" method="POST">
                                                     <a class="btnDetalle"
                                                         

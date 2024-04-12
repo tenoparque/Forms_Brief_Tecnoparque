@@ -1208,7 +1208,7 @@ input[type="text"] {
         width: 20% !important;
         position: relative;
         text-align: center;
-        font-size: 7.4px;
+        font-size: 10px !important;
         font-weight: bold;
     }
 
@@ -1315,34 +1315,13 @@ input[type="text"] {
     }
 
     /* botones de las vistas */
-    .btnDetalle {
-        
-        width: calc(50% - 20px);
-        margin: 3px; /* Corregido: especifica el valor completo del margen */
-       
-        
+  
+    .btnDetalle{
+        display: inline-block;
     }
-
-    .btnEdit {
-      
-        margin: 3px; /* Corregido: especifica el valor completo del margen */
-        width: calc(50% - 20px);
-        
-       
+    .btnEdit{
+        display: inline-block;
     }
-
-    .btnDuplicar {
-        display: block;
-       
-        margin: 0;
-    }
-
-    .btnModificar {
-        display: block;
-        margin: 5px 5px;
-        font-size: 0.9em;
-    }
-
     .btnVerHistorial {
         display: block;
         margin: 3px 0px !important;

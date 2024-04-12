@@ -72,7 +72,7 @@
                                             </td>
 
 
-                                            <td id="buttoncell">
+                                            <td id="buttoncell" class="">
                                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                                     <a class="btnDetalle" href="{{ route('users.show', $user->id) }}"> 
                                                         <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
