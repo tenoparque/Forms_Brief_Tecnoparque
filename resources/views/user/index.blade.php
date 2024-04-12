@@ -18,7 +18,7 @@
                             <div class="d-flex mt-3 mb-4">
                                 <div>
                                     <h1 class="primeraPalabraFlex"
-                                        style="margin-right: 0; font-size: 180%; font-weight: 900; color: rgb(0, 49, 77)">
+                                        style="margin-right: 0; font-size: 2000%; font-weight: 900; color: rgb(0, 49, 77)">
                                         {{ __('USUARIOS REGISTRADOS') }}</h1>
                                 </div>
 

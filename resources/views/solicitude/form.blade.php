@@ -14,9 +14,7 @@
                     <div class="form-group col-md-12 my-3">
                         <h5 for="id_tipos_de_solicitudes" style="font-size: 18px; font-weight: bold;">Tipo de Solicitud
                         </h5>
-
-
-                        <div style="position: relative">
+                       <div style="position: relative">
                             <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
                                 class="form-control selectpicker" data-style="btn-primary"
                                 style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
@@ -39,12 +37,9 @@
                                     <div class="triangle"></div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                     <br>
-
                     <div id="btnEnviarSolicitud">
                         <div class="form-group col-md-12 my-3">
                             <label style="font-size: 18px; font-weight: bold;">CATEGORIAS DE EVENTOS ESPECIALES</label>
