@@ -58,8 +58,8 @@
 
                             {{ Form::label('nodo', null, ['style' => 'font-size: 16px;  color: ; font-weight: bold']) }}
                             <div style="position: relative;">
-                                {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
-                                <div class="icono" onclick="toggleSelect()">
+                                {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), $user->nodo->id, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'disabled' => 'true', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; cursor: default']) }}
+                                <div class="icono" style="cursor: default">
                                     <div class="circle-play">
                                         <div class="circle"></div>
                                         <div class="triangle"></div>
@@ -73,8 +73,8 @@
                             <div class="form-group">
                                 {{ Form::label('estado', null, ['style' => 'font-size: 16px;  color:black']) }}
                                 <div style="position: relative;">
-                                    {{ Form::select('id_estado', $estados->pluck('nombre', 'id')->toArray(), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
-                                    <div class="icono" onclick="toggleSelect()">
+                                    {{ Form::select('id_estado', $estados->pluck('nombre', 'id')->toArray(), $user->estado->id, ['class' => 'form-control' . ($errors->has('id_estado') ? ' is-invalid' : ''), 'disabled' => 'true', 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; cursor: default']) }}
+                                    <div class="icono" style="cursor: default">
                                         <div class="circle-play">
                                             <div class="circle"></div>
                                             <div class="triangle"></div>
@@ -89,15 +89,15 @@
                             <label style="font-size: 16px; color:black; font-weight: bold" for="role">Roles</label>
                             <div style="position: relative; width: 100%;">
                                 <select
-                                    style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
-                                    name="role" id="role" class="form-control">
+                                    style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: default"
+                                    name="role" id="role" class="form-control" disabled>
                                     @foreach ($roles as $id => $role)
                                         <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>
                                             {{ $role }}
                                         </option>
                                     @endforeach
                                 </select>
-                                <div class="icono" onclick="toggleSelect()">
+                                <div class="icono" style="cursor: default">
                                     <div class="circle-play">
                                         <div class="circle"></div>
                                         <div class="triangle"></div>
