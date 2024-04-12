@@ -888,11 +888,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 }
 
-.progressbar li.active::before {
-    background-color: #642c78;
-    border-color: #642c78;
-    box-shadow: 0 0 5pxrgb(128, 0, 128);
-}
 
 
 
