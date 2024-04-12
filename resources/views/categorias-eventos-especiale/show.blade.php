@@ -31,14 +31,14 @@
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
-                                        <th>Nombre</th>
-                                        <th>Estado</th>
+                                        <th >Nombre</th>
+                                        <th >Estado</th>
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
                                     <tr>
-                                        <td>{{ $categoriasEventosEspeciale->nombre }}</td>
-                                        <td>{{ $categoriasEventosEspeciale->estado->nombre }}</td>
+                                        <td data-titulo="Nombre">{{ $categoriasEventosEspeciale->nombre }}</td>
+                                        <td data-titulo="Estado">{{ $categoriasEventosEspeciale->estado->nombre }}</td>
                                     </tr>
                                 </tbody>
                                 <!-- Another tbody is created for the search records -->

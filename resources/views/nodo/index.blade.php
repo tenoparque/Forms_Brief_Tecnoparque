@@ -24,8 +24,8 @@
                     </div>                  
                     <div class="card-body">
                         <div class="row mb-3">
-                            <div class="col d-flex justify-content-between align-items-center">
-                                <input class="form-control" id="search" placeholder="Ingrese el nombre deL nodo..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
+                            <div class="col d-flex justify-content-between align-items-center search-Header">
+                                <input class="form-control inputSearch" id="search" placeholder="Ingrese el nombre deL nodo..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
                                 <a href="{{ route('nodos.create') }}" class="btnCrear"
                                     >{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR" ></i></a>

@@ -39,10 +39,10 @@
                                 </thead>
                                 <tbody class="alldata">
                                     <tr>
-                                        <td>{{ $datosUnicosPorSolicitude->nombre }}</td>
-                                        <td>{{ $datosUnicosPorSolicitude->tiposDeDato->nombre }}</td>
-                                        <td>{{ $datosUnicosPorSolicitude->tiposDeSolicitude->nombre }}</td>
-                                        <td>{{ $datosUnicosPorSolicitude->estado->nombre }}</td>
+                                        <td data-titulo="Nombre">{{ $datosUnicosPorSolicitude->nombre }}</td>
+                                        <td data-titulo="Tipo de dato Nombre">{{ $datosUnicosPorSolicitude->tiposDeDato->nombre }}</td>
+                                        <td data-titulo="Tipo de solicitude Nombre">{{ $datosUnicosPorSolicitude->tiposDeSolicitude->nombre }}</td>
+                                        <td data-titulo="Estado Nombre">{{ $datosUnicosPorSolicitude->estado->nombre }}</td>
                                     </tr>
                                 </tbody>
                                 <!-- Another tbody is created for the search records -->

@@ -37,8 +37,8 @@
                                 </thead>
                                 <tbody class="alldata">
                                     <tr>
-                                        <td>{{ $estadosDeLasSolictude->nombre }}</td>
-                                        <td>{{ $estadosDeLasSolictude->estado->nombre }}</td>
+                                        <td data-titulo="Nombre estado de la solicitud">{{ $estadosDeLasSolictude->nombre }}</td>
+                                        <td data-titulo="nombre">{{ $estadosDeLasSolictude->estado->nombre }}</td>
                                        
                                     </tr>
                                 </tbody>

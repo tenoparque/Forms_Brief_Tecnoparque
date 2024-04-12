@@ -38,9 +38,9 @@
                                 </thead>
                                 <tbody class="alldata">
                                     <tr>
-                                        <td>{{ $nodo->nombre }}</td>
-                                        <td>{{ $nodo->estado->nombre }}</td>
-                                        <td>{{ $nodo->ciudade->nombre }}</td>
+                                        <td data-titulo="nombre">{{ $nodo->nombre }}</td>
+                                        <td data-titulo="nombre estado">{{ $nodo->estado->nombre }}</td>
+                                        <td data-titulo="nombre ciudad">{{ $nodo->ciudade->nombre }}</td>
                                     </tr>
                                 </tbody>
                                 <!-- Another tbody is created for the search records -->

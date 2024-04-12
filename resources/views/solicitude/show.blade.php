@@ -132,13 +132,13 @@
                                 </thead>
                                 <tbody class="alldata">
                                     <tr class="table-light" style="border-color:transparent">
-                                        <td style="text-align: center">{{ $solicitude->tiposdesolicitude->nombre }}</td>
-                                        <td style="text-align: center">{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
-                                        <td style="text-align: center">{{ $solicitude->user->name }}</td>
-                                        <td style="text-align: center">{{ $solicitude->user->nodo->nombre }}</td>
-                                        <td style="text-align: center">
+                                        <td data-titulo="Nombre" style="text-align: center">{{ $solicitude->tiposdesolicitude->nombre }}</td>
+                                        <td data-titulo="fecha y hora de la solicitud" style="text-align: center">{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
+                                        <td data-titulo="nombre" style="text-align: center">{{ $solicitude->user->name }}</td>
+                                        <td data-titulo="nombre" style="text-align: center">{{ $solicitude->user->nodo->nombre }}</td>
+                                        <td data-titulo="nombre" style="text-align: center">
                                             {{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
-                                        <td style="text-align: center">{{ $solicitude->estadosDeLasSolictude->nombre }}
+                                        <td data-titulo="nombre" style="text-align: center">{{ $solicitude->estadosDeLasSolictude->nombre }}
                                         </td>
 
                                     </tr>

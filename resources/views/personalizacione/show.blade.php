@@ -42,7 +42,7 @@
                                     <tr>
 
                                         <td>
-                                            <div class="logoPersonalizacion" >
+                                            <div class="logoPersonalizacion">
                                                 <img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}"
                                                     alt="LOGO" class="ImgCeldaPesonalizacion">
                                         </td>
@@ -84,10 +84,9 @@
             </div>
         </div>
         <div class="mt-3 d-flex justify-content-end">
-            <a href="{{ route('personalizaciones.index') }}" class="btnRegresar"
-                >
+            <a href="{{ route('personalizaciones.index') }}" class="btnRegresar">
                 {{ __('REGRESAR') }}
-                <i class="fa-solid fa-circle-play fa-flip-both iconDCR" ></i>
+                <i class="fa-solid fa-circle-play fa-flip-both iconDCR"></i>
             </a>
         </div>
         </div>

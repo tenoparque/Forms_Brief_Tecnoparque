@@ -36,7 +36,7 @@
                                 </thead>
                                 <tbody class="alldata">
                                     <tr>
-                                        <td>{{ $estado->nombre }}</td>
+                                        <td data-titulo="nombre">{{ $estado->nombre }}</td>
                                     </tr>
                                 </tbody>
                                 <!-- Another tbody is created for the search records -->

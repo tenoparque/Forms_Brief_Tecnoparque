@@ -38,9 +38,9 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>{{ $eventosEspecialesPorCategoria->nombre }}</td>
-                                        <td>{{ $eventosEspecialesPorCategoria->estado->nombre }}</td>
-                                        <td>{{ $eventosEspecialesPorCategoria->categoriasEventosEspeciale->nombre }}</td>
+                                        <td data-titulo="nombre">{{ $eventosEspecialesPorCategoria->nombre }}</td>
+                                        <td data-titulo="nombre estado">{{ $eventosEspecialesPorCategoria->estado->nombre }}</td>
+                                        <td data-titulo="nombre categoria evento especial">{{ $eventosEspecialesPorCategoria->categoriasEventosEspeciale->nombre }}</td>
                                     </tr>
                                 </tbody>
                             </table>

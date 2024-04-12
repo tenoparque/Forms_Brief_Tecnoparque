@@ -27,9 +27,9 @@
             </div>          
             <div class="">
                 <div class="row mb-3">
-                    <div class="col d-flex justify-content-between align-items-center">
+                    <div class="col d-flex justify-content-between align-items-center search-Header">
                         
-                        <input class="form-control" id="search" placeholder="Ingrese el nombre del servicio..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
+                        <input class="form-control inputSearch" id="search" placeholder="Ingrese el nombre del servicio..." style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
 
                         <a href="{{ route('servicios-por-tipos-de-solicitudes.create') }}" class="btnCrear"
                         >{{ __('CREAR') }}

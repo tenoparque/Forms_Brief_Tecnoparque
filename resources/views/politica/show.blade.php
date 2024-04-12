@@ -38,17 +38,17 @@
                                 </thead>
                                 <tbody class="alldata">
                                     <tr>
-                                        <td><a href="{{ $politica->link }}">Politicas</a></td>
-                                        <td>{{ $politica->descripcion }}</td>
-                                        <td>
+                                        <td data-titulo="politicas"><a href="{{ $politica->link }}">Politicas</a></td>
+                                        <td data-titulo="descripcion">{{ $politica->descripcion }}</td>
+                                        <td data-titulo="imagen">
                                             <div class="imgQr">
                                                 <img src="data:image/png;base64,{{ base64_encode($politica->qr) }}"
                                                     alt="QR" class="ImgQrPoliticas">
                                             </div>
                                         </td>
-                                        <td>{{ $politica->user->name }}</td>
-                                        <td> {{ $politica->estado->nombre }}</td>
-                                        <td>{{ $politica->titulo }}</td>
+                                        <td data-titulo="nombre">{{ $politica->user->name }}</td>
+                                        <td data-titulo="nombre"> {{ $politica->estado->nombre }}</td>
+                                        <td data-titulo="titulo">{{ $politica->titulo }}</td>
                                     </tr>
                                 </tbody>
                                 <!-- Another tbody is created for the search records -->
