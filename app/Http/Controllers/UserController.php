@@ -35,7 +35,6 @@ class UserController extends Controller
         $user = Auth::user();
         $estados = Estado::all();
         $nodos = Nodo::all();
-        //$roles = Role::all();
         $roles = SpatieRole::pluck('name', 'id');
 
         return view ('user.miperfil', compact('user', 'estados', 'nodos', 'roles'));
