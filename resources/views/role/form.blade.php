@@ -1,5 +1,3 @@
-
-
 <div class="box box-info padding-1">
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <div class="box-body">
@@ -7,7 +5,7 @@
         <div class="form-group">
             
             {{ Form::label('Nombre',null,['style' => 'font-size: 18px; font-weight: bold; margin-left: 35px;']) }}
-            {{ Form::text('name', $role->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre','style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px; margin-left: 25px;']) }}
+            {{ Form::text('name', $role->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre','style' => 'width: 95%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-left: 25px;']) }}
             {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

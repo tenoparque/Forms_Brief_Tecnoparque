@@ -4,8 +4,6 @@
     Role
 @endsection
 
-<link href="{{ asset('css/layout.css') }}" rel="stylesheet">
-
 @section('content')
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
