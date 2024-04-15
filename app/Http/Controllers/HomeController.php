@@ -38,13 +38,15 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function datosGraficas()
-    {
+    public function datosGraficas(){
+
         $usuarioAutenticado = Auth::user();
         $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
         $rolesDesigner = ['Designer'];
+        $rolesDinamizador = ['Dinamizador'];
         $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
         $esDesigner = $usuarioAutenticado->hasAnyRole($rolesDesigner); 
+        $esDinamizador = $usuarioAutenticado->hasAnyRole($rolesDinamizador); 
         $nodoUsuario = $usuarioAutenticado->id_nodo;
         $tiposDeSolicitudes = [];
         
@@ -172,8 +174,7 @@ class HomeController extends Controller
 
 
             return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificacionesGeneral, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'datosPorNodo' => $datosPorNodo,'etiquetas' => $etiquetas ,'cantidades_asignadas' => $cantidades_asignadas]);
-
-            }
+        } 
         elseif ($esDesigner) {
 
             $idsSolicitudes = HistorialDeUsuariosPorSolicitude::where('id_users', $usuarioAutenticado->id)
@@ -228,41 +229,55 @@ class HomeController extends Controller
             }
 
             return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes]);
-            } else {
-            $propias = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)->count();
+        }
+        elseif ($esDinamizador) {
+                // Obtener el ID del nodo del usuario autenticado
+                $idNodoUsuario = $usuarioAutenticado->id_nodo;
+
+                // Obtener todas las IDs de solicitudes realizadas por usuarios del mismo nodo
+                $idsSolicitudes = Solicitude::whereHas('user', function ($query) use ($idNodoUsuario) {
+                    $query->where('id_nodo', $idNodoUsuario);
+                })->pluck('id')->toArray();
+
+                // Contar el número de solicitudes
+                $propias = count($idsSolicitudes);
             
-            $totalModificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', function ($query) use ($usuarioAutenticado) {
-                $query->select('id')
-                    ->from('solicitudes')
-                    ->where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id);
-            })->count();
-            $total = $propias + $totalModificaciones;
+                // Contar el número de modificaciones para las solicitudes encontradas
+                $totalModificacionesGeneral = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', $idsSolicitudes)->count();
+                
+                $total = $propias + $totalModificacionesGeneral;
 
-            $tiposDeSolicitudes = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)
-            ->join('tipos_de_solicitudes', 'solicitudes.id_tipos_de_solicitudes', '=', 'tipos_de_solicitudes.id')
-            ->select('tipos_de_solicitudes.nombre', DB::raw('COUNT(*) as total'))
-            ->groupBy('tipos_de_solicitudes.nombre')
-            ->orderBy('total', 'desc')
-            ->get();
+                $tiposDeSolicitudes = DB::table('solicitudes')
+                ->join('tipos_de_solicitudes', 'solicitudes.id_tipos_de_solicitudes', '=', 'tipos_de_solicitudes.id')
+                ->whereIn('solicitudes.id', $idsSolicitudes)
+                ->select('tipos_de_solicitudes.nombre', DB::raw('COUNT(*) as total'))
+                ->groupBy('tipos_de_solicitudes.nombre')
+                ->orderByDesc('total')
+                ->get();
 
-            $solicitudes = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)
-            ->select(DB::raw('COUNT(*) as total_solicitudes, YEAR(created_at) as anio, MONTH(created_at) as mes'))
-            ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
-            ->get();
+                $solicitudes = Solicitude::whereIn('id', $idsSolicitudes)
+                ->select(DB::raw('COUNT(*) as total_solicitudes, YEAR(created_at) as anio, MONTH(created_at) as mes'))
+                ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
+                ->get();
 
-            foreach ($solicitudes as $solicitud) {
+                // Obtener datos de modificaciones por mes
+                $modificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', $idsSolicitudes)
+                ->select(DB::raw('COUNT(*) as total_modificaciones, YEAR(created_at) as anio, MONTH(created_at) as mes'))
+                ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
+                ->get();
+
+                // Combinar los datos de solicitudes y modificaciones por mes
+                $datosMesAMes = [];
+
+                foreach ($solicitudes as $solicitud) {
                 $mes = $solicitud->mes;
                 $anio = $solicitud->anio;
                 $totalSolicitudes = $solicitud->total_solicitudes;
-        
-                // Obtener las modificaciones correspondientes a este mes y año
-                $totalModificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', function ($query) use ($usuarioAutenticado, $mes, $anio) {
-                    $query->select('id')
-                        ->from('solicitudes')
-                        ->where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)
-                        ->whereYear('created_at', $anio)
-                        ->whereMonth('created_at', $mes);
-                })->count();
+
+
+                // Buscar las modificaciones correspondientes a este mes y año
+                $modificacion = $modificaciones->where('mes', $mes)->where('anio', $anio)->first();
+                $totalModificaciones = $modificacion ? $modificacion->total_modificaciones : 0;
 
                 // Agregar los datos al array
                 $datosMesAMes[] = [
@@ -270,14 +285,60 @@ class HomeController extends Controller
                     'anio' => $anio,
                     'total_solicitudes' => $totalSolicitudes,
                     'total_modificaciones' => $totalModificaciones
-                    ];
-                    }
+                ];
+                }
 
-            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes]);
+                return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificacionesGeneral, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes]);
+            } else {
+                $propias = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)->count();
+                
+                $totalModificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', function ($query) use ($usuarioAutenticado) {
+                    $query->select('id')
+                        ->from('solicitudes')
+                        ->where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id);
+                })->count();
+                $total = $propias + $totalModificaciones;
+
+                $tiposDeSolicitudes = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)
+                ->join('tipos_de_solicitudes', 'solicitudes.id_tipos_de_solicitudes', '=', 'tipos_de_solicitudes.id')
+                ->select('tipos_de_solicitudes.nombre', DB::raw('COUNT(*) as total'))
+                ->groupBy('tipos_de_solicitudes.nombre')
+                ->orderBy('total', 'desc')
+                ->get();
+
+                $solicitudes = Solicitude::where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)
+                ->select(DB::raw('COUNT(*) as total_solicitudes, YEAR(created_at) as anio, MONTH(created_at) as mes'))
+                ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
+                ->get();
+
+                foreach ($solicitudes as $solicitud) {
+                    $mes = $solicitud->mes;
+                    $anio = $solicitud->anio;
+                    $totalSolicitudes = $solicitud->total_solicitudes;
+            
+                    // Obtener las modificaciones correspondientes a este mes y año
+                    $totalModificaciones = HistorialDeModificacionesPorSolicitude::whereIn('id_soli', function ($query) use ($usuarioAutenticado, $mes, $anio) {
+                        $query->select('id')
+                            ->from('solicitudes')
+                            ->where('id_usuario_que_realiza_la_solicitud', $usuarioAutenticado->id)
+                            ->whereYear('created_at', $anio)
+                            ->whereMonth('created_at', $mes);
+                    })->count();
+
+                    // Agregar los datos al array
+                    $datosMesAMes[] = [
+                        'mes' => $mes,
+                        'anio' => $anio,
+                        'total_solicitudes' => $totalSolicitudes,
+                        'total_modificaciones' => $totalModificaciones
+                        ];
+                        }
+
+                return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes]);
+
+            }
 
         }
-
-    }
 
     public function update(Request $request)
     {
