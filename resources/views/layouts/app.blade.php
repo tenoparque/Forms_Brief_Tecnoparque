@@ -485,17 +485,18 @@
         width: 120%;
         height: 120%;
         border-radius: 60%;
+        z-index: 1;
         background-color: {{ $colorSecundario }};
     }
 
     .circle-play {
-
         position: absolute;
         top: 50%;
         right: 10px;
         width: 24px;
         height: 24px;
         position: relative;
+        z-index: 1;
         transform: translateY(-50%);
     }
 
@@ -503,9 +504,11 @@
         position: absolute;
         right: 2%;
         top: 50%;
+        z-index: 1;
         transform: translateY(-50%);
         justify-content: center;
         align-items: center;
+        pointer-events: none; 
 
 
     }
