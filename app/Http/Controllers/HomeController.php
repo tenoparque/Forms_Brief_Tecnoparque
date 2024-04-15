@@ -8,6 +8,7 @@ use App\Models\Solicitude;
 use App\Models\Nodo;
 use App\Models\User;
 use App\Models\HistorialDeUsuariosPorSolicitude;
+use App\Models\EstadosDeLasSolictude;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -54,6 +55,13 @@ class HomeController extends Controller
             $propias = Solicitude::count();
             $totalModificacionesGeneral = HistorialDeModificacionesPorSolicitude::count();
             $total = $propias + $totalModificacionesGeneral;
+
+            $ordenUno = EstadosDeLasSolictude::where('orden_mostrado', 1)
+            ->where('id_estado', 1)
+            ->value('id');
+
+            $CardDos = Solicitude::where('id_estado_de_la_solicitud', $ordenUno)->count();
+
 
             $tiposDeSolicitudes = Solicitude::join('tipos_de_solicitudes', 'solicitudes.id_tipos_de_solicitudes', '=', 'tipos_de_solicitudes.id')
             ->select('tipos_de_solicitudes.nombre', DB::raw('COUNT(*) as total'))
@@ -173,7 +181,7 @@ class HomeController extends Controller
             
 
 
-            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificacionesGeneral, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'datosPorNodo' => $datosPorNodo,'etiquetas' => $etiquetas ,'cantidades_asignadas' => $cantidades_asignadas]);
+            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificacionesGeneral, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'datosPorNodo' => $datosPorNodo,'etiquetas' => $etiquetas ,'cantidades_asignadas' => $cantidades_asignadas,  'CardDos'=> $CardDos]);
         } 
         elseif ($esDesigner) {
 
