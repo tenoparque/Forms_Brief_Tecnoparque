@@ -207,6 +207,10 @@ class SolicitudeController extends Controller
             })->get();
             
         }
+        elseif($tipo == 'Tipos De Solicitudes'){
+            $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $cuartoComboValue)->get();
+            
+        }
         
         // dd($solicitudes);
         $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));

@@ -43,6 +43,8 @@
                             <option value="Nodo">Nodo</option>
                             <option value="Estados De Las Solictudes">Estados De Las Solictudes</option>
                             <option value="Eventos Especiales Por Categoria">Eventos Especiales Por Categoria</option>
+                            <option value="Tipos De Solicitud">Tipos De Solicitudes</option>
+                            <option value="Todo">Todo</option>
                         </select>
                     </div>
                     <div class="col-md-3">
@@ -118,6 +120,15 @@
                 var option = document.createElement("option");
                 option.text = evento.nombre;
                 option.value = evento.id;
+                slcTipoDato.add(option);
+            });
+        }
+        else if (selectedReport === "Tipos De Solicitud") {
+            var eventos = {!! json_encode($tiposSolicitudes) !!};
+            eventos.forEach(function(tiposSolicitudes) {
+                var option = document.createElement("option");
+                option.text = tiposSolicitudes.nombre;
+                option.value = tiposSolicitudes.id;
                 slcTipoDato.add(option);
             });
         }
