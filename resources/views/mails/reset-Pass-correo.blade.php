@@ -34,10 +34,7 @@
                                   style="border: 2px solid #82def0;color: #00324d;border-radius: 35px;background: #fff; padding: 10px 24px;text-align: center;text-decoration: none;font-size: 14px;"
                                   href="{{ route('password.reset', ['token' => $token]) }}">Cambia tu contraseña</a>
 
-                                  <a class="btnResetYourPassword"
-                                 
-                                  href="{{ route('password.reset', ['token' => $token]) }}">
-                                  {{ $token }}
+                                  
                               </a>
 
 
