@@ -78,12 +78,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        function generarPDF() {
-            var cuartoComboValue = document.getElementById('cuartoCombo').value;
-            var url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoComboValue);
-            window.open(url, '_blank');
-        }
-
+      
        
         // Esperar a que el DOM esté cargado
         document.addEventListener("DOMContentLoaded", function() {
@@ -138,5 +133,13 @@
         console.log("Nombre del reporte seleccionado:", selectedReportName);
     });
 });
+
+  function generarPDF() {
+            var cuartoComboValue = document.getElementById('cuartoCombo').value;
+        var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
+            var url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoComboValue) + "&nombre=" + encodeURIComponent(selectedReportName);
+            window.open(url, '_blank');
+        }
+
     </script>
 @endsection
