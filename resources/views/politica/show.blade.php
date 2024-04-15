@@ -29,11 +29,11 @@
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
                                         <th>Link:</th>
-                                        <th>Descripcion:</th>
+                                        <th>Descripción:</th>
                                         <th style="width: 30%">Qr:</th>
                                         <th>Usuario:</th>
                                         <th>Estado:</th>
-                                        <th>Titulo:</th>
+                                        <th>Título:</th>
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">

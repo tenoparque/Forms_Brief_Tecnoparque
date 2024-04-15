@@ -6,8 +6,8 @@
 
 @section('content')
 
-    <section class="container shadow bg-light mt-5 p-4 rounded">
-        <div class="row">
+    <section class="container shadow p-4  my-5 bg-light rounded">
+        <div class="">
             <div class="col-md-12">
 
                 @includeif('partials.errors')

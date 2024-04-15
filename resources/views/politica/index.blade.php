@@ -32,10 +32,10 @@
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
                                         <th>No</th>
-                                        <th>Descripcion</th>
+                                        <th>Descripción</th>
                                         <th>Usuario</th>
                                         <th>Estado</th>
-                                        <th>Titulo</th>
+                                        <th>Título</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
