@@ -131,15 +131,20 @@
         var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
         console.log("ID del dato seleccionado:", selectedDataId);
         console.log("Nombre del reporte seleccionado:", selectedReportName);
+        generarPDF(selectedReportName);
+
     });
+   
 });
 
-  function generarPDF() {
+function generarPDF(selectedReportName) {
             var cuartoComboValue = document.getElementById('cuartoCombo').value;
-        var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
+        // var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
             var url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoComboValue) + "&nombre=" + encodeURIComponent(selectedReportName);
             window.open(url, '_blank');
         }
 
+
+  
     </script>
 @endsection
