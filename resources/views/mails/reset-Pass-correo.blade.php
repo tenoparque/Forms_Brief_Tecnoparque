@@ -30,12 +30,11 @@
 
 
 
+                            
                               <a class="btnResetYourPassword"
-                                  style="border: 2px solid #82def0;color: #00324d;border-radius: 35px;background: #fff; padding: 10px 24px;text-align: center;text-decoration: none;font-size: 14px;"
-                                  href="{{ route('password.reset', ['token' => $token]) }}">Cambia tu contraseña</a>
-
-                                  
-                              </a>
+                              style="border: 2px solid #82def0;color: #00324d;border-radius: 35px;background: #fff; padding: 10px 24px;text-align: center;text-decoration: none;font-size: 14px;"
+                              href="{{ route('password.reset', ['token' => $token, 'email' => $user->email]) }}">Cambia
+                              tu contraseña</a>
 
 
                           </td>
