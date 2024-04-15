@@ -187,6 +187,7 @@ class SolicitudeController extends Controller
 
 
     public function pdf(Request $request) {
+        dd($request->all());
         $cuartoComboValue = $request->input('cuartoComboValue');
         $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $cuartoComboValue)->get();
         $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
