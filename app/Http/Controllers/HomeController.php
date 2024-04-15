@@ -94,6 +94,35 @@ class HomeController extends Controller
             ->orderBy('nodos.nombre')
             ->get();
 
+            // Obtener los datos de modificaciones por nodo
+            $modificacionesNodo = DB::table('historial_de_modificaciones_por_solicitudes')
+            ->join('solicitudes', 'historial_de_modificaciones_por_solicitudes.id_soli', '=', 'solicitudes.id')
+            ->join('users', 'solicitudes.id_usuario_que_realiza_la_solicitud', '=', 'users.id')
+            ->join('nodos', 'users.id_nodo', '=', 'nodos.id')
+            ->select('nodos.nombre', DB::raw('COUNT(*) as total_modificaciones'))
+            ->groupBy('nodos.nombre')
+            ->orderBy('nodos.nombre')
+            ->get();
+
+            // Combinar los datos de solicitudes y modificaciones por nodo
+            // Combinar los datos de solicitudes y modificaciones por nodo
+            $datosPorNodo = [];
+            foreach ($data as $solicitud) {
+                $nombreNodo = $solicitud->nombre;
+                $totalSolicitudes = $solicitud->total_solicitudes;
+
+                // Buscar las modificaciones correspondientes a este nodo
+                $modificacion = $modificacionesNodo->firstWhere('nombre', $nombreNodo);
+                $totalModificaciones = $modificacion ? $modificacion->total_modificaciones : 0;
+
+                // Agregar los datos al array
+                $datosPorNodo[] = [
+                    'nombre' => $nombreNodo,
+                    'total_solicitudes' => $totalSolicitudes,
+                    'total_modificaciones' => $totalModificaciones
+                ];
+            }
+
 
             //Consultas para asignadas
 
@@ -140,7 +169,7 @@ class HomeController extends Controller
             
 
 
-            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'data' => $data,'etiquetas' => $etiquetas ,'cantidades_asignadas' => $cantidades_asignadas]);
+            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'datosPorNodo' => $datosPorNodo,'etiquetas' => $etiquetas ,'cantidades_asignadas' => $cantidades_asignadas]);
 
             }
         elseif ($esDesigner) {
