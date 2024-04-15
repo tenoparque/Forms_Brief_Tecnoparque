@@ -11,7 +11,7 @@
                 <form id="solicitudForm" class="formBrief">
 
                     <br>
-                    <div class="form-group col-md-12 my-3">
+                    <div class="form-group col-md-12 my-2">
                         <h5 for="id_tipos_de_solicitudes" style="font-size: 18px; font-weight: bold;">Tipo de Solicitud
                         </h5>
 
