@@ -5,7 +5,7 @@
 
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('css/slayouts.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
 
     <section class="container shadow p-4 my-5 bg-light rounded">
@@ -115,7 +115,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label id="lblPassw" style="font-size: 16px; display: none; color:black">Contraseña</label>
-                                <input type="text" id="txtPassw" class="form-control" placeholder="Contraseña" disabled
+                                <input type="password" id="txtPassw" class="form-control" placeholder="Contraseña" disabled
                                     style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; display: none">
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                             <div class="form-group">
                                 <label id="lblCPassw" style="font-size: 16px; display: none; color:black">Confirmar
                                     contraseña</label>
-                                <input type="text" id="txtCPassw" class="form-control" placeholder="Confirmar contraseña"
+                                <input type="password" id="txtCPassw" class="form-control" placeholder="Confirmar contraseña"
                                     disabled
                                     style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; display: none">
                             </div>
