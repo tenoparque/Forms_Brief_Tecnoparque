@@ -40,7 +40,7 @@
                                 <thead class="thead-dark">
                                     <tr style="border-width: 2px">
                                         <th>No</th>
-                                        <th>Nombre</th>
+                                        <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>Email</th>
                                         <th>Celular</th>
