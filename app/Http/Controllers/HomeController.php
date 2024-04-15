@@ -48,8 +48,8 @@ class HomeController extends Controller
         
         if ($rolSuperAdmin) {
             $propias = Solicitude::count();
-            $totalModificaciones = HistorialDeModificacionesPorSolicitude::count();
-            $total = $propias + $totalModificaciones;
+            $totalModificacionesGeneral = HistorialDeModificacionesPorSolicitude::count();
+            $total = $propias + $totalModificacionesGeneral;
 
             $tiposDeSolicitudes = Solicitude::join('tipos_de_solicitudes', 'solicitudes.id_tipos_de_solicitudes', '=', 'tipos_de_solicitudes.id')
             ->select('tipos_de_solicitudes.nombre', DB::raw('COUNT(*) as total'))
@@ -169,7 +169,7 @@ class HomeController extends Controller
             
 
 
-            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificaciones, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'datosPorNodo' => $datosPorNodo,'etiquetas' => $etiquetas ,'cantidades_asignadas' => $cantidades_asignadas]);
+            return response()->json(['solicitudes' => $propias, 'modificaciones'=> $totalModificacionesGeneral, 'total'=>$total, 'tiposDeSolicitudes'=>$tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'datosPorNodo' => $datosPorNodo,'etiquetas' => $etiquetas ,'cantidades_asignadas' => $cantidades_asignadas]);
 
             }
         elseif ($esDesigner) {

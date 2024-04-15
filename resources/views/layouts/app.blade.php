@@ -105,7 +105,7 @@
                     </div>
                     <ul class="sidebar-nav">
                         <li class="sidebar-item">
-                            <a href="{{ route('home') }}" class="sidebar-link">
+                            <a href="{{ route('home.index') }}" class="sidebar-link">
                                 <i class="lni lni-home"></i></i>
                                 <span>Home</span>
                             </a>

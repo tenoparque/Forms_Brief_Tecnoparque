@@ -191,7 +191,8 @@ class UserController extends Controller
         $user->save();
     
         // Redirigir a la página de perfil u otra página según sea necesario
-        
+        return redirect()->route('home.index')
+            ->with('success', 'Usuario Actualizado Exitosamente');
     }
 
     /**
