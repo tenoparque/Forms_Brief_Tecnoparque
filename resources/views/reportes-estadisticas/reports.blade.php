@@ -132,6 +132,15 @@
                 slcTipoDato.add(option);
             });
         }
+
+        else if (selectedReport === "Todo") {
+            // var eventos = {!! json_encode($tiposSolicitudes) !!};
+                var option = document.createElement("option");
+                option.text = "Todo";
+                option.value = 1;
+                slcTipoDato.add(option);
+    
+        }
     });
 
     // Agregar un event listener para el cambio en el select de tipo de dato
