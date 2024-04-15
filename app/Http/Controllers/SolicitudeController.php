@@ -187,9 +187,28 @@ class SolicitudeController extends Controller
 
 
     public function pdf(Request $request) {
-        dd($request->all());
+        // dd($request->all());
         $cuartoComboValue = $request->input('cuartoComboValue');
-        $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $cuartoComboValue)->get();
+        $tipo = $request->input('nombre');
+        // dd($tipo);
+        if($tipo == 'Estados De Las Solictudes'){
+            $solicitudes = Solicitude::where('id_estado_de_la_solicitud', $cuartoComboValue)->get();
+            
+        }
+        elseif($tipo == 'Eventos Especiales Por Categoria'){
+            $solicitudes = Solicitude::where('id_eventos_especiales_por_categorias', $cuartoComboValue)->get();
+            
+        }
+        elseif($tipo == 'Nodo'){
+            $solicitudes = Solicitude::whereHas('user', function ($query) use ($cuartoComboValue) {
+                $query->whereHas('nodo', function ($nestedQuery) use ($cuartoComboValue) {
+                    $nestedQuery->where('id', $cuartoComboValue);
+                });
+            })->get();
+            
+        }
+        
+        // dd($solicitudes);
         $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
         return $pdf->stream();
     }
