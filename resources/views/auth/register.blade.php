@@ -30,7 +30,7 @@
                                 class="form-label col-12 ">{{ __('Nombres') }}</label>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                 name="name" value="{{ old('name') }}" required autocomplete="name"
-                                style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;">
+                                style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;" placeholder="Nombres">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -44,7 +44,7 @@
                             <input id="apellidos" type="text"
                                 class="form-control @error('apellidos') is-invalid @enderror" name="apellidos"
                                 value="{{ old('apellidos') }}" required autocomplete="apellidos"
-                                style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;  border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;">
+                                style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;  border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;" placeholder="Apellidos">
                             @error('apellidos')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -58,7 +58,7 @@
                                 class="form-label col-12 ">{{ __('Celular') }}</label>
                             <input id="celular" type="number" class="form-control @error('celular') is-invalid @enderror"
                                 name="celular" value="{{ old('Celular') }}" required autocomplete="celular"
-                                style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;  border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;">
+                                style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;  border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;" placeholder="Celular">
                             @error('celular')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -69,10 +69,10 @@
 
                         <div class="col-md-4">
                             <label style="font-size: 18px; color:black; font-weight: bold" for="email"
-                                class="form-label col-12 ">{{ __('Correo') }}</label>
+                                class="form-label col-12 ">{{ __('Correo electrónico') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                 name="email" value="{{ old('email') }}" required autocomplete="email"
-                                style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;  border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;">
+                                style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px;  border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;" placeholder="Correo electrónico">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -117,7 +117,7 @@
                                 <div style="position: relative; width: 100%;">
                                     <select id="role" class="form-control @error('role') is-invalid @enderror"
                                         name="role" required
-                                        style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;">
+                                        style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;" placeholder="Rol">
                                         <option value="" disabled selected>Seleccionar Rol...</option>
                                         @foreach ($roles as $role)
                                             <option value="{{ $role->name }}">{{ $role->name }}</option>
