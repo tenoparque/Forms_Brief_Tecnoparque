@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
             <div class="row">
@@ -49,12 +49,13 @@
 
                 </div>
             </div>
+            <div class="mt-3 d-flex justify-content-end">
+                <a href="{{ route('roles.index') }}" class="btnRegresar">
+                    {{ __('REGRESAR') }}
+                    <i class="fa-solid fa-circle-play fa-flip-both iconDCR"></i>
+                </a>
+            </div>
         </div>
-        <div class="mt-3 d-flex justify-content-end">
-            <a href="{{ route('roles.index') }}" class="btnRegresar">
-                {{ __('REGRESAR') }}
-                <i class="fa-solid fa-circle-play fa-flip-both iconDCR"></i>
-            </a>
-        </div>
+        
     </section>
 @endsection

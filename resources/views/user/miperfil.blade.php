@@ -18,6 +18,7 @@
             </div>
             <form method="POST" action="{{ route('home.update', ['user' => Auth::user()->id]) }}">
                 @csrf
+                @include('sweetalert::alert')
                 @method('PUT')
                 <div class="col-md-6">
                     <div class="form-group">
