@@ -315,36 +315,49 @@
 
     // Crear la gráfica tipo línea
     if (!grafica_mes_a_mes) {
-        grafica_mes_a_mes = new Chart(grafica_por_mes, {
-            type: 'bar', // Tipo de gráfica
-            data: {
-                labels: datos.datos_mes_a_mes.map(function(data) {
-                    return formatearFecha(data.anio, data.mes); // Crear etiquetas en formato "mes año"
+    // Si no existe, crear una nueva gráfica
+    grafica_mes_a_mes = new Chart(grafica_por_mes, {
+        type: 'bar', // Tipo de gráfica
+        data: {
+            labels: datos.datos_mes_a_mes.map(function(data) {
+                return formatearFecha(data.anio, data.mes); // Crear etiquetas en formato "mes año"
+            }),
+            datasets: [{
+                label: 'Solicitudes', // Etiqueta del conjunto de datos de solicitudes
+                data: datos.datos_mes_a_mes.map(function(data) {
+                    return data.total_solicitudes; // Obtener el total de solicitudes
                 }),
-                datasets: [{
-                    label: 'Solicitudes Mes a Mes', // Etiqueta del conjunto de datos
-                    data: datos.datos_mes_a_mes.map(function(data) {
-                        return data.total_solicitudes; // Obtener el total de solicitudes
-                    }),
-                    backgroundColor: 'rgba(255, 206, 86, 0.2)', // Color de fondo
-                    borderColor: 'rgba(255, 206, 86, 1)', // Color del borde
-                    borderWidth: 1
-                }]
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Color de fondo para las solicitudes
+                borderColor: 'rgba(255, 99, 132, 1)', // Color del borde para las solicitudes
+                borderWidth: 1
             },
-            options: {
-                // Opciones de la gráfica (si es necesario)
-            }
-        });
-    } else {
-        // Si ya hay una instancia existente, actualiza los datos
-        grafica_mes_a_mes.data.labels = datos.datos_mes_a_mes.map(function(data) {
-            return formatearFecha(data.anio, data.mes);
-        });
-        grafica_mes_a_mes.data.datasets[0].data = datos.datos_mes_a_mes.map(function(data) {
-            return data.total_solicitudes;
-        });
-        grafica_mes_a_mes.update(); // Actualizar la gráfica
-    }
+            {
+                label: 'Modificaciones', // Etiqueta del conjunto de datos de modificaciones
+                data: datos.datos_mes_a_mes.map(function(data) {
+                    return data.total_modificaciones; // Obtener el total de modificaciones
+                }),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo para las modificaciones
+                borderColor: 'rgba(54, 162, 235, 1)', // Color del borde para las modificaciones
+                borderWidth: 1
+            }]
+        },
+        options: {
+            // Opciones de la gráfica (si es necesario)
+        }
+    });
+} else {
+    // Si ya hay una instancia existente, actualizar los datos
+    grafica_mes_a_mes.data.labels = datos.datos_mes_a_mes.map(function(data) {
+        return formatearFecha(data.anio, data.mes);
+    });
+    grafica_mes_a_mes.data.datasets[0].data = datos.datos_mes_a_mes.map(function(data) {
+        return data.total_solicitudes;
+    });
+    grafica_mes_a_mes.data.datasets[1].data = datos.datos_mes_a_mes.map(function(data) {
+        return data.total_modificaciones;
+    });
+    grafica_mes_a_mes.update(); // Actualizar la gráfica
+}
 
     }
 

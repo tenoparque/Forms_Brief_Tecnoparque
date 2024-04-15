@@ -58,7 +58,13 @@ class HomeController extends Controller
             ->limit(5)
             ->get();
 
+            // Obtener datos de solicitudes por mes
             $solicitudes = Solicitude::select(DB::raw('COUNT(*) as total_solicitudes, YEAR(created_at) as anio, MONTH(created_at) as mes'))
+            ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
+            ->get();
+
+            // Obtener datos de modificaciones por mes
+            $modificaciones = HistorialDeModificacionesPorSolicitude::select(DB::raw('COUNT(*) as total_modificaciones, YEAR(created_at) as anio, MONTH(created_at) as mes'))
             ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
             ->get();
 
@@ -66,12 +72,17 @@ class HomeController extends Controller
                 $mes = $solicitud->mes;
                 $anio = $solicitud->anio;
                 $totalSolicitudes = $solicitud->total_solicitudes;
-        
+            
+                // Buscar las modificaciones correspondientes a este mes y año
+                $modificacion = $modificaciones->where('mes', $mes)->where('anio', $anio)->first();
+                $totalModificaciones = $modificacion ? $modificacion->total_modificaciones : 0;
+            
                 // Agregar los datos al array
                 $datosMesAMes[] = [
                     'mes' => $mes,
                     'anio' => $anio,
-                    'total_solicitudes' => $totalSolicitudes
+                    'total_solicitudes' => $totalSolicitudes,
+                    'total_modificaciones' => $totalModificaciones
                 ];
             }
 
