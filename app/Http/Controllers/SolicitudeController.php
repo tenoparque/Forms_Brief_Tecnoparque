@@ -211,6 +211,10 @@ class SolicitudeController extends Controller
             $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $cuartoComboValue)->get();
             
         }
+        elseif($tipo == 'Todo'){
+            $solicitudes = Solicitude::all();
+            
+        }
         
         // dd($solicitudes);
         $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));

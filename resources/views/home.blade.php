@@ -19,16 +19,6 @@
                             </div>
                         </div>
                     </div>
-                    <div style="margin-bottom: 20px" id="valor1">
-                        {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
-                    </div>
-                    <div style="margin-bottom: 20px" id="valor2">
-                        {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
-                    </div>
-                    <div style="margin-bottom: 20px" id="valor3">
-                        {{-- Acá se cargará el contador en tiempo real de las solicitudes y el historial de las modificaciones  --}}
-                    </div>
-            
 
                     @if (session()->has('alert-success'))
                         <div class="alert alert-success">
@@ -53,7 +43,7 @@
                             <div class="card bg-info text-white">
                                 <div class="card-body">
                                     <h5 class="card-title">Solicitudes</h5>
-                                    <p class="card-text">Coloca aquí el número de solicitudes.</p>
+                                    <p class="card-text" id="cardUno">número de solicitudes.</p>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +51,7 @@
                             <div class="card bg-warning text-white">
                                 <div class="card-body">
                                     <h5 class="card-title">Solicitudes en Espera</h5>
-                                    <p class="card-text">Coloca aquí el número de solicitudes en espera.</p>
+                                    <p class="card-text" id="cardDos">Solicitudes en espera.</p>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +133,8 @@
                 })
                 .then(data => {
                     // Actualizar el valor en el elemento HTML
-                    document.getElementById('valor3').textContent = "Total: " + data.total;
+                    document.getElementById('cardUno').textContent = "Total: " + data.total;
+                    document.getElementById('cardDos').textContent = "Total: " + data.CardDos;
                     // Llamar a la función para actualizar las gráficas
                     actualizarGraficos(data, data.tiposDeSolicitudes);
                 })
