@@ -16,7 +16,7 @@
                         {{ __('MI PERFIL') }}</h1>
                 </div>
             </div>
-            <form method="POST" action="{{ route('users.update', ['user' => Auth::user()->id]) }}">
+            <form method="POST" action="{{ route('home.update', ['user' => Auth::user()->id]) }}">
                 @csrf
                 @method('PUT')
                 <div class="col-md-6">

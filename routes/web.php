@@ -151,7 +151,7 @@ Route::post('/enviar-dato', [SolicitudeController::class, 'pdf'])->name('enviar.
 
 
 // web.php
-Route::post('/perfil/actualizar', [UserController::class, 'update'])->name('perfil.update');
+Route::put('/perfil/actualizar', [HomeController::class, 'update'])->name('home.update');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 // Route::get('/solicitudes', [SolicitudeController::class, 'index'])->name('solicitudes.index');
