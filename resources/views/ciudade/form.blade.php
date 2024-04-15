@@ -48,12 +48,6 @@
                             </option>
                         @endforeach
                     </select>
-                    <div class="icono" style="right: 4%">
-                        <div class="circle-play">
-                            <div class="circle"></div>
-                            <div class="triangle"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         @endif

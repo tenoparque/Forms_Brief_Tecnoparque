@@ -1227,18 +1227,12 @@ input[type="text"] {
         outline: none;
     }
 
-
-
-
-
-
+    /*response vista detalle*/
     .cardsoli {
         z-index: 2;
         position: relative;
     }
-
-
-    .progressbar {
+   .progressbar {
         counter-reset: step;
     }
 
