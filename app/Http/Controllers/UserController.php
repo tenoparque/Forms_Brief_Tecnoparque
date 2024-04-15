@@ -169,29 +169,30 @@ class UserController extends Controller
     //         ->with('success', 'User updated successfully');
     // }
 
-
-    public function update(Request $request, User $user)
-{
-    request()->validate(User::$rules);
-
-    $user->update($request->all());
-
-    // Obtener el nombre del rol del request
-    $roleName = $request->role;
-
-    // Buscar el rol por su nombre
-    $role = SpatieRole::findByName($roleName, 'web');
-
-    // Verificar si se encontró el rol
-    if ($role) {
-        // Asignar el rol al usuario
-        $user->syncRoles([$role->name]); // Esto puede depender de cómo estés gestionando tus roles con Spatie
+    public function update(Request $request)
+    {
+        // Validar los datos del formulario si es necesario
+    
+        // Obtener el usuario actualmente autenticado
+        $user = auth()->user();
+    
+        // Actualizar la información del usuario con los datos del formulario
+        $user->name = $request->input('name');
+        $user->apellidos = $request->input('apellidos');
+        $user->email = $request->input('email');
+        $user->celular = $request->input('celular');
+        
+        // Si se ha marcado la casilla para actualizar la contraseña
+        if ($request->has('chkPassw')) {
+            $user->password = bcrypt($request->input('txtPassw')); // Recuerda encriptar la contraseña
+        }
+    
+        // Guardar los cambios en la base de datos
+        $user->save();
+    
+        // Redirigir a la página de perfil u otra página según sea necesario
+        
     }
-
-    return redirect()->route('users.index')
-        ->with('success', 'Usuario Actualizado Exitosamente');
-}
-
 
     /**
      * @param int $id

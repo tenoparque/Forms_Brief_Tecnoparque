@@ -150,6 +150,9 @@ Route::get('/datosGraficas', [HomeController::class, 'datosGraficas'])->name('da
 Route::post('/enviar-dato', [SolicitudeController::class, 'pdf'])->name('enviar.dato');
 
 
+// web.php
+Route::post('/perfil/actualizar', [UserController::class, 'update'])->name('perfil.update');
+
 
 
 

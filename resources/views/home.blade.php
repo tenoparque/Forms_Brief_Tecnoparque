@@ -200,19 +200,26 @@
 
             
 
-            if (datos.data && datos.data.length > 0) {
-                var barraCtx = document.getElementById('garfica_nodos_solicitudes').getContext('2d');
-                // Crear la gráfica de barras
-                if (!garfica_nodos_solicitudes) {
-                    garfica_nodos_solicitudes = new Chart(barraCtx, {
+            if (datos.datosPorNodo && datos.datosPorNodo.length > 0) {
+            var barraCtx = document.getElementById('garfica_nodos_solicitudes').getContext('2d');
+            // Crear la gráfica de barras
+            if (!garfica_nodos_solicitudes) {
+                garfica_nodos_solicitudes = new Chart(barraCtx, {
                     type: 'bar', // Tipo de gráfica
                     data: {
-                        labels: datos.data.map(function(item) { return item.nombre; }), // Etiquetas para el eje X
+                        labels: datos.datosPorNodo.map(function(item) { return item.nombre; }), // Etiquetas para el eje X
                         datasets: [{
-                            label: 'Solicitudes por Nodo', // Etiqueta del conjunto de datos
-                            data: datos.data.map(function(item) { return item.total_solicitudes; }), // Datos para el eje Y
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo de las barras
-                            borderColor: 'rgba(75, 192, 192, 1)', // Color del borde de las barras
+                            label: 'Solicitudes por Nodo', // Etiqueta del conjunto de datos de solicitudes
+                            data: datos.datosPorNodo.map(function(item) { return item.total_solicitudes; }), // Datos para el eje Y de solicitudes
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo para las solicitudes
+                            borderColor: 'rgba(75, 192, 192, 1)', // Color del borde para las solicitudes
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Modificaciones por Nodo', // Etiqueta del conjunto de datos de modificaciones
+                            data: datos.datosPorNodo.map(function(item) { return item.total_modificaciones; }), // Datos para el eje Y de modificaciones
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)', // Color de fondo para las modificaciones
+                            borderColor: 'rgba(255, 99, 132, 1)', // Color del borde para las modificaciones
                             borderWidth: 1
                         }]
                     },
@@ -226,13 +233,14 @@
                         }
                     }
                 });
-                } else {
-                    // Si ya existe una instancia de la gráfica, actualizar los datos
-                    garfica_nodos_solicitudes.data.labels = datos.data.map(function(item) { return item.nombre; });
-                    garfica_nodos_solicitudes.data.datasets[0].data = datos.data.map(function(item) { return item.total_solicitudes; });
-                    garfica_nodos_solicitudes.update(); // Actualizar la gráfica
-                }
-            }   
+            } else {
+                // Si ya existe una instancia de la gráfica, actualizar los datos
+                garfica_nodos_solicitudes.data.labels = datos.datosPorNodo.map(function(item) { return item.nombre; });
+                garfica_nodos_solicitudes.data.datasets[0].data = datos.datosPorNodo.map(function(item) { return item.total_solicitudes; });
+                garfica_nodos_solicitudes.data.datasets[1].data = datos.datosPorNodo.map(function(item) { return item.total_modificaciones; });
+                garfica_nodos_solicitudes.update(); // Actualizar la gráfica
+            }
+        }
 
 
 
@@ -305,59 +313,59 @@
     }
 
 
-    // Función para formatear la fecha en formato "mes año"
-    function formatearFecha(anio, mes) {
-        const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Dicicembre'];
-        return meses[mes - 1] ;
-    }
-
-    var grafica_por_mes = document.getElementById('grafica_mes_a_mes').getContext('2d');
-
-    // Crear la gráfica tipo línea
-    if (!grafica_mes_a_mes) {
-    // Si no existe, crear una nueva gráfica
-    grafica_mes_a_mes = new Chart(grafica_por_mes, {
-        type: 'bar', // Tipo de gráfica
-        data: {
-            labels: datos.datos_mes_a_mes.map(function(data) {
-                return formatearFecha(data.anio, data.mes); // Crear etiquetas en formato "mes año"
-            }),
-            datasets: [{
-                label: 'Solicitudes', // Etiqueta del conjunto de datos de solicitudes
-                data: datos.datos_mes_a_mes.map(function(data) {
-                    return data.total_solicitudes; // Obtener el total de solicitudes
-                }),
-                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Color de fondo para las solicitudes
-                borderColor: 'rgba(255, 99, 132, 1)', // Color del borde para las solicitudes
-                borderWidth: 1
-            },
-            {
-                label: 'Modificaciones', // Etiqueta del conjunto de datos de modificaciones
-                data: datos.datos_mes_a_mes.map(function(data) {
-                    return data.total_modificaciones; // Obtener el total de modificaciones
-                }),
-                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo para las modificaciones
-                borderColor: 'rgba(54, 162, 235, 1)', // Color del borde para las modificaciones
-                borderWidth: 1
-            }]
-        },
-        options: {
-            // Opciones de la gráfica (si es necesario)
+        // Función para formatear la fecha en formato "mes año"
+        function formatearFecha(anio, mes) {
+            const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Dicicembre'];
+            return meses[mes - 1] ;
         }
-    });
-} else {
-    // Si ya hay una instancia existente, actualizar los datos
-    grafica_mes_a_mes.data.labels = datos.datos_mes_a_mes.map(function(data) {
-        return formatearFecha(data.anio, data.mes);
-    });
-    grafica_mes_a_mes.data.datasets[0].data = datos.datos_mes_a_mes.map(function(data) {
-        return data.total_solicitudes;
-    });
-    grafica_mes_a_mes.data.datasets[1].data = datos.datos_mes_a_mes.map(function(data) {
-        return data.total_modificaciones;
-    });
-    grafica_mes_a_mes.update(); // Actualizar la gráfica
-}
+
+        var grafica_por_mes = document.getElementById('grafica_mes_a_mes').getContext('2d');
+
+        // Crear la gráfica tipo línea
+        if (!grafica_mes_a_mes) {
+        // Si no existe, crear una nueva gráfica
+        grafica_mes_a_mes = new Chart(grafica_por_mes, {
+            type: 'bar', // Tipo de gráfica
+            data: {
+                labels: datos.datos_mes_a_mes.map(function(data) {
+                    return formatearFecha(data.anio, data.mes); // Crear etiquetas en formato "mes año"
+                }),
+                datasets: [{
+                    label: 'Solicitudes', // Etiqueta del conjunto de datos de solicitudes
+                    data: datos.datos_mes_a_mes.map(function(data) {
+                        return data.total_solicitudes; // Obtener el total de solicitudes
+                    }),
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)', // Color de fondo para las solicitudes
+                    borderColor: 'rgba(255, 99, 132, 1)', // Color del borde para las solicitudes
+                    borderWidth: 1
+                },
+                {
+                    label: 'Modificaciones', // Etiqueta del conjunto de datos de modificaciones
+                    data: datos.datos_mes_a_mes.map(function(data) {
+                        return data.total_modificaciones; // Obtener el total de modificaciones
+                    }),
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo para las modificaciones
+                    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde para las modificaciones
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                // Opciones de la gráfica (si es necesario)
+            }
+        });
+    } else {
+        // Si ya hay una instancia existente, actualizar los datos
+        grafica_mes_a_mes.data.labels = datos.datos_mes_a_mes.map(function(data) {
+            return formatearFecha(data.anio, data.mes);
+        });
+        grafica_mes_a_mes.data.datasets[0].data = datos.datos_mes_a_mes.map(function(data) {
+            return data.total_solicitudes;
+        });
+        grafica_mes_a_mes.data.datasets[1].data = datos.datos_mes_a_mes.map(function(data) {
+            return data.total_modificaciones;
+        });
+        grafica_mes_a_mes.update(); // Actualizar la gráfica
+    }
 
     }
 
