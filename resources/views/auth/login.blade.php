@@ -27,7 +27,7 @@
              
                     <div class="flex__directionInput  inputPassLogin">
                         <input id="password" placeholder="CONTRASEÑA" type="password"
-                            class="form-control  @error('password') form__inputLogin is-invalid @enderror" name="password" required
+                            class="form-control form__inputLogin  @error('password')  is-invalid @enderror" name="password" required
                             autocomplete="current-password" style="width: 80%;
                             margin: 0px;
                             padding: 11px;

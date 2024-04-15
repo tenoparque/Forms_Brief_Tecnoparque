@@ -1048,19 +1048,21 @@ input[type="text"] {
 @media screen and (max-width: 769px) {
     .btnDetalle {
         display: block;
-        margin: 3px; /* Corregido: especifica el valor completo del margen */
-        
+        margin: 3px;
+        /* Corregido: especifica el valor completo del margen */
+
     }
 
     .btnEdit {
         display: block;
-        margin: 3px; /* Corregido: especifica el valor completo del margen */
-       
+        margin: 3px;
+        /* Corregido: especifica el valor completo del margen */
+
     }
 
     .btnDuplicar {
         display: block;
-       
+
         margin: 0;
     }
 
@@ -1102,8 +1104,9 @@ input[type="text"] {
 
     .btnAsignar {
         display: block;
-      
-        margin: 3px 2px; /* Corregido: solo especifica el margen una vez */
+
+        margin: 3px 2px;
+        /* Corregido: solo especifica el margen una vez */
         font-size: 10px;
     }
 
@@ -1127,13 +1130,55 @@ input[type="text"] {
         font-size: 16px !important;
     }
 
-    .search-Header{
+    .main {
+        height: 100vh;
+        width: 100%;
+        transition: none;
+        position: relative;
+    }
+
+    #sidebar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+
+    #sidebar.expand {
+        width: 260px;  
+        min-width: 260px; 
+        position: fixed;
+        z-index: 2;
+    }
+
+    .toggle-btn {
+        position: absolute;
+        top: 85px;
+        right: -36px;
+       
+    }
+
+    .celda__opc-solici {
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+        
+    
+    }
+
+
+
+
+
+
+    .search-Header {
         display: flex !important;
         flex-wrap: wrap !important;
         align-items: flex-start !important;
         width: 100%;
     }
-    .inputSearch{
+
+    .inputSearch {
+        margin: 5px 0;
         width: 100% !important;
     }
 
@@ -1181,6 +1226,7 @@ input[type="text"] {
         border: none;
         outline: none;
     }
+
     /*response vista detalle*/
     .cardsoli {
         z-index: 2;
@@ -1303,13 +1349,15 @@ input[type="text"] {
     }
 
     /* botones de las vistas */
-  
-    .btnDetalle{
+
+    .btnDetalle {
         display: inline-block;
     }
-    .btnEdit{
+
+    .btnEdit {
         display: inline-block;
     }
+
     .btnVerHistorial {
         display: block;
         margin: 3px 0px !important;
