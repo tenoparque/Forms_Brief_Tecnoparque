@@ -31,7 +31,7 @@
                                 {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
                             </div>
                             <div class="form-group">
-                                <label style="font-size: 16px;  color:black">Correo</label>
+                                <label style="font-size: 16px;  color:black">Correo electrónico</label>
                                 <input value="{{ $user->email }}" type="text" name="email" class="form-control"
                                     placeholder="Correo"
                                     style="width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px">
@@ -84,7 +84,7 @@
                                 {!! $errors->first('id_estado', '<div class="invalid-feedback">:message</div>') !!}
                             </div>
                             <div class="col-md-4">
-                                <label style="font-size: 16px; color:black; font-weight: bold" for="role">Roles</label>
+                                <label style="font-size: 16px; color:black; font-weight: bold" for="role">Rol</label>
                                 <div style="position: relative; width: 100%;">
                                     <select
                                         style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: default"
