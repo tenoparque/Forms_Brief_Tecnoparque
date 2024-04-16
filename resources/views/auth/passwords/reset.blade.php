@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('css/layouts.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/layouts.css') }}"> --}}
     <div class="container-fluid"
-        style="background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; min-height: 100vh; margin-block-start: -190px;">
+        style="margin-top: 22px; background-image: url('{{ asset('images/fondoBrief4.jpg') }}'); background-position: center; min-height: 100vh; margin-block-start: -190px;">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="flex-container" style="margin-block-start: 200px">
@@ -22,7 +22,7 @@
 
                                 <div class="form-group row">
                                     <label style="text-align: right;font-weight:400; color:#00324D"for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Correo Electrónico') }}</label>
 
                                     <div class="col-md-6">
                                         <input
