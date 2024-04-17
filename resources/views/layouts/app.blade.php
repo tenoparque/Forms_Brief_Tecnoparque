@@ -53,12 +53,12 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
 
-
+<script src="resources/js/app.js"></script>
 
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
-    @vite('resources/js/menuburger.js')
+    @vite('resources/js/app.js')
     @vite('resources/js/validateUserRegister.js')
 
 
