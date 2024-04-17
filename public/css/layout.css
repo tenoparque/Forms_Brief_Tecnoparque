@@ -1043,6 +1043,78 @@ input[type="text"] {
 .invalid-feedback {
     color: #642c78;
 }
+/*card home*/
+.icon {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+   
+    font-size: 20px;
+  }
+  
+  .icon-lg {
+    width: 60px;
+    height: 50px;
+    line-height:50px;
+    font-size: 30px;
+  }
+  
+  .icon-shape {
+    border-radius: 50px;
+  }
+  
+  .bg-gradient-success{
+    background-color: #00324d;
+  }
+  .bg-gradient-dark{
+    background-color: #642c78;
+  }
+  .bg-gradient-info{
+    background-color: #39a900;
+  }
+ 
+  .border-radius-xl {
+    border-radius: 0.75rem;
+  }
+  
+  .mt-n4 {
+    margin-top: -1.5rem;
+  }
+  
+  .position-absolute {
+    position: absolute;
+  }
+  
+  .text-end {
+    text-align: end;
+  }
+  .text-sm {
+    font-size: 0.875rem;
+  }
+.titulosoli{
+    color: #00324d;
+    font-size: 17px;
+    font-weight: 600;
+}
+.total-color {
+    color: #00324d; 
+    font-weight: 600 ;
+}
+.numero-color {
+    color: #39a900; 
+}
+.card-solit {
+    border-bottom: #ffffff;
+}
+
+
+
+
 
 
 @media screen and (max-width: 769px) {
