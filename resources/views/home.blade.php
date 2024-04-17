@@ -43,7 +43,7 @@
                     <!-- Tarjetas de estadísticas -->
                     <div class="container-fluid py-5">
                         <div class="row">
-                            <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                            <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
                                 <div class="card  border-light shadow">
                                     <div class="card-header p-3 pt-2"style="border:transparent;">
                                         <div
@@ -62,13 +62,12 @@
 
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                            <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
                                 <div class="card  border-light shadow">
                                     <div class="card-header p-3 pt-2"style="border:transparent;">
                                         <div
                                             class="icon icon-lg icon-shape bg-gradient-dark shadow-primary text-center border-radius-xl mt-n4 position-absolute">
                                             <i class="fa-solid fa-envelope-open-text"></i>
-
 
                                         </div>
                                         <div class="text-end pt-1">
@@ -83,7 +82,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                            <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
                                 <div class="card  border-light shadow">
                                     <div class="card-header p-3 pt-2"style="border:transparent;">
                                         <div
@@ -199,7 +198,7 @@
                                     datasets: [{
                                         label: 'Solicitudes Asignadas', // Etiqueta del conjunto de datos
                                         data: datos.cantidades_asignadas, // Datos para el eje Y
-                                        backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo de las barras
+                                        backgroundColor: 'rgba(57, 192, 192, 0.2)', // Color de fondo de las barras
                                         borderColor: 'rgba(75, 192, 192, 1)', // Color del borde de las barras
                                         borderWidth: 1
                                     }]
@@ -221,10 +220,6 @@
                             grafica_cantidades_asignadas.update(); // Actualizar la gráfica
                         }
                     }
-
-
-
-
                     if (datos.datosPorNodo && datos.datosPorNodo.length > 0) {
                         var barraCtx = document.getElementById('garfica_nodos_solicitudes').getContext('2d');
                         // Crear la gráfica de barras
@@ -240,8 +235,8 @@
                                             data: datos.datosPorNodo.map(function(item) {
                                                 return item.total_solicitudes;
                                             }), // Datos para el eje Y de solicitudes
-                                            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo para las solicitudes
-                                            borderColor: 'rgba(75, 192, 192, 1)', // Color del borde para las solicitudes
+                                            backgroundColor: 'rgba(57, 169, 0, 0.5)', // Color de fondo para las solicitudes
+                                            borderColor: 'rgba(57, 169, 0, 0.5)', // Color del borde para las solicitudes
                                             borderWidth: 1
                                         },
                                         {
@@ -249,8 +244,8 @@
                                             data: datos.datosPorNodo.map(function(item) {
                                                 return item.total_modificaciones;
                                             }), // Datos para el eje Y de modificaciones
-                                            backgroundColor: 'rgba(255, 99, 132, 0.2)', // Color de fondo para las modificaciones
-                                            borderColor: 'rgba(255, 99, 132, 1)', // Color del borde para las modificaciones
+                                            backgroundColor: 'rgba(100, 44, 120, 0.5)', // Color de fondo para las modificaciones
+                                            borderColor: 'rgba(100, 44, 120, 0.5)', // Color del borde para las modificaciones
                                             borderWidth: 1
                                         }
                                     ]
@@ -295,12 +290,12 @@
                                     label: 'Total', // Etiqueta del conjunto de datos
                                     data: [datos.solicitudes, datos.modificaciones], // Datos
                                     backgroundColor: [
-                                        'rgba(255, 99, 132, 0.5)', // Color para solicitudes
-                                        'rgba(54, 162, 235, 0.5)' // Color para modificaciones
+                                        'rgba(57, 169, 0, 0.5)', // Color para solicitudes
+                                        'rgba(100, 44, 120, 0.5)' // Color para modificaciones
                                     ],
                                     borderColor: [
-                                        'rgba(255, 99, 132, 1)', // Color del borde para solicitudes
-                                        'rgba(54, 162, 235, 1)' // Color del borde para modificaciones
+                                        'rgba(57, 169, 0, 0.5)', // Color del borde para solicitudes
+                                        'rgba(100, 44, 120, 0.5)' // Color del borde para modificaciones
                                     ],
                                     borderWidth: 1
                                 }]
@@ -384,8 +379,8 @@
                                         data: datos.datos_mes_a_mes.map(function(data) {
                                             return data.total_solicitudes; // Obtener el total de solicitudes
                                         }),
-                                        backgroundColor: 'rgba(255, 99, 132, 0.2)', // Color de fondo para las solicitudes
-                                        borderColor: 'rgba(255, 99, 132, 1)', // Color del borde para las solicitudes
+                                        backgroundColor: 'rgba(57, 169, 0, 0.5)', // Color de fondo para las solicitudes
+                                        borderColor: 'rgba(57, 169, 0, 0.5)', // Color del borde para las solicitudes
                                         borderWidth: 1
                                     },
                                     {
@@ -394,8 +389,8 @@
                                             return data
                                                 .total_modificaciones; // Obtener el total de modificaciones
                                         }),
-                                        backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo para las modificaciones
-                                        borderColor: 'rgba(54, 162, 235, 1)', // Color del borde para las modificaciones
+                                        backgroundColor: 'rgba(100, 44, 120, 0.5)', // Color de fondo para las modificaciones
+                                        borderColor: 'rgba(100, 44, 120, 0.5)', // Color del borde para las modificaciones
                                         borderWidth: 1
                                     }
                                 ]
