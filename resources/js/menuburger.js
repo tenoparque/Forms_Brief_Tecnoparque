@@ -19,3 +19,4 @@ window.onload = function() {
       console.log('La imagen es más pequeña que las dimensiones especificadas.');
   }
 }
+
