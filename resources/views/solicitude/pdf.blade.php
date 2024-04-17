@@ -7,7 +7,7 @@
     <title>Lista de Solicitudes</title>
     <style>
         .estilo {
-            background-color: black;
+            background-color:blue;
             color: white;
         }
     </style>
