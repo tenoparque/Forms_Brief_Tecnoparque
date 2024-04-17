@@ -105,40 +105,53 @@
                             <!-- Gráfico con Chart.js -->
                             <div class="row mt-4" style="margin-top: 50px;margin-bottom: 30px">
                                 <div class="col-md-12">
-                                    <canvas id="grafica_mes_a_mes" width="400" height="100"></canvas>
+                                    <div class="card border-0">
+                                        <div class="card-body">
+                                            <canvas id="grafica_mes_a_mes" width="400" height="100"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            
 
                             <div class="row mt-4">
                                 <div class="col-md-12">
-                                    <canvas id="garfica_nodos_solicitudes" width="400" height="100"></canvas>
+                                    <div class="card border-0">
+                                        <div class="card-body">
+                                            <canvas id="garfica_nodos_solicitudes" width="400" height="100"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
+                            
                             <div class="row mt-4">
                                 <div class="col-md-12">
-                                    <canvas id="grafica_cantidades_asignadas" width="400" height="100"></canvas>
+                                    <div class="card border-0">
+                                        <div class="card-body">
+                                            <canvas id="grafica_cantidades_asignadas" width="400" height="100"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
+                            
                             <!-- Fin del Gráfico con Chart.js -->
 
                             <!-- Tarjetas con graficos -->
                             <div class="row mt-4">
                                 <div class="col-md-6">
-                                    <div class="card bg-crema"
+                                    <div class="card bg-crema  border-light"
                                         style="display: flex;justify-content: center;align-items: center;flex-direction: column;text-align: center;">
                                         <div class="card-body">
-                                            <h5 class="card-title">Proporción Solicitudes </h5>
+                                            <h5 style="color:#00324d;" class="card-title">Proporción Solicitudes </h5>
                                             <canvas id="grafico_solicitudes_modificaciones" style="width: 100%;"></canvas>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="card bg-crema"
+                                <div class="col-md-6 ">
+                                    <div class="card bg-crema  border-light "
                                         style="display: flex;justify-content: center;align-items: center;flex-direction: column;text-align: center;">
                                         <div class="card-body">
-                                            <h5 class="card-title">Tipos de solicitudes</h5>
+                                            <h5 style="color:#00324d" class="card-title">Tipos de solicitudes</h5>
                                             <canvas id="grafico_tipos_solicitudes" style="width: 100%;"></canvas>
                                         </div>
                                     </div>
@@ -326,12 +339,12 @@
                                         return tipo.total;
                                     }),
                                     backgroundColor: [
-                                        'rgba(255, 99, 132, 0.5)', // Color para Tipo 1
+                                        'rgba(57, 169, 0, 0.5)', // Color para Tipo 1
                                         'rgba(54, 162, 235, 0.5)', // Color para Tipo 2
                                         // Agrega más colores según sea necesario
                                     ],
                                     borderColor: [
-                                        'rgba(255, 99, 132, 1)', // Color del borde para Tipo 1
+                                        'rgba(57, 169, 0, 0.5)', // Color del borde para Tipo 1
                                         'rgba(54, 162, 235, 1)', // Color del borde para Tipo 2
                                         // Agrega más colores según sea necesario
                                     ],

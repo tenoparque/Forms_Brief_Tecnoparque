@@ -1111,7 +1111,10 @@ input[type="text"] {
 .card-solit {
     border-bottom: #ffffff;
 }
-
+.card-title{
+    font-size: 16px;
+    color: red;
+}
 
 
 
