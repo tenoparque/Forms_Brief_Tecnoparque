@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Spatie\Permission\Models\Role as SpatieRole;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -25,34 +26,35 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('nodo','estado')->paginate();
+        $users = User::with('nodo', 'estado')->paginate(10);
 
         return view('user.index', compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * $users->perPage());
     }
 
-    public function miperfil(){
+    public function miperfil()
+    {
         $user = Auth::user();
         $estados = Estado::all();
         $nodos = Nodo::all();
         $roles = SpatieRole::pluck('name', 'id');
 
-        return view ('user.miperfil', compact('user', 'estados', 'nodos', 'roles'));
+        return view('user.miperfil', compact('user', 'estados', 'nodos', 'roles'));
     }
 
     public function search(Request $request)
     {
         $num = 0;
-        $output= ""; // The output variable is defined and initialized
-        
+        $output = ""; // The output variable is defined and initialized
+
         $users = User::with('roles')
-                ->where('email', 'LIKE', '%'.$request->search.'%') // We make the query through the Nodo name
-                ->get();
+            ->where('email', 'LIKE', '%' . $request->search . '%') // We make the query through the Nodo name
+            ->get();
 
         // We use the loop foreach to iterate the aggregation of records
         foreach ($users as $user) {
-            $output .= 
-            '<tr>
+            $output .=
+                '<tr>
                 <td data-titulo="No">' . ++$num . '</td>
                 <td data-titulo="Nombre">' . $user->name . '</td>
                 <td data-titulo="Apellidos">' . $user->apellidos . '</td>
@@ -67,9 +69,9 @@ class UserController extends Controller
                 $output .= $role->name;
                 if ($index !== $lastRoleIndex) {
                     $output .= '<br>';
+                }
             }
-        }
-        
+
             $output .= '</td>
                             <td>
                                 <a href="' . route('users.show', $user->id) . '" class="btn btn-outline"
@@ -105,7 +107,7 @@ class UserController extends Controller
         $user = new User();
         $nodos = Nodo::all();
         $estados = Estado::all();
-        return view('user.create', compact('user' , 'nodos', 'estados'));
+        return view('user.create', compact('user', 'nodos', 'estados'));
     }
 
     /**
@@ -149,7 +151,7 @@ class UserController extends Controller
         $nodos = Nodo::all();
         $estados = Estado::all();
         $roles = SpatieRole::pluck('name', 'id');
-        return view('user.edit', compact('user' , 'nodos' , 'estados', 'roles'));
+        return view('user.edit', compact('user', 'nodos', 'estados', 'roles'));
     }
 
     /**
@@ -169,8 +171,8 @@ class UserController extends Controller
     //         ->with('success', 'User updated successfully');
     // }
 
-    
-    
+
+
 
     /**
      * @param int $id

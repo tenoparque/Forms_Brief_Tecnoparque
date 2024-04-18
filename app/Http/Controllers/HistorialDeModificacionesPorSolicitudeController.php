@@ -18,7 +18,7 @@ class HistorialDeModificacionesPorSolicitudeController extends Controller
      */
     public function index()
     {
-        $historialDeModificacionesPorSolicitudes = HistorialDeModificacionesPorSolicitude::paginate();
+        $historialDeModificacionesPorSolicitudes = HistorialDeModificacionesPorSolicitude::paginate(10);
 
         return view('historial-de-modificaciones-por-solicitude.index', compact('historialDeModificacionesPorSolicitudes'))
             ->with('i', (request()->input('page', 1) - 1) * $historialDeModificacionesPorSolicitudes->perPage());

@@ -21,7 +21,7 @@ class NodoController extends Controller
     public function index()
     {
         
-        $nodos = Nodo::with('ciudade','estado')->paginate();
+        $nodos = Nodo::with('ciudade','estado')->paginate(10);
 
         return view('nodo.index', compact('nodos'))
             ->with('i', (request()->input('page', 1) - 1) * $nodos->perPage());

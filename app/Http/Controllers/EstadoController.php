@@ -18,7 +18,7 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        $estados = Estado::paginate();
+        $estados = Estado::paginate(10);
 
         return view('estado.index', compact('estados'))
             ->with('i', (request()->input('page', 1) - 1) * $estados->perPage());

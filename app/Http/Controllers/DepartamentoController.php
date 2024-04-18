@@ -18,7 +18,7 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
-        $departamentos = Departamento::paginate();
+        $departamentos = Departamento::paginate(10);
 
         return view('departamento.index', compact('departamentos'))
             ->with('i', (request()->input('page', 1) - 1) * $departamentos->perPage());
@@ -26,13 +26,13 @@ class DepartamentoController extends Controller
 
     public function search(Request $request)
     {
-        $output= ""; // The output variable is defined and initialized
-        $departamentos = Departamento::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Departamento name
+        $output = ""; // The output variable is defined and initialized
+        $departamentos = Departamento::where('nombre', 'LIKE', '%' . $request->search . '%')->get(); // We make the query through the Departamento name
 
         // We use the loop foreach to iterate the aggregation of records
-        foreach($departamentos as $departamento){
-            $output .= 
-            '<tr>
+        foreach ($departamentos as $departamento) {
+            $output .=
+                '<tr>
                 <td data-titulo="No">' . $departamento->id . '</td>
                 <td data-titulo="Nombre">' . $departamento->nombre . '</td>
                 <td>

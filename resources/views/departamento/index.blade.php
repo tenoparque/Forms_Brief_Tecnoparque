@@ -76,6 +76,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="mt-2">
+                            {!! $departamentos->links() !!}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ class CiudadeController extends Controller
      */
     public function index()
     {
-        $ciudades = Ciudade::with('departamento')->paginate();
+        $ciudades = Ciudade::with('departamento')->paginate(10);
 
         return view('ciudade.index', compact('ciudades'))
             ->with('i', (request()->input('page', 1) - 1) * $ciudades->perPage());

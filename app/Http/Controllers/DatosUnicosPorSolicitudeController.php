@@ -21,7 +21,7 @@ class DatosUnicosPorSolicitudeController extends Controller
      */
     public function index()
     {
-        $datosUnicosPorSolicitudes = DatosUnicosPorSolicitude::with('tiposDeDato','tiposDeSolicitude','estado')->paginate();
+        $datosUnicosPorSolicitudes = DatosUnicosPorSolicitude::with('tiposDeDato', 'tiposDeSolicitude', 'estado')->paginate(10);
 
         return view('datos-unicos-por-solicitude.index', compact('datosUnicosPorSolicitudes'))
             ->with('i', (request()->input('page', 1) - 1) * $datosUnicosPorSolicitudes->perPage());
@@ -38,7 +38,7 @@ class DatosUnicosPorSolicitudeController extends Controller
         $estados = Estado::all();
         $tiposDatos = TiposDeDato::all();
         $solicitudes = TiposDeSolicitude::all();
-        return view('datos-unicos-por-solicitude.create', compact('datosUnicosPorSolicitude' , 'tiposDatos' , 'solicitudes'));
+        return view('datos-unicos-por-solicitude.create', compact('datosUnicosPorSolicitude', 'tiposDatos', 'solicitudes'));
     }
 
     /**
@@ -61,13 +61,13 @@ class DatosUnicosPorSolicitudeController extends Controller
 
     public function search(Request $request)
     {
-        $output= ""; // The output variable is defined and initialized
-        $datoUnico = DatosUnicosPorSolicitude::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Ciudad name
+        $output = ""; // The output variable is defined and initialized
+        $datoUnico = DatosUnicosPorSolicitude::where('nombre', 'LIKE', '%' . $request->search . '%')->get(); // We make the query through the Ciudad name
 
         // We use the loop foreach to iterate the aggregation of records
-        foreach($datoUnico as $datos){
-            $output .= 
-            '<tr>
+        foreach ($datoUnico as $datos) {
+            $output .=
+                '<tr>
                 <td>' . $datos->id . '</td>
                 <td>' . $datos->nombre . '</td>
                 <td>' . $datos->tiposDeDato->nombre . '</td>

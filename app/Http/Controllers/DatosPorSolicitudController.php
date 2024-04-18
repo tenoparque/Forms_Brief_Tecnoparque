@@ -18,7 +18,7 @@ class DatosPorSolicitudController extends Controller
      */
     public function index()
     {
-        $datosPorSolicituds = DatosPorSolicitud::paginate();
+        $datosPorSolicituds = DatosPorSolicitud::paginate(10);
 
         return view('datos-por-solicitud.index', compact('datosPorSolicituds'))
             ->with('i', (request()->input('page', 1) - 1) * $datosPorSolicituds->perPage());

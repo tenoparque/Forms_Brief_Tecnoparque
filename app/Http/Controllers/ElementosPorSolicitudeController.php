@@ -18,7 +18,7 @@ class ElementosPorSolicitudeController extends Controller
      */
     public function index()
     {
-        $elementosPorSolicitudes = ElementosPorSolicitude::paginate();
+        $elementosPorSolicitudes = ElementosPorSolicitude::paginate(10);
 
         return view('elementos-por-solicitude.index', compact('elementosPorSolicitudes'))
             ->with('i', (request()->input('page', 1) - 1) * $elementosPorSolicitudes->perPage());
