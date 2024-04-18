@@ -577,6 +577,7 @@ class SolicitudeController extends Controller
         $designerId = $request->input('usuario_id');
 
         // Buscar y desactivar todos los registros activos con la misma id_solicitud
+        // Por ende solo queda un registro en esa tabla por solicitud que se encuentre activo
         HistorialDeUsuariosPorSolicitude::where('id_solicitudes', $solicitudId)
             ->where('id_estados', 1) // '1' puede representar el estado activo, asegúrate de ajustarlo según tu esquema
             ->update(['id_estados' => 2]);
