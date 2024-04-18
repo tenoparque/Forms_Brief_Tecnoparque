@@ -11,6 +11,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
+        .title__pdf-report {
+
+            font-weight: bold;
+            font-family: "Work Sans", sans-serif;
+            color: {{ $colorSecundario }};
+
+        }
+
         .table-pdf tbody tr:last-of-type {
             border-bottom: 2px solid {{ $colorPrincipal }};
         }
@@ -31,7 +39,8 @@
     <header class="pdf-header">
         <div class="container__header-title">
             <div>
-                <h1 class="title__pdf-report">SOLICITUDES</h1><br>
+                <h1 class="title__pdf-report">SOLICITUDES</h1>
+                <br>
             </div>
         </div>
         <div class="img-header">
