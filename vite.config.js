@@ -7,6 +7,9 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/js/menuburger.js',
+                'resources/js/validateUserRegister.js',
+                'resources/js/bootstrap.js',
             ],
             refresh: true,
         }),
