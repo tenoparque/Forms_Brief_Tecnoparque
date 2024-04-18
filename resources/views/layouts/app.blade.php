@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -96,9 +96,8 @@
 
                         <div class="sidebar-logo" style="text-align: center;">
                             <a href="{{ route('user.miperfil') }}">
-                                <img style="cursor: pointer;"
-                                    src="../images/recursos/foto-perfil.png" alt="" class="img-fluid"
-                                    width="50%" height=50%>
+                                <img style="cursor: pointer;" src="../images/recursos/foto-perfil.png" alt=""
+                                    class="img-fluid" width="50%" height=50%>
                             </a>
                             <p style="color: white; cursor: default">Mi perfil</p>
                         </div>
@@ -444,6 +443,24 @@
         position: relative;
     }
 
+    .sidebar-link.active {
+        color: {{ $colorTerciario }};
+        
+    }
+
+    .swal2-confirm {
+    background-color:  {{ $colorPrincipal }} !important;
+    color: white !important;
+
+}
+    
+        .progressbar li.active+li::after {
+        background: linear-gradient(to right, {{ $colorPrincipal }} ,{{ $colorSecundario }});
+}
+
+
+        
+
     /* LETRA */
 
 
@@ -508,7 +525,7 @@
         transform: translateY(-50%);
         justify-content: center;
         align-items: center;
-        pointer-events: none; 
+        pointer-events: none;
 
 
     }

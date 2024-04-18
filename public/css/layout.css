@@ -920,11 +920,11 @@ input[type="text"] {
 
 
 /*DISEÑO AL SWEETALERT*/
-.swal2-confirm {
+/* .swal2-confirm {
     background-color: #39a900 !important;
     color: white !important;
 
-}
+} */
 
 .swal2-popup {
     font-size: 1.6rem !important;
@@ -1032,9 +1032,7 @@ input[type="text"] {
     ;
 }
 
-.sidebar-link.active {
-    color: yellow;
-}
+
 
 .alert.alert-danger {
     color: #642c78;
