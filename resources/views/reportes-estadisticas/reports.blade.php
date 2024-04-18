@@ -25,45 +25,66 @@
                     </div>
                 </div>
             </div>
-            <div class="">
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <select id="slcReport" title="Seleccionar Reporte" required
-                            style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px; padding-left: 5px">
-                            <option value="" disabled selected>Seleccione el tipo de reporte a generar...</option>
+            <div class="row ">
+                <div class="col-md-3">
+                    <div class="d-flex align-items-center" style="position: relative; height: 100%;">
+                        <select id="slcReport" title="Seleccionar Reporte" required class="form-control"
+                            style="border-radius: 50px; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px;margin-top:8px;  padding-left: 5px">
+                            <option value="" disabled selected>Seleccione el reporte a generar...</option>
                             <option value="Solicitud">Solicitud</option>
-
                         </select>
+                        <div class="icono" style="right: 2%; margin-bottom: 10px;">
+                            <div class="circle-play">
+                                <div class="circle"></div>
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-md-3">
-                        <select title="Seleccionar DatoxTipo" required id="selectReport4"
-                            style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px; padding-left: 5px">
-                            <option value="" disabled selected>Seleccione el dato x tipo de dato...</option>
+                </div>
+                <div class="col-md-3">
+                    <div class="d-flex align-items-center" style="position: relative; height: 100%;">
+                        <select title="Seleccionar DatoxTipo" required id="selectReport4" class="form-control"
+                            style="border-radius: 50px; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px; margin-bottom: 10px; margin-top:8px; padding-left: 5px">
+                            <option value="" disabled selected>Seleccione tipo de dato...</option>
                             <option value="Nodo">Nodo</option>
                             <option value="Estados De Las Solictudes">Estados De Las Solictudes</option>
                             <option value="Eventos Especiales Por Categoria">Eventos Especiales Por Categoria</option>
                             <option value="Tipos De Solicitud">Tipos De Solicitudes</option>
                             <option value="Todo">Todo</option>
                         </select>
+                        <div class="icono" style="right: 2%; margin-bottom: 10px;">
+                            <div class="circle-play">
+                                <div class="circle"></div>
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-md-3">
+                </div>
+                <div class="col-md-3">
+                    <div class="d-flex align-items-center" style="position: relative; height: 100%;">
                         <select id="cuartoCombo" name="cuartoCombo" class="form-control selectpicker"
                             data-style="btn-primary" title="Seleccionar la Ciudad" required
-                            style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                            style="height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px;">
                             <option value="" disabled selected>Seleccionar Ciudad...</option>
                             {{-- @foreach ($tiposSolicitudes as $ciudad)
                                 <option value="{{ $ciudad->id }}">{{ $ciudad->nombre }}</option>
                             @endforeach --}}
                         </select>
-                    </div>
-
-                    <div class="col-md-1">
-                        <a href="#" class="btnpdf" target="_blank" onclick="generarPDF()"><i
-                                class="fa-solid fa-file-pdf fa-2xl" style="color: #642c78; margin-left: -60px;"></i></a>
+                        <div class="icono" style="right: 2%">
+                            <div class="circle-play">
+                                <div class="circle"></div>
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-2">
+                    <a href="#" class="btnpdf" target="_blank" onclick="generarPDF()" style="color: #642c78;"><i
+                            class="fa-solid fa-file-pdf fa-2xl"></i></a>
+                </div>
             </div>
+            
 
 
         </div>

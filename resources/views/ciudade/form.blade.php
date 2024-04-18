@@ -12,7 +12,6 @@
                 <label style="font-size: 18px; font-weight: bold; margin-left: 35px;"
                     for="id_departamento">Departamento</label>
                 <div style="position: relative;">
-
                     <select name="id_departamento" id="id_departamento" class="form-control selectpicker"
                         data-style="btn-primary" title="Seleccionar Departamento" required
                         style="width: 95%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; margin-left: 25px;padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
