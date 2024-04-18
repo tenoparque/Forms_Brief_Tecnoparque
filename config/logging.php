@@ -17,8 +17,11 @@ return [
     | one of the channels defined in the "channels" configuration array.
     |
     */
+    // se cambio el canal de distribución de stack a daily para que no todo se escriba en el mismo archivo laravel.log y de esta manera 
+    // no se sature 
+    // 'default' => env('LOG_CHANNEL', 'stack'),
+    'default' => env('LOG_CHANNEL', 'daily'),
 
-    'default' => env('LOG_CHANNEL', 'stack'),
 
     /*
     |--------------------------------------------------------------------------
