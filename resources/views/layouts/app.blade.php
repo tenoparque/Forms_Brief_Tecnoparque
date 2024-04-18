@@ -464,6 +464,19 @@
         color:{{ $colorCuarto}} ;
 
     }
+    .page-link {
+    color: {{ $colorSecundario }} !important;
+   
+}
+
+    .page-item.active .page-link {
+
+background-color:{{ $colorPrincipal }} ;
+/* Cambia el color de fondo del elemento activo */
+border-color: #ffffff;
+/* Cambia el color del borde del elemento activo */
+}
+
 
     
 

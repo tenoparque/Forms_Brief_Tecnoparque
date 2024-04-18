@@ -46,14 +46,10 @@ h1 {
     /* Alinea los elementos a la derecha */
 }
 
-.page-link {
-    color: #007bff;
-    /* Cambia el color del texto */
-}
+
 
 .page-item.active .page-link {
 
-    background-color: #39a900;
     /* Cambia el color de fondo del elemento activo */
     border-color: #ffffff;
     /* Cambia el color del borde del elemento activo */
