@@ -51,6 +51,7 @@ class PersonalizacioneController extends Controller
                     <td data-titulo="Color Principal"> ' . $personalizacion->color_principal . '</td>
                     <td data-titulo="Color Segundario">' . $personalizacion->color_secundario . '</td>
                     <td data-titulo="Color Terciario">' . $personalizacion->color_terciario . '</td>
+                    <td data-titulo="Color Cuarto">' . $personalizacion->color_cuarto . '</td>
                     <td data-titulo="Email Usuario">' . $user->email . '</td>
                     <td data-titulo="Estado">' . $personalizacion->estado->nombre . '</td>
                     

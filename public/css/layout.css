@@ -920,11 +920,11 @@ input[type="text"] {
 
 
 /*DISEÑO AL SWEETALERT*/
-/* .swal2-confirm {
+.swal2-confirm {
     background-color: #39a900 !important;
     color: white !important;
 
-} */
+}
 
 .swal2-popup {
     font-size: 1.6rem !important;
@@ -1032,7 +1032,9 @@ input[type="text"] {
     ;
 }
 
-
+/* .sidebar-link.active {
+    color: yellow;
+} */
 
 .alert.alert-danger {
     color: #642c78;
@@ -1351,10 +1353,7 @@ input[type="text"] {
         content: none;
     }
 
-    .progressbar li.active {
-        color: #642c78;
-
-    }
+   
 
     .progressbar li.active+li::after {
         background: linear-gradient(to right, #00324d, #39a900);
@@ -1365,19 +1364,15 @@ input[type="text"] {
         color: #FFF;
         font-size: 20px;
         font-weight: bold;
-        background-color: #642c78;
+        /* background-color: #642c78; */
         border-color: #FFF;
-        box-shadow: 0 0 5px rgb(128, 0, 128);
+        /* box-shadow: 0 0 5px rgb(128, 0, 128); */
         border: #FFF;
 
 
     }
 
-    .progressbar li.active::before {
-        background-color: #642c78;
-        border-color: #642c78;
-        box-shadow: 0 0 5pxrgb(128, 0, 128);
-    }
+  
 
     .imgProgress {
         max-width: 50px !important;

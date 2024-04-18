@@ -68,6 +68,15 @@
                 <input style="border-radius:5px; border:1px solid #eaeaea;background:#fff; padding: calc(0.667* 16px) calc(2.667* 16px) calc(0.667* 16px) calc(0.667* 16px);" id="color-picker-principal" id="color-picker-terciario" name="color_terciario"
                     value="{{ $personalizacione->color_terciario }}" />
                 </div>
+
+                <div class="col-lg-4 col-md-12  col-sm-12 col-12">
+                    <!-- Input para el color picker -->
+                <label style="font-size: 18px; font-weight: bold;">Color
+                    Cuarto</label>
+                <input style="border-radius:5px; border:1px solid #eaeaea;background:#fff; padding: calc(0.667* 16px) calc(2.667* 16px) calc(0.667* 16px) calc(0.667* 16px);" id="color-picker-principal"  id="color-picker-cuarto" name="color_cuarto"
+                    value="{{ $personalizacione->color_cuarto }}" />
+                </div>
+
             </div>
             <!-- <div class="col-md-6">
                 {{ Form::label('color_secundario', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
@@ -78,7 +87,12 @@
                 {{ Form::label('color_terciario', null, ['style' => 'font-size: 18px; font-weight: bold']) }}
                 {{ Form::text('color_terciario', $personalizacione->color_terciario, ['class' => 'form-control' . ($errors->has('color_terciario') ? ' is-invalid' : ''), 'placeholder' => 'Color Terciario', 'style' => 'width: 85%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6; margin-bottom: 10px;']) }}
                 {!! $errors->first('color_terciario', '<div class="invalid-feedback">:message</div>') !!}
+            
+            
             </div> -->
+
+
+
             @if (Route::currentRouteName() === 'personalizaciones.edit')
                 <div class="col-md-6">
                     <label for="id_estado" style="font-size: 18px; font-weight: bold;">Estado</label>

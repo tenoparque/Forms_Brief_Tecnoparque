@@ -35,6 +35,7 @@
                                         <th>Color Principal</th>
                                         <th>Color Secundario</th>
                                         <th>Color Terciario</th>
+                                        <th>Color Cuarto</th>
                                         <th>Email de Usuario</th>
                                         <th>Estado</th>
 
@@ -74,6 +75,15 @@
                                                         style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_terciario }}; ">
                                                     </div>
                                                     {{ $personalizacione->color_terciario }}
+                                                </div>
+                                            </td>
+                                            <td data-titulo="Color Cuarto">
+                                                <div class="PersonalizacionColor" >
+                                                    <div class="ChildrenPersonalizacion"
+
+                                                        style="width: 20px; height: 20px; background-color: {{ $personalizacione->color_cuarto }}; ">
+                                                    </div>
+                                                    {{ $personalizacione->color_cuarto }}
                                                 </div>
                                             </td>
                                             <td data-titulo="Email de Usuario">{{ $personalizacione->user->email }}</td>

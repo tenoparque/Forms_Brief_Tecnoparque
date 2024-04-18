@@ -444,20 +444,28 @@
     }
 
     .sidebar-link.active {
-        color: {{ $colorTerciario }};
-        
+        color: {{ $colorTerciario}};       
     }
 
     .swal2-confirm {
     background-color:  {{ $colorPrincipal }} !important;
-    color: white !important;
 
 }
     
         .progressbar li.active+li::after {
         background: linear-gradient(to right, {{ $colorPrincipal }} ,{{ $colorSecundario }});
 }
+.progressbar li.active::before {
+        
+        background-color: {{ $colorCuarto }};      
+         box-shadow: 0 0 5px rgb({{ $colorSecundario }}); 
+    }
+    .progressbar li.active {
+        color:{{ $colorCuarto}} ;
 
+    }
+
+    
 
         
 
