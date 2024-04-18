@@ -97,7 +97,7 @@
                         <div class="sidebar-logo" style="text-align: center;">
                             <a href="{{ route('user.miperfil') }}">
                                 <img style="cursor: pointer;" src="../images/recursos/foto-perfil.png" alt=""
-                                    class="img-fluid" width="50%" height=50%>
+                                    class="img-fluid" width="70%" height=70%>
                             </a>
                             <p style="color: white; cursor: default">Mi perfil</p>
                         </div>
