@@ -6,75 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lista de Solicitudes</title>
+    <link rel="stylesheet" href="../public/css/layout.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        @page {
-            margin: 3cm 1.5cm 3cm 1.5cm;
-        }
-
-        .pdf-header {
-            position: fixed;
-            top: -2cm;
-            left: 0;
-            width: 100%;
-            height: 60px;
-            /* Ajusta según sea necesario */
-        }
-
-        .container__header-title {
-            display: inline-block;
-            /* Convertir en bloque en línea */
-            vertical-align: middle;
-            /* Alinear verticalmente */
-        }
-
-        .img-header {
-            display: inline-block;
-            /* Convertir en bloque en línea */
-            vertical-align: middle;
-            /* Alinear verticalmente */
-            margin-left: auto;
-            padding-left: 300px;
-            /* Empujar la imagen hacia el extremo derecho */
-        }
-
-        .title__pdf-report {
-            margin: 0;
-            padding-top: 20px;
-            font-size: 24px;
-
-        }
-
-        .img-header img {
-            width: 240px;
-            height: 155px;
-            max-width: 200px;
-            height: auto;
-        }
-
-        .container__table-pdf {
-            margin-top: 40px;
-        }
-
-        .table-pdf {
-            border-collapse: collapse;
-            width: 100%;
-            border-radius: 18px;
-            margin-top: 20px;
-
-        }
-
-        .table-pdf td,
-        .table-pdf th {
-            border: 1px solid #ddd;
-            padding: 5px;
-
-        }
-
-        .table-pdf tr:nth-child(even) {
-            background-color: #f2f2f2;
+        .table-pdf tbody tr:last-of-type {
+            border-bottom: 2px solid {{ $colorPrincipal }};
         }
 
 
@@ -82,9 +20,11 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: center;
-            background-color: #38a900;
+            background-color: {{ $colorPrincipal }}E6;
+            color: #fff;
         }
     </style>
+
 </head>
 
 <body>
@@ -97,7 +37,8 @@
         <div class="img-header">
             <div class="img__container-pdf">
                 <div>
-                    <img class="" id="" src="data:image/png;base64,{{ base64_encode($logo) }} "></img>
+                    <img class="img__header-pdf" id=""
+                        src="data:image/png;base64,{{ base64_encode($logo) }} "></img>
                 </div>
             </div>
         </div>
