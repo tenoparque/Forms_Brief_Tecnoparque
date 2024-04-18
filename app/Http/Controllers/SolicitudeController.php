@@ -167,18 +167,7 @@ class SolicitudeController extends Controller
 
         return response($output); // We return the response by sending as parameter the output variable
     }
-    // public function pdfDos(Request $request) {
-    //     //     // Llama al método para preparar los datos para el PDF
-    //     $selectedOptionId = $request->input('selectedOptionId');
-    //     $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $selectedOptionId)->get();
-
-    //     //     // Genera el PDF a partir de los datos preparados
-    //          $vista = view('solicitude.pdf', compact('solicitudes'));
-
-    // // Devuelve el PDF para visualización o descarga
-    //          return $vista;
-    //      }
-
+   
 
 
     public function pdf(Request $request)
@@ -207,33 +196,6 @@ class SolicitudeController extends Controller
         $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
         return $pdf->stream();
     }
-
-
-
-
-    // public function pdf(Request $request) {
-    //     // Llama al método para preparar los datos para el PDF
-    //     $viewData = $this->prepararDatosParaPDF($request);
-
-    //     // Genera el PDF a partir de los datos preparados
-    //     $pdf = PDF::loadView('solicitude.pdf', $viewData);
-
-    //     // Devuelve el PDF para visualización o descarga
-    //     return $pdf->stream();
-    // }
-
-    // public function procesarValor()
-    // {
-    //     $ultimoRegistro = Prueba::latest()->first();
-
-    //     // Obtener el valor del campo deseado
-    //     $campoValor = $ultimoRegistro->numero; // Reemplaza "nombre_del_campo" con el nombre del campo que deseas obtener
-
-    //     // Devolver el valor del campo en formato JSON
-    //     return response()->json(['campoValor' => $campoValor]);
-    // }
-
-
 
 
 
