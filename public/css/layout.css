@@ -1043,6 +1043,7 @@ input[type="text"] {
 .invalid-feedback {
     color: #642c78;
 }
+
 /*card home*/
 .icon {
     position: relative;
@@ -1053,68 +1054,152 @@ input[type="text"] {
     color: white;
     line-height: 50px;
     text-align: center;
-   
+
     font-size: 20px;
-  }
-  
-  .icon-lg {
+}
+
+.icon-lg {
     width: 60px;
     height: 50px;
-    line-height:50px;
+    line-height: 50px;
     font-size: 30px;
-  }
-  
-  .icon-shape {
+}
+
+.icon-shape {
     border-radius: 50px;
-  }
-  
-  .bg-gradient-success{
+}
+
+.bg-gradient-success {
     background-color: #00324d;
-  }
-  .bg-gradient-dark{
+}
+
+.bg-gradient-dark {
     background-color: #642c78;
-  }
-  .bg-gradient-info{
+}
+
+.bg-gradient-info {
     background-color: #39a900;
-  }
- 
-  .border-radius-xl {
+}
+
+.border-radius-xl {
     border-radius: 0.75rem;
-  }
-  
-  .mt-n4 {
+}
+
+.mt-n4 {
     margin-top: -1.5rem;
-  }
-  
-  .position-absolute {
+}
+
+.position-absolute {
     position: absolute;
-  }
-  
-  .text-end {
+}
+
+.text-end {
     text-align: end;
-  }
-  .text-sm {
+}
+
+.text-sm {
     font-size: 0.875rem;
-  }
-.titulosoli{
+}
+
+.titulosoli {
     color: #00324d;
     font-size: 17px;
     font-weight: 600;
 }
+
 .total-color {
-    color: #00324d; 
-    font-weight: 600 ;
+    color: #00324d;
+    font-weight: 600;
 }
+
 .numero-color {
-    color: #39a900; 
+    color: #39a900;
 }
+
 .card-solit {
     border-bottom: #ffffff;
 }
-.card-title{
+
+.card-title {
     font-size: 16px;
     color: red;
 }
+
+
+/* table pdf resportes */
+@page {
+    margin: 3cm 1.5cm 3cm 1.5cm;
+}
+
+.pdf-header {
+    position: fixed;
+    top: -2cm;
+    /* Ajusta la posición para que el encabezado esté en la parte superior de la página */
+    left: 0;
+    bottom: 2cm;
+    width: 100%;
+    height: 60px;
+    /* Ajusta según sea necesario */
+}
+
+.container__header-title {
+    display: inline-block;
+    /* Convertir en bloque en línea */
+    vertical-align: middle;
+    /* Alinear verticalmente */
+}
+
+.img-header {
+    display: inline-block;
+    /* Convertir en bloque en línea */
+    vertical-align: middle;
+    /* Alinear verticalmente */
+    margin-left: auto;
+    padding-left: 300px;
+    /* Empujar la imagen hacia el extremo derecho */
+}
+
+
+
+.img-header .img__header-pdf {
+    width: 240px !important;
+    height: 70px !important;
+    max-width: 200px;
+    height: auto;
+    object-fit: cover;
+}
+
+.container__table-pdf {
+    margin-top: 40px;
+}
+
+.table-pdf {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1em;
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-family: "Work Sans", sans-serif;
+
+
+}
+
+.table-pdf tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-pdf td,
+.table-pdf th {
+    border: 1px solid #ddd;
+    padding: 6px 8px;
+
+}
+
+.table-pdf tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
 
 
 
@@ -1219,8 +1304,8 @@ input[type="text"] {
     }
 
     #sidebar.expand {
-        width: 260px;  
-        min-width: 260px; 
+        width: 260px;
+        min-width: 260px;
         position: fixed;
         z-index: 2;
     }
@@ -1229,15 +1314,15 @@ input[type="text"] {
         position: absolute;
         top: 85px;
         right: -36px;
-       
+
     }
 
     .celda__opc-solici {
         display: flex;
         justify-content: start;
         flex-wrap: wrap;
-        
-    
+
+
     }
 
 
@@ -1307,7 +1392,8 @@ input[type="text"] {
         z-index: 2;
         position: relative;
     }
-   .progressbar {
+
+    .progressbar {
         counter-reset: step;
     }
 

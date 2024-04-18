@@ -161,15 +161,15 @@ class UserController extends Controller
      * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    // public function update(Request $request, User $user)
-    // {
-    //     request()->validate(User::$rules);
+     public function update(Request $request, User $user)
+    {
+        request()->validate(User::$rules);
 
-    //     $user->update($request->all());
+        $user->update($request->all());
 
-    //     return redirect()->route('users.index')
-    //         ->with('success', 'User updated successfully');
-    // }
+    return redirect()->route('users.index')
+            ->with('success', 'Usuario Actualizado con Éxito');
+     }
 
 
 
