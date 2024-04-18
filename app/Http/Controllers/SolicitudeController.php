@@ -53,29 +53,28 @@ class SolicitudeController extends Controller
 
     public function index()
     {
-       
+
         $usuarioAutenticado = Auth::user();
         $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
         $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
         $nodoUsuario = $usuarioAutenticado->id_nodo;
 
         if ($rolSuperAdmin) {
-            $solicitudes = Solicitude::paginate();
+            $solicitudes = Solicitude::paginate(10);
         } else {
             if ($usuarioAutenticado->hasRole('Designer')) {
                 $solicitudes = Solicitude::whereHas('historial', function ($query) use ($usuarioAutenticado) {
                     $query->where('id_users', $usuarioAutenticado->id)
-                          ->where('id_estados', 1);
+                        ->where('id_estados', 1);
                 })->paginate();
-                
             } else {
                 $solicitudes = Solicitude::whereHas('user', function ($query) use ($nodoUsuario) {
                     $query->where('id_nodo', $nodoUsuario);
                 })->paginate();
             }
         }
-        
-        
+
+
         $usuarios = User::whereHas('roles', function ($query) {
             $query->whereIn('name', ['Designer', 'Admin', 'Activador Nacional']);
         })->get();
@@ -89,61 +88,57 @@ class SolicitudeController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
     }
 
-    public function reports(){
+    public function reports()
+    {
         $tiposSolicitudes = TiposDeSolicitude::all();
 
         $nodos = Nodo::all();
         $estados = EstadosDeLasSolictude::all();
         $eventosSolicitud = EventosEspecialesPorCategoria::all();
-        
-        return view('reportes-estadisticas.reports', compact('tiposSolicitudes','nodos','estados','eventosSolicitud'));
+
+        return view('reportes-estadisticas.reports', compact('tiposSolicitudes', 'nodos', 'estados', 'eventosSolicitud'));
     }
 
 
 
-     public function search(Request $request)
+    public function search(Request $request)
     {
         $parametro = $request->input('valor');
-        $output= ""; // The output variable is defined and initialized
+        $output = ""; // The output variable is defined and initialized
 
-        if($parametro == 'tipo'){
+        if ($parametro == 'tipo') {
             $tipoId = TiposDeSolicitude::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
             $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $tipoId)->get();
-        }
-        elseif($parametro == 'evento') {
+        } elseif ($parametro == 'evento') {
             // Hacer lo mismo para el evento especial por categoría
             $eventoId = EventosEspecialesPorCategoria::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
             $solicitudes = Solicitude::whereIn('id_eventos_especiales_por_categorias', $eventoId)->get();
-        }
-        elseif($parametro == 'estado') {
+        } elseif ($parametro == 'estado') {
             // Hacer lo mismo para el estado de la solicitud
             $estadoId = EstadosDeLasSolictude::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
             $solicitudes = Solicitude::whereIn('id_estado_de_la_solicitud', $estadoId)->get();
-        } 
-        elseif($parametro == 'usuario') {
+        } elseif ($parametro == 'usuario') {
             // Hacer lo mismo para el usuario que realiza la solicitud 
             $usuarioId = User::where('name', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
             $solicitudes = Solicitude::whereIn('id_usuario_que_realiza_la_solicitud', $usuarioId)->get();
-        }
-        elseif($parametro == 'designer') {
+        } elseif ($parametro == 'designer') {
             // Hacer lo mismo para el usuario que se le asigna la solicitud 
             $usuarioId = User::where('name', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
-            $idSolicitud = HistorialDeUsuariosPorSolicitude::where('id_users' , $usuarioId)->pluck('id_solicitudes')->toArray();
+            $idSolicitud = HistorialDeUsuariosPorSolicitude::where('id_users', $usuarioId)->pluck('id_solicitudes')->toArray();
             $solicitudes = Solicitude::whereIn('id', $idSolicitud)->get();
-        }
-        elseif($parametro == 'nodo') {
+        } elseif ($parametro == 'nodo') {
             // Hacer lo mismo para el nodo 
             $nodoId = Nodo::where('nombre', 'LIKE', '%' . $request->search . '%')->pluck('id')->toArray();
-            $idUser = User::where('id_nodo' , $nodoId)->pluck('id')->toArray();
+            $idUser = User::where('id_nodo', $nodoId)->pluck('id')->toArray();
             $solicitudes = Solicitude::whereIn('id_usuario_que_realiza_la_solicitud', $idUser)->get();
         }
 
 
-       
+
         // We use the loop foreach to iterate the aggregation of records
-        foreach($solicitudes as $solicitude){
-            $output .= 
-            '<tr>
+        foreach ($solicitudes as $solicitude) {
+            $output .=
+                '<tr>
                 <td>' . $solicitude->id . '</td>
                 <td>' . $solicitude->tiposDeSolicitude->nombre . '</td>
                 <td>' . $solicitude->fecha_y_hora_de_la_solicitud . '</td>
@@ -176,81 +171,73 @@ class SolicitudeController extends Controller
     //     //     // Llama al método para preparar los datos para el PDF
     //     $selectedOptionId = $request->input('selectedOptionId');
     //     $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $selectedOptionId)->get();
-            
+
     //     //     // Genera el PDF a partir de los datos preparados
     //          $vista = view('solicitude.pdf', compact('solicitudes'));
-            
+
     // // Devuelve el PDF para visualización o descarga
     //          return $vista;
     //      }
 
 
 
-    public function pdf(Request $request) {
+    public function pdf(Request $request)
+    {
         // dd($request->all());
         $cuartoComboValue = $request->input('cuartoComboValue');
         $tipo = $request->input('nombre');
         // dd($tipo);
-        if($tipo == 'Estados De Las Solictudes'){
+        if ($tipo == 'Estados De Las Solictudes') {
             $solicitudes = Solicitude::where('id_estado_de_la_solicitud', $cuartoComboValue)->get();
-            
-        }
-        elseif($tipo == 'Eventos Especiales Por Categoria'){
+        } elseif ($tipo == 'Eventos Especiales Por Categoria') {
             $solicitudes = Solicitude::where('id_eventos_especiales_por_categorias', $cuartoComboValue)->get();
-            
-        }
-        elseif($tipo == 'Nodo'){
+        } elseif ($tipo == 'Nodo') {
             $solicitudes = Solicitude::whereHas('user', function ($query) use ($cuartoComboValue) {
                 $query->whereHas('nodo', function ($nestedQuery) use ($cuartoComboValue) {
                     $nestedQuery->where('id', $cuartoComboValue);
                 });
             })->get();
-            
-        }
-        elseif($tipo == 'Tipos De Solicitudes'){
+        } elseif ($tipo == 'Tipos De Solicitudes') {
             $solicitudes = Solicitude::where('id_tipos_de_solicitudes', $cuartoComboValue)->get();
-            
-        }
-        elseif($tipo == 'Todo'){
+        } elseif ($tipo == 'Todo') {
             $solicitudes = Solicitude::all();
-            
         }
-        
+
         // dd($solicitudes);
         $pdf = Pdf::loadView('solicitude.pdf', compact('solicitudes'));
         return $pdf->stream();
     }
 
 
-   
+
 
     // public function pdf(Request $request) {
     //     // Llama al método para preparar los datos para el PDF
     //     $viewData = $this->prepararDatosParaPDF($request);
-        
+
     //     // Genera el PDF a partir de los datos preparados
     //     $pdf = PDF::loadView('solicitude.pdf', $viewData);
-        
+
     //     // Devuelve el PDF para visualización o descarga
     //     return $pdf->stream();
     // }
 
-// public function procesarValor()
-// {
-//     $ultimoRegistro = Prueba::latest()->first();
+    // public function procesarValor()
+    // {
+    //     $ultimoRegistro = Prueba::latest()->first();
 
-//     // Obtener el valor del campo deseado
-//     $campoValor = $ultimoRegistro->numero; // Reemplaza "nombre_del_campo" con el nombre del campo que deseas obtener
+    //     // Obtener el valor del campo deseado
+    //     $campoValor = $ultimoRegistro->numero; // Reemplaza "nombre_del_campo" con el nombre del campo que deseas obtener
 
-//     // Devolver el valor del campo en formato JSON
-//     return response()->json(['campoValor' => $campoValor]);
-// }
+    //     // Devolver el valor del campo en formato JSON
+    //     return response()->json(['campoValor' => $campoValor]);
+    // }
 
-     
 
-    
 
-     
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -262,12 +249,12 @@ class SolicitudeController extends Controller
         $estados = EstadosDeLasSolictude::all();
         $solicitudes = TiposDeSolicitude::all();
         $especiales = EventosEspecialesPorCategoria::all();
-       
-        $categoriaEventos = CategoriasEventosEspeciale::all();
-         // Recuperar el registro de la Politica con id_estado = 1
-         $politicas = Politica::where('id_estado', 1)->first();
 
-        return view('solicitude.create', compact('solicitude','estados' , 'solicitudes' , 'especiales', 'politicas','categoriaEventos'));
+        $categoriaEventos = CategoriasEventosEspeciale::all();
+        // Recuperar el registro de la Politica con id_estado = 1
+        $politicas = Politica::where('id_estado', 1)->first();
+
+        return view('solicitude.create', compact('solicitude', 'estados', 'solicitudes', 'especiales', 'politicas', 'categoriaEventos'));
     }
 
     /**
@@ -282,7 +269,7 @@ class SolicitudeController extends Controller
 
         // Obtener los datos únicos por solicitud asociados al tipo de solicitud seleccionado
         $datosUnicos = DatosUnicosPorSolicitude::where('id_tipos_de_solicitudes', $selectedTypeId)->get();
-    
+
         // Obtener los servicios por solicitud asociados al tipo de solicitud seleccionado
         $servicios = ServiciosPorTiposDeSolicitude::where('id_tipo_de_solicitud', $selectedTypeId)->get();
         $tiposDeDatos = TiposDeDato::all();
@@ -295,7 +282,7 @@ class SolicitudeController extends Controller
     }
 
 
-     /**
+    /**
      * Process the selected ID from the dropdown.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -310,7 +297,7 @@ class SolicitudeController extends Controller
         // Devolver los datos en formato JSON
         return response()->json([
             'evento' => $eventosAsociados
-           
+
         ]);
     }
 
@@ -330,7 +317,7 @@ class SolicitudeController extends Controller
         $serviciosSeleccionados = $request->input('servicios_por_tipo');
         // Obtener la fecha y hora actual del sistema
         $estadosDefecto = EstadosDeLasSolictude::where('orden_mostrado', 1)->value('id');
-    
+
         // Combinar los datos de la solicitud con los valores predeterminados
         $data = array_merge($request->all(), [
             'id_usuario_que_realiza_la_solicitud' => $userId,
@@ -339,32 +326,32 @@ class SolicitudeController extends Controller
             'fecha_y_hora_de_la_solicitud' => $currentTime,
         ]);
 
-        
-    
+
+
         // Validar los datte([
         //     // Aquí coloca las reglas de validación según los campos de la solicitud
         // ]);os del formulario
         // $request->valida
-    
+
         // Crear la solicitud con los datos combinados
         $solicitude = Solicitude::create($data);
         foreach ($serviciosSeleccionados as $servicioId) {
             // Inicializar el valor para el campo otro_servicio
             $otroServicio = null;
-        
+
             // Verificar si el servicio seleccionado es "otro"
             if ($servicioId === 'otro') {
                 $otroServicio = $request->input('otroServicioHidden');
             } else {
                 // Consultar el servicio correspondiente al ID
                 $servicio = ServiciosPorTiposDeSolicitude::find($servicioId);
-        
+
                 // Verificar si el servicio existe y si su nombre es "otro"
                 if ($servicio && $servicio->nombre === 'otro') {
                     $otroServicio = $request->input('otroServicioHidden');
                 }
             }
-        
+
             // Crear el registro
             $elementoPorSolicitud = ElementosPorSolicitude::create([
                 'id_solicitudes' => $solicitude->id,
@@ -373,41 +360,41 @@ class SolicitudeController extends Controller
                 // Otros campos que puedas necesitar
             ]);
         }
-        
-        
-        
+
+
+
 
         foreach ($request->all() as $key => $value) {
             if (strpos($key, 'datos_unicos_por_solicitud_') !== false) {
                 // Extraer el ID del subservicio del nombre del campo
                 $id_subservicio = substr($key, strlen('datos_unicos_por_solicitud_'));
-    
+
                 // Crear un nuevo registro en la tabla datos_por_solicitud
                 DatosPorSolicitud::create([
                     'id_solicitudes' => $solicitude->id,
                     'id_datos_unicos_por_solicitudes' => $id_subservicio,
                     'dato' => $value
-                    
+
                 ]);
             }
         }
 
-        
+
         $cambioHistorial = new HistorialDeEstadosPorSolicitude();
         $cambioHistorial->id_estados_s = $estadosDefecto;
         $cambioHistorial->id_solicitudes = $solicitude->id;
-        $cambioHistorial->id_users=$userId;
+        $cambioHistorial->id_users = $userId;
         $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
         $cambioHistorial->save();
-    
-        
-    
-    
+
+
+
+
         // Redireccionar con un mensaje de éxito
         return redirect()->route('solicitudes.index')
             ->with('success', 'Solicitud creada exitosamente.');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -420,7 +407,7 @@ class SolicitudeController extends Controller
 
         // Obtener todos los estados ordenados por 'orden_mostrado'
         $estados = EstadosDeLasSolictude::orderBy('orden_mostrado')->get();
-    
+
         // Obtener el estado actual de la solicitud
         $estadoActual = $solicitude->estadosDeLasSolictude; // Cambio aquí, usando la relación estadosDeLasSolictude en lugar de estado
 
@@ -429,20 +416,19 @@ class SolicitudeController extends Controller
 
         // Realiza una consulta para obtener los elementos por solicitud
         $elementos = DB::table('elementos_por_solicitudes')
-                        ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
-                        ->select('servicios_por_tipos_de_solicitudes.nombre')
-                        ->where('elementos_por_solicitudes.id_solicitudes', $id)
-                        ->get();
+            ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
+            ->select('servicios_por_tipos_de_solicitudes.nombre')
+            ->where('elementos_por_solicitudes.id_solicitudes', $id)
+            ->get();
 
         $datosPorSolicitud =  DB::table('datos_por_solicitud')
-                                ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
-                                ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
-                                ->where('datos_por_solicitud.id_solicitudes', $id)
-                                ->get();
+            ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
+            ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
+            ->where('datos_por_solicitud.id_solicitudes', $id)
+            ->get();
 
         // Retorna la vista con los datos necesarios
-        return view('solicitude.show', compact('solicitude', 'elementos', 'datosPorSolicitud', 'historial','estados','estadoActual'));
-
+        return view('solicitude.show', compact('solicitude', 'elementos', 'datosPorSolicitud', 'historial', 'estados', 'estadoActual'));
     }
 
     /**
@@ -458,18 +444,18 @@ class SolicitudeController extends Controller
 
         // Realiza una consulta para obtener los elementos por solicitud
         $elementos = DB::table('elementos_por_solicitudes')
-                        ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
-                        ->select('servicios_por_tipos_de_solicitudes.nombre')
-                        ->where('elementos_por_solicitudes.id_solicitudes', $id)
-                        ->get();
+            ->join('servicios_por_tipos_de_solicitudes', 'elementos_por_solicitudes.id_subservicios', '=', 'servicios_por_tipos_de_solicitudes.id')
+            ->select('servicios_por_tipos_de_solicitudes.nombre')
+            ->where('elementos_por_solicitudes.id_solicitudes', $id)
+            ->get();
 
         $datosPorSolicitud =  DB::table('datos_por_solicitud')
-                                ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
-                                ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
-                                ->where('datos_por_solicitud.id_solicitudes', $id)
-                                ->get();
+            ->join('datos_unicos_por_solicitudes', 'datos_por_solicitud.id_datos_unicos_por_solicitudes', '=', 'datos_unicos_por_solicitudes.id')
+            ->select('datos_unicos_por_solicitudes.nombre as titulo', 'datos_por_solicitud.dato')
+            ->where('datos_por_solicitud.id_solicitudes', $id)
+            ->get();
 
-        return view('solicitude.edit', compact('solicitude', 'elementos', 'datosPorSolicitud','estadosDeLaSolicitudes'));
+        return view('solicitude.edit', compact('solicitude', 'elementos', 'datosPorSolicitud', 'estadosDeLaSolicitudes'));
     }
 
     /**
@@ -481,8 +467,8 @@ class SolicitudeController extends Controller
      */
     public function update(Request $request, Solicitude $solicitude)
     {
-         // Validar los datos de entrada para la modificación
-         $request->validate([
+        // Validar los datos de entrada para la modificación
+        $request->validate([
             'modificacion' => 'required',
         ]);
 
@@ -514,7 +500,7 @@ class SolicitudeController extends Controller
         $cambioHistorial = new HistorialDeEstadosPorSolicitude();
         $cambioHistorial->id_estados_s = $request->input('id_estado_de_la_solicitud');
         $cambioHistorial->id_solicitudes = $solicitude->id;
-        $cambioHistorial->id_users=$userId;
+        $cambioHistorial->id_users = $userId;
         $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
         $cambioHistorial->save();
 
@@ -522,7 +508,7 @@ class SolicitudeController extends Controller
             ->with('success', 'Estado Actualizado Exitosamente');
     }
 
-    
+
 
     public function duplicarFormulario($id)
     {
@@ -533,8 +519,8 @@ class SolicitudeController extends Controller
         $especiales = EventosEspecialesPorCategoria::all();
         $currentTime = $this->getCurrentTimeInBogota();
         $categoriaEventos = CategoriasEventosEspeciale::all();
-         // Recuperar el registro de la Politica con id_estado = 1
-         $politicas = Politica::where('id_estado', 1)->first();
+        // Recuperar el registro de la Politica con id_estado = 1
+        $politicas = Politica::where('id_estado', 1)->first();
 
         // Obtener ids relacionadas con la solicitud a duplicar
         $tipo_solicitud_id = $solicitud->id_tipos_de_solicitudes;
@@ -547,16 +533,16 @@ class SolicitudeController extends Controller
 
         // Obtener los IDs de los subservicios asociados a esta solicitud
         $idSubservicios = ElementosPorSolicitude::where('id_solicitudes', $id)
-        ->pluck('id_subservicios')
-        ->toArray();
+            ->pluck('id_subservicios')
+            ->toArray();
 
         // Obtener los elementos con información adicional "otro_servicio"
         $elementoConOtroServicio = ElementosPorSolicitude::where('id_solicitudes', $id)
-        ->whereNotNull('otro_servicio')
-        ->value('otro_servicio');
+            ->whereNotNull('otro_servicio')
+            ->value('otro_servicio');
 
         $datosPorSolicitud = DatosPorSolicitud::where('id_solicitudes', $id)
-        ->pluck('dato', 'id_datos_unicos_por_solicitudes');
+            ->pluck('dato', 'id_datos_unicos_por_solicitudes');
 
 
         // Redirigir a la vista 'solicitudes.create' y pasar el idTipoSolicitud como parámetro
@@ -572,81 +558,82 @@ class SolicitudeController extends Controller
             'categoriaEventos',
             'idSubservicios',
             'datosPorSolicitud',
-            'elementoConOtroServicio' 
-        ));    }
-
-   
-
-    /**
- * Obtiene la hora actual en la zona horaria de Bogotá.
- *
- * @return array|null
- */
-public function getCurrentTimeInBogota()
-{
-    $response = Http::get('https://timeapi.io/api/Time/current/zone?timeZone=America/Bogota', [
-        'timeZone' => 'America/Bogota',
-    ]);
-
-    if ($response->successful()) {
-        $dateTime = $response['dateTime'];
-        $dateTimeParts = explode('T', $dateTime); // Separar la fecha y la hora
-
-        // Formatear la fecha y la hora en el formato de MySQL (YYYY-MM-DD HH:MM:SS)
-        $formattedDateTime = $dateTimeParts[0] . ' ' . substr($dateTimeParts[1], 0, 8);
-
-        return $formattedDateTime;
-    } else {
-        return null;
+            'elementoConOtroServicio'
+        ));
     }
-}
+
 
 
     /**
- * Obtiene la hora actual en la zona horaria de Bogotá.
- *
- * @return array|null
- */
+     * Obtiene la hora actual en la zona horaria de Bogotá.
+     *
+     * @return array|null
+     */
+    public function getCurrentTimeInBogota()
+    {
+        $response = Http::get('https://timeapi.io/api/Time/current/zone?timeZone=America/Bogota', [
+            'timeZone' => 'America/Bogota',
+        ]);
 
-   /**
+        if ($response->successful()) {
+            $dateTime = $response['dateTime'];
+            $dateTimeParts = explode('T', $dateTime); // Separar la fecha y la hora
+
+            // Formatear la fecha y la hora en el formato de MySQL (YYYY-MM-DD HH:MM:SS)
+            $formattedDateTime = $dateTimeParts[0] . ' ' . substr($dateTimeParts[1], 0, 8);
+
+            return $formattedDateTime;
+        } else {
+            return null;
+        }
+    }
+
+
+    /**
+     * Obtiene la hora actual en la zona horaria de Bogotá.
+     *
+     * @return array|null
+     */
+
+    /**
      * Asigna una solicitud a un diseñador.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-   
-    
-     public function asignarSolicitud(Request $request)
-{
-    // Validar los datos recibidos en la solicitud si es necesario
-    $request->validate([
-        'solicitud_id' => 'required|exists:solicitudes,id',
-        'usuario_id' => 'required|exists:users,id',
-    ]);
 
-    $solicitudId = $request->input('solicitud_id');
-    $designerId = $request->input('usuario_id');
 
-    // Buscar y desactivar todos los registros activos con la misma id_solicitud
-    HistorialDeUsuariosPorSolicitude::where('id_solicitudes', $solicitudId)
-        ->where('id_estados', 1) // '1' puede representar el estado activo, asegúrate de ajustarlo según tu esquema
-        ->update(['id_estados' => 2]);
+    public function asignarSolicitud(Request $request)
+    {
+        // Validar los datos recibidos en la solicitud si es necesario
+        $request->validate([
+            'solicitud_id' => 'required|exists:solicitudes,id',
+            'usuario_id' => 'required|exists:users,id',
+        ]);
 
-    // Crear un nuevo registro en el historial de asignaciones con el nuevo estado activo
-    $historial = new HistorialDeUsuariosPorSolicitude();
-    $historial->id_solicitudes = $solicitudId;
-    $historial->id_users = $designerId;
-    $historial->fecha_asignación = now();
-    $historial->id_estados = 1; // Asignar el estado activo
-    $historial->save();
+        $solicitudId = $request->input('solicitud_id');
+        $designerId = $request->input('usuario_id');
 
-    return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador.');
-}
+        // Buscar y desactivar todos los registros activos con la misma id_solicitud
+        HistorialDeUsuariosPorSolicitude::where('id_solicitudes', $solicitudId)
+            ->where('id_estados', 1) // '1' puede representar el estado activo, asegúrate de ajustarlo según tu esquema
+            ->update(['id_estados' => 2]);
 
-     
-    
+        // Crear un nuevo registro en el historial de asignaciones con el nuevo estado activo
+        $historial = new HistorialDeUsuariosPorSolicitude();
+        $historial->id_solicitudes = $solicitudId;
+        $historial->id_users = $designerId;
+        $historial->fecha_asignación = now();
+        $historial->id_estados = 1; // Asignar el estado activo
+        $historial->save();
 
-    
+        return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador.');
+    }
+
+
+
+
+
     /**
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
