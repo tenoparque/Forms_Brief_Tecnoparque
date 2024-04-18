@@ -476,12 +476,6 @@ background-color:{{ $colorPrincipal }} ;
 border-color: #ffffff;
 /* Cambia el color del borde del elemento activo */
 }
-
-
-    
-
-        
-
     /* LETRA */
 
 
@@ -503,6 +497,12 @@ border-color: #ffffff;
         font-weight: 900;
 
     }
+    .invalid-feedback {
+    color: {{ $colorSecundario }} ;
+}
+
+
+
 
     .hrmenu {
         background: {{ $colorTerciario }};

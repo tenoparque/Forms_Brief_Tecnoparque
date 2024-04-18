@@ -79,7 +79,7 @@
                                                         <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                         {{ __('Detalle') }}</a>
 
-                                                    <a class="btnDetalle" href="{{ route('users.edit', $user->id) }}">
+                                                    <a class="btnEdit" href="{{ route('users.edit', $user->id) }}">
                                                         <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                                         {{ __('Editar') }}</a>
                                                 </form>
