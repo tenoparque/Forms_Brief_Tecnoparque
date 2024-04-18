@@ -29,6 +29,7 @@ class Personalizacione extends Model
 		'color_principal' => 'required',
 		'color_secundario' => 'required',
 		'color_terciario' => 'required',
+        'color_cuarto' => 'required',
 		'id_users' => 'required',
         'id_estado' => 'required',
     ];
@@ -40,7 +41,7 @@ class Personalizacione extends Model
      *
      * @var array
      */
-    protected $fillable = ['logo','color_principal','color_secundario','color_terciario','id_users','id_estado'];
+    protected $fillable = ['logo','color_principal','color_secundario','color_terciario','color_cuarto','id_users','id_estado'];
 
 
     /**
