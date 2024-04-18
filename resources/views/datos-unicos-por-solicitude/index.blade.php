@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <section class="container shadow p-4 my-5 bg-light rounded">
         <div class="container">
             <div class="row">
@@ -15,10 +15,12 @@
                             <div style="d-flex justify-content-between align-items-center">
                                 <div class="d-flex mt-3 mb-4">
                                     <div>
-                                        <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('DATOS ÚNICOS POR') }}</h1>
+                                        <h1 class="primeraPalabraFlex" style="font-size: 200%">{{ __('DATOS ÚNICOS POR') }}
+                                        </h1>
                                     </div>
                                     <div>
-                                        <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('TIPO DE SOLICITUD') }}</h1>
+                                        <h1 class="segundaPalabraFlex" style="font-size: 200%">{{ __('TIPO DE SOLICITUD') }}
+                                        </h1>
                                     </div>
                                 </div>
                             </div>
@@ -32,13 +34,12 @@
                         <input class="form-control inputSearch" id="search"
                             placeholder="Ingrese el nombre del dato único por tipo de solicitud..."
                             style="width: 70%; border-radius: 50px; border-style: solid; border-width:3px; border-color: #DEE2E6 ">
-                            <a href="{{ route('datos-unicos-por-solicitudes.create') }}" class="btnCrear"
-                            >{{ __('CREAR') }}
-                            <i class="fa-solid fa-circle-play iconDCR" ></i></a>
+                        <a href="{{ route('datos-unicos-por-solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
+                            <i class="fa-solid fa-circle-play iconDCR"></i></a>
                     </div>
                 </div>
                 <div class="table-responsive"
-                style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
+                    style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                     <table class="table table-bordered table-hover " style="width=25%">
                         <thead class="thead-dark">
                             <tr style="border-width: 2px;width:25%">
@@ -56,7 +57,11 @@
                                 <tr>
                                     <td data-titulo="No">{{ ++$i }}</td>
 
-                                    <td data-titulo="Nombre">{{ $datosUnicosPorSolicitude->nombre }}</td>
+                                    <td data-titulo="Nombre"
+                                        style="max-width: 200px; word-wrap: break-word; overflow-wrap: break-word;">
+                                        {{ $datosUnicosPorSolicitude->nombre }}
+                                    </td>
+
                                     <td data-titulo="Tipo De Dato">{{ $datosUnicosPorSolicitude->tiposDeDato->nombre }}</td>
                                     <td data-titulo="Tipo De Solicitud">
                                         <p>{{ $datosUnicosPorSolicitude->tiposDeSolicitude->nombre }}</p>
@@ -66,18 +71,17 @@
                                     <td id="buttoncell">
 
                                         <a href="{{ route('datos-unicos-por-solicitudes.show', $datosUnicosPorSolicitude->id) }}"
-                                            class="btnDetalle"
-                                           >
-                                           <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
+                                            class="btnDetalle">
+                                            <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                             {{ __('Detalle') }}
-                                            
+
                                         </a>
 
                                         <a href="{{ route('datos-unicos-por-solicitudes.edit', $datosUnicosPorSolicitude->id) }}"
                                             class="btnEdit">
-                                            <i class="fa-solid fa-pen-to-square fa-xs iconEdit" ></i>
+                                            <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                             {{ __('Editar') }}
-                                            
+
                                         </a>
 
                                     </td>
@@ -89,22 +93,22 @@
 
                         </tbody>
                     </table>
-                    
-                        
-                    
+
+
+
                 </div>
                 <div class="mt-2">
                     {!! $datosUnicosPorSolicitudes->links() !!}
                 </div>
             </div>
 
-            
+
         </div>
     </section>
 
 
     </div>
-    
+
     </div>
     </div>
     </section>

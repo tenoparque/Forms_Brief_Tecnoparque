@@ -460,15 +460,15 @@
         background-color: {{ $colorCuarto }};      
          box-shadow: 0 0 5px rgb({{ $colorSecundario }}); 
     }
-    .progressbar li.active {
-        color:{{ $colorCuarto}} ;
-
-    }
     .page-link {
     color: {{ $colorSecundario }} !important;
    
 }
+   
+.progressbar li.active {
+        color:{{ $colorCuarto}} ;
 
+    }
     .page-item.active .page-link {
 
 background-color:{{ $colorPrincipal }} ;
