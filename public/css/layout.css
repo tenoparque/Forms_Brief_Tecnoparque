@@ -1149,12 +1149,9 @@ input[type="text"] {
 
 .img-header {
     display: inline-block;
-    /* Convertir en bloque en línea */
     vertical-align: middle;
-    /* Alinear verticalmente */
     margin-left: auto;
     padding-left: 300px;
-    /* Empujar la imagen hacia el extremo derecho */
 }
 
 

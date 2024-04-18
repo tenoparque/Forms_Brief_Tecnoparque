@@ -84,7 +84,7 @@
                             class="fa-solid fa-file-pdf fa-2xl"></i></a>
                 </div>
             </div>
-            
+
 
 
         </div>
@@ -101,91 +101,88 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-      
-       
         // Esperar a que el DOM esté cargado
         document.addEventListener("DOMContentLoaded", function() {
-    // Obtener el select de reporte y el select de tipo de dato
-    var slcReport = document.getElementById("selectReport4");
-    var slcTipoDato = document.getElementById("cuartoCombo");
+            // Obtener el select de reporte y el select de tipo de dato
+            var slcReport = document.getElementById("selectReport4");
+            var slcTipoDato = document.getElementById("cuartoCombo");
 
-    // Agregar un event listener para el cambio en el select de reporte
-    slcReport.addEventListener("change", function() {
-        // Limpiar el select de tipo de dato
-        slcTipoDato.innerHTML =
-            "<option value='' disabled selected>Seleccione el tipo de dato a filtrar...</option>";
+            // Agregar un event listener para el cambio en el select de reporte
+            slcReport.addEventListener("change", function() {
+                // Limpiar el select de tipo de dato
+                slcTipoDato.innerHTML =
+                    "<option value='' disabled selected>Seleccione el tipo de dato a filtrar...</option>";
 
-        // Obtener el valor seleccionado en el select de reporte
-        var selectedReport = slcReport.value;
+                // Obtener el valor seleccionado en el select de reporte
+                var selectedReport = slcReport.value;
 
-        // Recuperar las opciones según el reporte seleccionado
-        if (selectedReport === "Nodo") {
-            var nodos = {!! json_encode($nodos) !!};
-            nodos.forEach(function(nodo) {
-                var option = document.createElement("option");
-                option.text = nodo.nombre;
-                option.value = nodo.id;
-                slcTipoDato.add(option);
+                // Recuperar las opciones según el reporte seleccionado
+                if (selectedReport === "Nodo") {
+                    var nodos = {!! json_encode($nodos) !!};
+                    nodos.forEach(function(nodo) {
+                        var option = document.createElement("option");
+                        option.text = nodo.nombre;
+                        option.value = nodo.id;
+                        slcTipoDato.add(option);
+                    });
+                } else if (selectedReport === "Estados De Las Solictudes") {
+                    var estados = {!! json_encode($estados) !!};
+                    estados.forEach(function(estado) {
+                        var option = document.createElement("option");
+                        option.text = estado.nombre;
+                        option.value = estado.id;
+                        slcTipoDato.add(option);
+                    });
+                } else if (selectedReport === "Eventos Especiales Por Categoria") {
+                    var eventos = {!! json_encode($eventosSolicitud) !!};
+                    eventos.forEach(function(evento) {
+                        var option = document.createElement("option");
+                        option.text = evento.nombre;
+                        option.value = evento.id;
+                        slcTipoDato.add(option);
+                    });
+                } else if (selectedReport === "Tipos De Solicitud") {
+                    var eventos = {!! json_encode($tiposSolicitudes) !!};
+                    eventos.forEach(function(tiposSolicitudes) {
+                        var option = document.createElement("option");
+                        option.text = tiposSolicitudes.nombre;
+                        option.value = tiposSolicitudes.id;
+                        slcTipoDato.add(option);
+                    });
+                } else if (selectedReport === "Todo") {
+                    // var eventos = {!! json_encode($tiposSolicitudes) !!};
+                    var option = document.createElement("option");
+                    option.text = "Todo";
+                    option.value = 1;
+                    slcTipoDato.add(option);
+
+                }
             });
-        } else if (selectedReport === "Estados De Las Solictudes") {
-            var estados = {!! json_encode($estados) !!};
-            estados.forEach(function(estado) {
-                var option = document.createElement("option");
-                option.text = estado.nombre;
-                option.value = estado.id;
-                slcTipoDato.add(option);
+
+            // Obtener referencia al botón de PDF
+            var btnGenerarPDF = document.getElementById("btnGenerarPDF");
+
+            // Agregar un event listener al botón de PDF para generar el PDF
+            btnGenerarPDF.addEventListener("click", function() {
+                // Obtener el valor seleccionado en el select de tipo de dato
+                var selectedDataId = slcTipoDato.value;
+                // Obtener el nombre seleccionado en el select de reporte
+                var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
+                console.log("ID del dato seleccionado:", selectedDataId);
+                console.log("Nombre del reporte seleccionado:", selectedReportName);
+                generarPDF(selectedReportName);
             });
-        } else if (selectedReport === "Eventos Especiales Por Categoria") {
-            var eventos = {!! json_encode($eventosSolicitud) !!};
-            eventos.forEach(function(evento) {
-                var option = document.createElement("option");
-                option.text = evento.nombre;
-                option.value = evento.id;
-                slcTipoDato.add(option);
-            });
-        }
-        else if (selectedReport === "Tipos De Solicitud") {
-            var eventos = {!! json_encode($tiposSolicitudes) !!};
-            eventos.forEach(function(tiposSolicitudes) {
-                var option = document.createElement("option");
-                option.text = tiposSolicitudes.nombre;
-                option.value = tiposSolicitudes.id;
-                slcTipoDato.add(option);
-            });
-        }
 
-        else if (selectedReport === "Todo") {
-            // var eventos = {!! json_encode($tiposSolicitudes) !!};
-                var option = document.createElement("option");
-                option.text = "Todo";
-                option.value = 1;
-                slcTipoDato.add(option);
-    
-        }
-    });
+        });
 
-    // Agregar un event listener para el cambio en el select de tipo de dato
-    slcTipoDato.addEventListener("change", function() {
-        // Obtener el valor seleccionado en el select de tipo de dato
-        var selectedDataId = slcTipoDato.value;
-        // Obtener el nombre seleccionado en el select de reporte
-        var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
-        console.log("ID del dato seleccionado:", selectedDataId);
-        console.log("Nombre del reporte seleccionado:", selectedReportName);
-        generarPDF(selectedReportName);
-
-    });
-   
-});
-
-function generarPDF(selectedReportName) {
+        // Función para generar el PDF
+        function generarPDF() {
             var cuartoComboValue = document.getElementById('cuartoCombo').value;
-        // var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
-            var url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoComboValue) + "&nombre=" + encodeURIComponent(selectedReportName);
+            var slcReport = document.getElementById("selectReport4");
+            var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
+            var url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoComboValue) +
+                "&nombre=" + encodeURIComponent(selectedReportName);
             window.open(url, '_blank');
         }
-
-
-  
     </script>
 @endsection
