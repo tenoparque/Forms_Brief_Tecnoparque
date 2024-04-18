@@ -22,7 +22,7 @@ class PersonalizacioneController extends Controller
      */
     public function index()
     {
-        $personalizaciones = Personalizacione::with('estado')->paginate();
+        $personalizaciones = Personalizacione::with('estado')->paginate(10);
         $usuarios = User::all();
 
         return view('personalizacione.index', compact('personalizaciones' , 'usuarios'))

@@ -19,7 +19,7 @@ class TiposDeSolicitudeController extends Controller
      */
     public function index()
     {
-        $tiposDeSolicitudes = TiposDeSolicitude::with('estado')->paginate();
+        $tiposDeSolicitudes = TiposDeSolicitude::with('estado')->paginate(10);
 
         return view('tipos-de-solicitude.index', compact('tiposDeSolicitudes'))
             ->with('i', (request()->input('page', 1) - 1) * $tiposDeSolicitudes->perPage());
@@ -27,13 +27,13 @@ class TiposDeSolicitudeController extends Controller
 
     public function search(Request $request)
     {
-        $output= ""; // The output variable is defined and initialized
-        $tiposDeSolicitudes = TiposDeSolicitude::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Tipo de Solicitud name
+        $output = ""; // The output variable is defined and initialized
+        $tiposDeSolicitudes = TiposDeSolicitude::where('nombre', 'LIKE', '%' . $request->search . '%')->get(); // We make the query through the Tipo de Solicitud name
 
         // We use the loop foreach to iterate the aggregation of records
-        foreach($tiposDeSolicitudes as $tipoDeSolicitud){
-            $output .= 
-            '<tr>
+        foreach ($tiposDeSolicitudes as $tipoDeSolicitud) {
+            $output .=
+                '<tr>
                 <td data-titulo="No">' . $tipoDeSolicitud->id . '</td>
                 <td data-titulo="Nombre">' . $tipoDeSolicitud->nombre . '</td>
                 <td data-titulo="Tipo de solicitud Nombre">' . $tipoDeSolicitud->estado->nombre . '</td>
@@ -79,7 +79,7 @@ class TiposDeSolicitudeController extends Controller
     public function store(Request $request)
     {
         $request->merge(['id_estado' => 1]);
-        
+
         request()->validate(TiposDeSolicitude::$rules);
 
         $tiposDeSolicitude = TiposDeSolicitude::create($request->all());

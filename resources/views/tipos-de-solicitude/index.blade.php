@@ -27,10 +27,11 @@
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center">
-                                <input class="form-control" id="search" placeholder="Ingrese el nombre del Tipo de Solicitud..."
+                                <input class="form-control" id="search"
+                                    placeholder="Ingrese el nombre del Tipo de Solicitud..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
-                                    <a href="{{ route('tipos-de-solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play iconDCR" ></i></a>
+                                <a href="{{ route('tipos-de-solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}
+                                    <i class="fa-solid fa-circle-play iconDCR"></i></a>
                             </div>
                         </div>
                         <div class="table-responsive"
@@ -51,21 +52,21 @@
                                             <td data-titulo="Nombre">{{ $tiposDeSolicitude->nombre }}</td>
                                             <td data-titulo="Estado">{{ $tiposDeSolicitude->estado->nombre }}</td>
                                             <td id="buttoncell">
-                                                <form action="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}" method="POST">
-                                                    <a class="btnDetalle" href="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}">
-                                                        <i
-                                                        class="fa-sharp fa-solid fa-eye fa-xs iconDCR"
-                                                        ></i>
+                                                <form
+                                                    action="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}"
+                                                    method="POST">
+                                                    <a class="btnDetalle"
+                                                        href="{{ route('tipos-de-solicitudes.show', $tiposDeSolicitude->id) }}">
+                                                        <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                         {{ __('Detalle') }}
-                                                        
+
                                                     </a>
 
                                                     <a class="btnEdit"
                                                         href="{{ route('tipos-de-solicitudes.edit', $tiposDeSolicitude->id) }}">
-                                                        <i
-                                                        class="fa-solid fa-pen-to-square fa-xs iconEdit"></i> 
+                                                        <i class="fa-solid fa-pen-to-square fa-xs iconEdit"></i>
                                                         {{ __('Editar') }}
-                                                        </a>
+                                                    </a>
 
                                                 </form>
                                             </td>
@@ -77,6 +78,9 @@
 
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="mt-2">
+                            {!! $tiposDeSolicitudes->links() !!}
                         </div>
                     </div>
                 </div>

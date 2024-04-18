@@ -24,11 +24,12 @@
 
                             </div>
                         </div>
-                    </div>                   
+                    </div>
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center search-Header">
-                                <input class="form-control inputSearch" id="search" placeholder="Ingrese el email del usuario..."
+                                <input class="form-control inputSearch" id="search"
+                                    placeholder="Ingrese el email del usuario..."
                                     style="width: 70%; border-radius: 50px; border-style: solid; border-width:5px; border-color: #DEE2E6">
                                 <a href="{{ route('register') }}" class="btnCrear">{{ __('CREAR') }}
                                     <i class="fa-solid fa-circle-play iconDCR"></i></a>
@@ -74,7 +75,7 @@
 
                                             <td id="buttoncell" class="">
                                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                    <a class="btnDetalle" href="{{ route('users.show', $user->id) }}"> 
+                                                    <a class="btnDetalle" href="{{ route('users.show', $user->id) }}">
                                                         <i class="fa-sharp fa-solid fa-eye fa-xs iconDCR"></i>
                                                         {{ __('Detalle') }}</a>
 
@@ -92,11 +93,14 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="mt-2">
+                            {!! $users->links() !!}
+                        </div>
                     </div>
 
                 </div>
             </div>
-            {!! $users->links() !!}
+
         </div>
     </section>
 

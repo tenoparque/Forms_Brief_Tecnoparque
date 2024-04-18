@@ -19,7 +19,7 @@ class CategoriasEventosEspecialeController extends Controller
      */
     public function index()
     {
-        $categoriasEventosEspeciales = CategoriasEventosEspeciale::with('estado')->paginate();
+        $categoriasEventosEspeciales = CategoriasEventosEspeciale::with('estado')->paginate(10);
 
         return view('categorias-eventos-especiale.index', compact('categoriasEventosEspeciales'))
             ->with('i', (request()->input('page', 1) - 1) * $categoriasEventosEspeciales->perPage());
@@ -27,13 +27,13 @@ class CategoriasEventosEspecialeController extends Controller
 
     public function search(Request $request)
     {
-        $output= ""; // The output variable is defined and initialized
-        $categoriasEventosEspeciales = CategoriasEventosEspeciale::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Estado de la Solicitud name
+        $output = ""; // The output variable is defined and initialized
+        $categoriasEventosEspeciales = CategoriasEventosEspeciale::where('nombre', 'LIKE', '%' . $request->search . '%')->get(); // We make the query through the Estado de la Solicitud name
 
         // We use the loop foreach to iterate the aggregation of records
-        foreach($categoriasEventosEspeciales as $categoriaEventosEspecial){
-            $output .= 
-            '<tr>
+        foreach ($categoriasEventosEspeciales as $categoriaEventosEspecial) {
+            $output .=
+                '<tr>
                 <td data-titulo="No">' . $categoriaEventosEspecial->id . '</td>
                 <td data-titulo="Nombre">' . $categoriaEventosEspecial->nombre . '</td>
                 <td data-titulo="Estado">' . $categoriaEventosEspecial->estado->nombre . '</td>
