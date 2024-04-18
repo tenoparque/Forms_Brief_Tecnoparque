@@ -46,14 +46,10 @@ h1 {
     /* Alinea los elementos a la derecha */
 }
 
-.page-link {
-    color: #007bff;
-    /* Cambia el color del texto */
-}
+
 
 .page-item.active .page-link {
 
-    background-color: #39a900;
     /* Cambia el color de fondo del elemento activo */
     border-color: #ffffff;
     /* Cambia el color del borde del elemento activo */
@@ -538,9 +534,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /*-------------- edit button layout properties------------ */
 
 .btnEdit {
-    margin: 4px;
     display: inline-block;
-    padding: 6px 20px;
+    margin: 4px;
+    margin: 5px 2px;
+    padding: 6px 22px;
     text-decoration: none;
     color: #00324d;
     border-radius: 35px;
@@ -548,6 +545,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 2px solid #82def0;
     cursor: pointer;
     background: #fff;
+ 
 }
 
 .iconEdit {
@@ -866,10 +864,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     content: none;
 }
 
-.progressbar li.active {
+/* .progressbar li.active {
     color: #642c78;
 
-}
+} */
 
 .progressbar li.active+li::after {
     background: linear-gradient(to right, #00324d, #39a900);
@@ -880,9 +878,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: #FFF;
     font-size: 24px;
     font-weight: bold;
-    background-color: #642c78;
+    /* background-color: #642c78; */
     border-color: #FFF;
-    box-shadow: 0 0 5px rgb(128, 0, 128);
+    /* box-shadow: 0 0 5px rgb(128, 0, 128); */
     border: #FFF;
 
 
@@ -920,11 +918,11 @@ input[type="text"] {
 
 
 /*DISEÑO AL SWEETALERT*/
-.swal2-confirm {
+/* .swal2-confirm {
     background-color: #39a900 !important;
     color: white !important;
 
-}
+} */
 
 .swal2-popup {
     font-size: 1.6rem !important;
@@ -1036,13 +1034,7 @@ input[type="text"] {
     color: yellow;
 } */
 
-.alert.alert-danger {
-    color: #642c78;
-}
 
-.invalid-feedback {
-    color: #642c78;
-}
 
 /*card home*/
 .icon {

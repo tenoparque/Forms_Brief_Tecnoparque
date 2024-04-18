@@ -97,7 +97,7 @@
                         <div class="sidebar-logo" style="text-align: center;">
                             <a href="{{ route('user.miperfil') }}">
                                 <img style="cursor: pointer;" src="../images/recursos/foto-perfil.png" alt=""
-                                    class="img-fluid" width="50%" height=50%>
+                                    class="img-fluid" width="70%" height=70%>
                             </a>
                             <p style="color: white; cursor: default">Mi perfil</p>
                         </div>
@@ -460,15 +460,22 @@
         background-color: {{ $colorCuarto }};      
          box-shadow: 0 0 5px rgb({{ $colorSecundario }}); 
     }
-    .progressbar li.active {
+    .page-link {
+    color: {{ $colorSecundario }} !important;
+   
+}
+   
+.progressbar li.active {
         color:{{ $colorCuarto}} ;
 
     }
+    .page-item.active .page-link {
 
-    
-
-        
-
+background-color:{{ $colorPrincipal }} ;
+/* Cambia el color de fondo del elemento activo */
+border-color: #ffffff;
+/* Cambia el color del borde del elemento activo */
+}
     /* LETRA */
 
 
@@ -490,6 +497,12 @@
         font-weight: 900;
 
     }
+    .invalid-feedback {
+    color: {{ $colorSecundario }} ;
+}
+
+
+
 
     .hrmenu {
         background: {{ $colorTerciario }};
