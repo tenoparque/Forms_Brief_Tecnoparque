@@ -610,12 +610,29 @@ class SolicitudeController extends Controller
     //         ->with('success', 'Solicitude deleted successfully');
     // }
 
-    public function solicitudefinalizadas(Request $request)
+    public function solicitudefinalizadas()
     {
-        // Realiza la consulta para contar las solicitudes finalizadas
-        $count = Solicitude::where('id_estado_de_la_solicitud', 4)->count();
+        $usuarioAutenticado = Auth::user();
+        $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
+        $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
 
-        // Devuelve la respuesta como un JSON
-        return response()->json($count);
+        // Lógica para obtener el conteo de solicitudes finalizadas
+        if ($rolSuperAdmin) {
+            $count = Solicitude::where('id_estado_de_la_solicitud', 4)->count();
+        } else {
+            if ($usuarioAutenticado->hasRole('Designer')) {
+                $count = Solicitude::whereHas('historial', function ($query) use ($usuarioAutenticado) {
+                    $query->where('id_users', $usuarioAutenticado->id)
+                        ->where('id_estados', 1);
+                })->where('id_estado_de_la_solicitud', 4)->count();
+            } else {
+                $nodoUsuario = $usuarioAutenticado->id_nodo;
+                $count = Solicitude::whereHas('user', function ($query) use ($nodoUsuario) {
+                    $query->where('id_nodo', $nodoUsuario);
+                })->where('id_estado_de_la_solicitud', 4)->count();
+            }
+        }
+
+        return response($count);
     }
 }
