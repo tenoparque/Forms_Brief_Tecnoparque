@@ -14,8 +14,6 @@
                     <div class="form-group col-md-12 my-2">
                         <h5 for="id_tipos_de_solicitudes" style="font-size: 18px; font-weight: bold;">Tipo de Solicitud
                         </h5>
-
-
                         <div style="position: relative">
                             <select name="id_tipos_de_solicitudes" id="id_tipos_de_solicitudes"
                                 class="form-control selectpicker" data-style="btn-primary"
@@ -370,16 +368,16 @@
                     let textBoxHtml = '';
                     if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
                         textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input  type="date" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder="" min="${getTodayDatePlus10Days()}"></div>`;
+                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input  type="date" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder="" required min="${getTodayDatePlus10Days()}"></div>`;
                     } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
                         textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="url" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;" placeholder=""></div>`;
+                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="url" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;" placeholder=""required></div>`;
                     } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
                         textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="number" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder=""></div>`;
+                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="number" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder=""required></div>`;
                     } else {
                         textBoxHtml =
-                            `<div class="solicitudesDivText"><label  class="LabelText" style="max-width: 100%; overflow: hidden; word-wrap: break-word;font-size: 16px; font-weight: bold;">${datoUnico.nombre}</label><input type="text" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" placeholder=""></div>`;
+                            `<div class="solicitudesDivText"><label  class="LabelText" style="max-width: 100%; overflow: hidden; word-wrap: break-word;font-size: 16px; font-weight: bold;">${datoUnico.nombre}</label><input type="text" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" placeholder=""required></div>`;
                     }
 
                     datosUnicosTextboxes += `<div class="${colClass}">${textBoxHtml}</div>`;

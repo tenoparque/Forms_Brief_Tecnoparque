@@ -68,7 +68,6 @@
                             iconoCheck.style.display = 'inline-block';
                         }
 
-
                         
                     </script>
                     <div style="margin-top: 80px" class="card-body">
@@ -197,7 +196,7 @@
                                         style="cursor: initial; outline: none; width: 95%;
                                height:20px; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;"><strong>{{ $dato->titulo }}:</strong></label>
                                     <input type="text" class="form-control" value="{{ $dato->dato }}" readonly
-                                        style="cursor: default;; outline: none; width: 100%; max-width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
+                                        style="cursor: default; outline: none; width: 100%; max-width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec ; margin-bottom: 10px; margin-top:8px; word-wrap: break-word; overflow-wrap: break-word;">
                                 </div>
                             @endforeach
                         </div>
