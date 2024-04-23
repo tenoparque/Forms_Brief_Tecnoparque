@@ -38,7 +38,7 @@ Route::get('/', function () {
     return redirect('/login'); // Changing the default route to redirect to the login view instead of welcome
 });
 
-Auth::routes(); 
+Auth::routes();
 
 // ruta que genera los archivos en pdf 
 Route::get('/solicitudes/pdf', [SolicitudeController::class, 'pdf'])->name('solicitudes.pdf');
@@ -63,7 +63,7 @@ Route::resource('estados', EstadoController::class)->middleware('permission:esta
 Route::get('/searchEstados', [EstadoController::class, 'search']); // Estados Searching Route
 
 // Politicas
-Route::resource('politicas',PoliticaController ::class)->middleware('permission:politicas.index'); // Politicas Route with permission
+Route::resource('politicas', PoliticaController::class)->middleware('permission:politicas.index'); // Politicas Route with permission
 Route::get('/searchPoliticas', [PoliticaController::class, 'search']); // politicas Searching Route
 
 // Departamentos
@@ -103,7 +103,7 @@ Route::get('/searchEventosEspeciales', [EventosEspecialesPorCategoriaController:
 // Personalizaciones
 Route::resource('personalizaciones', PersonalizacioneController::class)->middleware('permission:personalizaciones.index'); // personalizaciones Route with permission
 Route::get('/searchPersonalizaciones', [PersonalizacioneController::class, 'search']); // Tipos de Solicitudes Searching Route
-   
+
 // Datos Unicos por Solicitudes
 Route::resource('datos-unicos-por-solicitudes', DatosUnicosPorSolicitudeController::class)->middleware('permission:datosUnicosSolicitud.index'); // Datos Unicos por Solicitud Route with permission
 
@@ -115,7 +115,8 @@ Route::resource('historial-de-modificaciones', HistorialDeModificacionesPorSolic
 
 // servicios-por-tipos-de-solicitudes
 Route::resource('servicios-por-tipos-de-solicitudes', ServiciosPorTiposDeSolicitudeController::class)->parameters([
-    'servicios-por-tipos-de-solicitudes' => 'id'])->middleware('permission:serviciosPorTiposSolicitudes.index'); // Servicios por Tipo de Solicitud Route with permission
+    'servicios-por-tipos-de-solicitudes' => 'id'
+])->middleware('permission:serviciosPorTiposSolicitudes.index'); // Servicios por Tipo de Solicitud Route with permission
 Route::get('/searchServiciosPorTiposDeSolicitude', [ServiciosPorTiposDeSolicitudeController::class, 'search']); // Servicios por Tipo de Solicitud Searching Route
 
 Route::post('/solicitude/process-selected-id', [SolicitudeController::class, 'processSelectedId'])->name('solicitude.processSelectedId');
@@ -156,7 +157,4 @@ Route::put('/perfil/actualizar', [HomeController::class, 'update'])->name('home.
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 // Route::get('/solicitudes', [SolicitudeController::class, 'index'])->name('solicitudes.index');
 
-
-
-
-
+Route::get('/solicitudes-finalizadas', [SolicitudeController::class, 'solicitudefinalizadas'])->name('solicitudes.finalizadas');

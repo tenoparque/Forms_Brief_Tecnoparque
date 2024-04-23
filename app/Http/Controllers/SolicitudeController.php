@@ -167,7 +167,7 @@ class SolicitudeController extends Controller
 
         return response($output); // We return the response by sending as parameter the output variable
     }
-   
+
 
 
     public function pdf(Request $request)
@@ -609,4 +609,13 @@ class SolicitudeController extends Controller
     //     return redirect()->route('solicitudes.index')
     //         ->with('success', 'Solicitude deleted successfully');
     // }
+
+    public function solicitudefinalizadas(Request $request)
+    {
+        // Realiza la consulta para contar las solicitudes finalizadas
+        $count = Solicitude::where('id_estado_de_la_solicitud', 4)->count();
+
+        // Devuelve la respuesta como un JSON
+        return response()->json($count);
+    }
 }

@@ -37,7 +37,6 @@
                         <h4 style="margin-top: 50px;">Bienvenido a BRIEF, Gestión de Formularios Tecnoparque!</h4>
                     </div>
 
-
                     <!-- Tarjetas de estadísticas -->
 
                     <!-- Tarjetas de estadísticas -->
@@ -54,7 +53,7 @@
                                             <p class="titulosoli">Solicitudes</p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="card-footer p-3" style="background-color:#ececee">
                                         <span class="total-color">Total:</span>
                                         <span class="numero-color" id="cardUno"></span>
@@ -73,8 +72,8 @@
                                         <div class="text-end pt-1">
                                             <p class="titulosoli">Solicitudes en espera</p>
                                         </div>
-                                    </div>                                   
-                                    <div class="card-footer p-3"  style="background-color:#ececee">
+                                    </div>
+                                    <div class="card-footer p-3" style="background-color:#ececee">
                                         <span class="total-color">Total:</span>
                                         <span class="numero-color" id="cardDos"></span>
                                     </div>
@@ -92,7 +91,7 @@
                                         <div class="text-end pt-1">
                                             <p class="titulosoli">Solicitudes Finalizadas</p>
                                         </div>
-                                    </div>                                   
+                                    </div>
                                     <div class="card-footer p-3" style="background-color:#ececee">
                                         <span class="total-color">Total:</span>
                                         <span class="numero-color" id="cardTres"></span>
@@ -112,7 +111,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
 
                             <div class="row mt-4">
                                 <div class="col-md-12">
@@ -123,17 +122,18 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row mt-4">
                                 <div class="col-md-12">
                                     <div class="card border-0">
                                         <div class="card-body">
-                                            <canvas id="grafica_cantidades_asignadas" width="400" height="100"></canvas>
+                                            <canvas id="grafica_cantidades_asignadas" width="400"
+                                                height="100"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Fin del Gráfico con Chart.js -->
 
                             <!-- Tarjetas con graficos -->
@@ -181,6 +181,7 @@
                             // Actualizar el valor en el elemento HTML
                             document.getElementById('cardUno').textContent = "" + data.total;
                             document.getElementById('cardDos').textContent = "" + data.CardDos;
+
                             // Llamar a la función para actualizar las gráficas
                             actualizarGraficos(data, data.tiposDeSolicitudes);
                         })
@@ -445,5 +446,33 @@
                         grafica_cantidades_asignadas.resize();
                     }
                 });
+
+
+                // Función para realizar la solicitud XHR
+                function hacerSolicitudXHR() {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', '{{ route('solicitudes.finalizadas') }}', true);
+                    xhr.onload = function() {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            console.log('Solicitud exitosa');
+
+                            // Obtener el div donde deseas mostrar la respuesta
+                            var pruebaDiv = document.getElementById('cardTres');
+
+                            // Asignar el contenido de la respuesta al div
+                            pruebaDiv.textContent = xhr.responseText;
+                        } else {
+                            console.error('Error en la solicitud:', xhr.statusText);
+                        }
+                    };
+                    xhr.onerror = function() {
+                        console.error('Error en la solicitud');
+                    };
+                    xhr.send();
+                }
+
+                // Llamar a la función inicialmente y luego cada 5 segundos
+                hacerSolicitudXHR();
+                setInterval(hacerSolicitudXHR, 5000);
             </script>
         @endsection
