@@ -158,3 +158,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 // Route::get('/solicitudes', [SolicitudeController::class, 'index'])->name('solicitudes.index');
 
 Route::get('/solicitudes-finalizadas', [SolicitudeController::class, 'solicitudefinalizadas'])->name('solicitudes.finalizadas');
+// Route::get('/solicitudes-espera', [SolicitudeController::class, 'solicitudEspera'])->name('solicitudes.espera');

@@ -61,25 +61,27 @@
 
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
-                                <div class="card  border-light shadow">
-                                    <div class="card-header p-3 pt-2"style="border:transparent;">
-                                        <div
-                                            class="icon icon-lg icon-shape bg-gradient-dark shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                                            <i class="fa-solid fa-envelope-open-text"></i>
+                            @if (!auth()->user()->hasRole('designer'))
+                                <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
+                                    <div class="card  border-light shadow">
+                                        <div class="card-header p-3 pt-2"style="border:transparent;">
+                                            <div
+                                                class="icon icon-lg icon-shape bg-gradient-dark shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fa-solid fa-envelope-open-text"></i>
 
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <p class="titulosoli">Solicitudes en espera</p>
+                                            </div>
                                         </div>
-                                        <div class="text-end pt-1">
-                                            <p class="titulosoli">Solicitudes en espera</p>
+                                        <div class="card-footer p-3" style="background-color:#ececee">
+                                            <span class="total-color">Total:</span>
+                                            <span class="numero-color" id="cardDos"></span>
                                         </div>
-                                    </div>
-                                    <div class="card-footer p-3" style="background-color:#ececee">
-                                        <span class="total-color">Total:</span>
-                                        <span class="numero-color" id="cardDos"></span>
-                                    </div>
 
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
 
                             <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
                                 <div class="card  border-light shadow">

@@ -618,18 +618,18 @@ class SolicitudeController extends Controller
 
         // Lógica para obtener el conteo de solicitudes finalizadas
         if ($rolSuperAdmin) {
-            $count = Solicitude::where('id_estado_de_la_solicitud', 4)->count();
+            $count = Solicitude::where('id_estado_de_la_solicitud', 5)->count();
         } else {
             if ($usuarioAutenticado->hasRole('Designer')) {
                 $count = Solicitude::whereHas('historial', function ($query) use ($usuarioAutenticado) {
                     $query->where('id_users', $usuarioAutenticado->id)
                         ->where('id_estados', 1);
-                })->where('id_estado_de_la_solicitud', 4)->count();
+                })->where('id_estado_de_la_solicitud', 5)->count();
             } else {
                 $nodoUsuario = $usuarioAutenticado->id_nodo;
                 $count = Solicitude::whereHas('user', function ($query) use ($nodoUsuario) {
                     $query->where('id_nodo', $nodoUsuario);
-                })->where('id_estado_de_la_solicitud', 4)->count();
+                })->where('id_estado_de_la_solicitud', 5)->count();
             }
         }
 
