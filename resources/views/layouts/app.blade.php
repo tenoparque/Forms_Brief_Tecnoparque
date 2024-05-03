@@ -1,11 +1,10 @@
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -61,11 +60,10 @@
 
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js','resources/js/menuburger.js','resources/js/validateUserRegister.js'])
-   <!--
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
     @vite('resources/js/menuburger.js')
     @vite('resources/js/validateUserRegister.js')
--->
+
 
 
     {{-- bootstrap --}}
@@ -101,9 +99,8 @@
 
                         <div class="sidebar-logo" style="text-align: center;">
                             <a href="{{ route('user.miperfil') }}">
-                                <img style="cursor: pointer;"
-                                    src="../images/recursos/foto-perfil.png" alt="" class="img-fluid"
-                                    width="50%" height=50%>
+                                <img style="cursor: pointer;" src="../images/recursos/foto-perfil.png" alt=""
+                                    class="img-fluid" width="70%" height=70%>
                             </a>
                             <p style="color: white; cursor: default">Mi perfil</p>
                         </div>
@@ -449,6 +446,39 @@
         position: relative;
     }
 
+    .sidebar-link.active {
+        color: {{ $colorTerciario}};       
+    }
+
+    .swal2-confirm {
+    background-color:  {{ $colorPrincipal }} !important;
+
+}
+    
+        .progressbar li.active+li::after {
+        background: linear-gradient(to right, {{ $colorPrincipal }} ,{{ $colorSecundario }});
+}
+.progressbar li.active::before {
+        
+        background-color: {{ $colorCuarto }};      
+         box-shadow: 0 0 5px rgb({{ $colorSecundario }}); 
+    }
+    .page-link {
+    color: {{ $colorSecundario }} !important;
+   
+}
+   
+.progressbar li.active {
+        color:{{ $colorCuarto}} ;
+
+    }
+    .page-item.active .page-link {
+
+background-color:{{ $colorPrincipal }} ;
+/* Cambia el color de fondo del elemento activo */
+border-color: #ffffff;
+/* Cambia el color del borde del elemento activo */
+}
     /* LETRA */
 
 
@@ -470,6 +500,12 @@
         font-weight: 900;
 
     }
+    .invalid-feedback {
+    color: {{ $colorSecundario }} ;
+}
+
+
+
 
     .hrmenu {
         background: {{ $colorTerciario }};
@@ -513,7 +549,7 @@
         transform: translateY(-50%);
         justify-content: center;
         align-items: center;
-        pointer-events: none; 
+        pointer-events: none;
 
 
     }
