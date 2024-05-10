@@ -805,6 +805,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 }
 
+.image-wraper {
+    height: 250px;
+    width: 500px;
+    margin: 0;
+}
+
+.img-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .PersonalizacionColor {
     display: grid;
     text-align: center;
@@ -815,11 +827,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-self: center;
 }
 
-#logoImage {
-    max-width: 44%;
-    max-height: 44%;
-    margin: 10px;
-}
+
 
 /*------------diseño progressbar------------*/
 
