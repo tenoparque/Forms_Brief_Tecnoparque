@@ -63,7 +63,7 @@
             @if (Route::currentRouteName() === 'politicas.create')
                 <div id="imagePreview">
                     <div class="image-wraper">
-                        <img id="qrImage" class="img-thumbnail" alt="Preview">
+                        <img id="qrImage" class="img-thumbnailQr" alt="Preview">
                     </div>
                 </div>
             @endif

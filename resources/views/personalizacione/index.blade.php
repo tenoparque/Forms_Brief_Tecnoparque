@@ -46,7 +46,7 @@
                                     @foreach ($personalizaciones as $personalizacione)
                                         <tr >
                                             {{-- <td>{{ ++$i }}</td> --}}
-                                            <td data-titulo="Logo">
+                                            <td data-titulo="Logo" class="tdlogoImgPerson">
                                                <div class="logoPersonalizacion" style="">
                                                 <img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}"
                                                 alt="LOGO" class="ImgCeldaPesonalizacion" >

@@ -444,38 +444,42 @@
     }
 
     .sidebar-link.active {
-        color: {{ $colorTerciario}};       
+        color: {{ $colorTerciario }};
     }
 
     .swal2-confirm {
-    background-color:  {{ $colorPrincipal }} !important;
+        background-color: {{ $colorPrincipal }} !important;
 
-}
-    
-        .progressbar li.active+li::after {
-        background: linear-gradient(to right, {{ $colorPrincipal }} ,{{ $colorSecundario }});
-}
-.progressbar li.active::before {
-        
-        background-color: {{ $colorCuarto }};      
-         box-shadow: 0 0 5px rgb({{ $colorSecundario }}); 
     }
+
+    .progressbar li.active+li::after {
+        background: linear-gradient(to right, {{ $colorPrincipal }}, {{ $colorSecundario }});
+    }
+
+    .progressbar li.active::before {
+
+        background-color: {{ $colorCuarto }};
+        box-shadow: 0 0 5px rgb({{ $colorSecundario }});
+    }
+
     .page-link {
-    color: {{ $colorSecundario }} !important;
-   
-}
-   
-.progressbar li.active {
-        color:{{ $colorCuarto}} ;
+        color: {{ $colorSecundario }} !important;
 
     }
+
+    .progressbar li.active {
+        color: {{ $colorCuarto }};
+
+    }
+
     .page-item.active .page-link {
 
-background-color:{{ $colorPrincipal }} ;
-/* Cambia el color de fondo del elemento activo */
-border-color: #ffffff;
-/* Cambia el color del borde del elemento activo */
-}
+        background-color: {{ $colorPrincipal }};
+        /* Cambia el color de fondo del elemento activo */
+        border-color: #ffffff;
+        /* Cambia el color del borde del elemento activo */
+    }
+
     /* LETRA */
 
 
@@ -497,9 +501,10 @@ border-color: #ffffff;
         font-weight: 900;
 
     }
+
     .invalid-feedback {
-    color: {{ $colorSecundario }} ;
-}
+        color: {{ $colorSecundario }};
+    }
 
 
 
