@@ -19,19 +19,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-       $this->call(PermissionSeeder::class); // Calling the PermissionSeeder
-        //  $this->call(AssigningPermissionsToRolesSeeder::class);
 
-    //     $this->call(EstadosSeeder::class);
-    //     $this->call(EstadosDeLasSolicitudesSeeder::class);
-    //     $this->call(TiposDeDatosSeeder::class);
-    //     $this->call(DepartamentosSeeder::class);
-    //     $this->call(MunicipioSeeder::class);
-    //     $this->call(NodoSeeder::class);
-    //     $this->call(RolesSeeder::class);
-    //     $this->call(UsersSeeder::class);
-    //     $this->call(PersonalizacionesSeeder::class);
-    //    $this->call(PermissionSeeder::class); // Calling the PermissionSeeder
+       $this->call(PermissionSeeder::class); // Calling the PermissionSeeder
          $this->call(AssigningPermissionsToRolesSeeder::class);
     }
 }

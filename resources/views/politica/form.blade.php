@@ -63,19 +63,19 @@
             @if (Route::currentRouteName() === 'politicas.create')
                 <div id="imagePreview">
                     <div class="image-wraper">
-                        <img id="qrImage" class="img-thumbnailQr" alt="Preview">
+                        <img id="qrImage" class="img-thumbnail" alt="Preview">
                     </div>
                 </div>
             @endif
             @if (Route::currentRouteName() === 'politicas.edit')
                 <div class="form-group">
                     <label for="qr"></label>
-                    <div class="contenedor-imgQrPoli">
+                    <div class="image-wraper">
 
                         <!-- Agrega la etiqueta img con el ID 'qrImage' -->
-                        <img id="qrImage" class="img-thumbnailQr"
+                        <img id="qrImage"
                             src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}"
-                            alt="QR" id="qrImage" class="imgQrPoli">
+                            alt="QR" id="qrImage">
                     </div>
                 </div>
             @endif
