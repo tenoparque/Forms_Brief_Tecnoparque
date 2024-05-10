@@ -73,7 +73,7 @@
                     <div class="image-wraper">
 
                         <!-- Agrega la etiqueta img con el ID 'qrImage' -->
-                        <img id="qrImage"
+                        <img id="qrImage" class="img-thumbnailQr"
                             src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}"
                             alt="QR" id="qrImage">
                     </div>

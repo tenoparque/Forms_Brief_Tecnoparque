@@ -399,8 +399,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* --------------------------Politicas ------------------ */
 .image-wraper {
+    height: 250px;
     width: 500px;
-    height: 310px;
+    margin: 0;
 
 
 }
@@ -408,7 +409,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .img-thumbnailQr {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 
@@ -785,11 +786,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* image */
-#qrImage {
-    max-width: 44%;
-    max-height: 44%;
-    margin: 10px;
-}
+
 
 #imageUrl {
     display: inline-block;
@@ -842,11 +839,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-self: center;
 }
 
-#logoImage {
-    max-width: 44%;
-    max-height: 44%;
-    margin: 10px;
-}
+
 
 /*------------diseño progressbar------------*/
 
