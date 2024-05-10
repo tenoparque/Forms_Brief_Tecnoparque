@@ -25,9 +25,7 @@
                         <form method="POST" class="row" action="{{ route('ciudades.store') }}" role="form"
                             enctype="multipart/form-data">
                             @csrf
-
                             @include('ciudade.form')
-
                         </form>
                     </div>
                 </div>
