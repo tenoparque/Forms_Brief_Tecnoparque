@@ -63,7 +63,7 @@
             @if (Route::currentRouteName() === 'politicas.create')
                 <div id="imagePreview">
                     <div class="image-wraper">
-                        <img id="qrImage" class="img-thumbnail" alt="Preview">
+                        <img id="qrImage" class="img-thumbnailQr" alt="Preview">
                     </div>
                 </div>
             @endif
@@ -73,7 +73,7 @@
                     <div class="contenedor-imgQrPoli">
 
                         <!-- Agrega la etiqueta img con el ID 'qrImage' -->
-                        <img id="qrImage"
+                        <img id="qrImage" class="img-thumbnailQr"
                             src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}"
                             alt="QR" id="qrImage" class="imgQrPoli">
                     </div>

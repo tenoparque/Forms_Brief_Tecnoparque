@@ -41,7 +41,7 @@
                                 <tbody class="alldata">
                                     <tr>
 
-                                        <td>
+                                        <td class="tdlogoImgPerson">
                                             <div class="logoPersonalizacion">
                                                 <img src="data:image/png;base64,{{ base64_encode($personalizacione->logo) }}"
                                                     alt="LOGO" class="ImgCeldaPesonalizacion">
