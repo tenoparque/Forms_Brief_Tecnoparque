@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('elementos_por_solicitudes', function (Blueprint $table) {
             $table->id();
-            $table ->unsignedBigInteger('id_solicitudes');
-            $table ->unsignedBigInteger('id_subservicios');
-            $table -> foreign('id_solicitudes')->references('id')-> on ('solicitudes');
-            $table -> foreign('id_subservicios')->references('id')-> on ('servicios_por_tipos_de_solicitudes');
+            $table->unsignedBigInteger('id_solicitudes');
+            $table->unsignedBigInteger('id_subservicios');
+            $table->foreign('id_solicitudes')->references('id')-> on ('solicitudes');
+            $table->foreign('id_subservicios')->references('id')-> on ('servicios_por_tipos_de_solicitudes');
             $table->timestamps();
         });
     }
