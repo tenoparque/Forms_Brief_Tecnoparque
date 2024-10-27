@@ -209,9 +209,9 @@ class SolicitudeController extends Controller
     {
         $solicitude = new Solicitude();
         $estados = EstadosDeLasSolictude::all();
-        $solicitudes = TiposDeSolicitude::all();
+        $solicitudes = TiposDeSolicitude::where('id_estado', 1)->get();
         $especiales = EventosEspecialesPorCategoria::all();
-
+        //dd($solicitudes);
         $categoriaEventos = CategoriasEventosEspeciale::all();
         // Recuperar el registro de la Politica con id_estado = 1
         $politicas = Politica::where('id_estado', 1)->first();

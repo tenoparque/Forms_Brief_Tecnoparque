@@ -161,15 +161,33 @@ class UserController extends Controller
      * @param  User $user
      * @return \Illuminate\Http\Response
      */
-     public function update(Request $request, User $user)
+    public function update(Request $request, User $user)
     {
+        // Validar la solicitud
         request()->validate(User::$rules);
 
+        // Verificar si el estado del usuario cambiará a inactivo
+        $estadoAnterior = $user->id_estado;  // Estado antes de actualizar
+        $estadoNuevo = $request->input('id_estado');  // Estado que se está enviando
+
+        // Actualizar los datos del usuario
         $user->update($request->all());
 
-    return redirect()->route('users.index')
-            ->with('success', 'Usuario Actualizado con Éxito');
-     }
+        // Si el estado del usuario cambia a inactivo (id_estado = 2)
+        if ($estadoNuevo == 2 && $estadoAnterior != 2) {
+            // Cerrar sesión si el usuario está autenticado
+            if (Auth::id() == $user->id) {
+                Auth::logout();
+                // Redireccionar al login después de cerrar la sesión
+                return redirect()->route('login')->with('success', 'Usuario desactivado y sesión cerrada.');
+            }
+        }
+
+        // Redirigir a la lista de usuarios si no es el usuario actual
+        return redirect()->route('users.index')
+            ->with('success', 'Usuario actualizado con éxito.');
+    }
+
 
 
 

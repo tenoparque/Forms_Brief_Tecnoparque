@@ -68,7 +68,7 @@ class ServiciosPorTiposDeSolicitudeController extends Controller
     {
         $serviciosPorTiposDeSolicitude = new ServiciosPorTiposDeSolicitude();
         $estados = Estado::all();
-        $solicitudes= TiposDeSolicitude::all();
+        $solicitudes= TiposDeSolicitude::where('id_estado',1)->get();
         return view('servicios-por-tipos-de-solicitude.create', compact('serviciosPorTiposDeSolicitude', 'solicitudes'));
     }
 

@@ -37,7 +37,6 @@
                         <h4 style="margin-top: 50px;">Bienvenido a BRIEF, Gestión de Formularios Tecnoparque!</h4>
                     </div>
 
-                    <!-- Tarjetas de estadísticas -->
 
                     <!-- Tarjetas de estadísticas -->
                     <div class="container-fluid py-5">
@@ -200,173 +199,180 @@
                 var grafico_tipos_solicitudes = null;
                 var grafica_mes_a_mes = null;
                 var grafica_cantidades_asignadas = null;
+
                 // Función para actualizar la gráfica tipo dona con los nuevos datos
                 function actualizarGraficos(datos, tiposDeSolicitudes) {
 
+                    // Valores predeterminados en caso de que los datos estén vacíos
+                    var etiquetasDefault = ['Sin datos'];
+                    var valoresDefault = [0];
+
+                    // Gráfico de solicitudes asignadas
                     if (datos.cantidades_asignadas && datos.cantidades_asignadas.length > 0) {
-                        var barraCtx = document.getElementById('grafica_cantidades_asignadas').getContext('2d');
-                        // Crear la gráfica de barras
-                        if (!grafica_cantidades_asignadas) {
-                            grafica_cantidades_asignadas = new Chart(barraCtx, {
-                                type: 'bar', // Tipo de gráfica
-                                data: {
-                                    labels: datos.etiquetas, // Etiquetas para el eje X
-                                    datasets: [{
-                                        label: 'Solicitudes Asignadas', // Etiqueta del conjunto de datos
-                                        data: datos.cantidades_asignadas, // Datos para el eje Y
-                                        backgroundColor: 'rgba(57, 192, 192, 0.2)', // Color de fondo de las barras
-                                        borderColor: 'rgba(75, 192, 192, 1)', // Color del borde de las barras
-                                        borderWidth: 1
-                                    }]
-                                },
-                                options: {
-                                    scales: {
-                                        yAxes: [{
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }]
-                                    }
-                                }
-                            });
-                        } else {
-                            // Si ya existe una instancia de la gráfica, actualizar los datos
-                            grafica_cantidades_asignadas.data.labels = datos.etiquetas;
-                            grafica_cantidades_asignadas.data.datasets[0].data = datos.cantidades_asignadas;
-                            grafica_cantidades_asignadas.update(); // Actualizar la gráfica
-                        }
+                        var etiquetasAsignadas = datos.etiquetas || etiquetasDefault;
+                        var cantidadesAsignadas = datos.cantidades_asignadas || valoresDefault;
+                    } else {
+                        var etiquetasAsignadas = etiquetasDefault;
+                        var cantidadesAsignadas = valoresDefault;
                     }
-                    if (datos.datosPorNodo && datos.datosPorNodo.length > 0) {
-                        var barraCtx = document.getElementById('garfica_nodos_solicitudes').getContext('2d');
-                        // Crear la gráfica de barras
-                        if (!garfica_nodos_solicitudes) {
-                            garfica_nodos_solicitudes = new Chart(barraCtx, {
-                                type: 'bar', // Tipo de gráfica
-                                data: {
-                                    labels: datos.datosPorNodo.map(function(item) {
-                                        return item.nombre;
-                                    }), // Etiquetas para el eje X
-                                    datasets: [{
-                                            label: 'Solicitudes por Nodo', // Etiqueta del conjunto de datos de solicitudes
-                                            data: datos.datosPorNodo.map(function(item) {
-                                                return item.total_solicitudes;
-                                            }), // Datos para el eje Y de solicitudes
-                                            backgroundColor: 'rgba(57, 169, 0, 0.5)', // Color de fondo para las solicitudes
-                                            borderColor: 'rgba(57, 169, 0, 0.5)', // Color del borde para las solicitudes
-                                            borderWidth: 1
-                                        },
-                                        {
-                                            label: 'Modificaciones por Nodo', // Etiqueta del conjunto de datos de modificaciones
-                                            data: datos.datosPorNodo.map(function(item) {
-                                                return item.total_modificaciones;
-                                            }), // Datos para el eje Y de modificaciones
-                                            backgroundColor: 'rgba(100, 44, 120, 0.5)', // Color de fondo para las modificaciones
-                                            borderColor: 'rgba(100, 44, 120, 0.5)', // Color del borde para las modificaciones
-                                            borderWidth: 1
+
+                    var barraCtx = document.getElementById('grafica_cantidades_asignadas').getContext('2d');
+                    if (!grafica_cantidades_asignadas) {
+                        grafica_cantidades_asignadas = new Chart(barraCtx, {
+                            type: 'bar',
+                            data: {
+                                labels: etiquetasAsignadas,
+                                datasets: [{
+                                    label: 'Solicitudes Asignadas',
+                                    data: cantidadesAsignadas,
+                                    backgroundColor: 'rgba(57, 192, 192, 0.2)',
+                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
                                         }
-                                    ]
-                                },
-                                options: {
-                                    scales: {
-                                        yAxes: [{
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }]
-                                    }
+                                    }]
                                 }
-                            });
-                        } else {
-                            // Si ya existe una instancia de la gráfica, actualizar los datos
-                            garfica_nodos_solicitudes.data.labels = datos.datosPorNodo.map(function(item) {
-                                return item.nombre;
-                            });
-                            garfica_nodos_solicitudes.data.datasets[0].data = datos.datosPorNodo.map(function(item) {
-                                return item.total_solicitudes;
-                            });
-                            garfica_nodos_solicitudes.data.datasets[1].data = datos.datosPorNodo.map(function(item) {
-                                return item.total_modificaciones;
-                            });
-                            garfica_nodos_solicitudes.update(); // Actualizar la gráfica
-                        }
+                            }
+                        });
+                    } else {
+                        grafica_cantidades_asignadas.data.labels = etiquetasAsignadas;
+                        grafica_cantidades_asignadas.data.datasets[0].data = cantidadesAsignadas;
+                        grafica_cantidades_asignadas.update();
+                    }
+
+                    // Gráfico de nodos y solicitudes por nodo
+                    if (datos.datosPorNodo && datos.datosPorNodo.length > 0) {
+                        var etiquetasNodos = datos.datosPorNodo.map(function(item) {
+                            return item.nombre;
+                        });
+                        var totalSolicitudes = datos.datosPorNodo.map(function(item) {
+                            return item.total_solicitudes;
+                        });
+                        var totalModificaciones = datos.datosPorNodo.map(function(item) {
+                            return item.total_modificaciones;
+                        });
+                    } else {
+                        var etiquetasNodos = etiquetasDefault;
+                        var totalSolicitudes = valoresDefault;
+                        var totalModificaciones = valoresDefault;
+                    }
+
+                    var barraCtx = document.getElementById('garfica_nodos_solicitudes').getContext('2d');
+                    if (!garfica_nodos_solicitudes) {
+                        garfica_nodos_solicitudes = new Chart(barraCtx, {
+                            type: 'bar',
+                            data: {
+                                labels: etiquetasNodos,
+                                datasets: [{
+                                    label: 'Solicitudes por Nodo',
+                                    data: totalSolicitudes,
+                                    backgroundColor: 'rgba(57, 169, 0, 0.5)',
+                                    borderColor: 'rgba(57, 169, 0, 0.5)',
+                                    borderWidth: 1
+                                }, {
+                                    label: 'Modificaciones por Nodo',
+                                    data: totalModificaciones,
+                                    backgroundColor: 'rgba(100, 44, 120, 0.5)',
+                                    borderColor: 'rgba(100, 44, 120, 0.5)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    } else {
+                        garfica_nodos_solicitudes.data.labels = etiquetasNodos;
+                        garfica_nodos_solicitudes.data.datasets[0].data = totalSolicitudes;
+                        garfica_nodos_solicitudes.data.datasets[1].data = totalModificaciones;
+                        garfica_nodos_solicitudes.update();
                     }
 
 
-
+                    // Gráfico de tipo dona para solicitudes y modificaciones
                     // Obtener el contexto del lienzo de la gráfica tipo dona
                     var donaCtx = document.getElementById('grafico_solicitudes_modificaciones').getContext('2d');
+                    var solicitudes = datos.solicitudes !== undefined ? datos.solicitudes : 0;
+                    var modificaciones = datos.modificaciones !== undefined ? datos.modificaciones : 0;
 
                     // Crear la gráfica tipo dona
                     if (!grafico_solicitudes_modificaciones) {
                         grafico_solicitudes_modificaciones = new Chart(donaCtx, {
-                            type: 'doughnut', // Tipo de gráfica
+                            type: 'doughnut',
                             data: {
-                                labels: ['Solicitudes', 'Modificaciones'], // Etiquetas
+                                labels: ['Solicitudes', 'Modificaciones'],
                                 datasets: [{
-                                    label: 'Total', // Etiqueta del conjunto de datos
-                                    data: [datos.solicitudes, datos.modificaciones], // Datos
+                                    label: 'Total',
+                                    data: [solicitudes, modificaciones],
                                     backgroundColor: [
-                                        'rgba(57, 169, 0, 0.5)', // Color para solicitudes
-                                        'rgba(100, 44, 120, 0.5)' // Color para modificaciones
+                                        'rgba(57, 169, 0, 0.5)',
+                                        'rgba(100, 44, 120, 0.5)'
                                     ],
                                     borderColor: [
-                                        'rgba(57, 169, 0, 0.5)', // Color del borde para solicitudes
-                                        'rgba(100, 44, 120, 0.5)' // Color del borde para modificaciones
+                                        'rgba(57, 169, 0, 0.5)',
+                                        'rgba(100, 44, 120, 0.5)'
                                     ],
                                     borderWidth: 1
                                 }]
                             },
-                            options: {
-                                // Opciones de la gráfica (si es necesario)
-                            }
+                            options: {}
                         });
                     } else {
-                        // Si ya hay una instancia existente, actualiza los datos
-                        grafico_solicitudes_modificaciones.data.datasets[0].data = [datos.solicitudes, datos.modificaciones];
-                        grafico_solicitudes_modificaciones.update(); // Actualizar la gráfica
+                        grafico_solicitudes_modificaciones.data.datasets[0].data = [solicitudes, modificaciones];
+                        grafico_solicitudes_modificaciones.update();
                     }
 
-
-                    // Crear la gráfica de tipo dona para otro conjunto de datos (reemplaza esto con tus datos)
+                    // Gráfico de tipo dona para tipos de solicitudes
                     var otroDonaCtx = document.getElementById('grafico_tipos_solicitudes').getContext('2d');
+                    if (tiposDeSolicitudes && tiposDeSolicitudes.length > 0) {
+                        var etiquetasTipos = tiposDeSolicitudes.map(function(tipo) {
+                            return tipo.nombre;
+                        });
+                        var datosTipos = tiposDeSolicitudes.map(function(tipo) {
+                            return tipo.total;
+                        });
+                    } else {
+                        var etiquetasTipos = etiquetasDefault;
+                        var datosTipos = valoresDefault;
+                    }
+
                     if (!grafico_tipos_solicitudes) {
                         grafico_tipos_solicitudes = new Chart(otroDonaCtx, {
                             type: 'doughnut',
                             data: {
-                                labels: tiposDeSolicitudes.map(function(tipo) {
-                                    return tipo.nombre;
-                                }),
+                                labels: etiquetasTipos,
                                 datasets: [{
                                     label: 'Cantidad de Solicitudes',
-                                    data: tiposDeSolicitudes.map(function(tipo) {
-                                        return tipo.total;
-                                    }),
+                                    data: datosTipos,
                                     backgroundColor: [
-                                        'rgba(57, 169, 0, 0.5)', // Color para Tipo 1
-                                        'rgba(54, 162, 235, 0.5)', // Color para Tipo 2
-                                        // Agrega más colores según sea necesario
+                                        'rgba(57, 169, 0, 0.5)',
+                                        'rgba(54, 162, 235, 0.5)',
                                     ],
                                     borderColor: [
-                                        'rgba(57, 169, 0, 0.5)', // Color del borde para Tipo 1
-                                        'rgba(54, 162, 235, 1)', // Color del borde para Tipo 2
-                                        // Agrega más colores según sea necesario
+                                        'rgba(57, 169, 0, 0.5)',
+                                        'rgba(54, 162, 235, 1)',
                                     ],
                                     borderWidth: 1
                                 }]
                             },
-                            options: {
-                                // Opciones de la gráfica (si es necesario)
-                            }
+                            options: {}
                         });
                     } else {
-                        // Si ya hay una instancia existente, actualiza los datos
-                        grafico_tipos_solicitudes.data.labels = tiposDeSolicitudes.map(function(tipo) {
-                            return tipo.nombre;
-                        });
-                        grafico_tipos_solicitudes.data.datasets[0].data = tiposDeSolicitudes.map(function(tipo) {
-                            return tipo.total;
-                        });
-                        grafico_tipos_solicitudes.update(); // Actualizar la gráfica
+                        grafico_tipos_solicitudes.data.labels = etiquetasTipos;
+                        grafico_tipos_solicitudes.data.datasets[0].data = datosTipos;
+                        grafico_tipos_solicitudes.update();
                     }
 
 

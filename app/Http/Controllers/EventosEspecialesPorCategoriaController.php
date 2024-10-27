@@ -69,7 +69,7 @@ class EventosEspecialesPorCategoriaController extends Controller
     {
         $eventosEspecialesPorCategoria = new EventosEspecialesPorCategoria();
         $estados = Estado::all();
-        $categorias = categoriasEventosEspeciale::all();
+        $categorias = categoriasEventosEspeciale::where('id_estado', 1)->get();
         return view('eventos-especiales-por-categoria.create', compact('eventosEspecialesPorCategoria', 'categorias'));
     }
 
