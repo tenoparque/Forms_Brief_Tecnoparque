@@ -57,7 +57,7 @@
 
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/img'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @vite('resources/js/menuburger.js')
     @vite('resources/js/validateUserRegister.js')
 
