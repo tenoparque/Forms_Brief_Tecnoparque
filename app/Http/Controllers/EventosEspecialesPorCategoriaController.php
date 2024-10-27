@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriasEventosEspeciale;
 use App\Models\EventosEspecialesPorCategoria;
 use App\Models\Estado;
-use App\Models\categoriasEventosEspeciale;
+
 use Illuminate\Http\Request;
 
 /**
@@ -69,7 +70,7 @@ class EventosEspecialesPorCategoriaController extends Controller
     {
         $eventosEspecialesPorCategoria = new EventosEspecialesPorCategoria();
         $estados = Estado::all();
-        $categorias = categoriasEventosEspeciale::where('id_estado', 1)->get();
+        $categorias = CategoriasEventosEspeciale::where('id_estado', 1)->get();
         return view('eventos-especiales-por-categoria.create', compact('eventosEspecialesPorCategoria', 'categorias'));
     }
 
