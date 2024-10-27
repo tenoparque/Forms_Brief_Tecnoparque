@@ -123,7 +123,7 @@ class UserController extends Controller
         $user = User::create($request->all());
 
         return redirect()->route('users.index')
-            ->with('success', 'Usuario Creado Exitosamente');
+            ->with('success', 'Usuario Creado Exitosamente, Se han enviado las credenciales de acceso al correo registrado');
     }
 
     /**
