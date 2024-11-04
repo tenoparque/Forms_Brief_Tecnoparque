@@ -22,7 +22,7 @@
 
     <p style="font-size: 16px; text-align: justify; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Con las anteriores credenciales podrás iniciar sesión mediante el siguiente botón:</p>
 
-    <a href="https://divulgacion3.tecnoparquebucaramanga.com//login">
+    <a href="https://divulgacion3.tecnoparquebucaramanga.com/login">
         <button style="font-size: 14px; text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; cursor: pointer; padding: 10px 20px; background-color: {{ $colorPrincipal }}; color: white; border: none; border-radius: 8px;" class="logInEma">Iniciar sesión</button><br>
     </a>
     

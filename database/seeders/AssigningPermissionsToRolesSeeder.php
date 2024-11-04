@@ -51,6 +51,7 @@ class AssigningPermissionsToRolesSeeder extends Seeder
             ],
 
             'Dinamizador' => [
+                'dashboard.index', 'dashboard.solicitudes',
                 'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
             ],
 
