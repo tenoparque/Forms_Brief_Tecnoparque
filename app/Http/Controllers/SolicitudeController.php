@@ -290,7 +290,7 @@ class SolicitudeController extends Controller
         $estadosDefecto = EstadosDeLasSolictude::where('orden_mostrado', 1)->value('id');
 
         // Si el usuario es Super Admin, selecciona el nodo que quiere asignar
-        if ($user->hasRole('Super Admin')) {
+        if ($user->hasAnyRole(['Super Admin', 'Activador Nacional'])) {
             $nodoId = $request->input('id_nodo'); // Nodo seleccionado por el Super Admin
         
             // Encuentra un usuario que pertenezca al nodo y tenga un rol específico

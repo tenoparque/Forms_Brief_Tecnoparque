@@ -25,6 +25,20 @@
                             </div>
                         </div>
                     </div>
+                    @if ($message = Session::get('success'))
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Operación exitosa',
+                                    text: '{{ $message }}',
+                                    timer: 5000, // 5 segundos de duración
+                                    showConfirmButton: true,
+                                });
+                            });
+                        </script>
+                    @endif
+
 
                     <div class="card-body">
                         <div class="row mb-3">
@@ -64,7 +78,7 @@
                                             <td data-titulo="Nodo">
                                                 {{ $user->nodo ? $user->nodo->nombre : 'Sin nodo asignado' }}
                                             </td>
-                                            
+
 
                                             <td data-titulo="Estado">{{ $user->estado->nombre }}</td>
                                             <td data-titulo="Rol">
@@ -106,6 +120,8 @@
             </div>
 
         </div>
+
+
     </section>
 
     <!-- CSS Style -->

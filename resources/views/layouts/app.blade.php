@@ -83,6 +83,7 @@
     </style> --}}
 
     @include('sweetalert::alert')
+    
 
     <div class="wrapper">
         {{-- Este bloque de código se ejecutará si la ruta actual NO coincide con ninguna de las rutas de login, password.request o password.reset --}}

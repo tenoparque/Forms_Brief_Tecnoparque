@@ -61,6 +61,7 @@ class RegisterController extends Controller
         // Envía las credenciales por correo electrónico al usuario
         Mail::to($user->email)->send(new EnviarCorreoCredenciales($user, $password));
 
+        session()->flash('success', 'Usuario creado exitosamente. Revise su correo para las credenciales de acceso.');
         return $user;
     }
 

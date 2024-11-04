@@ -90,8 +90,8 @@
                                         name="id_nodo" required
                                         style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;">
                                         <option value="" disabled selected>Seleccionar Nodo...</option>
-                                        @foreach ($nodos as $nodo)
                                         <option value="">Sin nodo</option>
+                                        @foreach ($nodos as $nodo)
                                             <option value="{{ $nodo->id }}">{{ $nodo->nombre }}</option>
                                         @endforeach
                                     </select>
@@ -141,9 +141,10 @@
                         </div>
 
                         <div class="box-footer my-2 d-flex justify-content-end">
-                            <button type="submit" class="btnGuardar"
-                                href="{{ route('users.create') }}">{{ __('GUARDAR') }}
-                                <i class="fa-solid fa-circle-plus fa-sm iconDCR"></i></button>
+                            <button type="submit" class="btnGuardar">
+                                {{ __('GUARDAR') }}
+                                <i class="fa-solid fa-circle-plus fa-sm iconDCR"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -161,4 +162,11 @@
             });
         });
     </script>
+
+
+
+
+
+
+
 @endsection
