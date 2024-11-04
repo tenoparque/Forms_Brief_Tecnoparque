@@ -123,9 +123,11 @@ class NodoController extends Controller
         $nodo = Nodo::find($id);
         $estados = Estado::all();
         $departamentos = Departamento::with('ciudades')->get(); // Trae los departamentos con sus ciudades relacionadas
+        $ciudades = Ciudade::all(); // Para la lista de ciudades
 
-        return view('nodo.edit', compact('nodo', 'estados','departamentos'));
+        return view('nodo.edit', compact('nodo', 'estados', 'departamentos', 'ciudades'));
     }
+
 
     /**
      * Update the specified resource in storage.
