@@ -22,7 +22,34 @@
                                     </div>
                                 </div>
                             </div>
-
+                            @if ($message = Session::get('success'))
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Operación exitosa',
+                                        text: '{{ $message }}',
+                                        timer: 5000, // 5 segundos de duración
+                                        showConfirmButton: true,
+                                    });
+                                });
+                            </script>
+                        @endif
+                        
+                        @if ($message = Session::get('error'))
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error',
+                                        text: '{{ $message }}',
+                                        timer: 5000, // 5 segundos de duración
+                                        showConfirmButton: true,
+                                    });
+                                });
+                            </script>
+                        @endif
+                        
 
                             <div class="row mb-3"style="padding-bottom:2px; margin;margin-block-start: 50px">
                                 <div class="Containerfiltros">
@@ -90,9 +117,9 @@
                                                     {{ $solicitude->tiposdesolicitude->nombre }}</td>
                                                 <td data-titulo="Fecha Y Hora">
                                                     {{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
-                                                    <td data-titulo="Nodo">
-                                                        {{ $solicitude->user->nodo ? $solicitude->user->nodo->nombre : 'Sin nodo' }}
-                                                    </td>                                                    
+                                                <td data-titulo="Nodo">
+                                                    {{ $solicitude->user->nodo ? $solicitude->user->nodo->nombre : 'Sin nodo' }}
+                                                </td>
                                                 <td data-titulo="Usuario">{{ $solicitude->user->name }}</td>
                                                 <td data-titulo="Evento">
                                                     {{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
