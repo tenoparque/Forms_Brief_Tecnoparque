@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ciudade;
+use App\Models\Departamento;
 use App\Models\Estado;
 use App\Models\Nodo;
 use Illuminate\Http\Request;
@@ -20,8 +21,8 @@ class NodoController extends Controller
      */
     public function index()
     {
-        
-        $nodos = Nodo::with('ciudade','estado')->paginate(10);
+
+        $nodos = Nodo::with('ciudade', 'estado')->paginate(10);
 
         return view('nodo.index', compact('nodos'))
             ->with('i', (request()->input('page', 1) - 1) * $nodos->perPage());
@@ -30,13 +31,13 @@ class NodoController extends Controller
     public function search(Request $request)
     {
         $num = 0;
-        $output= ""; // The output variable is defined and initialized
-        $nodos = Nodo::where('nombre', 'LIKE', '%'.$request -> search.'%')->get(); // We make the query through the Nodo name
+        $output = ""; // The output variable is defined and initialized
+        $nodos = Nodo::where('nombre', 'LIKE', '%' . $request->search . '%')->get(); // We make the query through the Nodo name
 
         // We use the loop foreach to iterate the aggregation of records
-        foreach($nodos as $nodo){
-            $output .= 
-            '<tr>
+        foreach ($nodos as $nodo) {
+            $output .=
+                '<tr>
                 <td data-titulo="No">' . ++$num . '</td>
                 <td data-titulo="Nombre">' . $nodo->nombre . '</td>
                 <td data-titulo="Ciudad">' . $nodo->ciudade->nombre . '</td>
@@ -68,9 +69,12 @@ class NodoController extends Controller
     public function create()
     {
         $nodo = new Nodo();
-        $ciudades = Ciudade::all();
-        return view('nodo.create', compact('nodo', 'ciudades'));
+        $departamentos = Departamento::with('ciudades')->get(); // Trae los departamentos con sus ciudades relacionadas
+
+        return view('nodo.create', compact('nodo', 'departamentos'));
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -118,9 +122,9 @@ class NodoController extends Controller
     {
         $nodo = Nodo::find($id);
         $estados = Estado::all();
-        $ciudades = Ciudade::all();
+        $departamentos = Departamento::with('ciudades')->get(); // Trae los departamentos con sus ciudades relacionadas
 
-        return view('nodo.edit', compact('nodo', 'estados', 'ciudades'));
+        return view('nodo.edit', compact('nodo', 'estados','departamentos'));
     }
 
     /**

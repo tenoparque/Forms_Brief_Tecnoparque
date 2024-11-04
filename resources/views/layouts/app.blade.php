@@ -221,21 +221,19 @@
                                         </li>
                                     @endcan
 
-                                    @can('departamentos.index')
-                                        {{-- Validate that you have the departamentos.index permission to be able to display the Departamentos item. --}}
+                                    {{-- @can('departamentos.index')
                                         <li class="sidebar-item">
                                             <a href="{{ route('departamentos.index') }}"
                                                 class="sidebar-link">Departamentos</a>
                                         </li>
-                                    @endcan
+                                    @endcan --}}
 
 
-                                    @can('ciudades.index')
-                                        {{-- Validate that you have the ciudades.index permission to be able to display the Ciudades item. --}}
+                                    {{-- @can('ciudades.index')
                                         <li class="sidebar-item">
                                             <a href="{{ route('ciudades.index') }}" class="sidebar-link">Ciudades</a>
                                         </li>
-                                    @endcan
+                                    @endcan --}}
                                 </ul>
                             </li>
                         @endcan

@@ -51,7 +51,6 @@ class AssigningPermissionsToRolesSeeder extends Seeder
             ],
 
             'Dinamizador' => [
-                'users.index', 'users.create', 'users.edit','users.show',
                 'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
             ],
 
