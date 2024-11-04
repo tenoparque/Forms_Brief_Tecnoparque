@@ -43,10 +43,12 @@ class HomeController extends Controller
         $usuarioAutenticado = Auth::user();
         $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
         $rolesDesigner = ['Designer'];
+        $rolesExpertoDivulgacion = ['Experto Divulgación'];
         $rolesDinamizador = ['Dinamizador'];
         $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
         $esDesigner = $usuarioAutenticado->hasAnyRole($rolesDesigner);
         $esDinamizador = $usuarioAutenticado->hasAnyRole($rolesDinamizador);
+        $esExpertoDivulgacion = $usuarioAutenticado->hasAnyRole($rolesExpertoDivulgacion);
         $nodoUsuario = $usuarioAutenticado->id_nodo;
         $tiposDeSolicitudes = [];
 
@@ -190,7 +192,7 @@ class HomeController extends Controller
 
 
             return response()->json(['solicitudes' => $propias, 'modificaciones' => $totalModificacionesGeneral, 'total' => $total, 'tiposDeSolicitudes' => $tiposDeSolicitudes, 'datos_mes_a_mes' => $datosMesAMes, 'datosPorNodo' => $datosPorNodo, 'etiquetas' => $etiquetas, 'cantidades_asignadas' => $cantidades_asignadas,  'CardDos' => $CardDos]);
-        } elseif ($esDesigner) {
+        } elseif ($esDesigner && $esExpertoDivulgacion) {
 
             $idsSolicitudes = HistorialDeUsuariosPorSolicitude::where('id_users', $usuarioAutenticado->id)
                 ->pluck('id_solicitudes');

@@ -57,6 +57,7 @@ class SolicitudeController extends Controller
         $usuarioAutenticado = Auth::user();
         $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
         $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
+        $rolActivadorNacional = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
         $nodoUsuario = $usuarioAutenticado->id_nodo;
 
         if ($rolSuperAdmin) {
@@ -82,11 +83,20 @@ class SolicitudeController extends Controller
             $query->whereIn('name', ['Designer', 'Admin', 'Activador Nacional']);
         })->get();
 
-        $usuariosDesigner = User::whereHas('roles', function ($query) {
-            $query->where('name', 'Designer'); // Filtrar solo por rol de "Designer"
-        })
-            ->where('id_nodo', $nodoUsuario) // Filtrar por nodo del usuario autenticado
-            ->get();
+        // Ajustar la lista de Designers visible según el rol del usuario autenticado
+        if ($rolSuperAdmin || $rolActivadorNacional) {
+            // Mostrar todos los Designers si el usuario es Super Admin o Activador Nacional
+            $usuariosDesigner = User::whereHas('roles', function ($query) {
+                $query->where('name', 'Designer');
+            })->get();
+        } else {
+            // Limitar a los Designers del mismo nodo para otros usuarios
+            $usuariosDesigner = User::whereHas('roles', function ($query) {
+                $query->where('name', 'Designer');
+            })
+                ->where('id_nodo', $nodoUsuario)
+                ->get();
+        }
 
         return view('solicitude.index', compact('solicitudes', 'usuarios', 'usuariosDesigner'))
             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
@@ -281,7 +291,7 @@ class SolicitudeController extends Controller
         // Obtener el ID del usuario autenticado
         $user = Auth::user();
         $userId = $user->id;
-       
+
 
         $currentTime = Carbon::now('America/Bogota');
         $idEventoEspecialPorCategoria = $request->input('id_evento_especial');
@@ -292,14 +302,14 @@ class SolicitudeController extends Controller
         // Si el usuario es Super Admin, selecciona el nodo que quiere asignar
         if ($user->hasAnyRole(['Super Admin', 'Activador Nacional'])) {
             $nodoId = $request->input('id_nodo'); // Nodo seleccionado por el Super Admin
-        
+
             // Encuentra un usuario que pertenezca al nodo y tenga un rol específico
             $usuarioDelNodo = User::where('id_nodo', $nodoId)
                 ->whereHas('roles', function ($query) {
-                    $query->where('name', 'Experto Divulgación'); 
+                    $query->where('name', 'Experto Divulgación');
                 })
                 ->first();
-        
+
             // Verifica si se encontró un usuario con el rol en el nodo
             if ($usuarioDelNodo) {
                 $userId = $usuarioDelNodo->id; // Asigna la solicitud al usuario encontrado
@@ -316,8 +326,8 @@ class SolicitudeController extends Controller
             'id_estado_de_la_solicitud' => $estadosDefecto,
             'fecha_y_hora_de_la_solicitud' => $currentTime,
         ]);
-      
-        
+
+
         // Crear la solicitud con los datos combinados
         $solicitude = Solicitude::create($data);
         Log::info("Solicitud creada con ID: {$solicitude->id}");
@@ -480,12 +490,12 @@ class SolicitudeController extends Controller
      */
     public function Actualizar_estado(Request $request, Solicitude $solicitude)
     {
-         // Verificar si el usuario tiene los roles permitidos
-    $user = Auth::user();
-    if (!$user->hasAnyRole(['Super Admin','Designer', 'Experto Divulgación'])) {
-        return redirect()->route('solicitudes.index')
-            ->with('error', 'No tienes permiso para actualizar el estado de la solicitud.');
-    }
+        // Verificar si el usuario tiene los roles permitidos
+        $user = Auth::user();
+        if (!$user->hasAnyRole(['Super Admin', 'Designer', 'Experto Divulgación'])) {
+            return redirect()->route('solicitudes.index')
+                ->with('error', 'No tienes permiso para actualizar el estado de la solicitud.');
+        }
 
         $solicitude->id_estado_de_la_solicitud = $request->input('id_estado_de_la_solicitud');
         $solicitude->save();
@@ -596,39 +606,39 @@ class SolicitudeController extends Controller
      */
 
 
-     public function asignarSolicitud(Request $request)
-     {
-         // Validar los datos recibidos en la solicitud si es necesario
-         $request->validate([
-             'solicitud_id' => 'required|exists:solicitudes,id',
-             'usuario_id' => 'required|exists:users,id',
-         ]);
-     
-         $solicitudId = $request->input('solicitud_id');
-         $designerId = $request->input('usuario_id');
-     
-         // Buscar y desactivar todos los registros activos con la misma id_solicitud
-         HistorialDeUsuariosPorSolicitude::where('id_solicitudes', $solicitudId)
-             ->where('id_estados', 1) // '1' puede representar el estado activo, asegúrate de ajustarlo según tu esquema
-             ->update(['id_estados' => 2]);
-     
-         // Crear un nuevo registro en el historial de asignaciones con el nuevo estado activo
-         $historial = new HistorialDeUsuariosPorSolicitude();
-         $historial->id_solicitudes = $solicitudId;
-         $historial->id_users = $designerId;
-         $historial->fecha_asignación = now();
-         $historial->id_estados = 1; // Asignar el estado activo
-         $historial->save();
-     
-         // Actualizar el estado de la solicitud a "ASIGNADO"
-         $solicitud = Solicitude::findOrFail($solicitudId);
-         $estadoAsignadoId = EstadosDeLasSolictude::where('nombre', 'ASIGNADO')->value('id'); // Asegúrate de que el estado "ASIGNADO" existe en la tabla de estados
-         $solicitud->id_estado_de_la_solicitud = $estadoAsignadoId;
-         $solicitud->save();
-     
-         return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador y estado actualizado a ASIGNADO.');
-     }
-     
+    public function asignarSolicitud(Request $request)
+    {
+        // Validar los datos recibidos en la solicitud si es necesario
+        $request->validate([
+            'solicitud_id' => 'required|exists:solicitudes,id',
+            'usuario_id' => 'required|exists:users,id',
+        ]);
+
+        $solicitudId = $request->input('solicitud_id');
+        $designerId = $request->input('usuario_id');
+
+        // Buscar y desactivar todos los registros activos con la misma id_solicitud
+        HistorialDeUsuariosPorSolicitude::where('id_solicitudes', $solicitudId)
+            ->where('id_estados', 1) // '1' puede representar el estado activo, asegúrate de ajustarlo según tu esquema
+            ->update(['id_estados' => 2]);
+
+        // Crear un nuevo registro en el historial de asignaciones con el nuevo estado activo
+        $historial = new HistorialDeUsuariosPorSolicitude();
+        $historial->id_solicitudes = $solicitudId;
+        $historial->id_users = $designerId;
+        $historial->fecha_asignación = now();
+        $historial->id_estados = 1; // Asignar el estado activo
+        $historial->save();
+
+        // Actualizar el estado de la solicitud a "ASIGNADO"
+        $solicitud = Solicitude::findOrFail($solicitudId);
+        $estadoAsignadoId = EstadosDeLasSolictude::where('nombre', 'ASIGNADO')->value('id'); // Asegúrate de que el estado "ASIGNADO" existe en la tabla de estados
+        $solicitud->id_estado_de_la_solicitud = $estadoAsignadoId;
+        $solicitud->save();
+
+        return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador y estado actualizado a ASIGNADO.');
+    }
+
 
 
 
