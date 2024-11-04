@@ -25,11 +25,7 @@
                             </div>
                         </div>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
+
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center search-Header">
@@ -65,7 +61,10 @@
                                             <td data-titulo="Apellidos">{{ $user->apellidos }}</td>
                                             <td data-titulo="Email">{{ $user->email }}</td>
                                             <td data-titulo="Celular">{{ $user->celular }}</td>
-                                            <td data-titulo="Nodo">{{ $user->nodo->nombre }}</td>
+                                            <td data-titulo="Nodo">
+                                                {{ $user->nodo ? $user->nodo->nombre : 'Sin nodo asignado' }}
+                                            </td>
+                                            
 
                                             <td data-titulo="Estado">{{ $user->estado->nombre }}</td>
                                             <td data-titulo="Rol">

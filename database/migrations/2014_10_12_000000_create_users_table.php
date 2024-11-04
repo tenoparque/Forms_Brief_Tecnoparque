@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('celular', 25);
             $table->string('apellidos', 50);
-            $table->unsignedBigInteger('id_nodo');
+            $table->unsignedBigInteger('id_nodo')->nullable();
             $table->unsignedBigInteger('id_estado');
             $table->foreign('id_nodo')->references('id')->on('nodos');
             $table->foreign('id_estado')->references('id')->on('estados');

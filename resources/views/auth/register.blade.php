@@ -91,6 +91,7 @@
                                         style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec;height:45px;  margin-bottom: 10px;">
                                         <option value="" disabled selected>Seleccionar Nodo...</option>
                                         @foreach ($nodos as $nodo)
+                                        <option value="">Sin nodo</option>
                                             <option value="{{ $nodo->id }}">{{ $nodo->nombre }}</option>
                                         @endforeach
                                     </select>

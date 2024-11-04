@@ -135,5 +135,13 @@ class PermissionSeeder extends Seeder
 
         // Poder hacer modificacion en solicitudes
         Permission::create(['name' => 'solicitudes.modification']);
+        
+        // Dashboard
+        Permission::create(['name' => 'dashboard.index']);
+        Permission::create(['name' => 'dashboard.solicitudes']);
+        Permission::create(['name' => 'dashboard.charts']);
+        
+        // Reportes
+        Permission::create(['name' => 'reportes.index']);
     }
 }

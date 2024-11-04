@@ -39,70 +39,72 @@
 
 
                     <!-- Tarjetas de estadísticas -->
-                    <div class="container-fluid py-5">
-                        <div class="row">
-                            <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
-                                <div class="card  border-light shadow">
-                                    <div class="card-header p-3 pt-2"style="border:transparent;">
-                                        <div
-                                            class="icon icon-lg icon-shape bg-gradient-success shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                                            <i class="fa-solid fa-envelope-circle-check"></i>
-                                        </div>
-                                        <div class="text-end pt-1">
-                                            <p class="titulosoli">Solicitudes</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer p-3" style="background-color:#ececee">
-                                        <span class="total-color">Total:</span>
-                                        <span class="numero-color" id="cardUno"></span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            @if (!auth()->user()->hasRole('designer'))
+                    @can('dashboard.index')
+                        <div class="container-fluid py-5">
+                            <div class="row">
                                 <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
                                     <div class="card  border-light shadow">
                                         <div class="card-header p-3 pt-2"style="border:transparent;">
                                             <div
-                                                class="icon icon-lg icon-shape bg-gradient-dark shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                                                <i class="fa-solid fa-envelope-open-text"></i>
-
+                                                class="icon icon-lg icon-shape bg-gradient-success shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fa-solid fa-envelope-circle-check"></i>
                                             </div>
                                             <div class="text-end pt-1">
-                                                <p class="titulosoli">Solicitudes en espera</p>
+                                                <p class="titulosoli">Solicitudes</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-footer p-3" style="background-color:#ececee">
+                                            <span class="total-color">Total:</span>
+                                            <span class="numero-color" id="cardUno"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @if (!auth()->user()->hasRole('Designer'))
+                                    <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
+                                        <div class="card  border-light shadow">
+                                            <div class="card-header p-3 pt-2"style="border:transparent;">
+                                                <div
+                                                    class="icon icon-lg icon-shape bg-gradient-dark shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                                                    <i class="fa-solid fa-envelope-open-text"></i>
+
+                                                </div>
+                                                <div class="text-end pt-1">
+                                                    <p class="titulosoli">Solicitudes en espera</p>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer p-3" style="background-color:#ececee">
+                                                <span class="total-color">Total:</span>
+                                                <span class="numero-color" id="cardDos"></span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                @endif
+
+                                <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
+                                    <div class="card  border-light shadow">
+                                        <div class="card-header p-3 pt-2"style="border:transparent;">
+                                            <div
+                                                class="icon icon-lg icon-shape bg-gradient-info shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fa-solid fa-envelope-circle-check"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <p class="titulosoli">Solicitudes Finalizadas</p>
                                             </div>
                                         </div>
                                         <div class="card-footer p-3" style="background-color:#ececee">
                                             <span class="total-color">Total:</span>
-                                            <span class="numero-color" id="cardDos"></span>
+                                            <span class="numero-color" id="cardTres"></span>
                                         </div>
-
                                     </div>
                                 </div>
-                            @endif
-
-                            <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
-                                <div class="card  border-light shadow">
-                                    <div class="card-header p-3 pt-2"style="border:transparent;">
-                                        <div
-                                            class="icon icon-lg icon-shape bg-gradient-info shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                                            <i class="fa-solid fa-envelope-circle-check"></i>
-                                        </div>
-                                        <div class="text-end pt-1">
-                                            <p class="titulosoli">Solicitudes Finalizadas</p>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer p-3" style="background-color:#ececee">
-                                        <span class="total-color">Total:</span>
-                                        <span class="numero-color" id="cardTres"></span>
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endcan
                             <!-- Fin de las tarjetas de estadísticas -->
 
                             <!-- Gráfico con Chart.js -->
+                            @can('dashboard.charts')
                             <div class="row mt-4" style="margin-top: 50px;margin-bottom: 30px">
                                 <div class="col-md-12">
                                     <div class="card border-0">
@@ -158,6 +160,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endcan
                             <!-- Fin de las tarjetas de estadísticas -->
 
                         </div>
@@ -180,8 +183,16 @@
                         })
                         .then(data => {
                             // Actualizar el valor en el elemento HTML
-                            document.getElementById('cardUno').textContent = "" + data.total;
-                            document.getElementById('cardDos').textContent = "" + data.CardDos;
+                            const cardUnoElement = document.getElementById('cardUno');
+                            if (cardUnoElement) {
+                                cardUnoElement.textContent = "" + data.total;
+                            }
+
+                            // Verificar si existe el elemento con ID 'cardDos'
+                            const cardDosElement = document.getElementById('cardDos');
+                            if (cardDosElement) {
+                                cardDosElement.textContent = "" + data.CardDos;
+                            }
 
                             // Llamar a la función para actualizar las gráficas
                             actualizarGraficos(data, data.tiposDeSolicitudes);

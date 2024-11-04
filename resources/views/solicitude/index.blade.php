@@ -90,7 +90,9 @@
                                                     {{ $solicitude->tiposdesolicitude->nombre }}</td>
                                                 <td data-titulo="Fecha Y Hora">
                                                     {{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
-                                                <td data-titulo="Nodo">{{ $solicitude->user->nodo->nombre }}</td>
+                                                    <td data-titulo="Nodo">
+                                                        {{ $solicitude->user->nodo ? $solicitude->user->nodo->nombre : 'Sin nodo' }}
+                                                    </td>                                                    
                                                 <td data-titulo="Usuario">{{ $solicitude->user->name }}</td>
                                                 <td data-titulo="Evento">
                                                     {{ $solicitude->eventosespecialesporcategoria->nombre }}</td>

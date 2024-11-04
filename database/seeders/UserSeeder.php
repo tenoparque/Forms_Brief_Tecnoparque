@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             'email' => 'superadmin@example.com',  // Email del Super Admin
             'password' => Hash::make('12345678'),  // Contraseña encriptada
             'celular' => '123456789',  // Número de celular
-            'id_nodo' => 1,  // ID del nodo
+            'id_nodo' => null,  // ID del nodo
             'id_estado' => 1  // ID del estado
         ]);
 

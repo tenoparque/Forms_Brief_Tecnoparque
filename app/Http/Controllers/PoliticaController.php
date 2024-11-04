@@ -7,6 +7,7 @@ use App\Models\Politica;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 
 /**
@@ -75,6 +76,12 @@ class PoliticaController extends Controller
         $politica = new Politica();
         $usuarios = User::all();
         $estados = Estado::all();
+
+        Log::info('Datos enviados a la vista de creación de política:', [
+            'politica' => $politica,
+            'usuarios' => $usuarios->toArray(),
+            'estados' => $estados->toArray(),
+        ]);
         return view('politica.create', compact('politica'));
     }
 

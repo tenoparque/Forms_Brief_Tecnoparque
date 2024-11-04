@@ -32,19 +32,26 @@ class AssigningPermissionsToRolesSeeder extends Seeder
                 'serviciosPorTiposSolicitudes.index', 'serviciosPorTiposSolicitudes.create', 'serviciosPorTiposSolicitudes.edit','serviciosPorTiposSolicitudes.show',
                 'estadosSolicitudes.index', 'estadosSolicitudes.create', 'estadosSolicitudes.edit','estadosSolicitudes.show', 'estadosSolicitudes.change', 
                 'datosUnicosSolicitud.index', 'datosUnicosSolicitud.create', 'datosUnicosSolicitud.edit','datosUnicosSolicitud.show',
+                'dashboard.index', 'dashboard.solicitudes', 'dashboard.charts',
+                'reportes.index',
             ],
 
-            'Admin' => [
+            'Activador Nacional' => [
                 'politicas.index', 'politicas.create', 'politicas.edit','politicas.show',
                 'personalizaciones.index', 'personalizaciones.create', 'personalizaciones.edit','personalizaciones.show',
+                'categoriasEventosEspeciales.index', 'categoriasEventosEspeciales.create', 'categoriasEventosEspeciales.edit','categoriasEventosEspeciales.show',
+                'eventosEspeciales.index', 'eventosEspeciales.create', 'eventosEspeciales.edit','eventosEspeciales.show',
                 'users.index', 'users.create', 'users.edit','users.show',
                 'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification','estadosSolicitudes.change',
                 'tiposSolicitudes.index', 'tiposSolicitudes.create', 'tiposSolicitudes.edit','tiposSolicitudes.show',
                 'serviciosPorTiposSolicitudes.index', 'serviciosPorTiposSolicitudes.create', 'serviciosPorTiposSolicitudes.edit','serviciosPorTiposSolicitudes.show',
                 'datosUnicosSolicitud.index', 'datosUnicosSolicitud.create', 'datosUnicosSolicitud.edit','datosUnicosSolicitud.show',
+                'dashboard.index', 'dashboard.solicitudes', 'dashboard.charts',
+                'reportes.index',
             ],
 
             'Dinamizador' => [
+                'users.index', 'users.create', 'users.edit','users.show',
                 'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
             ],
 
@@ -54,11 +61,15 @@ class AssigningPermissionsToRolesSeeder extends Seeder
 
             'Designer' => [
                 'solicitudes.index', 'solicitudes.edit','solicitudes.show', 'estadosSolicitudes.change',
+                'dashboard.index' , 'dashboard.solicitudes',
             ],
 
-            'Activador Nacional' => [
-                'solicitudes.index', 'solicitudes.create', 'solicitudes.edit','solicitudes.show', 'solicitudes.modification',
-            ],
+            'Experto Divulgación' =>[
+                'categoriasEventosEspeciales.index', 'categoriasEventosEspeciales.create', 'categoriasEventosEspeciales.edit','categoriasEventosEspeciales.show',
+                'eventosEspeciales.index', 'eventosEspeciales.create', 'eventosEspeciales.edit','eventosEspeciales.show',
+                'solicitudes.index', 'solicitudes.create','solicitudes.edit','solicitudes.show', 'estadosSolicitudes.change',
+                'dashboard.index' , 'dashboard.solicitudes','dashboard.charts','reportes.index',
+            ]
 
         ];
 

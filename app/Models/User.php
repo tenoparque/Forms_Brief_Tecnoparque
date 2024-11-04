@@ -85,7 +85,7 @@ class User extends Authenticatable
 		'email' => 'required|string',
 		'celular' => 'required|string',
 		'apellidos' => 'required|string',
-		'id_nodo' => 'required',
+		'id_nodo' => 'nullable',
 		'id_estado' => 'required',
     ];
 
