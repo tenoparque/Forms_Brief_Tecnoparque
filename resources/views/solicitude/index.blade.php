@@ -147,12 +147,13 @@
                                                         {{ __('Duplicar') }}
 
                                                     </a>
-
+                                                    @if (!auth()->user()->hasRole('Designer'))
                                                     <button class="btnAsignar"
                                                         onclick="abrirModalAsignacion({{ $solicitude->id }})">
                                                         <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
                                                         {{ __('Asignar a diseñador') }}
                                                     </button>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
