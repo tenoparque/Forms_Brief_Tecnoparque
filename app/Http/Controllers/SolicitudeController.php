@@ -53,7 +53,6 @@ class SolicitudeController extends Controller
 
     public function index()
     {
-
         $usuarioAutenticado = Auth::user();
         $rolesPermitidos = ['Super Admin', 'Admin', 'Activador Nacional'];
         $rolSuperAdmin = $usuarioAutenticado->hasAnyRole($rolesPermitidos);
@@ -61,7 +60,7 @@ class SolicitudeController extends Controller
         $nodoUsuario = $usuarioAutenticado->id_nodo;
 
         if ($rolSuperAdmin) {
-            $solicitudes = Solicitude::paginate(10);
+            $solicitudes = Solicitude::orderBy('created_at', 'desc')->paginate(10);
         } else {
             if ($usuarioAutenticado->hasRole('Designer')) {
                 $solicitudes = Solicitude::whereHas('historial', function ($query) use ($usuarioAutenticado, $nodoUsuario) {
@@ -70,14 +69,17 @@ class SolicitudeController extends Controller
                         ->whereHas('user', function ($query) use ($nodoUsuario) {
                             $query->where('id_nodo', $nodoUsuario); // Filtrar por el nodo del Designer
                         });
-                })->paginate(10);
+                })
+                    ->orderBy('created_at', 'desc') // Ordenar por fecha de creación
+                    ->paginate(10);
             } else {
                 $solicitudes = Solicitude::whereHas('user', function ($query) use ($nodoUsuario) {
                     $query->where('id_nodo', $nodoUsuario);
-                })->paginate();
+                })
+                    ->orderBy('created_at', 'desc') // Ordenar por fecha de creación
+                    ->paginate();
             }
         }
-
 
         $usuarios = User::whereHas('roles', function ($query) {
             $query->whereIn('name', ['Designer', 'Admin', 'Activador Nacional']);
@@ -101,6 +103,7 @@ class SolicitudeController extends Controller
         return view('solicitude.index', compact('solicitudes', 'usuarios', 'usuariosDesigner'))
             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());
     }
+
 
     public function reports()
     {
