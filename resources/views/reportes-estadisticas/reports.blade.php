@@ -80,9 +80,11 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="btnpdf" target="_blank" onclick="generarPDF()" style="color: #642c78;"><i
-                            class="fa-solid fa-file-pdf fa-2xl"></i></a>
+                    <a href="javascript:void(0);" class="btnpdf" style="color: #642c78;" onclick="generarPDF()">
+                        <i class="fa-solid fa-file-pdf fa-2xl"></i>
+                    </a>
                 </div>
+                
             </div>
 
 
@@ -177,12 +179,24 @@
 
         // Función para generar el PDF
         function generarPDF() {
-            var cuartoComboValue = document.getElementById('cuartoCombo').value;
-            var slcReport = document.getElementById("selectReport4");
-            var selectedReportName = slcReport.options[slcReport.selectedIndex].text;
-            var url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoComboValue) +
-                "&nombre=" + encodeURIComponent(selectedReportName);
-            window.open(url, '_blank');
+           // Obtener los elementos de los selectores
+        const cuartoCombo = document.getElementById('cuartoCombo').value;
+        const slcReport = document.getElementById('slcReport').value;
+        const selectReport4 = document.getElementById('selectReport4').value;
+
+        // Validar si todos los campos tienen un valor seleccionado
+        if (!cuartoCombo || !slcReport || !selectReport4) {
+            alert('Por favor, seleccione todos los campos antes de generar el PDF.');
+            return;
+        }
+
+        // Generar URL para el PDF con los valores seleccionados
+        const selectedReportName = document.getElementById("selectReport4").options[document.getElementById("selectReport4").selectedIndex].text;
+        const url = "{{ route('solicitudes.pdf') }}?cuartoComboValue=" + encodeURIComponent(cuartoCombo) +
+            "&nombre=" + encodeURIComponent(selectedReportName);
+
+        // Abrir el PDF en una nueva pestaña
+        window.open(url, '_blank');
         }
     </script>
 @endsection
