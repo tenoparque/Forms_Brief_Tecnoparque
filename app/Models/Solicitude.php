@@ -37,6 +37,7 @@ class Solicitude extends Model
 		'id_usuario_que_realiza_la_solicitud' => 'required',
 		'id_eventos_especiales_por_categorias' => 'required',
 		'id_estado_de_la_solicitud' => 'required',
+        'drive_link' =>'required'
     ];
 
     protected $perPage = 20;
@@ -46,7 +47,7 @@ class Solicitude extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_tipos_de_solicitudes','fecha_y_hora_de_la_solicitud','id_usuario_que_realiza_la_solicitud','id_eventos_especiales_por_categorias','id_estado_de_la_solicitud'];
+    protected $fillable = ['id_tipos_de_solicitudes','fecha_y_hora_de_la_solicitud','id_usuario_que_realiza_la_solicitud','id_eventos_especiales_por_categorias','id_estado_de_la_solicitud',  'drive_link'];
 
 
     /**

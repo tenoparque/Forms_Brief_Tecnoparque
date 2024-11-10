@@ -127,6 +127,7 @@
                                                 Estado
                                             </div>
                                         </th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody class="alldata">
@@ -185,6 +186,13 @@
                                 @foreach ($elementos as $elemento)
                                     <li>{{ $elemento->nombre }}</li>
                                 @endforeach
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <strong>Link Drive:</strong>
+                            <ul>
+                                {{$solicitude->drive_link}}
                             </ul>
                         </div>
                         <br><br>

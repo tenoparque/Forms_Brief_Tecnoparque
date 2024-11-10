@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table -> unsignedBigInteger('id_tipos_de_solicitudes');
             $table->timestamp('fecha_y_hora_de_la_solicitud');
+            $table->string('drive_link');
             $table -> unsignedBigInteger('id_usuario_que_realiza_la_solicitud');
             $table -> unsignedBigInteger('id_eventos_especiales_por_categorias');
             $table -> unsignedBigInteger('id_estado_de_la_solicitud');

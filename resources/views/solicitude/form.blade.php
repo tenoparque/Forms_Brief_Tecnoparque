@@ -138,6 +138,8 @@
                                 {{-- boton para abrir el modal --}}
 
                                 <br>
+                                <label style="font-size: 16px; font-weight: bold; ">Link Drive Imagenes</label>
+                                <input  type="url" name="drive_link" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; ">
 
                                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#qrModal">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -151,7 +153,7 @@
                                     </svg>
                                 </button>
 
-                                <button type="button" class="btn"
+                                {{-- <button type="button" class="btn"
                                     onclick="window.open('{{ $politicas ? $politicas->link : '#' }}', '_blank')">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
@@ -160,7 +162,7 @@
                                         <path
                                             d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
                                     </svg>
-                                </button>
+                                </button> --}}
 
                                 {{-- modal --}}
                                 <div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel"

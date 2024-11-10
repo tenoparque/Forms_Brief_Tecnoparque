@@ -317,7 +317,7 @@ class SolicitudeController extends Controller
                 $userId = $usuarioDelNodo->id; // Asigna la solicitud al usuario encontrado
             } else {
                 // Maneja el caso en el que no se encuentra ningún usuario con el rol en el nodo
-                Log::warning("No se encontró un usuario con el rol 'Dinamizador' en el nodo ID: {$nodoId}");
+                Log::warning("No se encontró un usuario con el rol 'Experto Divulgación' en el nodo ID: {$nodoId}");
                 return redirect()->back()->with('error', 'No se encontró un usuario con el rol especificado en el nodo seleccionado.');
             }
         }
@@ -327,6 +327,7 @@ class SolicitudeController extends Controller
             'id_eventos_especiales_por_categorias' => $idEventoEspecialPorCategoria,
             'id_estado_de_la_solicitud' => $estadosDefecto,
             'fecha_y_hora_de_la_solicitud' => $currentTime,
+            'drive_link' => $request->input('drive_link'),
         ]);
 
 
