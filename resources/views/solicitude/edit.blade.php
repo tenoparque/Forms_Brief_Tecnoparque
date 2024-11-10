@@ -1,3 +1,6 @@
+@php
+    $user = auth()->user();
+@endphp
 @extends('layouts.app')
 
 @section('template_title')
@@ -106,10 +109,12 @@
                                     style="color: #643178; margin-left: 5px;"></i>
 
                                 </button>
+                                @if (!$user->hasAnyRole(['Dinamizador', 'Articulador']))
                                 <button class="btnEditarEstado" id="btnEditarEstado">
                                     {{ __('Editar Estado') }}<i class="fa-solid fa-pen-to-square fa-lg"
                                     style="color: #39a900;margin-left: 5px;"></i>
-
+                                </button>
+                                @endif
                             </div>
                         </div>
 
