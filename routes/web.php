@@ -38,6 +38,28 @@ Route::get('/', function () {
     return redirect('/login'); // Changing the default route to redirect to the login view instead of welcome
 });
 
+
+Route::post('/notifications/mark-as-read', [SolicitudeController::class, 'markAsRead'])->name('notifications.markAsRead');
+Route::get('/notifications', function () {
+    $user = auth()->user();
+    $unreadNotifications = $user->unreadNotifications->map(function ($notification) {
+        return [
+            'id' => $notification->id,
+            'message' => $notification->data['message'],
+            'url' => $notification->data['url'],
+        ];
+    });
+
+    return response()->json([
+        'count' => $user->unreadNotifications->count(),
+        'notifications' => $unreadNotifications
+    ]);
+})->name('notifications.data');
+
+
+
+
+
 Auth::routes();
 
 // ruta que genera los archivos en pdf 

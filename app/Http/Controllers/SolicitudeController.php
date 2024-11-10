@@ -32,12 +32,11 @@ use App\Models\ModelHasRole;
 use App\Models\Nodo;
 use App\Models\Prueba;
 use App\Models\User;
+use App\Notifications\AsignacionDesignerNotification;
+use App\Notifications\CambioEstadoSolicitudNotification;
+use App\Notifications\NuevaSolicitudNotification;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Dompdf\Dompdf;
-use Dompdf\Option;
-use Dompdf\Exception as DomException;
-use Dompdf\Options;
-
+use Illuminate\Support\Facades\Notification;
 
 /**
  * Class SolicitudeController
@@ -386,6 +385,15 @@ class SolicitudeController extends Controller
         $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
         $cambioHistorial->save();
 
+        // Enviar notificación a los usuarios designados
+        $usuariosNotificar = User::whereHas('roles', function ($query) {
+            $query->whereIn('name', ['Dinamizador', 'Articulador', 'Experto Divulgación']); // Puedes ajustar los roles según sea necesario
+        })->get();
+
+        foreach ($usuariosNotificar as $usuario) {
+            $usuario->notify(new NuevaSolicitudNotification($solicitude->id, $solicitude->attributesToArray()));
+        }
+
 
 
 
@@ -393,6 +401,13 @@ class SolicitudeController extends Controller
         return redirect()->route('solicitudes.index')
             ->with('success', 'Solicitud creada exitosamente.');
     }
+
+    public function markAsRead()
+    {
+        Auth::user()->unreadNotifications->markAsRead();
+        return response()->json(['success' => true]);
+    }
+
 
     /**
      * Display the specified resource.
@@ -500,19 +515,34 @@ class SolicitudeController extends Controller
                 ->with('error', 'No tienes permiso para actualizar el estado de la solicitud.');
         }
 
+        // Actualizar el estado de la solicitud
         $solicitude->id_estado_de_la_solicitud = $request->input('id_estado_de_la_solicitud');
         $solicitude->save();
-        $userId = Auth::id();
+
+        // Guardar en el historial de cambios de estado
         $cambioHistorial = new HistorialDeEstadosPorSolicitude();
         $cambioHistorial->id_estados_s = $request->input('id_estado_de_la_solicitud');
         $cambioHistorial->id_solicitudes = $solicitude->id;
-        $cambioHistorial->id_users = $userId;
-        $cambioHistorial->fecha_de_cambio_de_estado = Carbon::now();
+        $cambioHistorial->id_users = $user->id;
+        $cambioHistorial->fecha_de_cambio_de_estado = now();
         $cambioHistorial->save();
+
+        // Obtener el nombre del nuevo estado para la notificación
+        $nuevoEstado = EstadosDeLasSolictude::find($request->input('id_estado_de_la_solicitud'))->nombre;
+        // Obtener los usuarios con los roles 'Super Admin' y 'Articulador Nacional'
+        $usuariosNotificar = User::whereHas('roles', function ($query) {
+            $query->whereIn('name', ['Experto Divulgación']);
+        })->get();
+
+        // Enviar la notificación a cada usuario con los roles seleccionados
+        foreach ($usuariosNotificar as $usuario) {
+            $usuario->notify(new CambioEstadoSolicitudNotification($solicitude, $nuevoEstado, $user->name));
+        }
 
         return redirect()->route('solicitudes.index')
             ->with('success', 'Estado Actualizado Exitosamente');
     }
+
 
 
 
@@ -638,6 +668,10 @@ class SolicitudeController extends Controller
         $estadoAsignadoId = EstadosDeLasSolictude::where('nombre', 'ASIGNADO')->value('id'); // Asegúrate de que el estado "ASIGNADO" existe en la tabla de estados
         $solicitud->id_estado_de_la_solicitud = $estadoAsignadoId;
         $solicitud->save();
+
+        // Obtener al diseñador y enviar la notificación
+        $designer = User::findOrFail($designerId);
+        $designer->notify(new AsignacionDesignerNotification($solicitudId, $designer->name));
 
         return redirect()->back()->with('success', 'Solicitud Asignada Correctamente al Diseñador y estado actualizado a ASIGNADO.');
     }

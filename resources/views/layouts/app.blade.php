@@ -1,5 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@php
+    $user = auth()->user();
+@endphp
 
 <head>
 
@@ -18,6 +21,9 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 
@@ -83,7 +89,7 @@
     </style> --}}
 
     @include('sweetalert::alert')
-    
+
 
     <div class="wrapper">
         {{-- Este bloque de código se ejecutará si la ruta actual NO coincide con ninguna de las rutas de login, password.request o password.reset --}}
@@ -353,46 +359,74 @@
             <div class="">
                 <main class="" style="">
                     @if (Route::currentRouteName() !== 'login')
-                        <header class="container-fluid  "
-                            style="align-items: center; margin-top: 55px; margin-bottom: 50px">
-                            <div class="row d-flex justify-content-between">
+                        <header class="container-fluid"
+                            style="align-items: center; margin-top: 55px; margin-bottom: 50px;">
+                            <div class="row d-flex justify-content-around">
                                 <!-- Carta Izquierda -->
-                                <div class="col-xl-9 col-lg-7 col-md-8 col-sm-8 col-12 mb-3 ">
+                                <div class="col-xl-9 col-lg-7 col-md-8 col-sm-8 col-12 mb-3">
                                     @if (!request()->routeIs('password.reset'))
-                                        <div class="">
-                                            <div class="text-wel mx-5">
-                                                <h5 class="welcoRe" style="text-transform: uppercase">BIENVENIDO
-                                                    {{ $nombreUsuario }}</h5>
-                                                <h4></h4>
-                                                <div>
-                                                    <h2>
-                                                        <span class="primeraPalabraFlex">ROL: </span><span
-                                                            class="segundaPalabraFlex"
-                                                            style="text-transform: uppercase">
-                                                            {{ $nombreRol }}</span>
-                                                    </h2>
-                                                </div>
-                                            </div>
-
+                                        <div class="text-wel mx-5">
+                                            <h5 class="welcoRe" style="text-transform: uppercase">BIENVENIDO
+                                                {{ $nombreUsuario }}</h5>
+                                            <h2>
+                                                <span class="primeraPalabraFlex">ROL: </span>
+                                                <span class="segundaPalabraFlex" style="text-transform: uppercase">
+                                                    {{ $nombreRol }}
+                                                </span>
+                                            </h2>
                                         </div>
                                     @endif
                                 </div>
 
                                 <!-- Carta Derecha -->
-                                <div class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12">
+                                <div
+                                    class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12 d-flex align-items-center justify-content-end">
                                     @if (isset($logo))
-                                        <img class="ImgHeader" id="logoHeader"
-                                            src="data:image/png;base64,{{ base64_encode($logo) }}"></img>
-                                    @endif
-                                </div>
-                            </div>
+                                    @if (!$user->hasAnyRole(['Super Admin', 'Articulador Nacional']))
+                                        <div class="notification-bell"
+                                            style="position: relative; display: inline-block; margin-right: 20px; z-index: 1050;">
+                                            <!-- Icono de campana -->
+                                            <a href="#" id="notificationDropdown" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-bell" style="font-size: 24px; color: #333;"></i>
+                                                <span class="badge badge-danger"
+                                                    id="notificationCount">{{ $user->unreadNotifications->count() }}</span>
+                                            </a>
 
-                        </header>
+                                            <!-- Menú desplegable de notificaciones -->
+                                            <div class="dropdown-menu dropdown-menu-right"
+                                                aria-labelledby="notificationDropdown"
+                                                style="width: 300px; max-height: 400px; overflow-y: auto; top: 30px; left: -50px;">
+                                                <h6 class="dropdown-header">Notificaciones</h6>
+                                                @if ($user->unreadNotifications->isEmpty())
+                                                    <p class="text-center">No tienes notificaciones</p>
+                                                @else
+                                                    @foreach ($user->unreadNotifications as $notification)
+                                                        <a href="{{ $notification->data['url'] }}"
+                                                            class="dropdown-item">
+                                                            {{ $notification->data['message'] }}
+                                                        </a>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    <!-- Logo -->
+                                    <img class="ImgHeader ml-3" id="logoHeader"
+                                        src="data:image/png;base64,{{ base64_encode($logo) }}"
+                                        style="margin-left: 15px;">
                     @endif
-                    @yield('content')
-                </main>
             </div>
         </div>
+        </header>
+
+        @endif
+        @yield('content')
+        </main>
+    </div>
+    </div>
     </div>
 </body>
 
@@ -443,38 +477,42 @@
     }
 
     .sidebar-link.active {
-        color: {{ $colorTerciario}};       
+        color: {{ $colorTerciario }};
     }
 
     .swal2-confirm {
-    background-color:  {{ $colorPrincipal }} !important;
+        background-color: {{ $colorPrincipal }} !important;
 
-}
-    
-        .progressbar li.active+li::after {
-        background: linear-gradient(to right, {{ $colorPrincipal }} ,{{ $colorSecundario }});
-}
-.progressbar li.active::before {
-        
-        background-color: {{ $colorCuarto }};      
-         box-shadow: 0 0 5px rgb({{ $colorSecundario }}); 
     }
+
+    .progressbar li.active+li::after {
+        background: linear-gradient(to right, {{ $colorPrincipal }}, {{ $colorSecundario }});
+    }
+
+    .progressbar li.active::before {
+
+        background-color: {{ $colorCuarto }};
+        box-shadow: 0 0 5px rgb({{ $colorSecundario }});
+    }
+
     .page-link {
-    color: {{ $colorSecundario }} !important;
-   
-}
-   
-.progressbar li.active {
-        color:{{ $colorCuarto}} ;
+        color: {{ $colorSecundario }} !important;
 
     }
+
+    .progressbar li.active {
+        color: {{ $colorCuarto }};
+
+    }
+
     .page-item.active .page-link {
 
-background-color:{{ $colorPrincipal }} ;
-/* Cambia el color de fondo del elemento activo */
-border-color: #ffffff;
-/* Cambia el color del borde del elemento activo */
-}
+        background-color: {{ $colorPrincipal }};
+        /* Cambia el color de fondo del elemento activo */
+        border-color: #ffffff;
+        /* Cambia el color del borde del elemento activo */
+    }
+
     /* LETRA */
 
 
@@ -496,9 +534,10 @@ border-color: #ffffff;
         font-weight: 900;
 
     }
+
     .invalid-feedback {
-    color: {{ $colorSecundario }} ;
-}
+        color: {{ $colorSecundario }};
+    }
 
 
 
@@ -563,6 +602,51 @@ border-color: #ffffff;
         border-bottom: 4px solid transparent;
         border-left: 12px solid {{ $colorPrincipal }};
     }
+
+    header {
+        overflow: visible;
+    }
+
+
+    .col-xl-3,
+    .col-lg-5,
+    .col-md-4,
+    .col-sm-4,
+    {
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente la campana y el logo */
+    justify-content: flex-end;
+    /* Coloca los elementos hacia la derecha */
+    }
+
+    /* Notification */
+    .notification-bell {
+        position: relative;
+        display: inline-block;
+        margin-right: 20px;
+        z-index: 1050;
+        /* Asegura que el menú esté por encima de otros elementos */
+    }
+
+    /* Estilo para el ícono de la campana */
+    .notification-bell i {
+        font-size: 24px;
+        /* Ajusta el tamaño según lo que necesites */
+        color: #333;
+        /* Cambia el color si es necesario */
+    }
+
+    .notification-bell .badge {
+        position: absolute;
+        top: -8px;
+        /* Ajusta según sea necesario para centrar el badge en la campana */
+        right: -8px;
+        font-size: 12px;
+        color: white;
+        background-color: red;
+        border-radius: 50%;
+    }
 </style>
 <script>
     window.onbeforeunload = function() {
@@ -570,6 +654,41 @@ border-color: #ffffff;
     }
 </script>
 <script>
+    $(document).ready(function() {
+        function fetchNotifications() {
+            $.ajax({
+                url: '{{ route('notifications.data') }}',
+                method: 'GET',
+                success: function(response) {
+                    // Actualiza el contador
+                    $('#notificationCount').text(response.count);
+
+                    // Limpia la lista de notificaciones anteriores
+                    $('#notificationList').empty();
+
+                    // Si hay notificaciones, las añade a la lista
+                    if (response.notifications.length > 0) {
+                        response.notifications.forEach(function(notification) {
+                            $('#notificationList').append(`
+                            <a href="${notification.url}" class="dropdown-item">
+                                ${notification.message}
+                            </a>
+                        `);
+                        });
+                    } else {
+                        // Si no hay notificaciones, muestra un mensaje
+                        $('#notificationList').append(
+                            '<p class="text-center">No tienes notificaciones</p>');
+                    }
+                }
+            });
+        }
+
+        // Llama a la función cada 10 segundos para actualizar las notificaciones
+        setInterval(fetchNotifications, 10000);
+    });
+
+
     $(document).ready(function() {
         // Obtener la URL de la página actual
         var url = window.location.href;
@@ -581,6 +700,39 @@ border-color: #ffffff;
                 // Añadir la clase 'active' al enlace
                 $(this).addClass('active');
             }
+        });
+    });
+
+    // 
+
+    $(document).ready(function() {
+        $('#notificationDropdown').on('click', function(event) {
+            event.preventDefault(); // Evita que el enlace se comporte como un enlace normal
+            $(this).dropdown('toggle'); // Activa el menú desplegable
+        });
+    });
+
+
+    $(document).ready(function() {
+        $('#notificationDropdown').on('shown.bs.dropdown', function() {
+            $.ajax({
+                url: '{{ route('notifications.markAsRead') }}',
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function() {
+                    // Actualiza el contador a cero
+                    $('#notificationCount').text('0');
+
+                    // Limpia el contenido de las notificaciones
+                    $('#notificationList').empty();
+
+                    // Muestra un mensaje de "No tienes notificaciones"
+                    $('#notificationList').append(
+                        '<p class="text-center">No tienes notificaciones</p>');
+                }
+            });
         });
     });
 </script>
