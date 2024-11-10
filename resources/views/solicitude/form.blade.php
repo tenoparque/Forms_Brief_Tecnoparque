@@ -112,21 +112,21 @@
 
                             <br>
 
-                                @if (auth()->user()->hasRole('Super Admin'))
-                                    <div class="col-md-4">
-                                        {{ Form::label('nodo', null, ['style' => 'font-size: 16px;  color: ; font-weight: bold']) }}
-                                        <div style="position: relative;">
-                                            {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), null, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
-                                            <div class="icono" onclick="toggleSelect()">
-                                                <div class="circle-play">
-                                                    <div class="circle"></div>
-                                                    <div class="triangle"></div>
-                                                </div>
+                            @if (auth()->user()->hasRole('Super Admin'))
+                                <div class="col-md-4">
+                                    {{ Form::label('nodo', null, ['style' => 'font-size: 16px;  color: ; font-weight: bold']) }}
+                                    <div style="position: relative;">
+                                        {{ Form::select('id_nodo', $nodos->pluck('nombre', 'id'), null, ['class' => 'form-control' . ($errors->has('id_nodo') ? ' is-invalid' : ''), 'style' => 'width: 100%; height:45px; border-radius: 50px; border-style: solid; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px']) }}
+                                        <div class="icono" onclick="toggleSelect()">
+                                            <div class="circle-play">
+                                                <div class="circle"></div>
+                                                <div class="triangle"></div>
                                             </div>
                                         </div>
-                                        {!! $errors->first('id_nodo', '<div class="invalid-feedback">:message</div>') !!}
                                     </div>
-                                @endif
+                                    {!! $errors->first('id_nodo', '<div class="invalid-feedback">:message</div>') !!}
+                                </div>
+                            @endif
                             <br>
 
                             <div class=" form-group my-2">
@@ -273,242 +273,246 @@
 
     function obtenerDatosPorTipo(tipoIdSeleccionado) {
         $.ajax({
-            url: '{{ route('solicitude.processSelectedId') }}',
-            type: 'POST',
-            data: {
-                tipo_solicitud_id: tipoIdSeleccionado,
-                _token: '{{ csrf_token() }}'
-            },
-            success: function(response) {
-                var serviciosCheckboxes = '';
-                var serviciosSeleccionados = [];
-                $.each(response.servicios, function(index, servicio) {
-                    serviciosCheckboxes +=
-                        '<div class=" col-xl-6 col-lg-6 col-md-6 my-2"><label class=" checkboxSol"><input type="checkbox" class="checkboxSolInp"  name="servicios_por_tipo[]" value="' +
-                        servicio.id +
-                        '"> <span class="check"><span class="inner-eye"></span></span> ' +
-                        servicio.nombre +
-                        '</label></div>';
-                });
-                $('#servicesComboBoxContainer').html(serviciosCheckboxes);
-
-                if (cambioAutomatico === true) {
-                    // Si hay subservicios preseleccionados, seleccionarlos y activar el evento de cambio
-                    @if (isset($idSubservicios) && count($idSubservicios) > 0)
-                        var idSubservicios = {{ json_encode($idSubservicios) }};
-                        idSubservicios.forEach(function(idSubservicio) {
-                            var checkbox = $('input[type="checkbox"][value="' + idSubservicio +
-                                '"]');
-                            checkbox.prop('checked', true);
-
-                            manejarCambioServicios.call(checkbox.get(0));
-                        });
-                    @endif
-                }
-
-                // validaciones del boton de enviar -----------------------------------------------------------------------------------------------------------------
-                function manejarCambioServicios() {
-                    var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
-                    var servicioNombre = $(this).closest('label').text()
-                        .trim(); // Obtener el nombre del servicio seleccionado
-
-                    if ($(this).is(':checked')) {
-                        // Si el servicio seleccionado es "otro", mostrar el textbox
-                        if (servicioNombre.toLowerCase() === 'otro') {
-                            $(this).closest('.form-group').find('.otroServicioTextbox').show();
-                        }
-
-                        // Agregar el servicio al array si está seleccionado
-                        serviciosSeleccionados.push({
-                            id: servicioId,
-                            nombre: servicioNombre
-                        });
-                    } else {
-                        // Si el servicio deseleccionado es "otro", ocultar el textbox
-                        if (servicioNombre.toLowerCase() === 'otro') {
-                            $(this).closest('.form-group').find('.otroServicioTextbox').hide();
-                        }
-
-                        // Remover el servicio del array si está deseleccionado
-                        serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
-                            return servicio.id !== servicioId;
-                        });
-                    }
-
-                    // Imprimir el array de servicios seleccionados en la consola
-                    console.log(serviciosSeleccionados.length);
-
-
+                url: '{{ route('solicitude.processSelectedId') }}',
+                type: 'POST',
+                data: {
+                    tipo_solicitud_id: tipoIdSeleccionado,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    var serviciosCheckboxes = '';
+                    var serviciosSeleccionados = [];
+                    $.each(response.servicios, function(index, servicio) {
+                        serviciosCheckboxes +=
+                            '<div class=" col-xl-6 col-lg-6 col-md-6 my-2"><label class=" checkboxSol"><input type="checkbox" class="checkboxSolInp"  name="servicios_por_tipo[]" value="' +
+                            servicio.id +
+                            '"> <span class="check"><span class="inner-eye"></span></span> ' +
+                            servicio.nombre +
+                            '</label></div>';
+                    });
+                    $('#servicesComboBoxContainer').html(serviciosCheckboxes);
 
                     if (cambioAutomatico === true) {
-                        var otroServicioValor = $('#otroServicio').val();
-                        // Actualizar el valor del campo oculto
-                        $('#otroServicioHidden').val(otroServicioValor);
+                        // Si hay subservicios preseleccionados, seleccionarlos y activar el evento de cambio
+                        @if (isset($idSubservicios) && count($idSubservicios) > 0)
+                            var idSubservicios = {{ json_encode($idSubservicios) }};
+                            idSubservicios.forEach(function(idSubservicio) {
+                                var checkbox = $('input[type="checkbox"][value="' + idSubservicio +
+                                    '"]');
+                                checkbox.prop('checked', true);
+
+                                manejarCambioServicios.call(checkbox.get(0));
+                            });
+                        @endif
                     }
 
-                    // Llamar a la función para validar la aparición del botón de enviar solicitud
-                    validarBotonEnviar();
-                }
+                    // validaciones del boton de enviar -----------------------------------------------------------------------------------------------------------------
+                    function manejarCambioServicios() {
+                        var servicioId = $(this).val(); // Obtener el ID del servicio seleccionado
+                        var servicioNombre = $(this).closest('label').text()
+                            .trim(); // Obtener el nombre del servicio seleccionado
 
-                // Función para validar la aparición del botón de enviar solicitud
-                function validarBotonEnviar() {
-                    var selectedOption = $('#id_tipos_de_solicitudes')
-                        .val(); // Obtener el valor seleccionado
+                        if ($(this).is(':checked')) {
+                            // Si el servicio seleccionado es "otro", mostrar el textbox
+                            if (servicioNombre.toLowerCase() === 'otro') {
+                                $(this).closest('.form-group').find('.otroServicioTextbox').show();
+                            }
 
-                    // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
-                    if (selectedOption !== '' && serviciosSeleccionados.length !== 0) {
-                        // Mostrar el botón de enviar solicitud
-                        $('#boton').show();
-                    } else {
-                        // Ocultar el botón de enviar solicitud
-                        $('#boton').hide();
-                    }
-                }
+                            // Agregar el servicio al array si está seleccionado
+                            serviciosSeleccionados.push({
+                                id: servicioId,
+                                nombre: servicioNombre
+                            });
+                        } else {
+                            // Si el servicio deseleccionado es "otro", ocultar el textbox
+                            if (servicioNombre.toLowerCase() === 'otro') {
+                                $(this).closest('.form-group').find('.otroServicioTextbox').hide();
+                            }
 
-                // Manejar el cambio en la selección de servicios
-                // Manejar el cambio en la selección de servicios
-                $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(
-                    manejarCambioServicios);
+                            // Remover el servicio del array si está deseleccionado
+                            serviciosSeleccionados = serviciosSeleccionados.filter(function(servicio) {
+                                return servicio.id !== servicioId;
+                            });
+                        }
+
+                        // Imprimir el array de servicios seleccionados en la consola
+                        console.log(serviciosSeleccionados.length);
 
 
-                // Manejar el cambio en la selección del tipo de solicitud
-                $('#id_tipos_de_solicitudes').change(validarBotonEnviar);
-                //-------------------------------------------------fin de las validaciones del boton de enviar--------------------------------------------------------
-                var datosUnicosTextboxes = '';
-                $.each(response.datos_unicos, function(index, datoUnico) {
-                    var tipoDatoId = datoUnico.id_tipos_de_datos;
-                    var tipoDato = response.tipos_de_datos.find(function(tipo) {
-                        return tipo.id === tipoDatoId;
-                    });
 
-                    // Calcular la longitud del nombre del dato único
-                    let labelLength = datoUnico.nombre.length;
+                        if (cambioAutomatico === true) {
+                            var otroServicioValor = $('#otroServicio').val();
+                            // Actualizar el valor del campo oculto
+                            $('#otroServicioHidden').val(otroServicioValor);
+                        }
 
-                    // Determinar la clase de columna Bootstrap
-                    // Si la longitud del nombre es menor que 20, la clase será 'col-md-4', de lo contrario será una cadena vacía
-
-                    let colClass = labelLength < 20 ? 'col-md-4' : '';
-
-                    let textBoxHtml = '';
-                    if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
-                        textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input  type="date" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder="" required min="${getTodayDatePlus10Days()}"></div>`;
-                    } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
-                        textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="url" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;" placeholder=""required></div>`;
-                    } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
-                        textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="number" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder=""required></div>`;
-                    } else {
-                        textBoxHtml =
-                            `<div class="solicitudesDivText"><label  class="LabelText" style="max-width: 100%; overflow: hidden; word-wrap: break-word;font-size: 16px; font-weight: bold;">${datoUnico.nombre}</label><input type="text" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" placeholder=""required></div>`;
+                        // Llamar a la función para validar la aparición del botón de enviar solicitud
+                        validarBotonEnviar();
                     }
 
-                    datosUnicosTextboxes += `<div class="${colClass}">${textBoxHtml}</div>`;
+                    // Función para validar la aparición del botón de enviar solicitud
+                    function validarBotonEnviar() {
+                        var selectedOption = $('#id_tipos_de_solicitudes')
+                            .val(); // Obtener el valor seleccionado
+
+                        // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
+                        if (selectedOption !== '' && serviciosSeleccionados.length !== 0) {
+                            // Mostrar el botón de enviar solicitud
+                            $('#boton').show();
+                        } else {
+                            // Ocultar el botón de enviar solicitud
+                            $('#boton').hide();
+                        }
+                    }
+
+                    // Manejar el cambio en la selección de servicios
+                    // Manejar el cambio en la selección de servicios
+                    $('#servicesComboBoxContainer').find('input[name="servicios_por_tipo[]"]').change(
+                        manejarCambioServicios);
+
+
+                    // Manejar el cambio en la selección del tipo de solicitud
+                    $('#id_tipos_de_solicitudes').change(validarBotonEnviar);
+                    //-------------------------------------------------fin de las validaciones del boton de enviar--------------------------------------------------------
+                    var datosUnicosTextboxes = '';
+                    $.each(response.datos_unicos, function(index, datoUnico) {
+                                var tipoDatoId = datoUnico.id_tipos_de_datos;
+                                var tipoDato = response.tipos_de_datos.find(function(tipo) {
+                                    return tipo.id === tipoDatoId;
+                                });
+
+                                // Calcular la longitud del nombre del dato único
+                                let labelLength = datoUnico.nombre.length;
+
+                                // Determinar la clase de columna Bootstrap
+                                // Si la longitud del nombre es menor que 20, la clase será 'col-md-4', de lo contrario será una cadena vacía
+
+                                let colClass = labelLength < 20 ? 'col-md-4' : '';
+
+                                let textBoxHtml = '';
+                                if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
+                                    textBoxHtml =
+                                        `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input  type="date" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder="" required min="${getTodayDatePlus10Days()}"></div>`;
+                                }else if (tipoDato && tipoDato.nombre.toLowerCase() === 'hora') {
+                                        textBoxHtml =
+                                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="time" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;" placeholder=""required></div>`;
+                                    } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
+                                        textBoxHtml =
+                                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="url" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;" placeholder=""required></div>`;
+                                    } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
+                                        textBoxHtml =
+                                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="number" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder=""required></div>`;
+                                    } else {
+                                        textBoxHtml =
+                                            `<div class="solicitudesDivText"><label  class="LabelText" style="max-width: 100%; overflow: hidden; word-wrap: break-word;font-size: 16px; font-weight: bold;">${datoUnico.nombre}</label><input type="text" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" placeholder=""required></div>`;
+                                    }
+
+                                    datosUnicosTextboxes += `<div class="${colClass}">${textBoxHtml}</div>`;
+                                });
+
+                            $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
+
+                            @if (isset($datosPorSolicitud) && count($datosPorSolicitud) > 0)
+                                var datosPorSolicitud = {!! json_encode($datosPorSolicitud) !!};
+
+                                // Asignar los valores de los textboxes basados en los datosPorSolicitud
+                                $.each(datosPorSolicitud, function(id, valor) {
+                                    $('input[name="datos_unicos_por_solicitud_' + id + '"]').val(valor);
+                                });
+                            @endif
+
+                        },
+                        error: function(xhr) {
+                            console.error(
+                                'Error al obtener los datos asociados al tipo de solicitud.');
+                        }
                 });
+        }
 
-                $('#datosUnicosComboBoxContainer').html(datosUnicosTextboxes);
+        // Función para obtener la fecha actual en el formato YYYY-MM-DD
+        function getTodayDatePlus10Days() {
+            var today = new Date();
+            today.setDate(today.getDate() + 10); // Suma 10 días a la fecha actual
+            var day = today.getDate();
+            var month = today.getMonth() + 1; // Los meses comienzan desde 0
+            var year = today.getFullYear();
 
-                @if (isset($datosPorSolicitud) && count($datosPorSolicitud) > 0)
-                    var datosPorSolicitud = {!! json_encode($datosPorSolicitud) !!};
+            if (day < 10) {
+                day = '0' + day;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
 
-                    // Asignar los valores de los textboxes basados en los datosPorSolicitud
-                    $.each(datosPorSolicitud, function(id, valor) {
-                        $('input[name="datos_unicos_por_solicitud_' + id + '"]').val(valor);
+            return year + '-' + month + '-' + day;
+        }
+
+        // Función para verificar la selección del combobox
+        $('#id_tipos_de_solicitudes').change(validacionDelombo);
+
+        function validacionDelombo() {
+            var selectedOption = $(this).val(); // Obtener el valor seleccionado
+
+            // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
+            if (selectedOption !== '') {
+                // Mostrar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').show();
+            } else {
+                // Ocultar el botón de enviar solicitud
+                $('#btnEnviarSolicitud').hide();
+            }
+        };
+
+
+        $('#id_categoria_evento').change(function() {
+            var selectedTypeId = $(this).val();
+            $.ajax({
+                url: '{{ route('solicitudes.eventos') }}',
+                type: 'POST',
+                data: {
+                    tipo_evento_id: selectedTypeId,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    var eventosOptions = '<option value="">Seleccionar evento...</option>';
+                    $.each(response.evento, function(index, eventosAsociados) {
+                        eventosOptions += '<option value="' + eventosAsociados.id + '">' +
+                            eventosAsociados.nombre + '</option>';
                     });
-                @endif
+                    $('#eventosComboBoxContainer').html(
+                        '<select class="form-control" name="evento_asociado">' +
+                        eventosOptions +
+                        '</select>');
 
-            },
-            error: function(xhr) {
-                console.error(
-                    'Error al obtener los datos asociados al tipo de solicitud.');
-            }
+                    @if (isset($id_evento_especial))
+                        var idEventoEspecial = {{ $id_evento_especial }};
+                        $('#eventosComboBoxContainer').val(idEventoEspecial)
+                            .change(); // Agrega .change() para disparar el evento change
+                    @endif
+                },
+                error: function(xhr) {
+                    console.error(
+                        'Error al obtener los datos asociados al tipo de solicitud.');
+                }
+            });
         });
-    }
-
-    // Función para obtener la fecha actual en el formato YYYY-MM-DD
-    function getTodayDatePlus10Days() {
-        var today = new Date();
-        today.setDate(today.getDate() + 10); // Suma 10 días a la fecha actual
-        var day = today.getDate();
-        var month = today.getMonth() + 1; // Los meses comienzan desde 0
-        var year = today.getFullYear();
-
-        if (day < 10) {
-            day = '0' + day;
-        }
-        if (month < 10) {
-            month = '0' + month;
-        }
-
-        return year + '-' + month + '-' + day;
-    }
-
-    // Función para verificar la selección del combobox
-    $('#id_tipos_de_solicitudes').change(validacionDelombo);
-
-    function validacionDelombo() {
-        var selectedOption = $(this).val(); // Obtener el valor seleccionado
-
-        // Verificar si la opción seleccionada es diferente de "Seleccionar Tipo de Solicitud..."
-        if (selectedOption !== '') {
-            // Mostrar el botón de enviar solicitud
-            $('#btnEnviarSolicitud').show();
-        } else {
-            // Ocultar el botón de enviar solicitud
-            $('#btnEnviarSolicitud').hide();
-        }
-    };
+        $('#id_categoria_evento').change(function() {
+            var selectedOption = $(this).val(); // Obtener el valor seleccionado
+            console.log('ID de la categoria seleccionado:', selectedOption);
 
 
-    $('#id_categoria_evento').change(function() {
-        var selectedTypeId = $(this).val();
-        $.ajax({
-            url: '{{ route('solicitudes.eventos') }}',
-            type: 'POST',
-            data: {
-                tipo_evento_id: selectedTypeId,
-                _token: '{{ csrf_token() }}'
-            },
-            success: function(response) {
-                var eventosOptions = '<option value="">Seleccionar evento...</option>';
-                $.each(response.evento, function(index, eventosAsociados) {
-                    eventosOptions += '<option value="' + eventosAsociados.id + '">' +
-                        eventosAsociados.nombre + '</option>';
-                });
-                $('#eventosComboBoxContainer').html(
-                    '<select class="form-control" name="evento_asociado">' + eventosOptions +
-                    '</select>');
-
-                @if (isset($id_evento_especial))
-                    var idEventoEspecial = {{ $id_evento_especial }};
-                    $('#eventosComboBoxContainer').val(idEventoEspecial)
-                        .change(); // Agrega .change() para disparar el evento change
-                @endif
-            },
-            error: function(xhr) {
-                console.error(
-                    'Error al obtener los datos asociados al tipo de solicitud.');
-            }
         });
-    });
-    $('#id_categoria_evento').change(function() {
-        var selectedOption = $(this).val(); // Obtener el valor seleccionado
-        console.log('ID de la categoria seleccionado:', selectedOption);
 
-
-    });
-
-    $('#eventosComboBoxContainer').change(function() {
-        var selectedEvent = $(this).val(); // Obtain the selected ID
-        $('#id_evento_especial').val(selectedEvent);
+        $('#eventosComboBoxContainer').change(function() {
+            var selectedEvent = $(this).val(); // Obtain the selected ID
+            $('#id_evento_especial').val(selectedEvent);
 
 
 
 
 
 
-    });
+        });
 </script>
 
 

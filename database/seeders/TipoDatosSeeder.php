@@ -29,6 +29,10 @@ class TipoDatosSeeder extends Seeder
             [
                 'nombre'=>'Fecha',
                 'id_estado'=>1
+            ],
+            [
+                'nombre'=>'Hora',
+                'id_estado'=>1
             ]
         ]);
     }

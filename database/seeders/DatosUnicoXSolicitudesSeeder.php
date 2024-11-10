@@ -28,13 +28,13 @@ class DatosUnicoXSolicitudesSeeder extends Seeder
             ],
             [
                 'nombre'=>'Fecha del evento',
-                'id_tipos_de_datos'=>1,
+                'id_tipos_de_datos'=>4,
                 'id_tipos_de_solicitudes'=>1,
                 'id_estados'=>1
             ],
             [
                 'nombre'=>'Hora del evento',
-                'id_tipos_de_datos'=>1,
+                'id_tipos_de_datos'=>5,
                 'id_tipos_de_solicitudes'=>1,
                 'id_estados'=>1
             ],
