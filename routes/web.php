@@ -38,6 +38,7 @@ Route::get('/', function () {
     return redirect('/login'); // Changing the default route to redirect to the login view instead of welcome
 });
 
+Route::post('/openai/complete', [App\Http\Controllers\OpenAIController::class, 'complete'])->name('openai.complete');
 
 Route::post('/notifications/mark-as-read', [SolicitudeController::class, 'markAsRead'])->name('notifications.markAsRead');
 Route::get('/notifications', function () {
