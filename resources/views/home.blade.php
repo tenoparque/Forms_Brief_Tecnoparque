@@ -48,38 +48,41 @@
                                         <div class="card-header p-3 pt-2" style="border:transparent;">
                                             <div class="d-flex align-items-center">
                                                 <!-- Ícono con el número al lado -->
-                                                <div class="icon icon-lg icon-shape bg-gradient-success shadow-primary text-center border-radius-xl me-3">
+                                                <div
+                                                    class="icon icon-lg icon-shape bg-gradient-success shadow-primary text-center border-radius-xl me-3">
                                                     <i class="fa-solid fa-envelope-circle-check"></i>
                                                 </div>
                                                 <!-- Texto y número más grande -->
                                                 <div>
                                                     <p class="titulosoli mb-0">Solicitudes</p>
-                                                    <span class="numero-color display-5" id="cardUno"></span> <!-- Número en tamaño grande -->
+                                                    <span class="numero-color display-5" id="cardUno"></span>
+                                                    <!-- Número en tamaño grande -->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 @if (!auth()->user()->hasRole('Designer|Experto Divulgación'))
-                                <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
-                                    <div class="card border-light shadow">
-                                        <div class="card-header p-3 pt-2" style="border:transparent;">
-                                            <div class="d-flex align-items-center">
-                                                <!-- Ícono con el número al lado -->
-                                                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-primary text-center border-radius-xl me-3">
-                                                    <i class="fa-solid fa-envelope-open-text"></i>
-                                                </div>
-                                                <!-- Texto y número más grande -->
-                                                <div>
-                                                    <p class="titulosoli mb-0">Solicitudes en espera</p>
-                                                    <span class="numero-color display-5" id="cardDos"></span> <!-- Número en tamaño grande -->
+                                    <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
+                                        <div class="card border-light shadow">
+                                            <div class="card-header p-3 pt-2" style="border:transparent;">
+                                                <div class="d-flex align-items-center">
+                                                    <!-- Ícono con el número al lado -->
+                                                    <div
+                                                        class="icon icon-lg icon-shape bg-gradient-dark shadow-primary text-center border-radius-xl me-3">
+                                                        <i class="fa-solid fa-envelope-open-text"></i>
+                                                    </div>
+                                                    <!-- Texto y número más grande -->
+                                                    <div>
+                                                        <p class="titulosoli mb-0">Solicitudes en espera</p>
+                                                        <span class="numero-color display-5" id="cardDos"></span>
+                                                        <!-- Número en tamaño grande -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
                                 @endif
 
                                 <div class="col-xl-4 col-sm-6 mb-xl-12 mb-4">
@@ -87,19 +90,20 @@
                                         <div class="card-header p-3 pt-2" style="border:transparent;">
                                             <div class="d-flex align-items-center">
                                                 <!-- Ícono con el número al lado -->
-                                                <div class="icon icon-lg icon-shape bg-gradient-info shadow-primary text-center border-radius-xl me-3">
+                                                <div
+                                                    class="icon icon-lg icon-shape bg-gradient-info shadow-primary text-center border-radius-xl me-3">
                                                     <i class="fa-solid fa-envelope-circle-check"></i>
                                                 </div>
                                                 <!-- Texto y número más grande -->
                                                 <div>
                                                     <p class="titulosoli mb-0">Solicitudes Finalizadas</p>
-                                                    <span class="numero-color display-5" id="cardTres"></span> <!-- Número en tamaño grande -->
+                                                    <span class="numero-color display-5" id="cardTres"></span>
+                                                    <!-- Número en tamaño grande -->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
                             @endcan
                             <!-- Fin de las tarjetas de estadísticas -->
                             <!-- Tarjetas con graficos Donas -->
@@ -177,7 +181,11 @@
                 function hacerSolicitud() {
 
                     clearInterval(intervalo);
-                    fetch("{{ route('datosGraficas') }}") // Utiliza la función route de Laravel para obtener la URL del endpoint
+                    fetch("{{ route('datosGraficas') }}", {
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest' // Agrega este encabezado para que Laravel detecte la solicitud como AJAX
+                            }
+                        }) // Utiliza la función route de Laravel para obtener la URL del endpoint
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('Error en la solicitud: ' + response.status);
