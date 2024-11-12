@@ -44,28 +44,25 @@
                     <br>
 
                     <div id="btnEnviarSolicitud">
-                        <div class="form-group col-md-12 my-3">
-                            <label style="font-size: 18px; font-weight: bold;">CATEGORIAS DE EVENTOS ESPECIALES</label>
-                            <div style="position: relative">
-                                <select name="id_categoria_evento" id="id_categoria_evento"
+                        <div style="position: relative">
+                            <select name="id_categorias_eventos_especiales" id="id_categoria_evento"
                                     class="form-control selectpicker" data-style="btn-primary"
-                                    style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
+                                    style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
                                     title="Seleccionar la Categoria Del Evento Especial" required>
-                                    <option value="">Seleccione una categoria de evento especial</option>
-                                    <!-- Opción "No aplica" -->
-                                    @foreach ($categoriaEventos as $eventos)
-                                        <option value="{{ $eventos->id }}">{{ $eventos->nombre }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="icono" style="right: 1%;">
-                                    <div class="circle-play">
-                                        <div class="circle"></div>
-                                        <div class="triangle"></div>
-                                    </div>
+                                <option value="">Seleccione una categoria de evento especial</option>
+                                @foreach ($categoriaEventos as $eventos)
+                                    <option value="{{ $eventos->id }}">{{ $eventos->nombre }}</option>
+                                @endforeach
+                            </select>
+                            <div class="icono" style="right: 1%;">
+                                <div class="circle-play">
+                                    <div class="circle"></div>
+                                    <div class="triangle"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group my-2">
+                        
+                        {{-- <div class="form-group my-2">
                             <h5>eventos</h5>
                             <div style="position: relative">
                                 <select name="eventosComboBoxContainer" id="eventosComboBoxContainer"
@@ -83,7 +80,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="form-group my-2">
@@ -193,7 +190,7 @@
 
 
                                 <input type="hidden" id="tipo_solicitud_id" name="tipo_solicitud_id">
-                                <input type="hidden" id="id_evento_especial" name="id_evento_especial">
+                                {{-- <input type="hidden" id="id_evento_especial" name="id_evento_especial"> --}}
                                 <input type="hidden" id="otroServicioHidden" name="otroServicioHidden">
 
 
@@ -485,43 +482,42 @@
 
 
     $('#id_categoria_evento').change(function() {
-        var selectedTypeId = $(this).val();
-        $.ajax({
-            url: '{{ route('solicitudes.eventos') }}',
-            type: 'POST',
-            data: {
-                tipo_evento_id: selectedTypeId,
-                _token: '{{ csrf_token() }}'
-            },
-            success: function(response) {
-                var eventosOptions = '<option value="">Seleccionar evento...</option>';
-                $.each(response.evento, function(index, eventosAsociados) {
-                    eventosOptions += '<option value="' + eventosAsociados.id + '">' +
-                        eventosAsociados.nombre + '</option>';
-                });
-                $('#eventosComboBoxContainer').html(
-                    '<select class="form-control" name="evento_asociado">' +
-                    eventosOptions +
-                    '</select>');
+    var selectedTypeId = $(this).val();
+    $.ajax({
+        url: '{{ route('solicitudes.eventos') }}',
+        type: 'POST',
+        data: {
+            id_categorias_eventos_especiales: selectedTypeId, // Nombre correcto para el controlador
+            _token: '{{ csrf_token() }}'
+        },
+        success: function(response) {
+            var eventosOptions = '<option value="">Seleccionar evento...</option>';
+            $.each(response.evento, function(index, eventosAsociados) {
+                eventosOptions += '<option value="' + eventosAsociados.id + '">' +
+                    eventosAsociados.nombre + '</option>';
+            });
+            $('#eventosComboBoxContainer').html(
+                '<select class="form-control" name="evento_asociado">' +
+                eventosOptions +
+                '</select>');
 
-                @if (isset($id_evento_especial))
-                    var idEventoEspecial = {{ $id_evento_especial }};
-                    $('#eventosComboBoxContainer').val(idEventoEspecial)
-                        .change(); // Agrega .change() para disparar el evento change
-                @endif
-            },
-            error: function(xhr) {
-                console.error(
-                    'Error al obtener los datos asociados al tipo de solicitud.');
-            }
-        });
+            @if (isset($id_evento_especial))
+                var idEventoEspecial = {{ $id_evento_especial }};
+                $('#eventosComboBoxContainer select').val(idEventoEspecial).change(); // Cambié a select para que funcione correctamente
+            @endif
+        },
+        error: function(xhr) {
+            console.error('Error al obtener los datos asociados al tipo de solicitud.');
+        }
     });
-    $('#id_categoria_evento').change(function() {
-        var selectedOption = $(this).val(); // Obtener el valor seleccionado
-        console.log('ID de la categoria seleccionado:', selectedOption);
+});
 
+// Para verificar el valor seleccionado en la consola
+$('#id_categoria_evento').change(function() {
+    var selectedOption = $(this).val(); 
+    console.log('ID de la categoría seleccionada:', selectedOption);
+});
 
-    });
 
     $('#eventosComboBoxContainer').change(function() {
         var selectedEvent = $(this).val(); // Obtain the selected ID

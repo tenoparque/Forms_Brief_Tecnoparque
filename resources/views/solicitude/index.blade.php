@@ -104,7 +104,7 @@
                                             <th>Fecha Y Hora</th>
                                             <th>Nodo</th>
                                             <th>Usuario</th>
-                                            <th>Evento</th>
+                                            <th>Categoria</th>
                                             <th>Estado</th>
                                             <th>Opciones</th>
                                         </tr>
@@ -122,7 +122,7 @@
                                                 </td>
                                                 <td data-titulo="Usuario">{{ $solicitude->user->name }}</td>
                                                 <td data-titulo="Evento">
-                                                    {{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+                                                    {{ $solicitude->categoriaEventoEspecial->nombre }}</td>
                                                 <td data-titulo="Estado">{{ $solicitude->estadosDeLasSolictude->nombre }}
                                                 </td>
 

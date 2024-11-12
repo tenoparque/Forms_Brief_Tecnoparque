@@ -30,14 +30,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Solicitude extends Model
 {
-    
+
     static $rules = [
-		'id_tipos_de_solicitudes' => 'required',
-		'fecha_y_hora_de_la_solicitud' => 'required',
-		'id_usuario_que_realiza_la_solicitud' => 'required',
-		'id_eventos_especiales_por_categorias' => 'required',
-		'id_estado_de_la_solicitud' => 'required',
-        'drive_link' =>'required'
+        'id_tipos_de_solicitudes' => 'required',
+        'fecha_y_hora_de_la_solicitud' => 'required',
+        'id_usuario_que_realiza_la_solicitud' => 'required',
+        'id_categorias_eventos_especiales' => 'required',
+        'id_estado_de_la_solicitud' => 'required',
+        'drive_link' => 'required'
     ];
 
     protected $perPage = 20;
@@ -47,7 +47,7 @@ class Solicitude extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_tipos_de_solicitudes','fecha_y_hora_de_la_solicitud','id_usuario_que_realiza_la_solicitud','id_eventos_especiales_por_categorias','id_estado_de_la_solicitud',  'drive_link'];
+    protected $fillable = ['id_tipos_de_solicitudes', 'fecha_y_hora_de_la_solicitud', 'id_usuario_que_realiza_la_solicitud', 'id_categorias_eventos_especiales', 'id_estado_de_la_solicitud',  'drive_link'];
 
 
     /**
@@ -57,7 +57,7 @@ class Solicitude extends Model
     {
         return $this->hasMany('App\Models\DatosPorSolicitud', 'id_solicitudes', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -65,7 +65,7 @@ class Solicitude extends Model
     {
         return $this->hasMany('App\Models\ElementosPorSolicitude', 'id_solicitudes', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -73,7 +73,7 @@ class Solicitude extends Model
     {
         return $this->hasOne('App\Models\EstadosDeLasSolictude', 'id', 'id_estado_de_la_solicitud');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -81,7 +81,7 @@ class Solicitude extends Model
     {
         return $this->hasOne('App\Models\EventosEspecialesPorCategoria', 'id', 'id_eventos_especiales_por_categorias');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -89,7 +89,7 @@ class Solicitude extends Model
     {
         return $this->hasMany('App\Models\HistorialDeEstadosPorSolicitude', 'id_solicitudes', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -97,7 +97,7 @@ class Solicitude extends Model
     {
         return $this->hasMany('App\Models\HistorialDeModificacionesPorSolicitude', 'id_soli', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -105,7 +105,7 @@ class Solicitude extends Model
     {
         return $this->hasMany('App\Models\HistorialDeUsuariosPorSolicitude', 'id_solicitudes', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -113,7 +113,7 @@ class Solicitude extends Model
     {
         return $this->hasOne('App\Models\TiposDeSolicitude', 'id', 'id_tipos_de_solicitudes');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -126,6 +126,10 @@ class Solicitude extends Model
     {
         return $this->hasMany(HistorialDeUsuariosPorSolicitude::class, 'id_solicitudes');
     }
-    
 
+    // En Solicitude.php
+    public function categoriaEventoEspecial()
+    {
+        return $this->belongsTo(CategoriasEventosEspeciale::class, 'id_categorias_eventos_especiales');
+    }
 }

@@ -179,7 +179,7 @@
                                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                     data-bs-target="#eventos" aria-expanded="false" aria-controls="auth">
                                     <i class="fa-regular fa-calendar-days"></i>
-                                    <span>Eventos</span>
+                                    <span>Categorias</span>
                                 </a>
                                 <hr class="hrmenu">
                                 <ul id="eventos" class="sidebar-dropdown list-unstyled collapse"
@@ -194,14 +194,13 @@
                                         </li>
                                     @endcan
 
-                                    @can('eventosEspeciales.index')
-                                        {{-- Validate that you have the eventosEspeciales.index permission to be able to display the Eventos Especiales Permissions item. --}}
+                                    {{-- @can('eventosEspeciales.index')
                                         <li class="sidebar-item">
                                             <a href="{{ route('eventos-especiales-por-categorias.index') }}"
                                                 class="sidebar-link">Eventos especiales
                                             </a>
                                         </li>
-                                    @endcan
+                                    @endcan --}}
 
                                 </ul>
                             </li>
@@ -382,51 +381,51 @@
                                 <div
                                     class="col-xl-3 col-lg-5 col-md-4 col-sm-4 col-12 d-flex align-items-center justify-content-end">
                                     @if (isset($logo))
-                                    @if (!$user->hasAnyRole(['Super Admin', 'Articulador Nacional']))
-                                        <div class="notification-bell"
-                                            style="position: relative; display: inline-block; margin-right: 20px; z-index: 1050;">
-                                            <!-- Icono de campana -->
-                                            <a href="#" id="notificationDropdown" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-bell" style="font-size: 24px; color: #333;"></i>
-                                                <span class="badge badge-danger"
-                                                    id="notificationCount">{{ $user->unreadNotifications->count() }}</span>
-                                            </a>
+                                        @if (!$user->hasAnyRole(['Super Admin', 'Articulador Nacional']))
+                                            <div class="notification-bell"
+                                                style="position: relative; display: inline-block; margin-right: 20px; z-index: 1050;">
+                                                <!-- Icono de campana -->
+                                                <a href="#" id="notificationDropdown" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-bell" style="font-size: 24px; color: #333;"></i>
+                                                    <span class="badge badge-danger"
+                                                        id="notificationCount">{{ $user->unreadNotifications->count() }}</span>
+                                                </a>
 
-                                            <!-- Menú desplegable de notificaciones -->
-                                            <div class="dropdown-menu dropdown-menu-right"
-                                                aria-labelledby="notificationDropdown"
-                                                style="width: 300px; max-height: 400px; overflow-y: auto; top: 30px; left: -50px;">
-                                                <h6 class="dropdown-header">Notificaciones</h6>
-                                                @if ($user->unreadNotifications->isEmpty())
-                                                    <p class="text-center">No tienes notificaciones</p>
-                                                @else
-                                                    @foreach ($user->unreadNotifications as $notification)
-                                                        <a href="{{ $notification->data['url'] }}"
-                                                            class="dropdown-item">
-                                                            {{ $notification->data['message'] }}
-                                                        </a>
-                                                    @endforeach
-                                                @endif
+                                                <!-- Menú desplegable de notificaciones -->
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="notificationDropdown"
+                                                    style="width: 300px; max-height: 400px; overflow-y: auto; top: 30px; left: -50px;">
+                                                    <h6 class="dropdown-header">Notificaciones</h6>
+                                                    @if ($user->unreadNotifications->isEmpty())
+                                                        <p class="text-center">No tienes notificaciones</p>
+                                                    @else
+                                                        @foreach ($user->unreadNotifications as $notification)
+                                                            <a href="{{ $notification->data['url'] }}"
+                                                                class="dropdown-item">
+                                                                {{ $notification->data['message'] }}
+                                                            </a>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
+
+
+                                        <!-- Logo -->
+                                        <img class="ImgHeader ml-3" id="logoHeader"
+                                            src="data:image/png;base64,{{ base64_encode($logo) }}"
+                                            style="margin-left: 15px;">
                                     @endif
+                                </div>
+                            </div>
+                        </header>
 
-
-                                    <!-- Logo -->
-                                    <img class="ImgHeader ml-3" id="logoHeader"
-                                        src="data:image/png;base64,{{ base64_encode($logo) }}"
-                                        style="margin-left: 15px;">
                     @endif
+                    @yield('content')
+                </main>
             </div>
         </div>
-        </header>
-
-        @endif
-        @yield('content')
-        </main>
-    </div>
-    </div>
     </div>
 </body>
 

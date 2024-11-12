@@ -32,5 +32,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DatosUnicoXSolicitudesSeeder::class);
         $this->call(ServiciosXTiposSolicitudesSeeder::class);
         $this->call(EstadoSolicitudesSeeder::class);
+        $this->call(CategoriaSeeder::class);
     }
 }

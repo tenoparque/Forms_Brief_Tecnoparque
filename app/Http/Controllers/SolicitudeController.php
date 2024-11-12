@@ -60,6 +60,7 @@ class SolicitudeController extends Controller
 
         if ($rolSuperAdmin) {
             $solicitudes = Solicitude::orderBy('created_at', 'desc')->paginate(10);
+            
         } else {
             if ($usuarioAutenticado->hasRole('Designer')) {
                 $solicitudes = Solicitude::whereHas('historial', function ($query) use ($usuarioAutenticado, $nodoUsuario) {
@@ -296,7 +297,7 @@ class SolicitudeController extends Controller
 
 
         $currentTime = Carbon::now('America/Bogota');
-        $idEventoEspecialPorCategoria = $request->input('id_evento_especial');
+        $idCategoriaEventoEspecial = $request->input('id_categorias_eventos_especiales');
         $serviciosSeleccionados = $request->input('servicios_por_tipo');
         // Obtener la fecha y hora actual del sistema
         $estadosDefecto = EstadosDeLasSolictude::where('orden_mostrado', 1)->value('id');
@@ -324,7 +325,7 @@ class SolicitudeController extends Controller
         // Combinar los datos de la solicitud con los valores predeterminados
         $data = array_merge($request->all(), [
             'id_usuario_que_realiza_la_solicitud' => $userId,
-            'id_eventos_especiales_por_categorias' => $idEventoEspecialPorCategoria,
+            'id_categorias_eventos_especiales' => $idCategoriaEventoEspecial,
             'id_estado_de_la_solicitud' => $estadosDefecto,
             'fecha_y_hora_de_la_solicitud' => $currentTime,
             'drive_link' => $request->input('drive_link'),
