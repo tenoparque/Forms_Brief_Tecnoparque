@@ -56,13 +56,13 @@
                                     <div class="filtros">
                                         <label class=" checkboxSol checkfiltro"><input class="checkboxSolInp" type="radio"
                                                 name="parametro" value="tipo"><span class="check"><span
-                                                    class="inner-eye"></span></span> Tipo de Solicitud</label>
+                                                    class="inner-eye"></span></span> Tipo Solicitud</label>
                                         <label class=" checkboxSol checkfiltro"><input class="checkboxSolInp" type="radio"
                                                 name="parametro" value="nodo"><span class="check"><span
                                                     class="inner-eye"></span></span> Nodo</label>
                                         <label class=" checkboxSol checkfiltro"><input class="checkboxSolInp" type="radio"
-                                                name="parametro" value="evento"><span class="check"><span
-                                                    class="inner-eye"></span></span> Evento</label>
+                                                name="parametro" value="categoria"><span class="check"><span
+                                                    class="inner-eye"></span></span> Categoria</label>
                                         <label class=" checkboxSol checkfiltro"><input class="checkboxSolInp" type="radio"
                                                 name="parametro" value="estado"><span class="check"><span
                                                     class="inner-eye"></span></span> Estado</label>
@@ -121,7 +121,7 @@
                                                     {{ $solicitude->user->nodo ? $solicitude->user->nodo->nombre : 'Sin nodo' }}
                                                 </td>
                                                 <td data-titulo="Usuario">{{ $solicitude->user->name }}</td>
-                                                <td data-titulo="Evento">
+                                                <td data-titulo="Categoria">
                                                     {{ $solicitude->categoriaEventoEspecial->nombre }}</td>
                                                 <td data-titulo="Estado">{{ $solicitude->estadosDeLasSolictude->nombre }}
                                                 </td>
