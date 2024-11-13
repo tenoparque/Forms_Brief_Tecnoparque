@@ -33,5 +33,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ServiciosXTiposSolicitudesSeeder::class);
         $this->call(EstadoSolicitudesSeeder::class);
         $this->call(CategoriaSeeder::class);
+        $this->call(PoliticaSeeder::class);
     }
 }
