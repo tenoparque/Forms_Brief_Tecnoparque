@@ -43,13 +43,30 @@
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col d-flex justify-content-between align-items-center search-Header">
-                                <input class="form-control inputSearch" id="search"
-                                    placeholder="Ingrese el email del usuario..."
-                                    style="width: 70%; border-radius: 50px; border-style: solid; border-width:5px; border-color: #DEE2E6">
+                                <!-- Barra de Búsqueda -->
+                                <input class="form-control inputSearch" id="search" placeholder="Ingrese el email del usuario..."
+                                       style="width: 50%; border-radius: 50px; border-style: solid; border-width:5px; border-color: #DEE2E6">
+                        
+                                <!-- Formulario de Carga de Archivo -->
+                                <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data" class="d-flex align-items-center" style="margin-right: 10px;">
+                                    @csrf
+                                    <label for="file" class="d-flex align-items-center" style="cursor: pointer; margin-right: 10px;">
+                                        <i class="fa-solid fa-file-excel" style="font-size: 1.5rem; color: #28a745; margin-right: 5px;"></i>
+                                        <span style="color: #555; font-weight: bold;">Subir Excel</span>
+                                        <input type="file" name="file" id="file" style="display: none;" required>
+                                    </label>
+                                    <button type="submit" class="btn btn-success" style="border-radius: 20px; padding: 6px 20px;">
+                                        <i class="fa-solid fa-upload"></i> Cargar
+                                    </button>
+                                </form>
+                        
+                                <!-- Botón Crear -->
                                 <a href="{{ route('register') }}" class="btnCrear">{{ __('CREAR') }}
-                                    <i class="fa-solid fa-circle-play iconDCR"></i></a>
+                                    <i class="fa-solid fa-circle-play iconDCR"></i>
+                                </a>
                             </div>
                         </div>
+                        {{-- Tabla --}}
                         <div class="table-responsive"
                             style="background-color: #DEE2E6; border-radius: 18px; border-style: solid; border-width:2px; border-color: #DEE2E6">
                             <table class="table table-bordered table-hover">

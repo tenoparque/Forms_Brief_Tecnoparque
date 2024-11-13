@@ -23,33 +23,33 @@
                                 </div>
                             </div>
                             @if ($message = Session::get('success'))
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Operación exitosa',
-                                        text: '{{ $message }}',
-                                        timer: 5000, // 5 segundos de duración
-                                        showConfirmButton: true,
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Operación exitosa',
+                                            text: '{{ $message }}',
+                                            timer: 5000, // 5 segundos de duración
+                                            showConfirmButton: true,
+                                        });
                                     });
-                                });
-                            </script>
-                        @endif
-                        
-                        @if ($message = Session::get('error'))
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Error',
-                                        text: '{{ $message }}',
-                                        timer: 5000, // 5 segundos de duración
-                                        showConfirmButton: true,
+                                </script>
+                            @endif
+
+                            @if ($message = Session::get('error'))
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Error',
+                                            text: '{{ $message }}',
+                                            timer: 5000, // 5 segundos de duración
+                                            showConfirmButton: true,
+                                        });
                                     });
-                                });
-                            </script>
-                        @endif
-                        
+                                </script>
+                            @endif
+
 
                             <div class="row mb-3"style="padding-bottom:2px; margin;margin-block-start: 50px">
                                 <div class="Containerfiltros">
@@ -83,6 +83,24 @@
                                         <input class="form-control inputSearch" id="search"
                                             placeholder="Ingrese el tipo de solicitud..."
                                             style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
+
+                                        <!-- Formulario de Carga de Archivo -->
+                                        <form action="{{ route('import.solicitudes') }}" method="POST" enctype="multipart/form-data"
+                                            class="d-flex align-items-center" style="margin-right: 10px;">
+                                            @csrf
+                                            <label for="file" class="d-flex align-items-center"
+                                                style="cursor: pointer; margin-right: 10px;">
+                                                <i class="fa-solid fa-file-excel"
+                                                    style="font-size: 1.5rem; color: #28a745; margin-right: 5px;"></i>
+                                                <span style="color: #555; font-weight: bold;">Subir Excel</span>
+                                                <input type="file" name="file" id="file" style="display: none;"
+                                                    required>
+                                            </label>
+                                            <button type="submit" class="btn btn-success"
+                                                style="border-radius: 20px; padding: 6px 20px;">
+                                                <i class="fa-solid fa-upload"></i> Cargar
+                                            </button>
+                                        </form>
 
 
                                         @can('solicitudes.create')
@@ -148,11 +166,11 @@
 
                                                     </a>
                                                     @if (!auth()->user()->hasRole('Designer'))
-                                                    <button class="btnAsignar"
-                                                        onclick="abrirModalAsignacion({{ $solicitude->id }})">
-                                                        <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
-                                                        {{ __('Asignar a diseñador') }}
-                                                    </button>
+                                                        <button class="btnAsignar"
+                                                            onclick="abrirModalAsignacion({{ $solicitude->id }})">
+                                                            <i class="fa-solid fa-user-plus" style="color: #642c78;"></i>
+                                                            {{ __('Asignar a diseñador') }}
+                                                        </button>
                                                     @endif
                                                 </td>
                                             </tr>
