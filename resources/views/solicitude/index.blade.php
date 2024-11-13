@@ -1,3 +1,6 @@
+@php
+    $user = auth()->user();
+@endphp
 @extends('layouts.app')
 
 @section('template_title')
@@ -85,6 +88,7 @@
                                             style="width: 70%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #DEE2E6">
 
                                         <!-- Formulario de Carga de Archivo -->
+                                        @if ($user->hasAnyRole(['Experto Divulgación']))
                                         <form action="{{ route('import.solicitudes') }}" method="POST" enctype="multipart/form-data"
                                             class="d-flex align-items-center" style="margin-right: 10px;">
                                             @csrf
@@ -101,7 +105,7 @@
                                                 <i class="fa-solid fa-upload"></i> Cargar
                                             </button>
                                         </form>
-
+                                        @endif
 
                                         @can('solicitudes.create')
                                             <a href="{{ route('solicitudes.create') }}" class="btnCrear">{{ __('CREAR') }}

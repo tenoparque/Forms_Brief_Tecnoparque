@@ -52,7 +52,7 @@
                                     style="width: 50%; border-radius: 50px; border-style: solid; border-width:5px; border-color: #DEE2E6">
 
                                 <!-- Formulario de Carga de Archivo -->
-                                @if ($user->hasAnyRole(['Experto Divulgación']))
+                                @if ($user->hasAnyRole(['Super Admin']))
                                 <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data"
                                     class="d-flex align-items-center" style="margin-right: 10px;">
                                     @csrf
