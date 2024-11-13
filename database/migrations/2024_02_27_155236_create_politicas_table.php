@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('politicas', function (Blueprint $table) {
             $table->id();
-            $table->text('link');
+            //$table->text('link');
+            $table->text('titulo');
             $table->text('descripcion');
             $table->unsignedBigInteger('id_usuario');
             $table->unsignedBigInteger('id_estado');
-            $table->text('titulo');
             $table->foreign('id_usuario')->references('id')->on('users');
             $table->foreign('id_estado')->references('id')->on('estados');
             $table->timestamps();
         });
 
-        DB::statement("ALTER TABLE politicas ADD qr MEDIUMBLOB");
+        //DB::statement("ALTER TABLE politicas ADD qr MEDIUMBLOB");
     }
 
     /**

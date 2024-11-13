@@ -46,9 +46,9 @@
                     <div id="btnEnviarSolicitud">
                         <div style="position: relative">
                             <select name="id_categorias_eventos_especiales" id="id_categoria_evento"
-                                    class="form-control selectpicker" data-style="btn-primary"
-                                    style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
-                                    title="Seleccionar la Categoria Del Evento Especial" required>
+                                class="form-control selectpicker" data-style="btn-primary"
+                                style="width: 100%; height:45px; border-radius: 50px; border-color: #ececec; background-color: #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px; -webkit-appearance: none; -moz-appearance: none; appearance: none;"
+                                title="Seleccionar la Categoria Del Evento Especial" required>
                                 <option value="">Seleccione una categoria de evento especial</option>
                                 @foreach ($categoriaEventos as $eventos)
                                     <option value="{{ $eventos->id }}">{{ $eventos->nombre }}</option>
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         {{-- <div class="form-group my-2">
                             <h5>eventos</h5>
                             <div style="position: relative">
@@ -139,17 +139,17 @@
                                 <input type="url" name="drive_link"
                                     style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; ">
 
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#qrModal">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
-                                        <path d="M2 2h2v2H2z" />
-                                        <path d="M6 0v6H0V0zM5 1H1v4h4zM4 12H2v2h2z" />
-                                        <path d="M6 10v6H0v-6zm-5 1v4h4v-4zm11-9h2v2h-2z" />
+                                <button type="button" class="btn" data-bs-toggle="modal"
+                                    style="display: flex; align-items: center; gap: 10px;" data-bs-target="#qrModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                        viewBox="0 0 448 512">
                                         <path
-                                            d="M10 0v6h6V0zm5 1v4h-4V1zM8 1V0h1v2H8v2H7V1zm0 5V4h1v2zM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8zm0 0v1H2V8H1v1H0V7h3v1zm10 1h-1V7h1zm-1 0h-1v2h2v-1h-1zm-4 0h2v1h-1v1h-1zm2 3v-1h-1v1h-1v1H9v1h3v-2zm0 0h3v1h-2v1h-1zm-4-1v1h1v-2H7v1z" />
-                                        <path d="M7 12h1v3h4v1H7zm9 2v2h-3v-1h2v-1z" />
+                                            d="M144 144c0-44.2 35.8-80 80-80c31.9 0 59.4 18.6 72.3 45.7c7.6 16 26.7 22.8 42.6 15.2s22.8-26.7 15.2-42.6C331 33.7 281.5 0 224 0C144.5 0 80 64.5 80 144l0 48-16 0c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-240 0 0-48z" />
                                     </svg>
+                                    Politica tratamiento de datos
                                 </button>
+
+
 
                                 {{-- <button type="button" class="btn"
                                     onclick="window.open('{{ $politicas ? $politicas->link : '#' }}', '_blank')">
@@ -168,24 +168,32 @@
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="qrModalLabel">Código QR</h5>
+                                                <h5 class="modal-title" id="qrModalLabel">{{ $politicas->titulo }}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="close"></button>
+                                                    aria-label="Cerrar"></button>
                                             </div>
-                                            <div class="modal-body text-center">
-                                                {{-- Mostrar el código QR solo si la política está presente --}}
+                                            <div class="modal-body">
+                                                {{-- Descripción de la política --}}
                                                 @if ($politicas)
-                                                    <img src="data:image/png;base64,{{ base64_encode($politicas->qr) }}"
-                                                        class="" alt="QR Code"
-                                                        style="width: 3in; height: 3in;">
+                                                    <p>{{ $politicas->descripcion }}</p>
+                                                    <div class="form-check text-start mt-3">
+                                                        <input type="checkbox" class="form-check-input"
+                                                            id="policyAcceptanceCheckbox">
+                                                        <label class="form-check-label"
+                                                            for="policyAcceptanceCheckbox">
+                                                            Acepto los términos de la política de tratamiento de datos.
+                                                        </label>
+                                                    </div>
                                                 @else
                                                     <p>No hay registro de política con id_estado = 1</p>
                                                 @endif
                                             </div>
+
                                         </div>
                                     </div>
-
                                 </div>
+
+
 
 
 
@@ -482,41 +490,42 @@
 
 
     $('#id_categoria_evento').change(function() {
-    var selectedTypeId = $(this).val();
-    $.ajax({
-        url: '{{ route('solicitudes.eventos') }}',
-        type: 'POST',
-        data: {
-            id_categorias_eventos_especiales: selectedTypeId, // Nombre correcto para el controlador
-            _token: '{{ csrf_token() }}'
-        },
-        success: function(response) {
-            var eventosOptions = '<option value="">Seleccionar evento...</option>';
-            $.each(response.evento, function(index, eventosAsociados) {
-                eventosOptions += '<option value="' + eventosAsociados.id + '">' +
-                    eventosAsociados.nombre + '</option>';
-            });
-            $('#eventosComboBoxContainer').html(
-                '<select class="form-control" name="evento_asociado">' +
-                eventosOptions +
-                '</select>');
+        var selectedTypeId = $(this).val();
+        $.ajax({
+            url: '{{ route('solicitudes.eventos') }}',
+            type: 'POST',
+            data: {
+                id_categorias_eventos_especiales: selectedTypeId, // Nombre correcto para el controlador
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(response) {
+                var eventosOptions = '<option value="">Seleccionar evento...</option>';
+                $.each(response.evento, function(index, eventosAsociados) {
+                    eventosOptions += '<option value="' + eventosAsociados.id + '">' +
+                        eventosAsociados.nombre + '</option>';
+                });
+                $('#eventosComboBoxContainer').html(
+                    '<select class="form-control" name="evento_asociado">' +
+                    eventosOptions +
+                    '</select>');
 
-            @if (isset($id_evento_especial))
-                var idEventoEspecial = {{ $id_evento_especial }};
-                $('#eventosComboBoxContainer select').val(idEventoEspecial).change(); // Cambié a select para que funcione correctamente
-            @endif
-        },
-        error: function(xhr) {
-            console.error('Error al obtener los datos asociados al tipo de solicitud.');
-        }
+                @if (isset($id_evento_especial))
+                    var idEventoEspecial = {{ $id_evento_especial }};
+                    $('#eventosComboBoxContainer select').val(idEventoEspecial)
+                        .change(); // Cambié a select para que funcione correctamente
+                @endif
+            },
+            error: function(xhr) {
+                console.error('Error al obtener los datos asociados al tipo de solicitud.');
+            }
+        });
     });
-});
 
-// Para verificar el valor seleccionado en la consola
-$('#id_categoria_evento').change(function() {
-    var selectedOption = $(this).val(); 
-    console.log('ID de la categoría seleccionada:', selectedOption);
-});
+    // Para verificar el valor seleccionado en la consola
+    $('#id_categoria_evento').change(function() {
+        var selectedOption = $(this).val();
+        console.log('ID de la categoría seleccionada:', selectedOption);
+    });
 
 
     $('#eventosComboBoxContainer').change(function() {
@@ -554,6 +563,39 @@ $('#id_categoria_evento').change(function() {
                 // Rehabilitar el botón y restaurar el icono
                 $('.chatgpt-btn').prop('disabled', false);
                 $icon.removeClass('fas fa-spinner fa-spin').addClass('fas fa-robot');
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkbox = document.getElementById('policyAcceptanceCheckbox');
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                checkbox.disabled = true;
+                checkbox.style.backgroundColor = '#d3d3d3'; // Color gris claro
+                checkbox.style.cursor = 'not-allowed';
+                // Enviar solicitud AJAX para registrar la aceptación de la política
+                fetch('{{ route('policy.accept', ['policyId' => $politicas->id]) }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            accepted: true
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+
+                            $('#policyModal').modal('hide'); // Cerrar la modal
+                        } else {
+                            alert('Ocurrió un error. Por favor, intenta nuevamente.');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
             }
         });
     });

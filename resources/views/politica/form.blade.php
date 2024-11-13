@@ -2,14 +2,19 @@
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <div class="row">
 
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
             {{ Form::label('link', 'link', ['style' => 'font-size: 18px; font-weight: bold']) }}
             {{ Form::text('link', $politica->link, ['class' => 'form-control' . ($errors->has('link') ? ' is-invalid' : ''), 'placeholder' => 'Link', 'style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('link', '<div class="invalid-feedback">:message</div>') !!}
+        </div> --}}
+        <div class="col-md-6">
+            {{ Form::label('titulo','Titulo',['style' => 'font-size: 18px; font-weight: bold;border-radius: 35px;']) }}
+            {{ Form::text('titulo', $politica->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => '','style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
+            {!! $errors->first('titulo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="col-md-6">
-            {{ Form::label('descripcion', 'descripcion', ['style' => 'font-size: 18px; font-weight: bold']) }}
-            {{ Form::text('descripcion', $politica->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion', 'style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
+            {{ Form::label('descripcion', 'Descripción', ['style' => 'font-size: 18px; font-weight: bold']) }}
+            {{ Form::text('descripcion', $politica->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => '', 'style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         @if (Route::currentRouteName() === 'politicas.edit')
@@ -35,14 +40,10 @@
                 </div>
             </div>
         @endif
-        <div class="col-md-6">
-            {{ Form::label('titulo','titulo',['style' => 'font-size: 18px; font-weight: bold;border-radius: 35px;']) }}
-            {{ Form::text('titulo', $politica->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo','style' => 'width: 100%;height:45px; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec;background:#ececec; margin-bottom: 10px;']) }}
-            {!! $errors->first('titulo', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+        
 
         <div class="col-md-6">
-            <div class="form-group inputSelectImage" style="margin-top: 30px">
+            {{-- <div class="form-group inputSelectImage" style="margin-top: 30px">
                 <div class="file">
                     {{ Form::label('', '', ['class' => 'labelFile', 'style' => 'font-size: 18px; font-weight: bold', 'for' => 'qr']) }}
                     <label for="qr" class="file-label">
@@ -66,19 +67,18 @@
                         <img id="qrImage" class="img-thumbnail" alt="Preview">
                     </div>
                 </div>
-            @endif
-            @if (Route::currentRouteName() === 'politicas.edit')
+            @endif --}}
+            {{-- @if (Route::currentRouteName() === 'politicas.edit')
                 <div class="form-group">
                     <label for="qr"></label>
                     <div class="image-wraper">
 
-                        <!-- Agrega la etiqueta img con el ID 'qrImage' -->
                         <img id="qrImage"
                             src="{{ $politica->qr ? 'data:image/png;base64,' . base64_encode($politica->qr) : '' }}"
                             alt="QR" id="qrImage">
                     </div>
                 </div>
-            @endif
+            @endif --}}
 
             <!-- Mostrar imagen que se selecciona en edit -->
             <script>

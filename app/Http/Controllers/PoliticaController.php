@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estado;
+use App\Models\PolicyAcceptance;
 use App\Models\Politica;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -32,19 +33,19 @@ class PoliticaController extends Controller
     public function search(Request $request)
     {
         $output = ""; // Variable de salida definida e inicializada
-    
+
         // Buscamos el usuario por su correo electrónico
         $user = User::where('email', 'LIKE', '%' . $request->search . '%')->first();
-    
+
         // Verificamos si se encontró un usuario con el correo electrónico proporcionado
         if ($user) {
             // Realizamos la consulta utilizando el ID del usuario
             $politicas = Politica::where('id_usuario', $user->id)->get();
-    
+
             // Usamos un bucle foreach para iterar sobre los registros
             foreach ($politicas as $politica) {
-                $output .= 
-                '<tr>
+                $output .=
+                    '<tr>
                     <td data-titulo="No">' . $politica->id . '</td>
                     <td data-titulo="Descripcion">' . $politica->descripcion . '</td>
                     <td data-titulo="Email Usuario">' . $user->email . '</td>
@@ -62,7 +63,7 @@ class PoliticaController extends Controller
                 </tr>';
             }
         }
-    
+
         return response($output); // Retornamos la respuesta enviando como parámetro la variable de salida
     }
 
@@ -103,34 +104,23 @@ class PoliticaController extends Controller
             'id_estado' => 1
         ]);
 
-        $request->validate([
-            'qr' => 'required|image|max:900', // Validar que sea una imagen con un tamaño máximo de 900KB
-        ]);
+        // $request->validate([
+        //     'qr' => 'required|image|max:900', // Validar que sea una imagen con un tamaño máximo de 900KB
+        // ]);
 
         // Validar los datos del formulario
         $request->validate(Politica::$rules);
 
-        if ($request->hasFile('qr')) {
-            // Obtener el contenido binario de la imagen
-            $qrContenido = file_get_contents($request->file('qr')->getRealPath());
+        // Crear una nueva instancia de la clase Politica
+        $politica = new Politica();
 
-            // Crear una nueva instancia de la clase Politica
-            $politica = new Politica();
+        // Asignar otros datos a la instancia de Politica
+        $politica->fill($request->all());
 
-            // Asignar otros datos a la instancia de Politica
-            $politica->fill($request->all());
+        // Guardar la instancia de Politica en la base de datos
+        $politica->save();
 
-            // Asignar el contenido binario de la imagen al campo 'qr'
-            $politica->qr = $qrContenido;
-
-            // Guardar la instancia de Politica en la base de datos
-            $politica->save();
-
-            return redirect()->route('politicas.index')->with('success', 'Política Creada Exitosamente.');
-        }
-
-        // Si no se cargó ningún archivo, volver atrás con un mensaje de error
-        return back()->withInput()->with('error', 'Debe seleccionar una imagen.');
+        return redirect()->route('politicas.index')->with('success', 'Política Creada Exitosamente.');
     }
 
     /**
@@ -199,16 +189,28 @@ class PoliticaController extends Controller
             ->with('success', 'Politica Actualizada Exitosamente');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    // public function destroy($id)
-    // {
-    //     $politica = Politica::find($id)->delete();
 
-    //     return redirect()->route('politicas.index')
-    //         ->with('success', 'Politica deleted successfully');
-    // }
+    public function acceptPolicy(Request $request, $policyId)
+    {
+        try {
+            $user = Auth::user();
+
+            if (!$user) {
+                return response()->json(['success' => false, 'message' => 'Usuario no autenticado.'], 401);
+            }
+
+            // Crear el registro de aceptación en la base de datos
+            PolicyAcceptance::create([
+                'user_id' => $user->id,
+                'policy_id' => $policyId,
+                'accepted_at' => now(),
+            ]);
+
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            // Registrar el error en los logs
+            Log::error('Error en acceptPolicy: ' . $e->getMessage());
+            return response()->json(['success' => false, 'message' => 'Error interno en el servidor.'], 500);
+        }
+    }
 }

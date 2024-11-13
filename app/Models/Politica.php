@@ -24,13 +24,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Politica extends Model
 {
-    
+
     static $rules = [
-		'link' => 'required',
-		'descripcion' => 'required',
-		'id_usuario' => 'required',
+        // 'link' => 'required',
+        'titulo' => 'required',
+        'descripcion' => 'required',
+        'id_usuario' => 'required',
         'id_estado' => 'required',
-		'titulo' => 'required',
     ];
 
     protected $perPage = 20;
@@ -40,7 +40,7 @@ class Politica extends Model
      *
      * @var array
      */
-    protected $fillable = ['link','descripcion','qr','id_usuario','id_estado','titulo'];
+    protected $fillable = ['titulo', 'descripcion', 'qr', 'id_usuario', 'id_estado',];
 
 
     /**
@@ -50,7 +50,7 @@ class Politica extends Model
     {
         return $this->hasOne('App\Models\Estado', 'id', 'id_estado');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -58,6 +58,9 @@ class Politica extends Model
     {
         return $this->hasOne('App\Models\User', 'id', 'id_usuario');
     }
-    
 
+    public function acceptances()
+    {
+        return $this->hasMany(PolicyAcceptance::class);
+    }
 }

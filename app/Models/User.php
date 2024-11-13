@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\PolicyAcceptance;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -79,14 +81,14 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    
+
     static $rules = [
-		'name' => 'required|string',
-		'email' => 'required|string',
-		'celular' => 'required|string',
-		'apellidos' => 'required|string',
-		'id_nodo' => 'nullable',
-		'id_estado' => 'required',
+        'name' => 'required|string',
+        'email' => 'required|string',
+        'celular' => 'required|string',
+        'apellidos' => 'required|string',
+        'id_nodo' => 'nullable',
+        'id_estado' => 'required',
     ];
 
     protected $perPage = 20;
@@ -98,7 +100,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(\App\Models\Estado::class, 'id_estado', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -106,7 +108,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(\App\Models\Nodo::class, 'id_nodo', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -114,7 +116,7 @@ class User extends Authenticatable
     {
         //return $this->hasMany(\App\Models\HistorialDeEstadosPorSolicitude::class, 'id', 'id_users');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -122,7 +124,7 @@ class User extends Authenticatable
     {
         //return $this->hasMany(\App\Models\HistorialDeUsuariosPorSolicitude::class, 'id', 'id_users');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -130,7 +132,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Personalizacione::class, 'id', 'id_users');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -138,7 +140,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Politica::class, 'id', 'id_usuario');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -154,6 +156,11 @@ class User extends Authenticatable
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new CustomResetPassword($token,$this));
+        $this->notify(new CustomResetPassword($token, $this));
+    }
+
+    public function policyAcceptances()
+    {
+        return $this->hasMany(PolicyAcceptance::class, 'user_id');
     }
 }

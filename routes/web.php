@@ -57,6 +57,7 @@ Route::get('/notifications', function () {
     ]);
 })->name('notifications.data');
 
+Route::post('/policy/accept/{policyId}', [PoliticaController::class, 'acceptPolicy'])->name('policy.accept');
 
 
 
