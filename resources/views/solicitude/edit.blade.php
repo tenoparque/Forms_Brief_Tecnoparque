@@ -40,58 +40,58 @@ $user = auth()->user();
                                         </div>
                                     </th>
 
-                                    <th style="text-align: center">
-                                        <div style="margin-bottom: 10px;">
-                                            <i class="fa-solid fa-calendar-days fa-2xl" style="color: #00314d;"></i>
-                                        </div>
-                                        <div>
-                                            Fecha y Hora
-                                        </div>
-                                    </th>
-                                    <th style="text-align: center">
-                                        <div style="margin-bottom: 10px;">
-                                            <i class="fa-solid fa-circle-user fa-2xl" style="color: #00314d;"></i>
-                                        </div>
-                                        <div>
-                                            Usuario
-                                        </div>
-                                    </th>
-                                    <th style="text-align: center">
-                                        <div style="margin-bottom: 10px;">
-                                            <i class="fa-solid fa-location-dot fa-2xl" style="color: #00314d;"></i>
-                                        </div>
-                                        <div>
-                                            Nodo
-                                        </div>
-                                    </th>
-                                    <th style="text-align: center">
-                                        <div style="margin-bottom: 10px;">
-                                            <i class="fa-regular fa-calendar-check fa-2xl" style="color: #00314d;"></i>
-                                        </div>
-                                        <div>
-                                            Categoria
-                                        </div>
-                                    </th>
-                                    <th style="text-align: center">
-                                        <div style="margin-bottom: 10px;">
-                                            <i class="fa-solid fa-shuffle fa-2xl" style="color: #00314d;"></i>
-                                        </div>
-                                        <div>
-                                            Estado
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="alldata">
-                                <tr class="table-light" style="border-color:transparent">
-                                    <td style="text-align: center">{{ $solicitude->tiposdesolicitude->nombre }}</td>
-                                    <td style="text-align: center">{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
-                                    <td style="text-align: center">{{ $solicitude->user->name }}</td>
-                                    <td style="text-align: center">{{ $solicitude->user->nodo ? $solicitude->user->nodo->nombre : 'Sin nodo' }}</td>
-                                    <td style="text-align: center">
-                                        {{ $solicitude->categoriaEventoEspecial->nombre }}</td>
-                                    <td style="text-align: center">{{ $solicitude->estadosDeLasSolictude->nombre }}
-                                    </td>
+                                            <th style="text-align: center">
+                                                <div style="margin-bottom: 10px;">
+                                                    <i class="fa-solid fa-calendar-days fa-2xl" style="color: #00314d;"></i>
+                                                </div>
+                                                <div>
+                                                    Fecha y Hora
+                                                </div>
+                                            </th>
+                                            <th style="text-align: center">
+                                                <div style="margin-bottom: 10px;">
+                                                    <i class="fa-solid fa-circle-user fa-2xl" style="color: #00314d;"></i>
+                                                </div>
+                                                <div>
+                                                    Usuario
+                                                </div>
+                                            </th>
+                                            <th style="text-align: center">
+                                                <div style="margin-bottom: 10px;">
+                                                    <i class="fa-solid fa-location-dot fa-2xl" style="color: #00314d;"></i>
+                                                </div>
+                                                <div>
+                                                    Nodo
+                                                </div>
+                                            </th>
+                                            <th style="text-align: center">
+                                                <div style="margin-bottom: 10px;">
+                                                    <i class="fa-regular fa-calendar-check fa-2xl" style="color: #00314d;"></i>
+                                                </div>
+                                                <div>
+                                                    Categoria
+                                                </div>
+                                            </th>
+                                            <th style="text-align: center">
+                                                <div style="margin-bottom: 10px;">
+                                                    <i class="fa-solid fa-shuffle fa-2xl" style="color: #00314d;"></i>
+                                                </div>
+                                                <div>
+                                                    Estado
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="alldata">
+                                        <tr class="table-light" style="border-color:transparent">
+                                            <td style="text-align: center">{{ $solicitude->tiposdesolicitude->nombre }}</td>
+                                            <td style="text-align: center">{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
+                                            <td style="text-align: center">{{ $solicitude->user->name }}</td>
+                                            <td style="text-align: center">{{ $solicitude->user->nodo ? $solicitude->user->nodo->nombre : 'Sin nodo' }}</td>
+                                            <td style="text-align: center">
+                                                {{ $solicitude->categoriaEventoEspecial->nombre }}</td>
+                                            <td style="text-align: center">{{ $solicitude->estadosDeLasSolictude->nombre }}
+                                            </td>
 
                                 </tr>
                             </tbody>
