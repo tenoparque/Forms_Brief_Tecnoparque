@@ -9,6 +9,7 @@ use App\Http\Controllers\EstadosDeLasSolictudeController;
 use App\Http\Controllers\EventosEspecialesPorCategoriaController;
 use App\Http\Controllers\HistorialDeModificacionesPorSolicitudeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\NodoController;
 use App\Http\Controllers\PersonalizacioneController;
 use App\Http\Controllers\PoliticaController;
@@ -58,7 +59,8 @@ Route::get('/notifications', function () {
 })->name('notifications.data');
 
 Route::post('/policy/accept/{policyId}', [PoliticaController::class, 'acceptPolicy'])->name('policy.accept');
-
+Route::post('/import', [ImportController::class, 'import'])->name('import');
+Route::post('/import-solicitudes', [ImportController::class, 'importSolicitudes'])->name('import.solicitudes');
 
 
 

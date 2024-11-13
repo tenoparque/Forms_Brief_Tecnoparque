@@ -135,9 +135,9 @@
                                         <td data-titulo="Nombre" style="text-align: center">{{ $solicitude->tiposdesolicitude->nombre }}</td>
                                         <td data-titulo="fecha y hora de la solicitud" style="text-align: center">{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
                                         <td data-titulo="nombre" style="text-align: center">{{ $solicitude->user->name }}</td>
-                                        <td data-titulo="nombre" style="text-align: center">{{ $solicitude->user->nodo->nombre }}</td>
+                                        <td data-titulo="nombre" style="text-align: center">{{ $solicitude->user->nodo ? $solicitude->user->nodo->nombre : 'Sin nodo' }}</td>
                                         <td data-titulo="nombre" style="text-align: center">
-                                            {{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+                                            {{ $solicitude->categoriaEventoEspecial->nombre }}</td>
                                         <td data-titulo="nombre" style="text-align: center">{{ $solicitude->estadosDeLasSolictude->nombre }}
                                         </td>
 

@@ -87,7 +87,7 @@
                                             <td style="text-align: center">{{ $solicitude->tiposdesolicitude->nombre }}</td>
                                             <td style="text-align: center">{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
                                             <td style="text-align: center">{{ $solicitude->user->name }}</td>
-                                            <td style="text-align: center">{{ $solicitude->user->nodo->nombre }}</td>
+                                            <td style="text-align: center">{{ $solicitude->user->nodo ? $solicitude->user->nodo->nombre : 'Sin nodo' }}</td>
                                             <td style="text-align: center">
                                                 {{ $solicitude->categoriaEventoEspecial->nombre }}</td>
                                             <td style="text-align: center">{{ $solicitude->estadosDeLasSolictude->nombre }}
