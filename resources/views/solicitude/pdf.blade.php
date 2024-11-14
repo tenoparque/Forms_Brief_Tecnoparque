@@ -63,7 +63,7 @@
                     <th>Fecha y Hora</th>
                     <th>Nodo</th>
                     <th>Usuario</th>
-                    <th>Evento</th>
+                    <th>Categoria</th>
                     <th>Estado</th>
                 </tr>
             </thead>
@@ -74,7 +74,7 @@
                         <td>{{ $solicitude->fecha_y_hora_de_la_solicitud }}</td>
                         <td>{{ $solicitude->user->nodo->nombre }}</td>
                         <td>{{ $solicitude->user->name }}</td>
-                        <td>{{ $solicitude->eventosespecialesporcategoria->nombre }}</td>
+                        <td>{{ $solicitude->categoriaEventoEspecial->nombre }}</td>
                         <td>{{ $solicitude->estadosDeLasSolictude->nombre }}</td>
                     </tr>
                 @endforeach

@@ -39,7 +39,7 @@ class DatosUnicosPorSolicitude extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','id_tipos_de_datos','id_tipos_de_solicitudes','id_estados'];
+    protected $fillable = ['nombre','descripcion','id_tipos_de_datos','id_tipos_de_solicitudes','id_estados'];
 
 
     /**

@@ -111,9 +111,9 @@ class SolicitudeController extends Controller
 
         $nodos = Nodo::all();
         $estados = EstadosDeLasSolictude::all();
-        $eventosSolicitud = EventosEspecialesPorCategoria::all();
+        $categoriaSolicitud = CategoriasEventosEspeciale::all();
 
-        return view('reportes-estadisticas.reports', compact('tiposSolicitudes', 'nodos', 'estados', 'eventosSolicitud'));
+        return view('reportes-estadisticas.reports', compact('tiposSolicitudes', 'nodos', 'estados', 'categoriaSolicitud'));
     }
 
 
@@ -195,8 +195,8 @@ class SolicitudeController extends Controller
         // dd($tipo);
         if ($tipo == 'Estados De Las Solictudes') {
             $solicitudes = Solicitude::where('id_estado_de_la_solicitud', $cuartoComboValue)->get();
-        } elseif ($tipo == 'Eventos Especiales Por Categoria') {
-            $solicitudes = Solicitude::where('id_eventos_especiales_por_categorias', $cuartoComboValue)->get();
+        } elseif ($tipo == 'Categorias') {
+            $solicitudes = Solicitude::where('id_categorias_eventos_especiales', $cuartoComboValue)->get();
         } elseif ($tipo == 'Nodo') {
             $solicitudes = Solicitude::whereHas('user', function ($query) use ($cuartoComboValue) {
                 $query->whereHas('nodo', function ($nestedQuery) use ($cuartoComboValue) {

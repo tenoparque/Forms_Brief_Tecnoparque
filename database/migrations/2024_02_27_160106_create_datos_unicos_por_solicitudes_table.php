@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('datos_unicos_por_solicitudes', function (Blueprint $table) {
             $table->id();
             $table -> string('nombre', 255);
+            $table->string('descripcion',255);
             $table -> unsignedBigInteger('id_tipos_de_datos');
             $table -> unsignedBigInteger('id_tipos_de_solicitudes');
             $table -> unsignedBigInteger('id_estados');

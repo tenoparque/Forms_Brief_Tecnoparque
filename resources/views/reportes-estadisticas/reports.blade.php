@@ -48,7 +48,7 @@
                             <option value="" disabled selected>Seleccione tipo de dato...</option>
                             <option value="Nodo">Nodo</option>
                             <option value="Estados De Las Solictudes">Estados De Las Solictudes</option>
-                            <option value="Eventos Especiales Por Categoria">Eventos Especiales Por Categoria</option>
+                            <option value="Categorias">Categorias</option>
                             <option value="Tipos De Solicitud">Tipos De Solicitudes</option>
                             <option value="Todo">Todo</option>
                         </select>
@@ -66,7 +66,7 @@
                         <select id="cuartoCombo" name="cuartoCombo" class="form-control selectpicker"
                             data-style="btn-primary" title="Seleccionar la Ciudad" required
                             style="height:45px; border-radius: 50px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; margin-top:8px; padding-right: 30px;">
-                            <option value="" disabled selected>Seleccionar Ciudad...</option>
+                            <option value="" disabled selected>Seleccionar...</option>
                             {{-- @foreach ($tiposSolicitudes as $ciudad)
                                 <option value="{{ $ciudad->id }}">{{ $ciudad->nombre }}</option>
                             @endforeach --}}
@@ -135,8 +135,8 @@
                         option.value = estado.id;
                         slcTipoDato.add(option);
                     });
-                } else if (selectedReport === "Eventos Especiales Por Categoria") {
-                    var eventos = {!! json_encode($eventosSolicitud) !!};
+                } else if (selectedReport === "Categorias") {
+                    var eventos = {!! json_encode($categoriaSolicitud) !!};
                     eventos.forEach(function(evento) {
                         var option = document.createElement("option");
                         option.text = evento.nombre;

@@ -400,16 +400,16 @@
                     let textBoxHtml = '';
                     if (tipoDato && tipoDato.nombre.toLowerCase() === 'fecha') {
                         textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input  type="date" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder="" required min="${getTodayDatePlus10Days()}"></div>`;
+                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input  type="date" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder="" required min="${getTodayDatePlus10Days()}"> <small class="form-text text-muted">${datoUnico.descripcion || ''}</small></div>`;
                     } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'hora') {
                         textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="time" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;" placeholder=""required></div>`;
+                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="time" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;" placeholder=""required></div><small class="form-text text-muted">${datoUnico.descripcion || ''}</small></div>`;
                     } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'link') {
                         textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="url" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;" placeholder=""required></div>`;
+                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="url" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px;" placeholder=""required></div><small class="form-text text-muted">${datoUnico.descripcion || ''}</small></div>`;
                     } else if (tipoDato && tipoDato.nombre.toLowerCase() === 'numero') {
                         textBoxHtml =
-                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="number" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder=""required></div>`;
+                            `<div class="solicitudesDivText"><label class="LabelText"  style="font-size: 16px; font-weight: bold; ">${datoUnico.nombre}</label><input type="number" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" style="width: 100%; border-radius: 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color:  #ececec; margin-bottom: 10px; " placeholder=""required></div><small class="form-text text-muted">${datoUnico.descripcion || ''}</small></div>`;
                     } else {
                         textBoxHtml =
                             `
@@ -420,14 +420,14 @@
                             <div class="input-group">
                                 <input type="text" name="datos_unicos_por_solicitud_${datoUnico.id}" class="form-control InputText" 
                                     style="border-radius: 50px 0 0 50px; border-style: solid; border-width:4px; border-color: #ececec; background-color: #ececec;" 
-                                    placeholder="" required>
+                                    placeholder="${datoUnico.descripcion || ''}" required> 
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-secondary chatgpt-btn" data-dato-id="${datoUnico.id}" 
                                             style="border-radius: 0 50px 50px 0; background-color: #ececec; border-style: solid; border-width:4px; border-color: #ececec; height: 100%;">
                                         <i class="fas fa-robot" style="font-size: 1.5em; vertical-align: middle;"></i>
                                     </button>
                                 </div>
-                            </div>
+                                    </div>
                         </div>
                         `;
                     }
